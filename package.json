@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "download": "bun ./src/download.ts",
-    "format": "bun ./src/format.ts"
+    "format": "bun ./src/format.ts",
+    "structure": "bun ./src/structure.ts"
   },
   "devDependencies": {
     "@types/bun": "^1.2.15",
