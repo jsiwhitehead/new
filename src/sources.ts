@@ -275,6 +275,11 @@ const sources: Record<
         "And say no more"
       ),
       splitLines(/I write no more, beleaguered.*/m, "That my sweet"),
+      prefix(/^An exposition of the mysteries/gm, "* "),
+      prefix(/^In the Name of God, the Merciful/gm, "^ "),
+      prefix(/^In the name of our Lord, the Most/gm, "^ "),
+      prefix(/^In the name of the peerless and/gm, "^ "),
+      prefix(/^He is the Ever‑Living/gm, "^ "),
     ],
     // "days-remembrance": [],
     // "epistle-son-wolf": [],

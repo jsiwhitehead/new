@@ -1,0 +1,71 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  text-box-trim: trim-both;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+
+  background-color: #fafaed;
+
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-size: 17;
+  line-height: 1.5;
+  color: #333;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.025em;
+  word-spacing: 0.1em;
+  font-variant-ligatures: none;
+}
+
+#main {
+  max-width: 670px;
+  margin: 0 auto;
+}
+
+.plain {
+  text-indent: 20px;
+  margin: 25px 0;
+}
+
+.info {
+  font-style: italic;
+  margin: 25px 0;
+}
+
+.call {
+  text-transform: uppercase;
+  margin: 25px 0;
+}
+
+.lines {
+  padding-left: 40px;
+  white-space: pre-wrap;
+  margin: 25px 0;
+}

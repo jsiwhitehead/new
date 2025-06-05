@@ -129,8 +129,14 @@
     "author": "Bahá’u’lláh",
     "years": [1852, 1863],
     "content": [
-      "An exposition of the mysteries enshrined in the stages of ascent for them that seek to journey unto God, the Almighty, the Ever-Forgiving",
-      "In the Name of God, the Merciful, the Compassionate!",
+      {
+        "type": "info",
+        "text": "An exposition of the mysteries enshrined in the stages of ascent for them that seek to journey unto God, the Almighty, the Ever-Forgiving"
+      },
+      {
+        "type": "call",
+        "text": "In the Name of God, the Merciful, the Compassionate!"
+      },
       "Praise be to God Who hath made being to come forth from nothingness; graven upon the tablet of man a measure of the mysteries of His eternity; taught him from the storehouse of divine utterance that which he knew not; made him a perspicuous book unto such as have believed and surrendered their souls; given him to behold, in this dark and ruinous age, a new creation within all things; and caused him to speak forth, from the midmost heart of eternity, and in a new and wondrous voice, embodied in the most excellent Temple. And all to this end: that every man may testify, in himself and by himself, before the Seat of the revelation of his Lord, that there is none other God but Him; and that all may reach that summit of realities where none shall contemplate anything but that he shall perceive God therein. This is the vision of the splendours which have been deposited within the realities of all things; for otherwise He, exalted be His glory, is entirely sanctified above being seen or witnessed: “No vision taketh in Him, but He taketh in all vision; He is the Subtile, the All-Perceiving.”",
       "And I praise and glorify that primal Sea which hath branched out from the ocean of the unseen Essence, and that primal Morn which hath broken forth upon the horizon of Singleness, and that primal Sun which hath risen in the heaven of everlasting splendour, and that primal Fire which was kindled from the Lamp of eternity within the Niche of oneness: He Who is called “Aḥmad” in the kingdom of the exalted ones, and “Muḥammad” amongst the concourse of the favoured ones, and “Maḥmúd” in the realm of the sincere; and in the hearts of the knowing, “whichsoever ye call upon, most beauteous are His names.” And upon His kindred and His companions be abundant, abiding, and eternal peace!",
       "To continue: I have hearkened to the song of the nightingale of knowledge upon the twigs of the tree of thine inmost being, and to the cooing of the dove of certitude upon the branches of the bower of thine heart. Methinks I inhaled the fragrance of purity from the raiment of thy love and, in perusing thy letter, attained thy very presence. I noted, moreover, thine allusions to thy death in God and thy life through Him, and the love thou dost cherish for the beloved of the Lord and for the Manifestations of His names and the Exponents of His attributes. I have purposed, therefore, to acquaint thee with holy and resplendent tokens from the realms of might and glory, that haply they may draw thee nigh unto the court of holiness, nearness, and beauty, and draw thee to a station wherein thou shalt see naught in all existence but the hallowed Countenance of thy Beloved, and wilt behold all of creation as a day wherein none was deemed worthy of mention.",
@@ -334,7 +340,10 @@
     "author": "Bahá’u’lláh",
     "years": [1852, 1863],
     "content": [
-      "In the name of our Lord, the Most Exalted, the Most High!",
+      {
+        "type": "call",
+        "text": "In the name of our Lord, the Most Exalted, the Most High!"
+      },
       "I addressed unto thee aforetime an Epistle in the lucid Arabian tongue, and I now reveal for thee this Tablet in wondrous Persian prose, that thou mayest hear, in the glorious accents of the Nightingale of ‘Iráq, the sweet melodies of the nearness of the heavenly Paradise that had, ere this, been intoned in the language of Ḥijáz. Perchance thou mayest become pure spirit; attain, without taking a single step, the loftiest stations of mystic ascent; and explore, without leaving thine outward habitation, the furthermost reaches of the worlds of inner significance. Thereupon wouldst thou, with a divine rapture, experience true spiritual attraction, lay down thy life in the path of the Friend, and sacrifice thy soul in the wilderness of His love. This indeed is the meaning of stillness in flight and flight in stillness, of fluidity in solidity and solidity in fluidity.",
       "To continue: It is clear that the wayfarers in the wilderness of search and longing, of attainment and reunion, have numerous degrees and countless stations. Some, after spiritual struggle and physical toil, ascend from the lower reaches of “no God is there” to the lofty bowers of “but God”, flee from the shadow of negation to abide in the limitless realm of affirmation, and abandon the privation of a transient existence for the bountiful assemblage of reunion. This is the uttermost limit of the realm of effort and striving.",
       "Others, without receiving the least intimation of “no God is there”, pass beyond the highest horizon of “but God”; without even tasting a dewdrop of the degrees of self-surrender ascend unto the kingdom of life everlasting; and without partaking from the wellspring of utter abnegation quaff the wine of the Ancient of Days. These souls, as they traverse the stages of wayfaring and ascend unto the stations of reunion, walk a different path and occupy a different rank.",
@@ -362,7 +371,10 @@
     "author": "Bahá’u’lláh",
     "years": [1852, 1863],
     "content": [
-      "In the name of our Lord, the Most Exalted, the Most High!",
+      {
+        "type": "call",
+        "text": "In the name of our Lord, the Most Exalted, the Most High!"
+      },
       "O friend! Many a day hath passed, and still the sweet fragrance of thy faithfulness hath failed to reach Us. Hast thou forgotten the One Who forgetteth thee not, and forsaketh thee not, and neglecteth thee not, even as thou hast forgotten, forsaken, and neglected Him?",
       "We have heard that sorrows have compassed thee round in these days. Thy sorrow hath grieved Us, and that which hath befallen thee hath touched Us with bitter pain and anguish. But at this moment, O friend, the Herald of eternity announceth unto thee, by the robe of faithfulness, His joyful tidings and bestoweth upon thee this emerald-green Tablet. Set out, then, from thine abode, take thou seven steps upon the earth, and with each step complete a stage of the journey.",
       "With the first, enter the ocean of search and seek God, thy Lord, with thine inmost heart and soul.",
@@ -383,7 +395,10 @@
     "author": "Bahá’u’lláh",
     "years": [1852, 1863],
     "content": [
-      "In the name of the peerless and ever-loving Lord!",
+      {
+        "type": "call",
+        "text": "In the name of the peerless and ever-loving Lord!"
+      },
       "O Shams! Hearken with all thy heart unto the nightingale song of the Beloved, that perchance thou mayest abandon the habitation of self and desire and step into the placeless realm of eternal glory, forsake thine own life, and commune with Him Who is the life of thy life. Wert thou to traverse the limitless reaches of the spirit, thou wouldst of a certainty rend asunder the garment of patience and forbearance, hasten to offer up thy soul, renounce the dross of this fleeting world, and find repose upon the throne of ancient glory.",
       "Each thing must needs have an effect and each sign reveal a secret. Not until the world-illuming sun hath shone can the east be distinguished from the west, nor the blooming garden discerned from the barren waste. Heavenly strains compare not with earthly clamours, and the croaking of the raven can in no wise be confounded with the song of the nightingale. For the latter bespeaketh the land of the Beloved and increaseth life, whereas the former telleth only of the city of the blind and causeth faith to wither.",
       "One must step forth and raise aloft the banner of earnest striving. By God! Wert thou to hearken unto the heavenly words of this evanescent Servant that have been raised in this mystic Tablet, thou wouldst assuredly take to the desert of self-surrender, turn aside from thine own heart and soul, and cast thy head at the feet of the Friend. How high is the soaring flight of the phoenix of love, and how low the requisite measure of our yearning! Strive but a little to soar, that, by the grace of Him Who is the eternal King, thou mayest ascend from the dust-heap of utter non-existence unto the loftiest heights of ancient glory. Give wings to thy celestial spirit and lend strength to thy mystic soul, that haply it may take flight in the atmosphere of divine nearness and attain the ultimate and invisible goal.",

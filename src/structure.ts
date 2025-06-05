@@ -8,7 +8,7 @@ type SectionContent =
   | { text: string; type: "info" | "call" }
   | { text: string; lines: number[] };
 
-interface Section {
+export interface Section {
   author: string;
   years: [number, number];
   path: string[];
