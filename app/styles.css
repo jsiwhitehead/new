@@ -73,11 +73,6 @@ body {
   gap: 20px;
 }
 
-#nav {
-  gap: 20px;
-  padding-bottom: 20px;
-}
-
 #homelink {
   flex-direction: row;
   color: darkred;
@@ -88,7 +83,7 @@ body {
   flex-wrap: wrap;
   align-items: center;
   gap: 10px;
-  padding-left: 40px;
+  padding-left: 30px;
 
   div {
     flex-direction: row;
@@ -97,7 +92,7 @@ body {
     margin-left: 0;
 
     &:first-child {
-      margin-left: -40px;
+      margin-left: -30px;
     }
   }
 
@@ -110,26 +105,112 @@ body {
   }
 }
 
-.tree {
-  padding-left: 40px;
+#treeroot {
+  padding-left: 15px;
+}
 
-  li {
-    list-style-type: disc;
+.tree {
+  display: block;
+  position: relative;
+  border-left: 2px solid #ddd;
+
+  &:last-child {
+    border-color: transparent;
+
+    > span {
+      display: block;
+      background-color: #ddd;
+      position: absolute;
+      width: 2px;
+      height: 11.65px;
+      top: 0px;
+      left: -2px;
+    }
   }
 
-  li > div {
+  details {
+    position: relative;
+    > div {
+      padding-left: 40px;
+    }
+    > span {
+      display: block;
+      background-color: #ddd;
+      position: absolute;
+      width: 2px;
+      height: 30px;
+      top: 9.5px;
+      left: 40px;
+    }
+  }
+
+  details > summary > .disc {
+    .treeopen {
+      display: none;
+    }
+    .treeclosed {
+      display: block;
+      padding-top: 1px;
+      padding-left: 2px;
+    }
+  }
+  details[open] > summary > .disc {
+    .treeopen {
+      display: block;
+      padding-top: 3px;
+    }
+    .treeclosed {
+      display: none;
+    }
+  }
+
+  summary {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    position: relative;
+    padding-bottom: 10px;
+
+    > span {
+      display: block;
+      background-color: #ddd;
+      width: 40px;
+      height: 2px;
+    }
+
+    .disc {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      background-color: #ddd;
+      border-radius: 100px;
+      width: 17px;
+      height: 17px;
+      font-size: 10px;
+      user-select: none;
+
+      position: absolute;
+      left: 32.5px;
+      top: 2px;
+      z-index: 10;
+
+      /* > div {
+        height: 12px;
+      } */
+    }
   }
 
   a {
-    /* margin: 20px 0; */
+    flex-grow: 1;
   }
 }
 
 .content {
   gap: 25px;
+  padding-top: 20px;
 
   h1 {
     font-size: 24px;

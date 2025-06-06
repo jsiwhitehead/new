@@ -1,4 +1,3 @@
-import { Fragment } from "react/jsx-runtime";
 import { Link, useParams } from "react-router";
 
 import getData from "../src/api";
@@ -8,14 +7,34 @@ const renderTree = (tree: any, currentUrl: string) =>
     const [title, url] = JSON.parse(t);
     const nextUrl = `${currentUrl}/${url}`;
     return (
-      <ul className="tree" key={i}>
-        <li>
-          <div>
+      <div className="tree" key={nextUrl}>
+        <span></span>
+        {Object.keys(tree[t]).length === 0 ? (
+          <summary>
+            <span></span>
+            <div className="disc">
+              <div className="treeitem">●</div>
+            </div>
             <Link to={nextUrl}>{title}</Link>
-            {renderTree(tree[t], nextUrl)}
-          </div>
-        </li>
-      </ul>
+          </summary>
+        ) : (
+          <details open={false}>
+            <span></span>
+            <summary>
+              <span></span>
+              <div className="disc">
+                <div className="treeclosed">▶</div>
+                <div className="treeopen">▼</div>
+              </div>
+              <Link to={nextUrl}>{title}</Link>
+            </summary>
+            <div>
+              <span></span>
+              {renderTree(tree[t], nextUrl)}
+            </div>
+          </details>
+        )}
+      </div>
     );
   });
 
@@ -66,56 +85,54 @@ function App() {
 
   return (
     <div id="main">
-      <div id="nav">
-        <div id="homelink">
-          <Link to="/">Bahá’í Explore</Link>
-        </div>
-        <div id="breadcrumbs">
-          {path.length === 0 ? (
-            <div>
-              <a style={{ visibility: "hidden" }}>&nbsp;</a>
-            </div>
-          ) : (
-            path.map((p, i) => (
-              <div key={i}>
-                {i > 0 && <span>▶</span>}
-                <Link to={p[1]}>{p[0]}</Link>
-              </div>
-            ))
-          )}
-        </div>
+      <div id="homelink">
+        <Link to="/">Bahá’í Explore</Link>
       </div>
-      {!single
-        ? renderTree(nestedTree, path[path.length - 1]?.[1] || "")
-        : data.map((d, i) => (
-            <div className="content" key={i}>
-              <h1>{d.path[d.path.length - 1]![0]}</h1>
-              {d.content.map((c, i) => {
-                if (typeof c === "string") {
-                  return (
-                    <p className="plain" key={i}>
-                      {c}
-                    </p>
-                  );
-                }
-                if ("type" in c) {
-                  return (
-                    <p className={c.type} key={i}>
-                      {c.text}
-                    </p>
-                  );
-                }
-                return (
-                  <p className="lines" key={i}>
-                    {c.lines
-                      .slice(1)
-                      .map((l, i) => c.text.slice(c.lines[i], l))
-                      .join("\n")}
-                  </p>
-                );
-              })}
+      {path.length > 0 && (
+        <div id="breadcrumbs">
+          {path.map((p, i) => (
+            <div key={i}>
+              {i > 0 && <span>▶</span>}
+              <Link to={p[1]}>{p[0]}</Link>
             </div>
           ))}
+        </div>
+      )}
+      {!single ? (
+        <div id="treeroot">
+          {renderTree(nestedTree, path[path.length - 1]?.[1] || "")}
+        </div>
+      ) : (
+        data.map((d, i) => (
+          <div className="content" key={i}>
+            <h1>{d.path[d.path.length - 1]![0]}</h1>
+            {d.content.map((c, i) => {
+              if (typeof c === "string") {
+                return (
+                  <p className="plain" key={i}>
+                    {c}
+                  </p>
+                );
+              }
+              if ("type" in c) {
+                return (
+                  <p className={c.type} key={i}>
+                    {c.text}
+                  </p>
+                );
+              }
+              return (
+                <p className="lines" key={i}>
+                  {c.lines
+                    .slice(1)
+                    .map((l, i) => c.text.slice(c.lines[i], l))
+                    .join("\n")}
+                </p>
+              );
+            })}
+          </div>
+        ))
+      )}
     </div>
   );
 }
