@@ -1,42 +1,9 @@
-import { Link, useParams } from "react-router";
+import { useParams } from "react-router";
 
 import getData from "../src/api";
 
-const renderTree = (tree: any, currentUrl: string) =>
-  Object.keys(tree).map((t, i) => {
-    const [title, url] = JSON.parse(t);
-    const nextUrl = `${currentUrl}/${url}`;
-    return (
-      <div className="tree" key={nextUrl}>
-        <span></span>
-        {Object.keys(tree[t]).length === 0 ? (
-          <summary>
-            <span></span>
-            <div className="disc">
-              <div className="treeitem">●</div>
-            </div>
-            <Link to={nextUrl}>{title}</Link>
-          </summary>
-        ) : (
-          <details open={false}>
-            <span></span>
-            <summary>
-              <span></span>
-              <div className="disc">
-                <div className="treeclosed">▶</div>
-                <div className="treeopen">▼</div>
-              </div>
-              <Link to={nextUrl}>{title}</Link>
-            </summary>
-            <div>
-              <span></span>
-              {renderTree(tree[t], nextUrl)}
-            </div>
-          </details>
-        )}
-      </div>
-    );
-  });
+import renderTree from "./Tree";
+import { Column, Row, SizeContext, Text } from "./Utils";
 
 const collapseSingleKeys = (
   tree: any,
@@ -54,13 +21,7 @@ const collapseSingleKeys = (
   return [path, current];
 };
 
-const getTreeDepth = (tree: any): number => {
-  const keys = Object.keys(tree);
-  if (keys.length > 1) return 0;
-  return 1 + getTreeDepth(tree[keys[0]!]);
-};
-
-function App() {
+export default function App() {
   const { path1, path2, path3, path4, path5, path6, path7 } = useParams();
   const paramPath = [path1, path2, path3, path4, path5, path6, path7].filter(
     (p) => p
@@ -84,57 +45,100 @@ function App() {
   const [path, nestedTree] = collapseSingleKeys(tree, paramPath.length);
 
   return (
-    <div id="main">
-      <div id="homelink">
-        <Link to="/">Bahá’í Explore</Link>
-      </div>
-      {path.length > 0 && (
-        <div id="breadcrumbs">
-          {path.map((p, i) => (
-            <div key={i}>
-              {i > 0 && <span>▶</span>}
-              <Link to={p[1]}>{p[0]}</Link>
-            </div>
-          ))}
-        </div>
-      )}
-      {!single ? (
-        <div id="treeroot">
-          {renderTree(nestedTree, path[path.length - 1]?.[1] || "")}
-        </div>
-      ) : (
-        data.map((d, i) => (
-          <div className="content" key={i}>
-            <h1>{d.path[d.path.length - 1]![0]}</h1>
-            {d.content.map((c, i) => {
-              if (typeof c === "string") {
-                return (
-                  <p className="plain" key={i}>
-                    {c}
-                  </p>
-                );
-              }
-              if ("type" in c) {
-                return (
-                  <p className={c.type} key={i}>
-                    {c.text}
-                  </p>
-                );
-              }
-              return (
-                <p className="lines" key={i}>
-                  {c.lines
-                    .slice(1)
-                    .map((l, i) => c.text.slice(c.lines[i], l))
-                    .join("\n")}
-                </p>
-              );
-            })}
+    <SizeContext value={17}>
+      <Column
+        gap={20}
+        style={{
+          padding: "20px 10px 50px",
+          maxWidth: "670px",
+          margin: "0 auto",
+        }}
+      >
+        <Text to="/" style={{ color: "darkred" }}>
+          Bahá’í Explore
+        </Text>
+
+        {path.length > 0 && (
+          <Row gap={10} style={{ flexWrap: "wrap", paddingLeft: 30 }}>
+            {path.map((p, i) => (
+              <Row gap={10} style={{ marginLeft: i === 0 ? -30 : 0 }} key={i}>
+                {i > 0 && (
+                  <svg
+                    height="10"
+                    viewBox="-0.5 -1 1.5 2"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <polygon
+                      points="-0.5,0.866 -0.5,-0.866 1.0,0.0"
+                      fill="#333"
+                    />
+                  </svg>
+                )}
+                <Text to={p[1]} style={{ color: "darkgreen" }}>
+                  {p[0]}
+                </Text>
+              </Row>
+            ))}
+          </Row>
+        )}
+        {!single ? (
+          <div style={{ paddingLeft: 15 }}>
+            {renderTree(nestedTree, path[path.length - 1]?.[1] || "")}
           </div>
-        ))
-      )}
-    </div>
+        ) : (
+          data.map((d, i) => (
+            <Column gap={25} style={{ paddingTop: 30 }} key={i}>
+              <Text
+                size={30}
+                style={{ fontWeight: "bold", textAlign: "center" }}
+              >
+                {d.path[d.path.length - 1]![0]}
+              </Text>
+              {d.content.map((c, i) => {
+                if (typeof c === "string") {
+                  return (
+                    <Text key={i} style={{ textIndent: 20 }}>
+                      {c}
+                    </Text>
+                  );
+                }
+                if ("type" in c) {
+                  if (c.type === "info") {
+                    <Text
+                      key={i}
+                      style={{ fontStyle: "italic", textAlign: "center" }}
+                    >
+                      {c.text}
+                    </Text>;
+                  }
+                  return (
+                    <Text
+                      key={i}
+                      style={{
+                        textTransform: "uppercase",
+                        textAlign: "center",
+                      }}
+                    >
+                      {c.text}
+                    </Text>
+                  );
+                }
+                return (
+                  <Text
+                    key={i}
+                    style={{ paddingLeft: 40, whiteSpace: "pre-wrap" }}
+                  >
+                    {c.lines
+                      .slice(1)
+                      .map((l, i) => c.text.slice(c.lines[i], l))
+                      .join("\n")}
+                  </Text>
+                );
+              })}
+            </Column>
+          ))
+        )}
+      </Column>
+    </SizeContext>
   );
 }
-
-export default App;
