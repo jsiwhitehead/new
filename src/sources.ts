@@ -23,11 +23,10 @@ const getTitle = (s: string, t: string, translated?: string) => {
 const title = (
   level: string,
   title: string,
-  { translated, collection, meta, ...config } = {} as {
+  { translated, meta, ...config } = {} as {
     author?: string;
     years?: [number, number];
     translated?: string;
-    collection?: boolean;
     meta?: boolean;
   }
 ): [RegExp, (s: string) => string] => [
@@ -45,7 +44,6 @@ const title = (
         (k) => `${k}=${JSON.stringify((config as any)[k])}`
       ),
       translated && `translated="${translated}"`,
-      collection && "collection",
       meta && "meta",
     ]
       .filter((x) => x)
@@ -76,13 +74,13 @@ const sources: Record<
 > = {
   bahaullah: {
     "call-divine-beloved": [
+      [/^(4|5|6)$/gm, "##"],
       [/^\d+$/gm, "#"],
       [/Notes.*/s, ""],
       ["Selected Mystical Works of Bahá’u’lláh", ""],
       title("", "The Call of the Divine Beloved", {
         author: "Bahá’u’lláh",
         years: [1852, 1863],
-        collection: true,
       }),
       title("#", "Preface", {
         author: "The Universal House of Justice",
@@ -94,7 +92,7 @@ const sources: Record<
       }),
       title("#", "The Seven Valleys"),
       title("#", "From the Letter Bá’ to the Letter Há’"),
-      title("#", "Three Other Tablets", { collection: true }),
+      title("#", "Three Other Tablets"),
       title("#", "The Four Valleys"),
       [
         /’Tis from Our rapture.*Wellspring raining down\./s,

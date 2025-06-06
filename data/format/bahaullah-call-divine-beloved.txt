@@ -1,7 +1,6 @@
 The Call of the Divine Beloved
 author="Bahá’u’lláh"
 years=[1852,1863]
-collection
 
 # Preface
 author="The Universal House of Justice"
@@ -388,9 +387,8 @@ Moreover, a reply to thine enquiries was sent aforetime. It is evident that what
 I swear by God! Whoso faileth to obey the commandments of God can in no wise be numbered among His loved ones, for among the conditions of His love is to follow His commandments and observe His prohibitions. But since these are the days of concealment, and the Sun of eternity remaineth hidden beneath the horizon of being, one must gather together everyone with love and protect them. The time for the completion of the commandments and the perfection of deeds will assuredly come.
 
 # Three Other Tablets
-collection
 
-#
+##
 
 ^ In the name of our Lord, the Most Exalted, the Most High!
 
@@ -416,7 +414,7 @@ When once thou hast privily completed these journeys, place this robe upon thy s
 
 Know thou, moreover, that in the sight of God thou holdest a lofty rank and an exalted station. Remove not thyself from the company of His servants; rather do thou gather them together in the Cause of God and admonish them in His days. Rely upon God in all thine affairs. He, verily, shall suffice thee in all things, shall protect thee from the followers of the Evil One, and shall cause thee to enter the everlasting Paradise, wherein thou shalt be numbered with the blessed. Convey, then, Our greetings unto those who follow thee in the Cause of thy Lord, and summon them unto the Straight Path.
 
-#
+##
 
 ^ In the name of the peerless and ever-loving Lord!
 
@@ -430,7 +428,7 @@ This profitless world produceth naught save deadly poison, and its ephemeral dre
 
 No melody remaineth that was not intoned upon this branch; no song remaineth that this Nightingale hath not warbled. A thousand Arabian ears are powerless to fathom this Persian lament—nay, none but an embodiment of divine virtues can grasp this subtle mystery. Well it is, then, with the one who attaineth this ocean and drinketh therefrom the draught of life!
 
-#
+##
 
 > O thou lion-hearted soul,
 > Even as a lion roar,

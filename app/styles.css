@@ -28,6 +28,24 @@ h6 {
   text-wrap: balance;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  font-weight: bold;
+  padding: 5px 7.5px;
+  margin: -5px -7.5px;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; */
+}
+
 body {
   -webkit-font-smoothing: antialiased;
 
@@ -44,28 +62,100 @@ body {
   font-variant-ligatures: none;
 }
 
+#root {
+  display: block;
+}
+
 #main {
   max-width: 670px;
   margin: 0 auto;
+  padding: 25px 10px 50px;
+  gap: 20px;
+}
+
+#nav {
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+#homelink {
+  flex-direction: row;
+  color: darkred;
+}
+
+#breadcrumbs {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding-left: 40px;
+
+  div {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-left: 0;
+
+    &:first-child {
+      margin-left: -40px;
+    }
+  }
+
+  a {
+    color: darkgreen;
+  }
+
+  span {
+    font-size: 10px;
+  }
+}
+
+.tree {
+  padding-left: 40px;
+
+  li {
+    list-style-type: disc;
+  }
+
+  li > div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  a {
+    /* margin: 20px 0; */
+  }
+}
+
+.content {
+  gap: 25px;
+
+  h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+}
+
+p {
+  /* margin: 25px 0; */
 }
 
 .plain {
   text-indent: 20px;
-  margin: 25px 0;
 }
 
 .info {
   font-style: italic;
-  margin: 25px 0;
+  text-align: center;
 }
 
 .call {
   text-transform: uppercase;
-  margin: 25px 0;
+  text-align: center;
 }
 
 .lines {
   padding-left: 40px;
   white-space: pre-wrap;
-  margin: 25px 0;
 }

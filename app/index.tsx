@@ -1,43 +1,43 @@
 import { createRoot } from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router";
 
-import type { Section } from "../src/structure";
-import data from "../data/structure/bahaullah-call-divine-beloved.json";
+import App from "./App";
 
-const typedData = data as Section[];
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+  },
+  {
+    path: "/:path1",
+    element: <App />,
+  },
+  {
+    path: "/:path1/:path2",
+    element: <App />,
+  },
+  {
+    path: "/:path1/:path2/:path3",
+    element: <App />,
+  },
+  {
+    path: "/:path1/:path2/:path3/:path4",
+    element: <App />,
+  },
+  {
+    path: "/:path1/:path2/:path3/:path4/:path5",
+    element: <App />,
+  },
+  {
+    path: "/:path1/:path2/:path3/:path4/:path5/:path6",
+    element: <App />,
+  },
+  {
+    path: "/:path1/:path2/:path3/:path4/:path5/:path6/:path7",
+    element: <App />,
+  },
+]);
 
-function MyApp() {
-  return (
-    <div id="main">
-      <h1>Bahá’í Explorer</h1>
-      <h2>{typedData[3]?.title}</h2>
-      <h3>{typedData[3]?.author}</h3>
-      {typedData[3]?.content.map((d, i) => {
-        if (typeof d === "string") {
-          return (
-            <p className="plain" key={i}>
-              {d}
-            </p>
-          );
-        }
-        if ("type" in d) {
-          return (
-            <p className={d.type} key={i}>
-              {d.text}
-            </p>
-          );
-        }
-        return (
-          <p className="lines" key={i}>
-            {d.lines
-              .slice(1)
-              .map((l, i) => d.text.slice(d.lines[i], l))
-              .join("\n")}
-          </p>
-        );
-      })}
-    </div>
-  );
-}
-
-const root = createRoot(document.getElementById("root")!);
-root.render(<MyApp />);
+createRoot(document.getElementById("root")!).render(
+  <RouterProvider router={router} />
+);

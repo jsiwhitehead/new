@@ -3,21 +3,25 @@ import fs from "fs-extra";
 import sources from "./sources.js";
 import { readText, writeJSON } from "./utils.js";
 
+const urlAuthors = {
+  "Bahá’u’lláh": "bahaullah",
+  "The Báb": "the-bab",
+  "‘Abdu’l-Bahá": "abdul-baha",
+  "Shoghi Effendi": "shoghi-effendi",
+  "The Universal House of Justice": "the-universal-house-of-justice",
+} as Record<string, string>;
+
 type SectionContent =
   | string
   | { text: string; type: "info" | "call" }
   | { text: string; lines: number[] };
 
 export interface Section {
-  author: string;
+  path: [string, string, number][];
   years: [number, number];
-  path: string[];
-  item: number[];
-  content: SectionContent[];
-  title?: string;
   translated?: string;
-  collection?: boolean;
   meta?: boolean;
+  content: SectionContent[];
 }
 
 const getContentItem = (line: string): SectionContent => {
@@ -39,10 +43,13 @@ const getContentItem = (line: string): SectionContent => {
   return line;
 };
 
-export const parseStructuredSections = (inputText: string): Section[] => {
+export const parseStructuredSections = (
+  file: string,
+  inputText: string
+): Section[] => {
   const lines = inputText.split(/\n\n/);
   const sections: Section[] = [];
-  const currentPath: (string | undefined)[] = [];
+  const currentPath: [string, string, number][] = [];
   const counters: number[] = [];
   const metaStack: any[] = [];
 
@@ -62,33 +69,46 @@ export const parseStructuredSections = (inputText: string): Section[] => {
         title = headerMatch[2]!.trim();
       } else if (line === "***") {
         level = lastLevel + 1;
-        title = "";
+        title = "*";
       }
     }
 
     if (level !== null) {
       const [base, ...parts] = title.split(/\n/g);
-      const { translated, collection, ...meta } = parts.reduce((res, m) => {
+      const { translated, ...meta } = parts.reduce((res, m) => {
         const [key, value = "true"] = m.split("=");
         return { ...res, [key!]: JSON.parse(value) };
       }, {} as any);
 
-      currentPath.splice(level - 1);
-      currentPath[level - 1] = base;
-
       counters.splice(level);
       counters[level - 1] = (counters[level - 1] || 0) + 1;
 
+      currentPath.splice(level - 1);
+      currentPath[level - 1] = [
+        base || `${counters[level - 1]}`,
+        lastLevel === 0
+          ? file
+          : base
+              ?.toLowerCase()
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, "")
+              .replace(/[^a-z ]/g, "")
+              .replace(/ /g, "-") || `${counters[level - 1]}`,
+        counters[level - 1]!,
+      ];
+
       metaStack.splice(level);
       metaStack[level] = meta;
+      const sectionMeta = metaStack.reduce((res, m) => ({ ...res, ...m }), {});
 
       sections.push({
-        title: base,
-        path: currentPath.filter((t) => t),
-        item: counters.slice(1, level),
+        path: [
+          [sectionMeta.author, urlAuthors[sectionMeta.author], 0],
+          ...currentPath,
+        ],
         translated,
-        collection,
-        ...metaStack.reduce((res, m) => ({ ...res, ...m }), {}),
+        ...sectionMeta,
+        author: undefined,
         content: [],
       });
 
@@ -98,7 +118,7 @@ export const parseStructuredSections = (inputText: string): Section[] => {
     }
   }
 
-  return sections;
+  return sections.filter((s) => s.content.length > 0);
 };
 
 (async () => {
@@ -111,7 +131,7 @@ export const parseStructuredSections = (inputText: string): Section[] => {
         await writeJSON(
           "structure",
           id,
-          parseStructuredSections(await readText("format", id))
+          parseStructuredSections(file, await readText("format", id))
         );
       })
     );

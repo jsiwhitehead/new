@@ -34,7 +34,7 @@ export const writeJSON = async <T>(
 ): Promise<void> => {
   const prettyData = await prettify(JSON.stringify(data, null, 2), "json");
   return fs.promises.writeFile(
-    `./data/${category}/${id}.json`,
+    category ? `./data/${category}/${id}.json` : `./data/${id}.json`,
     prettyData,
     "utf-8"
   );
