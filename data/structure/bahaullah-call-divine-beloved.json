@@ -1,12 +1,12 @@
 [
   {
     "path": [
-      ["The Universal House of Justice", "the-universal-house-of-justice", 0],
+      ["Bahá’u’lláh", "bahaullah", 1],
       ["The Call of the Divine Beloved", "call-divine-beloved", 1],
       ["Preface", "preface", 1]
     ],
     "years": [2019, 2019],
-    "meta": true,
+    "meta": "The Universal House of Justice",
     "content": [
       "“At one time We spoke in the language of the lawgiver”, Bahá’u’lláh writes in the Epistle to the Son of the Wolf, “at another in that of the truth-seeker and the mystic”. The present volume brings together a selection of His Tablets which were revealed in the language of the mystic. Some are widely known; others are published here for the first time in English translation.",
       "Although most of the Tablets in this collection were revealed during Bahá’u’lláh’s sojourn in ‘Iráq (1853–1863), the first, the poem known as “Rashḥ-i-‘Amá”, was written in 1852 in the Síyáh-Chál and is among the few He revealed while in His native land of Persia, and in verse. Bahá’u’lláh recounts: “During the days I lay in the prison of Ṭihrán, though the galling weight of the chains and the stench-filled air allowed Me but little sleep, still in those infrequent moments of slumber I felt as if something flowed from the crown of My head over My breast, even as a mighty torrent that precipitateth itself upon the earth from the summit of a lofty mountain. Every limb of My body would, as a result, be set afire. At such moments My tongue recited what no man could bear to hear.” The poetic reflection of that experience, as conveyed in Rashḥ-i-‘Amá, can perhaps never be adequately rendered into another language, yet the present translation is an initial attempt to impart a glimpse of its power and momentous themes.",
@@ -17,13 +17,13 @@
       "This treatise was revealed in the language of the people, in the days prior to Our Declaration. The occasion for its revelation was the receipt of a letter addressed to the Most Holy Court in ‘Iráq from a man of Sunní persuasion, who was both a scholar and a mystic. This treatise was therefore revealed, in accordance with divine wisdom, in the manner that was current amongst the people. However, in this day, every soul who hath fixed his gaze upon the Supreme Horizon, and hath recognized the one true God, hath verily attained unto every one of the seven valleys or seven stations mentioned therein.",
       "Like the twelfth-century poem by ‘Aṭṭár, Manṭiqu’ṭ-Ṭayr (The Conference of the Birds), the Seven Valleys describes a journey through seven stations in quest of the Divine. However, the quest in the Seven Valleys is also one undertaken in a context defined by the imminent dawning of the new Revelation—and indeed the presence of the Beloved Himself.",
       "That the mystic journey cannot be reduced to a fixed scheme, nor the search for the Divine Beloved to a series of discrete stages, is highlighted in a number of other Tablets, four of which are included here. The volume closes with the Four Valleys, an epistle addressed to one of Bahá’u’lláh’s devoted admirers from Kurdistán. Rather than describing a progression through stages, it elaborates four different paths of approach to the Divine.",
-      "The current renderings of the Seven Valleys and the Four Valleys are based on the translations by Marzieh Gail, in consultation with Ali-Kuli Khan, published in 1945. While those earlier translations contain many exquisite, inspired passages, some changes were required for clarity and accuracy.",
+      "The current renderings of the Seven Valleys and the Four Valleys are based on the translations by Marzieh Gail, in consultation with Alí-Kuli Khan, published in 1945. While those earlier translations contain many exquisite, inspired passages, some changes were required for clarity and accuracy.",
       "May the publication of this volume contribute to a deeper appreciation of the mystical dimensions of Bahá’u’lláh’s Message and inspire a greater zeal and fervour in raising the celestial call of the Divine Beloved: “For whereas in days past every lover besought and searched after his Beloved, it is the Beloved Himself Who now is calling His lovers and is inviting them to attain His presence.”"
     ]
   },
   {
     "path": [
-      ["Bahá’u’lláh", "bahaullah", 0],
+      ["Bahá’u’lláh", "bahaullah", 1],
       ["The Call of the Divine Beloved", "call-divine-beloved", 1],
       ["The Clouds of the Realms Above", "the-clouds-of-the-realms-above", 2]
     ],
@@ -114,7 +114,7 @@
   },
   {
     "path": [
-      ["Bahá’u’lláh", "bahaullah", 0],
+      ["Bahá’u’lláh", "bahaullah", 1],
       ["The Call of the Divine Beloved", "call-divine-beloved", 1],
       ["The Seven Valleys", "the-seven-valleys", 3]
     ],
@@ -299,18 +299,11 @@
       {
         "text": "Shattered was the pen at once, Rent and torn in twain the page, When the pen did reach the point Of depicting such a stage.",
         "lines": [0, 31, 64, 97, 124]
-      }
-    ]
-  },
-  {
-    "path": [
-      ["Bahá’u’lláh", "bahaullah", 0],
-      ["The Call of the Divine Beloved", "call-divine-beloved", 1],
-      ["The Seven Valleys", "the-seven-valleys", 3],
-      ["*", "1", 1]
-    ],
-    "years": [1852, 1863],
-    "content": [
+      },
+      {
+        "type": "break",
+        "text": ""
+      },
       "O My friend! Many a hound hunteth this gazelle of the desert of oneness; many an eagle pursueth this nightingale of the garden of eternity. Ravens of hatred lie in wait for this bird of the heavens of God, and the huntsman of envy stalketh this deer of the meadow of love.",
       "O Shaykh! Make of thine effort a glass, that perchance it may shelter this flame from contrary winds, albeit this flame doth long to be kindled in the lamp of the Lord and to shine in the niche of the spirit. For the head that is raised up in the love of God will assuredly fall by the sword, and the life that is aflame with longing will assuredly be extinguished, and the heart that cleaveth to the remembrance of the Beloved will assuredly break. How well hath it been said:",
       {
@@ -325,7 +318,7 @@
   },
   {
     "path": [
-      ["Bahá’u’lláh", "bahaullah", 0],
+      ["Bahá’u’lláh", "bahaullah", 1],
       ["The Call of the Divine Beloved", "call-divine-beloved", 1],
       [
         "From the Letter Bá’ to the Letter Há’",
@@ -352,7 +345,7 @@
   },
   {
     "path": [
-      ["Bahá’u’lláh", "bahaullah", 0],
+      ["Bahá’u’lláh", "bahaullah", 1],
       ["The Call of the Divine Beloved", "call-divine-beloved", 1],
       ["Three Other Tablets", "three-other-tablets", 5],
       ["1", "1", 1]
@@ -378,7 +371,7 @@
   },
   {
     "path": [
-      ["Bahá’u’lláh", "bahaullah", 0],
+      ["Bahá’u’lláh", "bahaullah", 1],
       ["The Call of the Divine Beloved", "call-divine-beloved", 1],
       ["Three Other Tablets", "three-other-tablets", 5],
       ["2", "2", 2]
@@ -398,7 +391,7 @@
   },
   {
     "path": [
-      ["Bahá’u’lláh", "bahaullah", 0],
+      ["Bahá’u’lláh", "bahaullah", 1],
       ["The Call of the Divine Beloved", "call-divine-beloved", 1],
       ["Three Other Tablets", "three-other-tablets", 5],
       ["3", "3", 3]
@@ -431,13 +424,16 @@
   },
   {
     "path": [
-      ["Bahá’u’lláh", "bahaullah", 0],
+      ["Bahá’u’lláh", "bahaullah", 1],
       ["The Call of the Divine Beloved", "call-divine-beloved", 1],
       ["The Four Valleys", "the-four-valleys", 6]
     ],
     "years": [1852, 1863],
     "content": [
-      "He is the Ever-Living.",
+      {
+        "type": "call",
+        "text": "He is the Ever-Living."
+      },
       {
         "text": "O light of truth and sword of faith And soul of generosity! No prince hath sky or earth begot Who fain could hope to rival thee!",
         "lines": [0, 36, 60, 94, 129]

@@ -5,9 +5,11 @@
   "private": true,
   "scripts": {
     "download": "bun ./src/download.ts",
+    "fixes": "bun ./src/fixes.ts",
     "format": "bun ./src/format.ts",
     "structure": "bun ./src/structure.ts",
     "combine": "bun ./src/combine.ts",
+    "process": "bun ./src/fixes.ts; bun ./src/format.ts; bun ./src/structure.ts; bun ./src/combine.ts",
     "app": "bun ./app/index.html"
   },
   "devDependencies": {

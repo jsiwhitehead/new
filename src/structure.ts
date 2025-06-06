@@ -3,6 +3,14 @@ import fs from "fs-extra";
 import sources from "./sources.js";
 import { readText, writeJSON } from "./utils.js";
 
+const indexAuthors = {
+  "Bahá’u’lláh": 1,
+  "The Báb": 2,
+  "‘Abdu’l-Bahá": 3,
+  "Shoghi Effendi": 4,
+  "The Universal House of Justice": 5,
+} as Record<string, number>;
+
 const urlAuthors = {
   "Bahá’u’lláh": "bahaullah",
   "The Báb": "the-bab",
@@ -13,18 +21,22 @@ const urlAuthors = {
 
 type SectionContent =
   | string
-  | { text: string; type: "info" | "call" }
+  | { text: string; type: "break" | "info" | "call" }
   | { text: string; lines: number[] };
 
 export interface Section {
   path: [string, string, number][];
   years: [number, number];
   translated?: string;
-  meta?: boolean;
+  meta?: string;
+  reference?: string;
   content: SectionContent[];
 }
 
 const getContentItem = (line: string): SectionContent => {
+  if (line === "***") {
+    return { type: "break", text: "" };
+  }
   if (line.startsWith("*")) {
     return { type: "info", text: line.slice(1).trim() };
   }
@@ -45,12 +57,13 @@ const getContentItem = (line: string): SectionContent => {
 
 export const parseStructuredSections = (
   file: string,
+  fileIndex: number,
   inputText: string
 ): Section[] => {
   const lines = inputText.split(/\n\n/);
   const sections: Section[] = [];
   const currentPath: [string, string, number][] = [];
-  const counters: number[] = [];
+  const counters: number[] = [fileIndex];
   const metaStack: any[] = [];
 
   let lastLevel = 0;
@@ -63,13 +76,10 @@ export const parseStructuredSections = (
       level = 1;
       title = line;
     } else {
-      const headerMatch = line.match(/^(#+)(.*)/s);
+      const headerMatch = line.match(/^(#+ ?)(.*)/s);
       if (headerMatch) {
-        level = headerMatch[1]!.length + 1;
-        title = headerMatch[2]!.trim();
-      } else if (line === "***") {
-        level = lastLevel + 1;
-        title = "*";
+        level = headerMatch[1]!.trim().length + 1;
+        title = headerMatch[2]!;
       }
     }
 
@@ -103,9 +113,13 @@ export const parseStructuredSections = (
 
       sections.push({
         path: [
-          [sectionMeta.author, urlAuthors[sectionMeta.author], 0],
+          [
+            sectionMeta.author,
+            urlAuthors[sectionMeta.author],
+            indexAuthors[sectionMeta.author],
+          ],
           ...currentPath,
-        ],
+        ].filter((p) => p[1] !== "gems-of-divine-mysteries"),
         translated,
         ...sectionMeta,
         author: undefined,
@@ -126,12 +140,12 @@ export const parseStructuredSections = (
 
   for (const author of Object.keys(sources)) {
     await Promise.all(
-      Object.keys(sources[author]!).map(async (file) => {
+      Object.keys(sources[author]!).map(async (file, fileIndex) => {
         const id = `${author}-${file}`;
         await writeJSON(
           "structure",
           id,
-          parseStructuredSections(file, await readText("format", id))
+          parseStructuredSections(file, fileIndex, await readText("format", id))
         );
       })
     );

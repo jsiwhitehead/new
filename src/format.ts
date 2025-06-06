@@ -17,10 +17,10 @@ import { readText, writeText } from "./utils.js";
           replace
             .reduce(
               (res, [a, b]) => res.replace(a, b as any),
-              await readText("download", id)
+              await readText("fixes", id)
             )
             .replace(/^>\s*$/gm, "")
-            .replace(/(#\n+)+#/g, "#")
+            .replace(/(#+\n+)+#/g, "#")
             .replace(/(\s*\n){2,}/g, "\n\n")
             .replace(/#\n\n$/, "")
             .split("\n")

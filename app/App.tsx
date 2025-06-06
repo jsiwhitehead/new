@@ -1,4 +1,4 @@
-import { useParams } from "react-router";
+import { ScrollRestoration, useParams } from "react-router";
 
 import getData from "../src/api";
 
@@ -46,10 +46,11 @@ export default function App() {
 
   return (
     <SizeContext value={17}>
+      <ScrollRestoration />
       <Column
         gap={20}
         style={{
-          padding: "20px 10px 50px",
+          padding: "30px 10px 50px",
           maxWidth: "670px",
           margin: "0 auto",
         }}
@@ -59,7 +60,7 @@ export default function App() {
         </Text>
 
         {path.length > 0 && (
-          <Row gap={10} style={{ flexWrap: "wrap", paddingLeft: 30 }}>
+          <Row gap="20px 10px" style={{ flexWrap: "wrap", paddingLeft: 30 }}>
             {path.map((p, i) => (
               <Row gap={10} style={{ marginLeft: i === 0 ? -30 : 0 }} key={i}>
                 {i > 0 && (
@@ -90,7 +91,11 @@ export default function App() {
             <Column gap={25} style={{ paddingTop: 30 }} key={i}>
               <Text
                 size={30}
-                style={{ fontWeight: "bold", textAlign: "center" }}
+                style={{
+                  fontWeight: "bold",
+                  textAlign: "center",
+                  paddingBottom: 10,
+                }}
               >
                 {d.path[d.path.length - 1]![0]}
               </Text>
@@ -103,13 +108,22 @@ export default function App() {
                   );
                 }
                 if ("type" in c) {
+                  if (c.type === "break") {
+                    return (
+                      <Text key={i} style={{ textAlign: "center" }}>
+                        ***
+                      </Text>
+                    );
+                  }
                   if (c.type === "info") {
-                    <Text
-                      key={i}
-                      style={{ fontStyle: "italic", textAlign: "center" }}
-                    >
-                      {c.text}
-                    </Text>;
+                    return (
+                      <Text
+                        key={i}
+                        style={{ fontStyle: "italic", textAlign: "center" }}
+                      >
+                        {c.text}
+                      </Text>
+                    );
                   }
                   return (
                     <Text
@@ -126,7 +140,14 @@ export default function App() {
                 return (
                   <Text
                     key={i}
-                    style={{ paddingLeft: 40, whiteSpace: "pre-wrap" }}
+                    style={{
+                      paddingLeft:
+                        d.path[1]![0] === "The Hidden Words" ||
+                        d.path[2]![0] === "Questions and Answers"
+                          ? 0
+                          : 40,
+                      whiteSpace: "pre-wrap",
+                    }}
                   >
                     {c.lines
                       .slice(1)

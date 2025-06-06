@@ -9,7 +9,7 @@ export function Column({
   style,
   children,
 }: {
-  gap: number;
+  gap: number | string;
   style?: React.CSSProperties;
   children: React.ReactNode;
 }) {
@@ -25,7 +25,7 @@ export function Row({
   style,
   children,
 }: {
-  gap: number;
+  gap: number | string;
   style?: React.CSSProperties;
   children: React.ReactNode;
 }) {
