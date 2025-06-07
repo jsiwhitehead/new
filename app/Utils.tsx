@@ -5,11 +5,11 @@ import { Link } from "react-router";
 export const SizeContext = createContext(16);
 
 export function Column({
-  gap,
+  gap = 0,
   style,
   children,
 }: {
-  gap: number | string;
+  gap?: number | string;
   style?: React.CSSProperties;
   children: React.ReactNode;
 }) {
@@ -21,11 +21,11 @@ export function Column({
 }
 
 export function Row({
-  gap,
+  gap = 0,
   style,
   children,
 }: {
-  gap: number | string;
+  gap?: number | string;
   style?: React.CSSProperties;
   children: React.ReactNode;
 }) {

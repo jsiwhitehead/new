@@ -7,18 +7,77 @@ const renderTree = (tree: any, currentUrl: string) =>
   Object.keys(tree).map((k, i) => {
     const [title, url] = JSON.parse(k);
     const nextUrl = `${currentUrl}/${url}`;
+    const isLeaf = Object.keys(tree[k]).length === 0;
     const isLast = i === Object.keys(tree).length - 1;
 
     const label = (
-      <Row gap={20} style={{ position: "relative" }}>
+      <Row style={{ position: "relative" }}>
+        <div
+          className="treebar"
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: layerWidth,
+            width: 2,
+            height: "calc(50% + 5px)",
+            background: "#ddd",
+          }}
+        />
+        {isLast && (
+          <div
+            style={{
+              position: "absolute",
+              top: -(treeGap + 5),
+              left: -2,
+              width: 2,
+              height: `calc(50% + ${treeGap + 5 + 1}px)`,
+              background: "#ddd",
+            }}
+          />
+        )}
         <div
           style={{
             background: "#ddd",
             width: 40,
             height: 2,
+            flexShrink: 0,
           }}
         />
-        <Text to={nextUrl}>{title}</Text>
+        <div
+          style={{
+            display: "flex",
+            padding: 3,
+            background: "#ddd",
+            borderRadius: 100,
+            marginLeft: -7,
+            flexShrink: 0,
+            zIndex: 10,
+          }}
+        >
+          {isLeaf ? (
+            <div
+              style={{
+                width: 5,
+                height: 5,
+                margin: 2.5,
+                background: "#333",
+                borderRadius: 100,
+              }}
+            />
+          ) : (
+            <svg
+              width="10"
+              height="10"
+              viewBox="-1 -1 2 2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon points="-0.5,0.866 -0.5,-0.866 1.0,0.0" fill="#333" />
+            </svg>
+          )}
+        </div>
+        <Text to={nextUrl} style={{ paddingLeft: 20 }}>
+          {title}
+        </Text>
       </Row>
     );
 
@@ -32,62 +91,18 @@ const renderTree = (tree: any, currentUrl: string) =>
         }}
         key={nextUrl}
       >
-        {isLast && (
-          <div
-            style={{
-              position: "absolute",
-              top: 0,
-              left: -2,
-              width: 2,
-              height: 17 / 2 + 1 + treeGap + 5,
-              background: "#ddd",
-            }}
-          />
-        )}
-        {Object.keys(tree[k]).length === 0 ? (
+        {isLeaf ? (
           <div
             style={{
               padding: "5px 0",
               marginTop: treeGap,
               marginLeft: -layerWidth,
-              position: "relative",
             }}
           >
-            <div
-              style={{
-                display: "flex",
-                position: "absolute",
-                top: 5 + (17 - 16) / 2,
-                left: layerWidth - 16 / 2 + 1,
-                background: "#ddd",
-                borderRadius: 100,
-                padding: 5.5,
-                zIndex: 10,
-              }}
-            >
-              <div
-                style={{
-                  width: 5,
-                  height: 5,
-                  background: "#333",
-                  borderRadius: 100,
-                }}
-              />
-            </div>
             {label}
           </div>
         ) : (
           <details style={{ position: "relative" }}>
-            <div
-              style={{
-                position: "absolute",
-                top: 17 / 2 - 1 + treeGap + 5,
-                left: 0,
-                width: 2,
-                height: 17 / 2 + 1 + 5,
-                background: "#ddd",
-              }}
-            />
             <summary
               style={{
                 display: "block",
@@ -98,30 +113,6 @@ const renderTree = (tree: any, currentUrl: string) =>
                 position: "relative",
               }}
             >
-              <div
-                style={{
-                  display: "flex",
-                  position: "absolute",
-                  top: 5 + (17 - 16) / 2,
-                  left: layerWidth - 16 / 2 + 1,
-                  background: "#ddd",
-                  borderRadius: 100,
-                  padding: 3,
-                  zIndex: 10,
-                }}
-              >
-                <svg
-                  width="10"
-                  height="10"
-                  viewBox="-1 -1 2 2"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <polygon
-                    points="-0.5,0.866 -0.5,-0.866 1.0,0.0"
-                    fill="#333"
-                  />
-                </svg>
-              </div>
               {label}
             </summary>
             {renderTree(tree[k], nextUrl)}

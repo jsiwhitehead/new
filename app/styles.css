@@ -10,6 +10,12 @@ body {
   font-variant-ligatures: none;
 }
 
-details[open] > summary > div > svg {
+.treebar {
+  display: none;
+}
+details[open] > summary > div > .treebar {
+  display: block;
+}
+details[open] > summary > div > div > svg {
   transform: rotate(90deg);
 }

@@ -28,12 +28,13 @@ const getTitle = (s: string, t: string, translated?: string) => {
 const title = (
   level: string,
   title: string,
-  { translated, prayer, ...config } = {} as {
+  { translated, prayer, items, ...config } = {} as {
     author?: string;
     years?: [number, number];
     translated?: string;
     meta?: string;
     prayer?: boolean;
+    items?: boolean;
   }
 ): [RegExp, (s: string) => string] => [
   new RegExp(
@@ -50,7 +51,8 @@ const title = (
         (k) => `${k}=${JSON.stringify((config as any)[k])}`
       ),
       translated && `translated="${translated}"`,
-      prayer && `prayer`,
+      prayer && "prayer",
+      items && `\n${level}#`,
     ]
       .filter((x) => x)
       .join("\n"),
@@ -67,20 +69,44 @@ const splitLines = (
   },
 ];
 
-const obligatory = [
-  prefix(/^To be recited once in twenty‑four/gm, "* "),
-  prefix(/^To be recited daily, in the morning/m, "* "),
-  prefix(/^Whoso wisheth to pray, let him wash/m, "* "),
-  prefix(/^And while washing his face, let/m, "* "),
-  prefix(/^Then let him stand up, and facing the/m, "* "),
-  prefix(/^Let him, then/gm, "* "),
-  prefix(/^Then, standing with open hands, palms/m, "* "),
-  prefix(/^\(If anyone choose to recite instead/m, "* "),
-  prefix(/^Whoso wisheth to recite this prayer/m, "* "),
-  prefix(/^Let him then/gm, "* "),
-  prefix(/^Let him again raise his hands/m, "* "),
-  prefix(/^\(If the dead be a woman, let him say/m, "* "),
-];
+// const obligatory = [
+//   prefix(/^To be recited once in twenty‑four/gm, "* "),
+//   prefix(/^To be recited daily, in the morning/m, "* "),
+//   prefix(/^Whoso wisheth to pray, let him wash/m, "* "),
+//   prefix(/^And while washing his face, let/m, "* "),
+//   prefix(/^Then let him stand up, and facing the/m, "* "),
+//   prefix(/^Let him, then/gm, "* "),
+//   prefix(/^Then, standing with open hands, palms/m, "* "),
+//   prefix(/^\(If anyone choose to recite instead/m, "* "),
+//   prefix(/^Whoso wisheth to recite this prayer/m, "* "),
+//   prefix(/^Let him then/gm, "* "),
+//   prefix(/^Let him again raise his hands/m, "* "),
+//   prefix(/^\(If the dead be a woman, let him say/m, "* "),
+// ];
+
+const romanToInt = (roman: string) => {
+  const romanMap: Record<string, number> = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+  };
+  let total = 0;
+  let prev = 0;
+  for (let i = roman.length - 1; i >= 0; i--) {
+    const current = romanMap[roman[i]!.toUpperCase()]!;
+    if (current < prev) {
+      total -= current;
+    } else {
+      total += current;
+      prev = current;
+    }
+  }
+  return total;
+};
 
 const sources: Record<
   string,
@@ -587,8 +613,7 @@ const sources: Record<
       title("#", "Tablet of the Proof", { translated: "Lawḥ‑i‑Burhán" }),
       title("#", "Book of the Covenant", { translated: "Kitáb‑i‑‘Ahd" }),
       title("#", "Tablet of the Land of Bá", { translated: "Lawḥ‑i‑Arḍ‑i‑Bá" }),
-      title("#", "Excerpts from Other Tablets"),
-      ["# Excerpts from Other Tablets", "# Excerpts from Other Tablets\n\n##"],
+      title("#", "Excerpts from Other Tablets", { items: true }),
       prefix(/^All praise be to Thee, O my God, inasmuch/m, "\n\n##\n\n"),
       prefix(/^O Ḥusayn! God grant thou shalt ever be bright/m, "\n\n##\n\n"),
       prefix(/^This is a Tablet which the Lord of all being/m, "\n\n##\n\n"),
@@ -675,7 +700,146 @@ const sources: Record<
     ],
   },
   "the-bab": {
-    // "selections-writings-bab": [],
+    "selections-writings-bab": [
+      title("", "Selections from the Writings of the Báb", {
+        author: "The Báb",
+        years: authorYears["The Báb"],
+      }),
+      removeAfter("Key to Passages Translated by Shoghi Effendi"),
+      [/^\d+$/gm, ""],
+      [
+        "Compiled by the Research Department of the Universal House of Justice and translated by Ḥabíb Taherzadeh with the assistance of a Committee at the Bahá’í World Centre",
+        "",
+      ],
+      ["References to the Qur’án", ""],
+      [
+        "In footnotes referring to the Qur’án the súrihs have been numbered according to the original, whereas the verse numbers are those in Rodwell’s translation which differ sometimes from those of the Arabic.",
+        "",
+      ],
+      title("#", "Tablets and Addresses"),
+      title("##", "A Tablet Addressed to “Him Who Will Be Made Manifest”"),
+      title(
+        "##",
+        "A Second Tablet Addressed to “Him Who Will Be Made Manifest”"
+      ),
+      title("##", "Tablet to the First Letter of the Living"),
+      title("##", "Extracts from an Epistle to Muḥammad Sháh"),
+      title("##", "Extracts from Another Epistle to Muḥammad Sháh"),
+      title("##", "Extracts from a Further Epistle to Muḥammad Sháh"),
+      title(
+        "##",
+        "Extracts from a Tablet Containing Words Addressed to the Sherif of Mecca"
+      ),
+      title("##", "Address to a Muslim Divine"),
+      title(
+        "##",
+        "Address to Sulaymán, One of the Muslim Divines in the Land of Masqaṭ"
+      ),
+      title("#", "Commentary on the Súrih of Joseph", {
+        translated: "Qayyúmu’l‑Asmá’",
+        items: true,
+      }),
+      title("#", "Persian Utterance", {
+        translated: "Persian Bayán",
+        items: true,
+      }),
+      title("#", "Seven Proofs", {
+        translated: "Dalá’il‑i‑Sab‘ih",
+        items: true,
+      }),
+      title("#", "Book of Names", {
+        translated: "Kitáb‑i‑Asmá’",
+        items: true,
+      }),
+      title("#", "Excerpts from Various Writings", { items: true }),
+      title("#", "Prayers and Meditations", {
+        prayer: true,
+        items: true,
+      }),
+      [/Chapter [A-Z]+\.$/gm, (s) => `${s}\n\n##\n\n`],
+      [/[A-Z]+, \d+\.$/gm, (s) => `${s}\n\n##\n\n`],
+      [
+        /^##([^#]*) Chapter ([A-Z]+)\.$/gms,
+        (_: any, a: any, b: any) => `##\nsource="Chapter ${romanToInt(b)}"${a}`,
+      ],
+      [
+        /^##([^#]*) ([A-Z]+), (\d+)\.$/gms,
+        (_: any, a: any, b: any, c: any) =>
+          `##\nsource="Chapter ${romanToInt(b)}, ${c}"${a}`,
+      ],
+      prefix(/^Gracious God! Within the domains/m, "\n\n##\n\n"),
+      prefix(/^Ponder likewise the Dispensation/m, "\n\n##\n\n"),
+      prefix(/^Consider the manifold favours/m, "\n\n##\n\n"),
+      prefix(/^Let Me set forth some rational/m, "\n\n##\n\n"),
+      prefix(/^The recognition of Him Who is/m, "\n\n##\n\n"),
+      prefix(/^The evidences which the people/m, "\n\n##\n\n"),
+      prefix(/^Rid thou thyself of all attachments/m, "\n\n##\n\n"),
+      prefix(/^It is recorded in a tradition/m, "\n\n##\n\n"),
+      prefix(/^Thy letter hath been perused/m, "\n\n##\n\n"),
+      prefix(/^Say, verily any one follower of/m, "\n\n##\n\n"),
+      prefix(/^God testifieth that there is none other God/gm, "\n\n##\n\n"),
+      prefix(/^From the beginning that hath no/m, "\n\n##\n\n"),
+      prefix(/^Consecrate Thou, O my God, the/m, "\n\n##\n\n"),
+      prefix(/^He—glorified be His mention—resembleth/m, "\n\n##\n\n"),
+      prefix(/^The glory of Him Whom God shall/m, "\n\n##\n\n"),
+      prefix(/^All men have proceeded from God/m, "\n\n##\n\n"),
+      prefix(
+        /^In the Name of God, the Most Exalted, the Most High./gm,
+        "\n\n##\n\n"
+      ),
+      prefix(/^He is God, the Sovereign Lord/m, "\n\n##\n\n"),
+      prefix(/^He is God, the Supreme Ruler/m, "\n\n##\n\n"),
+      prefix(/^O thou who art the chosen one/m, "\n\n##\n\n"),
+      prefix(/^When the Daystar of Bahá will/m, "\n\n##\n\n"),
+      prefix(/^He is the Almighty./m, "\n\n##\n\n"),
+      prefix(/^It behoveth you to await the Day/m, "\n\n##\n\n"),
+      prefix(/^Send down Thy blessings, O my God/m, "\n\n##\n\n"),
+      prefix(/^Immeasurably glorified and exalted art Thou./m, "\n\n##\n\n"),
+      prefix(/^Verily I am Thy servant, O my God/m, "\n\n##\n\n"),
+      prefix(/^Magnified be Thy Name, O God./m, "\n\n##\n\n"),
+      prefix(/^Lauded be Thy Name, O God./m, "\n\n##\n\n"),
+      prefix(/^Glory be unto Thee, O God. How/m, "\n\n##\n\n"),
+      prefix(/^Praise be unto Thee, O Lord. Forgive/m, "\n\n##\n\n"),
+      prefix(/^O God our Lord! Protect us through Thy/m, "\n\n##\n\n"),
+      prefix(/^Glory be unto Thee, O Lord my God!/gm, "\n\n##\n\n"),
+      prefix(/^Glorified be Thy Name, O Lord!/gm, "\n\n##\n\n"),
+      prefix(/^Thou art aware, O My God, that/gm, "\n\n##\n\n"),
+      prefix(/^I am aware, O Lord, that my/gm, "\n\n##\n\n"),
+      prefix(/^I beg Thee to forgive me, O my/gm, "\n\n##\n\n"),
+      prefix(/^How can I praise Thee, O Lord/gm, "\n\n##\n\n"),
+      prefix(/^Glory be to Thee, O God! Thou/gm, "\n\n##\n\n"),
+      prefix(/^I implore Thee by the splendour/gm, "\n\n##\n\n"),
+      prefix(/^Do Thou ordain for me, O Lord/gm, "\n\n##\n\n"),
+      prefix(/^How numerous the souls raised/gm, "\n\n##\n\n"),
+      prefix(/^Glory be unto Thee, O Lord!/gm, "\n\n##\n\n"),
+      prefix(/^O Lord! Enable all the peoples/gm, "\n\n##\n\n"),
+      prefix(/^Vouchsafe unto me, O my God/gm, "\n\n##\n\n"),
+      prefix(/^Glory be unto Thee, O Lord, Thou/gm, "\n\n##\n\n"),
+      prefix(/^O Lord! Unto Thee I repair for/gm, "\n\n##\n\n"),
+      prefix(/^O Lord! Thou art the Remover of/gm, "\n\n##\n\n"),
+      prefix(/^Throughout eternity Thou hast/gm, "\n\n##\n\n"),
+      prefix(/^The glory of glories and the most/gm, "\n\n##\n\n"),
+      prefix(/^In the Name of God, the Compassionate/gm, "\n\n##\n\n"),
+      prefix(/^Thou art God, no God is there but Thee./gm, "\n\n##\n\n"),
+      prefix(/^Immeasurably exalted art Thou, O my/gm, "\n\n##\n\n"),
+      prefix(/^All majesty and glory, O my God/gm, "\n\n##\n\n"),
+      prefix(/^O my God! There is no one but Thee/gm, "\n\n##\n\n"),
+      prefix(/^O my God! I have failed to know/gm, "\n\n##\n\n"),
+      prefix(/^He is God, the Sovereign Ruler/gm, "\n\n##\n\n"),
+      prefix(/^O my God, my Lord and my Master! I have/gm, "\n\n##\n\n"),
+      prefix(/^I adjure Thee by Thy might/gm, "\n\n##\n\n"),
+      prefix(/^I beg Thy forgiveness, O/gm, "\n\n##\n\n"),
+      prefix(/^Lauded be Thy Name, O Lord our/gm, "\n\n##\n\n"),
+      prefix(/^Through Thy revelation, O my/gm, "\n\n##\n\n"),
+      prefix(/^In the Name of thy Lord, the/gm, "\n\n##\n\n"),
+      prefix(/^Glorified art Thou, O Lord my/gm, "\n\n##\n\n"),
+      prefix(/^Praised and glorified art Thou, O/gm, "\n\n##\n\n"),
+      prefix(/^Thou knowest full well, O my/gm, "\n\n##\n\n"),
+      prefix(/^Praise be to Thee, O Lord, my/gm, "\n\n##\n\n"),
+      prefix(/^O my God, O my Lord, O my Master!/gm, "\n\n##\n\n"),
+      prefix(/^Thou seest, O my Lord, my/gm, "\n\n##\n\n"),
+      prefix(/^Is there any Remover of difficulties/gm, "\n\n##\n\n"),
+    ],
   },
   "abdul-baha": {
     // "light-of-the-world": [],

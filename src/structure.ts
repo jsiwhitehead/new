@@ -30,6 +30,7 @@ export interface Section {
   translated?: string;
   meta?: string;
   reference?: string;
+  source?: string;
   content: SectionContent[];
 }
 
@@ -125,9 +126,11 @@ export const parseStructuredSections = (
           ...currentPath,
         ].filter(
           (p) =>
-            !["gems-of-divine-mysteries", "the-book-of-certitude"].includes(
-              p[1]
-            )
+            ![
+              "gems-of-divine-mysteries",
+              "the-book-of-certitude",
+              "selections-writings-bab",
+            ].includes(p[1])
         ),
         translated,
         ...sectionMeta,
