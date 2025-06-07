@@ -65,6 +65,7 @@ export default function App() {
               <Row gap={10} style={{ marginLeft: i === 0 ? -30 : 0 }} key={i}>
                 {i > 0 && (
                   <svg
+                    style={{ flexShrink: 0 }}
                     height="10"
                     viewBox="-0.5 -1 1.5 2"
                     xmlns="http://www.w3.org/2000/svg"

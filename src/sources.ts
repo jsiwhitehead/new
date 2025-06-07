@@ -441,6 +441,11 @@ const sources: Record<
         "Release yourselves, O nightingales of God",
         "He is the Exalted, the Transcendent, the All‑Highest.\n\nRelease yourselves, O nightingales of God",
       ],
+      ["The other station ", ""],
+      ["Consider Moses!", "Moses!"],
+      ["Behold how the sovereignty", "the sovereignty"],
+      ["their hands.” Although the", "their hands.”\n\nAlthough the"],
+      ["inmost selves. . . . That the", "inmost selves. . . .\n\nThat the"],
     ],
     "hidden-words": [
       [/^Bahá’u’lláh/m, ""],
@@ -564,6 +569,13 @@ const sources: Record<
         (a) => `* To be recited once in twenty‑four hours\n\n${a}`,
       ],
       [/We all, verily/g, "\n> We all, verily"],
+      [
+        "Since Thou hast, O my God, established",
+        "In Thy name, the Most Wondrous, the Most Glorious!\n\nSince Thou hast, O my God, stablished",
+      ],
+      // ["ascended the mercy seat of", "ascended the mercy-seat of"],
+      // ["the dawning light of Thy beauty", "the dawning-light of Thy beauty"],
+      // ["the Ever-living, the Most", "the Ever-Living, the Most"]
     ],
     "summons-lord-hosts": [
       ["Tablets of Bahá’u’lláh", ""],
@@ -957,6 +969,7 @@ const sources: Record<
         /^(Talk.*)$\n\n(.*)/gm,
         (_, a, b) => `# ${a.slice(31).trim()}, ${b.replace(" ‑ ", "‑")}`,
       ],
+      ["life, in that world. It", "life, in that world.\n\nIt"],
     ],
     // "secret-divine-civilization": [],
     // "selections-writings-abdul-baha": [],

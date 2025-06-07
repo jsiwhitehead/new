@@ -106,8 +106,8 @@ export const parseStructuredSections = (
               ?.toLowerCase()
               .normalize("NFD")
               .replace(/[\u0300-\u036f]/g, "")
-              .replace(/[^a-z ‑]/g, "")
-              .replace(/ |‑/g, "-") || `${counters[level - 1]}`,
+              .replace(/[^a-z0-9 ‑—]/g, "")
+              .replace(/[^a-z0-9]/g, "-") || `${counters[level - 1]}`,
         counters[level - 1]!,
       ];
       if (translated) currentPath[level - 1]![0] += ` (${translated})`;
