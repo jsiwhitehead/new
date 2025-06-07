@@ -428,8 +428,7 @@ const sources: Record<
       removeAfter("This document has been downloaded"),
       ["Translated By Shoghi Effendi", ""],
       [/^— .* —$/gm, "#"],
-      ["Gleanings from the Writings of Bahá’u’lláh", "Gleanings"],
-      title("", "Gleanings", {
+      title("", "Gleanings from the Writings of Bahá’u’lláh", {
         author: "Bahá’u’lláh",
         years: authorYears["Bahá’u’lláh"],
       }),
@@ -971,12 +970,195 @@ const sources: Record<
       ],
       ["life, in that world. It", "life, in that world.\n\nIt"],
     ],
-    // "secret-divine-civilization": [],
-    // "selections-writings-abdul-baha": [],
-    // "some-answered-questions": [],
-    // "tablet-auguste-forel": [],
-    // "tablets-divine-plan": [],
-    // "tablets-hague-abdul-baha": [],
+    "secret-divine-civilization": [
+      ["‘Abdu’l‑Bahá", ""],
+      [/^Translated from the Persian by Marzieh Gail.*/m, ""],
+      removeAfter("Notes"),
+      title("", "The Secret of Divine Civilisation", {
+        author: "‘Abdu’l‑Bahá",
+        years: [1875, 1875],
+      }),
+      prefix("In the Name of God the Clement, the Merciful", "^ "),
+      splitLines(/“The hand is veiled.*/m, "The horse leaps forward"),
+      splitLines(
+        /“The flower‑faced may.*/m,
+        "The cruel fair may bridle",
+        "But coyness in the ugly",
+        "And pain in a blind eye’s"
+      ),
+      splitLines(
+        /But these ill‑omened owls.*/m,
+        "And learned to sing as the",
+        "And what of Sheba’s message",
+        "If the bittern learn to sing"
+      ),
+      splitLines(
+        /One sluggish, blind and surly’s.*/m,
+        "“A lump of flesh, without a",
+        "How far is he who apes and",
+        "From the illumined, who doth",
+        "One but an echo, though",
+        "And one, the Psalmist"
+      ),
+      splitLines(
+        /Desire and self come.*/m,
+        "And blot out virtue",
+        "And a hundred veils",
+        "From the heart, to"
+      ),
+      splitLines(
+        /It is all one, if it.*/m,
+        "Or the bare ground",
+        "Where the pure soul",
+        "Down to die"
+      ),
+      splitLines(
+        /The Sage of Ghazna told.*/m,
+        "To his veiled hearers",
+        "If those who err see",
+        "But only words, it’s",
+        "Of all the sun’s fire",
+        "Only the warmth can"
+      ),
+      splitLines(
+        /Once they were as the.*/m,
+        "That the wind made",
+        "Then God shed down",
+        "And His sun but one",
+        "Souls of dogs and",
+        "But the soul of the"
+      ),
+      splitLines(/Thou, Brother, art thy.*/m, "The rest is only thew"),
+      prefix(/^How long shall we drift on the wings/m, "\n\n***\n\n"),
+      prefix(/^His Majesty the Sháh has, at the present/m, "\n\n***\n\n"),
+      prefix(/^It is unquestionable that the object in/m, "\n\n***\n\n"),
+      prefix(/^As to those who maintain that the inauguration/m, "\n\n***\n\n"),
+      prefix(/^It has now been clearly and irrefutably/m, "\n\n***\n\n"),
+      prefix(/^The state is, moreover, based upon two/m, "\n\n***\n\n"),
+      prefix(/^The second of these spiritual standards/m, "\n\n***\n\n"),
+      prefix(/^We shall here relate a story that will/m, "\n\n***\n\n"),
+      prefix(/^Observe how one individual, and he/m, "\n\n***\n\n"),
+      prefix(/^My heart aches, for I note with intense/m, "\n\n***\n\n"),
+      prefix(/^The third element of the utterance/m, "\n\n***\n\n"),
+      prefix(/^The apparatus of conflict will, as/m, "\n\n***\n\n"),
+      prefix(/^No power on earth can prevail against/m, "\n\n***\n\n"),
+      prefix(/^The fourth phrase of the aforementioned/m, "\n\n***\n\n"),
+      prefix(/^O people of Persia! How long will your/m, "\n\n***\n\n"),
+      prefix(/^Those European intellectuals who are/m, "\n\n***\n\n"),
+      prefix(/^Among those matters which require thorough/m, "\n\n***\n\n"),
+      prefix(/^As to that element who believe that/m, "\n\n***\n\n"),
+    ],
+    "selections-writings-abdul-baha": [
+      [/^Compiled by the Research Department.*/m, ""],
+      [/^Translated by a Committee at the.*/m, ""],
+      ["References to the Qur’án", ""],
+      [/^In footnotes referring to the Qur’án.*/m, ""],
+      removeAfter("Notes on Translations"),
+      title("", "Selections from the Writings of ‘Abdu’l‑Bahá", {
+        author: "‘Abdu’l‑Bahá",
+        years: authorYears["‘Abdu’l‑Bahá"],
+      }),
+      title("#", "Preface", {
+        meta: "The Universal House of Justice",
+        years: [1978, 1978],
+      }),
+      [
+        "\nSelections from the Writings of ‘Abdu’l‑Bahá",
+        "\n# Selections from the Writings of ‘Abdu’l‑Bahá",
+      ],
+      [/^— .* —$/gm, "##"],
+      [
+        /The first is investigation[\s\S]*tenth, economic questions,/gm,
+        (s) => "\n\n" + s.split("The").join("\n> The") + "\n\n",
+      ],
+      [/\nO Breakwell, O my dear one!/g, (a) => `> ${a.slice(1)}\n>`],
+      prefix("> O Breakwell, O my dear one!", "\n"),
+      splitLines(
+        /If I, like Abraham, through flames.*/m,
+        "Or yet like John",
+        "If, Joseph‑like",
+        "Or shut me up within",
+        "Or make me e’en",
+        "I will not go",
+        "But ever stand",
+        "My soul and body"
+      ),
+      splitLines(
+        /Unless ye must, Bruise not the.*/m,
+        "Bruise not the serpent",
+        "How much less wound",
+        "And if ye can",
+        "No ant should ye",
+        "Much less a brother"
+      ),
+      splitLines(
+        /In the Orient scatter perfumes.*/m,
+        "And shed splendours",
+        "Carry light unto",
+        "And the Slav with"
+      ),
+      splitLines(/That soul which hath itself not.*/m, "Can it then hope"),
+      prefix("Whoso reciteth this prayer with lowliness", "* "),
+      [
+        "Evil One. . . . Should",
+        "Evil One. Discussions must all be confined to spiritual matters that pertain to the training of souls, the instruction of children, the relief of the poor, the help of the feeble throughout all classes in the world, kindness to all peoples, the diffusion of the fragrances of God and the exaltation of His Holy Word. Should",
+      ],
+    ],
+    "some-answered-questions": [
+      removeAfter("Notes"),
+      ["‘Abdu’l‑Bahá", ""],
+      [/^Collected and translated from the.*/m, ""],
+      [/^Newly Revised by a Committee at.*/m, ""],
+      [/^Laura Clifford Barney$/m, ""],
+      title("", "Some Answered Questions", {
+        author: "‘Abdu’l‑Bahá",
+        years: [1904, 1906],
+      }),
+      title("#", "Foreword", {
+        meta: "The Universal House of Justice",
+        years: [2014, 2014],
+      }),
+      title("#", "Author’s Preface to the First Edition", {
+        meta: "Laura Clifford Barney",
+        years: [1908, 1908],
+      }),
+      [/^(Part \d)\n\n(.*)/gm, (_, a, b) => `# ${a}: ${b}`],
+      [/^— .* —$\n\n/gm, "## "],
+    ],
+    "tablet-auguste-forel": [
+      [/^Original Persian text first published.*/m, ""],
+      removeAfter("Notes"),
+      ["***", ""],
+      ["Haifa, 21 September 1921.", ""],
+      title("", "‘Abdu’l‑Bahá’s Tablet to Dr. Forel", {
+        author: "‘Abdu’l‑Bahá",
+        years: [1921, 1921],
+      }),
+    ],
+    "tablets-divine-plan": [
+      ["‘Abdu’l‑Bahá", ""],
+      removeAfter("Notes"),
+      title("", "Tablets of the Divine Plan", {
+        author: "‘Abdu’l‑Bahá",
+        years: [1916, 1917],
+      }),
+      [/^\d+$\n\n(.*)\n\n\*\*\*\n\n/gm, (_, a) => `# ${a}\n\n * `],
+      [/^\*\*\*$/gm, ""],
+    ],
+    "tablets-hague-abdul-baha": [
+      removeAfter("Notes"),
+      [/^17 December 1919$/m, ""],
+      [/^1 July 1920$/m, ""],
+      ["‘Abdu’l‑Bahá’s Tablets to The Hague", "Tablets to The Hague"],
+      title("", "Tablets to The Hague", {
+        author: "‘Abdu’l‑Bahá",
+        years: [1919, 1920],
+      }),
+      title("#", "First Tablet to The Hague"),
+      title("#", "Second Tablet to The Hague"),
+      prefix(/^O ye esteemed /m, "* "),
+      prefix(/^To the /m, "* "),
+    ],
     // "travelers-narrative": [],
     // "twelve-table-talks-abdul-baha": [],
     // "will-testament-abdul-baha": [],

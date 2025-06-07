@@ -131,7 +131,7 @@ export const parseStructuredSections = (
                 "gems-of-divine-mysteries",
                 "the-book-of-certitude",
                 "selections-writings-bab",
-                ,
+                "selections-from-the-writings-of-abdul-baha",
               ].includes(p[1]) ||
               (p[1] === "light-of-the-world" && p[2] === 2)
             )
