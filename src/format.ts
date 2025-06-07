@@ -17,7 +17,7 @@ import { readText, writeText } from "./utils.js";
           replace
             .reduce(
               (res, [a, b]) => res.replace(a, b as any),
-              await readText("fixes", id)
+              await readText("tidy", id)
             )
             .replace(/^>\s*$/gm, "")
             .replace(/(#+\n+)+#/g, "#")

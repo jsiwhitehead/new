@@ -1,10 +1,8 @@
 The Summons of the Lord of Hosts
-author="Bahá’u’lláh"
-years=[1867,1869]
 
-# Introduction
-meta="The Universal House of Justice"
-years=[2002,2002]
+Tablets of Bahá’u’lláh
+
+Introduction
 
 The years following Bahá’u’lláh’s arrival in Adrianople witnessed His Revelation’s attainment, in the words of Shoghi Effendi, of “its meridian glory” through the proclamation of its Founder’s message to the kings and rulers of the world. During this relatively brief but turbulent period of the Faith’s history, and in the early years of His subsequent exile in 1868 to the fortress town of ‘Akká, He summoned the monarchs of East and West collectively, and some among them individually, to recognise the Day of God and to acknowledge the One promised in the scriptures of the religions professed by the recipients of His summons. “Never since the beginning of the world”, Bahá’u’lláh declares, “hath the Message been so openly proclaimed.”
 
@@ -36,10 +34,11 @@ In a Tablet, the original of which has been lost, Bahá’u’lláh had already 
 
 It seems especially appropriate, as Bahá’u’lláh’s influence penetrates ever more deeply the life of the larger society throughout the world, that the full texts of these great Tablets should now be available for a broad readership. We express to the committees who were commissioned to undertake and review these translations the deep gratitude we feel for the care and sensitivity they have brought to the task. Bahá’ís will recognise key passages from several of the Tablets that were introduced to the West by Shoghi Effendi. His translations into English of the Bahá’í Holy Texts provide an enduring standard for the efforts of those who rise to the challenge of preparing appropriate renderings into English of these treasures of the Faith.
 
-# Tablet of the Temple
-translated="Súriy‑i‑Haykal"
+The Universal House of Justice
 
-^ He is the Most Wondrous, the All‑Glorious!
+Súriy‑i‑Haykal
+
+He is the Most Wondrous, the All‑Glorious!
 
 Glorified is He Who hath revealed His verses to those who understand. Glorified is He Who revealeth His verses to those who perceive. Glorified is He Who guideth whomsoever He pleaseth unto His path. Say: I, verily, am the Path of God unto all who are in the heavens and all who are on the earth; well is it with them that hasten thereunto!
 
@@ -243,7 +242,7 @@ O Temple of Divine Revelation! Sound the trumpet in My Name! O Temple of Divine 
 
 Take heed lest ye hesitate in recognising this resplendent Beauty when once He hath appeared in the plenitude of His sovereign might and majesty. He, verily, is the True One, and all else besides Him is as naught before a single one of His servants, and paleth into nothingness when brought face to face with the revelation of His splendours. Hasten, then, to attain the living waters of His grace, and be not of the negligent. As to him who hesitateth, though it be for less than a moment, God shall verily bring his works to naught and return him to the seat of wrath; wretched indeed is the abode of them that tarry!
 
-## Pope Pius IX
+Pope Pius IX
 
 O Pope! Rend the veils asunder. He Who is the Lord of Lords is come overshadowed with clouds, and the decree hath been fulfilled by God, the Almighty, the Unrestrained. Dispel the mists through the power of thy Lord, and ascend unto the Kingdom of His names and attributes. Thus hath the Pen of the Most High commanded thee at the behest of thy Lord, the Almighty, the All‑Compelling. He, verily, hath again come down from Heaven even as He came down from it the first time. Beware that thou dispute not with Him even as the Pharisees disputed with Him without a clear token or proof. On His right hand flow the living waters of grace, and on His left the choice Wine of justice, whilst before Him march the angels of Paradise, bearing the banners of His signs. Beware lest any name debar thee from God, the Creator of earth and heaven. Leave thou the world behind thee, and turn towards thy Lord, through Whom the whole earth hath been illumined.
 
@@ -303,7 +302,7 @@ We behold you, O children of the Kingdom, in darkness. This, verily, beseemeth y
 
 O Pen of the Most High! Bestir Thyself in remembrance of other kings in this blessed and luminous Book, that perchance they may rise from the couch of heedlessness and give ear unto that which the Nightingale singeth upon the branches of the Divine Lote‑Tree, and hasten towards God in this most wondrous and sublime Revelation.
 
-## Napoleon III
+Napoleon III
 
 O King of Paris! Tell the priests to ring the bells no longer. By God, the True One! The Most Mighty Bell hath appeared in the form of Him Who is the Most Great Name, and the fingers of the Will of Thy Lord, the Most Exalted, the Most High, toll it out in the heaven of Immortality in His name, the All‑Glorious. Thus have the mighty verses of Thy Lord been again sent down unto thee, that thou mayest arise to remember God, the Creator of earth and heaven, in these days when all the tribes of the earth have mourned, and the foundations of the cities have trembled, and the dust of irreligion hath enwrapped all men, except such as God, the All‑Knowing, the All‑Wise, was pleased to spare. Say: He Who is the Unconstrained is come, in the clouds of light, that He may quicken the world with the breezes of His name, the Most Merciful, and unite its peoples, and gather all men around this Table which hath been sent down from heaven. Beware that ye deny not the favour of God after it hath been sent down unto you. Better is this for you than that which ye possess; for that which is yours perisheth, whilst that which is with God endureth. He, in truth, ordaineth what He pleaseth. Verily, the breezes of forgiveness have been wafted from the direction of your Lord, the God of Mercy; whoso turneth thereunto shall be cleansed of his sins, and of all pain and sickness. Happy the man that hath turned towards them, and woe betide him that hath turned aside.
 
@@ -359,7 +358,7 @@ Meditate on the world and the state of its people. He, for Whose sake the world 
 
 We behold the generality of mankind worshipping names and exposing themselves, as thou dost witness, to dire perils in the mere hope of perpetuating their names, whilst every perceiving soul testifieth that after death one’s name shall avail him nothing except insofar as it beareth a relationship unto God, the Almighty, the All‑Praised. Thus have their vain imaginings taken hold of them in requital for that which their hands have wrought. Consider the pettiness of men’s minds. They seek with utmost exertion that which profiteth them not, and yet wert thou to ask of them: “Is there any advantage in that which ye desire?”, thou wouldst find them sorely perplexed. Were a fair‑minded soul to be found, he would reply: “Nay, by the Lord of the worlds!” Such is the condition of the people and of that which they possess. Leave them in their folly and turn thy sight unto God. This is in truth that which beseemeth thee. Hearken then unto the counsel of thy Lord, and say: Lauded art Thou, O God of all who are in heaven and on earth!
 
-## Czar Alexander II
+Czar Alexander II
 
 O Czar of Russia! Incline thine ear unto the voice of God, the King, the Holy, and turn thou unto Paradise, the Spot wherein abideth He Who, among the Concourse on high, beareth the most excellent titles, and Who, in the kingdom of creation, is called by the name of God, the Effulgent, the All‑Glorious. Beware lest thy desire deter thee from turning towards the face of thy Lord, the Compassionate, the Most Merciful. We, verily, have heard the thing for which thou didst supplicate thy Lord, whilst secretly communing with Him. Wherefore, the breeze of My loving‑kindness wafted forth, and the sea of My mercy surged, and We answered thee in truth. Thy Lord, verily, is the All‑Knowing, the All‑Wise. Whilst I lay chained and fettered in the prison, one of thy ministers extended Me his aid. Wherefore hath God ordained for thee a station which the knowledge of none can comprehend except His knowledge. Beware lest thou barter away this sublime station. Thy Lord, verily, doeth what He willeth. What He pleaseth will God abrogate or confirm, and with Him is the knowledge of all things in a Guarded Tablet.
 
@@ -387,7 +386,7 @@ Thus doth the Pen of the Most High warble unto thee its melodies by the leave of
 
 Blessed be the king whose sovereignty hath withheld him not from his Sovereign, and who hath turned unto God with his heart. He, verily, is accounted of those that have attained unto that which God, the Mighty, the All‑Wise, hath willed. Erelong will such a one find himself numbered with the monarchs of the realms of the Kingdom. Thy Lord is, in truth, potent over all things. He giveth what He willeth to whomsoever He willeth, and withholdeth what He pleaseth from whomsoever He willeth. He, verily, is the All‑Powerful, the Almighty.
 
-## Queen Victoria
+Queen Victoria
 
 O Queen in London! Incline thine ear unto the voice of thy Lord, the Lord of all mankind, calling from the Divine Lote‑Tree: Verily, no God is there but Me, the Almighty, the All‑Wise! Cast away all that is on earth, and attire the head of thy kingdom with the crown of the remembrance of thy Lord, the All‑Glorious. He, in truth, hath come unto the world in His most great glory, and all that hath been mentioned in the Gospel hath been fulfilled. The land of Syria hath been honoured by the footsteps of its Lord, the Lord of all men, and north and south are both inebriated with the wine of His presence. Blessed is the man that hath inhaled the fragrance of the Most Merciful, and turned unto the Dawning‑Place of His Beauty, in this resplendent Dawn. The Mosque of Aqṣá vibrateth through the breezes of its Lord, the All‑Glorious, whilst Baṭḥá trembleth at the voice of God, the Exalted, the Most High. Whereupon every single stone of them celebrateth the praise of the Lord, through this Great Name.
 
@@ -419,7 +418,7 @@ Rein in Thy pen, O Pen of the Ancient of Days, and leave them to themselves, for
 
 Turn thou unto God and say: O my Sovereign Lord! I am but a vassal of Thine, and Thou art, in truth, the King of kings. I have lifted my suppliant hands unto the heaven of Thy grace and Thy bounties. Send down, then, upon me from the clouds of Thy generosity that which will rid me of all save Thee, and draw me nigh unto Thyself. I beseech Thee, O my Lord, by Thy name, which Thou hast made the king of names and the manifestation of Thyself to all who are in heaven and on earth, to rend asunder the veils that have intervened between me and my recognition of the Dawning‑Place of Thy signs and the Dayspring of Thy Revelation. Thou art, verily, the Almighty, the All‑Powerful, the All‑Bounteous. Deprive me not, O my Lord, of the fragrances of the Robe of Thy mercy in Thy days, and write down for me that which Thou hast written down for Thy handmaidens who have believed in Thee and in Thy signs, and have recognised Thee, and set their hearts towards the horizon of Thy Cause. Thou art truly the Lord of the worlds and of those who show mercy the Most Merciful. Assist me, then, O my God, to remember Thee amongst Thy handmaidens, and to aid Thy Cause in Thy lands. Accept, then, that which hath escaped me when the light of Thy countenance shone forth. Thou, indeed, hast power over all things. Glory be to Thee, O Thou in Whose hand is the kingdom of the heavens and of the earth.
 
-## Náṣiri’d‑Dín Sháh
+Náṣiri’d‑Dín Sháh
 
 O King of the Earth! Hearken unto the call of this Vassal: Verily, I am a Servant Who hath believed in God and in His signs, and have sacrificed Myself in His path. Unto this bear witness the woes which now beset Me, woes the like of which no man hath ever before sustained. My Lord, the All‑Knowing, testifieth to the truth of My words. I have summoned the people unto none save God, thy Lord and the Lord of the worlds, and have endured for love of Him such afflictions as the eye of creation hath never beheld. To this testify those whom the veils of human fancy have not deterred from turning unto the Most Sublime Vision, and, beyond them, He with Whom is the knowledge of all things in the preserved Tablet.
 
@@ -501,13 +500,13 @@ How, We fain would ask, is it possible to impugn this people whose deeds are in 
 
 In this connection the text of several passages from the Hidden Book of Fáṭimih—the blessings of God be upon her!—which are relevant to the present theme will be cited in the Persian tongue, that certain matters which have ere now been hidden may be revealed before thy presence. The people addressed in the aforementioned Book, which is today known as the Hidden Words, are those who, though outwardly known for learning and piety, are inwardly the slaves of self and passion.
 
-He saith: “O ye that are foolish, yet have a name to be wise! Wherefore do ye wear the guise of shepherds, when inwardly ye have become wolves, intent upon My flock? Ye are even as the star, which riseth ere the dawn, and which, though it seem radiant and luminous, leadeth the wayfarers of My city astray into the paths of perdition.”
+He saith: O ye that are foolish, yet have a name to be wise! Wherefore do ye wear the guise of shepherds, when inwardly ye have become wolves, intent upon My flock? Ye are even as the star, which riseth ere the dawn, and which, though it seem radiant and luminous, leadeth the wayfarers of My city astray into the paths of perdition.
 
-And likewise He saith: “O ye seeming fair yet inwardly foul! Ye are like clear but bitter water, which to outward seeming is crystal pure but of which, when tested by the Divine Assayer, not a drop is accepted. Yea, the sunbeam falls alike upon the dust and the mirror, yet differ they in reflection even as doth the star from the earth: nay, immeasurable is the difference!”
+And likewise He saith: O ye seeming fair yet inwardly foul! Ye are like clear but bitter water, which to outward seeming is crystal pure but of which, when tested by the Divine Assayer, not a drop is accepted. Yea, the sunbeam falls alike upon the dust and the mirror, yet differ they in reflection even as doth the star from the earth: nay, immeasurable is the difference!
 
-And also He saith: “O essence of desire! At many a dawn have I turned from the realms of the Placeless unto thine abode, and found thee on the bed of ease busied with others than Myself. Thereupon, even as the flash of the spirit, I returned to the realms of celestial glory, and breathed it not in My retreats above unto the hosts of holiness.”
+And also He saith: O essence of desire! At many a dawn have I turned from the realms of the Placeless unto thine abode, and found thee on the bed of ease busied with others than Myself. Thereupon, even as the flash of the spirit, I returned to the realms of celestial glory, and breathed it not in My retreats above unto the hosts of holiness.
 
-And again He saith: “O bondslave of the world! Many a dawn hath the breeze of My loving‑kindness wafted over thee and found thee upon the bed of heedlessness fast asleep. Bewailing then thy plight it returned whence it came.”
+And again He saith: O bondslave of the world! Many a dawn hath the breeze of My loving‑kindness wafted over thee and found thee upon the bed of heedlessness fast asleep. Bewailing then thy plight it returned whence it came.
 
 Therefore, in the exercise of the royal justice, it is not sufficient to give ear to the claimant alone. God saith in the Qur’án, the unerring Balance that distinguisheth truth from falsehood: “O ye who believe! If a wicked man come to you with news, clear it up at once, lest through ignorance ye harm others, and afterward repent of what ye have done.” The holy Traditions, moreover, contain the admonition: “Believe not the tale‑bearer.” Certain of the divines, who have never seen Us, have misconceived the nature of Our Cause. Those, however, who have met Us will testify that this Servant hath not spoken save in accordance with that which God hath commanded in the Book, and that He hath called attention to the following blessed verse—exalted be His Word: “Do ye not disavow us only because we believe in God and in what He hath sent down unto us, and in what He had sent down aforetime?”
 
@@ -607,10 +606,9 @@ And finally We beseech God, exalted be His glory, to enable thee to aid His Fait
 
 Thus have We built the Temple with the hands of power and might, could ye but know it. This is the Temple promised unto you in the Book. Draw ye nigh unto it. This is that which profiteth you, could ye but comprehend it. Be fair, O peoples of the earth! Which is preferable, this, or a temple which is built of clay? Set your faces towards it. Thus have ye been commanded by God, the Help in Peril, the Self‑Subsisting. Follow ye His bidding, and praise ye God, your Lord, for that which He hath bestowed upon you. He, verily, is the Truth. No God is there but He. He revealeth what He pleaseth, through His words “Be and it is”.
 
-# Tablet of the Chief
-translated="Súriy‑i‑Ra’ís"
+Súriy‑i‑Ra’ís
 
-^ In His name, the All‑Glorious!
+In His name, the All‑Glorious!
 
 Hearken, O Chief, to the voice of God, the Sovereign, the Help in Peril, the Self‑Subsisting. He, verily, calleth aloud between heaven and earth, summoning all mankind unto the scene of transcendent glory. Neither thy grunting, nor the barking of those around thee, nor the opposition of the hosts of the world can withhold the Almighty from achieving His purpose. The whole world hath been set ablaze by the Word of thy Lord, the All‑Glorious, a Word softer than the morning breeze. It hath been manifested in the form of the human temple, and through it God hath quickened the souls of the sincere among His servants. In its inner essence, this Word is the living water by which God hath purified the hearts of such as have turned unto Him and forgotten every other mention, and through which He draweth them nigh unto the seat of His mighty Name. We have sprinkled it upon the people of the graves, and lo, they have risen up, with their gaze fixed upon the shining and resplendent Beauty of their Lord.
 
@@ -694,10 +692,9 @@ We have forsaken our homes, O Lord, in our eagerness to meet Thee and in our lon
 
 O Lord! Dire thirst hath seized us, and with Thee are the soft‑flowing waters of eternal life. Potent art Thou to do what pleaseth Thee. Deny us not the object of our quest. Write down then for us the recompense decreed for such of Thy servants as enjoy near access to Thee and are wholly devoted to Thy will. Make us so steadfast in Thy love that naught shall keep us back from Thee or deter us from Thine adoration. Powerful art Thou to do Thy pleasure. Thou, verily, art the Almighty, the Most Generous.
 
-# Tablet of the Chief
-translated="Lawḥ‑i‑Ra’ís"
+Lawḥ‑i‑Ra’ís
 
-^ He is in His own Right the Supreme Ruler!
+He is in His own Right the Supreme Ruler!
 
 The Pen of the Most High proclaimeth: O thou who hast imagined thyself to be the most exalted of men and who hast regarded as the lowliest of all creatures this divine Youth, through Whom the eyes of the Concourse on high have been illumined and made radiant! This Youth hath sought nothing from thee or from such as are like unto thee, inasmuch as from time immemorial, whenever the Manifestations of the All‑Merciful and the Exponents of His unfading glory have stepped out of the Realm of eternity into this mortal world and revealed themselves to revive the dead, men such as thee have considered these sanctified Souls and Temples of Divine Oneness, upon Whom must needs depend the rehabilitation of the peoples of the earth, to be stirrers of mischief and worthy of blame. These men, verily, have all returned unto dust. Thou, too, shalt erelong take abode therein and find thyself in grievous loss.
 
@@ -757,10 +754,9 @@ The pen is powerless to depict and the tongue faileth to describe the trials whi
 
 We implore God for patience and forbearance, inasmuch as thou art but a feeble creature and bereft of comprehension. Wert thou to awaken and inhale the fragrance of the breezes that waft from the retreats of eternity, thou wouldst readily abandon all that thou dost possess and in which thou dost rejoice, and choose to abide in one of the dilapidated rooms of this Most Great Prison. Beseech God to grant thee such mature understanding as to enable thee to distinguish praiseworthy actions from those which merit blame. Peace be upon him who followeth the way of guidance!
 
-# Tablet of Fu’ád Páshá
-translated="Lawḥ‑i‑Fu’ád"
+Lawḥ‑i‑Fu’ád
 
-^ He is the Most Holy, the Most Glorious!
+He is the Most Holy, the Most Glorious!
 
 Káf. Ẓá’. We call unto thee from beyond the sea of grandeur, upon the crimson land, above the horizon of tribulation. Verily, no God is there save Him, the Almighty, the Most Generous. Walk thou steadfastly in My Cause and follow not the ways of those who, upon attaining unto the object of their desire, denied God, the Lord of Lords. Erelong shall He lay hold upon them in His wrath, and He, verily, is the All‑Powerful, the All‑Subduing.
 
@@ -804,10 +800,9 @@ Thus did We lay hold on him as We laid hold on those who preceded him. Behold th
 
 Thus have We recounted unto thee the tale of the evil‑doers, that thine eyes may be solaced. As for thee, there lieth in store naught but a blissful end.
 
-# Tablet of Kings
-translated="Súriy‑i‑Múlúk"
+Súriy‑i‑Múlúk
 
-^ He is the Almighty!
+He is the Almighty!
 
 This is a Tablet from this Servant, who is called Ḥusayn in the kingdom of names, to the concourse of the kings of the earth. Haply they may approach it in a spirit of open‑mindedness, discover from its message the mysteries of divine providence, and be of those that comprehend its meaning, and perchance they may forsake all they possess, turn towards the retreats of holiness, and draw nigh unto God, the All‑Glorious, the Incomparable.
 
@@ -1044,3 +1039,1045 @@ I counsel you, in the end, not to overstep the bounds of God, nor to heed the wa
 I close with these words uttered by God, exalted be His glory: “Say not to everyone who meeteth you with a greeting, ‘Thou art not a believer’.”
 
 Peace be upon you, O concourse of the faithful, and praise be to God, the Lord of the worlds.
+
+Endnotes
+
+Footnotes
+
+Súriy‑i‑Haykal
+
+Mírzá Yaḥyá.
+
+The Báb.
+
+Peter.
+
+The Sulṭán of Turkey.
+
+‘Akká.
+
+Mecca.
+
+The Súriy‑i‑Múlúk.
+
+The Sulṭán of Turkey.
+
+Muḥammad.
+
+Ṭihrán.
+
+Baghdád.
+
+Mecca.
+
+Súriy‑i‑Ra’ís
+
+Adrianople.
+
+Anís.
+
+Adrianople.
+
+Mírzá ‘Alí‑Akbar‑i‑Naráqí.
+
+Lawḥ‑i‑Fu’ád
+
+‘Álí Páshá.
+
+Sulṭán ‘Abdu’l‑‘Azíz.
+
+Súriy‑i‑Múlúk
+
+The Báb.
+
+Jesus.
+
+Sulṭán ‘Abdu’l‑‘Azíz.
+
+Adrianople.
+
+The Báb.
+
+Imám Ḥusayn.
+
+The Muslims.
+
+Náṣiri’d‑Dín Sháh.
+
+Baghdád.
+
+Endnotes
+
+cf. Qur’án 2:30—34; 38:71—75.
+
+Ustád Muḥammad‑‘Alíy‑i‑Salmání. See God Passes By, pp. 166—168, for an account of the events referred to by Bahá’u’lláh in this and following paragraphs.
+
+The word Haykal (Temple) is composed in Arabic of the four letters Há’, Yá’, Káf and Lám (HYKL). Its first letter is taken to symbolise the word Huvíyyah (Essence of Divinity); its second letter the word Qadír (Almighty), of which Yá’ is the third letter; its third letter the word Karím (All‑Bountiful); and its fourth letter the word Faḍl (Grace), of which Lám is the third letter.
+
+cf. Qur’án 21:30; 24:45; 25:54.
+
+That is, the letter “E”. In all such instances in the Writings where the letters “B” and “E” are mentioned, the Arabic letters are Káf and Nún, the two consonants of the Arabic word Kun, which is the imperative meaning “Be”.
+
+“The tree beyond which there is no passing”, a reference to the station of the Manifestation of God.
+
+These are examples of the types of questions put to the Báb. According to the teachings of Shí‘ite Islám, leadership of the Islámic community belonged of right, after the passing of the Prophet Muḥammad, to a line of twelve successors, descendants of His daughter Fáṭimih, known as “Imáms”. This line being eventually severed through the “occultation” of the last Imám, communication with the latter was for a time maintained through a succession of four intermediaries known as “Gates”.
+
+One of a trio of Arabian goddesses whose worship was abolished by the Prophet Muḥammad.
+
+A small rock situated low in the eastern corner of the Kaaba.
+
+cf. Matthew 5:29; Mark 9:47.
+
+This is Bahá’u’lláh’s second Tablet addressed to the French Emperor. An earlier Tablet was revealed in Adrianople.
+
+The Crimean War (1853—1856).
+
+Within the year Napoleon III was defeated at the Battle of Sedan (1870) and sent into exile.
+
+cf. Qur’án 77:20; 32:8.
+
+The two Most Great Festivals are the Festival of Riḍván, during which Bahá’u’lláh first proclaimed His Mission, and the Declaration of the Báb. The “twin days” refer to the Birthdays of the Báb and Bahá’u’lláh. cf. Kitáb‑i‑Aqdas, ¶110.
+
+cf. Qur’án 17:78.
+
+Mírzá Buzurg Khán, the Persian Consul‑General in Baghdád.
+
+The Mu’taminu’l‑Mulk, Mírzá Sa‘íd Khán‑i‑Anṣárí, Minister of Foreign Affairs.
+
+Bahá’u’lláh here refers to His and His companions’ application for Ottoman citizenship.
+
+Áqá Siyyid Muḥammad‑i‑Ṭabáṭabá’íy‑i‑Isfáhání, known as “Mujáhid”.
+
+The second Russo‑Persian War of 1825—28.
+
+Qur’án 2:94; 62:6.
+
+cf. Persian Hidden Words, nos. 24, 25, 28 and 30.
+
+Qur’án 49:6.
+
+Qur’án 5:59.
+
+A Tradition ascribed to the eleventh Imám, Abú Muḥammad al‑Ḥasan al‑‘Askarí.
+
+Traditions ascribed to the sixth Imám, Abú ‘Abdu’lláh Ja‘far aṣ‑Ṣádiq.
+
+Shaykh Murtaḍáy‑i‑Anṣárí, a prominent mujtahid.
+
+Qur’án 2:179.
+
+Qur’án 6:164; 17:15; 35:18; 39:7; 53:38.
+
+cf. Qur’án 3:40; 14:27; 22:18.
+
+cf. Qur’án 5:1.
+
+cf. Qur’án 5:64.
+
+Qur’án 40:5.
+
+Qur’án 36:30.
+
+Qur’án 8:30.
+
+Qur’án 6:35.
+
+cf. Matthew 24:35; Mark 13:31; Luke 21:33.
+
+John 14:28.
+
+cf. John 14:16; 14:26; 15:26; 16:7.
+
+See, for example, Qur’án 4:46; 5:13; 5:41; and 2:75, and the discussion in the Kitáb‑i‑Íqán, p. 84 ff.
+
+‘Alí Ibn Ḥusayn, known as “Zaynu’l‑‘Ábidín”, the second of the Imám Ḥusayn’s sons, who became the fourth Imám.
+
+The Kharijites, a faction opposed to both the Imáms and the Umayyad state.
+
+Allusions to the ‘Abbásid and Umayyad dynasties, respectively.
+
+Qur’án 57:16.
+
+cf. Luke 19:21.
+
+cf. Qur’án 55:26.
+
+cf. Qur’án 12:31.
+
+This Tablet was revealed in Arabic in honour of Ḥájí Muḥammad Ismá‘íl‑i‑Káshání, entitled Dhabíḥ (Sacrifice) and Anís (Companion) by Bahá’u’lláh, and addresses ‘Álí Páshá, the Ottoman Prime Minister, referred to here as Ra’ís (Chief or Ruler).
+
+Sulṭán ‘Abdu’l‑‘Azíz lost both his throne and his life in 1876. During the subsequent war with Russia (1877—1878), Adrianople was occupied by the enemy and the Turks experienced a violent bloodbath.
+
+Literally, “the Mount of Figs” and “the Mount of Olives”, cf. Qur’án 95:1.
+
+Chosroes II, the Sasanian monarch who reigned in Persia during the lifetime of Muḥammad.
+
+Ḥájí Ja‘far‑i‑Tabrízí; he was prevented in time from ending his life.
+
+Siyyid Ismá‘íl of Zavárih.
+
+This second Tablet of Bahá’u’lláh addressing ‘Álí Páshá was revealed in Persian shortly after Bahá’u’lláh’s arrival and confinement in ‘Akká.
+
+For an account of this incident see God Passes By, p. 182.
+
+A probable reference to the fire of Hocapaşa, which destroyed a large part of the city of Constantinople in 1865.
+
+The Lawḥ‑i‑Fu’ád was addressed to Shaykh Káẓim‑i‑Samandar of Qazvín, one of the apostles of Bahá’u’lláh. Its subject, the former Ottoman statesman Fu’ád Páshá, died in France in 1869. The letter names Káf and Ẓá refer to the K and Ẓ of Káẓim.
+
+cf. Qur’án 38:3.
+
+cf. Qur’án 13:13.
+
+cf. Qur’án 40:32.
+
+cf. Qur’án 38:12, 89:10.
+
+“Heart” translates Fu’ád, the given name of the Ottoman minister.
+
+Mírzá Mihdíy‑i‑Rashtí, a judge in Constantinople and supporter of Mírzá Yaḥyá.
+
+John 14:28.
+
+John 16:13.
+
+John 1:13.
+
+The French Ambassador in Constantinople.
+
+The Persian Ambassador in Constantinople.
+
+Qur’án 51:55.
+
+Qur’án 49:6.
+
+Qur’án 12:53.
+
+Qur’án 15:88.
+
+cf. Qur’án 77:20; 32:8.
+
+Qur’án 40:28.
+
+Qur’án 4:94.
+
+Qur’án 6:52.
+
+Qur’án 6:44.
+
+The Persian Consul‑General in Baghdád.
+
+Qur’án 20:55.
+
+Al‑Muqanna‘ of Khurásán (eighth century A.D.).
+
+Qur’án 4:94.
+
+Note on the Translation
+
+Wherever possible, translations made by Shoghi Effendi have been incorporated in the present volume. These passages account for approximately one third of the text. The committees and individuals appointed to prepare the translations faced the challenge of rendering the balance of the Text in a manner at once faithful to the meaning of the original and consistent with the exalted English style established by the Guardian for the translation of Bahá’u’lláh’s matchless utterance.
+
+In the translation of the Lawḥ‑i‑Sulṭán the translators benefitted from consulting the earlier, pioneering translation of the English orientalist E. G. Browne as it appeared in ‘Abdu’l‑Bahá’s A Traveller’s Narrative, first published by Cambridge University Press in 1891.
+
+Key to Passages Translated by Shoghi Effendi
+
+Abbreviation of Sources
+
+ESW
+
+Bahá’u’lláh. Epistle to the Son of the Wolf. Wilmette: Bahá’í Publishing Trust, 1988.
+
+GPB
+
+Shoghi Effendi. God Passes By. Wilmette: Bahá’í Publishing Trust, 1974.
+
+GWB
+
+Bahá’u’lláh. Gleanings from the Writings of Bahá’u’lláh. Wilmette, Bahá’í Publishing Trust, 1976.
+
+KI
+
+Bahá’u’lláh. The Kitáb‑i‑‘Íqán. Wilmette: Bahá’í Publishing Trust, 1994.
+
+HW
+
+Bahá’u’lláh. The Hidden Words. Wilmette: Bahá’í Publishing Trust, 1994. (PHW are from the Persian Hidden Words.)
+
+PDC
+
+Shoghi Effendi. The Promised Day Is Come. Wilmette: Bahá’í Publishing Trust, rev. ed., 1996.
+
+WOB
+
+Shoghi Effendi. The World Order of Bahá’u’lláh: Selected Letters. Wilmette: Bahá’í Publishing Trust, 1991.
+
+Paragraph
+
+Passage
+
+Source
+
+Súriy‑i‑Haykal
+
+6—7
+
+“While engulfed in tribulations . . . of them that perceive.”
+
+GPB 101—102
+
+8
+
+“The day is approaching when God . . . the Self‑Subsisting.”
+
+WOB 109—110
+
+34
+
+“Erelong shall God draw forth . . . how vehement is His might”
+
+WOB 110
+
+42
+
+“Beware lest ye shed the blood . . . if ye do but understand.”
+
+ESW 25
+
+44
+
+“Naught is seen in My temple . . . could be seen but God.”
+
+WOB 109
+
+47
+
+“the fertilising winds . . . whether seen or unseen!”
+
+WOB 169, PDC ¶112
+
+50
+
+“The Holy Spirit Itself . . . of them that comprehend”
+
+WOB 109
+
+66
+
+“Within the treasury of Our Wisdom . . . the All‑Wise.”
+
+WOB 109
+
+75
+
+“It is in Our power, should We wish it, to enable . . . future ages.”
+
+WOB 107
+
+88
+
+“Great is the blessedness . . . the Almighty, the All‑Wise.”
+
+PDC ¶271
+
+89
+
+“O ye the dawning‑places . . . and unto others.”
+
+PDC ¶208
+
+89
+
+“Ye are even as a spring . . . it fruits, will be corrupted.”
+
+PDC ¶208
+
+96
+
+“Had the Primal Point . . . with each other in My Days.”
+
+WOB 138
+
+Pope Pius IX (Lawḥ‑i‑Páp)
+
+102
+
+“O Pope! . . . the Almighty, the Unrestrained.”
+
+PDC ¶71
+
+102
+
+“He, verily, hath again come . . . hath been illumined.”
+
+PDC ¶71
+
+103
+
+“Dwellest thou in palaces . . . towards the Kingdom.”
+
+PDC ¶71
+
+105
+
+“Arise in the name of thy Lord . . . peoples of all faiths.”
+
+PDC ¶71
+
+106
+
+“Call thou to remembrance . . . away from His light.”
+
+PDC ¶72
+
+108
+
+“Consider those who opposed . . . disputed with Him.”
+
+PDC ¶72
+
+108
+
+“None save a very few . . . eventide and at dawn.”
+
+PDC ¶72
+
+109
+
+“Read ye the Evangel . . . concourse of learned men!”
+
+PDC ¶256
+
+111
+
+“The fragrances of the . . . fast hold of guidance.”
+
+PDC ¶256
+
+112
+
+“The Word which the Son . . . of the righteous!”
+
+PDC ¶73
+
+113
+
+“This is the day . . . Kingdom is fulfilled!”
+
+PDC ¶73
+
+114
+
+“My body longeth . . . from its transgressions.”
+
+PDC ¶73
+
+115
+
+“The people of the Qur’án . . . clouds wept over Us.”
+
+PDC ¶247
+
+116
+
+“And if they cast . . . the Gracious, the All‑Powerful!”
+
+WOB 108
+
+118
+
+“O Supreme Pontiff . . . the book of creation.”
+
+PDC ¶74
+
+120
+
+“Should the inebriation . . . Revealer of all power.”
+
+PDC ¶74
+
+126
+
+“Verily, the day of ingathering . . . the All‑Compelling.”
+
+PDC ¶74
+
+127
+
+“Say: O concourse of Christians . . . turn ye unto Him.”
+
+PDC ¶261
+
+127
+
+“The Beloved One . . . heedless of My Revelation”
+
+PDC ¶261
+
+128
+
+“O people of the Gospel! . . . everlasting life.”
+
+PDC ¶261
+
+129
+
+“We behold you . . . Direct yourselves towards Him.”
+
+PDC ¶261
+
+129
+
+“Verily, He said . . . quickeners of mankind.”
+
+PDC ¶261
+
+Napoleon III (Lawḥ‑i‑Napulyún II)
+
+131—5
+
+“O King of Paris! . . . near access to God to flow.”
+
+ESW 46—49, GPB 207
+
+136—9
+
+“Say: O concourse of monks . . . wrapt in a thick veil!”
+
+ESW 49—52
+
+140
+
+“More grievous . . . kingdoms of earth and heaven.”
+
+ESW 52
+
+141
+
+“Upon Our arrival . . . token of God’s grace.”
+
+GPB 206
+
+142—43
+
+“As My tribulations multiplied . . . poor and the desolate.”
+
+ESW 52—53
+
+143
+
+“Abandon thy palaces . . . them that turn unto Him.”
+
+PDC ¶70
+
+143
+
+“Shouldst thou desire . . . All‑Knowing, the All‑Wise.”
+
+PDC ¶70
+
+144
+
+“Arise thou . . . Lord of strength and of might.”
+
+ESW 53
+
+145
+
+“Adorn the body . . . peoples of the earth.”
+
+ESW 53—54
+
+146
+
+“Doth it behove you . . . shining and resplendent Seat.”
+
+ESW 54
+
+147
+
+“Shed not the blood . . . abode of the transgressors!”
+
+ESW 54
+
+148
+
+“God hath prescribed . . . influence his hearers.”
+
+GWB CLVIII
+
+149
+
+“Deal not treacherously . . . the Most Generous.”
+
+ESW 54—55
+
+150—51
+
+“O people of Bahá . . . created of a sorry germ.”
+
+ESW 55
+
+152
+
+“Regard ye the world . . . such as create dissension.”
+
+ESW 55—56
+
+154
+
+“He Who is your Lord . . . among God’s blessed ones.”
+
+GWB CVII
+
+156
+
+“Meditate on the world . . . this sublime Vision.”
+
+ESW 56
+
+Czar Alexander II (Lawḥ‑i‑Malik‑i‑Rús)
+
+158
+
+“O Czar of Russia . . . barter away this sublime station.”
+
+PDC ¶75
+
+159—60
+
+“Beware lest thy sovereignty . . . sword of the oppressor.”
+
+PDC ¶75—76
+
+162—3
+
+“Again I say . . . the Mighty, the Glorified.”
+
+PDC ¶77—78
+
+164
+
+“Some lamented . . . Evangel were adorned.”
+
+PDC ¶78¶
+
+170
+
+“Blessed be the king . . . the All‑Powerful, the Almighty.”
+
+PDC ¶78
+
+Queen Victoria (Lawḥ‑i‑Malikih)
+
+171—3
+
+“O Queen in London . . . the Ruler, the All‑Wise.”
+
+PDC ¶79—81
+
+173
+
+“And if any one of them . . . of the blissful.”
+
+ESW 61—62
+
+174—6
+
+“O ye the elected . . . all else naught but error.”
+
+GWB CXX
+
+176—7
+
+“Each time that Most Mighty . . . what I say.”
+
+ESW 63—64
+
+178—82
+
+“O ye rulers . . . naught but manifest justice.”
+
+GWB CXIX
+
+185
+
+“Turn thou unto God . . . heavens and of the earth.”
+
+PDC ¶82
+
+Náṣiri’d‑Dín Sháh (Lawḥ‑i‑Sulṭán)
+
+192—95
+
+“O King! I was but a man . . . derived from the Name of God!”
+
+PDC ¶97—99
+
+217
+
+“A just king is the shadow . . . that hath surpassed the worlds.”
+
+PDC ¶182
+
+221
+
+“Would that the world‑adorning wish . . . for Me or against Me.”
+
+PDC ¶110
+
+225
+
+“O ye that are foolish . . . the paths of perdition.”
+
+PHW #24 as quoted in ESW 15
+
+226
+
+“O ye seeming fair . . . immeasurable is the difference!”
+
+PHW #25 as quoted in ESW 16
+
+227
+
+“O essence of desire! . . . unto the hosts of holiness.”
+
+PHW #28
+
+228
+
+“O bondslave of the world! . . . returned whence it came.”
+
+PHW #30
+
+230
+
+“O King of the age! . . . a sufficient witness unto Me.”
+
+PDC ¶100
+
+233
+
+“The religious doctors . . . and unto them shall it return.”
+
+KI 247—48
+
+233
+
+“When the Standard of Truth . . . shall curse it.”
+
+KI 238
+
+234
+
+“Those doctors who have indeed drunk of the cup of renunciation”
+
+GPB 143
+
+242
+
+“Each nation hath plotted darkly . . . invalidate the truth.”
+
+KI 5
+
+242
+
+“No Messenger cometh unto them but they laugh Him to scorn.”
+
+KI 5
+
+244
+
+“But if their opposition be grievous . . . a ladder into heaven”
+
+KI 109—10
+
+249
+
+“O would that thou wouldst . . . knowledge of the Book.”
+
+PDC ¶101
+
+249
+
+“But for the repudiation . . . no God is there but He!”
+
+PDC ¶101
+
+258
+
+“By Him Who is the Truth! . . . lighteth earth and heaven.”
+
+ESW 17
+
+265
+
+“I have seen, O Sháh . . . nor ear heard.”
+
+PDC ¶102
+
+265—6
+
+“How numerous the tribulations . . . in the path of My Lord!”
+
+PDC ¶102
+
+267
+
+“According to what they say . . . metropolis of the owl”
+
+GPB 186
+
+268
+
+“By God! Though weariness . . . such as commune with Him.”
+
+PDC ¶102
+
+273
+
+“But for the tribulations . . . the Lord of the worlds.”
+
+ESW 94
+
+276
+
+“Thus have We built the Temple . . . Be and it is.”
+
+PDC ¶113
+
+Súriy‑i‑Ra’ís
+
+1
+
+“Hearken, O chief . . . the Help in Peril, the Self‑Subsisting.”
+
+WOB 178
+
+2
+
+“Thou hast, O Chief, committed that . . . manifest loss!”
+
+WOB 178, GPB 174
+
+5
+
+“The day is approaching . . . in sore distress.”
+
+PDC 152
+
+11
+
+“the loved ones of God . . . on the first night without food.”
+
+GPB 179
+
+12
+
+“The people surrounded the house . . . wept over Us”
+
+GPB 179
+
+12
+
+“We perceived that the weeping . . . such as ponder.”
+
+GPB 179—180
+
+13
+
+“unheard of in bygone centuries . . . the power of His might”
+
+GPB 180
+
+13
+
+“King and Beloved of Martyrs”
+
+GPB 136—137
+
+14
+
+“Say: This Youth hath departed . . . the power of truth”
+
+GPB 181
+
+18
+
+“Had Muḥammad . . . Thy law!”
+
+WOB 105
+
+“Had Moses . . . Thy face!”
+
+WOB 105—106
+
+21
+
+“Ere long will God . . . the Almighty, the Beneficent”
+
+PDC ¶185
+
+Lawḥ‑i‑Ra’ís
+
+6
+
+“From the foundation of the world . . . nor heard of.”
+
+GPB 187
+
+7
+
+“Soon will He seize you . . . none to help or succour you.”
+
+PDC ¶153
+
+9
+
+“Several times calamities . . . the Pen of My command.”
+
+PDC ¶153
+
+25—26
+
+“There is a matter . . . may be made known unto you.”
+
+PDC ¶111
+
+Lawḥ‑i‑Fu’ád
+
+13
+
+“Soon will We dismiss . . . the All‑Compelling.”
+
+PDC ¶156
+
+Súriy‑i‑Múlúk
+
+2
+
+“O kings of the earth! . . . the All‑Powerful, the All‑Wise.”
+
+PDC ¶41
+
+2—3
+
+“Fear God, O concourse . . . and be not of the heedless.”
+
+PDC ¶41
+
+4
+
+“My face hath come forth . . . could ye but know it.”
+
+PDC ¶41
+
+6
+
+“Arise, then, . . . may be revealed unto you.”
+
+PDC ¶41
+
+6
+
+“Beware lest ye hinder . . . can be quickened.”
+
+PDC ¶41
+
+7—14
+
+“Lay not aside the fear . . . the right course.”
+
+PDC ¶42—46
+
+15
+
+“O kings of Christendom! . . . the entire creation.”
+
+PDC ¶64
+
+20—23
+
+“Twenty years have passed . . . turn his face towards Thee.”
+
+GWB CXVI
+
+24—30
+
+“Call Thou to remembrance . . . Himself a witness.”
+
+GWB LXV
+
+36
+
+“Know ye that the world . . . all things hath testified.”
+
+GWB LXV
+
+37—47
+
+“Fear God, ye inhabitants . . . the path of resignation.”
+
+GWB LXVI
+
+53—54
+
+“The day is approaching . . . of the past or of the future.”
+
+GWB LXVI
+
+58—72
+
+“Hearken, O King . . . abide and rule therein.”
+
+GWB CXIV
+
+74
+
+“They expelled Us . . . on earth can compare”
+
+GPB 161
+
+74
+
+“the place which none entereth . . . authority of the sovereign”
+
+GPB 161
+
+75
+
+“Neither My family . . . that freezing weather.”
+
+GPB 161
+
+78—83
+
+“I swear by God, O King! . . . the Lord of all worlds!”
+
+GWB CXIV
+
+84—107
+
+“Dost thou imagine . . . trust and confidence in their Lord.”
+
+GWB CXIII
+
+108
+
+“O ye divines of the City! . . . than all your doings.”
+
+PDC ¶224
+
+109—111
+
+“Know ye, that had your leaders . . . turn upon their heels.”
+
+PDC ¶224
+
+111
+
+“Know ye that God will not . . . could ye but perceive it.”
+
+PDC ¶224
+
+This document has been downloaded from the . You are free to use its content subject to the terms of use found at
+
+Last modified: 19 August 2022 05:30 p.m. (GMT)

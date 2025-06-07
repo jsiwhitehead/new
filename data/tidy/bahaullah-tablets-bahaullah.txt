@@ -1,9 +1,18 @@
 Tablets of Bahá’u’lláh
-author="Bahá’u’lláh"
-years=[1877,1891]
 
-# Tablet of Carmel
-translated="Lawḥ‑i‑Karmil"
+revealed after the Kitáb‑i‑Aqdas
+
+Compiled by the Research Department of the Universal House of Justice and translated by Ḥabíb Taherzadeh with the assistance of a Committee at the Bahá’í World Centre
+
+References to the Qur’án
+
+In footnotes referring to the Qur’án the súrihs have been numbered according to the original, whereas the verse numbers are those in Rodwell’s translation which differ sometimes from those of the Arabic.
+
+1
+
+Lawḥ‑i‑Karmil
+
+(Tablet of Carmel)
 
 All glory be to this Day, the Day in which the fragrances of mercy have been wafted over all created things, a Day so blest that past ages and centuries can never hope to rival it, a Day in which the countenance of the Ancient of Days hath turned towards His holy seat. Thereupon the voices of all created things, and beyond them those of the Concourse on High, were heard calling aloud: “Haste thee, O Carmel, for lo, the light of the countenance of God, the Ruler of the Kingdom of Names and Fashioner of the heavens, hath been lifted upon thee.”
 
@@ -15,12 +24,15 @@ No sooner had her voice reached that most exalted Spot than We made reply: “Re
 
 Sanctified be the Lord of all mankind, at the mention of Whose name all the atoms of the earth have been made to vibrate, and the Tongue of Grandeur hath been moved to disclose that which had been wrapt in His knowledge and lay concealed within the treasury of His might. He, verily, through the potency of His Name, the Mighty, the All‑Powerful, the Most High, is the ruler of all that is in the heavens and all that is on earth.
 
-# The Most Holy Tablet
-translated="Lawḥ‑i‑Aqdas"
+2
 
-* This is the Most Holy Tablet sent down from the holy kingdom unto the one who hath set his face towards the Object of the adoration of the world, He Who hath come from the heaven of eternity, invested with transcendent glory
+Lawḥ‑i‑Aqdas
 
-^ In the name of the Lord, the Lord of great glory.
+(The Most Holy Tablet)
+
+This is the Most Holy Tablet sent down from the holy kingdom unto the one who hath set his face towards the Object of the adoration of the world, He Who hath come from the heaven of eternity, invested with transcendent glory
+
+In the name of the Lord, the Lord of great glory.
 
 This is an Epistle from Our presence unto him whom the veils of names have failed to keep back from God, the Creator of earth and heaven, that his eyes may be cheered in the days of his Lord, the Help in Peril, the Self‑Subsisting.
 
@@ -68,12 +80,15 @@ Give My remembrance to the one named Murád and say: “Blessed art thou, O Mur�
 
 Say: Blessed the slumberer who is awakened by My Breeze. Blessed the lifeless one who is quickened through My reviving breaths. Blessed the eye that is solaced by gazing at My beauty. Blessed the wayfarer who directeth his steps towards the Tabernacle of My glory and majesty. Blessed the distressed one who seeketh refuge beneath the shadow of My canopy. Blessed the sore athirst who hasteneth to the soft‑flowing waters of My loving‑kindness. Blessed the insatiate soul who casteth away his selfish desires for love of Me and taketh his place at the banquet table which I have sent down from the heaven of divine bounty for My chosen ones. Blessed the abased one who layeth fast hold on the cord of My glory; and the needy one who entereth beneath the shadow of the Tabernacle of My wealth. Blessed the ignorant one who seeketh the fountain of My knowledge; and the heedless one who cleaveth to the cord of My remembrance. Blessed the soul that hath been raised to life through My quickening breath and hath gained admittance into My heavenly Kingdom. Blessed the man whom the sweet savours of reunion with Me have stirred and caused to draw nigh unto the Dayspring of My Revelation. Blessed the ear that hath heard and the tongue that hath borne witness and the eye that hath seen and recognised the Lord Himself, in His great glory and majesty, invested with grandeur and dominion. Blessed are they that have attained His presence. Blessed the man who hath sought enlightenment from the Daystar of My Word. Blessed he who hath attired his head with the diadem of My love. Blessed is he who hath heard of My grief and hath arisen to aid Me among My people. Blessed is he who hath laid down his life in My path and hath borne manifold hardships for the sake of My name. Blessed the man who, assured of My Word, hath arisen from among the dead to celebrate My praise. Blessed is he that hath been enraptured by My wondrous melodies and hath rent the veils asunder through the potency of My might. Blessed is he who hath remained faithful to My Covenant, and whom the things of the world have not kept back from attaining My Court of holiness. Blessed is the man who hath detached himself from all else but Me, hath soared in the atmosphere of My love, hath gained admittance into My Kingdom, gazed upon My realms of glory, quaffed the living waters of My bounty, hath drunk his fill from the heavenly river of My loving providence, acquainted himself with My Cause, apprehended that which I concealed within the treasury of My Words, and hath shone forth from the horizon of divine knowledge engaged in My praise and glorification. Verily, he is of Me. Upon him rest My mercy, My loving‑kindness, My bounty and My glory.
 
-# Glad‑Tidings
-translated="Bishárát"
+3
 
-* This is the Call of the All‑Glorious which is proclaimed from the Supreme Horizon in the Prison of ‘Akká
+Bishárát
 
-^ He is the Expounder, the All‑Knowing, the All‑Informed.
+(Glad‑Tidings)
+
+This is the Call of the All‑Glorious which is proclaimed from the Supreme Horizon in the Prison of ‘Akká
+
+He is the Expounder, the All‑Knowing, the All‑Informed.
 
 God, the True One, testifieth and the Revealers of His names and attributes bear witness that Our sole purpose in raising the Call and in proclaiming His sublime Word is that the ear of the entire creation may, through the living waters of divine utterance, be purged from lying tales and become attuned to the holy, the glorious and exalted Word which hath issued forth from the repository of the knowledge of the Maker of the Heavens and the Creator of Names. Happy are they that judge with fairness.
 
@@ -159,8 +174,11 @@ We yield praise unto God—hallowed and glorified be He—for whatsoever He hath
 
 We earnestly beseech God—exalted be His glory—to aid the rulers and sovereigns, who are the exponents of power and the daysprings of glory, to enforce His laws and ordinances. He is in truth the Omnipotent, the All‑Powerful, He Who is wont to answer the call of men.
 
-# Ornaments
-translated="Ṭarázát"
+4
+
+Ṭarázát
+
+(Ornaments)
 
 In My Name, which standeth supreme above all names
 
@@ -240,12 +258,15 @@ O Hádí! This Wronged One, rid of all attachment to the world, hath striven wit
 
 May Our Glory rest upon the people of Bahá whom neither the tyranny of the oppressor nor the ascendancy of the aggressor have been able to withhold from God, the Lord of the worlds.
 
-# Effulgences
-translated="Tajallíyát"
+5
 
-* This is the Epistle of God, the Help in Peril, the Self‑Subsisting
+Tajallíyát
 
-^ He is the One Who heareth from His Realm of Glory.
+(Effulgences)
+
+This is the Epistle of God, the Help in Peril, the Self‑Subsisting
+
+He is the One Who heareth from His Realm of Glory.
 
 God testifieth that there is none other God but Him and that He Who hath appeared is the Hidden Mystery, the Treasured Symbol, the Most Great Book for all peoples, and the Heaven of bounty for the whole world. He is the Most Mighty Sign amongst men and the Dayspring of the most august attributes in the realm of creation. Through Him hath appeared that which had been hidden from time immemorial and been veiled from the eyes of men. He is the One Whose Manifestation was announced by the heavenly Scriptures, in former times and more recently. Whoso acknowledgeth belief in Him and in His signs and testimonies hath in truth acknowledged that which the Tongue of Grandeur uttered ere the creation of earth and heaven and the revelation of the Kingdom of Names. Through Him the ocean of knowledge hath surged amidst mankind and the river of divine wisdom hath gushed out at the behest of God, the Lord of Days.
 
@@ -289,8 +310,11 @@ O kindreds of the earth! Incline your ears unto the Voice from the divine Lote�
 
 The Glory which hath dawned above the horizon of My tender mercy rest upon thee and upon whosoever is with thee and giveth ear to thy words concerning the Cause of God, the Almighty, the All‑Praised.
 
-# Words of Paradise
-translated="Kalimát‑i‑Firdawsíyyih"
+6
+
+Kalimát‑i‑Firdawsíyyih
+
+(Words of Paradise)
 
 He is the One Who speaketh through the power of Truth in the Kingdom of Utterance
 
@@ -416,8 +440,11 @@ O people of Tár! We send you greetings from this Spot and beseech God—blessed
 
 May glory from Our presence rest upon those who have set their faces toward the Dayspring of His Revelation and have acknowledged and recognised that which the Tongue of utterance hath spoken in the kingdom of knowledge in this blessed, this glorious and incomparable Day.
 
-# Tablet of the World
-translated="Lawḥ‑i‑Dunyá"
+7
+
+Lawḥ‑i‑Dunyá
+
+(Tablet of the World)
 
 In My Name, calling aloud in the Kingdom of Utterance
 
@@ -505,12 +532,15 @@ O people of God! Righteous men of learning who dedicate themselves to the guidan
 
 The glory which proceedeth from God, the Lord of the Throne on High and of the earth below, rest upon you, O people of Bahá, O ye the companions of the Crimson Ark, and upon such as have inclined their ears to your sweet voices and have observed that whereunto they are bidden in this mighty and wondrous Tablet.
 
-# Splendours
-translated="Ishráqát"
+8
 
-* This is the Epistle of God, the Help in Peril, the Self‑Subsisting
+Ishráqát
 
-^ He is God, exalted is He, the Lord of wisdom and utterance.
+(Splendours)
+
+This is the Epistle of God, the Help in Peril, the Self‑Subsisting
+
+He is God, exalted is He, the Lord of wisdom and utterance.
 
 Praise be unto God, incomparable in majesty, power and beauty, peerless in glory, might and grandeur; too high is He for human imaginations to comprehend Him or for any peer or equal to be ascribed unto Him. He hath clearly set forth His straight Path in words and utterances of highest eloquence. Verily He is the All‑Possessing, the Most Exalted. When He purposed to call the new creation into being, He sent forth the Manifest and Luminous Point from the horizon of His Will; it passed through every sign and manifested itself in every form until it reached the zenith, as bidden by God, the Lord of all men.
 
@@ -682,10 +712,17 @@ Nevertheless the conduct of these affairs hath been entrusted to the men of the 
 
 Once again We exhort all believers to observe justice and fairness and to show forth love and contentment. They are indeed the people of Bahá, the companions of the Crimson Ark. Upon them be the peace of God, the Lord of all Names, the Creator of the heavens.
 
-# Tablet of Wisdom
-translated="Lawḥ‑i‑Ḥikmat"
+9
 
-* This Tablet was addressed to Áqá Muḥammad, a distinguished believer from the town of Qá’in, who was surnamed Nabíl‑i‑Akbar (see Memorials of the Faithful, Chapter 1: “Nabíl‑i‑Akbar”). Another distinguished believer of Qá’in, Mullá Muḥammad‑‘Alí, was known as Nabíl‑i‑Qá’iní (see Memorials of the Faithful, Chapter 17: “Nabíl of Qa’in”). In the abjad notation the name “Muḥammad” has the same numerical value as “Nabíl.”
+Lawḥ‑i‑Ḥikmat
+
+(Tablet of Wisdom)
+
+***
+
+This Tablet was addressed to Áqá Muḥammad, a distinguished believer from the town of Qá’in, who was surnamed Nabíl‑i‑Akbar (see Memorials of the Faithful, Chapter 1: “Nabíl‑i‑Akbar”). Another distinguished believer of Qá’in, Mullá Muḥammad‑‘Alí, was known as Nabíl‑i‑Qá’iní (see Memorials of the Faithful, Chapter 17: “Nabíl of Qa’in”). In the abjad notation the name “Muḥammad” has the same numerical value as “Nabíl.”
+
+***
 
 This is an Epistle which the All‑Merciful hath sent down from the Kingdom of Utterance. It is truly a breath of life unto those who dwell in the realm of creation. Glorified be the Lord of all worlds! In this Epistle mention is made of him who magnifieth the Name of God, his Lord, and who is named Nabíl in a weighty Tablet.
 
@@ -781,8 +818,11 @@ O Lord! Unto Thee have I turned my face, detached from all save Thee and holding
 
 Verily, potent art Thou to do whatsoever Thou willest, and in Thy grasp Thou holdest the kingdom of creation. There is none other God but Thee, the Almighty, the All‑Wise.
 
-# Words of Wisdom
-translated="Aṣl‑i‑Kullu’l‑Khayr"
+10
+
+Aṣl‑i‑Kullu’l‑Khayr
+
+(Words of Wisdom)
 
 In the Name of God, the Exalted, the Most High
 
@@ -832,12 +872,19 @@ The essence of all that We have revealed for thee is Justice, is for man to free
 
 Thus have We instructed thee, manifested unto thee Words of Wisdom, that thou mayest be thankful unto the Lord, thy God, and glory therein amidst all peoples.
 
-# Tablet of Maqṣúd
-translated="Lawḥ‑i‑Maqṣúd"
+11
 
-* Out of respect, the Bahá’ís, rather than addressing Bahá’u’lláh directly, would write to His amanuensis, Mírzá Áqá Ján, surnamed “Servant of God” and “Servant‑in‑Attendance.” The reply would be in the form of a letter from Mírzá Áqá Ján quoting words of Bahá’u’lláh, but would, in fact, be dictated in its entirety by Bahá’u’lláh. Thus all parts of the Tablet, even those which ostensibly are the words of Mírzá Áqá Ján himself, are Sacred Scripture revealed by Bahá’u’lláh. The Tablet of Maqṣúd is in this form. It was addressed to Mírzá Maqṣúd, one of the early believers living at that time in Damascus and Jerusalem.
+Lawḥ‑i‑Maqṣúd
 
-^ He is God, exalted is He, the Lord of Majesty and Power
+(Tablet of Maqṣúd)
+
+***
+
+Out of respect, the Bahá’ís, rather than addressing Bahá’u’lláh directly, would write to His amanuensis, Mírzá Áqá Ján, surnamed “Servant of God” and “Servant‑in‑Attendance.” The reply would be in the form of a letter from Mírzá Áqá Ján quoting words of Bahá’u’lláh, but would, in fact, be dictated in its entirety by Bahá’u’lláh. Thus all parts of the Tablet, even those which ostensibly are the words of Mírzá Áqá Ján himself, are Sacred Scripture revealed by Bahá’u’lláh. The Tablet of Maqṣúd is in this form. It was addressed to Mírzá Maqṣúd, one of the early believers living at that time in Damascus and Jerusalem.
+
+***
+
+He is God, exalted is He, the Lord of Majesty and Power
 
 A praise which is exalted above every mention or description beseemeth the Adored One, the Possessor of all things visible and invisible, Who hath enabled the Primal Point to reveal countless Books and Epistles and Who, through the potency of His sublime Word, hath called into being the entire creation, whether of the former or more recent generations. Moreover He hath in every age and cycle, in conformity with His transcendent wisdom, sent forth a divine Messenger to revive the dispirited and despondent souls with the living waters of His utterance, One Who is indeed the Expounder, the true Interpreter, inasmuch as man is unable to comprehend that which hath streamed forth from the Pen of Glory and is recorded in His heavenly Books. Men at all times and under all conditions stand in need of one to exhort them, guide them and to instruct and teach them. Therefore He hath sent forth His Messengers, His Prophets and chosen ones that they might acquaint the people with the divine purpose underlying the revelation of Books and the raising up of Messengers, and that everyone may become aware of the trust of God which is latent in the reality of every soul.
 
@@ -939,8 +986,11 @@ I entreat Thee, O Lord of Names and Creator of the heavens, by the blood spilt i
 
 I fain would hope that He Who is the All‑Sufficing, the Inaccessible, may heed the solicitation of this lowly servant, may attire the people of the world with the raiment of goodly deeds and purge them from evil inclinations. He is the Mighty, the Powerful, the All‑Wise, the All‑Perceiving. He heareth and seeth; He is the All‑Hearing, the All‑Seeing.
 
-# Tablet to Vafá
-translated="Súriy‑i‑Vafá"
+12
+
+Súriy‑i‑Vafá
+
+(Tablet to Vafá)
 
 He is the All‑Knowing
 
@@ -998,8 +1048,11 @@ Thou hast inquired about the warning We gave to the people at the time of Our de
 
 The glory of God be upon thee and upon them that give ear unto the words thou dost utter for the love of God, thy Lord, and remain steadfast in His Cause. All praise be unto God, the Lord of the worlds.
 
-# Tablet to Siyyid Mihdíy‑i‑Dahají
-translated="Lawḥ‑i‑Síyyid‑i‑Mihdíy‑i‑Dahají"
+13
+
+Lawḥ‑i‑Síyyid‑i‑Mihdíy‑i‑Dahají
+
+(Tablet to Siyyid Mihdíy‑i‑Dahají)
 
 He is the Most Holy, the Most Great, the Most Exalted, the Most High
 
@@ -1045,10 +1098,17 @@ O My Name! Hearken thou unto My Voice coming from the direction of My Throne. He
 
 Know thou moreover that We have heard the praise thou hast uttered in thy communion with God, thy Lord, the Exalted, the Gracious. Great indeed is the blessedness awaiting thee, inasmuch as thou hast curtailed thine own affairs in favour of this inviolable, this mighty and enlightened Cause. We entreat God to make thy call a magnet which will attract the embodiments of names in the world of existence that all beings may spontaneously hasten to heed it. No God is there besides Him, the Exalted, the Preeminent, the Ever‑Blessed, the Sublime, the Most August, the Most Glorious, the Most Bountiful, the All‑Knowing, the All‑Informed.
 
-# Tablet of the Proof
-translated="Lawḥ‑i‑Burhán"
+14
 
-* This Tablet was revealed after the martyrdom of the King of Martyrs and the Beloved of Martyrs (see God Passes By, Chapter VIII, paragraph beginning “In Iṣfáhán Mullá Káẓim was beheaded . . .”) and was addressed to Shaykh Muḥammad Báqir, denounced by Bahá’u’lláh as the “Wolf.” In this Tablet Bahá’u’lláh refers to Mír Muḥammad Ḥusayn, the Imám Jum’ih of Iṣfáhán, surnamed the “She‑Serpent,” who was Shaykh Muḥammad Báqir’s accomplice in the persecution of the Bahá’ís. (See God Passes By, Chapter XII, paragraph beginning “Náṣiri’d‑Dín Sháh, stigmatised by Bahá’u’lláh . . .”, paragraph beginning “In Iṣfáhán Mullá Káẓim was beheaded . . .” and paragraph beginning “Nor should a review of the outstanding features of Bahá’u’lláh’s writings . . .”). The Epistle to the Son of the Wolf was addressed to Shaykh Muḥammad Táqíy‑i‑Najafí, the son of Shaykh Muḥammad Báqir.
+Lawḥ‑i‑Burhán
+
+(Tablet of the Proof)
+
+***
+
+This Tablet was revealed after the martyrdom of the King of Martyrs and the Beloved of Martyrs (see God Passes By, Chapter VIII, paragraph beginning “In Iṣfáhán Mullá Káẓim was beheaded . . .”) and was addressed to Shaykh Muḥammad Báqir, denounced by Bahá’u’lláh as the “Wolf.” In this Tablet Bahá’u’lláh refers to Mír Muḥammad Ḥusayn, the Imám Jum’ih of Iṣfáhán, surnamed the “She‑Serpent,” who was Shaykh Muḥammad Báqir’s accomplice in the persecution of the Bahá’ís. (See God Passes By, Chapter XII, paragraph beginning “Náṣiri’d‑Dín Sháh, stigmatised by Bahá’u’lláh . . .”, paragraph beginning “In Iṣfáhán Mullá Káẓim was beheaded . . .” and paragraph beginning “Nor should a review of the outstanding features of Bahá’u’lláh’s writings . . .”). The Epistle to the Son of the Wolf was addressed to Shaykh Muḥammad Táqíy‑i‑Najafí, the son of Shaykh Muḥammad Báqir.
+
+***
 
 He is the Almighty, the All‑Knowing, the All‑Wise! The winds of hatred have encompassed the Ark of Baṭḥá, by reason of that which the hands of the oppressors have wrought. O Báqir! Thou hast pronounced sentence against them for whom the books of the world have wept, and in whose favour the scriptures of all religions have testified. Thou, who art gone far astray, art indeed wrapt in a thick veil. By God Himself! Thou hast pronounced judgement against them through whom the horizon of faith hath been illumined. Unto this bear witness They Who are the Dawning‑Places of Revelation and the Manifestations of the Cause of thy Lord, the Most Merciful, Who have sacrificed Their souls and all that They possessed in His straight Path. The Faith of God hath cried everywhere, by reason of thy tyranny, and yet thou disportest thyself and art of them that exult. There is no hatred in Mine heart for thee nor for anyone. Every man of learning beholdeth thee, and such as are like thee, engulfed in evident folly. Hadst thou realised that which thou hast done, thou wouldst have cast thyself into the fire, or abandoned thine home and fled into the mountains, or wouldst have groaned until thou hadst returned unto the place destined for thee by Him Who is the Lord of strength and of might. O thou who art even as nothing! Rend thou asunder the veils of idle fancies and vain imaginings, that thou mayest behold the Daystar of knowledge shining from this resplendent Horizon. Thou hast torn in pieces a remnant of the Prophet Himself, and imagined that thou hadst helped the Faith of God. Thus hath thy soul prompted thee, and thou art truly one of the heedless. Thine act hath consumed the hearts of the Concourse on high, and those of such as have circled round the Cause of God, the Lord of the worlds. The soul of the Chaste One melted, by reason of thy cruelty, and the inmates of Paradise wept sore in that blessed Spot.
 
@@ -1078,8 +1138,11 @@ Consider the Sulṭán of Turkey! He did not want war, but those like you desire
 
 O My Supreme Pen! Leave Thou the mention of the Wolf, and call Thou to remembrance the She‑Serpent whose cruelty hath caused all created things to groan, and the limbs of the holy ones to quake. Thus biddeth Thee the Lord of all names, in this glorious station. The Chaste One hath cried out by reason of thine iniquity, and yet thou dost imagine thyself to be of the family of the Apostle of God! Thus hath thy soul prompted thee, O thou who hast withdrawn thyself from God, the Lord of all that hath been and shall be. Judge thou equitably, O She‑Serpent! For what crime didst thou sting the children of the Apostle of God, and pillage their possessions? Hast thou denied Him Who created thee by His command “be, and it was”? Thou hast dealt with the children of the Apostle of God as neither ‘Ád hath dealt with Húd, nor Thámúd with Ṣáliḥ, nor the Jews with the Spirit of God, the Lord of all being. Gainsayest thou the signs of thy Lord which no sooner were sent down from the heaven of His Cause than all the books of the world bowed down before them? Meditate, that thou mayest be made aware of thine act, O heedless outcast! Ere long will the breaths of chastisement seize thee, as they seized others before thee. Wait, O thou who hast joined partners with God, the Lord of the visible and the invisible. This is the day which God hath announced through the tongue of His Apostle. Reflect, that thou mayest apprehend what the All‑Merciful hath sent down in the Qur’án and in this inscribed Tablet. This is the day whereon He Who is the Dayspring of Revelation hath come with clear tokens which none can number. This is the day whereon every man endued with perception hath discovered the fragrance of the breeze of the All‑Merciful in the world of creation, and every man of insight hath hastened unto the living waters of the mercy of His Lord, the King of Kings. O heedless one! The tale of the Sacrifice hath been retold, and he who was to be offered up hath directed his steps towards the place of sacrifice, and returned not, by reason of that which thy hand hath wrought, O perverse hater! Didst thou imagine that martyrdom could abase this Cause? Nay, by Him Whom God hath made to be the Repository of His Revelation, if thou be of them that comprehend. Woe betide thee, O thou who hast joined partners with God, and woe betide them that have taken thee as their leader, without a clear token or a perspicuous Book. How numerous the oppressors before thee who have arisen to quench the light of God, and how many the impious who murdered and pillaged until the hearts and souls of men groaned by reason of their cruelty! The sun of justice hath been obscured, inasmuch as the embodiment of tyranny hath been stablished upon the throne of hatred, and yet the people understand not. The children of the Apostle have been slain and their possessions pillaged. Say: Was it, in thine estimation, their possessions or themselves that denied God? Judge fairly, O ignorant one that hath been shut out as by a veil from God! Thou hast clung to tyranny and cast away justice; whereupon all created things have lamented, and still thou art among the wayward. Thou hast put to death the aged, and plundered the young. Thinkest thou that thou wilt consume that which thine iniquity hath amassed? Nay, by Myself! Thus informeth thee He Who is cognisant of all. By God! The things thou possessest shall profit thee not, nor what thou hast laid up through thy cruelty. Unto this beareth witness Thy Lord, the All‑Knowing. Thou hast arisen to put out the light of this Cause; ere long will thine own fire be quenched, at His behest. He, verily, is the Lord of strength and of might. The changes and chances of the world, and the powers of the nations, cannot frustrate Him. He doeth what He pleaseth, and ordaineth what He willeth through the power of His sovereignty. Consider the she‑camel. Though but a beast, yet hath the All‑Merciful exalted her to so high a station that the tongues of the earth made mention of her and celebrated her praise. He, verily, overshadoweth all that is in the heavens and on earth. No God is there but Him, the Almighty, the Great. Thus have We adorned the heaven of Our Tablet with the suns of Our words. Blessed the man that hath attained thereunto and been illumined with their light, and woe betide such as have turned aside, and denied Him, and strayed far from Him. Praised be God, the Lord of the worlds!
 
-# Book of the Covenant
-translated="Kitáb‑i‑‘Ahd"
+15
+
+Kitáb‑i‑‘Ahd
+
+(Book of the Covenant)
 
 Although the Realm of Glory hath none of the vanities of the world, yet within the treasury of trust and resignation We have bequeathed to Our heirs an excellent and priceless Heritage. Earthly treasures We have not bequeathed, nor have We added such cares as they entail. By God! In earthly riches fear is hidden and peril is concealed. Consider ye and call to mind that which the All‑Merciful hath revealed in the Qur’án: “Woe betide every slanderer and defamer, him that layeth up riches and counteth them.” Fleeting are the riches of the world; all that perisheth and changeth is not, and hath never been, worthy of attention, except to a recognised measure.
 
@@ -1109,16 +1172,19 @@ It is incumbent upon everyone to show courtesy to, and have regard for the Agh�
 
 That which is conducive to the regeneration of the world and the salvation of the peoples and kindreds of the earth hath been sent down from the heaven of the utterance of Him Who is the Desire of the world. Give ye a hearing ear to the counsels of the Pen of Glory. Better is this for you than all that is on the earth. Unto this beareth witness My glorious and wondrous Book.
 
-# Tablet of the Land of Bá
-translated="Lawḥ‑i‑Arḍ‑i‑Bá"
+16
+
+Lawḥ‑i‑Arḍ‑i‑Bá
+
+(Tablet of the Land of Bá)
 
 Praise be to Him Who hath honoured the Land of Bá through the presence of Him round Whom all names revolve. All the atoms of the earth have announced unto all created things that from behind the gate of the Prison‑city there hath appeared and above its horizon there hath shone forth the Orb of the beauty of the great, the Most Mighty Branch of God—His ancient and immutable Mystery—proceeding on its way to another land. Sorrow, thereby, hath enveloped this Prison‑city, whilst another land rejoiceth. Exalted, immeasurably exalted is our Lord, the Fashioner of the heavens and the Creator of all things, He through Whose sovereignty the doors of the prison were opened, thereby causing what was promised aforetime in the Tablets to be fulfilled. He is verily potent over what He willeth, and in His grasp is the dominion of the entire creation. He is the All‑Powerful, the All‑Knowing, the All‑Wise.
 
 Blessed, doubly blessed, is the ground which His footsteps have trodden, the eye that hath been cheered by the beauty of His countenance, the ear that hath been honoured by hearkening to His call, the heart that hath tasted the sweetness of His love, the breast that hath dilated through His remembrance, the pen that hath voiced His praise, the scroll that hath borne the testimony of His writings. We beseech God—blessed and exalted be He—that He may honour us with meeting Him soon. He is, in truth, the All‑Hearing, the All‑Powerful, He Who is ready to answer.
 
-# Excerpts from Other Tablets
+17
 
-##
+Excerpts from Other Tablets
 
 God testifieth that there is none other God but Him and that He Who hath come from the heaven of divine revelation is the Hidden Secret, the Impenetrable Mystery, Whose advent hath been foretold in the Book of God and hath been heralded by His Prophets and Messengers. Through Him the mysteries have been unravelled, the veils rent asunder and the signs and evidences disclosed. Lo! He hath now been made manifest. He bringeth to light whatsoever He willeth, and treadeth upon the high places of the earth, invested with transcendent majesty and power.
 
@@ -1136,10 +1202,6 @@ Persevere thou conscientiously in the service of the Cause and, through the powe
 
 May His glory rest upon thee and upon such as have drawn nigh unto Him and apprehended the meaning of that which the exalted Pen of God, the Almighty, the All‑Loving, hath recorded in this Tablet.
 
-##
-
-* He is the Eternal, the One, the Single, the All‑Possessing, the Most Exalted.
-
 All praise be to Thee, O my God, inasmuch as Thou hast adorned the world with the splendour of the dawn following the night wherein was born the One Who heralded the Manifestation of Thy transcendent sovereignty, the Dayspring of Thy divine Essence and the Revelation of Thy supreme Lordship. I beseech Thee, O Creator of the heavens and Fashioner of names, to graciously aid those who have sheltered beneath the shadow of Thine abounding mercy and have raised their voices amidst the peoples of the world for the glorification of Thy Name.
 
 O my God! Thou beholdest the Lord of all mankind confined in His Most Great Prison, calling aloud Thy Name, gazing upon Thy face, proclaiming that which hath enraptured the denizens of Thy kingdoms of revelation and of creation. O my God! I behold Mine own Self captive in the hands of Thy servants, yet the light of Thy sovereignty and the revelations of Thine invincible power shine resplendent from His face, enabling all to know of a certainty that Thou art God, and that there is none other God but Thee. Neither can the power of the powerful frustrate Thee, nor the ascendancy of the rulers prevail against Thee. Thou doest whatsoever Thou willest by virtue of Thy sovereignty which encompasseth all created things, and ordainest that which Thou pleasest through the potency of Thy behest which pervadeth the entire creation.
@@ -1152,8 +1214,6 @@ Say: Glorified art Thou, O my God! I implore Thee by the Dawning‑Place of Thy 
 
 Thou art, in truth, the Forgiving, the Bountiful.
 
-##
-
 O Ḥusayn! God grant thou shalt ever be bright and radiant, beaming with the light of the Sun of Truth, and mayest unloose thy tongue in magnifying the Name of God, which is the most laudable of all acts.
 
 Consider the multitude of souls who seemed to be intensely eager and athirst, yet when the Ocean of living waters did surge forth in the world of being, they remained deprived thereof, inasmuch as they failed to relinquish idle fancy and to become consciously aware of Him Who is the Object of all knowledge. This failure is in recompense for the deeds their hands had formerly wrought.
@@ -1161,8 +1221,6 @@ Consider the multitude of souls who seemed to be intensely eager and athirst, ye
 Render thou thanks unto the Beloved of the world for having graciously aided thee to attain confirmation in this glorious Cause. Entreat Him moreover to make His loved ones steadfast therein, for the inflammatory writings of the mischief‑makers are widespread and the clamour of the foreboders of evil is raised high. Happy are they that have cast behind their backs all else save God and have held fast unto that which the Lord of strength and power hath enjoined upon them.
 
 His Glory be upon thee and upon such as have been enabled to recognise and embrace this mighty Cause.
-
-##
 
 This is a Tablet which the Lord of all being hath sent down from His glorious station in honour of him who hath believed in God, the Almighty, the All‑Loving.
 
@@ -1174,13 +1232,9 @@ By the righteousness of God! The world’s horizon is resplendent with the light
 
 Great is the blessedness of the believer who hath directed himself towards Him and hath gained admittance into His presence, and woe betide every disbeliever who hath turned away from God and followed the wayward and the outcast.
 
-##
-
 O Friend! In the Bayán We directed everyone in this Most Great Revelation to see with his own eyes and hear with his own ears. However when the horizon of the world was illumined with the resplendent light of this Revelation, many people forgot this divine commandment, lost sight of this heavenly exhortation and immersed themselves in the vain imaginings which their minds had devised. Indeed the face of the sun of justice and fairness is hidden behind the clouds of idle fancy which the foolish ones have conceived. Therefore it is not to be wondered at that the movements of the birds of darkness attract attention. Through the potency of the Name of the Best‑Beloved, invite thou the receptive souls unto God’s holy court, that perchance they may not remain deprived of the heavenly Fountain of living water. He is in truth the Gracious, the Forgiving.
 
 The gaze of the loving‑kindness of God—exalted and glorified is He—hath everlastingly been directed towards His beloved friends; verily He is the One Who knoweth and remembereth.
-
-##
 
 O Javád! Such is the greatness of this Day that the Hour itself is seized with perturbation, and all heavenly Scriptures bear evidence to its overpowering majesty. In this Day the Book solemnly testifieth to His glory and the Balance is moved to lift up its voice. This is the Day wherein the Ṣiraṭ calleth aloud: “I am the straight Path,” and Mount Sinai exclaimeth: “Verily the Lord of Revelation is come.”
 
@@ -1194,8 +1248,6 @@ Convey the greetings of this Wronged One unto all the beloved friends in that re
 
 May the glory of the Almighty, the All‑Wise, be upon thee and upon such as are related unto thee.
 
-##
-
 We make mention of him who hath been attracted by Our Call when it was raised from the summit of transcendent glory and hath set his face towards God, the Lord of creation. He is numbered with such as have heard and responded to the summons of their Lord at a time when the peoples of the world are wrapt in palpable veils. He testifieth unto that whereunto God hath testified, and acknowledgeth his belief in that which the Tongue of Grandeur hath uttered. Unto this beareth witness the Lord of Names in this wondrous Tablet.
 
 O My exalted Pen! Bring him, on My behalf, the joyful tidings concerning the things that God, the Powerful, the Omnipotent, hath reserved for him. Indeed he hath, for most of the time, been hemmed in by manifold sorrows, and verily his merciful Lord is the One Who seeth and knoweth all things. Rejoice thou with exceeding gladness inasmuch as this Wronged One hath turned His face towards thee, hath mentioned thy name aforetime and doth mention it at this very moment.
@@ -1207,8 +1259,6 @@ In this Day the faculty of hearing exclaimeth, “This is my Day, wherein I hear
 Say: O concourse of the rulers and of the learned and the wise! The Promised Day is come and the Lord of Hosts hath appeared. Rejoice ye with great joy by reason of this supreme felicity. Aid Him then through the power of wisdom and utterance. Thus biddeth you the One Who hath ever proclaimed, “Verily, no God is there but Me, the All‑Knowing, the All‑Wise.”
 
 May His glory rest upon thee and upon those who are with thee and such ones as cherish thee and give ear to the words thou utterest in glorification of this mighty, this transcendent Revelation.
-
-##
 
 O Thou who bearest My Name, Júd [Bounty]! Upon thee be My Glory. Give ear unto that which thou didst hear aforetime when the Daystar of testimony was shining resplendent above the horizon of ‘Iráq, when Baghdád served as the Seat of the Throne of thy Lord, the Exalted, the Mighty.
 
@@ -1229,8 +1279,6 @@ Certain people seem to be entirely bereft of understanding. By clinging to the c
 It behoveth thee to turn thy gaze in all circumstances unto the One true God, and seek diligently to serve His Cause. Call thou to mind when thou wert in My company, within the Tabernacle of Glory, and didst hear from Me that which He Who conversed with God [Moses] heard upon the Sinai of divine knowledge. Thus did We graciously aid thee, enabled thee to recognise the truth and cautioned thee, that thou mightest render thanks unto thy bountiful Lord. Thou shouldst safeguard this sublime station through the potency of My Name, the Omnipotent, the Faithful.
 
 Convey greetings on My behalf to My loved ones and suffer them to hearken unto My sweet Voice. Thus biddeth thee the One Who hath bidden thee in the past; I am in truth the Ordainer, the All‑Informed. Glory be upon thee and upon those who give ear to thy words concerning this momentous Cause and who love thee for the sake of God, the Lord of the worlds.
-
-##
 
 O Ḥaydar! This Wronged One hath heard thy voice raised in the service of the Cause of God and is well aware of the feeling of joy which His love hath roused in thy heart and of thy pangs of anguish at that which hath befallen His loved ones. I swear by the Lord of mercy! The whole world is overwhelmed with sorrow whilst mankind is perplexed with doubts and dissensions. The people of God, the Lord of Names, are so grievously beset by enemies that the supreme Paradise hath lamented and the inmates of highest Heaven and those who, day and night, circle round the Throne have groaned aloud.
 
@@ -1254,8 +1302,6 @@ Take heed lest the deeds wrought by the embodiments of idle fancy sadden you or 
 
 The glory that hath dawned resplendent from the heaven of Mine utterance rest upon thee and upon them that have directed themselves towards thee and inclined their ears to the words which thy mouth hath uttered concerning this glorious, this august Revelation.
 
-##
-
 By the righteousness of God! The Mother Book is made manifest, summoning mankind unto God, the Lord of the worlds, while the seas proclaim: The Most Great Ocean hath appeared, from whose waves one can hear the thundering cry: “Verily, no God is there but Me, the Peerless, the All‑Knowing.” And the trees raising their clamour exclaim: O people of the world! The voice of the Divine Lote‑Tree is clearly sounding and the shrill cry of the Pen of Glory is ringing loud: Give ye ear and be not of the heedless. The sun is calling out: O concourse of the divines! The heaven of religions is split and the moon cleft asunder and the peoples of the earth are brought together in a new resurrection. Fear ye God and follow not the promptings of your passions, rather follow Him unto Whom have testified the Scriptures of God, the All‑Knowing, the All‑Wise.
 
 The episode of Sinai hath been reenacted in this Revelation and He Who conversed upon the Mount is calling aloud: Verily, the Desired One is come, seated upon the throne of certitude, could ye but perceive it. He hath admonished all men to observe that which is conducive to the exaltation of the Cause of God and will guide mankind unto His Straight Path.
@@ -1270,8 +1316,6 @@ Persevere thou in helping His Cause through the strengthening power of the hosts
 
 The glory which hath shone forth above the horizon of utterance be upon thee and upon such believers as have seized the chalice of His sealed wine through the power of His Name, the Self‑Subsisting, and drunk deep despite those that have rejected the One in Whom they had formerly professed belief—they that have disputed the truth of this Great Announcement whereunto God hath testified in His precious and ancient Book.
 
-##
-
 O Muḥammad Ḥusayn! Be thou prepared to receive the outpourings of the loving‑kindness of God, the Lord of the worlds. The All‑Merciful hath deigned to bestow upon thee pearls of knowledge from the Ocean of the grace of God, the Almighty, the Most Exalted.
 
 Where is the man of insight who will recognise and perceive the truth? Where is to be found the man of hearing who will hearken unto My wondrous Voice calling from the realm of glory? Where is the soul who will set his face towards the Divine Lote‑Tree in such wise that neither the overpowering might of the kings, nor the violent commotions of their subjects may frustrate him, lifting up his voice amidst the entire creation through the power of wisdom and utterance and testifying unto that whereunto hath testified God, that verily no God is there besides Him, the Powerful, the Invincible, the Omnipotent, the Knowing, the Wise.
@@ -1281,8 +1325,6 @@ O Ḥusayn! Thy name hath been mentioned in the Most Great Prison before this Wr
 Blessed art thou and are they whom the world and its vanities have failed to deter from this luminous Horizon.
 
 Convey greetings on My behalf unto My loved ones. We exhort them to observe wisdom as decreed in My wondrous Book.
-
-##
 
 O My handmaiden and My leaf! Rejoice with great joy inasmuch as thy call hath ascended unto the Divine Lote‑Tree and is answered from the all‑glorious Horizon. Verily, no God is there but Me, the Wronged One, the Exile.
 
@@ -1296,11 +1338,7 @@ Blessed art thou and blessed is the mother that hath nursed thee. Appreciate the
 
 Convey My greetings unto the handmaidens of God in that region and give them the joyful tidings that His tender mercy and grace are vouchsafed unto them. High indeed is the station We have destined for thee. It behoveth thee to yield praise and thanksgiving unto thy Lord, the Bountiful, the Most Generous. Glorified be God, the Exalted, the Great.
 
-##
-
 At one time this sublime Word was heard from the Tongue of Him Who is the Possessor of all being and the Lord of the throne on high and of earth below—exalted is the glory of His utterance—: Piety and detachment are even as two most great luminaries of the heaven of teaching. Blessed the one who hath attained unto this supreme station, this habitation of transcendent holiness and sublimity.
-
-##
 
 This is a Tablet sent down by the All‑Merciful from the Kingdom of utterance unto all that dwell on earth. Happy is the man who hearkeneth and heedeth and woe betide him who hath erred and doubted. This is the Day that hath been illumined by the effulgent light of the Countenance of God—the Day when the Tongue of Grandeur is calling aloud: The Kingdom is God’s, the Lord of the Day of Resurrection.
 
@@ -1310,8 +1348,6 @@ We have truly revealed the signs, demonstrated the irrefutable testimonies and h
 
 Great is thy blessedness inasmuch as thou hast hearkened unto His Voice, set thy face towards Him and heeded the Call of thy Lord when He came invested with invincible power and sovereignty.
 
-##
-
 O My handmaiden, O My leaf! Render thou thanks unto the Best‑Beloved of the world for having attained this boundless grace at a time when the world’s learned and most distinguished men have remained deprived thereof. We have designated thee “a leaf” that thou mayest, like unto leaves, be stirred by the gentle wind of the Will of God—exalted be His glory—even as the leaves of the trees are stirred by onrushing winds. Yield thou thanks unto thy Lord by virtue of this brilliant utterance. Wert thou to perceive the sweetness of the title “O My handmaiden” thou wouldst find thyself detached from all mankind, devoutly engaged day and night in communion with Him Who is the sole Desire of the world.
 
 In words of incomparable beauty We have made fitting mention of such leaves and handmaidens as have quaffed from the living waters of heavenly grace and have kept their eyes directed towards God. Happy and blessed are they indeed. Ere long shall God reveal their station whose loftiness no word can befittingly express nor any description adequately describe.
@@ -1319,8 +1355,6 @@ In words of incomparable beauty We have made fitting mention of such leaves and 
 We admonish thee to do that which will serve to promote the interests of the Cause of God amongst men and women. He doth hear the call of the friends and beholdeth their actions. Verily, He is the Hearing and the Seeing.
 
 Upon thee and upon them be the glory of God, the Powerful, the All‑Knowing, the All‑Wise.
-
-##
 
 O handmaid of God! Hearken unto the Voice of the Lord of Names, Who from His Prison hath directed His gaze towards thee and is making mention of thee.
 
@@ -1330,15 +1364,11 @@ O My leaf, O My handmaid! Appreciate the value of this blessing and of this tend
 
 Convey greetings on behalf of this Wronged One to such handmaidens as worship God and cheer their hearts with the assurance of His loving providence.
 
-##
-
 Fix your gaze upon wisdom in all things, for it is an unfailing antidote. How often hath it turned a disbeliever into a believer or a foe into a friend? Its observance is highly essential, inasmuch as this theme hath been set forth in numerous Tablets revealed from the empyrean of the Will of Him Who is the Manifestation of the light of divine unity. Well is it with them that act accordingly.
 
 Centre your attention unceasingly upon that which will cause the Word of God to be exalted. In this Most Great Revelation goodly deeds and a praiseworthy character are regarded as the hosts of God, likewise is His blessed and holy Word. These hosts are the lodestone of the hearts of men and the effective means for unlocking doors. Of all the weapons in the world this is the keenest.
 
 Beseech thou God to graciously assist all men to observe that which His all‑glorious Pen hath recorded in the sacred Books and Tablets.
-
-##
 
 This Wronged One doth mention him who hath set his face toward the Incomparable One, the All‑Knowing, him who beareth witness unto His unity even as the All‑Glorious Pen hath borne witness as it moveth swiftly within the arena of utterance. Blessed is the soul that hath recognised its Lord and woe betide him who hath grievously erred and doubted.
 
@@ -1360,15 +1390,11 @@ Blessed art thou inasmuch as the darkness of vain imaginings hath been powerless
 
 The glory that hath shone forth from the horizon of eternity rest upon thee and upon such as have taken fast hold of the Cord of God that no man can sever.
 
-##
-
 He Who leadeth to true victory is come. By the righteousness of God! He is fully capable of revolutionising the world through the power of a single Word. Having enjoined upon all men to observe wisdom, He Himself hath adhered to the cord of patience and resignation.
 
 The clay clods of the world have set forth to visit the embellished, the luminous, the crimson City of God, and certain emissaries from Persia are secretly stirring up mischief, though to outward seeming they pretend to be gentle and meek. Gracious God! When will this world‑afflicting craftiness be transformed into sincerity? The exhortations of God, the True One, have compassed the world, but until now their influence hath not been disclosed. Men’s unseemly deeds have kept them back from attaining unto Him. We entreat God—exalted and glorified is He—to pour down, out of the clouds of divine grace, the overflowing rain of His bounty upon all His servants. Verily potent is He over all things.
 
 O ‘Alí Ḥaydar! O thou who hast risen to serve My Cause and art engaged in magnifying the praise of God, the Lord of the mighty throne! Unto the emblems of justice and the exponents of equity it is indubitably clear and evident that this Wronged One, strengthened by the transcendent power of the Kingdom, is seeking to efface from among the peoples and kindreds of the earth every evidence of disorder, discord, dissension, differences or divisions; and it is for no other reason but this great, this momentous object that He hath again and again been cast into prison and many a day and a night hath been subjected to chains and fetters. Blessed are they that judge this impregnable Cause, this glorious Announcement, with fairness and equity.
-
-##
 
 This is a Tablet sent down by the Lord of mercy that the people of the world may be enabled to draw nigh unto this Ocean which hath surged through the potency of His august Name. Amongst men there are those who have turned away from Him and gainsaid His testimony, while others have quaffed the wine of assurance in the glory of His Name which pervadeth all created things. A grievous loss hath indeed been suffered by those that have inclined their ears to the croaking of the raven, and refused to hearken unto the sweet warblings of the Bird of Heaven singing upon the twigs of the Tree of eternity: Verily there is none other God but Me, the All‑Knowing, the All‑Wise. This is the Day that hath been illumined by the splendours of the light of Our countenance—the Day around which all days and nights circle in adoration. Blessed is the man of insight who hath perceived, and the sore athirst who hath quaffed from this luminous Fountain. Blessed the man who acknowledgeth the truth, earnestly striving to serve the Cause of his Lord, the Powerful, the Almighty.
 
@@ -1381,8 +1407,6 @@ While in prison We have revealed a Book which We have entitled “The Most Holy 
 Great is thy blessedness inasmuch as thou hast been faithful to the Covenant of God and His Testament and for thy being honoured with this Tablet through which thy name is recorded in My Preserved Tablet. Dedicate thyself to the service of the Cause of thy Lord, cherish His remembrance in thy heart and celebrate His praise in such wise that every wayward and heedless soul may thereby be roused from slumber.
 
 Thus have We deigned to bestow upon thee a token of favour from Our presence; and I verily am the Forgiving, the All‑Merciful.
-
-##
 
 We desire to mention him who hath set his face towards Us and to let him once again drink deep from the life‑giving waters of Our gracious providence that he may be enabled to draw nigh unto My Horizon, be adorned with Mine attributes, soar in Mine atmosphere, be confirmed in that which will cause the sanctity of My Cause to be manifested amongst My people and to celebrate My praise in a manner that will cause every hesitating soul to hasten, every motionless creature to wing its flight, every mortal frame to be consumed, every chilled heart to be stirred with life and every dejected spirit to surge with delight. Thus doth it behove him who hath turned his face to Mine, hath entered beneath the shadow of My loving‑kindness and received My verses which have pervaded the whole world.
 
@@ -1399,8 +1423,6 @@ O friend! The Best‑Beloved is calling thee from His Most Great Prison and exho
 Great is indeed your blessedness inasmuch as His unfailing grace hath been vouchsafed unto you and ye have been aided to recognise this Cause—a Cause through whose potency the heavens have been folded together and every lofty and towering mountain hath been scattered in dust.
 
 Moreover through Our boundless grace We make mention of your mother who hath been privileged to recognise God. We send her Our greetings from this glorious station. We remember every one of you, men and women, and from this Spot—the Scene of incomparable glory—regard you all as one soul and send you the joyous tidings of divine blessings which have preceded all created things, and of My remembrance that pervadeth everyone, whether young or old. The glory of God rest upon you, O people of Bahá. Rejoice with exceeding gladness through My remembrance, for He is indeed with you at all times.
-
-##
 
 Give ear unto that which the Spirit imparteth unto thee from the verses of God, the Help in Peril, the Self‑Subsisting, that His Call may attract thee to the Summit of transcendent glory and draw thee nigh unto the Station where thou shalt behold thine entire being set ablaze with the fire of the love of God in such wise that neither the ascendancy of the rulers nor the whisperings of their vassals can quench it, and thou wilt arise amidst the peoples of the world to celebrate the praise of thy Lord, the Possessor of Names. This is that which well beseemeth thee in this Day.
 
@@ -1422,8 +1444,6 @@ Moreover, We announce unto everyone the joyful tidings concerning that which We 
 
 Thus have We revealed these holy verses and sent them unto thee that thou mayest arise to glorify the Name of God, the Help in Peril, the Self‑Subsisting. The glory of God be upon thee and upon such as have partaken of this choice, sealed Wine.
 
-##
-
 This Wronged One hath perused thy letter in the Most Great Prison and is apprised of thine inquiry concerning the commandments of God on the subjects of resurrection and the means of livelihood. Thou hast done well to ask these questions, for the benefit thereof will be gained by thyself as well as other servants of God, both outwardly and inwardly. Verily thy Lord knoweth all things and readily answereth the call.
 
 The supreme cause for creating the world and all that is therein is for man to know God. In this Day whosoever is guided by the fragrance of the raiment of His mercy to gain admittance into the pristine Abode, which is the station of recognising the Source of divine commandments and the Dayspring of His Revelation, hath everlastingly attained unto all good. Having reached this lofty station a twofold obligation resteth upon every soul. One is to be steadfast in the Cause with such steadfastness that were all the peoples of the world to attempt to prevent him from turning to the Source of Revelation, they would be powerless to do so. The other is observance of the divine ordinances which have streamed forth from the wellspring of His heavenly propelled Pen. For man’s knowledge of God cannot develop fully and adequately save by observing whatsoever hath been ordained by Him and is set forth in His heavenly Book.
@@ -1437,3 +1457,465 @@ Yield thou thanks unto God that thy letter hath reached the presence of this Pri
 Magnified be Thy Name, O Lord my God! I am the one who hath turned his face towards Thee and hath placed his whole reliance in Thee. I implore Thee by Thy Name whereby the ocean of Thine utterance hath surged and the breezes of Thy knowledge have stirred, to grant that I may be graciously aided to serve Thy Cause and be inspired to remember Thee and praise Thee. Send down then upon me from the heaven of Thy generosity that which will preserve me from anyone but Thee and will profit me in all Thy worlds.
 
 Verily, Thou art the Powerful, the Inaccessible, the Supreme, the Knowing, the Wise.
+
+Passages Translated by Shoghi Effendi
+
+Wherever possible, translations made by Shoghi Effendi have been used in preparing this book. In many instances his renderings of individual phrases have been incorporated, but these are too numerous to list. Below are listed two categories of translation that have been used. One is a direct translation of the actual Tablet concerned, or of excerpts therefrom. The second category is slightly less direct: in a number of His later Writings Bahá’u’lláh used to quote passages from His own Tablets, but when doing so He often modified the passage from which He was quoting. Thus, when Shoghi Effendi’s translations of such quoted passages—as, for example, in the Epistle to the Son of the Wolf—have been used, they have had to be adjusted to agree with the passage as it appeared in the Tablet from which Bahá’u’lláh was quoting, as it is these original Tablets that are here translated. Such adjustments are slight and have not been specially noted, but will be apparent to anyone who compares the passages as they appear in this book with the volumes from which Shoghi Effendi’s translations are taken.
+
+Passage
+
+Source
+
+The entire Tablet of Carmel
+
+Bahá’u’lláh. Gleanings from the Writings of Bahá’u’lláh, XI.
+
+“We, verily, have come . . .” to “. . . hath gone far astray.”
+
+Shoghi Effendi. The Promised Day Is Come, God’s Vicar on Earth.
+
+“Open the doors of your hearts. . . .” to “. . . grievous error.”
+
+Shoghi Effendi. The Promised Day Is Come, God’s Vicar on Earth.
+
+“O concourse of priests! . . .” to “. . . His great glory!”
+
+Shoghi Effendi. The Promised Day Is Come, His Messages to Christian Leaders.
+
+“He that summoneth . . .” to “. . . that are on earth”
+
+Shoghi Effendi. The Promised Day Is Come, His Messages to Christian Leaders.
+
+“Let the Breeze of God . . .” to “. . . among the well‑assured.”
+
+Shoghi Effendi. The Promised Day Is Come, His Messages to Christian Leaders.
+
+“O concourse of bishops . . .” to “. . . from His Purpose.”
+
+Shoghi Effendi. The Promised Day Is Come, His Messages to Christian Leaders.
+
+“O concourse of monks . . .” to “. . . the All‑Merciful.”
+
+Shoghi Effendi. The Promised Day Is Come, His Messages to Christian Leaders.
+
+“Bethlehem is astir . . .” to “. . . the Best‑Informed”
+
+Shoghi Effendi. The Promised Day Is Come, His Messages to Christian Leaders.
+
+“I never passed . . .” to “. . . crucified upon thee.”
+
+Shoghi Effendi. The Promised Day Is Come, Let the Oppressor Desist.
+
+“behave towards . . .” to “. . . honesty and truthfulness.”
+
+Shoghi Effendi. God Passes By, Chapter XII.
+
+“O people of God! . . .” to “. . . life to the world.”
+
+Shoghi Effendi. The Advent of Divine Justice.
+
+“A good character . . .” to “. . . and the radiance thereof.”
+
+Shoghi Effendi. The Advent of Divine Justice.
+
+“‘O Son of Spirit,’ . . .” to “. . . before thine eyes.’”
+
+Bahá’u’lláh. The Hidden Words, Arabic no. 2.
+
+“‘We will now mention . . .” to “. . . Lord of creation.’”
+
+Bahá’u’lláh. Epistle to the Son of the Wolf.
+
+“swiftly appearing newspapers” and “the mirror of the world”
+
+Shoghi Effendi. God Passes By, Chapter XII.
+
+“an amazing and potent phenomenon”
+
+Shoghi Effendi. God Passes By, Chapter XII.
+
+“Knowledge is as wings . . .” to “. . . witness the Mother Book”
+
+Bahá’u’lláh. Epistle to the Son of the Wolf.
+
+“In truth, knowledge is . . .” to “. . . gladness unto him.”
+
+Bahá’u’lláh. Epistle to the Son of the Wolf.
+
+“Verily I say: The fear of God . . .” to “. . . do not possess it.”
+
+Bahá’u’lláh. Epistle to the Son of the Wolf.
+
+“The pen of the Most High . . .” to “. . . endued with discernment!”
+
+Bahá’u’lláh. Epistle to the Son of the Wolf.
+
+“O son of man! If . . .” to “. . . woe betide the wayward.”
+
+Bahá’u’lláh. Epistle to the Son of the Wolf.
+
+“The light of men . . .” to “. . . unity among men.”
+
+Shoghi Effendi. The Advent of Divine Justice.
+
+“It is incumbent . . .” to “. . . the Provider, the Omniscient.”
+
+Shoghi Effendi. The World Order of Bahá’u’lláh, ‘Abdu’l‑Bahá.
+
+“My imprisonment doeth . . .” to “. . . My pen to lament.”
+
+Bahá’u’lláh. Epistle to the Son of the Wolf.
+
+“Of all the tributes . . .” to “. . . justice to His Cause.”
+
+Shoghi Effendi. The World Order of Bahá’u’lláh, The Golden Age of the Cause of Bahá’u’lláh.
+
+“O Afnán, . . .” to “. . . vain and worthless people.”
+
+Bahá’u’lláh. Gleanings from the Writings of Bahá’u’lláh, XLIII.
+
+“Every man of insight . . .” to “. . . God’s holy Book”
+
+Bahá’u’lláh. Gleanings from the Writings of Bahá’u’lláh, XLIII.
+
+“O people of Justice! . . .” to “. . . resurrection of all men.”
+
+Bahá’u’lláh. Gleanings from the Writings of Bahá’u’lláh, XLIII.
+
+“Incline your hearts, . . .” to “. . . the Most High.”
+
+Bahá’u’lláh. Gleanings from the Writings of Bahá’u’lláh, XLIII.
+
+“O thou who hast set thy face . . .” to “. . . wondrous station.”
+
+Bahá’u’lláh. Epistle to the Son of the Wolf.
+
+“Admonish men . . .” to “. . . the Lord of creation.”
+
+Bahá’u’lláh. Epistle to the Son of the Wolf.
+
+“In this Revelation . . .” to “reigneth over all things.”
+
+Bahá’u’lláh. Epistle to the Son of the Wolf.
+
+“O people of God! . . .” to “. . . life to the world.”
+
+Shoghi Effendi. The Advent of Divine Justice.
+
+“Let your eye . . .” to “. . . your heart enlightened.”
+
+Shoghi Effendi. The Advent of Divine Justice.
+
+All the Words of Wisdom, except for the thirteenth and fourteenth verses.
+
+Star of the West: The Bahá’í Magazine. Vol. 14, No. 4
+
+“Man is the supreme Talisman. . . .” to “. . . rising hills.”
+
+Bahá’u’lláh. Gleanings from the Writings of Bahá’u’lláh, CXXII.
+
+“Behold the disturbances . . .” to “. . . reward and punishment.”
+
+Bahá’u’lláh. Gleanings from the Writings of Bahá’u’lláh, CXII.
+
+“In another passage . . .” to “. . . justice and wisdom.”
+
+Bahá’u’lláh. Gleanings from the Writings of Bahá’u’lláh, CXII.
+
+“Blessed is the king . . .” to “. . . completely transformed.”
+
+Bahá’u’lláh. Gleanings from the Writings of Bahá’u’lláh, CXVII.
+
+“The Great Being, wishing . . .” to “. . . onslaught of tyranny.”
+
+Bahá’u’lláh. Gleanings from the Writings of Bahá’u’lláh, CXVII.
+
+“The day is approaching . . .” to “. . . reality and action.”
+
+Bahá’u’lláh. Gleanings from the Writings of Bahá’u’lláh, CXVII.
+
+“That one indeed . . .” to “. . . mankind its citizens.”
+
+Bahá’u’lláh. Gleanings from the Writings of Bahá’u’lláh, CXVII.
+
+“The Great Being saith: . . .” to “. . . remedy it requireth.”
+
+Bahá’u’lláh. Gleanings from the Writings of Bahá’u’lláh, CX.
+
+“It is incumbent . . .” to “. . . influence upon men.”
+
+Bahá’u’lláh. Gleanings from the Writings of Bahá’u’lláh, CX.
+
+“Please God, the peoples . . .” to “. . . face of society?”
+
+Bahá’u’lláh. Gleanings from the Writings of Bahá’u’lláh, CX.
+
+“The winds of despair . . .” to “. . . beseemeth their station.”
+
+Bahá’u’lláh. Gleanings from the Writings of Bahá’u’lláh, CX.
+
+“As to thy question . . .” to “. . . hearken unto Our Voice.”
+
+Bahá’u’lláh. Gleanings from the Writings of Bahá’u’lláh, LXXIX.
+
+“He is the Almighty, . . .” to “. . . recorded in the preserved Tablet”
+
+Bahá’u’lláh. Epistle to the Son of the Wolf.
+
+“O thou who hast gone astray! . . .” to “. . . insight and understanding.”
+
+Bahá’u’lláh. Epistle to the Son of the Wolf.
+
+“Peruse thou the Kitáb‑i‑Íqán . . .” to “. . . horizon of certitude.”
+
+Bahá’u’lláh. Epistle to the Son of the Wolf.
+
+“O thou who art gone astray! . . .” to “. . . in clear ruin.”
+
+Bahá’u’lláh. Epistle to the Son of the Wolf.
+
+“O My Supreme Pen! . . .” to “. . . the Lord of the worlds!”
+
+Bahá’u’lláh. Epistle to the Son of the Wolf.
+
+“It is incumbent upon the Aghṣán . . .” to “. . . the All‑Powerful.”
+
+Shoghi Effendi. The World Order of Bahá’u’lláh, ‘Abdu’l‑Bahá.
+
+“Praise be to Him . . .” to “. . . another land rejoiceth.”
+
+Shoghi Effendi. The World Order of Bahá’u’lláh, ‘Abdu’l‑Bahá.
+
+“Blessed, doubly blessed, . . .” to “. . . His writings.”
+
+Shoghi Effendi. The World Order of Bahá’u’lláh, ‘Abdu’l‑Bahá.
+
+Notes
+
+2. Lawḥ‑i‑Aqdas (The Most Holy Tablet)
+
+Sometimes referred to as Tablet to the Christians.
+
+Jesus.
+
+Jesus.
+
+3. Bishárát (Glad‑Tidings)
+
+Jesus.
+
+4. Ṭarázát (Ornaments)
+
+Qur’án 81:6 & 10.
+
+Mírzá Hádí Dawlat‑Ábádí, one of the divines of Iṣfáhán, who became a follower of the Báb, later supported Mírzá Yaḥyá, and was appointed his representative in Írán and his successor. During the persecutions against the Bábís he recanted his faith.
+
+The insignia of a mullá.
+
+Qur’án 6:91.
+
+5. Tajallíyát (Effulgences)
+
+Ustád ‘Alí‑Akbar, one of the staunch believers in Yazd. He designed the Mashriqu’l‑Adhkár of Ishqábád and his design was approved by ‘Abdu’l‑Bahá. Ustád ‘Alí‑Akbar offered up his life as a martyr in Yazd in 1903.
+
+Arabic.
+
+6. Kalimát‑i‑Firdawsíyyih (Words of Paradise)
+
+Ḥájí Mírzá Ḥaydar‑‘Alí, outstanding Persian Bahá’í teacher and author. He spent nine years in prison and exile in Khártúm, travelled extensively in Írán, and passed away in 1920 in the Holy Land. Western pilgrims knew him as the Angel of Mount Carmel.
+
+Qur’án 34:12.
+
+Jesus.
+
+Ḥájí Mullá Hádí Sabzívarí, a renowned philosopher and poet of Írán contemporary with Bahá’u’lláh. He passed away in 1873.
+
+Mírzá Abu’l‑Qásim Faráhání, the Qá’im Maqám, a distinguished poet and scholar during the reign of Fatḥ ‘Alí Sháh. He was a friend of Mírzá Buzurg, father of Bahá’u’lláh. Qá’im Maqám became Prime Minister of Persia in 1821, but in 1835 he was put to death by order of Muḥammad Sháh, at the instigation of Ḥájí Mírzá Aqásí.
+
+cf. Qur’án 4:129.
+
+Qur’án 59:9.
+
+Muḥammad Javád‑i‑Qazvíní, upon whom Bahá’u’lláh bestowed the title Ismu’lláhi’l‑Júd (The Name of God, Bounty). He transcribed numerous Tablets of Bahá’u’lláh during His Ministry, but subsequently broke the Covenant. (See God Passes By, Chapter XV, paragraph beginning “Far from being allayed by the provisions of a Will . . .” and Chapter XX, paragraph beginning “And finally, he who . . .”.)
+
+A village near Iṣfáhán.
+
+Mírzá Hádí Dawlat‑Ábádí, one of the divines of Iṣfáhán, who became a follower of the Báb, later supported Mírzá Yaḥyá, and was appointed his representative in Írán and his successor. During the persecutions against the Bábís he recanted his faith.
+
+Mírzá Ashraf, who was martyred in the city of Iṣfáhán. (See God Passes By, Chapter XII, paragraph beginning “Mullá ‘Alí Ján was conducted on foot from Mázindarán to Ṭihrán . . .”.)
+
+7. Lawḥ‑i‑Dunyá (Tablet of the World)
+
+The two Hands of the Cause of God, Ḥájí Mullá ‘Alí‑Akbar Sháhmírzádí and Ḥájí Abu’l‑Ḥasan Ardakání, Amín‑i‑Iláhí (Trustee of Ḥuqúqu’lláh), were originally arrested in Ṭihrán, imprisoned in Qazvín in the year 1891, and then transferred to prison in Ṭihrán.
+
+Prince Maḥmúd Mírzá, the Jalálu’d’Dawlih, Governor of Yazd, Persia.
+
+Jamálu’d‑Dín‑i‑Afghání. (See God Passes By Chapter XX, paragraph beginning “In Persia, the cradle of the Faith . . .” and Chapter XXI, paragraph beginning “To the assassination of the tyrannical Náṣiri’d‑Dín Sháh . . .”.)
+
+8. Ishráqát (Splendours)
+
+i.e., the letter “B,” the second letter of the alphabet.
+
+The opening chapter of the Qur’án, which begins with the letter “B”: Bismi’lláhi’r‑Raḥmáni’r‑Raḥím (In the Name of God, the Compassionate, the Merciful). This chapter of the Qur’án was revealed twice, once in Mecca and once in Medina.
+
+The opening chapter of the Qur’án, which begins with the letter “B”: Bismi’lláhi’r‑Raḥmáni’r‑Raḥím (In the Name of God, the Compassionate, the Merciful). This chapter of the Qur’án was revealed twice, once in Mecca and once in Medina.
+
+Jesus.
+
+Moses.
+
+This Tablet was addressed to Jalíl‑i‑Khú’í, one of the early believers in Ádhirbayján, Persia. After the Ascension of Bahá’u’lláh he broke the Covenant.
+
+cf. Qur’án 14:33.
+
+cf. Qur’án 21:23.
+
+Mecca.
+
+Qur’án 3:91.
+
+Muḥammad.
+
+Mírzá Yaḥyá.
+
+Muḥammad.
+
+Qur’án 83:6.
+
+Moses.
+
+Qur’án 14:5.
+
+Jesus.
+
+Adrianople.
+
+Arabic.
+
+Persian.
+
+Muḥammad.
+
+The Imáms.
+
+The Báb.
+
+Kitáb‑i‑Aqdas.
+
+One of the early believers who is best known to the friends for his reliable transcriptions of the Tablets of Bahá’u’lláh. (See Memorials of the Faithful, Chapter 58: “Zaynu’l‑Muqarrabín”.)
+
+Such loans as bear no interest and are repayable whenever the borrower pleases.
+
+9. Lawḥ‑i‑Ḥikmat (Tablet of Wisdom)
+
+In a Tablet Bahá’u’lláh states, “The Holy Tree [Sadrat] is, in a sense, the Manifestation of the One True God, exalted be He. The Blessed Tree in the land of Za‘farán referreth to the land which is flourishing, blessed, holy and all‑perfumed, where that Tree hath been planted.”
+
+In many of the passages that follow concerning the Greek philosophers, Bahá’u’lláh quotes verbatim from the works of such Muslim historians as Abu’l‑Fatḥ‑i‑Sháhristání (1076—1153 A.D.) and Imádu’d‑Dín Abu’l‑Fidá (1273—1331 A.D.).
+
+In one of His Tablets Bahá’u’lláh wrote: “The first person who devoted himself to philosophy was Idrís. Thus was he named. Some called him also Hermes. In every tongue he hath a special name. He it is who hath set forth in every branch of philosophy thorough and convincing statements. After him Balínús derived his knowledge and sciences from the Hermetic Tablets and most of the philosophers who followed him made their philosophical and scientific discoveries from his words and statements. . . .” In the Qur’án, Súra 19, verses 57 and 58, is written: “And commemorate Idrís in the Book; for he was a man of truth, a Prophet; And we uplifted him to a place on high.”
+
+In many of the passages that follow concerning the Greek philosophers, Bahá’u’lláh quotes verbatim from the works of such Muslim historians as Abu’l‑Fatḥ‑i‑Sháhristání (1076—1153 A.D.) and Imádu’d‑Dín Abu’l‑Fidá (1273—1331 A.D.).
+
+10. Aṣl‑i‑Kullu’l‑Khayr (Words of Wisdom)
+
+Although research has established that this Tablet was revealed prior to the Kitáb‑i‑Aqdas, it is being retained for the time being in this publication.
+
+11. Lawḥ‑i‑Maqṣúd (Tablet of Maqṣúd)
+
+Qur’án 20:106.
+
+Muḥammad.
+
+Mecca.
+
+Arabic.
+
+Moses.
+
+12. Súriy‑i‑Vafá (Tablet to Vafá)
+
+Muḥammad Ḥusayn, one of the early believers of Shíráz, surnamed “Vafá” (Fidelity) by Bahá’u’lláh.
+
+The Most Great Name.
+
+Mullá Ḥusayn.
+
+The maker of the Golden Calf. See Qur’án 20:87—98.
+
+13. Lawḥ‑i‑Síyyid‑i‑Mihdíy‑i‑Dahají (Tablet to Siyyid Mihdíy‑i‑Dahají)
+
+Siyyid Mihdíy‑i‑Dahají, to whom this Tablet was addressed, had been given by Bahá’u’lláh the title Ismu’lláhi’l‑Mihdí, “The Name of God, Mihdí.” He later broke the Covenant. (See God Passes By, Chapter XXI, paragraph beginning “And finally, he who, from the moment the Divine Covenant was born . . .”.)
+
+Nabíl‑i‑Akbar. See Lawḥ‑i‑Ḥikmat, beginning note
+
+14. Lawḥ‑i‑Burhán (Tablet of the Proof)
+
+Mecca.
+
+Fáṭimih, daughter of Muḥammad.
+
+Jesus.
+
+Qur’án 4:96.
+
+Jesus.
+
+The Sacred Lote‑Tree, the Tree beyond which there is no passing (See Qur’án 53:8—18). A symbol of the Manifestation of God. (See God Passes By, Chapter VI, paragraph beginning “In the name He bore . . .”.)
+
+Qur’án 2:88.
+
+Moses.
+
+Jesus.
+
+Napoleon III.
+
+Qur’án 40:29.
+
+Muḥammad.
+
+Fáṭimih, daughter of Muḥammad.
+
+Adrianople.
+
+The Imám‑Jum’ih of Iṣfáhán, see Lawḥ‑i‑Burhán, beginning note
+
+Fáṭimih.
+
+The King of Martyrs and the Beloved of Martyrs.
+
+Jesus.
+
+Ishmael.
+
+15. Kitáb‑i‑‘Ahd (Book of the Covenant)
+
+Qur’án 104:1—2.
+
+16. Lawḥ‑i‑Arḍ‑i‑Bá (Tablet of the Land of Bá)
+
+Beirut. This Tablet is “a letter dictated by Bahá’u’lláh and addressed by Mírzá Áqá Ján, His amanuensis, to ‘Abdu’l‑Bahá while the latter was on a visit to Beirut.” (The World Order of Bahá’u’lláh, paragraph beginning “In a letter dictated by Bahá’u’lláh . . .”.)
+
+17. Excerpts from Other Tablets
+
+“We make mention of him who hath been attracted by Our . . .”
+
+Qur’án 7:139.
+
+“O Thou who bearest My Name, Júd [Bounty]! Upon . . .”
+
+Muḥammad Javád‑i‑Qazvíní, upon whom Bahá’u’lláh bestowed the title Ismu’lláhi’l‑Júd (The Name of God, Bounty). He transcribed numerous Tablets of Bahá’u’lláh during His Ministry, but subsequently broke the Covenant. (See God Passes By, Chapter XV, paragraph beginning “Far from being allayed by the provisions of a Will . . .” and Chapter XX, paragraph beginning “And finally, he who . . .”.)
+
+“O Ḥaydar! This Wronged One hath heard thy voice . . .”
+
+Ḥájí Mírzá Ḥaydar‑‘Alí, outstanding Persian Bahá’í teacher and author. He spent nine years in prison and exile in Khártúm, travelled extensively in Írán, and passed away in 1920 in the Holy Land. Western pilgrims knew him as the Angel of Mount Carmel.
+
+“This Wronged One doth mention him who hath set his . . .”
+
+Psalms 60:9; 108:10.
+
+Qur’án 14:5.
+
+This document has been downloaded from the . You are free to use its content subject to the terms of use found at
+
+Last modified: 23 September 2024 10:00 a.m. (GMT)

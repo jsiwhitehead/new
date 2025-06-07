@@ -82,11 +82,13 @@ export default function App() {
             ))}
           </Row>
         )}
-        {!single ? (
+        {Object.keys(nestedTree).length > 0 && (
           <div style={{ paddingLeft: 15 }}>
             {renderTree(nestedTree, path[path.length - 1]?.[1] || "")}
           </div>
-        ) : (
+        )}
+
+        {single &&
           data.map((d, i) => {
             const allSpecial = d.content.every((d) => typeof d !== "string");
             return (
@@ -150,8 +152,7 @@ export default function App() {
                 })}
               </Column>
             );
-          })
-        )}
+          })}
       </Column>
     </SizeContext>
   );

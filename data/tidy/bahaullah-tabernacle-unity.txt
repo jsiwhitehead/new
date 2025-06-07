@@ -1,10 +1,8 @@
 The Tabernacle of Unity
-author="Bahá’u’lláh"
-years=[1870,1877]
 
-# Introduction
-meta="The Universal House of Justice"
-years=[2006,2006]
+Bahá’u’lláh
+
+Introduction
 
 From the birth of the Bahá’í Revelation in a subterranean dungeon in Ṭihrán where its Author was confined in 1852, the Faith of Bahá’u’lláh has rapidly grown, in ever‑widening circles, beyond the social and religious matrix of its inception. Among the first individuals outside the Islámic community to be attracted to its teachings, presaging the flow of people of all faiths and origins into its universal embrace, were Zoroastrians in Persia and India. To this group Bahá’u’lláh addressed a number of Tablets, several of which are presented here for the first time in full authorised translations.
 
@@ -22,10 +20,13 @@ A portion of the Lawḥ‑i‑Mánikchí Ṣáḥib and several excerpts from th
 
 It is hoped that the publication of this volume will enable a deeper appreciation of the fundamental principle of the oneness of religion and lend a fresh impetus to the efforts of those who strive to promote its understanding in an age that needs it more acutely with every passing day.
 
-# Tablet to Mánikchí Ṣáḥib
-translated="Lawḥ‑i‑Mánikchí‑Ṣáḥib"
+1
 
-^ IN THE NAME OF THE ONE TRUE GOD
+Tablet to Mánikchí Ṣáḥib
+
+(Lawḥ‑i‑Mánikchí‑Ṣáḥib)
+
+IN THE NAME OF THE ONE TRUE GOD
 
 Praise be to the all‑perceiving, the ever‑abiding Lord Who, from a dewdrop out of the ocean of His grace, hath reared the firmament of existence, adorned it with the stars of knowledge, and admitted man into the lofty court of insight and understanding. This dewdrop, which is the Primal Word of God, is at times called the Water of Life, inasmuch as it quickeneth with the waters of knowledge them that have perished in the wilderness of ignorance. Again it is called the Primal Light, a light born of the Sun of divine knowledge, through whose effulgence the first stirrings of existence were made plain and manifest. Such manifestations are the expressions of the grace of Him Who is the Peerless, the All‑Wise. He it is who knoweth and bestoweth all. He it is who transcendeth all that hath been said or heard. His knowledge will remain forever above the grasp of human vision and understanding and beyond the reach of human words and deeds. To the truth of this utterance existence itself and all that hath appeared therefrom bear eloquent testimony.
 
@@ -65,7 +66,9 @@ O friend! As hearing ears are scarce to find, the pen hath for some time remaine
 
 O friend! We came upon a pure soil and sowed therein the seeds of true understanding. Let it now be seen what the rays of the sun will do—whether they will cause these seeds to wither or to grow. Say: Through the ascendancy of God, the All‑Knowing, the Incomparable, the Luminary of divine understanding hath, in this day, risen from behind the veil of the spirit, and the birds of every meadow are intoxicated with the wine of knowledge and exhilarated with the remembrance of the Friend. Well is it with them that discover and hasten unto Him!
 
-# Responses to questions of Mánikchí Ṣáḥib from a Tablet to Mírzá Abu’l‑Faḍl
+2
+
+Responses to questions of Mánikchí Ṣáḥib from a Tablet to Mírzá Abu’l‑Faḍl
 
 In regard to what thou hast written concerning his honour the learned Ṣáḥib, upon him be the grace of God, his state of mind and disposition are clear and evident, as is further attested by that which he hath sent. Now, as to his questions, it was not deemed advisable to refer and reply to each one individually, for the response would have run counter to wisdom and been incompatible with that which is current amongst men. Even so, in that which was revealed in his honour from the heaven of divine favour, answers were provided in a language of marvellous concision and clarity. But it appeareth that he hath failed to consider the matter closely, for otherwise he would have readily admitted that not a single point was omitted, and would have exclaimed: “This is naught but a clear and conclusive utterance!” His questions were the following.
 
@@ -187,10 +190,13 @@ All the questions of his honour the Ṣáḥib have herewith been mentioned and 
 
 This servant beseecheth the one True God—exalted be His glory—to graciously adorn the world of humanity with justice and fair‑mindedness, although in truth the latter is but one of the expressions of the former. Verily, justice is a lamp that guideth man aright amidst the darkness of the world and shieldeth him from every danger. It is indeed a shining lamp. God grant that the rulers of the earth may be illumined by its light. This servant further imploreth God to graciously aid all men to do His will and pleasure. He, in truth, is the Lord of this world and of the world to come. No God is there but Him, the Almighty, the Most‑Powerful.
 
-# Tablet of the Seven Questions
-translated="Lawḥ‑i‑Haft Pursish"
+3
 
-^ IN THE NAME OF THE LORD OF UTTERANCE, THE ALL‑WISE
+Tablet of the Seven Questions
+
+(Lawḥ‑i‑Haft Pursish)
+
+IN THE NAME OF THE LORD OF UTTERANCE, THE ALL‑WISE
 
 All praise be to the sanctified Lord Who hath illumined the world through the splendours of the Daystar of His grace. From the letter “B” He hath made the Most Great Ocean to appear, and from the letter “H” He hath caused His inmost Essence to be made manifest. He is that Almighty One Whose purpose the might of men can never hope to frustrate and the flow of Whose utterance the hosts of kings are powerless to halt.
 
@@ -224,11 +230,11 @@ The Faith of God is endowed with penetrating might and power. Erelong that which
 
 We implore God to confirm thee in that which will exalt and immortalise thy name. Make thou an effort, that haply thou mayest obtain the aforementioned Tablets and acquire therefrom a share of the pearls of wisdom and utterance that have issued from the treasury of the Pen of the All‑Merciful. The glory of God rest upon thee, upon every steadfast and unwavering heart and upon every constant and faithful soul.
 
-# Two Other Tablets
+Two Other Tablets
 
-##
+— 4 —
 
-^ THE BEGINNING OF ALL UTTERANCE IS THE PRAISE OF GOD
+THE BEGINNING OF ALL UTTERANCE IS THE PRAISE OF GOD
 
 O servants! The springs of divine bestowal are streaming forth. Quaff ye therefrom, that by the aid of the incomparable Friend ye may be sanctified from this darksome world of dust and enter His abode. Renounce the world and direct your steps toward the city of the Beloved.
 
@@ -256,9 +262,9 @@ O servants! Follow the path of truthfulness and turn not away from the needy. Ma
 
 O servants! Be pure in your deeds, and conduct yourselves in accordance with the words of God. Such are the counsels of the incomparable Lord.
 
-##
+— 5 —
 
-^ THE BEGINNING OF EVERY ACCOUNT IS THE NAME OF GOD
+THE BEGINNING OF EVERY ACCOUNT IS THE NAME OF GOD
 
 O friends of God! Incline your inner ears to the voice of the peerless and self‑subsisting Lord, that He may deliver you from the bonds of entanglement and the depths of darkness and enable you to attain the eternal light. Ascent and descent, stillness and motion, have come into being through the will of the Lord of all that hath been and shall be. The cause of ascent is lightness, and the cause of lightness is heat. Thus hath it been decreed by God. The cause of stillness is weight and density, which in turn are caused by cold. Thus hath it been decreed by God.
 
@@ -285,3 +291,157 @@ O servant of God! Say: O high priests! The Hand of Omnipotence is stretched fort
 O servant of God! The Daystar of the everlasting realm is shining resplendent above the horizon of His will and the Oceans of divine bounty are surging. Bereft indeed is the one who hath failed to behold them, and lifeless the one who hath not attained thereunto. Close thine eyes to this nether world, open them to the countenance of the incomparable Friend, and commune intimately with His Spirit.
 
 O servant of God! With a pure heart unloose thy tongue in the praise of thy Lord for having made mention of thee through His gem‑scattering pen. Couldst thou but realise the greatness of this bestowal, thou wouldst find thyself invested with everlasting life.
+
+Notes
+
+1. Tablet to Mánikchí Ṣáḥib
+
+Iráq.
+
+From the Lawḥ‑i‑Maqṣúd; cf. Tablets of Bahá’u’lláh Revealed after the Kitáb‑i‑Aqdas, Lawḥ‑i‑Maqṣúd, paragraph beginning “O my friend! In all circumstances one should seize . . .”.
+
+From the Lawḥ‑i‑Maqṣúd; cf. Tablets of Bahá’u’lláh Revealed after the Kitáb‑i‑Aqdas, Lawḥ‑i‑Maqṣúd, paragraph beginning “If this point were to be expounded . . .”.
+
+2. From a Tablet to Mírzá Abu’l‑Faḍl
+
+Qur’án 3:1.
+
+Qur’án 2:285.
+
+Qur’án 2:253.
+
+See 1.4.
+
+The “Necessary Being” (vájibu’l‑vujúd) refers to God; this term was used by Muslim philosophers such as al‑Farabi and can be traced to Aristotle.
+
+Taqvá, translated here as “righteousness”, has further connotations of piety, fear of God, and right conduct that cannot all be conveyed with a single word in English.
+
+In Islámic law, religious principles (uṣúl; lit. “roots”), concern the sources of the law that can be explicitly derived from the Qur’án and the Ḥadíth, whereas secondary laws and ordinances (furú‘ ; lit. “branches”) are deduced from the former through the discipline of jurisprudence (fiqh).
+
+Possible reference to Qur’án 2:187, which contains instructions regarding the Fast: “Eat and drink until ye can discern a white thread from a black thread by the daybreak.” (Rodwell trans.)
+
+Qur’án 6:91.
+
+Among the rites performed by Muslim pilgrims during the Hajj.
+
+See 1.14.
+
+Muḥammad.
+
+Qur’án 2:143.
+
+See 1.18.
+
+See 1.15.
+
+The “realm of subtle entities” (‘álam‑i‑dharr) is an allusion to the Covenant between God and Adam mentioned in Qur’án 7:172. In a Tablet ‘Abdu’l‑Bahá has written: “The realm of subtle entities that is alluded to referreth to the realities, specifications, individuations, capacities and potentialities of man in the mirror of the divine knowledge. As these potentialities and capacities differ, they each have their own particular exigency. That exigency consisteth in acquiescence and supplication.” (Má’idiy‑i‑Ásmání, vol. 2, (New Delhi: Bahá’í Publishing Trust, 1984), p. 30)
+
+Qur’án 2:156.
+
+Qur’án 6:91.
+
+Key to Passages Translated by Shoghi Effendi
+
+Paragraph
+
+Passage
+
+Source
+
+1.4—1.6
+
+“The All‑Knowing Physician . . . whoso remaineth dead, shall never live.”
+
+Bahá’u’lláh. Gleanings from the Writings of Bahá’u’lláh, CVI.
+
+1.15
+
+“O well‑beloved ones! . . . and the leaves of one branch.”
+
+Bahá’u’lláh. Gleanings from the Writings of Bahá’u’lláh, CXII.
+
+2.5
+
+“No distinction do We make between any of His Messengers.”
+
+Bahá’u’lláh. The Kitáb‑i‑Íqán, Part Two.
+
+2.5
+
+“Some of the Apostles We have caused to excel the others.”
+
+Bahá’u’lláh. The Kitáb‑i‑Íqán, Part Two.
+
+2.5
+
+“The All‑Knowing Physician . . . on its exigencies and requirements.”
+
+Bahá’u’lláh. Gleanings from the Writings of Bahá’u’lláh, CVI.
+
+2.24
+
+“We did not appoint . . . from him who turneth on his heels.”
+
+Bahá’u’lláh. The Kitáb‑i‑Íqán, Part One.
+
+2.34
+
+“O ye children of men! . . . and discord, of hate and enmity.”
+
+Bahá’u’lláh. Gleanings from the Writings of Bahá’u’lláh, CX.
+
+2.35
+
+“Blessed and happy . . . peoples and kindreds of the earth.”
+
+Bahá’u’lláh. Gleanings from the Writings of Bahá’u’lláh, CXVII.
+
+2.36
+
+“O well‑beloved ones! . . . and the leaves of one branch.”
+
+Bahá’u’lláh. Gleanings from the Writings of Bahá’u’lláh, CXII.
+
+2.37
+
+“The structure of world stability . . . reward and punishment.”
+
+Bahá’u’lláh. Gleanings from the Writings of Bahá’u’lláh, CXII.
+
+2.51
+
+“Verily, we are God’s, and to Him shall we return.”
+
+Bahá’u’lláh. Gleanings from the Writings of Bahá’u’lláh, CLXV.
+
+2.53
+
+“Say: It is God . . . with their cavillings.”
+
+Bahá’u’lláh. The Kitáb‑i‑Íqán, Part One.
+
+3.4
+
+“O high priests! . . . and would arise to help Him.”
+
+Shoghi Effendi. The Promised Day Is Come, The Crumbling of Religious Orthodoxy.
+
+3.10
+
+“Whatsoever hath been announced . . . the Supreme Heaven.”
+
+Shoghi Effendi. The Promised Day Is Come, The Crumbling of Religious Orthodoxy.
+
+5.3
+
+“This is not the day . . . the way leading to the Beloved.”
+
+Shoghi Effendi. The Promised Day Is Come, The Crumbling of Religious Orthodoxy.
+
+5.11
+
+“O high priests! . . . gaze ye on them with pure eyes.”
+
+Shoghi Effendi. The Promised Day Is Come, The Crumbling of Religious Orthodoxy.
+
+This document has been downloaded from the . You are free to use its content subject to the terms of use found at
