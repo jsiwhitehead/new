@@ -22,7 +22,7 @@
     "path": [
       ["Bahá’u’lláh", "bahaullah", 1],
       ["Days of Remembrance", "days-remembrance", 2],
-      ["Naw-Rúz", "nawruz", 2],
+      ["Naw-Rúz", "naw-ruz", 2],
       ["1", "1", 1]
     ],
     "years": [1853, 1892],
@@ -42,7 +42,7 @@
     "path": [
       ["Bahá’u’lláh", "bahaullah", 1],
       ["Days of Remembrance", "days-remembrance", 2],
-      ["Naw-Rúz", "nawruz", 2],
+      ["Naw-Rúz", "naw-ruz", 2],
       ["2", "2", 2]
     ],
     "years": [1853, 1892],
@@ -61,7 +61,7 @@
     "path": [
       ["Bahá’u’lláh", "bahaullah", 1],
       ["Days of Remembrance", "days-remembrance", 2],
-      ["Naw-Rúz", "nawruz", 2],
+      ["Naw-Rúz", "naw-ruz", 2],
       ["3", "3", 3]
     ],
     "years": [1853, 1892],
@@ -87,7 +87,7 @@
     "path": [
       ["Bahá’u’lláh", "bahaullah", 1],
       ["Days of Remembrance", "days-remembrance", 2],
-      ["Naw-Rúz", "nawruz", 2],
+      ["Naw-Rúz", "naw-ruz", 2],
       ["4", "4", 4]
     ],
     "years": [1853, 1892],
@@ -117,7 +117,7 @@
     "path": [
       ["Bahá’u’lláh", "bahaullah", 1],
       ["Days of Remembrance", "days-remembrance", 2],
-      ["Naw-Rúz", "nawruz", 2],
+      ["Naw-Rúz", "naw-ruz", 2],
       ["5", "5", 5]
     ],
     "years": [1853, 1892],
@@ -305,7 +305,11 @@
       ["Bahá’u’lláh", "bahaullah", 1],
       ["Days of Remembrance", "days-remembrance", 2],
       ["Riḍván", "ridvan", 3],
-      ["Tablet of the Wondrous Maiden", "tablet-of-the-wondrous-maiden", 7]
+      [
+        "Tablet of the Wondrous Maiden (Ḥúr-i-‘Ujáb)",
+        "tablet-of-the-wondrous-maiden",
+        7
+      ]
     ],
     "translated": "Ḥúr-i-‘Ujáb",
     "years": [1853, 1892],
@@ -524,7 +528,7 @@
       ["Days of Remembrance", "days-remembrance", 2],
       ["Riḍván", "ridvan", 3],
       [
-        "Tablet of the Lover and the Beloved",
+        "Tablet of the Lover and the Beloved (Lawḥ-i-‘Áshiq va Ma‘shúq)",
         "tablet-of-the-lover-and-the-beloved",
         16
       ]
@@ -585,7 +589,7 @@
       ["Bahá’u’lláh", "bahaullah", 1],
       ["Days of Remembrance", "days-remembrance", 2],
       ["Riḍván", "ridvan", 3],
-      ["Tablet of the Pen", "tablet-of-the-pen", 18]
+      ["Tablet of the Pen (Súriy-i-Qalam)", "tablet-of-the-pen", 18]
     ],
     "translated": "Súriy-i-Qalam",
     "years": [1853, 1892],
@@ -659,7 +663,7 @@
       ["Bahá’u’lláh", "bahaullah", 1],
       ["Days of Remembrance", "days-remembrance", 2],
       ["Declaration of the Báb", "declaration-of-the-bab", 4],
-      ["Tablet of the Bell", "tablet-of-the-bell", 1]
+      ["Tablet of the Bell (Lawḥ-i-Náqús)", "tablet-of-the-bell", 1]
     ],
     "translated": "Lawḥ-i-Náqús",
     "years": [1853, 1892],
@@ -705,7 +709,11 @@
       ["Bahá’u’lláh", "bahaullah", 1],
       ["Days of Remembrance", "days-remembrance", 2],
       ["Declaration of the Báb", "declaration-of-the-bab", 4],
-      ["Tablet of the Immortal Youth", "tablet-of-the-immortal-youth", 2]
+      [
+        "Tablet of the Immortal Youth (Lawḥ-i-Ghulámu’l-Khuld)",
+        "tablet-of-the-immortal-youth",
+        2
+      ]
     ],
     "translated": "Lawḥ-i-Ghulámu’l-Khuld",
     "years": [1853, 1892],
@@ -784,7 +792,7 @@
       ["Bahá’u’lláh", "bahaullah", 1],
       ["Days of Remembrance", "days-remembrance", 2],
       ["Ascension of Bahá’u’lláh", "ascension-of-bahaullah", 5],
-      ["Tablet of the Branch", "tablet-of-the-branch", 1]
+      ["Tablet of the Branch (Súriy-i-Ghuṣn)", "tablet-of-the-branch", 1]
     ],
     "translated": "Súriy-i-Ghuṣn",
     "years": [1853, 1892],
@@ -814,7 +822,7 @@
       ["Bahá’u’lláh", "bahaullah", 1],
       ["Days of Remembrance", "days-remembrance", 2],
       ["Ascension of Bahá’u’lláh", "ascension-of-bahaullah", 5],
-      ["Tablet to Rasúl", "tablet-to-rasul", 2]
+      ["Tablet to Rasúl (Lawḥ-i-Rasúl)", "tablet-to-rasul", 2]
     ],
     "translated": "Lawḥ-i-Rasúl",
     "years": [1853, 1892],
@@ -838,7 +846,7 @@
       ["Bahá’u’lláh", "bahaullah", 1],
       ["Days of Remembrance", "days-remembrance", 2],
       ["Ascension of Bahá’u’lláh", "ascension-of-bahaullah", 5],
-      ["Tablet to Maryam", "tablet-to-maryam", 3]
+      ["Tablet to Maryam (Lawḥ-i-Maryam)", "tablet-to-maryam", 3]
     ],
     "translated": "Lawḥ-i-Maryam",
     "years": [1853, 1892],
@@ -871,7 +879,7 @@
       ["Bahá’u’lláh", "bahaullah", 1],
       ["Days of Remembrance", "days-remembrance", 2],
       ["Ascension of Bahá’u’lláh", "ascension-of-bahaullah", 5],
-      ["Book of the Covenant", "book-of-the-covenant", 4]
+      ["Book of the Covenant (Kitáb-i-‘Ahd)", "book-of-the-covenant", 4]
     ],
     "translated": "Kitáb-i-‘Ahd",
     "years": [1853, 1892],
@@ -937,7 +945,7 @@
       ["Days of Remembrance", "days-remembrance", 2],
       ["Martyrdom of the Báb", "martyrdom-of-the-bab", 6],
       [
-        "Excerpt from the Tablet of Counsel",
+        "Excerpt from the Tablet of Counsel (Súriy-i-Nuṣḥ)",
         "excerpt-from-the-tablet-of-counsel",
         2
       ]
@@ -965,7 +973,7 @@
       ["Days of Remembrance", "days-remembrance", 2],
       ["Martyrdom of the Báb", "martyrdom-of-the-bab", 6],
       [
-        "Excerpt from the Tablet of the Kings",
+        "Excerpt from the Tablet of the Kings (Súriy-i-Múlúk)",
         "excerpt-from-the-tablet-of-the-kings",
         3
       ]
@@ -989,7 +997,7 @@
       ["Days of Remembrance", "days-remembrance", 2],
       ["Martyrdom of the Báb", "martyrdom-of-the-bab", 6],
       [
-        "Excerpt from the Tablet to Salmán I",
+        "Excerpt from the Tablet to Salmán I (Lawḥ-i-Salmán I)",
         "excerpt-from-the-tablet-to-salman-i",
         4
       ]
@@ -1006,7 +1014,7 @@
       ["Days of Remembrance", "days-remembrance", 2],
       ["Martyrdom of the Báb", "martyrdom-of-the-bab", 6],
       [
-        "Excerpt from the Tablet of Remembrance",
+        "Excerpt from the Tablet of Remembrance (Súriy-i-Dhikr)",
         "excerpt-from-the-tablet-of-remembrance",
         5
       ]
@@ -1041,7 +1049,7 @@
       ["Days of Remembrance", "days-remembrance", 2],
       ["Martyrdom of the Báb", "martyrdom-of-the-bab", 6],
       [
-        "Excerpt from the Tablet of Sorrows",
+        "Excerpt from the Tablet of Sorrows (Súriy-i-Aḥzán)",
         "excerpt-from-the-tablet-of-sorrows",
         6
       ]
@@ -1106,7 +1114,7 @@
       ["Bahá’u’lláh", "bahaullah", 1],
       ["Days of Remembrance", "days-remembrance", 2],
       ["Birth of Bahá’u’lláh", "birth-of-bahaullah", 8],
-      ["Tablet of the Birth", "tablet-of-the-birth", 1]
+      ["Tablet of the Birth (Lawḥ-i-Mawlúd)", "tablet-of-the-birth", 1]
     ],
     "translated": "Lawḥ-i-Mawlúd",
     "years": [1853, 1892],

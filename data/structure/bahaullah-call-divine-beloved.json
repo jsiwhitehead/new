@@ -25,7 +25,11 @@
     "path": [
       ["Bahá’u’lláh", "bahaullah", 1],
       ["The Call of the Divine Beloved", "call-divine-beloved", 1],
-      ["The Clouds of the Realms Above", "the-clouds-of-the-realms-above", 2]
+      [
+        "The Clouds of the Realms Above (Rashḥ-i-‘Amá)",
+        "the-clouds-of-the-realms-above",
+        2
+      ]
     ],
     "translated": "Rashḥ-i-‘Amá",
     "years": [1852, 1863],

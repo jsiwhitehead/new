@@ -98,14 +98,18 @@ export const parseStructuredSections = (
         base || `${counters[level - 1]}`,
         lastLevel === 0
           ? file
-          : base
+          : (file === "summons-lord-hosts" && base === "Tablet of the Chief"
+              ? base + ` (${translated})`
+              : base
+            )
               ?.toLowerCase()
               .normalize("NFD")
               .replace(/[\u0300-\u036f]/g, "")
-              .replace(/[^a-z ]/g, "")
+              .replace(/[^a-z -]/g, "")
               .replace(/ /g, "-") || `${counters[level - 1]}`,
         counters[level - 1]!,
       ];
+      if (translated) currentPath[level - 1]![0] += ` (${translated})`;
 
       metaStack.splice(level);
       metaStack[level] = meta;
@@ -119,7 +123,12 @@ export const parseStructuredSections = (
             indexAuthors[sectionMeta.author],
           ],
           ...currentPath,
-        ].filter((p) => p[1] !== "gems-of-divine-mysteries"),
+        ].filter(
+          (p) =>
+            !["gems-of-divine-mysteries", "the-book-of-certitude"].includes(
+              p[1]
+            )
+        ),
         translated,
         ...sectionMeta,
         author: undefined,

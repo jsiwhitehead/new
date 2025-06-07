@@ -2,7 +2,11 @@
   {
     "path": [
       ["Bahá’u’lláh", "bahaullah", 1],
-      ["Gems of Divine Mysteries", "gems-divine-mysteries", 4],
+      [
+        "Gems of Divine Mysteries (Javáhiru’l-Asrár)",
+        "gems-divine-mysteries",
+        4
+      ],
       ["Introduction", "introduction", 1]
     ],
     "years": [2002, 2002],
@@ -20,7 +24,11 @@
   {
     "path": [
       ["Bahá’u’lláh", "bahaullah", 1],
-      ["Gems of Divine Mysteries", "gems-divine-mysteries", 4]
+      [
+        "Gems of Divine Mysteries (Javáhiru’l-Asrár)",
+        "gems-divine-mysteries",
+        4
+      ]
     ],
     "years": [1857, 1863],
     "content": [

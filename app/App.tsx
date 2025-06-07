@@ -87,39 +87,47 @@ export default function App() {
             {renderTree(nestedTree, path[path.length - 1]?.[1] || "")}
           </div>
         ) : (
-          data.map((d, i) => (
-            <Column gap={25} style={{ paddingTop: 30 }} key={i}>
-              <Text
-                size={30}
-                style={{
-                  fontWeight: "bold",
-                  textAlign: "center",
-                  paddingBottom: 10,
-                }}
-              >
-                {d.path[d.path.length - 1]![0]}
-              </Text>
-              {d.content.map((c, i) => {
-                if (typeof c === "string") {
-                  return (
-                    <Text key={i} style={{ textIndent: 20 }}>
-                      {c}
-                    </Text>
-                  );
-                }
-                if ("type" in c) {
-                  if (c.type === "break") {
+          data.map((d, i) => {
+            const allSpecial = d.content.every((d) => typeof d !== "string");
+            return (
+              <Column gap={25} style={{ paddingTop: 30 }} key={i}>
+                <Text
+                  size={30}
+                  style={{
+                    fontWeight: "bold",
+                    textAlign: "center",
+                    paddingBottom: 10,
+                  }}
+                >
+                  {d.path[d.path.length - 1]![0]}
+                </Text>
+                {d.content.map((c, i) => {
+                  if (typeof c === "string") {
                     return (
-                      <Text key={i} style={{ textAlign: "center" }}>
-                        ***
+                      <Text key={i} style={{ textIndent: 20 }}>
+                        {c}
                       </Text>
                     );
                   }
-                  if (c.type === "info") {
+                  if ("type" in c) {
+                    if (c.type === "break") {
+                      return (
+                        <Text key={i} style={{ textAlign: "center" }}>
+                          ***
+                        </Text>
+                      );
+                    }
                     return (
                       <Text
                         key={i}
-                        style={{ fontStyle: "italic", textAlign: "center" }}
+                        style={{
+                          fontStyle: c.type === "info" ? "italic" : "normal",
+                          textTransform:
+                            c.type === "call" ? "uppercase" : "none",
+                          textAlign: "justify",
+                          textAlignLast: "center",
+                          padding: allSpecial ? "0 20px" : "0 40px",
+                        }}
                       >
                         {c.text}
                       </Text>
@@ -129,35 +137,20 @@ export default function App() {
                     <Text
                       key={i}
                       style={{
-                        textTransform: "uppercase",
-                        textAlign: "center",
+                        whiteSpace: "pre-wrap",
+                        padding: allSpecial ? 0 : "0 70px",
                       }}
                     >
-                      {c.text}
+                      {c.lines
+                        .slice(1)
+                        .map((l, i) => c.text.slice(c.lines[i], l))
+                        .join("\n")}
                     </Text>
                   );
-                }
-                return (
-                  <Text
-                    key={i}
-                    style={{
-                      paddingLeft:
-                        d.path[1]![0] === "The Hidden Words" ||
-                        d.path[2]![0] === "Questions and Answers"
-                          ? 0
-                          : 40,
-                      whiteSpace: "pre-wrap",
-                    }}
-                  >
-                    {c.lines
-                      .slice(1)
-                      .map((l, i) => c.text.slice(c.lines[i], l))
-                      .join("\n")}
-                  </Text>
-                );
-              })}
-            </Column>
-          ))
+                })}
+              </Column>
+            );
+          })
         )}
       </Column>
     </SizeContext>

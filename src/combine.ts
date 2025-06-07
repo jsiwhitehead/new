@@ -14,5 +14,25 @@ import { readJSON, writeJSON } from "./utils.js";
     );
   }
 
-  await writeJSON("", "data", allStructure);
+  await writeJSON(
+    "",
+    "data",
+    allStructure.sort((aDoc, bDoc) => {
+      const a = aDoc.path.map((p: [string, string, number]) => p[2]);
+      const b = bDoc.path.map((p: [string, string, number]) => p[2]);
+
+      const len = Math.max(a.length, b.length);
+      for (let i = 0; i < len; i++) {
+        const aVal = a[i];
+        const bVal = b[i];
+
+        if (aVal === undefined) return -1;
+        if (bVal === undefined) return 1;
+
+        if (aVal < bVal) return -1;
+        if (aVal > bVal) return 1;
+      }
+      return 0;
+    })
+  );
 })();
