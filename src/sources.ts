@@ -1159,10 +1159,60 @@ const sources: Record<
       prefix(/^O ye esteemed /m, "* "),
       prefix(/^To the /m, "* "),
     ],
-    // "travelers-narrative": [],
-    // "twelve-table-talks-abdul-baha": [],
-    // "will-testament-abdul-baha": [],
-    // "additional-prayers-revealed-abdul-baha": [],
+    "travelers-narrative": [
+      ["Written to Illustrate the Episode of the Báb", ""],
+      ["by ‘Abdu’l‑Bahá", ""],
+      ["Translated by Edward G. Browne", ""],
+      removeAfter("Notes"),
+      title("", "A Traveller’s Narrative", {
+        author: "‘Abdu’l‑Bahá",
+        years: [1886, 1886],
+      }),
+    ],
+    "twelve-table-talks-abdul-baha": [
+      removeAfter("Notes"),
+      [
+        "Twelve Table Talks given by ‘Abdu’l‑Bahá in ‘Akká",
+        "Twelve Table Talks in ‘Akká",
+      ],
+      title("", "Twelve Table Talks in ‘Akká", {
+        author: "‘Abdu’l‑Bahá",
+        years: [1904, 1907],
+      }),
+      [/^— .* —$\n\n/gm, "# "],
+    ],
+    "will-testament-abdul-baha": [
+      removeAfter("This document has been downloaded"),
+      title("", "Will and Testament of ‘Abdu’l‑Bahá", {
+        author: "‘Abdu’l‑Bahá",
+        years: [1901, 1908],
+      }),
+      [/\[(Part.*)\]/g, (_, a) => `# ${a}`],
+      prefix(/^Herein Follow the Tablets/m, "* "),
+      prefix(/^He is God/m, "* "),
+      prefix(/^He is the Witness/m, "* "),
+    ],
+    "additional-prayers-revealed-abdul-baha": [
+      removeAfter("This document has been downloaded"),
+      title("", "Additional Prayers Revealed by ‘Abdu’l‑Bahá", {
+        author: "‘Abdu’l‑Bahá",
+        years: authorYears["‘Abdu’l‑Bahá"],
+        prayer: true,
+        items: true,
+      }),
+      [/^—‘Abdu’l‑Bahá$/gm, ""],
+      [/\*\*\*/gm, "#"],
+      [/^\+[^#]*(#|$)/gms, "#"],
+      ["O Lord!\n\nPlant this tender", "O Lord! Plant this tender"],
+      [
+        /^O Lord so rich in bounty.*/ms,
+        (s) =>
+          s
+            .split(/\n\n/g)
+            .map((s, i) => `> ${s}${i % 2 === 1 ? "\n" : ""}`)
+            .join("\n"),
+      ],
+    ],
     "additional-tablets-extracts-talks": [
       removeAfter("This document has been downloaded"),
       title("", "Additional Tablets, Extracts and Talks", {
