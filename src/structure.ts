@@ -21,7 +21,7 @@ const urlAuthors = {
 
 type SectionContent =
   | string
-  | { text: string; type: "break" | "info" | "call" }
+  | { text: string; type: "break" | "info" | "call" | "framing" }
   | { text: string; lines: number[] };
 
 export interface Section {
@@ -43,6 +43,9 @@ const getContentItem = (line: string): SectionContent => {
   }
   if (line.startsWith("^")) {
     return { type: "call", text: line.slice(1).trim() };
+  }
+  if (line.startsWith("@")) {
+    return { type: "framing", text: line.slice(1).trim() };
   }
   if (line.startsWith(">")) {
     const lines = line.split("\n").map((t) => t.slice(2));
@@ -132,6 +135,7 @@ export const parseStructuredSections = (
                 "the-book-of-certitude",
                 "selections-writings-bab",
                 "selections-from-the-writings-of-abdul-baha",
+                "part-two-letters-from-shoghi-effendi",
               ].includes(p[1]) ||
               (p[1] === "light-of-the-world" && p[2] === 2)
             )

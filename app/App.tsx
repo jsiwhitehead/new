@@ -124,7 +124,10 @@ export default function App() {
                       <Text
                         key={i}
                         style={{
-                          fontStyle: c.type === "info" ? "italic" : "normal",
+                          fontStyle:
+                            c.type === "info" || c.type === "framing"
+                              ? "italic"
+                              : "normal",
                           textTransform:
                             c.type === "call" ? "uppercase" : "none",
                           textAlign: "justify",
