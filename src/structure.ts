@@ -6,7 +6,7 @@ import { readText, writeJSON } from "./utils.js";
 const indexAuthors = {
   "Bahá’u’lláh": 1,
   "The Báb": 2,
-  "‘Abdu’l-Bahá": 3,
+  "‘Abdu’l‑Bahá": 3,
   "Shoghi Effendi": 4,
   "The Universal House of Justice": 5,
 } as Record<string, number>;
@@ -14,7 +14,7 @@ const indexAuthors = {
 const urlAuthors = {
   "Bahá’u’lláh": "bahaullah",
   "The Báb": "the-bab",
-  "‘Abdu’l-Bahá": "abdul-baha",
+  "‘Abdu’l‑Bahá": "abdul-baha",
   "Shoghi Effendi": "shoghi-effendi",
   "The Universal House of Justice": "the-universal-house-of-justice",
 } as Record<string, string>;
@@ -126,11 +126,15 @@ export const parseStructuredSections = (
           ...currentPath,
         ].filter(
           (p) =>
-            ![
-              "gems-of-divine-mysteries",
-              "the-book-of-certitude",
-              "selections-writings-bab",
-            ].includes(p[1])
+            !(
+              [
+                "gems-of-divine-mysteries",
+                "the-book-of-certitude",
+                "selections-writings-bab",
+                ,
+              ].includes(p[1]) ||
+              (p[1] === "light-of-the-world" && p[2] === 2)
+            )
         ),
         translated,
         ...sectionMeta,

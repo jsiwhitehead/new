@@ -60,13 +60,38 @@ const title = (
 
 const splitLines = (
   line: RegExp,
-  ...splits: string[]
+  ...indices: any[]
 ): [RegExp, (s: string) => string] => [
   line,
-  (s: string) => {
-    const indices = [0, ...splits.map((a) => s.indexOf(a))];
-    return `\n\n${indices.map((n, i) => `\n> ${s.slice(n, indices[i + 1]).trim()}`).join("")}`;
+  (s) => {
+    const alternate =
+      indices[indices.length - 1] === true ? indices.pop() : false;
+    const allIndices = [
+      0,
+      ...indices.map((x) => (typeof x === "string" ? s.indexOf(x) : x)),
+      s.length,
+    ];
+    return (
+      "\n" +
+      allIndices
+        .slice(0, -1)
+        .map(
+          (num, i) =>
+            `${alternate && i % 2 === 0 ? "\n\n" : "\n"}> ${s
+              .slice(num, allIndices[i + 1])
+              .trim()}`
+        )
+        .join("")
+    );
   },
+];
+const makeLines = (line: RegExp): [RegExp, (s: string) => string] => [
+  line,
+  (s) =>
+    s
+      .split("\n\n")
+      .map((a) => `> ${a}`)
+      .join("\n"),
 ];
 
 const obligatory = [
@@ -479,7 +504,7 @@ const sources: Record<
         (s) => `> ${s.slice(s.indexOf(".") + 3, -2)}\n> `,
       ],
       [/^\d+\.$\n\n/gm, "> "],
-      [/^Synopsis and Codification of the[\s\S]*^Notes$/m, "Notes"],
+      [/^Synopsis and Codification of the.*^Notes$/ms, "Notes"],
       title("#", "Notes", {
         meta: "The Universal House of Justice",
         years: [1992, 1992],
@@ -837,10 +862,102 @@ const sources: Record<
     ],
   },
   "abdul-baha": {
-    // "light-of-the-world": [],
-    // "memorials-faithful": [],
-    // "paris-talks": [],
-    // "promulgation-universal-peace": [],
+    "light-of-the-world": [
+      [
+        "Light of the World: Selected Tablets of ‘Abdu’l‑Bahá",
+        "Light of the World",
+      ],
+      removeAfter("Notes"),
+      title("", "Light of the World", {
+        author: "‘Abdu’l‑Bahá",
+        years: authorYears["‘Abdu’l‑Bahá"],
+      }),
+      title("#", "Preface", {
+        meta: "The Universal House of Justice",
+        years: [2021, 2021],
+      }),
+      [/^1$/m, "# Light of the World\n\n##"],
+      [/^\d+$/gm, "##"],
+      prefix("And yet these deniers, even as the bats", "\n\n"),
+      splitLines(
+        /Shed splendours on the Orient.*/m,
+        "And perfumes scatter",
+        "Carry light unto",
+        "And the Turk with"
+      ),
+      splitLines(/Granted that this morn be.*/m, "Are seeing eyes also"),
+      splitLines(
+        /That beam of bliss and ecstasy.*/m,
+        "Did stay with him",
+        "Even as Aḥmad, the",
+        "Who is always with"
+      ),
+      prefix("At that instant, ‘Abdu’l‑Bahá understood what", "\n\n"),
+      splitLines(/Either speak no more of love.*/m, "Thus hath it been"),
+      ["His grace? The Glory", "His grace?\n\nThe Glory"],
+      splitLines(/Before the Friend how can I.*/m, "Abashed that I did"),
+      splitLines(/The duty of long years of love.*/m, "And tell the tale"),
+      splitLines(
+        /O lifeless one, bereft of heart and soul.*/m,
+        "Come to life, come",
+        "O slumbering one",
+        "Awake, do thou",
+        "O drunken one, so",
+        "Clear thy mind",
+        "The world is filled",
+        "From life and self",
+        "Now is the time",
+        "Lead thou the lovers",
+        "The sweetly singing",
+        "Commit His secrets",
+        true
+      ),
+      splitLines(/To speak of the subtleties of.*/m, "Is like plucking the"),
+      ["early dawn! The Glory", "early dawn!\n\nThe Glory"],
+      splitLines(/Await the break of His sovereign.*/m, "These are but"),
+      [/#\n+([A-Z].{0,120})$/gm, (_, s) => `#\n\n^ ${s}`],
+    ],
+    "memorials-faithful": [
+      ["by ‘Abdu’l‑Bahá", ""],
+      [/^Translated from the original Persian.*/m, ""],
+      removeAfter("Notes"),
+      title("", "Memorials of the Faithful", {
+        author: "‘Abdu’l‑Bahá",
+        years: [1914, 1915],
+      }),
+      [/^— .* —$\n\n/gm, "# "],
+    ],
+    "paris-talks": [
+      removeAfter("Notes"),
+      ["Addresses Given by ‘Abdu’l‑Bahá in 1911", ""],
+      title("", "Paris Talks", {
+        author: "‘Abdu’l‑Bahá",
+        years: [1911, 1913],
+      }),
+      [/^The Eleven Principles out of the Teaching.*/m, ""],
+      [/^The Search after Truth\. The Unity of Mankind.*/m, ""],
+      title("#", "Part One"),
+      title("#", "Part Two"),
+      title("#", "Part Three"),
+      [/^— .* —$\n\n/gm, "## "],
+    ],
+    "promulgation-universal-peace": [
+      [/^Talks Delivered by ‘Abdu’l‑Bahá during.*/m, ""],
+      ["Compiled by Howard MacNutt", ""],
+      [/^Notes$[\s\S]+/m, ""],
+      title("", "The Promulgation of Universal Peace", {
+        author: "‘Abdu’l‑Bahá",
+        years: [1912, 1912],
+      }),
+      [
+        /^— .* —$\n\n(.*)\n\n(.*)\n\n(.*[^\.\n]$)?/gm,
+        (_1, a, b, _2) => `## ${a}: ${b}\n\n`,
+      ],
+      [
+        /^(Talk.*)$\n\n(.*)/gm,
+        (_, a, b) => `# ${a.slice(31).trim()}, ${b.replace(" ‑ ", "‑")}`,
+      ],
+    ],
     // "secret-divine-civilization": [],
     // "selections-writings-abdul-baha": [],
     // "some-answered-questions": [],
@@ -851,7 +968,39 @@ const sources: Record<
     // "twelve-table-talks-abdul-baha": [],
     // "will-testament-abdul-baha": [],
     // "additional-prayers-revealed-abdul-baha": [],
-    // "additional-tablets-extracts-talks": [],
+    "additional-tablets-extracts-talks": [
+      removeAfter("This document has been downloaded"),
+      title("", "Additional Tablets, Extracts and Talks", {
+        author: "‘Abdu’l‑Bahá",
+        years: authorYears["‘Abdu’l‑Bahá"],
+      }),
+      [/^\+[^*]*(\*\*\*|$)/gms, "***"],
+      [/—‘Abdu’l‑Bahá/g, ""],
+      [/\*\*\*\n\n(.*)/gm, (_, a) => `#\nsource="${a}"`],
+      [
+        "Extract from a Tablet of ‘Abdu’l‑Bahá",
+        '#\nsource="Extract from a Tablet of ‘Abdu’l‑Bahá"',
+      ],
+      makeLines(/^Phoenix of Truth! For .* thou’rt returned!$/gms),
+      makeLines(/^O zephyr, shouldst thou .* fragrant thy breath\.$/gms),
+      makeLines(/^General running expenses .* support of the poor\.$/gms),
+      makeLines(/^Praise be to God! His .* with exultation and joy\.$/gms),
+      makeLines(/^I am lost, O Love, .* in all the earth\.$/gms),
+      makeLines(/^Glad tidings! The light of.*Truth hath shone forth!$/gms),
+      [
+        /#\n+[A-ZṬ].{0,120}[^:\n](\n+[A-Z].{0,120})*$/gm,
+        (s) =>
+          s
+            .split(/\n+/g)
+            .map((t, i) => (i === 0 ? t : `^ ${t}`))
+            .join("\n\n"),
+      ],
+      prefix(/^The Lamp of the assemblage/m, "^ "),
+      prefix(/^A prayer beseeching forgiveness/m, "^ "),
+      prefix(/^He is God/gm, "^ "),
+      ["^ Religion and science", "Religion and science"],
+      ["^ Seize thy chance", "Seize thy chance"],
+    ],
   },
   "shoghi-effendi": {
     // "advent-divine-justice": [],
