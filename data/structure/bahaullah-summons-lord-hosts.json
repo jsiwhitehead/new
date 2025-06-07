@@ -2,7 +2,7 @@
   {
     "path": [
       ["Bahá’u’lláh", "bahaullah", 1],
-      ["The Summons of the Lord of Hosts", "summons-lord-hosts", 9],
+      ["The Summons of the Lord of Hosts", "summons-lord-hosts", 10],
       ["Introduction", "introduction", 1]
     ],
     "years": [2002, 2002],
@@ -28,7 +28,7 @@
   {
     "path": [
       ["Bahá’u’lláh", "bahaullah", 1],
-      ["The Summons of the Lord of Hosts", "summons-lord-hosts", 9],
+      ["The Summons of the Lord of Hosts", "summons-lord-hosts", 10],
       ["Tablet of the Temple (Súriy‑i‑Haykal)", "tablet-of-the-temple", 2]
     ],
     "translated": "Súriy‑i‑Haykal",
@@ -144,7 +144,7 @@
   {
     "path": [
       ["Bahá’u’lláh", "bahaullah", 1],
-      ["The Summons of the Lord of Hosts", "summons-lord-hosts", 9],
+      ["The Summons of the Lord of Hosts", "summons-lord-hosts", 10],
       ["Tablet of the Temple (Súriy‑i‑Haykal)", "tablet-of-the-temple", 2],
       ["Pope Pius IX", "pope-pius-ix", 1]
     ],
@@ -184,7 +184,7 @@
   {
     "path": [
       ["Bahá’u’lláh", "bahaullah", 1],
-      ["The Summons of the Lord of Hosts", "summons-lord-hosts", 9],
+      ["The Summons of the Lord of Hosts", "summons-lord-hosts", 10],
       ["Tablet of the Temple (Súriy‑i‑Haykal)", "tablet-of-the-temple", 2],
       ["Napoleon III", "napoleon-iii", 2]
     ],
@@ -222,7 +222,7 @@
   {
     "path": [
       ["Bahá’u’lláh", "bahaullah", 1],
-      ["The Summons of the Lord of Hosts", "summons-lord-hosts", 9],
+      ["The Summons of the Lord of Hosts", "summons-lord-hosts", 10],
       ["Tablet of the Temple (Súriy‑i‑Haykal)", "tablet-of-the-temple", 2],
       ["Czar Alexander II", "czar-alexander-ii", 3]
     ],
@@ -246,7 +246,7 @@
   {
     "path": [
       ["Bahá’u’lláh", "bahaullah", 1],
-      ["The Summons of the Lord of Hosts", "summons-lord-hosts", 9],
+      ["The Summons of the Lord of Hosts", "summons-lord-hosts", 10],
       ["Tablet of the Temple (Súriy‑i‑Haykal)", "tablet-of-the-temple", 2],
       ["Queen Victoria", "queen-victoria", 4]
     ],
@@ -272,7 +272,7 @@
   {
     "path": [
       ["Bahá’u’lláh", "bahaullah", 1],
-      ["The Summons of the Lord of Hosts", "summons-lord-hosts", 9],
+      ["The Summons of the Lord of Hosts", "summons-lord-hosts", 10],
       ["Tablet of the Temple (Súriy‑i‑Haykal)", "tablet-of-the-temple", 2],
       ["Náṣiri’d‑Dín Sháh", "nasirid-din-shah", 5]
     ],
@@ -379,7 +379,7 @@
   {
     "path": [
       ["Bahá’u’lláh", "bahaullah", 1],
-      ["The Summons of the Lord of Hosts", "summons-lord-hosts", 9],
+      ["The Summons of the Lord of Hosts", "summons-lord-hosts", 10],
       [
         "Tablet of the Chief (Súriy‑i‑Ra’ís)",
         "tablet-of-the-chief-suriy-i-rais",
@@ -439,7 +439,7 @@
   {
     "path": [
       ["Bahá’u’lláh", "bahaullah", 1],
-      ["The Summons of the Lord of Hosts", "summons-lord-hosts", 9],
+      ["The Summons of the Lord of Hosts", "summons-lord-hosts", 10],
       [
         "Tablet of the Chief (Lawḥ‑i‑Ra’ís)",
         "tablet-of-the-chief-lawh-i-rais",
@@ -487,7 +487,7 @@
   {
     "path": [
       ["Bahá’u’lláh", "bahaullah", 1],
-      ["The Summons of the Lord of Hosts", "summons-lord-hosts", 9],
+      ["The Summons of the Lord of Hosts", "summons-lord-hosts", 10],
       ["Tablet of Fu’ád Páshá (Lawḥ‑i‑Fu’ád)", "tablet-of-fuad-pasha", 5]
     ],
     "translated": "Lawḥ‑i‑Fu’ád",
@@ -523,7 +523,7 @@
   {
     "path": [
       ["Bahá’u’lláh", "bahaullah", 1],
-      ["The Summons of the Lord of Hosts", "summons-lord-hosts", 9],
+      ["The Summons of the Lord of Hosts", "summons-lord-hosts", 10],
       ["Tablet of Kings (Súriy‑i‑Múlúk)", "tablet-of-kings", 6]
     ],
     "translated": "Súriy‑i‑Múlúk",

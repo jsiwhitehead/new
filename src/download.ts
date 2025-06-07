@@ -40,8 +40,9 @@ const getText = (root: Element): string => {
         result += " ";
       } else if (el.name === "hr") {
         result += "\n***\n";
-      } else if (!["a", "script", "sup"].includes(el.name)) {
+      } else if (!["a", "script", "sup", "nav"].includes(el.name)) {
         if (!inline.includes(el.name)) result += "\n";
+        if (el.name === "ul") result += "+ ";
         el.children.forEach(walk);
       }
     }
