@@ -2,7 +2,7 @@ Tablets of the Divine Plan
 author="‘Abdu’l‑Bahá"
 years=[1916,1917]
 
-# Tablet to the Bahá’ís of the Northeastern States
+# 1: Tablet to the Bahá’ís of the Northeastern States
 
 * Revealed on March 26, 1916, in ‘Abdu’l‑Bahá’s room at the house in Bahjí, addressed to the Bahá’ís of nine Northeastern States of the United States: Maine, Massachusetts, New Hampshire, Rhode Island, Connecticut, Vermont, Pennsylvania, New Jersey and New York.
 
@@ -14,7 +14,7 @@ The Northeastern States on the shores of the Atlantic—Maine, New Hampshire, Ma
 
 Upon you be greeting and praise!
 
-# Tablet to the Bahá’ís of the Southern States
+# 2: Tablet to the Bahá’ís of the Southern States
 
 * Revealed on March 27, 1916, in the garden adjacent to the Shrine of Bahá’u’lláh, addressed to the Bahá’ís of sixteen Southern States of the United States: Delaware, Maryland, Virginia, West Virginia, North Carolina, South Carolina, Georgia, Florida, Alabama, Mississippi, Tennessee, Kentucky, Louisiana, Arkansas, Oklahoma and Texas.
 
@@ -28,7 +28,7 @@ In brief, I hope you will display in this respect the greatest effort and magnan
 
 Therefore, ye friends of God! Appreciate ye the value of this time and be ye engaged in the sowing of the seeds, so that you may find the heavenly blessing and the lordly bestowal. Upon you be Bahá’u’l‑Abhá!
 
-# Tablet to the Bahá’ís of the Central States
+# 3: Tablet to the Bahá’ís of the Central States
 
 * Revealed on March 29, 1916, outside the house in Bahjí, and addressed to the Bahá’ís of twelve Central States of the United States: Michigan, Wisconsin, Illinois, Indiana, Ohio, Minnesota, Iowa, Missouri, North Dakota, South Dakota, Nebraska and Kansas.
 
@@ -40,7 +40,7 @@ Although in the states of Illinois, Wisconsin, Ohio, Michigan and Minnesota—pr
 
 Upon you be greeting and praise!
 
-# Tablet to the Bahá’ís of the Western States
+# 4: Tablet to the Bahá’ís of the Western States
 
 * Revealed on April 1, 1916, in ‘Abdu’l‑Bahá’s room at the house in Bahjí, addressed to the Bahá’ís of eleven Western States of the United States: New Mexico, Colorado, Arizona, Nevada, California, Wyoming, Utah, Montana, Idaho, Oregon and Washington.
 
@@ -58,7 +58,7 @@ The magnanimity of man must be heavenly or, in other words, it must be assisted 
 
 Upon you be greeting and praise!
 
-# Tablet to the Bahá’ís of Canada and Greenland
+# 5: Tablet to the Bahá’ís of Canada and Greenland
 
 * Revealed on April 5, 1916, in the garden adjacent to the Shrine of Bahá’u’lláh, and addressed to the Bahá’ís of Canada—Newfoundland, Prince Edward Island, Nova Scotia, New Brunswick, Quebec, Saskatchewan, Manitoba, Ontario, Alberta, British Columbia, Yukon, Mackenzie, Keewatin, Ungava, Franklin Islands—and Greenland.
 
@@ -68,7 +68,7 @@ Although in most of the states and cities of the United States, praise be to God
 
 Upon you be greeting and praise!
 
-# Tablet to the Bahá’ís of the United States and Canada
+# 6: Tablet to the Bahá’ís of the United States and Canada
 
 * Revealed on April 8, 1916, in the garden outside the Shrine of Bahá’u’lláh, and addressed to the Bahá’ís of the United States and Canada.
 
@@ -108,7 +108,7 @@ O God! Be Thou their supporter and their helper, and in the wilderness, the moun
 
 Verily, Thou art the Powerful, the Mighty and the Omnipotent, and Thou art the Wise, the Hearing and the Seeing.
 
-# Tablet to the Bahá’ís of the United States and Canada
+# 7: Tablet to the Bahá’ís of the United States and Canada
 
 * Revealed on April 11, 1916, in ‘Abdu’l‑Bahá’s room at the house in Bahjí, and addressed to the Bahá’ís of the United States and Canada.
 
@@ -164,7 +164,7 @@ O Lord! Grant me communion with Thee in my loneliness, and be my companion in th
 
 Verily, Thou art the Confirmer of whomsoever Thou willest in that which Thou desirest, and, verily, Thou art the All‑Powerful, the Omnipotent.
 
-# Tablet to the Bahá’ís of the United States and Canada
+# 8: Tablet to the Bahá’ís of the United States and Canada
 
 * Revealed on April 19, 1916, in ‘Abdu’l‑Bahá’s room at the house in Bahjí; on April 20, in the pilgrims’ quarters of the house in Bahjí; on April 22, in the garden adjacent to the Shrine of Bahá’u’lláh, and addressed to the Bahá’ís of the United States and Canada.
 
@@ -240,7 +240,7 @@ O Lord! Dispel the darkness of these corrupt desires, and illumine the hearts wi
 
 Verily, Thou art the Most Generous, the Lord of grace abounding, and, verily, Thou art the Compassionate and the Merciful.
 
-# Tablet to the Bahá’ís of the Northeastern States
+# 9: Tablet to the Bahá’ís of the Northeastern States
 
 * Revealed on February 2, 1917, in Ismá‘íl Áqá’s room at the house of ‘Abdu’l‑Bahá in Haifa, and addressed to the Bahá’ís of the nine Northeastern States of the United States: Maine, Massachusetts, New Hampshire, Rhode Island, Connecticut, Vermont, Pennsylvania, New Jersey and New York.
 
@@ -272,7 +272,7 @@ O Almighty! Look upon us with the glance of mercifulness. Grant us heavenly conf
 
 Verily, Thou art the Powerful, the Mighty, the Wise and the Seeing.
 
-# Tablet to the Bahá’ís of the Southern States
+# 10: Tablet to the Bahá’ís of the Southern States
 
 * Revealed on February 3, 1917, in Haifa in Ismá‘íl Áqá’s room, and addressed to the Bahá’ís of the sixteen Southern States of the United States: Delaware, Maryland, Virginia, West Virginia, North Carolina, South Carolina, Georgia, Florida, Alabama, Mississippi, Tennessee, Kentucky, Louisiana, Arkansas, Oklahoma and Texas.
 
@@ -304,7 +304,7 @@ O My God! O my God! Thou seest me in my lowliness and weakness, occupied with th
 
 Thou art the Omnipotent and the Doer of whatsoever Thou willest.
 
-# Tablet to the Bahá’ís of the Central States
+# 11: Tablet to the Bahá’ís of the Central States
 
 * Revealed on February 8, 1917, in Bahá’u’lláh’s room at the house of ‘Abbúd in ‘Akká, and addressed to the Bahá’ís of the twelve Central States of the United States: Michigan, Wisconsin, Illinois, Indiana, Ohio, Minnesota, Iowa, Missouri, North Dakota, South Dakota, Nebraska and Kansas.
 
@@ -344,7 +344,7 @@ O Lord! Confirm me with the Holy Spirit, so that I may call in Thy Name amongst 
 
 O Lord! I am weak, strengthen me with Thy power and potency. My tongue falters, suffer me to utter Thy commemoration and praise. I am lowly, honour me through admitting me into Thy kingdom. I am remote, cause me to approach the threshold of Thy mercifulness. O Lord! Make me a brilliant lamp, a shining star and a blessed tree, adorned with fruit, its branches overshadowing all these regions. Verily, Thou art the Mighty, the Powerful and Unconstrained.
 
-# Tablet to the Bahá’ís of the Western States
+# 12: Tablet to the Bahá’ís of the Western States
 
 * Revealed on February 15, 1917, in Bahá’u’lláh’s room at the house of ‘Abbúd in ‘Akká, and addressed to the Bahá’ís of the eleven Western States of the United States: New Mexico, Colorado, Arizona, Nevada, California, Wyoming, Utah, Montana, Idaho, Oregon and Washington.
 
@@ -374,7 +374,7 @@ O God! O God! This is a broken‑winged bird and his flight is very slow—assis
 
 O Lord! I am single, alone and lowly. For me there is no support save Thee, no helper except Thee and no sustainer beside Thee. Confirm me in Thy service, assist me with the cohorts of Thine angels, make me victorious in the promotion of Thy Word and suffer me to speak out Thy wisdom amongst Thy creatures. Verily, Thou art the helper of the weak and the defender of the little ones, and verily Thou art the Powerful, the Mighty and the Unconstrained.
 
-# Tablet to the Bahá’ís of Canada and Greenland
+# 13: Tablet to the Bahá’ís of Canada and Greenland
 
 * Revealed on February 21, 1917, in Bahá’u’lláh’s room at the house of ‘Abbúd in ‘Akká, and addressed to the Bahá’ís of Canada—Newfoundland, Prince Edward Island, Nova Scotia, New Brunswick, Quebec, Saskatchewan, Manitoba, Ontario, Alberta, British Columbia, Yukon, Mackenzie, Keewatin, Ungava, Franklin Islands—and Greenland.
 
@@ -410,7 +410,7 @@ O my Lord! Suffer me to be detached from aught else save Thee, to hold fast to t
 
 Verily, Thou art the Powerful, the Mighty, the Omnipotent.
 
-# Tablet to the Bahá’ís of the United States and Canada
+# 14: Tablet to the Bahá’ís of the United States and Canada
 
 * Revealed on March 8, 1917, in the summerhouse (Ismá‘íl Áqá’s room) at ‘Abdu’l‑Bahá’s house in Haifa, and addressed to the Bahá’ís of the United States and Canada.
 

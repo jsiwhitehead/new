@@ -139,6 +139,25 @@ export default function App() {
                       </Text>
                     );
                   }
+                  if (Array.isArray(c)) {
+                    return (
+                      <div key={i}>
+                        {c.map((a, j) => {
+                          if (typeof a === "string") {
+                            return a;
+                          }
+                          if ("quote" in a) {
+                            return (
+                              <span style={{ fontWeight: "bold" }} key={j}>
+                                {a.quote}
+                              </span>
+                            );
+                          }
+                          return "";
+                        })}
+                      </div>
+                    );
+                  }
                   return (
                     <Text
                       key={i}

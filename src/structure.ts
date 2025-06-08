@@ -10,7 +10,8 @@ const indexAuthors = {
   "Shoghi Effendi": 4,
   "The Universal House of Justice": 5,
   "Commissioned by the Universal House of Justice": 6,
-  "Bahá’í International Community": 7,
+  "The Office of Social and Economic Development": 7,
+  "Bahá’í International Community": 8,
 } as Record<string, number>;
 
 const urlAuthors = {
@@ -21,15 +22,23 @@ const urlAuthors = {
   "The Universal House of Justice": "the-universal-house-of-justice",
   "Commissioned by the Universal House of Justice":
     "commissioned-the-universal-house-of-justice",
+  "The Office of Social and Economic Development":
+    "office-social-economic-development",
   "Bahá’í International Community": "bahai-international-community",
 } as Record<string, string>;
 
-type SectionContent =
+export type SectionContent =
   | string
   | { text: string; type: "break" | "info" | "call" | "framing" }
-  | { text: string; lines: number[] };
+  | { text: string; lines: number[] }
+  | (
+      | string
+      | { section: string; paragraph: number; start: number; end: number }
+      | { quote: string }
+    )[];
 
 export interface Section {
+  id: string;
   path: [string, string, number][];
   years: [number, number];
   translated?: string;
@@ -37,6 +46,7 @@ export interface Section {
   reference?: string;
   source?: string;
   summary?: string;
+  prayer?: true;
   content: SectionContent[];
 }
 
@@ -125,29 +135,32 @@ export const parseStructuredSections = (
       metaStack[level] = meta;
       const sectionMeta = metaStack.reduce((res, m) => ({ ...res, ...m }), {});
 
+      const sectionPath = [
+        [
+          sectionMeta.author,
+          urlAuthors[sectionMeta.author],
+          indexAuthors[sectionMeta.author],
+        ],
+        ...currentPath,
+      ].filter(
+        (p, i) =>
+          !(
+            [
+              "gems-of-divine-mysteries",
+              "the-book-of-certitude",
+              "selections-writings-bab",
+              "selections-from-the-writings-of-abdul-baha",
+              "part-two-letters-from-shoghi-effendi",
+              "century-of-light",
+            ].includes(p[1]) ||
+            (["light-of-the-world", "one-common-faith"].includes(p[1]) &&
+              i === 2)
+          )
+      );
+
       sections.push({
-        path: [
-          [
-            sectionMeta.author,
-            urlAuthors[sectionMeta.author],
-            indexAuthors[sectionMeta.author],
-          ],
-          ...currentPath,
-        ].filter(
-          (p, i) =>
-            !(
-              [
-                "gems-of-divine-mysteries",
-                "the-book-of-certitude",
-                "selections-writings-bab",
-                "selections-from-the-writings-of-abdul-baha",
-                "part-two-letters-from-shoghi-effendi",
-                "century-of-light",
-              ].includes(p[1]) ||
-              (["light-of-the-world", "one-common-faith"].includes(p[1]) &&
-                i === 2)
-            )
-        ),
+        id: sectionPath.map((a: any) => a[2]).join("/"),
+        path: sectionPath,
         translated,
         ...sectionMeta,
         author: undefined,

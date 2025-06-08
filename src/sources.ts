@@ -1241,7 +1241,7 @@ const sources: Record<
         author: "‘Abdu’l‑Bahá",
         years: [1916, 1917],
       }),
-      [/^\d+$\n\n(.*)\n\n\*\*\*\n\n/gm, (_, a) => `# ${a}\n\n * `],
+      [/^(\d+)$\n\n(.*)\n\n\*\*\*\n\n/gm, (_, a, b) => `# ${a}: ${b}\n\n * `],
       [/^\*\*\*$/gm, ""],
     ],
     "tablets-hague-abdul-baha": [
