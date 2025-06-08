@@ -34,7 +34,6 @@ export type SectionContent =
   | (
       | string
       | { section: string; paragraph: number; start: number; end: number }
-      | { quote: string }
     )[];
 
 export interface Section {

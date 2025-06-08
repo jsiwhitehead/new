@@ -111,8 +111,8 @@ const capitalise = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
               (_: any, a: any, b: any) => `${a} ${b}`
             )
             .replace(/^\* \* \*$/gm, "***")
-          // .replace(/ Iráq/g, " ‘Iráq")
-          // .replace(/ IRÁQ/g, " ‘IRÁQ")
+            .replace(/ Iráq/g, " ‘Iráq")
+            .replace(/ IRÁQ/g, " ‘IRÁQ")
           // .replace(/Ataollah/g, "‘Aṭá’u’lláh")
           // .replace(/Ruhollah/g, "Rúḥu’lláh")
           // .replace(/Mákú/g, "Máh‑Kú")

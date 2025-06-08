@@ -267,9 +267,7 @@ const linkContent = (sections: Section[]) => {
         )
         .filter((p: any) => p);
 
-      return result.length === 1 && typeof result[0] === "string"
-        ? result[0]
-        : result;
+      return result.length === 1 && typeof result[0] === "string" ? p : result;
     });
   }
 };

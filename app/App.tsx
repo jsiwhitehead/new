@@ -20,6 +20,53 @@ const collapseSingleKeys = (
   }
   return [path, current];
 };
+const calculateUrlPath = (
+  path: [string, string, number][],
+  paragraphs: number[]
+): [string, string][] => {
+  let current = "";
+  return [
+    ...(path.map((p) => {
+      current = `${current}/${p[1]}`;
+      return [p[0], current];
+    }) as [string, string][]),
+    [`Para ${paragraphs[0]}`, `${current}#${paragraphs[0]}`],
+  ];
+};
+
+const Breadcrumbs = ({
+  path,
+  size,
+  justify = "flex-start",
+}: {
+  path: [string, string][];
+  size: number;
+  justify?: "flex-start" | "flex-end";
+}) => {
+  return (
+    <Row
+      gap={`${size * 1.2}px ${size * 0.6}px`}
+      style={{ flexWrap: "wrap", paddingLeft: 0, justifyContent: justify }}
+    >
+      {path.map((p, i) => (
+        <Row gap={size * 0.6} style={{ marginLeft: i === 0 ? 0 : 0 }} key={i}>
+          {i > 0 && (
+            <svg
+              style={{ flexShrink: 0, height: size * 0.6 }}
+              viewBox="-0.5 -1 1.5 2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon points="-0.5,0.866 -0.5,-0.866 1.0,0.0" fill="#333" />
+            </svg>
+          )}
+          <Text size={size} to={p[1]} style={{ color: "darkgreen" }}>
+            {p[0]}
+          </Text>
+        </Row>
+      ))}
+    </Row>
+  );
+};
 
 export default function App() {
   const { path1, path2, path3, path4, path5, path6, path7 } = useParams();
@@ -50,7 +97,7 @@ export default function App() {
       <Column
         gap={20}
         style={{
-          padding: "30px 10px 50px",
+          padding: "30px 10px 120px",
           maxWidth: "670px",
           margin: "0 auto",
         }}
@@ -59,30 +106,7 @@ export default function App() {
           Bahá’í Explore
         </Text>
 
-        {path.length > 0 && (
-          <Row gap="20px 10px" style={{ flexWrap: "wrap", paddingLeft: 30 }}>
-            {path.map((p, i) => (
-              <Row gap={10} style={{ marginLeft: i === 0 ? -30 : 0 }} key={i}>
-                {i > 0 && (
-                  <svg
-                    style={{ flexShrink: 0 }}
-                    height="10"
-                    viewBox="-0.5 -1 1.5 2"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <polygon
-                      points="-0.5,0.866 -0.5,-0.866 1.0,0.0"
-                      fill="#333"
-                    />
-                  </svg>
-                )}
-                <Text to={p[1]} style={{ color: "darkgreen" }}>
-                  {p[0]}
-                </Text>
-              </Row>
-            ))}
-          </Row>
-        )}
+        {path.length > 0 && <Breadcrumbs size={17} path={path} />}
         {Object.keys(nestedTree).length > 0 && (
           <div style={{ paddingLeft: 15 }}>
             {renderTree(nestedTree, path[path.length - 1]?.[1] || "")}
@@ -107,7 +131,7 @@ export default function App() {
                 {d.content.map((c, i) => {
                   if (typeof c === "string") {
                     return (
-                      <Text key={i} style={{ textIndent: 20 }}>
+                      <Text id={`${i}`} key={i} style={{ textIndent: 20 }}>
                         {c}
                       </Text>
                     );
@@ -115,13 +139,18 @@ export default function App() {
                   if ("type" in c) {
                     if (c.type === "break") {
                       return (
-                        <Text key={i} style={{ textAlign: "center" }}>
+                        <Text
+                          id={`${i}`}
+                          key={i}
+                          style={{ textAlign: "center" }}
+                        >
                           ***
                         </Text>
                       );
                     }
                     return (
                       <Text
+                        id={`${i}`}
                         key={i}
                         style={{
                           fontStyle:
@@ -140,26 +169,69 @@ export default function App() {
                     );
                   }
                   if (Array.isArray(c)) {
-                    return (
-                      <div key={i}>
+                    const allQuote = c.every((p) => {
+                      if (typeof p !== "string") return true;
+                      return !/[a-z]/.test(
+                        p
+                          .normalize("NFD")
+                          .replace(/[\u0300-\u036f]/g, "")
+                          .toLowerCase()
+                      );
+                    });
+                    const sources = c.flatMap((p) =>
+                      typeof p === "string" ? [] : [p]
+                    );
+                    const allSource =
+                      allQuote &&
+                      new Set(sources.map((p) => JSON.stringify(p.path)))
+                        .size === 1;
+                    const inner = (
+                      <Text
+                        id={!allSource ? `${i}` : undefined}
+                        style={
+                          allQuote
+                            ? { padding: allSource ? 0 : "0 20px" }
+                            : { textIndent: 20 }
+                        }
+                        key={i}
+                      >
                         {c.map((a, j) => {
                           if (typeof a === "string") {
                             return a;
                           }
-                          if ("quote" in a) {
-                            return (
-                              <span style={{ fontWeight: "bold" }} key={j}>
-                                {a.quote}
-                              </span>
-                            );
-                          }
-                          return "";
+                          return (
+                            <span style={{ fontWeight: "bold" }} key={j}>
+                              {a.quote}
+                            </span>
+                          );
                         })}
-                      </div>
+                      </Text>
+                    );
+                    if (!allSource) return inner;
+                    return (
+                      <Column
+                        id={`${i}`}
+                        style={{ padding: "0 20px" }}
+                        gap={15}
+                        key={i}
+                      >
+                        {inner}
+                        <div style={{ maxWidth: 400, marginLeft: "auto" }}>
+                          <Breadcrumbs
+                            size={14}
+                            justify="flex-end"
+                            path={calculateUrlPath(
+                              sources[0]!.path,
+                              sources.map((s) => s.paragraph)
+                            )}
+                          />
+                        </div>
+                      </Column>
                     );
                   }
                   return (
                     <Text
+                      id={`${i}`}
                       key={i}
                       style={{
                         whiteSpace: "pre-wrap",
