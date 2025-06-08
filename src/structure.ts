@@ -9,6 +9,8 @@ const indexAuthors = {
   "‘Abdu’l‑Bahá": 3,
   "Shoghi Effendi": 4,
   "The Universal House of Justice": 5,
+  "Commissioned by the Universal House of Justice": 6,
+  "Bahá’í International Community": 7,
 } as Record<string, number>;
 
 const urlAuthors = {
@@ -17,6 +19,9 @@ const urlAuthors = {
   "‘Abdu’l‑Bahá": "abdul-baha",
   "Shoghi Effendi": "shoghi-effendi",
   "The Universal House of Justice": "the-universal-house-of-justice",
+  "Commissioned by the Universal House of Justice":
+    "commissioned-the-universal-house-of-justice",
+  "Bahá’í International Community": "bahai-international-community",
 } as Record<string, string>;
 
 type SectionContent =
@@ -31,6 +36,7 @@ export interface Section {
   meta?: string;
   reference?: string;
   source?: string;
+  summary?: string;
   content: SectionContent[];
 }
 
@@ -128,7 +134,7 @@ export const parseStructuredSections = (
           ],
           ...currentPath,
         ].filter(
-          (p) =>
+          (p, i) =>
             !(
               [
                 "gems-of-divine-mysteries",
@@ -136,8 +142,10 @@ export const parseStructuredSections = (
                 "selections-writings-bab",
                 "selections-from-the-writings-of-abdul-baha",
                 "part-two-letters-from-shoghi-effendi",
+                "century-of-light",
               ].includes(p[1]) ||
-              (p[1] === "light-of-the-world" && p[2] === 2)
+              (["light-of-the-world", "one-common-faith"].includes(p[1]) &&
+                i === 2)
             )
         ),
         translated,

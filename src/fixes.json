@@ -341,6 +341,78 @@
       ["catch a lightening glimpse", "catch a lightning glimpse"]
     ]
   },
+  "the-universal-house-of-justice": {
+    "messages": [
+      [
+        "ON THE OCCASION OF THE CENTENARY COMMEMORATION OF THE ASCENSION OF ‘ABDU’L-BAHÁ",
+        "On the Occasion of the Centenary Commemoration of the Ascension of ‘Abdu’l-Bahá"
+      ],
+      [
+        "TO THE FOLLOWERS OF BAHÁ’U’LLÁH IN EVERY LAND",
+        "To the Followers of Bahá’u’lláh in Every Land"
+      ],
+      ["those whom they should serve", "those whom they serve"],
+      ["those whom they should serve", "those whom they serve"],
+      ["of glory, and will aid", "of glory, and shall aid"],
+      [
+        "though created whole and perfect, has been afflicted, through divers causes, with grave ills and maladies",
+        "though at its creation whole and perfect, hath been afflicted, through various causes, with grave disorders and maladies"
+      ],
+      [
+        "unskilled physicians who have spurred on the steed of their worldly",
+        "ignorant physicians, who gave full rein to their personal"
+      ],
+      ["lead in practicing this", "lead in practising this"],
+      [
+        "So long as these prejudices survive, there will be continuous and fearsome wars.\n\nTo remedy this condition there must be universal peace. To bring this about, a Supreme Tribunal must be established, representative of all governments and peoples; questions both national and international must be referred thereto, and all must carry out the decrees of this Tribunal. Should any government or people disobey, let the whole world arise against that government or people.",
+        "So long as these prejudices remain, the dread of war will continue.\n\nThe sole remedy is universal peace. And this is achieved only by the establishment of a supreme Tribunal, representative of all governments and peoples. All national and international problems should be referred to this tribunal, and whatsoever be its decision that should be enforced. Were a government or people to dissent, the world as a whole should rise against it."
+      ],
+      ["has been laid waste. It has", "hath been laid waste. It hath"],
+      ["beauty. Such an one, indeed", "beauty. Such a one, indeed"],
+      ["no doubt. You should, therefore", "no doubt. Ye should, therefore"],
+      ["grasp and practice it properly", "grasp and practise it properly"],
+      ["activities, and ability to", "activities, and the ability to"],
+      ["increased as -consciousness", "increased as consciousness"],
+      ["institutional -developments", "institutional developments"],
+      ["and development of the", "and development of the"],
+      ["noted that ther are", "noted that there are"]
+    ]
+  },
+  "official-statements-commentaries": {
+    "bahaullah": [
+      [
+        "every man may testify, in himself, by himself, in the station of the Manifestation of his Lord, that verily there is no God save Him, and that every man may thereby win his way to the summit of realities, until none shall contemplate anything whatsoever but that he shall see God therein.",
+        "every man may testify, in himself and by himself, before the Seat of the revelation of his Lord, that there is none other God but Him; and that all may reach that summit of realities where none shall contemplate anything but that he shall perceive God therein."
+      ],
+      [
+        "good of the world and the happiness",
+        "good of the world and happiness"
+      ],
+      ["and you shall have another", "and ye shall have another"],
+      ["other station is the station", "other is the station"],
+      ["Templers", "Templars"],
+      ["Templer", "Templar"]
+    ],
+    "century-light": [
+      [
+        "Today nothing but the power of the Word of God which encompasses the realities of things can bring the thoughts, the minds, the hearts and the spirits under the shade of one Tree. He is the potent in all things, the vivifier of souls, the preserver and the controller of the world of mankind.",
+        "Naught but the celestial potency of the Word of God, which rules and transcends the realities of all things, is capable of harmonising the divergent thoughts, sentiments, ideas, and convictions of the children of men. Verily, it is the penetrating power in all things, the mover of souls and the binder and regulator in the world of humanity."
+      ],
+      [
+        "All of us know that international peace is good, that it is the cause of life, but volition and action are necessary. Inasmuch as this century is the century of light, capacity for achieving peace has been assured. It is certain that these ideas will be spread among men to such a degree that they will result in action.",
+        "All of us know that international peace is good, that it is conducive to human welfare and the glory of man, but volition and action are necessary before it can be established. Action is essential. Inasmuch as this century is a century of light, capacity for action is assured to mankind. Necessarily the divine principles will be spread among men until the time of action arrives."
+      ],
+      ["world has not experienced", "world has not yet experienced"]
+    ],
+    "prosperity-humankind": [
+      ["collective coming- of-age", "collective coming‑of‑age"],
+      ["thought. May each morn", "thought. Let each morn"]
+    ],
+    "turning-point-all-nations": [
+      ["on the commonalties inherent", "on the commonalities inherent"]
+    ],
+    "aqdas-place-literature": []
+  },
   "*": {
     "abha": "abhá",
     "bab": "báb",

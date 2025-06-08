@@ -85,32 +85,32 @@ const getText = (root: Element): string => {
     );
   }
 
-  // const $messages = await fetchHtml(
-  //   "https://www.bahai.org/library/authoritative-texts/the-universal-house-of-justice/messages/"
-  // );
+  const $messages = await fetchHtml(
+    "https://www.bahai.org/library/authoritative-texts/the-universal-house-of-justice/messages/"
+  );
 
-  // const messageRows = $messages("tbody > tr[id]").toArray();
+  const messageRows = $messages("tbody > tr[id]").toArray();
 
-  // const messages = await Promise.all(
-  //   messageRows.map(async (row) => {
-  //     const id = row.attribs["id"];
-  //     const tds = cheerio.load(row)("td").toArray();
-  //     const [title, addressee, summary] = tds.map((td) =>
-  //       cheerio.load(td)("td").text().trim()
-  //     );
+  const messages = await Promise.all(
+    messageRows.map(async (row) => {
+      const id = row.attribs["id"];
+      const tds = cheerio.load(row)("td").toArray();
+      const [title, addressee, summary] = tds.map((td) =>
+        cheerio.load(td)("td").text().trim()
+      );
 
-  //     const $ = await fetchHtml(
-  //       `https://www.bahai.org/library/authoritative-texts/the-universal-house-of-justice/messages/${id}/${id}.xhtml`
-  //     );
-  //     const body = $("body").get(0);
-  //     const text = body ? getText(body) : "";
-  //     return ["#", id, title, addressee, summary, "", text].join("\n");
-  //   })
-  // );
+      const $ = await fetchHtml(
+        `https://www.bahai.org/library/authoritative-texts/the-universal-house-of-justice/messages/${id}/${id}.xhtml`
+      );
+      const body = $("body").get(0);
+      const text = body ? getText(body) : "";
+      return ["#", id, title, addressee, summary, "", text].join("\n");
+    })
+  );
 
-  // await writeText(
-  //   "download",
-  //   "the-universal-house-of-justice-messages",
-  //   messages.join("\n\n")
-  // );
+  await writeText(
+    "download",
+    "the-universal-house-of-justice-messages",
+    messages.join("\n\n")
+  );
 })();
