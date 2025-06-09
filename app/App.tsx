@@ -111,11 +111,12 @@ export default function App() {
           margin: "0 auto",
         }}
       >
-        <Text to="/" style={{ color: "darkred" }}>
+        <Text style={{ color: "darkred", fontWeight: "bold" }}>
           Bahá’í Explore
         </Text>
 
-        {path.length > 0 && <Breadcrumbs size={17} path={path} />}
+        <Breadcrumbs size={17} path={[["All", "/"], ...path]} />
+
         {Object.keys(nestedTree).length > 0 && (
           <div style={{ paddingLeft: 15 }}>
             {renderTree(nestedTree, path[path.length - 1]?.[1] || "")}
@@ -150,10 +151,11 @@ export default function App() {
                       return (
                         <Text
                           id={`${i + 1}`}
+                          size={13}
                           key={i}
-                          style={{ textAlign: "center" }}
+                          style={{ textAlign: "center", padding: "10px 0" }}
                         >
-                          ***
+                          ﹡﹡﹡
                         </Text>
                       );
                     }

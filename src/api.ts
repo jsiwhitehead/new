@@ -6,7 +6,8 @@ import type { Section, SectionContent } from "./structure";
 
 type RenderContent =
   | string
-  | { text: string; type: "break" | "info" | "call" | "framing" }
+  | { type: "break" }
+  | { text: string; type: "info" | "call" | "framing" }
   | { text: string; lines: number[] }
   | (
       | string
@@ -38,7 +39,10 @@ const getQuote = (p: {
 
 const getText = (c: SectionContent): string => {
   if (typeof c === "string") return c;
-  if (!Array.isArray(c)) return c.text;
+  if (!Array.isArray(c)) {
+    if ("type" in c && c.type === "break") return "";
+    return c.text;
+  }
   return c.map((p) => (typeof p === "string" ? p : getQuote(p))).join("");
 };
 

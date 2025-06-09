@@ -1,5 +1,5 @@
 import sources from "./sources.js";
-import type { Section } from "./structure.js";
+import type { Section, SectionContent } from "./structure.js";
 import { readJSON, writeJSON } from "./utils.js";
 
 const ignoreStarts = [
@@ -172,13 +172,21 @@ const checkDoReference = (
   (quotePath[0]![0] !== sourcePath[0]![0] ||
     !["Bahá’u’lláh", "The Báb", "‘Abdu’l‑Bahá"].includes(quotePath[0]![0]));
 
+const getText = (p: SectionContent) => {
+  if (typeof p === "string") return p;
+  if (Array.isArray(p)) return "";
+  if ("type" in p && p.type === "break") return "";
+  return p.text;
+};
+
 const linkContent = (sections: Section[]) => {
   sections.sort((a, b) => a.years[0] - b.years[0]);
   const ngramMap = new Map();
 
   for (const section of sections) {
     section.content = section.content.map((p, i) => {
-      const text = typeof p === "string" ? p : !Array.isArray(p) ? p.text : "";
+      const text = getText(p);
+      if (!text) return p;
 
       const fullStripped = strip(text);
       const fullNorm = normalise(strip(fullStripped));

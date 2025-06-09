@@ -29,7 +29,8 @@ const urlAuthors = {
 
 export type SectionContent =
   | string
-  | { text: string; type: "break" | "info" | "call" | "framing" }
+  | { type: "break" }
+  | { text: string; type: "info" | "call" | "framing" }
   | { text: string; lines: number[] }
   | (
       | string
@@ -51,7 +52,7 @@ export interface Section {
 
 const getContentItem = (line: string): SectionContent => {
   if (line === "***") {
-    return { type: "break", text: "" };
+    return { type: "break" };
   }
   if (line.startsWith("*")) {
     return { type: "info", text: line.slice(1).trim() };
