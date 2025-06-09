@@ -88,7 +88,11 @@ export default function App() {
       (d) =>
         paramPath.length === d.path.length &&
         paramPath.every((p, i) => d.path[i]![1] === p)
-    ) || ["bahaullah/hidden-words"].includes(paramPath.join("/"));
+    ) ||
+    [
+      "bahaullah/hidden-words",
+      "bahaullah/gleanings-writings-bahaullah",
+    ].includes(paramPath.join("/"));
 
   const tree = {} as any;
   for (const d of data) {

@@ -142,25 +142,25 @@ export const parseStructuredSections = (
           indexAuthors[sectionMeta.author],
         ],
         ...currentPath,
-      ].filter(
-        (p, i) =>
-          !(
-            [
-              "gems-of-divine-mysteries",
-              "the-book-of-certitude",
-              "selections-writings-bab",
-              "selections-from-the-writings-of-abdul-baha",
-              "part-two-letters-from-shoghi-effendi",
-              "century-of-light",
-            ].includes(p[1]) ||
-            (["light-of-the-world", "one-common-faith"].includes(p[1]) &&
-              i === 2)
-          )
-      );
+      ];
 
       sections.push({
         id: sectionPath.map((a: any) => a[2]).join("/"),
-        path: sectionPath,
+        path: sectionPath.filter(
+          (p, i) =>
+            !(
+              [
+                "gems-of-divine-mysteries",
+                "the-book-of-certitude",
+                "selections-writings-bab",
+                "selections-from-the-writings-of-abdul-baha",
+                "part-two-letters-from-shoghi-effendi",
+                "century-of-light",
+              ].includes(p[1]) ||
+              (["light-of-the-world", "one-common-faith"].includes(p[1]) &&
+                i === 2)
+            )
+        ),
         translated,
         ...sectionMeta,
         author: undefined,

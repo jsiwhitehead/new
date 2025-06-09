@@ -544,6 +544,8 @@ const sources: Record<
       ["Behold how the sovereignty", "the sovereignty"],
       ["their hands.” Although the", "their hands.”\n\nAlthough the"],
       ["inmost selves. . . . That the", "inmost selves. . . .\n\nThat the"],
+      ["God,” He, also, speaketh", "God,” He also speaketh"],
+      ["they, verily, utter but the", "they verily utter but the"],
     ],
     "hidden-words": [
       [/^Bahá’u’lláh/m, ""],
