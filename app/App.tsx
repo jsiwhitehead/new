@@ -130,6 +130,20 @@ export default function App() {
         {showContent &&
           data.map((d, i) => {
             const allSpecial = d.content.every((d) => typeof d !== "string");
+            const isFullQuote = d.content.map(
+              (c) =>
+                Array.isArray(c) &&
+                c.every((p) => {
+                  if (typeof p !== "string") return true;
+                  return !/[a-z]/.test(
+                    p
+                      .normalize("NFD")
+                      .replace(/[\u0300-\u036f]/g, "")
+                      .toLowerCase()
+                  );
+                })
+            );
+            const allFullQuotes = isFullQuote.every((a) => a);
             return (
               <Column gap={25} style={{ paddingTop: 30 }} key={i}>
                 <Text
@@ -184,27 +198,18 @@ export default function App() {
                     );
                   }
                   if (Array.isArray(c)) {
-                    const allQuote = c.every((p) => {
-                      if (typeof p !== "string") return true;
-                      return !/[a-z]/.test(
-                        p
-                          .normalize("NFD")
-                          .replace(/[\u0300-\u036f]/g, "")
-                          .toLowerCase()
-                      );
-                    });
                     const sources = c.flatMap((p) =>
                       typeof p === "string" ? [] : [p]
                     );
                     const allSource =
-                      allQuote &&
+                      isFullQuote[i] &&
                       new Set(sources.map((p) => JSON.stringify(p.path)))
                         .size === 1;
                     const inner = (
                       <Text
                         id={!allSource ? `${i + 1}` : undefined}
                         style={
-                          allQuote
+                          isFullQuote[i]
                             ? { padding: allSource ? 0 : "0 20px" }
                             : { textIndent: 20 }
                         }
@@ -226,7 +231,7 @@ export default function App() {
                     return (
                       <Column
                         id={`${i + 1}`}
-                        style={{ padding: "0 20px" }}
+                        style={{ padding: allFullQuotes ? 0 : "0 20px" }}
                         gap={15}
                         key={i}
                       >

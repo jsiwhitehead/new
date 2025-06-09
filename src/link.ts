@@ -119,12 +119,18 @@ const findQuoteIndices = (
   ) {
     startIndex--;
   }
+  if (!/[a-z0-9]/.test(strippedSource.slice(0, startIndex))) {
+    startIndex = 0;
+  }
 
   while (
     endIndex < strippedSource.length - 1 &&
     !/[a-z0-9‑— “”‘’]/.test(strippedSource[endIndex + 1]!)
   ) {
     endIndex++;
+  }
+  if (!/[a-z0-9]/.test(strippedSource.slice(endIndex))) {
+    endIndex = strippedSource.length - 1;
   }
 
   return [startIndex, endIndex + 1];
@@ -185,15 +191,40 @@ const getText = (p: SectionContent) => {
   return p.text;
 };
 
+const getDataQuote = (
+  data: any,
+  p: {
+    section: string;
+    paragraph: number;
+    start: number;
+    end: number;
+  }
+): string => {
+  const source = data.find((d: any) => d.id === p.section)!;
+  return getDataText(data, source.content[p.paragraph]!).slice(p.start, p.end);
+};
+
+const getDataText = (data: any, c: SectionContent): string => {
+  if (typeof c === "string") return c;
+  if (!Array.isArray(c)) {
+    if ("type" in c && c.type === "break") return "";
+    return c.text;
+  }
+  return c
+    .map((p) => (typeof p === "string" ? p : getDataQuote(data, p)))
+    .join("");
+};
+
 const linkContent = (sections: Section[]) => {
   sections.sort((a, b) => a.years[0] - b.years[0]);
 
   const ngramMap = new Map();
+  const strippedMap = new Map();
   for (const section of sections) {
     if (!section.meta) {
       section.content.forEach((p, i) => {
         const text = getText(p);
-        const fullStripped = strip(text);
+        strippedMap.set(`${section.id}:${i}`, strip(text));
         const parts = splitQuoted(text).flatMap((p) =>
           p.split(/( ?\. \. \. ?)/)
         );
@@ -209,7 +240,6 @@ const linkContent = (sections: Section[]) => {
                   section: section.id,
                   paragraph: i,
                   years: section.years,
-                  stripped: fullStripped,
                 },
               ].sort((a, b) => a.years[0] - b.years[0])
             );
@@ -238,24 +268,55 @@ const linkContent = (sections: Section[]) => {
     }
   };
 
-  for (const section of sections) {
-    if (
-      (!["Bahá’u’lláh", "The Báb"].includes(section.path[0]![0]) ||
-        ["Gleanings from the Writings of Bahá’u’lláh"].includes(
-          section.path[1]![0]
-        )) &&
-      !section.prayer
-    ) {
-      section.content = section.content.map((p, paraIndex) => {
-        const text = getText(p);
-        if (!text) return p;
+  const processPara = (
+    section: Section,
+    p: SectionContent,
+    paraIndex: number
+  ) => {
+    {
+      const text = getText(p);
+      if (!text) return p;
 
-        const fullStripped = strip(text);
-        const fullNorm = normalise(strip(fullStripped));
-        const fullNgrams = getNGrams(fullNorm);
-        for (const ng of fullNgrams) {
+      const fullStripped = strip(text);
+      const fullNorm = normalise(strip(fullStripped));
+      const fullNgrams = getNGrams(fullNorm);
+      for (const ng of fullNgrams) {
+        if (ngramMap.has(ng)) {
+          for (const { years, ...source } of ngramMap.get(ng)) {
+            if (
+              checkDoReference(section.id, source.section, section.years, years)
+            ) {
+              const normSource = normalise(
+                strippedMap.get(`${source.section}:${source.paragraph}`)
+              );
+              if (
+                normSource
+                  .replace(/[‑— ]/g, "")
+                  .includes(fullNorm.replace(/[‑— ]/g, ""))
+              ) {
+                clearNgrams(fullNgrams, section.id, paraIndex);
+                processSection(source.section);
+                const [start, end] = findQuoteIndices(
+                  strippedMap.get(`${source.section}:${source.paragraph}`),
+                  fullNorm
+                );
+                return [{ ...source, start, end }];
+              }
+            }
+          }
+        }
+      }
+
+      const parts = splitQuoted(text).flatMap((p) => p.split(/( ?\. \. \. ?)/));
+
+      const processedParts = parts.map((partText) => {
+        const norm = normalise(strip(partText));
+        const ngrams = getNGrams(norm);
+        if (ngrams.length === 0) return partText;
+
+        for (const ng of ngrams) {
           if (ngramMap.has(ng)) {
-            for (const { years, stripped, ...source } of ngramMap.get(ng)) {
+            for (const { years, ...source } of ngramMap.get(ng)) {
               if (
                 checkDoReference(
                   section.id,
@@ -264,142 +325,114 @@ const linkContent = (sections: Section[]) => {
                   years
                 )
               ) {
-                const normSource = normalise(stripped);
+                const normSource = normalise(
+                  strippedMap.get(`${source.section}:${source.paragraph}`)
+                );
                 if (
                   normSource
                     .replace(/[‑— ]/g, "")
-                    .includes(fullNorm.replace(/[‑— ]/g, ""))
+                    .includes(norm.replace(/[‑— ]/g, ""))
                 ) {
-                  clearNgrams(fullNgrams, section.id, paraIndex);
-                  const [start, end] = findQuoteIndices(stripped, fullNorm);
-                  return [{ ...source, start, end }];
+                  clearNgrams(ngrams, section.id, paraIndex);
+                  processSection(source.section);
+                  const [start, end] = findQuoteIndices(
+                    strippedMap.get(`${source.section}:${source.paragraph}`),
+                    norm
+                  );
+                  return { ...source, start, end };
                 }
               }
             }
           }
         }
 
-        const parts = splitQuoted(text).flatMap((p) =>
-          p.split(/( ?\. \. \. ?)/)
-        );
+        return partText;
+      });
 
-        const processedParts = parts.map((partText, pIndex) => {
-          const norm = normalise(strip(partText));
-          const ngrams = getNGrams(norm);
-          if (ngrams.length === 0) return partText;
-
-          for (const ng of ngrams) {
-            if (ngramMap.has(ng)) {
-              for (const { years, ...source } of ngramMap.get(ng)) {
-                if (
-                  checkDoReference(
-                    section.id,
-                    source.section,
-                    section.years,
-                    years
-                  )
-                ) {
-                  const normSource = normalise(source.stripped);
+      for (let i = processedParts.length - 1; i >= 0; i -= 1) {
+        if (typeof processedParts[i] !== "string") {
+          [-1, 1].forEach((dir) => {
+            for (let j = i + dir; j >= 0; j += dir) {
+              if (typeof processedParts[j] === "string") {
+                const norm = normalise(strip(processedParts[j] as string));
+                if (/[a-z]/.test(norm)) {
+                  const normSource = normalise(
+                    strippedMap.get(
+                      `${processedParts[i].section}:${processedParts[i].paragraph}`
+                    )
+                  );
                   if (
                     normSource
                       .replace(/[‑— ]/g, "")
                       .includes(norm.replace(/[‑— ]/g, ""))
                   ) {
-                    clearNgrams(ngrams, section.id, paraIndex);
+                    clearNgrams(getNGrams(norm), section.id, paraIndex);
                     const [start, end] = findQuoteIndices(
-                      source.stripped,
+                      strippedMap.get(
+                        `${processedParts[i].section}:${processedParts[i].paragraph}`
+                      ),
                       norm
                     );
-                    return { ...source, start, end };
+                    processedParts[j] = {
+                      ...processedParts[i],
+                      start,
+                      end,
+                    };
                   }
                 }
+              } else {
+                break;
               }
             }
-          }
-
-          return partText;
-        });
-
-        for (let i = processedParts.length - 1; i >= 0; i -= 1) {
-          if (typeof processedParts[i] !== "string") {
-            [-1, 1].forEach((dir) => {
-              for (let j = i + dir; j >= 0; j += dir) {
-                if (typeof processedParts[j] === "string") {
-                  const norm = normalise(strip(processedParts[j] as string));
-                  if (/[a-z]/.test(norm)) {
-                    const normSource = normalise(processedParts[i].stripped);
-                    if (
-                      normSource
-                        .replace(/[‑— ]/g, "")
-                        .includes(norm.replace(/[‑— ]/g, ""))
-                    ) {
-                      clearNgrams(getNGrams(norm), section.id, paraIndex);
-                      const [start, end] = findQuoteIndices(
-                        processedParts[i].stripped,
-                        norm
-                      );
-                      processedParts[j] = {
-                        ...processedParts[i],
-                        start,
-                        end,
-                      };
-                    }
-                  }
-                } else {
-                  break;
-                }
-              }
-            });
-          }
+          });
         }
+      }
 
-        const result = processedParts
-          .reduce((res, part) => {
-            if (
-              typeof part === "string" &&
-              typeof res[res.length - 1] === "string"
-            ) {
-              res[res.length - 1] += part;
-            } else {
-              res.push(part);
-            }
-            return res;
-          }, [] as any[])
-          .map((p: any) =>
-            typeof p === "string" ? p : { ...p, stripped: undefined }
-          )
-          .filter((p: any) => p);
+      const result = processedParts
+        .reduce((res, part) => {
+          if (
+            typeof part === "string" &&
+            typeof res[res.length - 1] === "string"
+          ) {
+            res[res.length - 1] += part;
+          } else {
+            res.push(part);
+          }
+          return res;
+        }, [] as any[])
+        .map((p: any) =>
+          typeof p === "string" ? p : { ...p, stripped: undefined }
+        )
+        .filter((p: any) => p);
 
-        return result.length === 1 && typeof result[0] === "string"
-          ? p
-          : result;
-      });
+      return result.length === 1 && typeof result[0] === "string" ? p : result;
     }
-  }
-};
+  };
 
-const getDataQuote = (
-  data: any,
-  p: {
-    section: string;
-    paragraph: number;
-    start: number;
-    end: number;
-  }
-): string => {
-  const source = data.find((d: any) => d.id === p.section)!;
-  return getDataText(data, source.content[p.paragraph]!).slice(p.start, p.end);
-};
-
-const getDataText = (data: any, c: SectionContent): string => {
-  if (typeof c === "string") return c;
-  if (!Array.isArray(c)) {
-    if ("type" in c && c.type === "break") return "";
-    return c.text;
-  }
-  return c
-    .map((p) => (typeof p === "string" ? p : getDataQuote(data, p)))
-    .join("");
+  const processedSet = new Set();
+  const processSection = (sectionId: string) => {
+    if (!processedSet.has(sectionId)) {
+      processedSet.add(sectionId);
+      const section = sections.find((s) => s.id === sectionId)!;
+      if (
+        (!["Bahá’u’lláh", "The Báb"].includes(section.path[0]![0]) ||
+          ["Gleanings from the Writings of Bahá’u’lláh"].includes(
+            section.path[1]![0]
+          )) &&
+        !section.prayer
+      ) {
+        section.content = section.content.map((p, paraIndex) => {
+          const res = processPara(section, p, paraIndex);
+          strippedMap.set(
+            `${section.id}:${paraIndex}`,
+            strip(getDataText(sections, res))
+          );
+          return res;
+        });
+      }
+    }
+  };
+  for (const s of sections.reverse()) processSection(s.id);
 };
 
 (async () => {
