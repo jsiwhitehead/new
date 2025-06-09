@@ -26,10 +26,20 @@ interface RenderSection {
   content: RenderContent[];
 }
 
-const getText = (c: SectionContent) => {
+const getQuote = (p: {
+  section: string;
+  paragraph: number;
+  start: number;
+  end: number;
+}): string => {
+  const source = data.find((d) => d.id === p.section)!;
+  return getText(source.content[p.paragraph]!).slice(p.start, p.end);
+};
+
+const getText = (c: SectionContent): string => {
   if (typeof c === "string") return c;
-  if (Array.isArray(c)) return "";
-  return c.text;
+  if (!Array.isArray(c)) return c.text;
+  return c.map((p) => (typeof p === "string" ? p : getQuote(p))).join("");
 };
 
 export default function getData(...urlPath: string[]): RenderSection[] {
@@ -49,7 +59,7 @@ export default function getData(...urlPath: string[]): RenderSection[] {
                 p.end
               ),
               path: source.path,
-              paragraph: p.paragraph,
+              paragraph: p.paragraph + 1,
             };
           });
         }),

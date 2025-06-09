@@ -46,10 +46,18 @@ const Breadcrumbs = ({
   return (
     <Row
       gap={`${size * 1.2}px ${size * 0.6}px`}
-      style={{ flexWrap: "wrap", paddingLeft: 0, justifyContent: justify }}
+      style={{
+        flexWrap: "wrap",
+        paddingLeft: justify === "flex-start" ? 30 : 0,
+        justifyContent: justify,
+      }}
     >
       {path.map((p, i) => (
-        <Row gap={size * 0.6} style={{ marginLeft: i === 0 ? 0 : 0 }} key={i}>
+        <Row
+          gap={size * 0.6}
+          style={{ marginLeft: justify === "flex-start" && i === 0 ? -30 : 0 }}
+          key={i}
+        >
           {i > 0 && (
             <svg
               style={{ flexShrink: 0, height: size * 0.6 }}
@@ -75,11 +83,12 @@ export default function App() {
   ) as string[];
   const data = getData(...paramPath);
 
-  const single = data.find(
-    (d) =>
-      paramPath.length === d.path.length &&
-      paramPath.every((p, i) => d.path[i]![1] === p)
-  );
+  const showContent =
+    data.find(
+      (d) =>
+        paramPath.length === d.path.length &&
+        paramPath.every((p, i) => d.path[i]![1] === p)
+    ) || ["bahaullah/hidden-words"].includes(paramPath.join("/"));
 
   const tree = {} as any;
   for (const d of data) {
@@ -113,7 +122,7 @@ export default function App() {
           </div>
         )}
 
-        {single &&
+        {showContent &&
           data.map((d, i) => {
             const allSpecial = d.content.every((d) => typeof d !== "string");
             return (
@@ -131,7 +140,7 @@ export default function App() {
                 {d.content.map((c, i) => {
                   if (typeof c === "string") {
                     return (
-                      <Text id={`${i}`} key={i} style={{ textIndent: 20 }}>
+                      <Text id={`${i + 1}`} key={i} style={{ textIndent: 20 }}>
                         {c}
                       </Text>
                     );
@@ -140,7 +149,7 @@ export default function App() {
                     if (c.type === "break") {
                       return (
                         <Text
-                          id={`${i}`}
+                          id={`${i + 1}`}
                           key={i}
                           style={{ textAlign: "center" }}
                         >
@@ -150,7 +159,7 @@ export default function App() {
                     }
                     return (
                       <Text
-                        id={`${i}`}
+                        id={`${i + 1}`}
                         key={i}
                         style={{
                           fontStyle:
@@ -187,7 +196,7 @@ export default function App() {
                         .size === 1;
                     const inner = (
                       <Text
-                        id={!allSource ? `${i}` : undefined}
+                        id={!allSource ? `${i + 1}` : undefined}
                         style={
                           allQuote
                             ? { padding: allSource ? 0 : "0 20px" }
@@ -210,7 +219,7 @@ export default function App() {
                     if (!allSource) return inner;
                     return (
                       <Column
-                        id={`${i}`}
+                        id={`${i + 1}`}
                         style={{ padding: "0 20px" }}
                         gap={15}
                         key={i}
@@ -231,7 +240,7 @@ export default function App() {
                   }
                   return (
                     <Text
-                      id={`${i}`}
+                      id={`${i + 1}`}
                       key={i}
                       style={{
                         whiteSpace: "pre-wrap",

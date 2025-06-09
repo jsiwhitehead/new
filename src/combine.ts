@@ -76,7 +76,7 @@ const strip = (text: string): string =>
 
 const normalise = (stripped: string) => stripped.replace(/[^a-z0-9‑— ]/g, "");
 
-const getNGrams = (norm: string, n = 20) => {
+const getNGrams = (norm: string, n = 10) => {
   const words = norm.split(/[‑— ]+/);
   if (words.length < n) return [];
   const ngrams: string[] = [];
@@ -179,11 +179,39 @@ const linkContent = (sections: Section[]) => {
   for (const section of sections) {
     section.content = section.content.map((p, i) => {
       const text = typeof p === "string" ? p : !Array.isArray(p) ? p.text : "";
+
       const fullStripped = strip(text);
+      const fullNorm = normalise(strip(fullStripped));
+      const fullNgrams = getNGrams(fullNorm);
+      if (checkCanReference(section)) {
+        for (const ng of fullNgrams) {
+          if (ngramMap.has(ng)) {
+            const source = ngramMap.get(ng);
+            if (checkDoReference(section.path, source.section)) {
+              const normSource = normalise(source.stripped);
+              if (normSource.includes(fullNorm)) {
+                const [start, end] = findQuoteIndices(
+                  source.stripped,
+                  fullNorm
+                );
+                return [
+                  {
+                    ...source,
+                    start,
+                    end,
+                    section: source.section.map((a: any) => a[2]).join("/"),
+                    stripped: undefined,
+                  },
+                ];
+              }
+            }
+          }
+        }
+      }
 
       const parts = splitQuoted(text).flatMap((p) => p.split(/( ?\. \. \. ?)/));
 
-      const processedParts = parts.map((partText, j) => {
+      const processedParts = parts.map((partText) => {
         const norm = normalise(strip(partText));
         const ngrams = getNGrams(norm);
         if (ngrams.length === 0) return partText;
@@ -220,9 +248,9 @@ const linkContent = (sections: Section[]) => {
         return partText;
       });
 
-      for (let i = 0; i < processedParts.length; i += 1) {
+      for (let i = processedParts.length - 1; i >= 0; i -= 1) {
         if (typeof processedParts[i] !== "string") {
-          for (let j = 0; j < processedParts.length; j += 1) {
+          for (let j = i - 1; j >= 0; j -= 1) {
             if (typeof processedParts[j] === "string") {
               const norm = normalise(strip(processedParts[j] as string));
               if (/[a-z]/.test(norm)) {
@@ -239,6 +267,29 @@ const linkContent = (sections: Section[]) => {
                   };
                 }
               }
+            } else {
+              break;
+            }
+          }
+          for (let j = i + 1; j < processedParts.length; j += 1) {
+            if (typeof processedParts[j] === "string") {
+              const norm = normalise(strip(processedParts[j] as string));
+              if (/[a-z]/.test(norm)) {
+                const normSource = normalise(processedParts[i].stripped);
+                if (normSource.includes(norm)) {
+                  const [start, end] = findQuoteIndices(
+                    processedParts[i].stripped,
+                    norm
+                  );
+                  processedParts[j] = {
+                    ...processedParts[i],
+                    start,
+                    end,
+                  };
+                }
+              }
+            } else {
+              break;
             }
           }
         }

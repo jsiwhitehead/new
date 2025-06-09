@@ -1628,6 +1628,7 @@ const sources: Record<
       }),
       [/^[A-Z].*[a-z]$/gm, (a) => `## ${a}`],
       ["## The Institution", "The Institution"],
+      [/\+/g, ""],
     ],
     messages: [
       [/^This document has been downloaded.*/gm, ""],
@@ -2058,7 +2059,7 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
       [/^\d+\. (.*)$/gm, (_, a) => `### ${a}`],
     ],
     "aqdas-place-literature": [
-      removeAfter("This document has been downloaded"),
+      removeAfter("+"),
       [
         "THE KITÁB‑I‑AQDAS\n\nITS PLACE IN BAHÁ’Í LITERATURE",
         "The Kitáb-i-Aqdas: Its Place in Bahá’í Literature",
