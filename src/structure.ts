@@ -47,6 +47,10 @@ export interface Section {
   source?: string;
   summary?: string;
   prayer?: true;
+  quoted?: Record<
+    string,
+    { start: number; end: number; section: string; paragraph: number }[]
+  >;
   content: SectionContent[];
 }
 

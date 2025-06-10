@@ -217,7 +217,19 @@ const getDataText = (data: any, c: SectionContent): string => {
     .join("");
 };
 
-const linkContent = (sections: Section[]) => {
+(async () => {
+  const sections: Section[] = [];
+
+  for (const author of Object.keys(sources)) {
+    await Promise.all(
+      Object.keys(sources[author]!).map(async (file) => {
+        const id = `${author}-${file}`;
+        const structure = (await readJSON("structure", id)) as any[];
+        sections.push(...structure);
+      })
+    );
+  }
+
   sections.sort((a, b) => a.years[0] - b.years[0]);
 
   const ngramMap = new Map();
@@ -437,61 +449,74 @@ const linkContent = (sections: Section[]) => {
     }
   };
   for (const s of sections.reverse()) processSection(s.id);
-};
 
-(async () => {
-  const allStructure: any[] = [];
-  // const allDouble: any[] = [];
+  sections.sort((a, b) => a.id.localeCompare(b.id));
 
-  for (const author of Object.keys(sources)) {
-    await Promise.all(
-      Object.keys(sources[author]!).map(async (file) => {
-        const id = `${author}-${file}`;
-        const structure = (await readJSON("structure", id)) as any[];
-        allStructure.push(...structure);
-        // const double = (await readJSON("structure", id)) as any[];
-        // allDouble.push(...double);
-      })
-    );
+  const allQuoted = sections.flatMap((section: Section) =>
+    section.content.flatMap((c, i) =>
+      Array.isArray(c)
+        ? c
+            .filter((a) => typeof a !== "string")
+            .map((a) => ({ ...a, refSection: section.id, refParagraph: i }))
+        : []
+    )
+  );
+  for (const section of sections) {
+    const sectionQuoted = allQuoted.filter((a) => a.section === section.id);
+    const quoted = {} as any;
+    section.content.forEach((_: any, i: any) => {
+      const stripped = strippedMap.get(`${section.id}:${i}`);
+      const paraQuoted = sectionQuoted.filter((a) => a.paragraph === i);
+      if (paraQuoted.length > 0) {
+        const paras = [
+          ...new Set(
+            paraQuoted.map((q) => `${q.refSection}:${q.refParagraph}`)
+          ),
+        ];
+        quoted[i] = paras.flatMap((para) => {
+          const quoted = paraQuoted.filter(
+            (q) => `${q.refSection}:${q.refParagraph}` === para
+          );
+          const [refSection, refParagraph] = para.split(":") as any;
+          quoted.sort((a, b) => a.start - b.start);
+          const merged = [quoted[0]!];
+          for (let j = 1; j < quoted.length; j++) {
+            const last = merged[merged.length - 1]!;
+            const current = quoted[j]!;
+            if (
+              current.start <= last.end ||
+              !/[a-z0-9]/.test(
+                stripped
+                  .slice(last.end, current.start)
+                  .replace(/\[[^\]]*\]/g, "")
+              )
+            ) {
+              last.end = Math.max(last.end, current.end);
+            } else {
+              merged.push(current);
+            }
+          }
+          return merged.map((q) => ({
+            start: q.start,
+            end: q.end,
+            section: refSection,
+            paragraph: refParagraph,
+          }));
+        });
+      }
+    });
+    if (sectionQuoted.length > 0) {
+      const content = section.content;
+      delete (section as any).content;
+      section.quoted = quoted;
+      section.content = content;
+    }
   }
-
-  linkContent(allStructure);
-  allStructure.sort((a, b) => a.id.localeCompare(b.id));
-
-  // allDouble.sort((a, b) => a.id.localeCompare(b.id));
-
-  // const diffs = [] as any[];
-  // for (let i = 0; i < allDouble.length - 1; i++) {
-  //   for (let j = 0; j < allDouble[i]!.content.length; j++) {
-  //     let s1 = strip(getDataText(allStructure, allStructure[i].content[j]));
-  //     let s2 = strip(getDataText(allDouble, allDouble[i].content[j]));
-  //     if (s1.replace(/[^a-z0-9]/g, " ") !== s2.replace(/[^a-z0-9]/g, " ")) {
-  //       diffs.push({ section: allDouble[i].id, paragraph: j, s1, s2 });
-  //     }
-  //   }
-  // }
-  // for (const d of diffs) {
-  //   for (const section of allStructure) {
-  //     for (const para of section.content) {
-  //       if (
-  //         Array.isArray(para) &&
-  //         para.some(
-  //           (p) =>
-  //             typeof p !== "string" &&
-  //             p.section === d.section &&
-  //             p.paragraph === d.paragraph
-  //         )
-  //       ) {
-  //         console.log(d);
-  //       }
-  //     }
-  //   }
-  // }
 
   await writeJSON(
     "",
     "data",
-    allStructure.sort((aDoc, bDoc) => {
+    sections.sort((aDoc, bDoc) => {
       const a = aDoc.path.map((p: [string, string, number]) => p[2]);
       const b = bDoc.path.map((p: [string, string, number]) => p[2]);
 
