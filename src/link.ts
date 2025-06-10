@@ -119,17 +119,19 @@ const findQuoteIndices = (
   ) {
     startIndex--;
   }
-  if (!/[a-z0-9]/.test(strippedSource.slice(0, startIndex))) {
-    startIndex = 0;
-  }
 
   while (
     endIndex < strippedSource.length - 1 &&
-    !/[a-z0-9‑— “”‘’]/.test(strippedSource[endIndex + 1]!)
+    !/[a-z0-9‑— “”‘’,]/.test(strippedSource[endIndex + 1]!)
   ) {
     endIndex++;
   }
-  if (!/[a-z0-9]/.test(strippedSource.slice(endIndex))) {
+
+  if (
+    !/[a-z0-9]/.test(strippedSource.slice(0, startIndex)) &&
+    !/[a-z0-9]/.test(strippedSource.slice(endIndex))
+  ) {
+    startIndex = 0;
     endIndex = strippedSource.length - 1;
   }
 
@@ -226,7 +228,7 @@ const linkContent = (sections: Section[]) => {
         const text = getText(p);
         strippedMap.set(`${section.id}:${i}`, strip(text));
         const parts = splitQuoted(text).flatMap((p) =>
-          p.split(/( ?\. \. \. ?)/)
+          p.split(/( ?\. \. \. ?| ?\[[^\]]*\] ?)/)
         );
         parts.forEach((partText) => {
           const norm = normalise(strip(partText));
@@ -307,7 +309,9 @@ const linkContent = (sections: Section[]) => {
         }
       }
 
-      const parts = splitQuoted(text).flatMap((p) => p.split(/( ?\. \. \. ?)/));
+      const parts = splitQuoted(text).flatMap((p) =>
+        p.split(/( ?\. \. \. ?| ?\[[^\]]*\] ?)/)
+      );
 
       const processedParts = parts.map((partText) => {
         const norm = normalise(strip(partText));

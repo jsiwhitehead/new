@@ -46,27 +46,52 @@ const getText = (c: SectionContent): string => {
   return c.map((p) => (typeof p === "string" ? p : getQuote(p))).join("");
 };
 
+const capitalised = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
+
 export default function getData(...urlPath: string[]): RenderSection[] {
   return data
     .filter((d) => !d.meta && urlPath.every((p, i) => d.path[i]?.[1] === p))
     .map((d) => {
+      const content = d.content.map((c) => {
+        if (!Array.isArray(c)) return c;
+        const res: any = c.map((p) => {
+          if (typeof p === "string") return p;
+          const source = data.find((d) => d.id === p.section)!;
+          return {
+            quote: getText(source.content[p.paragraph]!).slice(p.start, p.end),
+            path: source.path,
+            paragraph: p.paragraph + 1,
+          };
+        });
+        const first = res[0]!;
+        if (typeof first !== "string") {
+          first.quote = capitalised(first.quote);
+        }
+        for (let i = 1; i < res.length - 1; i++) {
+          if (
+            typeof res[i] === "string" &&
+            !/[a-z0-9]/.test(
+              res[i]
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .toLowerCase()
+                .replace(/\[[^\]]*\]/g, "")
+            ) &&
+            typeof res[i - 1] === "object" &&
+            typeof res[i + 1] === "object"
+          ) {
+            res[i] = {
+              quote: res[i],
+              path: res[i - 1].path,
+              paragraph: res[i - 1].paragraph,
+            };
+          }
+        }
+        return res;
+      });
       return {
         ...d,
-        content: d.content.map((c) => {
-          if (!Array.isArray(c)) return c;
-          return c.map((p) => {
-            if (typeof p === "string") return p;
-            const source = data.find((d) => d.id === p.section)!;
-            return {
-              quote: getText(source.content[p.paragraph]!).slice(
-                p.start,
-                p.end
-              ),
-              path: source.path,
-              paragraph: p.paragraph + 1,
-            };
-          });
-        }),
+        content,
       };
     });
 }

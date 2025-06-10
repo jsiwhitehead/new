@@ -1,4 +1,4 @@
-import { ScrollRestoration, useParams } from "react-router";
+import { Link, ScrollRestoration, useParams } from "react-router";
 
 import getData from "../src/api";
 
@@ -50,6 +50,8 @@ const Breadcrumbs = ({
         flexWrap: "wrap",
         paddingLeft: justify === "flex-start" ? 30 : 0,
         justifyContent: justify,
+        opacity: justify === "flex-end" ? 0.5 : 1,
+        fontStyle: justify === "flex-end" ? "italic" : "none",
       }}
     >
       {path.map((p, i) => (
@@ -140,6 +142,7 @@ export default function App() {
                       .normalize("NFD")
                       .replace(/[\u0300-\u036f]/g, "")
                       .toLowerCase()
+                      .replace(/\[[^\]]*\]/g, "")
                   );
                 })
             );
@@ -210,7 +213,10 @@ export default function App() {
                         id={!allSource ? `${i + 1}` : undefined}
                         style={
                           isFullQuote[i]
-                            ? { padding: allSource ? 0 : "0 20px" }
+                            ? {
+                                padding: allSource ? 0 : "0 20px",
+                                textIndent: allFullQuotes ? 20 : 0,
+                              }
                             : { textIndent: 20 }
                         }
                         key={i}
@@ -219,9 +225,77 @@ export default function App() {
                           if (typeof a === "string") {
                             return a;
                           }
+                          if (allSource) {
+                            return (
+                              <span style={{ fontWeight: "bold" }} key={j}>
+                                {a.quote}
+                              </span>
+                            );
+                          }
                           return (
-                            <span style={{ fontWeight: "bold" }} key={j}>
-                              {a.quote}
+                            <span key={j}>
+                              <span style={{ fontWeight: "bold" }}>
+                                {a.quote}
+                              </span>
+                              <span
+                                style={{
+                                  fontWeight: "bold",
+                                  fontStyle: "italic",
+                                  color: "darkgreen",
+                                  opacity: 0.5,
+                                  fontSize: 14,
+                                }}
+                              >
+                                {" ["}
+                              </span>
+                              {calculateUrlPath(a.path, [a.paragraph]).map(
+                                ([label, url], k) => (
+                                  <span key={k}>
+                                    {k > 0 && (
+                                      <svg
+                                        style={{
+                                          flexShrink: 0,
+                                          height: 14 * 0.6,
+                                          padding: `0 ${14 * 0.6}px`,
+                                          opacity: 0.5,
+                                        }}
+                                        viewBox="-0.5 -1 1.5 2"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <polygon
+                                          points="-0.5,0.866 -0.5,-0.866 1.0,0.0"
+                                          fill="#333"
+                                        />
+                                      </svg>
+                                    )}
+                                    <Link
+                                      to={url}
+                                      style={{
+                                        fontWeight: "bold",
+                                        fontStyle: "italic",
+                                        color: "darkgreen",
+                                        display: "inline-block",
+                                        textIndent: 0,
+                                        opacity: 0.5,
+                                        fontSize: 14,
+                                      }}
+                                    >
+                                      {label}
+                                    </Link>
+                                  </span>
+                                )
+                              )}
+                              <span
+                                style={{
+                                  fontWeight: "bold",
+                                  fontStyle: "italic",
+                                  color: "darkgreen",
+                                  opacity: 0.5,
+                                  fontSize: 14,
+                                }}
+                              >
+                                {"]"}
+                              </span>
                             </span>
                           );
                         })}
@@ -231,7 +305,9 @@ export default function App() {
                     return (
                       <Column
                         id={`${i + 1}`}
-                        style={{ padding: allFullQuotes ? 0 : "0 20px" }}
+                        style={{
+                          padding: allFullQuotes ? 0 : "0 20px",
+                        }}
                         gap={15}
                         key={i}
                       >
