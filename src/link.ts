@@ -273,7 +273,7 @@ const getDataText = (data: any, c: SectionContent): string => {
   const ngramMap = new Map();
   const strippedMap = new Map();
   for (const section of sections) {
-    if (!section.meta) {
+    if (!section.meta && !["4/2/2/53/1", "4/2/2/54/1"].includes(section.id)) {
       section.content.forEach((p, i) => {
         const text = getText(p);
         strippedMap.set(`${section.id}:${i}`, strip(text));
@@ -493,7 +493,17 @@ const getDataText = (data: any, c: SectionContent): string => {
                 !/[a-z0-9]/.test(strip(processed).replace(/\[[^\]]*\]/g, ""))
             )
           ) {
-            return allProcessed;
+            return allProcessed.reduce((res, part) => {
+              if (
+                typeof part === "string" &&
+                typeof res[res.length - 1] === "string"
+              ) {
+                res[res.length - 1] += part;
+              } else {
+                res.push(part);
+              }
+              return res;
+            }, [] as any[]);
           }
         }
       }
@@ -571,21 +581,17 @@ const getDataText = (data: any, c: SectionContent): string => {
         }
       }
 
-      const result = processedParts
-        .reduce((res, part) => {
-          if (
-            typeof part === "string" &&
-            typeof res[res.length - 1] === "string"
-          ) {
-            res[res.length - 1] += part;
-          } else {
-            res.push(part);
-          }
-          return res;
-        }, [] as any[])
-        .map((p: any) =>
-          typeof p === "string" ? p : { ...p, stripped: undefined }
-        );
+      const result = processedParts.reduce((res, part) => {
+        if (
+          typeof part === "string" &&
+          typeof res[res.length - 1] === "string"
+        ) {
+          res[res.length - 1] += part;
+        } else {
+          res.push(part);
+        }
+        return res;
+      }, [] as any[]);
 
       return result.length === 1 && typeof result[0] === "string" ? p : result;
     }
