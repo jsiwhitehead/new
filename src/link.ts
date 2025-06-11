@@ -77,7 +77,7 @@ const strip = (text: string): string =>
 const normalise = (stripped: string) => stripped.replace(/[^a-z0-9‑— ]/g, "");
 
 const getNGrams = (norm: string, n = 10) => {
-  const words = norm.split(/[‑— ]+/);
+  const words = norm.split(/[‑— ]+/).filter((w) => w);
   if (words.length < n) return [];
   const ngrams: string[] = [];
   for (let i = 0; i <= words.length - n; i++) {
@@ -101,38 +101,75 @@ const normalizeForMatching = (stripped: string) => {
 
 const findQuoteIndices = (
   strippedSource: string,
-  normQuote: string
+  strippedQuote: string
 ): [number, number] => {
   const { alphaNum: alphaNumSource, indexMap } =
     normalizeForMatching(strippedSource);
 
-  const alphaNum = normQuote.replace(/[‑— ]/g, "");
+  const alphaNum = normalise(strippedQuote).replace(/[‑— ]/g, "");
   const startAlphaNumIndex = alphaNumSource.indexOf(alphaNum);
   const endAlphaNumIndex = startAlphaNumIndex + alphaNum.length - 1;
 
   let startIndex = indexMap[startAlphaNumIndex]!;
   let endIndex = indexMap[endAlphaNumIndex]!;
 
-  while (
-    startIndex > 0 &&
-    !/[a-z0-9‑— “”‘’]/.test(strippedSource[startIndex - 1]!)
-  ) {
-    startIndex--;
-  }
-
-  while (
-    endIndex < strippedSource.length - 1 &&
-    !/[a-z0-9‑— “”‘’,]/.test(strippedSource[endIndex + 1]!)
-  ) {
-    endIndex++;
-  }
-
+  const preChars = strippedQuote.match(/^([^a-z0-9]*)/)![1]!;
   if (
-    !/[a-z0-9]/.test(strippedSource.slice(0, startIndex)) &&
-    !/[a-z0-9]/.test(strippedSource.slice(endIndex))
+    strippedSource.slice(startIndex - preChars.length, startIndex) === preChars
   ) {
-    startIndex = 0;
-    endIndex = strippedSource.length - 1;
+    startIndex = startIndex - preChars.length;
+  } else {
+    if (strippedQuote.startsWith(". . . ")) {
+      const preChars2 = strippedQuote.match(/^\. \. \. ([^a-z0-9]*)/)![1]!;
+      if (
+        strippedSource.slice(startIndex - preChars2.length, startIndex) ===
+        preChars2
+      ) {
+        startIndex = startIndex - preChars2.length;
+      } else {
+        // console.log(
+        //   `DIFF PRE: "${strippedSource.slice(startIndex - preChars2.length, startIndex)}" - "${preChars2}"`
+        // );
+        // console.log(strippedSource);
+        // console.log(strippedQuote);
+      }
+    } else {
+      // console.log(
+      //   `DIFF PRE: "${strippedSource.slice(startIndex - preChars.length, startIndex)}" - "${preChars}"`
+      // );
+      // console.log(strippedSource);
+      // console.log(strippedQuote);
+    }
+  }
+
+  const postChars = strippedQuote.match(/([^a-z0-9]*)$/)![1]!;
+  if (
+    strippedSource.slice(endIndex + 1, endIndex + 1 + postChars.length) ===
+    postChars
+  ) {
+    endIndex = endIndex + postChars.length;
+  } else {
+    if (strippedQuote.endsWith(" . . .")) {
+      const postChars2 = strippedQuote.match(/([^a-z0-9]*) \. \. \.$/)![1]!;
+      if (
+        strippedSource.slice(endIndex + 1, endIndex + 1 + postChars2.length) ===
+        postChars2
+      ) {
+        endIndex = endIndex + postChars2.length;
+      } else {
+        // console.log(
+        //   `DIFF POST 2: "${strippedSource.slice(endIndex + 1, endIndex + 1 + postChars2.length)}" - "${postChars2}"`
+        // );
+        // console.log(strippedSource);
+        // console.log(strippedQuote);
+      }
+    } else {
+      // console.log(
+      //   `DIFF POST: "${strippedSource.slice(endIndex + 1, endIndex + 1 + postChars.length)}" - "${postChars}"`
+      // );
+      // console.log(strippedSource);
+      // console.log(strippedQuote);
+    }
   }
 
   return [startIndex, endIndex + 1];
@@ -148,7 +185,7 @@ const splitQuoted = (text: string): string[] => {
       char === expectedCloseQuote &&
       !/[a-z‑]/.test(strip(text[i + 1] || " "))
     ) {
-      result.push(char, "");
+      result.push(char);
       expectedCloseQuote = null;
     } else if (
       !expectedCloseQuote &&
@@ -159,7 +196,8 @@ const splitQuoted = (text: string): string[] => {
         ignoreStarts.some((a) => text.slice(i + 1).startsWith(a))
       )
     ) {
-      result.push(char, "");
+      result[result.length - 1] += char;
+      result.push("");
       expectedCloseQuote = quotePairs[char];
     } else {
       result[result.length - 1] += char;
@@ -282,6 +320,42 @@ const getDataText = (data: any, c: SectionContent): string => {
     }
   };
 
+  const processPart = (
+    section: Section,
+    paraIndex: number,
+    stripped: string,
+    norm: string,
+    {
+      years,
+      ...source
+    }: { section: string; paragraph: number; years: [number, number] }
+  ) => {
+    const normSource = normalise(
+      strippedMap.get(`${source.section}:${source.paragraph}`)
+    );
+    if (normSource.replace(/[‑— ]/g, "").includes(norm.replace(/[‑— ]/g, ""))) {
+      processSection(source.section);
+      const ngrams = getNGrams(norm);
+      if (
+        ngrams.some((ng) =>
+          ngramMap
+            .get(ng)
+            ?.some(
+              (x: any) =>
+                x.section === source.section && x.paragraph === source.paragraph
+            )
+        )
+      ) {
+        clearNgrams(ngrams, section.id, paraIndex);
+        const [start, end] = findQuoteIndices(
+          strippedMap.get(`${source.section}:${source.paragraph}`),
+          stripped
+        );
+        return { ...source, start, end };
+      }
+    }
+  };
+
   const processPara = (
     section: Section,
     p: SectionContent,
@@ -291,39 +365,138 @@ const getDataText = (data: any, c: SectionContent): string => {
       const text = getText(p);
       if (!text) return p;
 
-      const fullStripped = strip(text);
-      const fullNorm = normalise(strip(fullStripped));
-      const fullNgrams = getNGrams(fullNorm);
-      for (const ng of fullNgrams) {
-        if (ngramMap.has(ng)) {
-          for (const { years, ...source } of ngramMap.get(ng)) {
+      const parts = splitQuoted(text)
+        .flatMap((p) => p.split(/( ?\. \. \. ?| ?\[[^\]]*\] ?)/))
+        .filter((p: any) => p);
+
+      const allSources = [
+        ...new Set(
+          parts.flatMap((partText) =>
+            getNGrams(normalise(strip(partText))).flatMap((ng) =>
+              (ngramMap.get(ng) || [])
+                .filter((x: any) => x.section !== section.id)
+                .flatMap((x: any) => JSON.stringify(x))
+            )
+          )
+        ),
+      ];
+      if (allSources.length === 0) return p;
+
+      for (const source of allSources.map((s) => JSON.parse(s))) {
+        if (
+          checkDoReference(
+            section.id,
+            source.section,
+            section.years,
+            source.years
+          )
+        ) {
+          const processFull = processPart(
+            section,
+            paraIndex,
+            strip(text),
+            normalise(strip(text)),
+            source
+          );
+          if (processFull) {
             if (
-              checkDoReference(section.id, source.section, section.years, years)
+              strip(text).startsWith(". . . ") &&
+              !strippedMap
+                .get(`${processFull.section}:${processFull.paragraph}`)
+                .slice(processFull.start, processFull.end)
+                .startsWith(". . . ")
             ) {
-              const normSource = normalise(
-                strippedMap.get(`${source.section}:${source.paragraph}`)
-              );
-              if (
-                normSource
-                  .replace(/[‑— ]/g, "")
-                  .includes(fullNorm.replace(/[‑— ]/g, ""))
-              ) {
-                clearNgrams(fullNgrams, section.id, paraIndex);
-                processSection(source.section);
-                const [start, end] = findQuoteIndices(
-                  strippedMap.get(`${source.section}:${source.paragraph}`),
-                  fullNorm
-                );
-                return [{ ...source, start, end }];
-              }
+              return [". . . ", processFull];
             }
+            if (
+              strip(text).endsWith(" . . .") &&
+              !strippedMap
+                .get(`${processFull.section}:${processFull.paragraph}`)
+                .slice(processFull.start, processFull.end)
+                .endsWith(" . . .")
+            ) {
+              return [processFull, " . . ."];
+            }
+            return [processFull];
+          }
+
+          const allProcessed = parts.map(
+            (partText) =>
+              processPart(
+                section,
+                paraIndex,
+                strip(partText),
+                normalise(strip(partText)),
+                source
+              ) || partText
+          );
+
+          for (let i = allProcessed.length - 1; i >= 0; i -= 1) {
+            const base = allProcessed[i]!;
+            if (typeof base !== "string") {
+              [-1, 1].forEach((dir) => {
+                for (let j = i + dir; j >= 0; j += dir) {
+                  const current = allProcessed[j];
+                  if (typeof current === "string") {
+                    const stripped = strip(current);
+                    if (/[a-z0-9]/.test(stripped.replace(/\[[^\]]*\]/g, ""))) {
+                      if (stripped.split(/ /g).length < 5) {
+                        const sourceStripped = strippedMap.get(
+                          `${base.section}:${base.paragraph}`
+                        );
+                        if (sourceStripped.includes(stripped)) {
+                          allProcessed[j] = {
+                            ...base,
+                            start: sourceStripped.indexOf(stripped),
+                            end:
+                              sourceStripped.indexOf(stripped) +
+                              stripped.length,
+                          };
+                        }
+                      } else {
+                        const norm = normalise(strip(current));
+                        const normSource = normalise(
+                          strippedMap.get(`${base.section}:${base.paragraph}`)
+                        );
+                        if (
+                          normSource
+                            .replace(/[‑— ]/g, "")
+                            .includes(norm.replace(/[‑— ]/g, ""))
+                        ) {
+                          clearNgrams(getNGrams(norm), section.id, paraIndex);
+                          const [start, end] = findQuoteIndices(
+                            strippedMap.get(
+                              `${base.section}:${base.paragraph}`
+                            ),
+                            strip(current)
+                          );
+                          allProcessed[j] = {
+                            ...base,
+                            start,
+                            end,
+                          };
+                        }
+                      }
+                    }
+                  } else {
+                    break;
+                  }
+                }
+              });
+            }
+          }
+
+          if (
+            allProcessed.every(
+              (processed) =>
+                typeof processed !== "string" ||
+                !/[a-z0-9]/.test(strip(processed).replace(/\[[^\]]*\]/g, ""))
+            )
+          ) {
+            return allProcessed;
           }
         }
       }
-
-      const parts = splitQuoted(text).flatMap((p) =>
-        p.split(/( ?\. \. \. ?| ?\[[^\]]*\] ?)/)
-      );
 
       const processedParts = parts.map((partText) => {
         const norm = normalise(strip(partText));
@@ -332,31 +505,23 @@ const getDataText = (data: any, c: SectionContent): string => {
 
         for (const ng of ngrams) {
           if (ngramMap.has(ng)) {
-            for (const { years, ...source } of ngramMap.get(ng)) {
+            for (const source of ngramMap.get(ng)) {
               if (
                 checkDoReference(
                   section.id,
                   source.section,
                   section.years,
-                  years
+                  source.years
                 )
               ) {
-                const normSource = normalise(
-                  strippedMap.get(`${source.section}:${source.paragraph}`)
+                const processed = processPart(
+                  section,
+                  paraIndex,
+                  strip(partText),
+                  norm,
+                  source
                 );
-                if (
-                  normSource
-                    .replace(/[‑— ]/g, "")
-                    .includes(norm.replace(/[‑— ]/g, ""))
-                ) {
-                  clearNgrams(ngrams, section.id, paraIndex);
-                  processSection(source.section);
-                  const [start, end] = findQuoteIndices(
-                    strippedMap.get(`${source.section}:${source.paragraph}`),
-                    norm
-                  );
-                  return { ...source, start, end };
-                }
+                if (processed) return processed;
               }
             }
           }
@@ -366,16 +531,20 @@ const getDataText = (data: any, c: SectionContent): string => {
       });
 
       for (let i = processedParts.length - 1; i >= 0; i -= 1) {
-        if (typeof processedParts[i] !== "string") {
+        const base = processedParts[i]!;
+        if (typeof base !== "string") {
           [-1, 1].forEach((dir) => {
             for (let j = i + dir; j >= 0; j += dir) {
-              if (typeof processedParts[j] === "string") {
-                const norm = normalise(strip(processedParts[j] as string));
-                if (/[a-z]/.test(norm)) {
+              const current = processedParts[j];
+              if (
+                typeof current === "string" &&
+                !(current[0] === "”" && current[current.length - 1] === "“")
+              ) {
+                const stripped = strip(current);
+                if (/[a-z0-9]/.test(stripped.replace(/\[[^\]]*\]/g, ""))) {
+                  const norm = normalise(strip(current));
                   const normSource = normalise(
-                    strippedMap.get(
-                      `${processedParts[i].section}:${processedParts[i].paragraph}`
-                    )
+                    strippedMap.get(`${base.section}:${base.paragraph}`)
                   );
                   if (
                     normSource
@@ -384,13 +553,11 @@ const getDataText = (data: any, c: SectionContent): string => {
                   ) {
                     clearNgrams(getNGrams(norm), section.id, paraIndex);
                     const [start, end] = findQuoteIndices(
-                      strippedMap.get(
-                        `${processedParts[i].section}:${processedParts[i].paragraph}`
-                      ),
-                      norm
+                      strippedMap.get(`${base.section}:${base.paragraph}`),
+                      strip(current)
                     );
                     processedParts[j] = {
-                      ...processedParts[i],
+                      ...base,
                       start,
                       end,
                     };
@@ -418,8 +585,7 @@ const getDataText = (data: any, c: SectionContent): string => {
         }, [] as any[])
         .map((p: any) =>
           typeof p === "string" ? p : { ...p, stripped: undefined }
-        )
-        .filter((p: any) => p);
+        );
 
       return result.length === 1 && typeof result[0] === "string" ? p : result;
     }
