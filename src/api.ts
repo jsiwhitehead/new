@@ -29,7 +29,7 @@ import type { Section, SectionContent } from "./structure";
 // };
 // count(JSON.stringify(baseData));
 
-type RenderContent =
+type SemiRenderContent =
   | { type: "break" }
   | {
       type: "normal" | "info" | "call" | "framing" | "lines";
@@ -38,6 +38,20 @@ type RenderContent =
         quoted: number;
         quote?: true | { section: string; paragraph: number };
       }[][];
+    };
+
+type RenderContent =
+  | { type: "break" }
+  | {
+      type: "normal" | "info" | "call" | "framing" | "lines";
+      parts: {
+        text: string;
+        quoted: number;
+        quote?: true | [string, string][];
+      }[][];
+      paragraph: string;
+      quote?: [string, string][];
+      quoted?: [string, string][][];
     };
 
 interface RenderSection {
@@ -72,7 +86,7 @@ const getText = (c: SectionContent): string => {
   return c.map((p) => (typeof p === "string" ? p : getQuote(p))).join("");
 };
 
-const getParagraph = (para: SectionContent): RenderContent => {
+const getParagraph = (para: SectionContent): SemiRenderContent => {
   const text = getText(para);
   if (!text) return { type: "break" };
   if (typeof para === "string") {
@@ -94,7 +108,7 @@ const getParagraph = (para: SectionContent): RenderContent => {
           parts: res.parts.map((line: any) =>
             line.map((p: any) => ({
               ...p,
-              quote: { section: quote.section, getParagraph: quote.paragraph },
+              quote: { section: quote.section, paragraph: quote.paragraph },
               quoted: 0,
             }))
           ),
@@ -131,21 +145,74 @@ const getParagraph = (para: SectionContent): RenderContent => {
 
 const capitalised = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 
-// export type SectionContent =
-//   | string
-//   | { type: "break" }
-//   | { text: string; type: "info" | "call" | "framing" }
-//   | { text: string; lines: number[] }
-//   | (
-//       | string
-//       | { section: string; paragraph: number; start: number; end: number }
-//     )[];
+const getParagraphId = (section: Section, paragraph: number) => {
+  let currentMain = 1;
+  let currentSpecial = 1;
+  const allIds = section.content.map((para) => {
+    if (typeof para === "string") return `${currentMain++}`;
+    if ("type" in para) {
+      if (para.type === "break") return "";
+      return `${currentMain}_${currentSpecial++}`;
+    }
+    return `${currentMain++}`;
+  });
+  return allIds[paragraph]!;
+};
+
+const simplifyLinkLabels = {
+  "Gleanings from the Writings of Bahá’u’lláh": "Gleanings",
+  "Tablets of Bahá’u’lláh": "Tablets",
+  "Selections from the Writings of ‘Abdu’l‑Bahá": "Selections",
+  "Additional Tablets, Extracts and Talks": "Additional",
+  "Commissioned by the Universal House of Justice": "Publications",
+} as Record<string, string>;
+
+const getUrlPath = ({
+  section: sectionId,
+  paragraph,
+}: {
+  section: string;
+  paragraph: number;
+}): [string, string][] => {
+  let current = "";
+  const section = data.find((d) => d.id === sectionId)!;
+  const paraId = getParagraphId(section, paragraph);
+  const res: [string, string][] = [
+    ...(section.path.map((p) => {
+      current = `${current}/${p[1]}`;
+      return [
+        simplifyLinkLabels[p[0]] || p[0].replace(/ \([^\)]*\)/, ""),
+        current,
+      ];
+    }) as [string, string][]),
+    [`Para ${paraId}`, `${current}#${paraId}`],
+  ];
+  if (res[1]![0] === "The Summons of the Lord of Hosts") {
+    res.splice(1, 1);
+  }
+  if (res[1]![0] === "The Promulgation of Universal Peace") {
+    res[3]![0] = res[3]![0].split(":")[0]!;
+    res.splice(2, 1);
+  }
+  if (res[1]![0] === "Tablets of the Divine Plan") {
+    res[2]![0] = res[2]![0].split(":")[0]!;
+  }
+  if (res[1]![0] === "The World Order of Bahá’u’lláh") {
+    res.splice(1, 1);
+  }
+  if (res[1]![0] === "Selected Messages of the Universal House of Justice") {
+    res[2]![0] = res[2]![0].split(",")[0]!;
+    res.splice(1, 1);
+  }
+
+  return res;
+};
 
 export default function getData(...urlPath: string[]): RenderSection[] {
   return data
     .filter((d) => !d.meta && urlPath.every((p, i) => d.path[i]?.[1] === p))
     .map((d) => {
-      const content = d.content.map((c, i): RenderContent => {
+      const content = d.content.map((c, i): SemiRenderContent => {
         const para = getParagraph(c);
         if (para.type === "break") return para;
 
@@ -162,8 +229,9 @@ export default function getData(...urlPath: string[]): RenderSection[] {
                   .match(/[^a-z0-9]*$/)?.[0] || ""
               ).replace(/[“”‘’ ]/g, "");
               if (
-                [".", "!", "?"].includes(pre[pre.length - 1]!) &&
-                !pre.endsWith(". . .")
+                !pre ||
+                ([".", "!", "?"].includes(pre[pre.length - 1]!) &&
+                  !pre.endsWith(". . ."))
               ) {
                 // if (line[i]!.text !== capitalised(line[i]!.text)) {
                 //   console.log(line[i]!.text);
@@ -313,7 +381,46 @@ export default function getData(...urlPath: string[]): RenderSection[] {
       });
       return {
         ...d,
-        content,
+        content: content.map((para, index) => {
+          if (para.type === "break") return para;
+          if (para.parts.every((line) => line.every((part) => part.quote))) {
+            const allQuotes = [
+              ...new Set(
+                para.parts.flatMap((line) =>
+                  line.flatMap((part) =>
+                    part.quote && part.quote !== true
+                      ? [JSON.stringify(part.quote)]
+                      : []
+                  )
+                )
+              ),
+            ].map((x) => JSON.parse(x));
+            if (allQuotes.length === 1) {
+              return {
+                ...para,
+                parts: para.parts.map((line) =>
+                  line.map((part) => ({ ...part, quote: true }))
+                ),
+                paragraph: getParagraphId(d, index),
+                quote: getUrlPath(allQuotes[0]),
+                quoted: d.quoted?.[index]?.map((q) => getUrlPath(q)),
+              };
+            }
+          }
+          return {
+            ...para,
+            parts: para.parts.map((lines) =>
+              lines.map((part) => ({
+                ...part,
+                quote:
+                  part.quote &&
+                  (part.quote === true ? true : getUrlPath(part.quote)),
+              }))
+            ),
+            paragraph: getParagraphId(d, index),
+            quoted: d.quoted?.[index]?.map((q) => getUrlPath(q)),
+          };
+        }),
       };
     });
 }

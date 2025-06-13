@@ -20,19 +20,6 @@ const collapseSingleKeys = (
   }
   return [path, current];
 };
-const calculateUrlPath = (
-  path: [string, string, number][],
-  paragraphs: number[]
-): [string, string][] => {
-  let current = "";
-  return [
-    ...(path.map((p) => {
-      current = `${current}/${p[1]}`;
-      return [p[0], current];
-    }) as [string, string][]),
-    [`Para ${paragraphs[0]}`, `${current}#${paragraphs[0]}`],
-  ];
-};
 
 const Breadcrumbs = ({
   path,
@@ -68,50 +55,6 @@ const Breadcrumbs = ({
     </Row>
   );
 };
-
-// const Breadcrumbs = ({
-//   path,
-//   size,
-//   justify = "flex-start",
-// }: {
-//   path: [string, string][];
-//   size: number;
-//   justify?: "flex-start" | "flex-end";
-// }) => {
-//   return (
-//     <Row
-//       gap={`${size * 1.2}px ${size * 0.6}px`}
-//       style={{
-//         flexWrap: "wrap",
-//         paddingLeft: justify === "flex-start" ? 30 : 0,
-//         justifyContent: justify,
-//         opacity: justify === "flex-end" ? 0.5 : 1,
-//         fontStyle: justify === "flex-end" ? "italic" : "none",
-//       }}
-//     >
-//       {path.map((p, i) => (
-//         <Row
-//           gap={size * 0.6}
-//           style={{ marginLeft: justify === "flex-start" && i === 0 ? -30 : 0 }}
-//           key={i}
-//         >
-//           {i > 0 && (
-//             <svg
-//               style={{ flexShrink: 0, height: size * 0.6 }}
-//               viewBox="-0.5 -1 1.5 2"
-//               xmlns="http://www.w3.org/2000/svg"
-//             >
-//               <polygon points="-0.5,0.866 -0.5,-0.866 1.0,0.0" fill="#333" />
-//             </svg>
-//           )}
-//           <Text size={size} to={p[1]} style={{ color: "darkgreen" }}>
-//             {p[0]}
-//           </Text>
-//         </Row>
-//       ))}
-//     </Row>
-//   );
-// };
 
 export default function App() {
   const { path1, path2, path3, path4, path5, path6, path7 } = useParams();
@@ -152,7 +95,7 @@ export default function App() {
           margin: "0 auto",
         }}
       >
-        <Text style={{ color: "darkred", fontWeight: "bold" }}>
+        <Text to="/" style={{ color: "darkred", fontWeight: "bold" }}>
           Bahá’í Explore
         </Text>
 
@@ -167,21 +110,6 @@ export default function App() {
         {showContent &&
           data.map((d, i) => {
             const allSpecial = d.content.every((d) => d.type !== "normal");
-            // const isFullQuote = d.content.map(
-            //   (c) =>
-            //     Array.isArray(c) &&
-            //     c.every((p) => {
-            //       if (typeof p !== "string") return true;
-            //       return !/[a-z]/.test(
-            //         p
-            //           .normalize("NFD")
-            //           .replace(/[\u0300-\u036f]/g, "")
-            //           .toLowerCase()
-            //           .replace(/\[[^\]]*\]/g, "")
-            //       );
-            //     })
-            // );
-            // const allFullQuotes = isFullQuote.every((a) => a);
             return (
               <Column gap={25} style={{ paddingTop: 30 }} key={i}>
                 <Text
@@ -198,7 +126,6 @@ export default function App() {
                   if (c.type === "break") {
                     return (
                       <Text
-                        id={`${i + 1}`}
                         size={13}
                         key={i}
                         style={{ textAlign: "center", padding: "10px 0" }}
@@ -210,9 +137,9 @@ export default function App() {
                   const allQuote = c.parts.every((line) =>
                     line.every((p) => p.quote)
                   );
-                  return (
+                  const mainText = (
                     <Text
-                      id={`${i + 1}`}
+                      id={c.paragraph}
                       key={i}
                       style={
                         allQuote
@@ -222,7 +149,7 @@ export default function App() {
                                 c.type === "info" ? "italic" : "normal",
                               textTransform:
                                 c.type === "call" ? "uppercase" : "none",
-                              padding: "0 20px",
+                              padding: c.quote ? "" : "0 20px",
                             }
                           : c.type === "normal"
                             ? {
@@ -254,7 +181,7 @@ export default function App() {
                       {c.parts.flatMap((line, i) => {
                         const res = line.map((l, j) => {
                           if (typeof l === "string") return l;
-                          return (
+                          const inner = (
                             <span
                               style={{
                                 padding: "2.4px 0",
@@ -269,191 +196,182 @@ export default function App() {
                               {l.text}
                             </span>
                           );
+                          if (
+                            l.quote &&
+                            l.quote !== true &&
+                            JSON.stringify(l.quote) !==
+                              JSON.stringify(
+                                line
+                                  .slice(j + 1)
+                                  .find((x) => x.quote && x.quote !== true)
+                                  ?.quote
+                              )
+                          ) {
+                            return (
+                              <span key={`${i}-${j}`}>
+                                {inner}{" "}
+                                {l.quote.map(([label, url], k) => (
+                                  <span
+                                    style={{
+                                      display: "inline-block",
+                                      textIndent: 0,
+                                    }}
+                                    key={k}
+                                  >
+                                    {k === 0 && (
+                                      <span
+                                        style={{
+                                          fontWeight: "bold",
+                                          fontStyle: "italic",
+                                          color: "darkgreen",
+                                          opacity: 0.5,
+                                          fontSize: 14,
+                                        }}
+                                      >
+                                        {"["}
+                                      </span>
+                                    )}
+                                    {k > 0 && (
+                                      <svg
+                                        style={{
+                                          flexShrink: 0,
+                                          height: 14 * 0.6,
+                                          padding: `0 ${14 * 0.6}px`,
+                                          opacity: 0.5,
+                                        }}
+                                        viewBox="-0.5 -1 1.5 2"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                      >
+                                        <polygon
+                                          points="-0.5,0.866 -0.5,-0.866 1.0,0.0"
+                                          fill="#333"
+                                        />
+                                      </svg>
+                                    )}
+                                    <Link
+                                      to={url}
+                                      style={{
+                                        fontWeight: "bold",
+                                        fontStyle: "italic",
+                                        color: "darkgreen",
+                                        display: "inline-block",
+                                        textIndent: 0,
+                                        opacity: 0.5,
+                                        fontSize: 14,
+                                      }}
+                                    >
+                                      {label}
+                                    </Link>
+                                  </span>
+                                ))}
+                                <span
+                                  style={{
+                                    fontWeight: "bold",
+                                    fontStyle: "italic",
+                                    color: "darkgreen",
+                                    opacity: 0.5,
+                                    fontSize: 14,
+                                  }}
+                                >
+                                  {"]"}
+                                </span>
+                              </span>
+                            );
+                          }
+                          return inner;
                         });
                         return i > 0 ? [<br key={`${i}`} />, ...res] : [...res];
                       })}
                     </Text>
                   );
-                  // if (typeof c === "string") {
-                  //   return (
-                  //     <Text id={`${i + 1}`} key={i} style={{ textIndent: 20 }}>
-                  //       {c}
-                  //     </Text>
-                  //   );
-                  // }
-                  // if ("type" in c) {
-                  //   if (c.type === "break") {
-                  //     return (
-                  //       <Text
-                  //         id={`${i + 1}`}
-                  //         size={13}
-                  //         key={i}
-                  //         style={{ textAlign: "center", padding: "10px 0" }}
-                  //       >
-                  //         ﹡﹡﹡
-                  //       </Text>
-                  //     );
-                  //   }
-                  //   return (
-                  //     <Text
-                  //       id={`${i + 1}`}
-                  //       key={i}
-                  //       style={{
-                  //         fontStyle:
-                  //           c.type === "info" || c.type === "framing"
-                  //             ? "italic"
-                  //             : "normal",
-                  //         textTransform:
-                  //           c.type === "call" ? "uppercase" : "none",
-                  //         textAlign: "justify",
-                  //         textAlignLast: "center",
-                  //         padding: allSpecial ? "0 20px" : "0 40px",
-                  //       }}
-                  //     >
-                  //       {c.text}
-                  //     </Text>
-                  //   );
-                  // }
-                  // if (Array.isArray(c)) {
-                  //   const sources = c.flatMap((p) =>
-                  //     typeof p === "string" ? [] : [p]
-                  //   );
-                  //   const allSource =
-                  //     isFullQuote[i] &&
-                  //     new Set(sources.map((p) => JSON.stringify(p.path)))
-                  //       .size === 1;
-                  //   const inner = (
-                  //     <Text
-                  //       id={!allSource ? `${i + 1}` : undefined}
-                  //       style={
-                  //         isFullQuote[i]
-                  //           ? {
-                  //               padding: allSource ? 0 : "0 20px",
-                  //               textIndent: allFullQuotes ? 20 : 0,
-                  //             }
-                  //           : { textIndent: 20 }
-                  //       }
-                  //       key={i}
-                  //     >
-                  //       {c.map((a, j) => {
-                  //         if (typeof a === "string") {
-                  //           return a;
-                  //         }
-                  //         if (allSource) {
-                  //           return (
-                  //             <span style={{ fontWeight: "bold" }} key={j}>
-                  //               {a.quote}
-                  //             </span>
-                  //           );
-                  //         }
-                  //         return (
-                  //           <span key={j}>
-                  //             <span style={{ fontWeight: "bold" }}>
-                  //               {a.quote}
-                  //             </span>
-                  //             <span
-                  //               style={{
-                  //                 fontWeight: "bold",
-                  //                 fontStyle: "italic",
-                  //                 color: "darkgreen",
-                  //                 opacity: 0.5,
-                  //                 fontSize: 14,
-                  //               }}
-                  //             >
-                  //               {" ["}
-                  //             </span>
-                  //             {calculateUrlPath(a.path, [a.paragraph]).map(
-                  //               ([label, url], k) => (
-                  //                 <span key={k}>
-                  //                   {k > 0 && (
-                  //                     <svg
-                  //                       style={{
-                  //                         flexShrink: 0,
-                  //                         height: 14 * 0.6,
-                  //                         padding: `0 ${14 * 0.6}px`,
-                  //                         opacity: 0.5,
-                  //                       }}
-                  //                       viewBox="-0.5 -1 1.5 2"
-                  //                       xmlns="http://www.w3.org/2000/svg"
-                  //                     >
-                  //                       <polygon
-                  //                         points="-0.5,0.866 -0.5,-0.866 1.0,0.0"
-                  //                         fill="#333"
-                  //                       />
-                  //                     </svg>
-                  //                   )}
-                  //                   <Link
-                  //                     to={url}
-                  //                     style={{
-                  //                       fontWeight: "bold",
-                  //                       fontStyle: "italic",
-                  //                       color: "darkgreen",
-                  //                       display: "inline-block",
-                  //                       textIndent: 0,
-                  //                       opacity: 0.5,
-                  //                       fontSize: 14,
-                  //                     }}
-                  //                   >
-                  //                     {label}
-                  //                   </Link>
-                  //                 </span>
-                  //               )
-                  //             )}
-                  //             <span
-                  //               style={{
-                  //                 fontWeight: "bold",
-                  //                 fontStyle: "italic",
-                  //                 color: "darkgreen",
-                  //                 opacity: 0.5,
-                  //                 fontSize: 14,
-                  //               }}
-                  //             >
-                  //               {"]"}
-                  //             </span>
-                  //           </span>
-                  //         );
-                  //       })}
-                  //     </Text>
-                  //   );
-                  //   if (!allSource) return inner;
-                  //   return (
-                  //     <Column
-                  //       id={`${i + 1}`}
-                  //       style={{
-                  //         padding: allFullQuotes ? 0 : "0 20px",
-                  //       }}
-                  //       gap={15}
-                  //       key={i}
-                  //     >
-                  //       {inner}
-                  //       <div style={{ maxWidth: 400, marginLeft: "auto" }}>
-                  //         <Breadcrumbs
-                  //           size={14}
-                  //           justify="flex-end"
-                  //           path={calculateUrlPath(
-                  //             sources[0]!.path,
-                  //             sources.map((s) => s.paragraph)
-                  //           )}
-                  //         />
-                  //       </div>
-                  //     </Column>
-                  //   );
-                  // }
-                  // return (
-                  //   <Text
-                  //     id={`${i + 1}`}
-                  //     key={i}
-                  //     style={{
-                  //       whiteSpace: "pre-wrap",
-                  //       padding: allSpecial ? 0 : "0 70px",
-                  //     }}
-                  //   >
-                  //     {c.lines
-                  //       .slice(1)
-                  //       .map((l, i) => c.text.slice(c.lines[i], l))
-                  //       .join("\n")}
-                  //   </Text>
-                  // );
+
+                  const main = !c.quote ? (
+                    mainText
+                  ) : (
+                    <Column gap={11.5} key={i} style={{ padding: "0 20px" }}>
+                      {mainText}
+                      <Row
+                        gap={`${11.5}px ${14 * 0.6}px`}
+                        style={{
+                          flexWrap: "wrap",
+                          paddingLeft: 30,
+                          maxWidth: 400,
+                          marginLeft: "auto",
+                          justifyContent: "flex-end",
+                          opacity: 0.5,
+                        }}
+                      >
+                        {c.quote.map((p, j) => (
+                          <Row gap={14 * 0.6} key={j}>
+                            {j > 0 && (
+                              <svg
+                                style={{ flexShrink: 0, height: 14 * 0.6 }}
+                                viewBox="-0.5 -1 1.5 2"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <polygon
+                                  points="-0.5,0.866 -0.5,-0.866 1.0,0.0"
+                                  fill="#333"
+                                />
+                              </svg>
+                            )}
+                            <Text
+                              size={14}
+                              to={p[1]}
+                              style={{ color: "darkgreen" }}
+                            >
+                              {p[0]}
+                            </Text>
+                          </Row>
+                        ))}
+                      </Row>
+                    </Column>
+                  );
+
+                  if (!c.quoted) return main;
+                  return (
+                    <Column gap={25} key={i}>
+                      {main}
+                      {c.quoted.map((q, j) => (
+                        <Row
+                          key={j}
+                          gap={`${11.5}px ${14 * 0.6}px`}
+                          style={{
+                            flexWrap: "wrap",
+                            paddingLeft: 30,
+                            maxWidth: 400,
+                            marginLeft: "auto",
+                            justifyContent: "flex-end",
+                            opacity: 0.5,
+                          }}
+                        >
+                          {q.map((p, k) => (
+                            <Row gap={14 * 0.6} key={k}>
+                              {k > 0 && (
+                                <svg
+                                  style={{ flexShrink: 0, height: 14 * 0.6 }}
+                                  viewBox="-0.5 -1 1.5 2"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <polygon
+                                    points="-0.5,0.866 -0.5,-0.866 1.0,0.0"
+                                    fill="#333"
+                                  />
+                                </svg>
+                              )}
+                              <Text
+                                size={14}
+                                to={p[1]}
+                                style={{ color: "darkred" }}
+                              >
+                                {p[0]}
+                              </Text>
+                            </Row>
+                          ))}
+                        </Row>
+                      ))}
+                    </Column>
+                  );
                 })}
               </Column>
             );
