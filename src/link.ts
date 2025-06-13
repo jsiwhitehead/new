@@ -102,7 +102,7 @@ const normalizeForMatching = (stripped: string) => {
 const findQuoteIndices = (
   strippedSource: string,
   strippedQuote: string
-): [number, number] => {
+): { start: number; end: number; pre: string; post: string } => {
   const { alphaNum: alphaNumSource, indexMap } =
     normalizeForMatching(strippedSource);
 
@@ -110,69 +110,33 @@ const findQuoteIndices = (
   const startAlphaNumIndex = alphaNumSource.indexOf(alphaNum);
   const endAlphaNumIndex = startAlphaNumIndex + alphaNum.length - 1;
 
-  let startIndex = indexMap[startAlphaNumIndex]!;
-  let endIndex = indexMap[endAlphaNumIndex]!;
+  let start = indexMap[startAlphaNumIndex]!;
+  let end = indexMap[endAlphaNumIndex]!;
 
-  const preChars = strippedQuote.match(/^([^a-z0-9]*)/)![1]!;
-  if (
-    strippedSource.slice(startIndex - preChars.length, startIndex) === preChars
-  ) {
-    startIndex = startIndex - preChars.length;
-  } else {
-    if (strippedQuote.startsWith(". . . ")) {
-      const preChars2 = strippedQuote.match(/^\. \. \. ([^a-z0-9]*)/)![1]!;
-      if (
-        strippedSource.slice(startIndex - preChars2.length, startIndex) ===
-        preChars2
-      ) {
-        startIndex = startIndex - preChars2.length;
-      } else {
-        // console.log(
-        //   `DIFF PRE: "${strippedSource.slice(startIndex - preChars2.length, startIndex)}" - "${preChars2}"`
-        // );
-        // console.log(strippedSource);
-        // console.log(strippedQuote);
-      }
-    } else {
-      // console.log(
-      //   `DIFF PRE: "${strippedSource.slice(startIndex - preChars.length, startIndex)}" - "${preChars}"`
-      // );
-      // console.log(strippedSource);
-      // console.log(strippedQuote);
-    }
+  let pre = strippedQuote.match(/^([^a-z0-9]*)/)![1]!;
+  while (start > 0 && strippedSource[start - 1] === pre[pre.length - 1]) {
+    start -= 1;
+    pre = pre.slice(0, -1);
+  }
+  if (strippedSource[start] === " ") {
+    start += 1;
+    pre = `${pre} `;
   }
 
-  const postChars = strippedQuote.match(/([^a-z0-9]*)$/)![1]!;
-  if (
-    strippedSource.slice(endIndex + 1, endIndex + 1 + postChars.length) ===
-    postChars
+  let post = strippedQuote.match(/([^a-z0-9]*)$/)![1]!;
+  while (
+    end < strippedSource.length - 1 &&
+    strippedSource[end + 1] === post[0]
   ) {
-    endIndex = endIndex + postChars.length;
-  } else {
-    if (strippedQuote.endsWith(" . . .")) {
-      const postChars2 = strippedQuote.match(/([^a-z0-9]*) \. \. \.$/)![1]!;
-      if (
-        strippedSource.slice(endIndex + 1, endIndex + 1 + postChars2.length) ===
-        postChars2
-      ) {
-        endIndex = endIndex + postChars2.length;
-      } else {
-        // console.log(
-        //   `DIFF POST 2: "${strippedSource.slice(endIndex + 1, endIndex + 1 + postChars2.length)}" - "${postChars2}"`
-        // );
-        // console.log(strippedSource);
-        // console.log(strippedQuote);
-      }
-    } else {
-      // console.log(
-      //   `DIFF POST: "${strippedSource.slice(endIndex + 1, endIndex + 1 + postChars.length)}" - "${postChars}"`
-      // );
-      // console.log(strippedSource);
-      // console.log(strippedQuote);
-    }
+    end += 1;
+    post = post.slice(1);
+  }
+  if (strippedSource[end] === " ") {
+    end -= 1;
+    post = ` ${post}`;
   }
 
-  return [startIndex, endIndex + 1];
+  return { start, end: end + 1, pre, post };
 };
 
 const splitQuoted = (text: string): string[] => {
@@ -347,11 +311,11 @@ const getDataText = (data: any, c: SectionContent): string => {
         )
       ) {
         clearNgrams(ngrams, section.id, paraIndex);
-        const [start, end] = findQuoteIndices(
+        const { start, end, pre, post } = findQuoteIndices(
           strippedMap.get(`${source.section}:${source.paragraph}`),
           stripped
         );
-        return { ...source, start, end };
+        return { quote: { ...source, start, end }, pre, post };
       }
     }
   };
@@ -399,38 +363,26 @@ const getDataText = (data: any, c: SectionContent): string => {
             source
           );
           if (processFull) {
-            if (
-              strip(text).startsWith(". . . ") &&
-              !strippedMap
-                .get(`${processFull.section}:${processFull.paragraph}`)
-                .slice(processFull.start, processFull.end)
-                .startsWith(". . . ")
-            ) {
-              return [". . . ", processFull];
-            }
-            if (
-              strip(text).endsWith(" . . .") &&
-              !strippedMap
-                .get(`${processFull.section}:${processFull.paragraph}`)
-                .slice(processFull.start, processFull.end)
-                .endsWith(" . . .")
-            ) {
-              return [processFull, " . . ."];
-            }
-            return [processFull];
+            return [
+              processFull.pre,
+              processFull.quote,
+              processFull.post,
+            ].filter((p: any) => p);
           }
 
-          const allProcessed = parts.map(
-            (partText) =>
-              processPart(
-                section,
-                paraIndex,
-                strip(partText),
-                normalise(strip(partText)),
-                source
-              ) || partText
-          );
+          let allProcessed = parts.flatMap((partText) => {
+            const processed = processPart(
+              section,
+              paraIndex,
+              strip(partText),
+              normalise(strip(partText)),
+              source
+            );
+            if (!processed) return [partText];
+            return [processed.pre, processed.quote, processed.post];
+          });
 
+          const allInserts: Record<string, { pre: string; post: string }> = {};
           for (let i = allProcessed.length - 1; i >= 0; i -= 1) {
             const base = allProcessed[i]!;
             if (typeof base !== "string") {
@@ -464,12 +416,13 @@ const getDataText = (data: any, c: SectionContent): string => {
                             .includes(norm.replace(/[‑— ]/g, ""))
                         ) {
                           clearNgrams(getNGrams(norm), section.id, paraIndex);
-                          const [start, end] = findQuoteIndices(
+                          const { start, end, pre, post } = findQuoteIndices(
                             strippedMap.get(
                               `${base.section}:${base.paragraph}`
                             ),
                             strip(current)
                           );
+                          allInserts[j] = { pre, post };
                           allProcessed[j] = {
                             ...base,
                             start,
@@ -485,6 +438,9 @@ const getDataText = (data: any, c: SectionContent): string => {
               });
             }
           }
+          allProcessed = allProcessed.flatMap((x, i) =>
+            allInserts[i] ? [allInserts[i].pre, x, allInserts[i].post] : [x]
+          );
 
           if (
             allProcessed.every(
@@ -493,25 +449,27 @@ const getDataText = (data: any, c: SectionContent): string => {
                 !/[a-z0-9]/.test(strip(processed).replace(/\[[^\]]*\]/g, ""))
             )
           ) {
-            return allProcessed.reduce((res, part) => {
-              if (
-                typeof part === "string" &&
-                typeof res[res.length - 1] === "string"
-              ) {
-                res[res.length - 1] += part;
-              } else {
-                res.push(part);
-              }
-              return res;
-            }, [] as any[]);
+            return allProcessed
+              .reduce((res, part) => {
+                if (
+                  typeof part === "string" &&
+                  typeof res[res.length - 1] === "string"
+                ) {
+                  res[res.length - 1] += part;
+                } else {
+                  res.push(part);
+                }
+                return res;
+              }, [] as any[])
+              .filter((p: any) => p);
           }
         }
       }
 
-      const processedParts = parts.map((partText) => {
+      let processedParts = parts.flatMap((partText) => {
         const norm = normalise(strip(partText));
         const ngrams = getNGrams(norm);
-        if (ngrams.length === 0) return partText;
+        if (ngrams.length === 0) return [partText];
 
         for (const ng of ngrams) {
           if (ngramMap.has(ng)) {
@@ -531,46 +489,55 @@ const getDataText = (data: any, c: SectionContent): string => {
                   norm,
                   source
                 );
-                if (processed) return processed;
+                if (processed) {
+                  return [processed.pre, processed.quote, processed.post];
+                }
               }
             }
           }
         }
 
-        return partText;
+        return [partText];
       });
 
+      const partInserts: Record<string, { pre: string; post: string }> = {};
       for (let i = processedParts.length - 1; i >= 0; i -= 1) {
         const base = processedParts[i]!;
         if (typeof base !== "string") {
           [-1, 1].forEach((dir) => {
             for (let j = i + dir; j >= 0; j += dir) {
               const current = processedParts[j];
-              if (
-                typeof current === "string" &&
-                !(current[0] === "”" && current[current.length - 1] === "“")
-              ) {
-                const stripped = strip(current);
-                if (/[a-z0-9]/.test(stripped.replace(/\[[^\]]*\]/g, ""))) {
-                  const norm = normalise(strip(current));
-                  const normSource = normalise(
-                    strippedMap.get(`${base.section}:${base.paragraph}`)
-                  );
-                  if (
-                    normSource
-                      .replace(/[‑— ]/g, "")
-                      .includes(norm.replace(/[‑— ]/g, ""))
-                  ) {
-                    clearNgrams(getNGrams(norm), section.id, paraIndex);
-                    const [start, end] = findQuoteIndices(
-                      strippedMap.get(`${base.section}:${base.paragraph}`),
-                      strip(current)
+              if (typeof current === "string") {
+                if (
+                  !(
+                    (current[0] === "”" &&
+                      current[current.length - 1] === "“") ||
+                    (current[0] === "’" && current[current.length - 1] === "‘")
+                  )
+                ) {
+                  const stripped = strip(current);
+                  if (/[a-z0-9]/.test(stripped.replace(/\[[^\]]*\]/g, ""))) {
+                    const norm = normalise(strip(current));
+                    const normSource = normalise(
+                      strippedMap.get(`${base.section}:${base.paragraph}`)
                     );
-                    processedParts[j] = {
-                      ...base,
-                      start,
-                      end,
-                    };
+                    if (
+                      normSource
+                        .replace(/[‑— ]/g, "")
+                        .includes(norm.replace(/[‑— ]/g, ""))
+                    ) {
+                      clearNgrams(getNGrams(norm), section.id, paraIndex);
+                      const { start, end, pre, post } = findQuoteIndices(
+                        strippedMap.get(`${base.section}:${base.paragraph}`),
+                        strip(current)
+                      );
+                      partInserts[j] = { pre, post };
+                      processedParts[j] = {
+                        ...base,
+                        start,
+                        end,
+                      };
+                    }
                   }
                 }
               } else {
@@ -580,18 +547,23 @@ const getDataText = (data: any, c: SectionContent): string => {
           });
         }
       }
+      processedParts = processedParts.flatMap((x, i) =>
+        partInserts[i] ? [partInserts[i].pre, x, partInserts[i].post] : [x]
+      );
 
-      const result = processedParts.reduce((res, part) => {
-        if (
-          typeof part === "string" &&
-          typeof res[res.length - 1] === "string"
-        ) {
-          res[res.length - 1] += part;
-        } else {
-          res.push(part);
-        }
-        return res;
-      }, [] as any[]);
+      const result = processedParts
+        .reduce((res, part) => {
+          if (
+            typeof part === "string" &&
+            typeof res[res.length - 1] === "string"
+          ) {
+            res[res.length - 1] += part;
+          } else {
+            res.push(part);
+          }
+          return res;
+        }, [] as any[])
+        .filter((p: any) => p);
 
       return result.length === 1 && typeof result[0] === "string" ? p : result;
     }

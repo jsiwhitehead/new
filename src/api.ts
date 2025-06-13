@@ -4,6 +4,31 @@ const data = baseData as Section[];
 
 import type { Section, SectionContent } from "./structure";
 
+const count = (s: string) => {
+  const words = s
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9‑ ]/g, "")
+    .split(" ");
+
+  const dash = {} as any;
+  const plain = {} as any;
+  for (const w of words) {
+    if (["re‑", "pre‑", "co‑"].some((x) => w.startsWith(x))) {
+      dash[w] = (dash[w] || 0) + 1;
+    } else if (["re", "pre", "co"].some((x) => w.startsWith(x))) {
+      plain[w] = (plain[w] || 0) + 1;
+    }
+  }
+
+  for (const w of Object.keys(dash)) {
+    console.log(`${w}: ${dash[w]}`);
+    console.log(`${w.replace(/‑/g, "")}: ${plain[w.replace(/‑/g, "")] || 0}`);
+  }
+};
+count(JSON.stringify(baseData));
+
 type RenderContent =
   | { type: "break" }
   | {
@@ -162,26 +187,81 @@ export default function getData(...urlPath: string[]): RenderSection[] {
           return res;
         });
 
-        const first = lines[0]![0]!;
-        first.text = capitalised(first.text);
-
         for (const line of lines) {
           for (let i = 0; i < line.length; i++) {
-            if (
-              !line[i]!.quote &&
-              (!line[i - 1] || line[i - 1]!.quote) &&
-              (!line[i + 1] || line[i + 1]!.quote) &&
-              !/[a-z0-9]/.test(
-                line[i]!.text.normalize("NFD")
+            if (line[i]!.quote) {
+              const pre = (
+                (line[i - 1]?.text || "")
+                  .normalize("NFD")
                   .replace(/[\u0300-\u036f]/g, "")
                   .toLowerCase()
                   .replace(/\[[^\]]*\]/g, "")
-              )
-            ) {
+                  .match(/[^a-z0-9]*$/)?.[0] || ""
+              ).replace(/[“”‘’ ]/g, "");
+              if (
+                [".", "!", "?"].includes(pre[pre.length - 1]!) &&
+                !pre.endsWith(". . .")
+              ) {
+                line[i]!.text = capitalised(line[i]!.text);
+              }
+            }
+          }
+        }
+
+        if (
+          lines.every((line) =>
+            line.every(
+              (part) =>
+                part.quote ||
+                !/[a-z0-9]/.test(
+                  part.text
+                    .normalize("NFD")
+                    .replace(/[\u0300-\u036f]/g, "")
+                    .toLowerCase()
+                    .replace(/\[[^\]]*\]/g, "")
+                )
+            )
+          )
+        ) {
+          for (const line of lines) {
+            for (let i = 0; i < line.length; i++) {
               line[i]!.quote = true;
             }
           }
         }
+        // else {
+        //   for (const line of lines) {
+        //     for (let i = 0; i < line.length; i++) {
+        //       if (line[i]!.quote) {
+        //         const prev = line[i - 1];
+        //         const next = line[i + 1];
+        //         if (prev && !prev.quote && next && !next.quote) {
+        //           const pre1 = prev.text.match(/“[^a-z0-9‘]*$/)?.[0];
+        //           const post1 = next.text.match(/^[^a-z0-9’]*”/)?.[0];
+        //           if (pre1 && post1) {
+        //             line[i]!.text = `${pre1}${line[i]!.text}${post1}`;
+        //             prev.text = prev.text.slice(
+        //               0,
+        //               prev.text.length - pre1.length
+        //             );
+        //             next.text = next.text.slice(post1.length);
+        //           } else {
+        //             const pre2 = prev.text.match(/‘[^a-z0-9“]*$/)?.[0];
+        //             const post2 = next.text.match(/^[^a-z0-9”]*’/)?.[0];
+        //             if (pre2 && post2) {
+        //               line[i]!.text = `${pre2}${line[i]!.text}${post2}`;
+        //               prev.text = prev.text.slice(
+        //                 0,
+        //                 prev.text.length - pre2.length
+        //               );
+        //               next.text = next.text.slice(post2.length);
+        //             }
+        //           }
+        //         }
+        //       }
+        //     }
+        //   }
+        // }
 
         return {
           type: para.type,

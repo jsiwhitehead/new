@@ -70,64 +70,55 @@ const capitalise = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
                 .replace(/í/g, "í")
                 .replace(/Í/g, "Í")
                 .replace(/œ/g, "oe")
+                .replace(/ /g, " ")
+                .replace(/-/g, "‑")
+                .replace(/–/g, "—")
+                .replace(/─/g, "—")
+                .replace(/‑‑/g, "—")
+                .replace(/ "/g, " “")
+                .replace(/"([ ,.])/g, (_: any, m: any) => `”${m}`)
+                .replace(/“ /g, "“")
+                .replace(/ ”/g, "”")
+                .replace(/ '/g, " ‘")
+                .replace(/“'/g, "“‘")
+                .replace(/'/g, "’")
+                .replace(/…/g, "...")
+                .replace(/\.([  ]?\.){3,}/g, ". . . .")
+                .replace(/\.\.\./g, ". . .")
+                .replace(/\[ ?\. \. \.\ ?]/g, ". . .")
+                .replace(
+                  /([,;:!?”’])\. \. \./g,
+                  (_: any, m: any) => `${m} \. \. \.`
+                )
+                .replace(
+                  /\. \. \.([,;:!?“‘\[])/g,
+                  (_: any, m: any) => `\. \. \. ${m}`
+                )
+                .replace(
+                  /([”’]) \. \. \. \./g,
+                  (_: any, m: any) => `${m}\. \. \. \.`
+                )
+                .replace(/ \. \. \. \./g, " . . .")
+                .replace(/\. \. \. \./g, ". . . .")
+                .replace(/\. \. \./g, ". . .")
+                .replace(
+                  /(\. \. \.)([a-z])/gi,
+                  (_: any, a: any, b: any) => `${a} ${b}`
+                )
+                .replace(
+                  /([a-zá])(\. \. \.)/gi,
+                  (_: any, a: any, b: any) => `${a} ${b}`
+                )
+                .replace(/^\* \* \*$/gm, "***")
+
+                .replace(/’i\b/g, "’í")
+                .replace(/\bcoö/g, "coo")
+                .replace(/\bprë/g, "pre")
+                .replace(/\bpreë/g, "pree")
             )
-            .replace(/ /g, " ")
-            .replace(/-/g, "‑")
-            .replace(/–/g, "—")
-            .replace(/─/g, "—")
-            .replace(/‑‑/g, "—")
-            .replace(/ "/g, " “")
-            .replace(/"([ ,.])/g, (_: any, m: any) => `”${m}`)
-            .replace(/“ /g, "“")
-            .replace(/ ”/g, "”")
-            .replace(/ '/g, " ‘")
-            .replace(/“'/g, "“‘")
-            .replace(/'/g, "’")
-            .replace(/…/g, "...")
-            .replace(/\.([  ]?\.){3,}/g, ". . . .")
-            .replace(/\.\.\./g, ". . .")
-            .replace(/\[ ?\. \. \.\ ?]/g, ". . .")
-            .replace(
-              /([,;:!?”’])\. \. \./g,
-              (_: any, m: any) => `${m} \. \. \.`
-            )
-            .replace(
-              /\. \. \.([,;:!?“‘\[])/g,
-              (_: any, m: any) => `\. \. \. ${m}`
-            )
-            .replace(
-              /([”’]) \. \. \. \./g,
-              (_: any, m: any) => `${m}\. \. \. \.`
-            )
-            .replace(/ \. \. \. \./g, " . . .")
-            .replace(/\. \. \. \./g, ". . . .")
-            .replace(/\. \. \./g, ". . .")
-            .replace(
-              /(\. \. \.)([a-z])/gi,
-              (_: any, a: any, b: any) => `${a} ${b}`
-            )
-            .replace(
-              /([a-zá])(\. \. \.)/gi,
-              (_: any, a: any, b: any) => `${a} ${b}`
-            )
-            .replace(/^\* \* \*$/gm, "***")
             .replace(/ Iráq/g, " ‘Iráq")
             .replace(/ IRÁQ/g, " ‘IRÁQ")
-          // .replace(/Ataollah/g, "‘Aṭá’u’lláh")
-          // .replace(/Ruhollah/g, "Rúḥu’lláh")
-          // .replace(/Mákú/g, "Máh‑Kú")
-          // .replace(/’i\b/g, "’í")
-          // .replace(/\bprë/g, "pre")
-          // .replace(/\bpreë/g, "pree")
-          // .replace(/\bre‑/g, "re")
-          // .replace(/\bpre‑/g, "pre")
-          // .replace(/\bco‑/g, "co")
-          // .replace(/\bRe‑/g, "Re")
-          // .replace(/\bPre‑/g, "Pre")
-          // .replace(/Co‑operation/g, "Cooperation")
-          // .replace(/PreExistent/g, "Preexistent")
-          // .replace(/All‑Mighty/g, "Almighty")
-          // .replace(/all‑mighty/g, "almighty")
+            .replace(/Mákú/g, "Máh‑Kú")
         );
       })
     );
