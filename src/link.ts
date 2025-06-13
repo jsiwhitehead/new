@@ -2,72 +2,6 @@ import sources from "./sources.js";
 import type { Section, SectionContent } from "./structure.js";
 import { readJSON, writeJSON } from "./utils.js";
 
-const ignoreStarts = [
-  " ",
-  ",",
-  "‑",
-  "”",
-  "abá",
-  "Ábidín",
-  "Abbás",
-  "Abdu",
-  "Ád",
-  "ah",
-  "Ahd",
-  "Akká",
-  "AKKÁ",
-  "Alam",
-  "Alá",
-  "Alí",
-  "Álí",
-  "ALÍ",
-  "ám",
-  "Ammú",
-  "Amú",
-  "Arab",
-  "Árif",
-  "Áshúrá",
-  "ávíyih",
-  "áyidih",
-  "Ayn",
-  "Azíz",
-  "AZÍZ",
-  "Aṭá",
-  "Aẓím",
-  "‘áẓ",
-  "bán",
-  "farán",
-  "far‑i",
-  "far‑Q",
-  "íd",
-  "ih",
-  "IH",
-  "íl",
-  "ÍLÍYYIH",
-  "Ilm",
-  "Imrán",
-  "ín",
-  "Ináyatí",
-  "Iráq",
-  "IRÁQ",
-  "Ishqábád",
-  "Izzat",
-  "mán",
-  "n,",
-  "tamid",
-  "timádu",
-  "’u",
-  "u’",
-  "úd",
-  "Údí",
-  "ulamá",
-  "Ulamá",
-  "Umar",
-  "Urvatu",
-  "Uthmán",
-  "ẓam",
-];
-
 const strip = (text: string): string =>
   text
     .normalize("NFD")
@@ -142,7 +76,7 @@ const findQuoteIndices = (
 const splitQuoted = (text: string): string[] => {
   const result: string[] = [""];
   let expectedCloseQuote: string | null = null;
-  const quotePairs: Record<string, string> = { "‘": "’", "“": "”" };
+  const quotePairs: Record<string, string> = { "“": "”" };
   for (let i = 0; i < text.length; i++) {
     const char = text[i]!;
     if (
@@ -154,11 +88,7 @@ const splitQuoted = (text: string): string[] => {
     } else if (
       !expectedCloseQuote &&
       quotePairs[char] &&
-      !/[a-z‑]/.test(strip(text[i - 1] || " ")) &&
-      !(
-        char === "‘" &&
-        ignoreStarts.some((a) => text.slice(i + 1).startsWith(a))
-      )
+      !/[a-z‑]/.test(strip(text[i - 1] || " "))
     ) {
       result[result.length - 1] += char;
       result.push("");
@@ -509,11 +439,7 @@ const getDataText = (data: any, c: SectionContent): string => {
               const current = processedParts[j];
               if (typeof current === "string") {
                 if (
-                  !(
-                    (current[0] === "”" &&
-                      current[current.length - 1] === "“") ||
-                    (current[0] === "’" && current[current.length - 1] === "‘")
-                  )
+                  !(current[0] === "”" && current[current.length - 1] === "“")
                 ) {
                   const stripped = strip(current);
                   if (/[a-z0-9]/.test(stripped.replace(/\[[^\]]*\]/g, ""))) {
@@ -627,6 +553,13 @@ const getDataText = (data: any, c: SectionContent): string => {
           for (let j = 1; j < quoted.length; j++) {
             const last = merged[merged.length - 1]!;
             const current = quoted[j]!;
+            // const words = stripped
+            //   .slice(last.end, current.start)
+            //   .replace(/\[[^\]]*\]/g, "")
+            //   .replace(/[^a-z0-9‑]/g, " ")
+            //   .split(/ +/g)
+            //   .filter((a: any) => a);
+            // if (words.length > 0 && words.length < 2) console.log(words);
             if (
               current.start <= last.end ||
               !/[a-z0-9]/.test(
