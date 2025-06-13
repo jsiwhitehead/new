@@ -3,6 +3,13 @@ import fs from "fs-extra";
 import sources from "./sources.js";
 import { readText, writeJSON } from "./utils.js";
 
+const authorYears = {
+  "The Báb": [1844, 1853],
+  "Bahá’u’lláh": [1853, 1892],
+  "‘Abdu’l‑Bahá": [1892, 1921],
+  "Shoghi Effendi": [1921, 1957],
+} as Record<string, [number, number]>;
+
 const indexAuthors = {
   "Bahá’u’lláh": 1,
   "The Báb": 2,
@@ -138,6 +145,7 @@ export const parseStructuredSections = (
       metaStack.splice(level);
       metaStack[level] = meta;
       const sectionMeta = metaStack.reduce((res, m) => ({ ...res, ...m }), {});
+      sectionMeta.years = sectionMeta.years || authorYears[sectionMeta.author];
 
       const sectionPath = [
         [
@@ -170,6 +178,9 @@ export const parseStructuredSections = (
         author: undefined,
         content: [],
       });
+      if ((sections[sections.length - 1]?.prayer as any) === false) {
+        delete sections[sections.length - 1]?.prayer;
+      }
 
       if (title) lastLevel = level;
     } else {

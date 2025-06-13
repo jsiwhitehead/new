@@ -210,6 +210,7 @@ const getUrlPath = ({
 
 export default function getData(...urlPath: string[]): RenderSection[] {
   return data
+    .filter((d) => !d.prayer)
     .filter((d) => !d.meta && urlPath.every((p, i) => d.path[i]?.[1] === p))
     .map((d) => {
       const content = d.content.map((c, i): SemiRenderContent => {
