@@ -18,7 +18,7 @@ export function Column({
   return (
     <div
       id={id}
-      style={{ ...style, display: "flex", flexDirection: "column", gap }}
+      style={{ display: "flex", flexDirection: "column", gap, ...style }}
     >
       {children}
     </div>
@@ -40,11 +40,11 @@ export function Row({
     <div
       id={id}
       style={{
-        ...style,
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
         gap,
+        ...style,
       }}
     >
       {children}

@@ -89,7 +89,7 @@ const getText = (root: Element): string => {
     "https://www.bahai.org/library/authoritative-texts/the-universal-house-of-justice/messages/"
   );
 
-  const messageRows = $messages("tbody > tr[id]").toArray();
+  const messageRows = $messages("tbody > tr[id]").toArray().reverse();
 
   const messages = await Promise.all(
     messageRows.map(async (row) => {

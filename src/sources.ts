@@ -1428,6 +1428,7 @@ const sources: Record<
       ["second condition:—They must", "second condition . . . They must"],
       ["doth not matter. It behoveth", "doth not matter. . . . It behoveth"],
       ["supreme victory:—‘O God", "supreme victory: . . . ‘O God"],
+      removeAfter("## 16 March 1933"),
     ],
     "citadel-faith": [
       ["Messages to America 1947—1957", ""],
@@ -1620,9 +1621,8 @@ const sources: Record<
       [/^\*$/gm, "***"],
       [
         "",
-        `Selected Messages of the Universal House of Justice
-        author="The Universal House of Justice"
-        collection\n\n`,
+        `Selected Messages
+        author="The Universal House of Justice"\n\n`,
       ],
       [/^Last modified:.*/gm, ""],
       [

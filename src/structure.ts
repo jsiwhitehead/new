@@ -84,6 +84,7 @@ const getContentItem = (line: string): SectionContent => {
 
 const additional: Section[] = [];
 const prayers: Section[] = [];
+const messages: Section[] = [];
 
 export const parseStructuredSections = (
   file: string,
@@ -206,6 +207,18 @@ export const parseStructuredSections = (
       additional.push(s);
       return false;
     }
+    if (
+      s.path[0]![0] === "Shoghi Effendi" &&
+      [
+        "Bahá’í Administration",
+        "Citadel of Faith",
+        "This Decisive Hour",
+      ].includes(s.path[1]![0]) &&
+      s.path[2]?.[0] !== "In Memoriam"
+    ) {
+      messages.push(s);
+      return false;
+    }
     return true;
   });
 };
@@ -249,6 +262,7 @@ const getLength = (c: SectionContent) => {
       a.content.map((x) => getLength(x)).reduce((res, x) => res + x, 0) -
       b.content.map((x) => getLength(x)).reduce((res, x) => res + x, 0)
   );
+  messages.sort((a, b) => a.years[0] - b.years[0]);
 
   let indices = {
     "The Báb": 1,
@@ -286,6 +300,26 @@ const getLength = (c: SectionContent) => {
       ];
       x.id = `${0}/${index}`;
       index++;
+      return x;
+    })
+  );
+  let currentMessage = "";
+  index = 0;
+  await writeJSON(
+    "structure",
+    "shoghi-effendi-messages",
+    messages.map((x) => {
+      x.path = [
+        x.path[0]!,
+        ["Selected Messages", "messages", 1],
+        ...x.path.slice(x.path[1]![0] === "Citadel of Faith" ? 3 : 2),
+      ];
+      if (x.path[2]![0] !== currentMessage) {
+        currentMessage = x.path[2]![0];
+        index++;
+      }
+      x.path[2] = [x.path[2]![0], x.path[2]![1], index];
+      x.id = x.path.map((y) => y[2]).join("/");
       return x;
     })
   );

@@ -303,7 +303,6 @@ export default function App() {
                         gap={`${11.5}px ${14 * 0.6}px`}
                         style={{
                           flexWrap: "wrap",
-                          paddingLeft: 30,
                           maxWidth: 400,
                           marginLeft: "auto",
                           justifyContent: "flex-end",
@@ -347,15 +346,17 @@ export default function App() {
                           gap={`${11.5}px ${14 * 0.6}px`}
                           style={{
                             flexWrap: "wrap",
-                            paddingLeft: 30,
                             maxWidth: 400,
-                            marginLeft: "auto",
-                            justifyContent: "flex-end",
                             opacity: 0.5,
+                            paddingLeft: 30,
                           }}
                         >
                           {q.map((p, k) => (
-                            <Row gap={14 * 0.6} key={k}>
+                            <Row
+                              gap={14 * 0.6}
+                              style={{ marginLeft: k === 0 ? -30 : 0 }}
+                              key={k}
+                            >
                               {k > 0 && (
                                 <svg
                                   style={{ flexShrink: 0, height: 14 * 0.6 }}

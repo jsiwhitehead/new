@@ -163,13 +163,14 @@ const getDataText = (data: any, c: SectionContent): string => {
   }
   sections.push(...(await readJSON("structure", "additional")));
   sections.push(...(await readJSON("structure", "prayers")));
+  sections.push(...(await readJSON("structure", "shoghi-effendi-messages")));
 
   sections.sort((a, b) => a.years[0] - b.years[0]);
 
   const ngramMap = new Map();
   const strippedMap = new Map();
   for (const section of sections) {
-    if (!section.meta && !["4/2/2/53/1", "4/2/2/54/1"].includes(section.id)) {
+    if (!section.meta) {
       section.content.forEach((p, i) => {
         const text = getText(p);
         strippedMap.set(`${section.id}:${i}`, strip(text));
@@ -259,7 +260,7 @@ const getDataText = (data: any, c: SectionContent): string => {
   ) => {
     {
       const text = getText(p);
-      if (!text) return p;
+      if (typeof p !== "string" && !Array.isArray(p)) return p;
 
       const parts = splitQuoted(text)
         .flatMap((p) => p.split(/( ?\. \. \. ?| ?\[[^\]]*\] ?)/))

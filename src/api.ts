@@ -4,31 +4,6 @@ const data = baseData as Section[];
 
 import type { Section, SectionContent } from "./structure";
 
-// const count = (s: string) => {
-//   const words = s
-//     .normalize("NFD")
-//     .replace(/[\u0300-\u036f]/g, "")
-//     .toLowerCase()
-//     .replace(/[^a-z0-9‑ ]/g, "")
-//     .split(" ");
-
-//   const dash = {} as any;
-//   const plain = {} as any;
-//   for (const w of words) {
-//     if (["re‑", "pre‑", "co‑"].some((x) => w.startsWith(x))) {
-//       dash[w] = (dash[w] || 0) + 1;
-//     } else if (["re", "pre", "co"].some((x) => w.startsWith(x))) {
-//       plain[w] = (plain[w] || 0) + 1;
-//     }
-//   }
-
-//   for (const w of Object.keys(dash)) {
-//     console.log(`${w}: ${dash[w]}`);
-//     console.log(`${w.replace(/‑/g, "")}: ${plain[w.replace(/‑/g, "")] || 0}`);
-//   }
-// };
-// count(JSON.stringify(baseData));
-
 type SemiRenderContent =
   | { type: "break" }
   | {
@@ -402,7 +377,11 @@ export default function getData(...urlPath: string[]): RenderSection[] {
                 ),
                 paragraph: getParagraphId(d, index),
                 quote: getUrlPath(allQuotes[0]),
-                quoted: d.quoted?.[index]?.map((q) => getUrlPath(q)),
+                quoted: [
+                  ...new Set(
+                    d.quoted?.[index]?.map((q) => JSON.stringify(getUrlPath(q)))
+                  ),
+                ].map((x) => JSON.parse(x)),
               };
             }
           }
@@ -417,7 +396,11 @@ export default function getData(...urlPath: string[]): RenderSection[] {
               }))
             ),
             paragraph: getParagraphId(d, index),
-            quoted: d.quoted?.[index]?.map((q) => getUrlPath(q)),
+            quoted: [
+              ...new Set(
+                d.quoted?.[index]?.map((q) => JSON.stringify(getUrlPath(q)))
+              ),
+            ].map((x) => JSON.parse(x)),
           };
         }),
       };
