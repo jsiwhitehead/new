@@ -20,9 +20,7 @@ import { readText, writeText } from "./utils.js";
               await readText("tidy", id)
             )
             .replace(/^>\s*$/gm, "")
-            .replace(/^(#+)\n+^(#+)/gm, (_, a, b) =>
-              a.length < b.length ? `${a}\n\n${b}` : b
-            )
+            .replace(/(#+\n+)+#/gm, "#")
             .replace(/(\s*\n){2,}/g, "\n\n")
             .replace(/#\n\n$/, "")
             .split("\n")

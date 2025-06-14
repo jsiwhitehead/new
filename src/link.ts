@@ -156,11 +156,13 @@ const getDataText = (data: any, c: SectionContent): string => {
     await Promise.all(
       Object.keys(sources[author]!).map(async (file) => {
         const id = `${author}-${file}`;
-        const structure = (await readJSON("structure", id)) as any[];
-        sections.push(...structure);
+        const structure = await readJSON("structure", id);
+        if (structure) sections.push(...structure);
       })
     );
   }
+  sections.push(...(await readJSON("structure", "additional")));
+  sections.push(...(await readJSON("structure", "prayers")));
 
   sections.sort((a, b) => a.years[0] - b.years[0]);
 

@@ -1,6 +1,5 @@
 Selections from the Writings of ‘Abdu’l‑Bahá
 author="‘Abdu’l‑Bahá"
-years=[1892,1921]
 
 # Preface
 meta="The Universal House of Justice"

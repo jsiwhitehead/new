@@ -63,7 +63,7 @@ interface RenderSection {
   reference?: string;
   source?: string;
   summary?: string;
-  prayer?: true;
+  prayer?: string;
   content: RenderContent[];
 }
 
@@ -163,7 +163,6 @@ const simplifyLinkLabels = {
   "Gleanings from the Writings of Bahá’u’lláh": "Gleanings",
   "Tablets of Bahá’u’lláh": "Tablets",
   "Selections from the Writings of ‘Abdu’l‑Bahá": "Selections",
-  "Additional Tablets, Extracts and Talks": "Additional",
   "Commissioned by the Universal House of Justice": "Publications",
 } as Record<string, string>;
 
@@ -210,7 +209,6 @@ const getUrlPath = ({
 
 export default function getData(...urlPath: string[]): RenderSection[] {
   return data
-    .filter((d) => !d.prayer)
     .filter((d) => !d.meta && urlPath.every((p, i) => d.path[i]?.[1] === p))
     .map((d) => {
       const content = d.content.map((c, i): SemiRenderContent => {

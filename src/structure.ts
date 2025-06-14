@@ -11,6 +11,7 @@ const authorYears = {
 } as Record<string, [number, number]>;
 
 const indexAuthors = {
+  Prayers: 0,
   "Bahá’u’lláh": 1,
   "The Báb": 2,
   "‘Abdu’l‑Bahá": 3,
@@ -53,7 +54,7 @@ export interface Section {
   reference?: string;
   source?: string;
   summary?: string;
-  prayer?: true;
+  prayer?: string;
   quoted?: Record<
     string,
     { start: number; end: number; section: string; paragraph: number }[]
@@ -85,6 +86,9 @@ const getContentItem = (line: string): SectionContent => {
   }
   return line;
 };
+
+const additional: Section[] = [];
+const prayers: Section[] = [];
 
 export const parseStructuredSections = (
   file: string,
@@ -188,7 +192,28 @@ export const parseStructuredSections = (
     }
   }
 
-  return sections.filter((s) => s.content.length > 0);
+  return sections.filter((s) => {
+    if (s.content.length === 0) return false;
+    if (s.prayer) {
+      prayers.push(s);
+      return false;
+    }
+    if (s.path[1]![0] === "Additional") {
+      additional.push(s);
+      return false;
+    }
+    return true;
+  });
+};
+
+const getLength = (c: SectionContent) => {
+  if (typeof c === "string") return c.length;
+  if ("type" in c) {
+    if (c.type === "break") return 0;
+    return c.text.length;
+  }
+  if (Array.isArray(c)) return 0;
+  return c.text.length;
 };
 
 (async () => {
@@ -198,12 +223,66 @@ export const parseStructuredSections = (
     await Promise.all(
       Object.keys(sources[author]!).map(async (file, fileIndex) => {
         const id = `${author}-${file}`;
-        await writeJSON(
-          "structure",
-          id,
-          parseStructuredSections(file, fileIndex, await readText("format", id))
+        const res = parseStructuredSections(
+          file,
+          fileIndex,
+          await readText("format", id)
         );
+        if (res.length > 0) {
+          await writeJSON("structure", id, res);
+        }
       })
     );
   }
+
+  additional.sort(
+    (a, b) =>
+      a.content.map((x) => getLength(x)).reduce((res, x) => res + x, 0) -
+      b.content.map((x) => getLength(x)).reduce((res, x) => res + x, 0)
+  );
+  prayers.sort(
+    (a, b) =>
+      a.content.map((x) => getLength(x)).reduce((res, x) => res + x, 0) -
+      b.content.map((x) => getLength(x)).reduce((res, x) => res + x, 0)
+  );
+
+  let indices = {
+    "The Báb": 1,
+    "Bahá’u’lláh": 1,
+    "‘Abdu’l‑Bahá": 1,
+    "Shoghi Effendi": 1,
+  } as Record<string, number>;
+  await writeJSON(
+    "structure",
+    "additional",
+    additional.map((x) => {
+      x.path = [
+        x.path[0]!,
+        ["Additional", "additional", 0],
+        [
+          `${indices[x.path[0]![0]]}`,
+          `${indices[x.path[0]![0]]}`,
+          indices[x.path[0]![0]]!,
+        ],
+      ];
+      x.id = `${x.path[0]![2]}/0/${indices[x.path[0]![0]]}`;
+      indices[x.path[0]![0]]!++;
+      return x;
+    })
+  );
+  let index = 1;
+  await writeJSON(
+    "structure",
+    "prayers",
+    prayers.map((x) => {
+      x.prayer = x.path[0]![0];
+      x.path = [
+        ["Prayers", "prayers", 0],
+        [`${index}`, `${index}`, index],
+      ];
+      x.id = `${0}/${index}`;
+      index++;
+      return x;
+    })
+  );
 })();

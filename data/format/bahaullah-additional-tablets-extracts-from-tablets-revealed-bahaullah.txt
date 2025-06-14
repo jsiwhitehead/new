@@ -1,6 +1,5 @@
-Additional Tablets and Extracts
+Additional
 author="Bahá’u’lláh"
-years=[1853,1892]
 
 #
 

@@ -1,6 +1,5 @@
 Selections from the Writings of the Báb
 author="The Báb"
-years=[1844,1853]
 
 # Tablets and Addresses
 

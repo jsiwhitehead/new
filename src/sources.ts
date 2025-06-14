@@ -1,10 +1,3 @@
-const authorYears = {
-  "The Báb": [1844, 1853],
-  "Bahá’u’lláh": [1853, 1892],
-  "‘Abdu’l‑Bahá": [1892, 1921],
-  "Shoghi Effendi": [1921, 1957],
-} as Record<string, [number, number]>;
-
 const months = [
   "January",
   "February",
@@ -453,7 +446,6 @@ const sources: Record<
       removeAfter("Key to Passages Translated by Shoghi Effendi"),
       title("", "Days of Remembrance", {
         author: "Bahá’u’lláh",
-        years: authorYears["Bahá’u’lláh"],
       }),
       ["Selections from the Writings of Bahá’u’lláh for Bahá’í Holy Days", ""],
       title("#", "Preface", {
@@ -529,7 +521,6 @@ const sources: Record<
       [/^— .* —$/gm, "#"],
       title("", "Gleanings from the Writings of Bahá’u’lláh", {
         author: "Bahá’u’lláh",
-        years: authorYears["Bahá’u’lláh"],
       }),
       [
         "The Divine Springtime is come, O Most Exalted",
@@ -658,7 +649,6 @@ const sources: Record<
       ["Prayer for the Dead.", ""],
       title("", "Prayers and Meditations", {
         author: "Bahá’u’lláh",
-        years: authorYears["Bahá’u’lláh"],
         prayer: true,
       }),
       [/^— .* —$/gm, "#"],
@@ -802,9 +792,9 @@ const sources: Record<
     "additional-prayers-revealed-bahaullah": [
       removeAfter("This document has been downloaded"),
       [/^—Bahá’u’lláh$/gm, ""],
-      title("", "Additional Prayers Revealed by Bahá’u’lláh", {
+      ["Additional Prayers Revealed by Bahá’u’lláh", "Additional"],
+      title("", "Additional", {
         author: "Bahá’u’lláh",
-        years: authorYears["Bahá’u’lláh"],
         prayer: true,
         items: true,
       }),
@@ -815,11 +805,10 @@ const sources: Record<
       removeAfter("This document has been downloaded"),
       [
         "Additional Tablets and Extracts from Tablets Revealed by Bahá’u’lláh",
-        "Additional Tablets and Extracts",
+        "Additional",
       ],
-      title("", "Additional Tablets and Extracts", {
+      title("", "Additional", {
         author: "Bahá’u’lláh",
-        years: authorYears["Bahá’u’lláh"],
       }),
       [/^—Bahá’u’lláh$/gm, ""],
       prefix("He is the All‑Seeing from the Horizon", "#\n\n"),
@@ -831,7 +820,6 @@ const sources: Record<
     "selections-writings-bab": [
       title("", "Selections from the Writings of the Báb", {
         author: "The Báb",
-        years: authorYears["The Báb"],
       }),
       removeAfter("Key to Passages Translated by Shoghi Effendi"),
       [/^\d+$/gm, ""],
@@ -978,7 +966,6 @@ const sources: Record<
       removeAfter("Notes"),
       title("", "Light of the World", {
         author: "‘Abdu’l‑Bahá",
-        years: authorYears["‘Abdu’l‑Bahá"],
       }),
       title("#", "Preface", {
         meta: "The Universal House of Justice",
@@ -1153,7 +1140,6 @@ const sources: Record<
       removeAfter("Notes on Translations"),
       title("", "Selections from the Writings of ‘Abdu’l‑Bahá", {
         author: "‘Abdu’l‑Bahá",
-        years: authorYears["‘Abdu’l‑Bahá"],
       }),
       title("#", "Preface", {
         meta: "The Universal House of Justice",
@@ -1291,9 +1277,9 @@ const sources: Record<
     ],
     "additional-prayers-revealed-abdul-baha": [
       removeAfter("This document has been downloaded"),
-      title("", "Additional Prayers Revealed by ‘Abdu’l‑Bahá", {
+      ["Additional Prayers Revealed by ‘Abdu’l‑Bahá", "Additional"],
+      title("", "Additional", {
         author: "‘Abdu’l‑Bahá",
-        years: authorYears["‘Abdu’l‑Bahá"],
         prayer: true,
         items: true,
       }),
@@ -1312,9 +1298,9 @@ const sources: Record<
     ],
     "additional-tablets-extracts-talks": [
       removeAfter("This document has been downloaded"),
-      title("", "Additional Tablets, Extracts and Talks", {
+      ["Additional Tablets, Extracts and Talks", "Additional"],
+      title("", "Additional", {
         author: "‘Abdu’l‑Bahá",
-        years: authorYears["‘Abdu’l‑Bahá"],
       }),
       [/^\+[^*]*(\*\*\*|$)/gms, "***"],
       [/—‘Abdu’l‑Bahá/g, ""],
@@ -2081,84 +2067,40 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
     "bahai-prayers": [
       [/^A Selection of Prayers Revealed by.*/m, ""],
       removeAfter("Notes"),
-      title("", "Bahá’í Prayers", {
-        prayer: true,
-        items: true,
-      }),
-      ...obligatory,
-      [/^\nWe all, verily,/gm, (a) => `> ${a.slice(1)}`],
-      ["of the following verses:", "of the following verses:\n"],
+      ["Bahá’í Prayers", ""],
+      [/Obligatory Prayers.*Kitáb‑i‑Aqdas, p\. 36/s, ""],
+      [/Marriage.*abide by the Will of God.”/s, ""],
+      [/The Fast.*through March 20./s, ""],
+      [/Ḥuqúqu’lláh.*All‑Possessing, the All‑Bountiful\./s, ""],
+      [/“These daily obligatory.*His laws and precepts\.”\n\n—[^\n]*/s, ""],
+      [/“Study the Tablet.*perceive, take warning!”\n\n—[^\n]*/s, ""],
+      [/^\(Naw‑Rúz, March 21.*/m, ""],
+      [/^\(The Intercalary Days.*/m, ""],
+      [/^—/gm, "±"],
       [
         /^[A-ZḤ].{1,80}[a-z]$/gm,
         (a) => {
-          if (a === "Bahá’í Prayers") return a;
-          if (a.startsWith("Revealed") || a === "For Women") return `#### ${a}`;
           if (
-            a.includes(" for ") ||
             [
-              "Infants",
-              "Midnight",
-              "Parents",
-              "Husbands",
-              "The Nineteen Day Feast",
-              "For Women",
-              "For Infants",
+              "Prayer for the Dead",
               "The Long Healing Prayer",
-              "Expectant Mothers",
-            ].includes(a)
+              "Tablet of Aḥmad",
+              "Fire Tablet",
+              "Tablet of the Holy Mariner",
+            ].includes(a) ||
+            a.endsWith("Obligatory Prayer") ||
+            a.startsWith("Revealed to the")
           ) {
-            return `### ${a}`;
+            return `# ${a}`;
           }
-          if (a.includes(" Prayers") || a.includes(" Tablets")) return `# ${a}`;
-          return `## ${a}`;
+          return "";
         },
       ],
-      ["—Bahá’u’lláh\n\n#### For Women", "—Bahá’u’lláh\n\n### For Women"],
-      ["## Tablet of Aḥmad", "#"],
-      prefix("He is the King, the All‑Knowing", "## Tablet of Aḥmad\n\n"),
-      ["## Tablet of the Holy Mariner", "#"],
-      prefix(
-        "He is the Gracious, the Well‑Beloved!",
-        "## Tablet of the Holy Mariner\n\n"
-      ),
-      [
-        /^(#+.*$)([^#]*)/gm,
-        (_, a: string, b: string) => {
-          const depth = a.match(/^#+/)![0];
-          const items = b
-            .split(/(^—.*$)/gm)
-            .map((x) => x.trim())
-            .filter((x) => x)
-            .reduce((res, x, i) => {
-              if (i % 2 === 0) res.push("");
-              res[res.length - 1] += x;
-              return res;
-            }, [] as string[]);
-          const mapped = items.map((item) => {
-            const splitIndex = item.lastIndexOf("—");
-            const main = item.slice(0, splitIndex);
-            const author = item.slice(splitIndex + 1);
-            const authorFixed =
-              author.includes("Shoghi") || author.startsWith("Synopsis")
-                ? "Shoghi Effendi"
-                : author;
-            return `author="${authorFixed}"\n\n${main}`;
-          });
-          if (
-            items.length === 1 &&
-            ["Prayer", "Tablet", "Revealed"].some((x) => a.includes(x))
-          ) {
-            return `${a}\n${mapped[0]}\n\n`;
-          }
-          return `${a}\n\n${depth}#\n${mapped.join(`\n\n${depth}#\n`)}\n\n`;
-        },
-      ],
-      prefix(
-        "He is the Bestower, the Bounteous!",
-        '###\nauthor="Bahá’u’lláh"\n\n'
-      ),
-      ["# Special Tablets\n\n##\n\n\n#", "# Special Tablets"],
-      ["shall set aflame the worlds.\n\n#", "shall set aflame the worlds."],
+      [/([^±]*)^±(.*)$/gm, (_, a, b) => `#\nauthor="${b}"\n\n${a}`],
+      [/(author="[^"]*")\n+(#.*)$/gm, (_, a, b) => `${b}\n${a}`],
+      ...obligatory,
+      [/^\nWe all, verily,/gm, (a) => `> ${a.slice(1)}`],
+      ["of the following verses:", "of the following verses:\n"],
       prefix(/^\(The Prayer for the Dead is the only/m, "* "),
       prefix(/^O seeker of Truth! If thou desirest/m, "* "),
       prefix(/^Come ye together in gladness unalloyed/m, "* "),
@@ -2172,42 +2114,21 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
       prefix(/^Whenever ye enter the council‑chamber/m, "* "),
       prefix(/^The following supplication is to be read/m, "* "),
       prefix(/^Let whosoever travels to different/m, "* "),
-      prefix(/^\(Naw‑Rúz, March 21, is the first/m, "* "),
-      prefix(/^\(The Intercalary Days, February 26/m, "* "),
       prefix(/^\(This Tablet is read at the Shrines/m, "* "),
       prefix(/^\(This prayer, revealed by ‘Abdu’l‑Bahá/m, "* "),
       prefix(/^Whoso reciteth this prayer with lowliness/m, "* "),
-      [
-        "The period of the Fast is March 2 through March 20.",
-        '* The period of the Fast is March 2 through March 20.\n\n###\nauthor="Bahá’u’lláh"',
-      ],
-      prefix("\n\nIntone, O My servant, the verses of God", "\nprayer=false"),
-      prefix("\n\n“The daily obligatory prayers are three", "\nprayer=false"),
-      prefix("\n\n“By ‘morning,’ ‘noon’ and ‘evening,’", "\nprayer=false"),
-      prefix("\n\n“Bahá’í marriage is union and cordial", "\nprayer=false"),
-      prefix("\n\nThe pledge of marriage, the verse to be", "\nprayer=false"),
-      prefix("\n\nThe Kitáb‑i‑Aqdas states: “We have", "\nprayer=false"),
-      prefix("\n\nḤuqúqu’lláh is indeed a great law", "\nprayer=false"),
-      prefix("\n\n“These daily obligatory prayers, together", "\nprayer=false"),
-      prefix("\n\nHe is the King, the All‑Knowing, the", "\nprayer=false"),
-      prefix("\n\nIn the Name of God, the Most Ancient", "\nprayer=false"),
-      prefix("\n\n“Study the Tablet of the Holy", "\nprayer=false"),
-      prefix("\n\nHe is the Gracious, the Well‑Beloved!", "\nprayer=false"),
-      ["“The daily obligatory prayers", "The daily obligatory prayers"],
-      ["which it may be accompanied.”", "which it may be accompanied."],
-      ["“By ‘morning,’ ‘noon’ and", "By ‘morning,’ ‘noon’ and"],
-      ["two hours after sunset.”", "two hours after sunset."],
-      ["“Bahá’í marriage is union", "Bahá’í marriage is union"],
-      ["to attain everlasting life.”", "to attain everlasting life."],
-      ["“These daily obligatory prayers", "These daily obligatory prayers"],
-      ["with His laws and precepts.”", "with His laws and precepts."],
-      ["“Study the Tablet of the", "Study the Tablet of the"],
-      ["who perceive, take warning!”", "who perceive, take warning!"],
+      prefix("Intone, O My servant, the verses of God", "prayer=false\n\n"),
+      prefix("He is the King, the All‑Knowing, the", "prayer=false\n\n"),
+      prefix("In the Name of God, the Most Ancient", "prayer=false\n\n"),
+      prefix("He is the Gracious, the Well‑Beloved!", "prayer=false\n\n"),
+      [/\n+prayer=false/g, "\nprayer=false"],
+      ["", "Additional\nprayer\n\n"],
     ],
     "bahai-prayers-tablets-children": [
       [/^A Compilation Prepared by the Research.*/m, ""],
       removeAfter("This document has been downloaded"),
-      title("", "Bahá’í Prayers and Tablets for Children", {
+      ["Bahá’í Prayers and Tablets for Children", "Additional"],
+      title("", "Additional", {
         prayer: true,
         items: true,
       }),

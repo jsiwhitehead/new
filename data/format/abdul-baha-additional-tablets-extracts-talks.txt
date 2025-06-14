@@ -1,6 +1,5 @@
-Additional Tablets, Extracts and Talks
+Additional
 author="‘Abdu’l‑Bahá"
-years=[1892,1921]
 
 #
 source="Extract from a Tablet of ‘Abdu’l‑Bahá"

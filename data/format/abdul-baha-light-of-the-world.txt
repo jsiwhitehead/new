@@ -1,6 +1,5 @@
 Light of the World
 author="‘Abdu’l‑Bahá"
-years=[1892,1921]
 
 # Preface
 meta="The Universal House of Justice"

@@ -9,15 +9,16 @@ export const prettify = (
 export const readText = (category: string, id: string): Promise<string> =>
   fs.promises.readFile(`./data/${category}/${id}.txt`, "utf-8");
 
-export const readJSON = async <T = unknown>(
-  category: string,
-  id: string
-): Promise<T> => {
-  const fileContent = await fs.promises.readFile(
-    `./data/${category}/${id}.json`,
-    "utf-8"
-  );
-  return JSON.parse(fileContent) as T;
+export const readJSON = async (category: string, id: string): Promise<any> => {
+  try {
+    const fileContent = await fs.promises.readFile(
+      `./data/${category}/${id}.json`,
+      "utf-8"
+    );
+    return JSON.parse(fileContent);
+  } catch {
+    return null;
+  }
 };
 
 export const writeText = (
