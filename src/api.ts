@@ -174,7 +174,10 @@ const getUrlPath = ({
   if (res[1]![0] === "The World Order of Bahá’u’lláh") {
     res.splice(1, 1);
   }
-  if (res[1]![0] === "Selected Messages of the Universal House of Justice") {
+  if (
+    res[0]![0] === "The Universal House of Justice" &&
+    res[1]![0] === "Selected Messages"
+  ) {
     res[2]![0] = res[2]![0].split(",")[0]!;
     res.splice(1, 1);
   }

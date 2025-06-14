@@ -5,6 +5,16 @@ import getData from "../src/api";
 import renderTree from "./Tree";
 import { Column, Row, SizeContext, Text } from "./Utils";
 
+const authorColours = {
+  "The Báb": "#27ae60",
+  "Bahá’u’lláh": "#c0392b",
+  "‘Abdu’l‑Bahá": "#2980b9",
+  Prayers: "#8e44ad",
+  "Shoghi Effendi": "#f39c12",
+  "The Universal House of Justice": "#4834d4",
+  Documents: "#8e44ad",
+} as Record<string, string>;
+
 const collapseSingleKeys = (
   tree: any,
   maxDepth: number
@@ -47,7 +57,7 @@ const Breadcrumbs = ({
               <polygon points="-0.5,0.866 -0.5,-0.866 1.0,0.0" fill="#333" />
             </svg>
           )}
-          <Text size={size} to={p[1]} style={{ color: "darkgreen" }}>
+          <Text size={size} to={p[1]}>
             {p[0]}
           </Text>
         </Row>
@@ -232,7 +242,10 @@ export default function App() {
                                         style={{
                                           fontWeight: "bold",
                                           fontStyle: "italic",
-                                          color: "darkgreen",
+                                          color:
+                                            authorColours[
+                                              (l as any).quote[0][0]
+                                            ],
                                           opacity: 0.5,
                                           fontSize: 14,
                                         }}
@@ -262,7 +275,8 @@ export default function App() {
                                       style={{
                                         fontWeight: "bold",
                                         fontStyle: "italic",
-                                        color: "darkgreen",
+                                        color:
+                                          authorColours[(l as any).quote[0][0]],
                                         display: "inline-block",
                                         textIndent: 0,
                                         opacity: 0.5,
@@ -277,7 +291,8 @@ export default function App() {
                                   style={{
                                     fontWeight: "bold",
                                     fontStyle: "italic",
-                                    color: "darkgreen",
+                                    color:
+                                      authorColours[(l as any).quote[0][0]],
                                     opacity: 0.5,
                                     fontSize: 14,
                                   }}
@@ -326,7 +341,9 @@ export default function App() {
                             <Text
                               size={14}
                               to={p[1]}
-                              style={{ color: "darkgreen" }}
+                              style={{
+                                color: authorColours[(c as any).quote[0][0]],
+                              }}
                             >
                               {p[0]}
                             </Text>
@@ -372,7 +389,9 @@ export default function App() {
                               <Text
                                 size={14}
                                 to={p[1]}
-                                style={{ color: "darkred" }}
+                                style={{
+                                  color: authorColours[(q as any)[0][0]],
+                                }}
                               >
                                 {p[0]}
                               </Text>
