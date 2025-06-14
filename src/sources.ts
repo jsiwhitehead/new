@@ -815,6 +815,7 @@ const sources: Record<
       [/\*\*\*/g, "#"],
       [/^\+[^#]*(#|$)/gms, "#"],
     ],
+    additional: [],
   },
   "the-bab": {
     "selections-writings-bab": [
@@ -956,6 +957,7 @@ const sources: Record<
       prefix(/^Thou seest, O my Lord, my/gm, "\n\n##\n\n"),
       prefix(/^Is there any Remover of difficulties/gm, "\n\n##\n\n"),
     ],
+    additional: [],
   },
   "abdul-baha": {
     "light-of-the-world": [
@@ -1329,6 +1331,7 @@ const sources: Record<
       ["^ Religion and science", "Religion and science"],
       ["^ Seize thy chance", "Seize thy chance"],
     ],
+    additional: [],
   },
   "shoghi-effendi": {
     "advent-divine-justice": [
@@ -1586,8 +1589,10 @@ const sources: Record<
             .join("\n\n"),
       ],
     ],
+    additional: [],
   },
   "the-universal-house-of-justice": {
+    constitution: [],
     "the-institution-of-the-counsellors": [
       ["THE UNIVERSAL HOUSE OF JUSTICE", ""],
       ["1 January 2001", ""],
@@ -1670,7 +1675,7 @@ const sources: Record<
           const index = [...parts]
             .reverse()
             .findIndex((s) =>
-              /^((Dear|Beloved|Fellow).*,|(To |A Tribute|MESSAGE:|From:|Warmest).*)$/.test(
+              /^((Dear|Beloved|Fellow).*,|(To (the|a|an|two|three|ind|sel|gath|Bah|Nat)|A Tribute|MESSAGE:|From:|Warmest).*)$/.test(
                 s
               )
             );
@@ -1977,6 +1982,8 @@ Emphasising, in this same Charter of the Administrative Order, the importance of
 Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, hath not obeyed God; whoso rebelleth against him and against them hath rebelled against God; whoso opposeth him hath opposed God; whoso contendeth with them hath contended with God. . . .`,
       ],
     ],
+    "additional-messages": [],
+    additional: [],
   },
   "official-statements-commentaries": {
     bahaullah: [
@@ -2019,9 +2026,9 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
       removeAfter("+"),
       [
         "THE KITÁB‑I‑AQDAS\n\nITS PLACE IN BAHÁ’Í LITERATURE",
-        "The Kitáb-i-Aqdas: Its Place in Bahá’í Literature",
+        "The Kitáb‑i‑Aqdas: Its Place in Bahá’í Literature",
       ],
-      title("", "The Kitáb-i-Aqdas: Its Place in Bahá’í Literature", {
+      title("", "The Kitáb‑i‑Aqdas: Its Place in Bahá’í Literature", {
         author: "Documents",
         years: [1993.0101, 1993.0101],
       }),
@@ -2031,8 +2038,8 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
       ],
       [/^[A-Z].{1,80}[a-z]$/gm, (a) => `# ${a}`],
       [
-        "# The Kitáb-i-Aqdas: Its Place in Bahá’í Literature",
-        "The Kitáb-i-Aqdas: Its Place in Bahá’í Literature",
+        "# The Kitáb‑i‑Aqdas: Its Place in Bahá’í Literature",
+        "The Kitáb‑i‑Aqdas: Its Place in Bahá’í Literature",
       ],
     ],
     "prosperity-humankind": [
@@ -2064,6 +2071,18 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
       [/^[A-D]{1,5}\. (.*)$/gm, (_, a) => `## ${a}`],
       [/^\d+\. (.*)$/gm, (_, a) => `### ${a}`],
     ],
+  },
+  documents: {
+    "20180503": [],
+    "20240531": [],
+    "bahai-scholarship": [],
+    "clusters-institutes-growth": [],
+    conservation: [],
+    "entry-by-troops": [],
+    "frontiers-learning": [],
+    "institutes-functioning": [],
+    "intensive-growth": [],
+    "youth-conference": [],
   },
   prayers: {
     "bahai-prayers": [
@@ -2244,8 +2263,6 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
         "the spiritual bounty. Thou",
         "the outpourings of heavenly grace.\n\nThou",
       ],
-      // ["Be ye the very essence", "“Be ye the very essence"],
-      // ["hearts of the favoured of God.", "hearts of the favoured of God.”"],
       ["from His divine Bounty. But", "from His divine Bounty.\n\nBut"],
       ["being. We see among us men", "being.\n\nWe see amongst us men"],
       ["lay their head. . . . ", "lay their head. . . .\n\n"],
@@ -2314,6 +2331,7 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
       }),
       [/^[IV]+\./gm, "#"],
     ],
+    "bahai-org": [],
     "bahai-funds-contributions": [
       removeAfter("Notes"),
       [/^A Compilation Prepared by.*/m, ""],
@@ -2486,6 +2504,7 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
       }),
       [/^From/gm, "# From"],
     ],
+    "importance-deepening": [],
     "importance-obligatory-prayer-fasting": [
       removeAfter("Notes"),
       ["A Compilation Prepared by the Research Department", ""],
@@ -2519,6 +2538,7 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
       ),
       [/^Extract/gm, "# Extract"],
     ],
+    "inspiring-heart": [],
     "institution-mashriqul-adhkar": [
       removeAfter("Notes"),
       [/^A Statement Prepared by the Research.*/m, ""],
@@ -2826,6 +2846,7 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
       [/^[IV]+\./gm, "#"],
       [/^Extract/gm, "## Extract"],
     ],
+    "worldwide-conference": [],
   },
 };
 

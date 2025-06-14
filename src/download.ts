@@ -60,25 +60,27 @@ const getText = (root: Element): string => {
   for (const author of Object.keys(sources)) {
     await Promise.all(
       Object.keys(sources[author]!).map(async (file) => {
-        const id = `${author}-${file}`;
-        if (id !== "the-universal-house-of-justice-messages") {
-          const $ = await fetchHtml(
-            `https://www.bahai.org/library/${
-              [
-                "official-statements-commentaries",
-                "publications-individual-authors",
-              ].includes(author)
-                ? "other-literature"
-                : "authoritative-texts"
-            }/${author}/${file}/${
-              file === "additional-tablets-extracts-talks"
-                ? `${file}-abdul-baha`
-                : file
-            }.xhtml`
-          );
-          const body = $("body").get(0);
-          if (body) {
-            await writeText("download", id, getText(body));
+        if (sources[author]![file]!.length > 0) {
+          const id = `${author}-${file}`;
+          if (id !== "the-universal-house-of-justice-messages") {
+            const $ = await fetchHtml(
+              `https://www.bahai.org/library/${
+                [
+                  "official-statements-commentaries",
+                  "publications-individual-authors",
+                ].includes(author)
+                  ? "other-literature"
+                  : "authoritative-texts"
+              }/${author}/${file}/${
+                file === "additional-tablets-extracts-talks"
+                  ? `${file}-abdul-baha`
+                  : file
+              }.xhtml`
+            );
+            const body = $("body").get(0);
+            if (body) {
+              await writeText("download", id, getText(body));
+            }
           }
         }
       })

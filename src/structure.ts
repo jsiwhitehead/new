@@ -2,12 +2,14 @@ import fs from "fs-extra";
 
 import sources from "./sources.js";
 import { readText, writeJSON } from "./utils.js";
+import { doc } from "prettier";
 
 const authorYears = {
   "The Báb": [1844, 1853],
   "Bahá’u’lláh": [1853, 1892],
   "‘Abdu’l‑Bahá": [1892, 1921],
   "Shoghi Effendi": [1921, 1957],
+  "The Universal House of Justice": [1963, 3000],
 } as Record<string, [number, number]>;
 
 const indexAuthors = {
@@ -160,13 +162,29 @@ export const parseStructuredSections = (
         ...currentPath,
       ];
       if (sectionPath[2]?.[1] === "social-action-osed") {
-        sectionPath[2]![2] = 5;
         sectionPath.splice(1, 1);
-      } else if (
-        sectionPath[0]![1] === "documents" &&
-        sectionPath[1]?.[2] > 4
-      ) {
-        sectionPath[1]![2] += 1;
+      }
+      if (sectionPath[0]![1] === "documents") {
+        const documentsOrder = [
+          "Bahá’u’lláh",
+          "Century of Light",
+          "One Common Faith",
+          "The Kitáb‑i‑Aqdas: Its Place in Bahá’í Literature",
+          "31 May 2024 (ITC)",
+          "3 May 2018 (ITC)",
+          "Training Institutes: Attaining a Higher Level of Functioning (ITC)",
+          "Insights from the Frontiers of Learning (ITC)",
+          "Message on clusters, institutes, and growth (ITC)",
+          "Intensive growth (ITC)",
+          "Bahá’í scholarship: importance, nature, and promotion of (ITC)",
+          "Social Action (OSED)",
+          "Promoting Entry by Troops (RD)",
+          "The Prosperity of Humankind (BIC)",
+          "Turning Point for All Nations (BIC)",
+          "Youth Conference Materials (WC)",
+          "Conservation of the Earth’s Resources (WC)",
+        ];
+        sectionPath[1]![2] = documentsOrder.indexOf(sectionPath[1]![0]) + 1;
       }
 
       sections.push({
@@ -247,7 +265,10 @@ const getLength = (c: SectionContent) => {
         const res = parseStructuredSections(
           file,
           fileIndex,
-          await readText("format", id)
+          await readText(
+            sources[author]![file]!.length > 0 ? "format" : "manual",
+            id
+          )
         );
         if (res.length > 0) {
           await writeJSON("structure", id, res);
@@ -273,6 +294,7 @@ const getLength = (c: SectionContent) => {
     "Bahá’u’lláh": 1,
     "‘Abdu’l‑Bahá": 1,
     "Shoghi Effendi": 1,
+    "The Universal House of Justice": 1,
   } as Record<string, number>;
   await writeJSON(
     "structure",
