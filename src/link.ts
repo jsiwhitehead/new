@@ -522,7 +522,26 @@ const getDataText = (data: any, c: SectionContent): string => {
   };
   for (const s of sections.reverse()) processSection(s.id);
 
-  sections.sort((a, b) => a.id.localeCompare(b.id));
+  sections.sort((aDoc, bDoc) => {
+    const a = aDoc.path.map((p: [string, string, number]) => p[2]);
+    const b = bDoc.path.map((p: [string, string, number]) => p[2]);
+
+    const len = Math.max(a.length, b.length);
+    for (let i = 0; i < len; i++) {
+      const aVal = a[i];
+      const bVal = b[i];
+
+      if (aVal === undefined) return -1;
+      if (bVal === undefined) return 1;
+
+      if (aVal !== bVal && aVal === 0) return 1;
+      if (aVal !== bVal && bVal === 0) return -1;
+
+      if (aVal < bVal) return -1;
+      if (aVal > bVal) return 1;
+    }
+    return 0;
+  });
 
   const allQuoted = sections.flatMap((section: Section) =>
     section.content.flatMap((c, i) =>
@@ -592,25 +611,5 @@ const getDataText = (data: any, c: SectionContent): string => {
     }
   }
 
-  await writeJSON(
-    "",
-    "data",
-    sections.sort((aDoc, bDoc) => {
-      const a = aDoc.path.map((p: [string, string, number]) => p[2]);
-      const b = bDoc.path.map((p: [string, string, number]) => p[2]);
-
-      const len = Math.max(a.length, b.length);
-      for (let i = 0; i < len; i++) {
-        const aVal = a[i];
-        const bVal = b[i];
-
-        if (aVal === undefined) return -1;
-        if (bVal === undefined) return 1;
-
-        if (aVal < bVal) return -1;
-        if (aVal > bVal) return 1;
-      }
-      return 0;
-    })
-  );
+  await writeJSON("", "data", sections);
 })();

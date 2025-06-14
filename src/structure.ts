@@ -11,28 +11,23 @@ const authorYears = {
 } as Record<string, [number, number]>;
 
 const indexAuthors = {
-  Prayers: 0,
   "Bahá’u’lláh": 1,
   "The Báb": 2,
   "‘Abdu’l‑Bahá": 3,
-  "Shoghi Effendi": 4,
-  "The Universal House of Justice": 5,
-  "Commissioned by the Universal House of Justice": 6,
-  "The Office of Social and Economic Development": 7,
-  "Bahá’í International Community": 8,
+  Prayers: 4,
+  "Shoghi Effendi": 5,
+  "The Universal House of Justice": 6,
+  Documents: 7,
 } as Record<string, number>;
 
 const urlAuthors = {
   "Bahá’u’lláh": "bahaullah",
   "The Báb": "the-bab",
   "‘Abdu’l‑Bahá": "abdul-baha",
+  Prayers: "prayers",
   "Shoghi Effendi": "shoghi-effendi",
   "The Universal House of Justice": "the-universal-house-of-justice",
-  "Commissioned by the Universal House of Justice":
-    "commissioned-the-universal-house-of-justice",
-  "The Office of Social and Economic Development":
-    "office-social-economic-development",
-  "Bahá’í International Community": "bahai-international-community",
+  Documents: "documents",
 } as Record<string, string>;
 
 export type SectionContent =
@@ -159,6 +154,15 @@ export const parseStructuredSections = (
         ],
         ...currentPath,
       ];
+      if (sectionPath[2]?.[1] === "social-action-osed") {
+        sectionPath[2]![2] = 5;
+        sectionPath.splice(1, 1);
+      } else if (
+        sectionPath[0]![1] === "documents" &&
+        sectionPath[1]?.[2] > 4
+      ) {
+        sectionPath[1]![2] += 1;
+      }
 
       sections.push({
         id: sectionPath.map((a: any) => a[2]).join("/"),
@@ -277,7 +281,7 @@ const getLength = (c: SectionContent) => {
     prayers.map((x) => {
       x.prayer = x.path[0]![0];
       x.path = [
-        ["Prayers", "prayers", 0],
+        ["Prayers", "prayers", indexAuthors["Prayers"]!],
         [`${index}`, `${index}`, index],
       ];
       x.id = `${0}/${index}`;

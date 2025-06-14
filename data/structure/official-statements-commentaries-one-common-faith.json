@@ -1,12 +1,8 @@
 [
   {
-    "id": "6/3/1",
+    "id": "7/3/1",
     "path": [
-      [
-        "Commissioned by the Universal House of Justice",
-        "commissioned-the-universal-house-of-justice",
-        6
-      ],
+      ["Documents", "documents", 7],
       ["One Common Faith", "one-common-faith", 3],
       ["Foreword", "foreword", 1]
     ],
@@ -22,13 +18,9 @@
     ]
   },
   {
-    "id": "6/3/2",
+    "id": "7/3/2",
     "path": [
-      [
-        "Commissioned by the Universal House of Justice",
-        "commissioned-the-universal-house-of-justice",
-        6
-      ],
+      ["Documents", "documents", 7],
       ["One Common Faith", "one-common-faith", 3]
     ],
     "years": [2005.0321, 2005.0321],

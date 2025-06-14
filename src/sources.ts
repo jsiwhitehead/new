@@ -1829,7 +1829,7 @@ const sources: Record<
       [/summary="Riḍván.*/gm, ""],
       [
         /^SOCIAL ACTION\n\n.*\n\n.*/m,
-        '# Social Action\nauthor="The Office of Social and Economic Development"\nyears=[2012.1126,2012.1126]\ndate="26 November 2012"',
+        '# Social Action (OSED)\nauthor="Documents"\nyears=[2012.1126,2012.1126]\ndate="26 November 2012"',
       ],
       [/^A CODIFICATION OF THE[\s\S]*?(# Letter dated 24)/m, (_, a) => a],
       [/^## A Codification of[\s\S]*?(## The Development of)/m, (_, a) => a],
@@ -1983,7 +1983,7 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
       [/^A statement prepared by the Bahá’í.*/m, ""],
       removeAfter("Notes"),
       title("", "Bahá’u’lláh", {
-        author: "Commissioned by the Universal House of Justice",
+        author: "Documents",
         years: [1992.0529, 1992.0529],
       }),
       [/^[A-Z].{1,80}[a-z?]$/gm, (a) => `# ${a}`],
@@ -1995,7 +1995,7 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
       ["Naw‑Rúz, 158 B.E.", ""],
       removeAfter("Notes"),
       title("", "Century of Light", {
-        author: "Commissioned by the Universal House of Justice",
+        author: "Documents",
         years: [2001.0321, 2001.0321],
       }),
       [/\n^Century of Light$/m, "\n# Century of Light"],
@@ -2009,17 +2009,38 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
       ["Naw‑Rúz, 2005", ""],
       removeAfter("References"),
       title("", "One Common Faith", {
-        author: "Commissioned by the Universal House of Justice",
+        author: "Documents",
         years: [2005.0321, 2005.0321],
       }),
       title("#", "Foreword", { meta: "The Universal House of Justice" }),
       ["\nOne Common Faith", "\n# One Common Faith"],
     ],
+    "aqdas-place-literature": [
+      removeAfter("+"),
+      [
+        "THE KITÁB‑I‑AQDAS\n\nITS PLACE IN BAHÁ’Í LITERATURE",
+        "The Kitáb-i-Aqdas: Its Place in Bahá’í Literature",
+      ],
+      title("", "The Kitáb-i-Aqdas: Its Place in Bahá’í Literature", {
+        author: "Documents",
+        years: [1993.0101, 1993.0101],
+      }),
+      [
+        "THE KITÁB‑I‑AQDAS AND THE BAHÁ’Í COMMUNITY",
+        "The Kitáb‑i‑Aqdas and the Bahá’í Community",
+      ],
+      [/^[A-Z].{1,80}[a-z]$/gm, (a) => `# ${a}`],
+      [
+        "# The Kitáb-i-Aqdas: Its Place in Bahá’í Literature",
+        "The Kitáb-i-Aqdas: Its Place in Bahá’í Literature",
+      ],
+    ],
     "prosperity-humankind": [
       [/^A statement prepared by the Bahá’í.*/m, ""],
       removeAfter("This document has been downloaded"),
-      title("", "The Prosperity of Humankind", {
-        author: "Bahá’í International Community",
+      ["The Prosperity of Humankind", "The Prosperity of Humankind (BIC)"],
+      title("", "The Prosperity of Humankind (BIC)", {
+        author: "Documents",
         years: [1995.0303, 1995.0303],
       }),
       [/^[A-Z]{1,5}$/gm, "***"],
@@ -2034,33 +2055,14 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
         "Recognising the Historical Context:\n\nA Call to World Leaders",
         "Recognising the Historical Context: A Call to World Leaders",
       ],
-      title("", "Turning Point for All Nations", {
-        author: "Bahá’í International Community",
+      ["Turning Point for All Nations", "Turning Point for All Nations (BIC)"],
+      title("", "Turning Point for All Nations (BIC)", {
+        author: "Documents",
         years: [1995.1001, 1995.1001],
       }),
       [/^[IV]{1,5}\. (.*)$/gm, (_, a) => `# ${a}`],
       [/^[A-D]{1,5}\. (.*)$/gm, (_, a) => `## ${a}`],
       [/^\d+\. (.*)$/gm, (_, a) => `### ${a}`],
-    ],
-    "aqdas-place-literature": [
-      removeAfter("+"),
-      [
-        "THE KITÁB‑I‑AQDAS\n\nITS PLACE IN BAHÁ’Í LITERATURE",
-        "The Kitáb-i-Aqdas: Its Place in Bahá’í Literature",
-      ],
-      title("", "The Kitáb-i-Aqdas: Its Place in Bahá’í Literature", {
-        author: "Commissioned by the Universal House of Justice",
-        years: [1993.0101, 1993.0101],
-      }),
-      [
-        "THE KITÁB‑I‑AQDAS AND THE BAHÁ’Í COMMUNITY",
-        "The Kitáb‑i‑Aqdas and the Bahá’í Community",
-      ],
-      [/^[A-Z].{1,80}[a-z]$/gm, (a) => `# ${a}`],
-      [
-        "# The Kitáb-i-Aqdas: Its Place in Bahá’í Literature",
-        "The Kitáb-i-Aqdas: Its Place in Bahá’í Literature",
-      ],
     ],
   },
   prayers: {

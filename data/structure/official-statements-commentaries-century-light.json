@@ -1,12 +1,8 @@
 [
   {
-    "id": "6/2/1",
+    "id": "7/2/1",
     "path": [
-      [
-        "Commissioned by the Universal House of Justice",
-        "commissioned-the-universal-house-of-justice",
-        6
-      ],
+      ["Documents", "documents", 7],
       ["Century of Light", "century-light", 2],
       ["Foreword", "foreword", 1]
     ],
@@ -18,13 +14,9 @@
     ]
   },
   {
-    "id": "6/2/2",
+    "id": "7/2/2",
     "path": [
-      [
-        "Commissioned by the Universal House of Justice",
-        "commissioned-the-universal-house-of-justice",
-        6
-      ],
+      ["Documents", "documents", 7],
       ["Century of Light", "century-light", 2]
     ],
     "years": [2001.0321, 2001.0321],

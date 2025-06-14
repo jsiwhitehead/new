@@ -2985,8 +2985,8 @@ You are encouraged to share the document with those friends and agencies in your
 
 @ Department of the Secretariat
 
-# Social Action
-author="The Office of Social and Economic Development"
+# Social Action (OSED)
+author="Documents"
 years=[2012.1126,2012.1126]
 date="26 November 2012"
 

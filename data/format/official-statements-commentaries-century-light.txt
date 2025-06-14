@@ -1,5 +1,5 @@
 Century of Light
-author="Commissioned by the Universal House of Justice"
+author="Documents"
 years=[2001.0321,2001.0321]
 
 # Foreword

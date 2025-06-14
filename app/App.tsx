@@ -208,7 +208,16 @@ export default function App() {
                               )
                           ) {
                             return (
-                              <span key={`${i}-${j}`}>
+                              <span
+                                style={{
+                                  padding: "2.4px 0",
+                                  background:
+                                    l.quoted > 0
+                                      ? `rgb(255, ${240 - l.quoted * 10}, ${240 - l.quoted * 10})`
+                                      : "",
+                                }}
+                                key={`${i}-${j}`}
+                              >
                                 {inner}{" "}
                                 {l.quote.map(([label, url], k) => (
                                   <span
