@@ -37,9 +37,11 @@ const allKeys = [...Object.keys(fixes["*"]), ...Object.keys(spellings)];
 const capitalise = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 (async () => {
-  fs.emptyDirSync("./data/tidy");
+  // fs.emptyDirSync("./data/tidy");
 
-  for (const author of Object.keys(sources)) {
+  for (const author of Object.keys(sources).filter(
+    (x) => x === "compilations"
+  )) {
     await Promise.all(
       Object.keys(sources[author]!).map(async (file) => {
         const id = `${author}-${file}`;
