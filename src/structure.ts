@@ -18,6 +18,8 @@ const indexAuthors = {
   "Shoghi Effendi": 5,
   "The Universal House of Justice": 6,
   Documents: 7,
+  Compilations: 8,
+  Books: 9,
 } as Record<string, number>;
 
 const urlAuthors = {
@@ -28,6 +30,8 @@ const urlAuthors = {
   "Shoghi Effendi": "shoghi-effendi",
   "The Universal House of Justice": "the-universal-house-of-justice",
   Documents: "documents",
+  Compilations: "compilations",
+  Books: "books",
 } as Record<string, string>;
 
 export type SectionContent =

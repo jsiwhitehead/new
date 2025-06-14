@@ -13,6 +13,8 @@ const authorColours = {
   "Shoghi Effendi": "#f39c12",
   "The Universal House of Justice": "#4834d4",
   Documents: "#8e44ad",
+  Compilations: "#8e44ad",
+  Books: "#8e44ad",
 } as Record<string, string>;
 
 const collapseSingleKeys = (
