@@ -557,19 +557,30 @@ const getDataText = (data: any, c: SectionContent): string => {
   });
 
   const allQuoted = sections.flatMap((section: Section) =>
-    section.content.flatMap((c, i) =>
-      Array.isArray(c)
-        ? c
-            .filter((a) => typeof a !== "string")
-            .map((a) => ({ ...a, refSection: section.id, refParagraph: i }))
-        : []
-    )
+    section.content.flatMap((c, i) => {
+      if (!Array.isArray(c)) return [];
+      let index = 0;
+      return c.flatMap((a) => {
+        const text = typeof a === "string" ? a : getDataQuote(sections, a);
+        const start = index;
+        index += text.length;
+        if (typeof a === "string") return [];
+        return [
+          {
+            ...a,
+            refSection: section.id,
+            refParagraph: i,
+            refStart: start,
+            refEnd: index,
+          },
+        ];
+      });
+    })
   );
   for (const section of sections) {
     const sectionQuoted = allQuoted.filter((a) => a.section === section.id);
     const quoted = {} as any;
     section.content.forEach((_: any, i: any) => {
-      const stripped = strippedMap.get(`${section.id}:${i}`);
       const paraQuoted = sectionQuoted.filter((a) => a.paragraph === i);
       if (paraQuoted.length > 0) {
         const paras = [
@@ -581,37 +592,14 @@ const getDataText = (data: any, c: SectionContent): string => {
           const quoted = paraQuoted.filter(
             (q) => `${q.refSection}:${q.refParagraph}` === para
           );
-          const [refSection, refParagraph] = para.split(":") as any;
           quoted.sort((a, b) => a.start - b.start);
-          const merged = [quoted[0]!];
-          for (let j = 1; j < quoted.length; j++) {
-            const last = merged[merged.length - 1]!;
-            const current = quoted[j]!;
-            // const words = stripped
-            //   .slice(last.end, current.start)
-            //   .replace(/\[[^\]]*\]/g, "")
-            //   .replace(/[^a-z0-9‑]/g, " ")
-            //   .split(/ +/g)
-            //   .filter((a: any) => a);
-            // if (words.length > 0 && words.length < 2) console.log(words);
-            if (
-              current.start <= last.end ||
-              !/[a-z0-9]/.test(
-                stripped
-                  .slice(last.end, current.start)
-                  .replace(/\[[^\]]*\]/g, "")
-              )
-            ) {
-              last.end = Math.max(last.end, current.end);
-            } else {
-              merged.push(current);
-            }
-          }
-          return merged.map((q) => ({
+          return quoted.map((q) => ({
             start: q.start,
             end: q.end,
-            section: refSection,
-            paragraph: refParagraph,
+            section: q.refSection,
+            paragraph: q.refParagraph,
+            refStart: q.refStart,
+            refEnd: q.refEnd,
           }));
         });
       }

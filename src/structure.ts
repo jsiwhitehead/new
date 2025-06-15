@@ -60,7 +60,14 @@ export interface Section {
   prayer?: string;
   quoted?: Record<
     string,
-    { start: number; end: number; section: string; paragraph: number }[]
+    {
+      start: number;
+      end: number;
+      section: string;
+      paragraph: number;
+      refStart: number;
+      refEnd: number;
+    }[]
   >;
   content: SectionContent[];
 }

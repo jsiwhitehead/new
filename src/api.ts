@@ -185,6 +185,60 @@ const getUrlPath = ({
   return res;
 };
 
+function getRangeIntersection(
+  start1: number,
+  end1: number,
+  start2: number,
+  end2: number
+) {
+  const start = Math.max(start1, start2);
+  const end = Math.min(end1, end2);
+  if (start < end) return { start, end };
+  else return null;
+}
+
+const getAllQuotes = (quote: {
+  start: number;
+  end: number;
+  section: string;
+  paragraph: number;
+  refStart: number;
+  refEnd: number;
+}): {
+  start: number;
+  end: number;
+  section: string;
+  paragraph: number;
+  refStart: number;
+  refEnd: number;
+}[] => {
+  const offset = quote.start - quote.refStart;
+  return [
+    quote,
+    ...(
+      (data.find((d) => d.id === quote.section)!.quoted || {})[
+        quote.paragraph
+      ] || []
+    ).flatMap((q2) => {
+      const overlap = getRangeIntersection(
+        quote.refStart,
+        quote.refEnd,
+        q2.start,
+        q2.end
+      );
+      if (!overlap) return [];
+      return getAllQuotes({
+        start: overlap.start + offset,
+        end: overlap.end + offset,
+        section: q2.section,
+        paragraph: q2.paragraph,
+        refStart: overlap.start,
+        refEnd: overlap.end,
+      });
+    }),
+  ];
+};
+
 export default function getData(...urlPath: string[]): RenderSection[] {
   const showContent =
     data.find(
@@ -197,11 +251,74 @@ export default function getData(...urlPath: string[]): RenderSection[] {
       "bahaullah/gleanings-writings-bahaullah",
     ].includes(urlPath.join("/")) ||
     (urlPath.length > 1 &&
-      ["documents", "ruhi", "compilations"].includes(urlPath[0]!));
+      ["documents", "ruhi", "compilations"].includes(urlPath[0]!)) ||
+    (urlPath.length > 2 && urlPath[1] === "bahaullah-new-era");
   const filtered = data.filter(
     (d) => !d.meta && urlPath.every((p, i) => d.path[i]?.[1] === p)
   );
   if (!showContent) return filtered as any;
+  const mappedQuoted = filtered.map((d) =>
+    Object.keys(d.quoted || {}).reduce((res, k) => {
+      const text = getText(d.content[k as any]!);
+      const allQuotes = d.quoted![k]!.flatMap((q) => getAllQuotes(q));
+      const allRefs = [
+        ...new Set(
+          allQuotes.map((q) => JSON.stringify([q.section, q.paragraph]))
+        ),
+      ].map((x) => JSON.parse(x));
+      return {
+        ...res,
+        [k]: allRefs
+          .flatMap((ref) => {
+            const [refSection, refParagraph] = ref;
+            const refQuotes = allQuotes.filter(
+              (q) => q.section === refSection && q.paragraph === refParagraph
+            );
+            refQuotes.sort((a, b) => a.start - b.start);
+            const merged = [refQuotes[0]!];
+            for (let j = 1; j < refQuotes.length; j++) {
+              const last = merged[merged.length - 1]!;
+              const current = refQuotes[j]!;
+              if (
+                current.start <= last.end ||
+                !/[a-z0-9]/.test(
+                  text.slice(last.end, current.start).replace(/\[[^\]]*\]/g, "")
+                )
+              ) {
+                last.end = Math.max(last.end, current.end);
+              } else {
+                merged.push(current);
+              }
+            }
+            return merged;
+          })
+          .sort((aQuote, bQuote) => {
+            const aDoc = data.find((d) => d.id === aQuote.section)!;
+            const bDoc = data.find((d) => d.id === bQuote.section)!;
+
+            const a = aDoc.path.map((p: [string, string, number]) => p[2]);
+            const b = bDoc.path.map((p: [string, string, number]) => p[2]);
+
+            const len = Math.max(a.length, b.length);
+            for (let i = 0; i < len; i++) {
+              const aVal = a[i];
+              const bVal = b[i];
+
+              if (aVal === undefined) return -1;
+              if (bVal === undefined) return 1;
+
+              if (aVal !== bVal && aVal === 0) return 1;
+              if (aVal !== bVal && bVal === 0) return -1;
+
+              if (aVal < bVal) return -1;
+              if (aVal > bVal) return 1;
+            }
+            return 0;
+          }),
+      };
+    }, {})
+  );
+  filtered.forEach((d, i) => (d.quoted = mappedQuoted[i]));
   return filtered.map((d) => {
     const content = d.content.map((c, i): SemiRenderContent => {
       const para = getParagraph(c);
@@ -224,9 +341,6 @@ export default function getData(...urlPath: string[]): RenderSection[] {
               ([".", "!", "?"].includes(pre[pre.length - 1]!) &&
                 !pre.endsWith(". . ."))
             ) {
-              // if (line[i]!.text !== capitalised(line[i]!.text)) {
-              //   console.log(line[i]!.text);
-              // }
               line[i]!.text = capitalised(line[i]!.text);
             }
           }

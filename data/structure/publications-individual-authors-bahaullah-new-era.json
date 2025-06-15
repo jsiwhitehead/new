@@ -107,11 +107,28 @@
       ["Introduction", "introduction", 6]
     ],
     "years": [2006, 2006],
+    "meta": "John E. Esslemont",
     "content": [
       "In December 1914, through a conversation with friends who had met ‘Abdu’l‑Bahá, and the loan of a few pamphlets, I first became acquainted with the Bahá’í teachings. I was at once struck by their comprehensiveness, power and beauty. They impressed me as meeting the great needs of the modern world more fully and satisfactorily than any other presentation of religion which I had come across—an impression which subsequent study has only served to deepen and confirm.",
       "In seeking for fuller knowledge about the movement I found considerable difficulty in obtaining the literature I wanted, and soon conceived the idea of putting together the gist of what I learned in the form of a book, so that it might be more easily available for others. When communication with Palestine was reopened after the war, I wrote to ‘Abdu’l‑Bahá and enclosed a copy of the first nine chapters of the book, which was then almost complete in rough draught. I received a very kind and encouraging reply, and a cordial invitation to visit Him in Haifa and bring the whole of my manuscript with me. The invitation was gladly accepted, and I had the great privilege of spending two and a half months as the guest of ‘Abdu’l‑Bahá during the winter of 1919—1920. During this visit ‘Abdu’l‑Bahá discussed the book with me on various occasions. He gave several valuable suggestions for its improvement and proposed that, when I had revised the manuscript, He would have the whole of it translated into Persian so that He could read it through and amend or correct it where necessary. The revisal and translation were carried out as suggested, and ‘Abdu’l‑Bahá found time, amid His busy life, to correct some three and a half chapters (Chapters 1, 2, 5 and part of 3) before He passed away. It is a matter of profound regret to me that ‘Abdu’l‑Bahá was not able to complete the correction of the manuscript, as the value of the book would thereby have been greatly enhanced. The whole of the manuscript has been carefully revised, however, by a committee of the National Bahá’í Assembly of England, and its publication approved by that Assembly.",
       "I am greatly indebted to Miss E. J. Rosenberg, Mrs. Claudia S. Coles, Mírzá Luṭfu’lláh S. Ḥakím, Messrs. Roy Wilhelm and Mountfort Mills and many other kind friends for valuable help in the preparation of the work.",
       "As regards the transliteration of Arabic and Persian names and words, the system adopted in this book is that recently recommended by Shoghi Effendi for use throughout the Bahá’í World."
+    ]
+  },
+  {
+    "id": "10/1/7",
+    "path": [
+      ["Books", "books", 10],
+      [
+        "Bahá’u’lláh and the New Era (John E. Esslemont)",
+        "bahaullah-new-era",
+        1
+      ],
+      ["The Glad Tidings", "the-glad-tidings", 7]
+    ],
+    "years": [2006, 2006],
+    "content": [
+      "The Promised One of all the peoples of the world hath appeared. All peoples and communities have been expecting a Revelation, and He, Bahá’u’lláh, is the foremost teacher and educator of all mankind."
     ]
   },
   {
@@ -123,25 +140,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Glad Tidings", "the-glad-tidings", 1]
-    ],
-    "years": [2006, 2006],
-    "content": [
-      "The Promised One of all the peoples of the world hath appeared. All peoples and communities have been expecting a Revelation, and He, Bahá’u’lláh, is the foremost teacher and educator of all mankind."
-    ]
-  },
-  {
-    "id": "10/1/7/1/1",
-    "path": [
-      ["Books", "books", 10],
-      [
-        "Bahá’u’lláh and the New Era (John E. Esslemont)",
-        "bahaullah-new-era",
-        1
-      ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Glad Tidings", "the-glad-tidings", 1],
+      ["The Glad Tidings", "the-glad-tidings", 7],
       ["The Greatest Event in History", "the-greatest-event-in-history", 1]
     ],
     "years": [2006, 2006],
@@ -154,7 +153,7 @@
     ]
   },
   {
-    "id": "10/1/7/1/2",
+    "id": "10/1/7/2",
     "path": [
       ["Books", "books", 10],
       [
@@ -162,8 +161,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Glad Tidings", "the-glad-tidings", 1],
+      ["The Glad Tidings", "the-glad-tidings", 7],
       ["The Changing World", "the-changing-world", 2]
     ],
     "years": [2006, 2006],
@@ -175,7 +173,7 @@
     ]
   },
   {
-    "id": "10/1/7/1/3",
+    "id": "10/1/7/3",
     "path": [
       ["Books", "books", 10],
       [
@@ -183,8 +181,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Glad Tidings", "the-glad-tidings", 1],
+      ["The Glad Tidings", "the-glad-tidings", 7],
       ["The Sun of Righteousness", "the-sun-of-righteousness", 3]
     ],
     "years": [2006, 2006],
@@ -195,7 +192,7 @@
     ]
   },
   {
-    "id": "10/1/7/1/4",
+    "id": "10/1/7/4",
     "path": [
       ["Books", "books", 10],
       [
@@ -203,8 +200,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Glad Tidings", "the-glad-tidings", 1],
+      ["The Glad Tidings", "the-glad-tidings", 7],
       ["The Mission of Bahá’u’lláh", "the-mission-of-bahaullah", 4]
     ],
     "years": [2006, 2006],
@@ -215,7 +211,7 @@
     ]
   },
   {
-    "id": "10/1/7/1/5",
+    "id": "10/1/7/5",
     "path": [
       ["Books", "books", 10],
       [
@@ -223,8 +219,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Glad Tidings", "the-glad-tidings", 1],
+      ["The Glad Tidings", "the-glad-tidings", 7],
       ["Fulfilment of Prophecies", "fulfilment-of-prophecies", 5]
     ],
     "years": [2006, 2006],
@@ -238,7 +233,7 @@
     ]
   },
   {
-    "id": "10/1/7/1/6",
+    "id": "10/1/7/6",
     "path": [
       ["Books", "books", 10],
       [
@@ -246,8 +241,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Glad Tidings", "the-glad-tidings", 1],
+      ["The Glad Tidings", "the-glad-tidings", 7],
       ["Proofs of Prophethood", "proofs-of-prophethood", 6]
     ],
     "years": [2006, 2006],
@@ -260,7 +254,7 @@
     ]
   },
   {
-    "id": "10/1/7/1/7",
+    "id": "10/1/7/7",
     "path": [
       ["Books", "books", 10],
       [
@@ -268,8 +262,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Glad Tidings", "the-glad-tidings", 1],
+      ["The Glad Tidings", "the-glad-tidings", 7],
       ["Difficulties of Investigation", "difficulties-of-investigation", 7]
     ],
     "years": [2006, 2006],
@@ -279,7 +272,7 @@
     ]
   },
   {
-    "id": "10/1/7/1/8",
+    "id": "10/1/7/8",
     "path": [
       ["Books", "books", 10],
       [
@@ -287,8 +280,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Glad Tidings", "the-glad-tidings", 1],
+      ["The Glad Tidings", "the-glad-tidings", 7],
       ["Aim of Book", "aim-of-book", 8]
     ],
     "years": [2006, 2006],
@@ -299,7 +291,7 @@
     ]
   },
   {
-    "id": "10/1/7/2",
+    "id": "10/1/8",
     "path": [
       ["Books", "books", 10],
       [
@@ -307,8 +299,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Báb: The Forerunner", "the-bab-the-forerunner", 2]
+      ["The Báb: The Forerunner", "the-bab-the-forerunner", 8]
     ],
     "years": [2006, 2006],
     "content": [
@@ -316,7 +307,7 @@
     ]
   },
   {
-    "id": "10/1/7/2/1",
+    "id": "10/1/8/1",
     "path": [
       ["Books", "books", 10],
       [
@@ -324,8 +315,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Báb: The Forerunner", "the-bab-the-forerunner", 2],
+      ["The Báb: The Forerunner", "the-bab-the-forerunner", 8],
       [
         "Birthplace of the New Revelation",
         "birthplace-of-the-new-revelation",
@@ -341,7 +331,7 @@
     ]
   },
   {
-    "id": "10/1/7/2/2",
+    "id": "10/1/8/2",
     "path": [
       ["Books", "books", 10],
       [
@@ -349,8 +339,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Báb: The Forerunner", "the-bab-the-forerunner", 2],
+      ["The Báb: The Forerunner", "the-bab-the-forerunner", 8],
       ["Early Life", "early-life", 2]
     ],
     "years": [2006, 2006],
@@ -360,7 +349,7 @@
     ]
   },
   {
-    "id": "10/1/7/2/3",
+    "id": "10/1/8/3",
     "path": [
       ["Books", "books", 10],
       [
@@ -368,8 +357,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Báb: The Forerunner", "the-bab-the-forerunner", 2],
+      ["The Báb: The Forerunner", "the-bab-the-forerunner", 8],
       ["Declaration", "declaration", 3]
     ],
     "years": [2006, 2006],
@@ -379,7 +367,7 @@
     ]
   },
   {
-    "id": "10/1/7/2/4",
+    "id": "10/1/8/4",
     "path": [
       ["Books", "books", 10],
       [
@@ -387,8 +375,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Báb: The Forerunner", "the-bab-the-forerunner", 2],
+      ["The Báb: The Forerunner", "the-bab-the-forerunner", 8],
       ["Spread of the Bábí Movement", "spread-of-the-babi-movement", 4]
     ],
     "years": [2006, 2006],
@@ -397,7 +384,7 @@
     ]
   },
   {
-    "id": "10/1/7/2/5",
+    "id": "10/1/8/5",
     "path": [
       ["Books", "books", 10],
       [
@@ -405,8 +392,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Báb: The Forerunner", "the-bab-the-forerunner", 2],
+      ["The Báb: The Forerunner", "the-bab-the-forerunner", 8],
       ["Claims of the Báb", "claims-of-the-bab", 5]
     ],
     "years": [2006, 2006],
@@ -416,7 +402,7 @@
     ]
   },
   {
-    "id": "10/1/7/2/6",
+    "id": "10/1/8/6",
     "path": [
       ["Books", "books", 10],
       [
@@ -424,8 +410,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Báb: The Forerunner", "the-bab-the-forerunner", 2],
+      ["The Báb: The Forerunner", "the-bab-the-forerunner", 8],
       ["Persecution Increases", "persecution-increases", 6]
     ],
     "years": [2006, 2006],
@@ -435,7 +420,7 @@
     ]
   },
   {
-    "id": "10/1/7/2/7",
+    "id": "10/1/8/7",
     "path": [
       ["Books", "books", 10],
       [
@@ -443,8 +428,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Báb: The Forerunner", "the-bab-the-forerunner", 2],
+      ["The Báb: The Forerunner", "the-bab-the-forerunner", 8],
       ["Martyrdom of the Báb", "martyrdom-of-the-bab", 7]
     ],
     "years": [2006, 2006],
@@ -454,7 +438,7 @@
     ]
   },
   {
-    "id": "10/1/7/2/8",
+    "id": "10/1/8/8",
     "path": [
       ["Books", "books", 10],
       [
@@ -462,8 +446,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Báb: The Forerunner", "the-bab-the-forerunner", 2],
+      ["The Báb: The Forerunner", "the-bab-the-forerunner", 8],
       ["Tomb on Mount Carmel", "tomb-on-mount-carmel", 8]
     ],
     "years": [2006, 2006],
@@ -472,7 +455,7 @@
     ]
   },
   {
-    "id": "10/1/7/2/9",
+    "id": "10/1/8/9",
     "path": [
       ["Books", "books", 10],
       [
@@ -480,8 +463,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Báb: The Forerunner", "the-bab-the-forerunner", 2],
+      ["The Báb: The Forerunner", "the-bab-the-forerunner", 8],
       ["Writings of Báb", "writings-of-bab", 9]
     ],
     "years": [2006, 2006],
@@ -492,7 +474,7 @@
     ]
   },
   {
-    "id": "10/1/7/2/10",
+    "id": "10/1/8/10",
     "path": [
       ["Books", "books", 10],
       [
@@ -500,8 +482,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Báb: The Forerunner", "the-bab-the-forerunner", 2],
+      ["The Báb: The Forerunner", "the-bab-the-forerunner", 8],
       ["He Whom God Shall Make Manifest", "he-whom-god-shall-make-manifest", 10]
     ],
     "years": [2006, 2006],
@@ -511,7 +492,7 @@
     ]
   },
   {
-    "id": "10/1/7/2/11",
+    "id": "10/1/8/11",
     "path": [
       ["Books", "books", 10],
       [
@@ -519,8 +500,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Báb: The Forerunner", "the-bab-the-forerunner", 2],
+      ["The Báb: The Forerunner", "the-bab-the-forerunner", 8],
       ["Resurrection, Paradise, and Hell", "resurrection-paradise-and-hell", 11]
     ],
     "years": [2006, 2006],
@@ -529,7 +509,7 @@
     ]
   },
   {
-    "id": "10/1/7/2/12",
+    "id": "10/1/8/12",
     "path": [
       ["Books", "books", 10],
       [
@@ -537,8 +517,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Báb: The Forerunner", "the-bab-the-forerunner", 2],
+      ["The Báb: The Forerunner", "the-bab-the-forerunner", 8],
       ["Social and Ethical Teachings", "social-and-ethical-teachings", 12]
     ],
     "years": [2006, 2006],
@@ -549,7 +528,7 @@
     ]
   },
   {
-    "id": "10/1/7/2/13",
+    "id": "10/1/8/13",
     "path": [
       ["Books", "books", 10],
       [
@@ -557,8 +536,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Báb: The Forerunner", "the-bab-the-forerunner", 2],
+      ["The Báb: The Forerunner", "the-bab-the-forerunner", 8],
       ["Passion and Triumph", "passion-and-triumph", 13]
     ],
     "years": [2006, 2006],
@@ -569,7 +547,7 @@
     ]
   },
   {
-    "id": "10/1/7/3",
+    "id": "10/1/9",
     "path": [
       ["Books", "books", 10],
       [
@@ -577,8 +555,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 3]
+      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 9]
     ],
     "years": [2006, 2006],
     "content": [
@@ -586,7 +563,7 @@
     ]
   },
   {
-    "id": "10/1/7/3/1",
+    "id": "10/1/9/1",
     "path": [
       ["Books", "books", 10],
       [
@@ -594,8 +571,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 3],
+      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 9],
       ["Birth and Early Life", "birth-and-early-life", 1]
     ],
     "years": [2006, 2006],
@@ -607,7 +583,7 @@
     ]
   },
   {
-    "id": "10/1/7/3/2",
+    "id": "10/1/9/2",
     "path": [
       ["Books", "books", 10],
       [
@@ -615,8 +591,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 3],
+      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 9],
       ["Imprisoned as Bábí", "imprisoned-as-babi", 2]
     ],
     "years": [2006, 2006],
@@ -629,7 +604,7 @@
     ]
   },
   {
-    "id": "10/1/7/3/3",
+    "id": "10/1/9/3",
     "path": [
       ["Books", "books", 10],
       [
@@ -637,8 +612,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 3],
+      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 9],
       ["Exile to Baghdád", "exile-to-baghdad", 3]
     ],
     "years": [2006, 2006],
@@ -649,7 +623,7 @@
     ]
   },
   {
-    "id": "10/1/7/3/4",
+    "id": "10/1/9/4",
     "path": [
       ["Books", "books", 10],
       [
@@ -657,8 +631,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 3],
+      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 9],
       ["Two Years in the Wilderness", "two-years-in-the-wilderness", 4]
     ],
     "years": [2006, 2006],
@@ -669,7 +642,7 @@
     ]
   },
   {
-    "id": "10/1/7/3/5",
+    "id": "10/1/9/5",
     "path": [
       ["Books", "books", 10],
       [
@@ -677,8 +650,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 3],
+      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 9],
       ["Opposition of Mullás", "opposition-of-mullas", 5]
     ],
     "years": [2006, 2006],
@@ -688,7 +660,7 @@
     ]
   },
   {
-    "id": "10/1/7/3/6",
+    "id": "10/1/9/6",
     "path": [
       ["Books", "books", 10],
       [
@@ -696,8 +668,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 3],
+      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 9],
       [
         "Declaration at Riḍván near Baghdád",
         "declaration-at-ridvan-near-baghdad",
@@ -710,7 +681,7 @@
     ]
   },
   {
-    "id": "10/1/7/3/7",
+    "id": "10/1/9/7",
     "path": [
       ["Books", "books", 10],
       [
@@ -718,8 +689,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 3],
+      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 9],
       ["Constantinople and Adrianople", "constantinople-and-adrianople", 7]
     ],
     "years": [2006, 2006],
@@ -728,7 +698,7 @@
     ]
   },
   {
-    "id": "10/1/7/3/8",
+    "id": "10/1/9/8",
     "path": [
       ["Books", "books", 10],
       [
@@ -736,8 +706,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 3],
+      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 9],
       ["Letters to Kings", "letters-to-kings", 8]
     ],
     "years": [2006, 2006],
@@ -751,7 +720,7 @@
     ]
   },
   {
-    "id": "10/1/7/3/9",
+    "id": "10/1/9/9",
     "path": [
       ["Books", "books", 10],
       [
@@ -759,8 +728,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 3],
+      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 9],
       ["Imprisonment in ‘Akká", "imprisonment-in-akka", 9]
     ],
     "years": [2006, 2006],
@@ -771,7 +739,7 @@
     ]
   },
   {
-    "id": "10/1/7/3/10",
+    "id": "10/1/9/10",
     "path": [
       ["Books", "books", 10],
       [
@@ -779,8 +747,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 3],
+      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 9],
       ["Restrictions Relaxed", "restrictions-relaxed", 10]
     ],
     "years": [2006, 2006],
@@ -789,7 +756,7 @@
     ]
   },
   {
-    "id": "10/1/7/3/11",
+    "id": "10/1/9/11",
     "path": [
       ["Books", "books", 10],
       [
@@ -797,8 +764,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 3],
+      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 9],
       ["Prison Gates Opened", "prison-gates-opened", 11]
     ],
     "years": [2006, 2006],
@@ -813,7 +779,7 @@
     ]
   },
   {
-    "id": "10/1/7/3/12",
+    "id": "10/1/9/12",
     "path": [
       ["Books", "books", 10],
       [
@@ -821,8 +787,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 3],
+      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 9],
       ["Life at Bahjí", "life-at-bahji", 12]
     ],
     "years": [2006, 2006],
@@ -835,7 +800,7 @@
     ]
   },
   {
-    "id": "10/1/7/3/13",
+    "id": "10/1/9/13",
     "path": [
       ["Books", "books", 10],
       [
@@ -843,8 +808,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 3],
+      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 9],
       ["Ascension", "ascension", 13]
     ],
     "years": [2006, 2006],
@@ -853,7 +817,7 @@
     ]
   },
   {
-    "id": "10/1/7/3/14",
+    "id": "10/1/9/14",
     "path": [
       ["Books", "books", 10],
       [
@@ -861,8 +825,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 3],
+      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 9],
       ["Prophethood of Bahá’u’lláh", "prophethood-of-bahaullah", 14]
     ],
     "years": [2006, 2006],
@@ -885,7 +848,7 @@
     ]
   },
   {
-    "id": "10/1/7/3/15",
+    "id": "10/1/9/15",
     "path": [
       ["Books", "books", 10],
       [
@@ -893,8 +856,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 3],
+      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 9],
       ["His Mission", "his-mission", 15]
     ],
     "years": [2006, 2006],
@@ -912,7 +874,7 @@
     ]
   },
   {
-    "id": "10/1/7/3/16",
+    "id": "10/1/9/16",
     "path": [
       ["Books", "books", 10],
       [
@@ -920,8 +882,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 3],
+      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 9],
       ["His Writings", "his-writings", 16]
     ],
     "years": [2006, 2006],
@@ -934,7 +895,7 @@
     ]
   },
   {
-    "id": "10/1/7/3/17",
+    "id": "10/1/9/17",
     "path": [
       ["Books", "books", 10],
       [
@@ -942,8 +903,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 3],
+      ["Bahá’u’lláh: The Glory of God", "bahaullah-the-glory-of-god", 9],
       ["The Bahá’í Spirit", "the-bahai-spirit", 17]
     ],
     "years": [2006, 2006],
@@ -954,7 +914,7 @@
     ]
   },
   {
-    "id": "10/1/7/4",
+    "id": "10/1/10",
     "path": [
       ["Books", "books", 10],
       [
@@ -962,8 +922,11 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["‘Abdu’l‑Bahá: The Servant of Bahá", "abdul-baha-the-servant-of-baha", 4]
+      [
+        "‘Abdu’l‑Bahá: The Servant of Bahá",
+        "abdul-baha-the-servant-of-baha",
+        10
+      ]
     ],
     "years": [2006, 2006],
     "content": [
@@ -971,7 +934,7 @@
     ]
   },
   {
-    "id": "10/1/7/4/1",
+    "id": "10/1/10/1",
     "path": [
       ["Books", "books", 10],
       [
@@ -979,11 +942,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "‘Abdu’l‑Bahá: The Servant of Bahá",
         "abdul-baha-the-servant-of-baha",
-        4
+        10
       ],
       ["Birth and Childhood", "birth-and-childhood", 1]
     ],
@@ -998,7 +960,7 @@
     ]
   },
   {
-    "id": "10/1/7/4/2",
+    "id": "10/1/10/2",
     "path": [
       ["Books", "books", 10],
       [
@@ -1006,11 +968,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "‘Abdu’l‑Bahá: The Servant of Bahá",
         "abdul-baha-the-servant-of-baha",
-        4
+        10
       ],
       ["Youth", "youth", 2]
     ],
@@ -1023,7 +984,7 @@
     ]
   },
   {
-    "id": "10/1/7/4/3",
+    "id": "10/1/10/3",
     "path": [
       ["Books", "books", 10],
       [
@@ -1031,11 +992,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "‘Abdu’l‑Bahá: The Servant of Bahá",
         "abdul-baha-the-servant-of-baha",
-        4
+        10
       ],
       ["Marriage", "marriage", 3]
     ],
@@ -1047,7 +1007,7 @@
     ]
   },
   {
-    "id": "10/1/7/4/4",
+    "id": "10/1/10/4",
     "path": [
       ["Books", "books", 10],
       [
@@ -1055,11 +1015,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "‘Abdu’l‑Bahá: The Servant of Bahá",
         "abdul-baha-the-servant-of-baha",
-        4
+        10
       ],
       ["Centre of the Covenant", "centre-of-the-covenant", 4]
     ],
@@ -1071,7 +1030,7 @@
     ]
   },
   {
-    "id": "10/1/7/4/5",
+    "id": "10/1/10/5",
     "path": [
       ["Books", "books", 10],
       [
@@ -1079,11 +1038,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "‘Abdu’l‑Bahá: The Servant of Bahá",
         "abdul-baha-the-servant-of-baha",
-        4
+        10
       ],
       ["Strict Imprisonment Renewed", "strict-imprisonment-renewed", 5]
     ],
@@ -1107,7 +1065,7 @@
     ]
   },
   {
-    "id": "10/1/7/4/6",
+    "id": "10/1/10/6",
     "path": [
       ["Books", "books", 10],
       [
@@ -1115,11 +1073,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "‘Abdu’l‑Bahá: The Servant of Bahá",
         "abdul-baha-the-servant-of-baha",
-        4
+        10
       ],
       [
         "Turkish Commissions of Investigation",
@@ -1135,7 +1092,7 @@
     ]
   },
   {
-    "id": "10/1/7/4/7",
+    "id": "10/1/10/7",
     "path": [
       ["Books", "books", 10],
       [
@@ -1143,11 +1100,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "‘Abdu’l‑Bahá: The Servant of Bahá",
         "abdul-baha-the-servant-of-baha",
-        4
+        10
       ],
       ["Western Tours", "western-tours", 7]
     ],
@@ -1157,7 +1113,7 @@
     ]
   },
   {
-    "id": "10/1/7/4/8",
+    "id": "10/1/10/8",
     "path": [
       ["Books", "books", 10],
       [
@@ -1165,11 +1121,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "‘Abdu’l‑Bahá: The Servant of Bahá",
         "abdul-baha-the-servant-of-baha",
-        4
+        10
       ],
       ["Return to Holy Land", "return-to-holy-land", 8]
     ],
@@ -1190,7 +1145,7 @@
     ]
   },
   {
-    "id": "10/1/7/4/9",
+    "id": "10/1/10/9",
     "path": [
       ["Books", "books", 10],
       [
@@ -1198,11 +1153,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "‘Abdu’l‑Bahá: The Servant of Bahá",
         "abdul-baha-the-servant-of-baha",
-        4
+        10
       ],
       ["War Time at Haifa", "war-time-at-haifa", 9]
     ],
@@ -1214,7 +1168,7 @@
     ]
   },
   {
-    "id": "10/1/7/4/10",
+    "id": "10/1/10/10",
     "path": [
       ["Books", "books", 10],
       [
@@ -1222,11 +1176,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "‘Abdu’l‑Bahá: The Servant of Bahá",
         "abdul-baha-the-servant-of-baha",
-        4
+        10
       ],
       ["Sir ‘Abdu’l‑Bahá ‘Abbás, K.B.E.", "sir-abdul-baha-abbas-kbe", 10]
     ],
@@ -1237,7 +1190,7 @@
     ]
   },
   {
-    "id": "10/1/7/4/11",
+    "id": "10/1/10/11",
     "path": [
       ["Books", "books", 10],
       [
@@ -1245,11 +1198,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "‘Abdu’l‑Bahá: The Servant of Bahá",
         "abdul-baha-the-servant-of-baha",
-        4
+        10
       ],
       ["Last Years", "last-years", 11]
     ],
@@ -1259,7 +1211,7 @@
     ]
   },
   {
-    "id": "10/1/7/4/12",
+    "id": "10/1/10/12",
     "path": [
       ["Books", "books", 10],
       [
@@ -1267,11 +1219,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "‘Abdu’l‑Bahá: The Servant of Bahá",
         "abdul-baha-the-servant-of-baha",
-        4
+        10
       ],
       ["The Passing of ‘Abdu’l‑Bahá", "the-passing-of-abdul-baha", 12]
     ],
@@ -1288,7 +1239,7 @@
     ]
   },
   {
-    "id": "10/1/7/4/13",
+    "id": "10/1/10/13",
     "path": [
       ["Books", "books", 10],
       [
@@ -1296,11 +1247,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "‘Abdu’l‑Bahá: The Servant of Bahá",
         "abdul-baha-the-servant-of-baha",
-        4
+        10
       ],
       ["Writings and Addresses", "writings-and-addresses", 13]
     ],
@@ -1312,7 +1262,7 @@
     ]
   },
   {
-    "id": "10/1/7/4/14",
+    "id": "10/1/10/14",
     "path": [
       ["Books", "books", 10],
       [
@@ -1320,11 +1270,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "‘Abdu’l‑Bahá: The Servant of Bahá",
         "abdul-baha-the-servant-of-baha",
-        4
+        10
       ],
       ["Station of ‘Abdu’l‑Bahá", "station-of-abdul-baha", 14]
     ],
@@ -1340,7 +1289,7 @@
     ]
   },
   {
-    "id": "10/1/7/4/15",
+    "id": "10/1/10/15",
     "path": [
       ["Books", "books", 10],
       [
@@ -1348,11 +1297,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "‘Abdu’l‑Bahá: The Servant of Bahá",
         "abdul-baha-the-servant-of-baha",
-        4
+        10
       ],
       ["Exemplar of Bahá’í Life", "exemplar-of-bahai-life", 15]
     ],
@@ -1362,7 +1310,7 @@
     ]
   },
   {
-    "id": "10/1/7/5",
+    "id": "10/1/11",
     "path": [
       ["Books", "books", 10],
       [
@@ -1370,8 +1318,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["What is a Bahá’í", "what-is-a-bahai", 5]
+      ["What is a Bahá’í", "what-is-a-bahai", 11]
     ],
     "years": [2006, 2006],
     "content": [
@@ -1380,7 +1327,7 @@
     ]
   },
   {
-    "id": "10/1/7/5/1",
+    "id": "10/1/11/1",
     "path": [
       ["Books", "books", 10],
       [
@@ -1388,8 +1335,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["What is a Bahá’í", "what-is-a-bahai", 5],
+      ["What is a Bahá’í", "what-is-a-bahai", 11],
       ["Living the Life", "living-the-life", 1]
     ],
     "years": [2006, 2006],
@@ -1400,7 +1346,7 @@
     ]
   },
   {
-    "id": "10/1/7/5/2",
+    "id": "10/1/11/2",
     "path": [
       ["Books", "books", 10],
       [
@@ -1408,8 +1354,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["What is a Bahá’í", "what-is-a-bahai", 5],
+      ["What is a Bahá’í", "what-is-a-bahai", 11],
       ["Devotion to God", "devotion-to-god", 2]
     ],
     "years": [2006, 2006],
@@ -1419,7 +1364,7 @@
     ]
   },
   {
-    "id": "10/1/7/5/3",
+    "id": "10/1/11/3",
     "path": [
       ["Books", "books", 10],
       [
@@ -1427,8 +1372,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["What is a Bahá’í", "what-is-a-bahai", 5],
+      ["What is a Bahá’í", "what-is-a-bahai", 11],
       ["Search After Truth", "search-after-truth", 3]
     ],
     "years": [2006, 2006],
@@ -1442,7 +1386,7 @@
     ]
   },
   {
-    "id": "10/1/7/5/4",
+    "id": "10/1/11/4",
     "path": [
       ["Books", "books", 10],
       [
@@ -1450,8 +1394,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["What is a Bahá’í", "what-is-a-bahai", 5],
+      ["What is a Bahá’í", "what-is-a-bahai", 11],
       ["Love of God", "love-of-god", 4]
     ],
     "years": [2006, 2006],
@@ -1469,7 +1412,7 @@
     ]
   },
   {
-    "id": "10/1/7/5/5",
+    "id": "10/1/11/5",
     "path": [
       ["Books", "books", 10],
       [
@@ -1477,8 +1420,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["What is a Bahá’í", "what-is-a-bahai", 5],
+      ["What is a Bahá’í", "what-is-a-bahai", 11],
       ["Severance", "severance", 5]
     ],
     "years": [2006, 2006],
@@ -1490,7 +1432,7 @@
     ]
   },
   {
-    "id": "10/1/7/5/6",
+    "id": "10/1/11/6",
     "path": [
       ["Books", "books", 10],
       [
@@ -1498,8 +1440,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["What is a Bahá’í", "what-is-a-bahai", 5],
+      ["What is a Bahá’í", "what-is-a-bahai", 11],
       ["Obedience", "obedience", 6]
     ],
     "years": [2006, 2006],
@@ -1509,7 +1450,7 @@
     ]
   },
   {
-    "id": "10/1/7/5/7",
+    "id": "10/1/11/7",
     "path": [
       ["Books", "books", 10],
       [
@@ -1517,8 +1458,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["What is a Bahá’í", "what-is-a-bahai", 5],
+      ["What is a Bahá’í", "what-is-a-bahai", 11],
       ["Service", "service", 7]
     ],
     "years": [2006, 2006],
@@ -1529,7 +1469,7 @@
     ]
   },
   {
-    "id": "10/1/7/5/8",
+    "id": "10/1/11/8",
     "path": [
       ["Books", "books", 10],
       [
@@ -1537,8 +1477,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["What is a Bahá’í", "what-is-a-bahai", 5],
+      ["What is a Bahá’í", "what-is-a-bahai", 11],
       ["Teaching", "teaching", 8]
     ],
     "years": [2006, 2006],
@@ -1553,7 +1492,7 @@
     ]
   },
   {
-    "id": "10/1/7/5/9",
+    "id": "10/1/11/9",
     "path": [
       ["Books", "books", 10],
       [
@@ -1561,8 +1500,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["What is a Bahá’í", "what-is-a-bahai", 5],
+      ["What is a Bahá’í", "what-is-a-bahai", 11],
       ["Courtesy and Reverence", "courtesy-and-reverence", 9]
     ],
     "years": [2006, 2006],
@@ -1579,7 +1517,7 @@
     ]
   },
   {
-    "id": "10/1/7/5/10",
+    "id": "10/1/11/10",
     "path": [
       ["Books", "books", 10],
       [
@@ -1587,8 +1525,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["What is a Bahá’í", "what-is-a-bahai", 5],
+      ["What is a Bahá’í", "what-is-a-bahai", 11],
       ["The Sin‑covering Eye", "the-sin-covering-eye", 10]
     ],
     "years": [2006, 2006],
@@ -1605,7 +1542,7 @@
     ]
   },
   {
-    "id": "10/1/7/5/11",
+    "id": "10/1/11/11",
     "path": [
       ["Books", "books", 10],
       [
@@ -1613,8 +1550,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["What is a Bahá’í", "what-is-a-bahai", 5],
+      ["What is a Bahá’í", "what-is-a-bahai", 11],
       ["Humility", "humility", 11]
     ],
     "years": [2006, 2006],
@@ -1630,7 +1566,7 @@
     ]
   },
   {
-    "id": "10/1/7/5/12",
+    "id": "10/1/11/12",
     "path": [
       ["Books", "books", 10],
       [
@@ -1638,8 +1574,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["What is a Bahá’í", "what-is-a-bahai", 5],
+      ["What is a Bahá’í", "what-is-a-bahai", 11],
       ["Truthfulness and Honesty", "truthfulness-and-honesty", 12]
     ],
     "years": [2006, 2006],
@@ -1654,7 +1589,7 @@
     ]
   },
   {
-    "id": "10/1/7/5/13",
+    "id": "10/1/11/13",
     "path": [
       ["Books", "books", 10],
       [
@@ -1662,8 +1597,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["What is a Bahá’í", "what-is-a-bahai", 5],
+      ["What is a Bahá’í", "what-is-a-bahai", 11],
       ["Self‑Realisation", "self-realisation", 13]
     ],
     "years": [2006, 2006],
@@ -1677,7 +1611,7 @@
     ]
   },
   {
-    "id": "10/1/7/6",
+    "id": "10/1/12",
     "path": [
       ["Books", "books", 10],
       [
@@ -1685,8 +1619,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Prayer", "prayer", 6]
+      ["Prayer", "prayer", 12]
     ],
     "years": [2006, 2006],
     "content": [
@@ -1695,7 +1628,7 @@
     ]
   },
   {
-    "id": "10/1/7/6/1",
+    "id": "10/1/12/1",
     "path": [
       ["Books", "books", 10],
       [
@@ -1703,8 +1636,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Prayer", "prayer", 6],
+      ["Prayer", "prayer", 12],
       ["Conversation with God", "conversation-with-god", 1]
     ],
     "years": [2006, 2006],
@@ -1717,7 +1649,7 @@
     ]
   },
   {
-    "id": "10/1/7/6/2",
+    "id": "10/1/12/2",
     "path": [
       ["Books", "books", 10],
       [
@@ -1725,8 +1657,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Prayer", "prayer", 6],
+      ["Prayer", "prayer", 12],
       ["The Devotional Attitude", "the-devotional-attitude", 2]
     ],
     "years": [2006, 2006],
@@ -1743,7 +1674,7 @@
     ]
   },
   {
-    "id": "10/1/7/6/3",
+    "id": "10/1/12/3",
     "path": [
       ["Books", "books", 10],
       [
@@ -1751,8 +1682,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Prayer", "prayer", 6],
+      ["Prayer", "prayer", 12],
       ["Necessity for a Mediator", "necessity-for-a-mediator", 3]
     ],
     "years": [2006, 2006],
@@ -1768,7 +1698,7 @@
     ]
   },
   {
-    "id": "10/1/7/6/4",
+    "id": "10/1/12/4",
     "path": [
       ["Books", "books", 10],
       [
@@ -1776,8 +1706,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Prayer", "prayer", 6],
+      ["Prayer", "prayer", 12],
       [
         "Prayer Indispensable and Obligatory",
         "prayer-indispensable-and-obligatory",
@@ -1797,7 +1726,7 @@
     ]
   },
   {
-    "id": "10/1/7/6/5",
+    "id": "10/1/12/5",
     "path": [
       ["Books", "books", 10],
       [
@@ -1805,8 +1734,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Prayer", "prayer", 6],
+      ["Prayer", "prayer", 12],
       ["Congregational Prayer", "congregational-prayer", 5]
     ],
     "years": [2006, 2006],
@@ -1818,7 +1746,7 @@
     ]
   },
   {
-    "id": "10/1/7/6/6",
+    "id": "10/1/12/6",
     "path": [
       ["Books", "books", 10],
       [
@@ -1826,8 +1754,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Prayer", "prayer", 6],
+      ["Prayer", "prayer", 12],
       ["Prayer the Language of Love", "prayer-the-language-of-love", 6]
     ],
     "years": [2006, 2006],
@@ -1840,7 +1767,7 @@
     ]
   },
   {
-    "id": "10/1/7/6/7",
+    "id": "10/1/12/7",
     "path": [
       ["Books", "books", 10],
       [
@@ -1848,8 +1775,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Prayer", "prayer", 6],
+      ["Prayer", "prayer", 12],
       ["Deliverance from Calamities", "deliverance-from-calamities", 7]
     ],
     "years": [2006, 2006],
@@ -1865,7 +1791,7 @@
     ]
   },
   {
-    "id": "10/1/7/6/8",
+    "id": "10/1/12/8",
     "path": [
       ["Books", "books", 10],
       [
@@ -1873,8 +1799,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Prayer", "prayer", 6],
+      ["Prayer", "prayer", 12],
       ["Prayer and Natural Law", "prayer-and-natural-law", 8]
     ],
     "years": [2006, 2006],
@@ -1884,7 +1809,7 @@
     ]
   },
   {
-    "id": "10/1/7/6/9",
+    "id": "10/1/12/9",
     "path": [
       ["Books", "books", 10],
       [
@@ -1892,8 +1817,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Prayer", "prayer", 6],
+      ["Prayer", "prayer", 12],
       ["Bahá’í Prayers", "bahai-prayers", 9]
     ],
     "years": [2006, 2006],
@@ -1923,7 +1847,7 @@
     ]
   },
   {
-    "id": "10/1/7/7",
+    "id": "10/1/13",
     "path": [
       ["Books", "books", 10],
       [
@@ -1931,8 +1855,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Health and Healing", "health-and-healing", 7]
+      ["Health and Healing", "health-and-healing", 13]
     ],
     "years": [2006, 2006],
     "content": [
@@ -1940,7 +1863,7 @@
     ]
   },
   {
-    "id": "10/1/7/7/1",
+    "id": "10/1/13/1",
     "path": [
       ["Books", "books", 10],
       [
@@ -1948,8 +1871,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Health and Healing", "health-and-healing", 7],
+      ["Health and Healing", "health-and-healing", 13],
       ["Body and Soul", "body-and-soul", 1]
     ],
     "years": [2006, 2006],
@@ -1959,7 +1881,7 @@
     ]
   },
   {
-    "id": "10/1/7/7/2",
+    "id": "10/1/13/2",
     "path": [
       ["Books", "books", 10],
       [
@@ -1967,8 +1889,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Health and Healing", "health-and-healing", 7],
+      ["Health and Healing", "health-and-healing", 13],
       ["Oneness of All Life", "oneness-of-all-life", 2]
     ],
     "years": [2006, 2006],
@@ -1978,7 +1899,7 @@
     ]
   },
   {
-    "id": "10/1/7/7/3",
+    "id": "10/1/13/3",
     "path": [
       ["Books", "books", 10],
       [
@@ -1986,8 +1907,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Health and Healing", "health-and-healing", 7],
+      ["Health and Healing", "health-and-healing", 13],
       ["Simple Life", "simple-life", 3]
     ],
     "years": [2006, 2006],
@@ -1998,7 +1918,7 @@
     ]
   },
   {
-    "id": "10/1/7/7/4",
+    "id": "10/1/13/4",
     "path": [
       ["Books", "books", 10],
       [
@@ -2006,8 +1926,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Health and Healing", "health-and-healing", 7],
+      ["Health and Healing", "health-and-healing", 13],
       ["Alcohol and Narcotics", "alcohol-and-narcotics", 4]
     ],
     "years": [2006, 2006],
@@ -2016,7 +1935,7 @@
     ]
   },
   {
-    "id": "10/1/7/7/5",
+    "id": "10/1/13/5",
     "path": [
       ["Books", "books", 10],
       [
@@ -2024,8 +1943,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Health and Healing", "health-and-healing", 7],
+      ["Health and Healing", "health-and-healing", 13],
       ["Enjoyments", "enjoyments", 5]
     ],
     "years": [2006, 2006],
@@ -2038,7 +1956,7 @@
     ]
   },
   {
-    "id": "10/1/7/7/6",
+    "id": "10/1/13/6",
     "path": [
       ["Books", "books", 10],
       [
@@ -2046,8 +1964,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Health and Healing", "health-and-healing", 7],
+      ["Health and Healing", "health-and-healing", 13],
       ["Cleanliness", "cleanliness", 6]
     ],
     "years": [2006, 2006],
@@ -2058,7 +1975,7 @@
     ]
   },
   {
-    "id": "10/1/7/7/7",
+    "id": "10/1/13/7",
     "path": [
       ["Books", "books", 10],
       [
@@ -2066,8 +1983,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Health and Healing", "health-and-healing", 7],
+      ["Health and Healing", "health-and-healing", 13],
       [
         "Effect of Obedience to Prophetic Commands",
         "effect-of-obedience-to-prophetic-commands",
@@ -2083,7 +1999,7 @@
     ]
   },
   {
-    "id": "10/1/7/7/8",
+    "id": "10/1/13/8",
     "path": [
       ["Books", "books", 10],
       [
@@ -2091,8 +2007,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Health and Healing", "health-and-healing", 7],
+      ["Health and Healing", "health-and-healing", 13],
       ["The Prophet as Physician", "the-prophet-as-physician", 8]
     ],
     "years": [2006, 2006],
@@ -2101,7 +2016,7 @@
     ]
   },
   {
-    "id": "10/1/7/7/9",
+    "id": "10/1/13/9",
     "path": [
       ["Books", "books", 10],
       [
@@ -2109,8 +2024,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Health and Healing", "health-and-healing", 7],
+      ["Health and Healing", "health-and-healing", 13],
       ["Healing by Material Means", "healing-by-material-means", 9]
     ],
     "years": [2006, 2006],
@@ -2127,7 +2041,7 @@
     ]
   },
   {
-    "id": "10/1/7/7/10",
+    "id": "10/1/13/10",
     "path": [
       ["Books", "books", 10],
       [
@@ -2135,8 +2049,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Health and Healing", "health-and-healing", 7],
+      ["Health and Healing", "health-and-healing", 13],
       ["Healing by Nonmaterial Means", "healing-by-nonmaterial-means", 10]
     ],
     "years": [2006, 2006],
@@ -2152,7 +2065,7 @@
     ]
   },
   {
-    "id": "10/1/7/7/11",
+    "id": "10/1/13/11",
     "path": [
       ["Books", "books", 10],
       [
@@ -2160,8 +2073,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Health and Healing", "health-and-healing", 7],
+      ["Health and Healing", "health-and-healing", 13],
       ["The Power of the Holy Spirit", "the-power-of-the-holy-spirit", 11]
     ],
     "years": [2006, 2006],
@@ -2174,7 +2086,7 @@
     ]
   },
   {
-    "id": "10/1/7/7/12",
+    "id": "10/1/13/12",
     "path": [
       ["Books", "books", 10],
       [
@@ -2182,8 +2094,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Health and Healing", "health-and-healing", 7],
+      ["Health and Healing", "health-and-healing", 13],
       ["Attitude of the Patient", "attitude-of-the-patient", 12]
     ],
     "years": [2006, 2006],
@@ -2204,7 +2115,7 @@
     ]
   },
   {
-    "id": "10/1/7/7/13",
+    "id": "10/1/13/13",
     "path": [
       ["Books", "books", 10],
       [
@@ -2212,8 +2123,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Health and Healing", "health-and-healing", 7],
+      ["Health and Healing", "health-and-healing", 13],
       ["The Healer", "the-healer", 13]
     ],
     "years": [2006, 2006],
@@ -2230,7 +2140,7 @@
     ]
   },
   {
-    "id": "10/1/7/7/14",
+    "id": "10/1/13/14",
     "path": [
       ["Books", "books", 10],
       [
@@ -2238,8 +2148,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Health and Healing", "health-and-healing", 7],
+      ["Health and Healing", "health-and-healing", 13],
       ["How All Can Help", "how-all-can-help", 14]
     ],
     "years": [2006, 2006],
@@ -2250,7 +2159,7 @@
     ]
   },
   {
-    "id": "10/1/7/7/15",
+    "id": "10/1/13/15",
     "path": [
       ["Books", "books", 10],
       [
@@ -2258,8 +2167,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Health and Healing", "health-and-healing", 7],
+      ["Health and Healing", "health-and-healing", 13],
       ["The Golden Age", "the-golden-age", 15]
     ],
     "years": [2006, 2006],
@@ -2269,7 +2177,7 @@
     ]
   },
   {
-    "id": "10/1/7/7/16",
+    "id": "10/1/13/16",
     "path": [
       ["Books", "books", 10],
       [
@@ -2277,8 +2185,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Health and Healing", "health-and-healing", 7],
+      ["Health and Healing", "health-and-healing", 13],
       ["Right Use of Health", "right-use-of-health", 16]
     ],
     "years": [2006, 2006],
@@ -2288,7 +2195,7 @@
     ]
   },
   {
-    "id": "10/1/7/8",
+    "id": "10/1/14",
     "path": [
       ["Books", "books", 10],
       [
@@ -2296,8 +2203,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Religious Unity", "religious-unity", 8]
+      ["Religious Unity", "religious-unity", 14]
     ],
     "years": [2006, 2006],
     "content": [
@@ -2305,7 +2211,7 @@
     ]
   },
   {
-    "id": "10/1/7/8/1",
+    "id": "10/1/14/1",
     "path": [
       ["Books", "books", 10],
       [
@@ -2313,8 +2219,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Religious Unity", "religious-unity", 8],
+      ["Religious Unity", "religious-unity", 14],
       [
         "Sectarianism in the Nineteenth Century",
         "sectarianism-in-the-nineteenth-century",
@@ -2330,7 +2235,7 @@
     ]
   },
   {
-    "id": "10/1/7/8/2",
+    "id": "10/1/14/2",
     "path": [
       ["Books", "books", 10],
       [
@@ -2338,8 +2243,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Religious Unity", "religious-unity", 8],
+      ["Religious Unity", "religious-unity", 14],
       ["The Message of Bahá’u’lláh", "the-message-of-bahaullah", 2]
     ],
     "years": [2006, 2006],
@@ -2350,7 +2254,7 @@
     ]
   },
   {
-    "id": "10/1/7/8/3",
+    "id": "10/1/14/3",
     "path": [
       ["Books", "books", 10],
       [
@@ -2358,8 +2262,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Religious Unity", "religious-unity", 8],
+      ["Religious Unity", "religious-unity", 14],
       ["Can Human Nature Change?", "can-human-nature-change", 3]
     ],
     "years": [2006, 2006],
@@ -2369,7 +2272,7 @@
     ]
   },
   {
-    "id": "10/1/7/8/4",
+    "id": "10/1/14/4",
     "path": [
       ["Books", "books", 10],
       [
@@ -2377,8 +2280,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Religious Unity", "religious-unity", 8],
+      ["Religious Unity", "religious-unity", 14],
       ["First Steps Toward Unity", "first-steps-toward-unity", 4]
     ],
     "years": [2006, 2006],
@@ -2393,7 +2295,7 @@
     ]
   },
   {
-    "id": "10/1/7/8/5",
+    "id": "10/1/14/5",
     "path": [
       ["Books", "books", 10],
       [
@@ -2401,8 +2303,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Religious Unity", "religious-unity", 8],
+      ["Religious Unity", "religious-unity", 14],
       ["The Problem of Authority", "the-problem-of-authority", 5]
     ],
     "years": [2006, 2006],
@@ -2412,7 +2313,7 @@
     ]
   },
   {
-    "id": "10/1/7/8/6",
+    "id": "10/1/14/6",
     "path": [
       ["Books", "books", 10],
       [
@@ -2420,8 +2321,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Religious Unity", "religious-unity", 8],
+      ["Religious Unity", "religious-unity", 14],
       ["Progressive Revelation", "progressive-revelation", 6]
     ],
     "years": [2006, 2006],
@@ -2435,7 +2335,7 @@
     ]
   },
   {
-    "id": "10/1/7/8/7",
+    "id": "10/1/14/7",
     "path": [
       ["Books", "books", 10],
       [
@@ -2443,8 +2343,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Religious Unity", "religious-unity", 8],
+      ["Religious Unity", "religious-unity", 14],
       ["Infallibility of the Prophets", "infallibility-of-the-prophets", 7]
     ],
     "years": [2006, 2006],
@@ -2457,7 +2356,7 @@
     ]
   },
   {
-    "id": "10/1/7/8/8",
+    "id": "10/1/14/8",
     "path": [
       ["Books", "books", 10],
       [
@@ -2465,8 +2364,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Religious Unity", "religious-unity", 8],
+      ["Religious Unity", "religious-unity", 14],
       ["The Supreme Manifestation", "the-supreme-manifestation", 8]
     ],
     "years": [2006, 2006],
@@ -2482,7 +2380,7 @@
     ]
   },
   {
-    "id": "10/1/7/8/9",
+    "id": "10/1/14/9",
     "path": [
       ["Books", "books", 10],
       [
@@ -2490,8 +2388,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Religious Unity", "religious-unity", 8],
+      ["Religious Unity", "religious-unity", 14],
       ["A New Situation", "a-new-situation", 9]
     ],
     "years": [2006, 2006],
@@ -2504,7 +2401,7 @@
     ]
   },
   {
-    "id": "10/1/7/8/10",
+    "id": "10/1/14/10",
     "path": [
       ["Books", "books", 10],
       [
@@ -2512,8 +2409,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Religious Unity", "religious-unity", 8],
+      ["Religious Unity", "religious-unity", 14],
       [
         "Fullness of the Bahá’í Revelation",
         "fullness-of-the-bahai-revelation",
@@ -2527,7 +2423,7 @@
     ]
   },
   {
-    "id": "10/1/7/8/11",
+    "id": "10/1/14/11",
     "path": [
       ["Books", "books", 10],
       [
@@ -2535,8 +2431,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Religious Unity", "religious-unity", 8],
+      ["Religious Unity", "religious-unity", 14],
       ["The Bahá’í Covenant", "the-bahai-covenant", 11]
     ],
     "years": [2006, 2006],
@@ -2557,7 +2452,7 @@
     ]
   },
   {
-    "id": "10/1/7/8/12",
+    "id": "10/1/14/12",
     "path": [
       ["Books", "books", 10],
       [
@@ -2565,8 +2460,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Religious Unity", "religious-unity", 8],
+      ["Religious Unity", "religious-unity", 14],
       ["No Professional Priesthood", "no-professional-priesthood", 12]
     ],
     "years": [2006, 2006],
@@ -2577,7 +2471,7 @@
     ]
   },
   {
-    "id": "10/1/7/9",
+    "id": "10/1/15",
     "path": [
       ["Books", "books", 10],
       [
@@ -2585,8 +2479,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["True Civilisation", "true-civilisation", 9]
+      ["True Civilisation", "true-civilisation", 15]
     ],
     "years": [2006, 2006],
     "content": [
@@ -2594,7 +2487,7 @@
     ]
   },
   {
-    "id": "10/1/7/9/1",
+    "id": "10/1/15/1",
     "path": [
       ["Books", "books", 10],
       [
@@ -2602,8 +2495,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["True Civilisation", "true-civilisation", 9],
+      ["True Civilisation", "true-civilisation", 15],
       [
         "Religion the Basis of Civilisation",
         "religion-the-basis-of-civilisation",
@@ -2620,7 +2512,7 @@
     ]
   },
   {
-    "id": "10/1/7/9/2",
+    "id": "10/1/15/2",
     "path": [
       ["Books", "books", 10],
       [
@@ -2628,8 +2520,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["True Civilisation", "true-civilisation", 9],
+      ["True Civilisation", "true-civilisation", 15],
       ["Justice", "justice", 2]
     ],
     "years": [2006, 2006],
@@ -2643,7 +2534,7 @@
     ]
   },
   {
-    "id": "10/1/7/9/3",
+    "id": "10/1/15/3",
     "path": [
       ["Books", "books", 10],
       [
@@ -2651,8 +2542,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["True Civilisation", "true-civilisation", 9],
+      ["True Civilisation", "true-civilisation", 15],
       ["Government", "government", 3]
     ],
     "years": [2006, 2006],
@@ -2667,7 +2557,7 @@
     ]
   },
   {
-    "id": "10/1/7/9/4",
+    "id": "10/1/15/4",
     "path": [
       ["Books", "books", 10],
       [
@@ -2675,8 +2565,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["True Civilisation", "true-civilisation", 9],
+      ["True Civilisation", "true-civilisation", 15],
       ["Political Freedom", "political-freedom", 4]
     ],
     "years": [2006, 2006],
@@ -2690,7 +2579,7 @@
     ]
   },
   {
-    "id": "10/1/7/9/5",
+    "id": "10/1/15/5",
     "path": [
       ["Books", "books", 10],
       [
@@ -2698,8 +2587,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["True Civilisation", "true-civilisation", 9],
+      ["True Civilisation", "true-civilisation", 15],
       ["Rulers and Subjects", "rulers-and-subjects", 5]
     ],
     "years": [2006, 2006],
@@ -2713,7 +2601,7 @@
     ]
   },
   {
-    "id": "10/1/7/9/6",
+    "id": "10/1/15/6",
     "path": [
       ["Books", "books", 10],
       [
@@ -2721,8 +2609,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["True Civilisation", "true-civilisation", 9],
+      ["True Civilisation", "true-civilisation", 15],
       ["Appointment and Promotion", "appointment-and-promotion", 6]
     ],
     "years": [2006, 2006],
@@ -2733,7 +2620,7 @@
     ]
   },
   {
-    "id": "10/1/7/9/7",
+    "id": "10/1/15/7",
     "path": [
       ["Books", "books", 10],
       [
@@ -2741,8 +2628,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["True Civilisation", "true-civilisation", 9],
+      ["True Civilisation", "true-civilisation", 15],
       ["Economic Problems", "economic-problems", 7]
     ],
     "years": [2006, 2006],
@@ -2760,7 +2646,7 @@
     ]
   },
   {
-    "id": "10/1/7/9/8",
+    "id": "10/1/15/8",
     "path": [
       ["Books", "books", 10],
       [
@@ -2768,8 +2654,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["True Civilisation", "true-civilisation", 9],
+      ["True Civilisation", "true-civilisation", 15],
       ["Public Finance", "public-finance", 8]
     ],
     "years": [2006, 2006],
@@ -2780,7 +2665,7 @@
     ]
   },
   {
-    "id": "10/1/7/9/9",
+    "id": "10/1/15/9",
     "path": [
       ["Books", "books", 10],
       [
@@ -2788,8 +2673,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["True Civilisation", "true-civilisation", 9],
+      ["True Civilisation", "true-civilisation", 15],
       ["Voluntary Sharing", "voluntary-sharing", 9]
     ],
     "years": [2006, 2006],
@@ -2799,7 +2683,7 @@
     ]
   },
   {
-    "id": "10/1/7/9/10",
+    "id": "10/1/15/10",
     "path": [
       ["Books", "books", 10],
       [
@@ -2807,8 +2691,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["True Civilisation", "true-civilisation", 9],
+      ["True Civilisation", "true-civilisation", 15],
       ["Work for All", "work-for-all", 10]
     ],
     "years": [2006, 2006],
@@ -2820,7 +2703,7 @@
     ]
   },
   {
-    "id": "10/1/7/9/11",
+    "id": "10/1/15/11",
     "path": [
       ["Books", "books", 10],
       [
@@ -2828,8 +2711,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["True Civilisation", "true-civilisation", 9],
+      ["True Civilisation", "true-civilisation", 15],
       ["The Ethics of Wealth", "the-ethics-of-wealth", 11]
     ],
     "years": [2006, 2006],
@@ -2842,7 +2724,7 @@
     ]
   },
   {
-    "id": "10/1/7/9/12",
+    "id": "10/1/15/12",
     "path": [
       ["Books", "books", 10],
       [
@@ -2850,8 +2732,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["True Civilisation", "true-civilisation", 9],
+      ["True Civilisation", "true-civilisation", 15],
       ["No Industrial Slavery", "no-industrial-slavery", 12]
     ],
     "years": [2006, 2006],
@@ -2867,7 +2748,7 @@
     ]
   },
   {
-    "id": "10/1/7/9/13",
+    "id": "10/1/15/13",
     "path": [
       ["Books", "books", 10],
       [
@@ -2875,8 +2756,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["True Civilisation", "true-civilisation", 9],
+      ["True Civilisation", "true-civilisation", 15],
       ["Bequest and Inheritance", "bequest-and-inheritance", 13]
     ],
     "years": [2006, 2006],
@@ -2886,7 +2766,7 @@
     ]
   },
   {
-    "id": "10/1/7/9/14",
+    "id": "10/1/15/14",
     "path": [
       ["Books", "books", 10],
       [
@@ -2894,8 +2774,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["True Civilisation", "true-civilisation", 9],
+      ["True Civilisation", "true-civilisation", 15],
       ["Equality of Men and Women", "equality-of-men-and-women", 14]
     ],
     "years": [2006, 2006],
@@ -2912,7 +2791,7 @@
     ]
   },
   {
-    "id": "10/1/7/9/15",
+    "id": "10/1/15/15",
     "path": [
       ["Books", "books", 10],
       [
@@ -2920,8 +2799,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["True Civilisation", "true-civilisation", 9],
+      ["True Civilisation", "true-civilisation", 15],
       ["Women and the New Age", "women-and-the-new-age", 15]
     ],
     "years": [2006, 2006],
@@ -2931,7 +2809,7 @@
     ]
   },
   {
-    "id": "10/1/7/9/16",
+    "id": "10/1/15/16",
     "path": [
       ["Books", "books", 10],
       [
@@ -2939,8 +2817,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["True Civilisation", "true-civilisation", 9],
+      ["True Civilisation", "true-civilisation", 15],
       ["Methods of Violence Discarded", "methods-of-violence-discarded", 16]
     ],
     "years": [2006, 2006],
@@ -2949,7 +2826,7 @@
     ]
   },
   {
-    "id": "10/1/7/9/17",
+    "id": "10/1/15/17",
     "path": [
       ["Books", "books", 10],
       [
@@ -2957,8 +2834,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["True Civilisation", "true-civilisation", 9],
+      ["True Civilisation", "true-civilisation", 15],
       ["Education", "education", 17]
     ],
     "years": [2006, 2006],
@@ -2971,7 +2847,7 @@
     ]
   },
   {
-    "id": "10/1/7/9/18",
+    "id": "10/1/15/18",
     "path": [
       ["Books", "books", 10],
       [
@@ -2979,8 +2855,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["True Civilisation", "true-civilisation", 9],
+      ["True Civilisation", "true-civilisation", 15],
       ["Innate Differences of Nature", "innate-differences-of-nature", 18]
     ],
     "years": [2006, 2006],
@@ -2990,7 +2865,7 @@
     ]
   },
   {
-    "id": "10/1/7/9/19",
+    "id": "10/1/15/19",
     "path": [
       ["Books", "books", 10],
       [
@@ -2998,8 +2873,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["True Civilisation", "true-civilisation", 9],
+      ["True Civilisation", "true-civilisation", 15],
       ["Character Training", "character-training", 19]
     ],
     "years": [2006, 2006],
@@ -3010,7 +2884,7 @@
     ]
   },
   {
-    "id": "10/1/7/9/20",
+    "id": "10/1/15/20",
     "path": [
       ["Books", "books", 10],
       [
@@ -3018,8 +2892,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["True Civilisation", "true-civilisation", 9],
+      ["True Civilisation", "true-civilisation", 15],
       ["Arts, Sciences, and Crafts", "arts-sciences-and-crafts", 20]
     ],
     "years": [2006, 2006],
@@ -3029,7 +2902,7 @@
     ]
   },
   {
-    "id": "10/1/7/9/21",
+    "id": "10/1/15/21",
     "path": [
       ["Books", "books", 10],
       [
@@ -3037,8 +2910,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["True Civilisation", "true-civilisation", 9],
+      ["True Civilisation", "true-civilisation", 15],
       ["Treatment of Criminals", "treatment-of-criminals", 21]
     ],
     "years": [2006, 2006],
@@ -3053,7 +2925,7 @@
     ]
   },
   {
-    "id": "10/1/7/9/22",
+    "id": "10/1/15/22",
     "path": [
       ["Books", "books", 10],
       [
@@ -3061,8 +2933,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["True Civilisation", "true-civilisation", 9],
+      ["True Civilisation", "true-civilisation", 15],
       ["Influence of the Press", "influence-of-the-press", 22]
     ],
     "years": [2006, 2006],
@@ -3073,7 +2944,7 @@
     ]
   },
   {
-    "id": "10/1/7/10",
+    "id": "10/1/16",
     "path": [
       ["Books", "books", 10],
       [
@@ -3081,8 +2952,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Way to Peace", "the-way-to-peace", 10]
+      ["The Way to Peace", "the-way-to-peace", 16]
     ],
     "years": [2006, 2006],
     "content": [
@@ -3090,7 +2960,7 @@
     ]
   },
   {
-    "id": "10/1/7/10/1",
+    "id": "10/1/16/1",
     "path": [
       ["Books", "books", 10],
       [
@@ -3098,8 +2968,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Way to Peace", "the-way-to-peace", 10],
+      ["The Way to Peace", "the-way-to-peace", 16],
       ["Conflict versus Concord", "conflict-versus-concord", 1]
     ],
     "years": [2006, 2006],
@@ -3111,7 +2980,7 @@
     ]
   },
   {
-    "id": "10/1/7/10/2",
+    "id": "10/1/16/2",
     "path": [
       ["Books", "books", 10],
       [
@@ -3119,8 +2988,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Way to Peace", "the-way-to-peace", 10],
+      ["The Way to Peace", "the-way-to-peace", 16],
       ["The Most Great Peace", "the-most-great-peace", 2]
     ],
     "years": [2006, 2006],
@@ -3130,7 +2998,7 @@
     ]
   },
   {
-    "id": "10/1/7/10/3",
+    "id": "10/1/16/3",
     "path": [
       ["Books", "books", 10],
       [
@@ -3138,8 +3006,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Way to Peace", "the-way-to-peace", 10],
+      ["The Way to Peace", "the-way-to-peace", 16],
       ["Religious Prejudices", "religious-prejudices", 3]
     ],
     "years": [2006, 2006],
@@ -3157,7 +3024,7 @@
     ]
   },
   {
-    "id": "10/1/7/10/4",
+    "id": "10/1/16/4",
     "path": [
       ["Books", "books", 10],
       [
@@ -3165,8 +3032,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Way to Peace", "the-way-to-peace", 10],
+      ["The Way to Peace", "the-way-to-peace", 16],
       ["Racial and Patriotic Prejudices", "racial-and-patriotic-prejudices", 4]
     ],
     "years": [2006, 2006],
@@ -3180,7 +3046,7 @@
     ]
   },
   {
-    "id": "10/1/7/10/5",
+    "id": "10/1/16/5",
     "path": [
       ["Books", "books", 10],
       [
@@ -3188,8 +3054,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Way to Peace", "the-way-to-peace", 10],
+      ["The Way to Peace", "the-way-to-peace", 16],
       ["Territorial Ambitions", "territorial-ambitions", 5]
     ],
     "years": [2006, 2006],
@@ -3207,7 +3072,7 @@
     ]
   },
   {
-    "id": "10/1/7/10/6",
+    "id": "10/1/16/6",
     "path": [
       ["Books", "books", 10],
       [
@@ -3215,8 +3080,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Way to Peace", "the-way-to-peace", 10],
+      ["The Way to Peace", "the-way-to-peace", 16],
       ["Universal Language", "universal-language", 6]
     ],
     "years": [2006, 2006],
@@ -3234,7 +3098,7 @@
     ]
   },
   {
-    "id": "10/1/7/10/7",
+    "id": "10/1/16/7",
     "path": [
       ["Books", "books", 10],
       [
@@ -3242,8 +3106,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Way to Peace", "the-way-to-peace", 10],
+      ["The Way to Peace", "the-way-to-peace", 16],
       ["Universal League of Nations", "universal-league-of-nations", 7]
     ],
     "years": [2006, 2006],
@@ -3259,7 +3122,7 @@
     ]
   },
   {
-    "id": "10/1/7/10/8",
+    "id": "10/1/16/8",
     "path": [
       ["Books", "books", 10],
       [
@@ -3267,8 +3130,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Way to Peace", "the-way-to-peace", 10],
+      ["The Way to Peace", "the-way-to-peace", 16],
       ["International Arbitration", "international-arbitration", 8]
     ],
     "years": [2006, 2006],
@@ -3282,7 +3144,7 @@
     ]
   },
   {
-    "id": "10/1/7/10/9",
+    "id": "10/1/16/9",
     "path": [
       ["Books", "books", 10],
       [
@@ -3290,8 +3152,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Way to Peace", "the-way-to-peace", 10],
+      ["The Way to Peace", "the-way-to-peace", 16],
       ["Limitation of Armaments", "limitation-of-armaments", 9]
     ],
     "years": [2006, 2006],
@@ -3301,7 +3162,7 @@
     ]
   },
   {
-    "id": "10/1/7/10/10",
+    "id": "10/1/16/10",
     "path": [
       ["Books", "books", 10],
       [
@@ -3309,8 +3170,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Way to Peace", "the-way-to-peace", 10],
+      ["The Way to Peace", "the-way-to-peace", 16],
       ["Nonresistance", "nonresistance", 10]
     ],
     "years": [2006, 2006],
@@ -3323,7 +3183,7 @@
     ]
   },
   {
-    "id": "10/1/7/10/11",
+    "id": "10/1/16/11",
     "path": [
       ["Books", "books", 10],
       [
@@ -3331,8 +3191,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Way to Peace", "the-way-to-peace", 10],
+      ["The Way to Peace", "the-way-to-peace", 16],
       ["Righteous Warfare", "righteous-warfare", 11]
     ],
     "years": [2006, 2006],
@@ -3343,7 +3202,7 @@
     ]
   },
   {
-    "id": "10/1/7/10/12",
+    "id": "10/1/16/12",
     "path": [
       ["Books", "books", 10],
       [
@@ -3351,8 +3210,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["The Way to Peace", "the-way-to-peace", 10],
+      ["The Way to Peace", "the-way-to-peace", 16],
       ["Unity of East and West", "unity-of-east-and-west", 12]
     ],
     "years": [2006, 2006],
@@ -3368,7 +3226,7 @@
     ]
   },
   {
-    "id": "10/1/7/11",
+    "id": "10/1/17",
     "path": [
       ["Books", "books", 10],
       [
@@ -3376,11 +3234,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Various Ordinances and Teachings",
         "various-ordinances-and-teachings",
-        11
+        17
       ]
     ],
     "years": [2006, 2006],
@@ -3389,7 +3246,7 @@
     ]
   },
   {
-    "id": "10/1/7/11/1",
+    "id": "10/1/17/1",
     "path": [
       ["Books", "books", 10],
       [
@@ -3397,11 +3254,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Various Ordinances and Teachings",
         "various-ordinances-and-teachings",
-        11
+        17
       ],
       ["Monastic Life", "monastic-life", 1]
     ],
@@ -3417,7 +3273,7 @@
     ]
   },
   {
-    "id": "10/1/7/11/2",
+    "id": "10/1/17/2",
     "path": [
       ["Books", "books", 10],
       [
@@ -3425,11 +3281,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Various Ordinances and Teachings",
         "various-ordinances-and-teachings",
-        11
+        17
       ],
       ["Marriage", "marriage", 2]
     ],
@@ -3445,7 +3300,7 @@
     ]
   },
   {
-    "id": "10/1/7/11/3",
+    "id": "10/1/17/3",
     "path": [
       ["Books", "books", 10],
       [
@@ -3453,11 +3308,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Various Ordinances and Teachings",
         "various-ordinances-and-teachings",
-        11
+        17
       ],
       ["Divorce", "divorce", 3]
     ],
@@ -3469,7 +3323,7 @@
     ]
   },
   {
-    "id": "10/1/7/11/4",
+    "id": "10/1/17/4",
     "path": [
       ["Books", "books", 10],
       [
@@ -3477,11 +3331,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Various Ordinances and Teachings",
         "various-ordinances-and-teachings",
-        11
+        17
       ],
       ["The Bahá’í Calendar", "the-bahai-calendar", 4]
     ],
@@ -3495,7 +3348,7 @@
     ]
   },
   {
-    "id": "10/1/7/11/5",
+    "id": "10/1/17/5",
     "path": [
       ["Books", "books", 10],
       [
@@ -3503,11 +3356,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Various Ordinances and Teachings",
         "various-ordinances-and-teachings",
-        11
+        17
       ],
       ["Spiritual Assemblies", "spiritual-assemblies", 5]
     ],
@@ -3528,7 +3380,7 @@
     ]
   },
   {
-    "id": "10/1/7/11/6",
+    "id": "10/1/17/6",
     "path": [
       ["Books", "books", 10],
       [
@@ -3536,11 +3388,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Various Ordinances and Teachings",
         "various-ordinances-and-teachings",
-        11
+        17
       ],
       [
         "Bahá’í Feasts, Anniversaries, and Days of Fasting",
@@ -3554,7 +3405,7 @@
     ]
   },
   {
-    "id": "10/1/7/11/7",
+    "id": "10/1/17/7",
     "path": [
       ["Books", "books", 10],
       [
@@ -3562,11 +3413,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Various Ordinances and Teachings",
         "various-ordinances-and-teachings",
-        11
+        17
       ],
       ["Feasts", "feasts", 7]
     ],
@@ -3584,7 +3434,7 @@
     ]
   },
   {
-    "id": "10/1/7/11/8",
+    "id": "10/1/17/8",
     "path": [
       ["Books", "books", 10],
       [
@@ -3592,11 +3442,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Various Ordinances and Teachings",
         "various-ordinances-and-teachings",
-        11
+        17
       ],
       ["Fast", "fast", 8]
     ],
@@ -3608,7 +3457,7 @@
     ]
   },
   {
-    "id": "10/1/7/11/9",
+    "id": "10/1/17/9",
     "path": [
       ["Books", "books", 10],
       [
@@ -3616,11 +3465,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Various Ordinances and Teachings",
         "various-ordinances-and-teachings",
-        11
+        17
       ],
       ["Meetings", "meetings", 9]
     ],
@@ -3635,7 +3483,7 @@
     ]
   },
   {
-    "id": "10/1/7/11/10",
+    "id": "10/1/17/10",
     "path": [
       ["Books", "books", 10],
       [
@@ -3643,11 +3491,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Various Ordinances and Teachings",
         "various-ordinances-and-teachings",
-        11
+        17
       ],
       ["The Nineteen Day Feast", "the-nineteen-day-feast", 10]
     ],
@@ -3657,7 +3504,7 @@
     ]
   },
   {
-    "id": "10/1/7/11/11",
+    "id": "10/1/17/11",
     "path": [
       ["Books", "books", 10],
       [
@@ -3665,11 +3512,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Various Ordinances and Teachings",
         "various-ordinances-and-teachings",
-        11
+        17
       ],
       ["Mashriqu’l‑Adhkár", "mashriqul-adhkar", 11]
     ],
@@ -3684,7 +3530,7 @@
     ]
   },
   {
-    "id": "10/1/7/11/12",
+    "id": "10/1/17/12",
     "path": [
       ["Books", "books", 10],
       [
@@ -3692,11 +3538,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Various Ordinances and Teachings",
         "various-ordinances-and-teachings",
-        11
+        17
       ],
       ["Life After Death", "life-after-death", 12]
     ],
@@ -3710,7 +3555,7 @@
     ]
   },
   {
-    "id": "10/1/7/11/13",
+    "id": "10/1/17/13",
     "path": [
       ["Books", "books", 10],
       [
@@ -3718,11 +3563,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Various Ordinances and Teachings",
         "various-ordinances-and-teachings",
-        11
+        17
       ],
       ["Heaven and Hell", "heaven-and-hell", 13]
     ],
@@ -3738,7 +3582,7 @@
     ]
   },
   {
-    "id": "10/1/7/11/14",
+    "id": "10/1/17/14",
     "path": [
       ["Books", "books", 10],
       [
@@ -3746,11 +3590,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Various Ordinances and Teachings",
         "various-ordinances-and-teachings",
-        11
+        17
       ],
       ["Oneness of the Two Worlds", "oneness-of-the-two-worlds", 14]
     ],
@@ -3774,7 +3617,7 @@
     ]
   },
   {
-    "id": "10/1/7/11/15",
+    "id": "10/1/17/15",
     "path": [
       ["Books", "books", 10],
       [
@@ -3782,11 +3625,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Various Ordinances and Teachings",
         "various-ordinances-and-teachings",
-        11
+        17
       ],
       ["The Nonexistence of Evil", "the-nonexistence-of-evil", 15]
     ],
@@ -3802,7 +3644,7 @@
     ]
   },
   {
-    "id": "10/1/7/12",
+    "id": "10/1/18",
     "path": [
       ["Books", "books", 10],
       [
@@ -3810,8 +3652,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Religion and Science", "religion-and-science", 12]
+      ["Religion and Science", "religion-and-science", 18]
     ],
     "years": [2006, 2006],
     "content": [
@@ -3819,7 +3660,7 @@
     ]
   },
   {
-    "id": "10/1/7/12/1",
+    "id": "10/1/18/1",
     "path": [
       ["Books", "books", 10],
       [
@@ -3827,8 +3668,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Religion and Science", "religion-and-science", 12],
+      ["Religion and Science", "religion-and-science", 18],
       ["Conflict Due to Error", "conflict-due-to-error", 1]
     ],
     "years": [2006, 2006],
@@ -3837,7 +3677,7 @@
     ]
   },
   {
-    "id": "10/1/7/12/2",
+    "id": "10/1/18/2",
     "path": [
       ["Books", "books", 10],
       [
@@ -3845,8 +3685,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Religion and Science", "religion-and-science", 12],
+      ["Religion and Science", "religion-and-science", 18],
       ["Persecution of Prophets", "persecution-of-prophets", 2]
     ],
     "years": [2006, 2006],
@@ -3855,7 +3694,7 @@
     ]
   },
   {
-    "id": "10/1/7/12/3",
+    "id": "10/1/18/3",
     "path": [
       ["Books", "books", 10],
       [
@@ -3863,8 +3702,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Religion and Science", "religion-and-science", 12],
+      ["Religion and Science", "religion-and-science", 18],
       ["The Dawn of Reconciliation", "the-dawn-of-reconciliation", 3]
     ],
     "years": [2006, 2006],
@@ -3873,7 +3711,7 @@
     ]
   },
   {
-    "id": "10/1/7/12/4",
+    "id": "10/1/18/4",
     "path": [
       ["Books", "books", 10],
       [
@@ -3881,8 +3719,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Religion and Science", "religion-and-science", 12],
+      ["Religion and Science", "religion-and-science", 18],
       ["Search after Truth", "search-after-truth", 4]
     ],
     "years": [2006, 2006],
@@ -3895,7 +3732,7 @@
     ]
   },
   {
-    "id": "10/1/7/12/5",
+    "id": "10/1/18/5",
     "path": [
       ["Books", "books", 10],
       [
@@ -3903,8 +3740,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Religion and Science", "religion-and-science", 12],
+      ["Religion and Science", "religion-and-science", 18],
       ["True Agnosticism", "true-agnosticism", 5]
     ],
     "years": [2006, 2006],
@@ -3915,7 +3751,7 @@
     ]
   },
   {
-    "id": "10/1/7/12/6",
+    "id": "10/1/18/6",
     "path": [
       ["Books", "books", 10],
       [
@@ -3923,8 +3759,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Religion and Science", "religion-and-science", 12],
+      ["Religion and Science", "religion-and-science", 18],
       ["Knowledge of God", "knowledge-of-god", 6]
     ],
     "years": [2006, 2006],
@@ -3933,7 +3768,7 @@
     ]
   },
   {
-    "id": "10/1/7/12/7",
+    "id": "10/1/18/7",
     "path": [
       ["Books", "books", 10],
       [
@@ -3941,8 +3776,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Religion and Science", "religion-and-science", 12],
+      ["Religion and Science", "religion-and-science", 18],
       ["The Divine Manifestations", "the-divine-manifestations", 7]
     ],
     "years": [2006, 2006],
@@ -3951,7 +3785,7 @@
     ]
   },
   {
-    "id": "10/1/7/12/8",
+    "id": "10/1/18/8",
     "path": [
       ["Books", "books", 10],
       [
@@ -3959,8 +3793,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Religion and Science", "religion-and-science", 12],
+      ["Religion and Science", "religion-and-science", 18],
       ["Creation", "creation", 8]
     ],
     "years": [2006, 2006],
@@ -3973,7 +3806,7 @@
     ]
   },
   {
-    "id": "10/1/7/12/9",
+    "id": "10/1/18/9",
     "path": [
       ["Books", "books", 10],
       [
@@ -3981,8 +3814,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Religion and Science", "religion-and-science", 12],
+      ["Religion and Science", "religion-and-science", 18],
       ["The Evolution of Man", "the-evolution-of-man", 9]
     ],
     "years": [2006, 2006],
@@ -3999,7 +3831,7 @@
     ]
   },
   {
-    "id": "10/1/7/12/10",
+    "id": "10/1/18/10",
     "path": [
       ["Books", "books", 10],
       [
@@ -4007,8 +3839,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Religion and Science", "religion-and-science", 12],
+      ["Religion and Science", "religion-and-science", 18],
       ["Body and Soul", "body-and-soul", 10]
     ],
     "years": [2006, 2006],
@@ -4022,7 +3853,7 @@
     ]
   },
   {
-    "id": "10/1/7/12/11",
+    "id": "10/1/18/11",
     "path": [
       ["Books", "books", 10],
       [
@@ -4030,8 +3861,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Religion and Science", "religion-and-science", 12],
+      ["Religion and Science", "religion-and-science", 18],
       ["Unity of Mankind", "unity-of-mankind", 11]
     ],
     "years": [2006, 2006],
@@ -4040,7 +3870,7 @@
     ]
   },
   {
-    "id": "10/1/7/12/12",
+    "id": "10/1/18/12",
     "path": [
       ["Books", "books", 10],
       [
@@ -4048,8 +3878,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Religion and Science", "religion-and-science", 12],
+      ["Religion and Science", "religion-and-science", 18],
       ["The Era of Unity", "the-era-of-unity", 12]
     ],
     "years": [2006, 2006],
@@ -4060,7 +3889,7 @@
     ]
   },
   {
-    "id": "10/1/7/13",
+    "id": "10/1/19",
     "path": [
       ["Books", "books", 10],
       [
@@ -4068,11 +3897,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Prophecies Fulfilled by the Bahá’í Movement",
         "prophecies-fulfilled-by-the-bahai-movement",
-        13
+        19
       ]
     ],
     "years": [2006, 2006],
@@ -4081,7 +3909,7 @@
     ]
   },
   {
-    "id": "10/1/7/13/1",
+    "id": "10/1/19/1",
     "path": [
       ["Books", "books", 10],
       [
@@ -4089,11 +3917,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Prophecies Fulfilled by the Bahá’í Movement",
         "prophecies-fulfilled-by-the-bahai-movement",
-        13
+        19
       ],
       ["Interpretation of Prophecy", "interpretation-of-prophecy", 1]
     ],
@@ -4106,7 +3933,7 @@
     ]
   },
   {
-    "id": "10/1/7/13/2",
+    "id": "10/1/19/2",
     "path": [
       ["Books", "books", 10],
       [
@@ -4114,11 +3941,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Prophecies Fulfilled by the Bahá’í Movement",
         "prophecies-fulfilled-by-the-bahai-movement",
-        13
+        19
       ],
       ["The Coming of the Lord", "the-coming-of-the-lord", 2]
     ],
@@ -4128,7 +3954,7 @@
     ]
   },
   {
-    "id": "10/1/7/13/3",
+    "id": "10/1/19/3",
     "path": [
       ["Books", "books", 10],
       [
@@ -4136,11 +3962,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Prophecies Fulfilled by the Bahá’í Movement",
         "prophecies-fulfilled-by-the-bahai-movement",
-        13
+        19
       ],
       ["Prophecies about Christ", "prophecies-about-christ", 3]
     ],
@@ -4155,7 +3980,7 @@
     ]
   },
   {
-    "id": "10/1/7/13/4",
+    "id": "10/1/19/4",
     "path": [
       ["Books", "books", 10],
       [
@@ -4163,11 +3988,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Prophecies Fulfilled by the Bahá’í Movement",
         "prophecies-fulfilled-by-the-bahai-movement",
-        13
+        19
       ],
       [
         "Prophecies about the Báb and Bahá’u’lláh",
@@ -4183,7 +4007,7 @@
     ]
   },
   {
-    "id": "10/1/7/13/5",
+    "id": "10/1/19/5",
     "path": [
       ["Books", "books", 10],
       [
@@ -4191,11 +4015,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Prophecies Fulfilled by the Bahá’í Movement",
         "prophecies-fulfilled-by-the-bahai-movement",
-        13
+        19
       ],
       ["The Glory of God", "the-glory-of-god", 5]
     ],
@@ -4208,7 +4031,7 @@
     ]
   },
   {
-    "id": "10/1/7/13/6",
+    "id": "10/1/19/6",
     "path": [
       ["Books", "books", 10],
       [
@@ -4216,11 +4039,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Prophecies Fulfilled by the Bahá’í Movement",
         "prophecies-fulfilled-by-the-bahai-movement",
-        13
+        19
       ],
       ["The Branch", "the-branch", 6]
     ],
@@ -4235,7 +4057,7 @@
     ]
   },
   {
-    "id": "10/1/7/13/7",
+    "id": "10/1/19/7",
     "path": [
       ["Books", "books", 10],
       [
@@ -4243,11 +4065,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Prophecies Fulfilled by the Bahá’í Movement",
         "prophecies-fulfilled-by-the-bahai-movement",
-        13
+        19
       ],
       ["The Day of God", "the-day-of-god", 7]
     ],
@@ -4257,7 +4078,7 @@
     ]
   },
   {
-    "id": "10/1/7/13/8",
+    "id": "10/1/19/8",
     "path": [
       ["Books", "books", 10],
       [
@@ -4265,11 +4086,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Prophecies Fulfilled by the Bahá’í Movement",
         "prophecies-fulfilled-by-the-bahai-movement",
-        13
+        19
       ],
       ["The Day of Judgement", "the-day-of-judgement", 8]
     ],
@@ -4282,7 +4102,7 @@
     ]
   },
   {
-    "id": "10/1/7/13/9",
+    "id": "10/1/19/9",
     "path": [
       ["Books", "books", 10],
       [
@@ -4290,11 +4110,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Prophecies Fulfilled by the Bahá’í Movement",
         "prophecies-fulfilled-by-the-bahai-movement",
-        13
+        19
       ],
       ["The Great Resurrection", "the-great-resurrection", 9]
     ],
@@ -4311,7 +4130,7 @@
     ]
   },
   {
-    "id": "10/1/7/13/10",
+    "id": "10/1/19/10",
     "path": [
       ["Books", "books", 10],
       [
@@ -4319,11 +4138,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Prophecies Fulfilled by the Bahá’í Movement",
         "prophecies-fulfilled-by-the-bahai-movement",
-        13
+        19
       ],
       ["Return of Christ", "return-of-christ", 10]
     ],
@@ -4336,7 +4154,7 @@
     ]
   },
   {
-    "id": "10/1/7/13/11",
+    "id": "10/1/19/11",
     "path": [
       ["Books", "books", 10],
       [
@@ -4344,11 +4162,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Prophecies Fulfilled by the Bahá’í Movement",
         "prophecies-fulfilled-by-the-bahai-movement",
-        13
+        19
       ],
       ["The Time of the End", "the-time-of-the-end", 11]
     ],
@@ -4367,7 +4184,7 @@
     ]
   },
   {
-    "id": "10/1/7/13/12",
+    "id": "10/1/19/12",
     "path": [
       ["Books", "books", 10],
       [
@@ -4375,11 +4192,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Prophecies Fulfilled by the Bahá’í Movement",
         "prophecies-fulfilled-by-the-bahai-movement",
-        13
+        19
       ],
       ["Signs in Heaven and Earth", "signs-in-heaven-and-earth", 12]
     ],
@@ -4398,7 +4214,7 @@
     ]
   },
   {
-    "id": "10/1/7/13/13",
+    "id": "10/1/19/13",
     "path": [
       ["Books", "books", 10],
       [
@@ -4406,11 +4222,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Prophecies Fulfilled by the Bahá’í Movement",
         "prophecies-fulfilled-by-the-bahai-movement",
-        13
+        19
       ],
       ["Manner of Coming", "manner-of-coming", 13]
     ],
@@ -4431,7 +4246,7 @@
     ]
   },
   {
-    "id": "10/1/7/14",
+    "id": "10/1/20",
     "path": [
       ["Books", "books", 10],
       [
@@ -4439,11 +4254,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Prophecies of Bahá’u’lláh and ‘Abdu’l‑Bahá",
         "prophecies-of-bahaullah-and-abdul-baha",
-        14
+        20
       ]
     ],
     "years": [2006, 2006],
@@ -4453,7 +4267,7 @@
     ]
   },
   {
-    "id": "10/1/7/14/1",
+    "id": "10/1/20/1",
     "path": [
       ["Books", "books", 10],
       [
@@ -4461,11 +4275,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Prophecies of Bahá’u’lláh and ‘Abdu’l‑Bahá",
         "prophecies-of-bahaullah-and-abdul-baha",
-        14
+        20
       ],
       ["Creative Power of God’s Word", "creative-power-of-gods-word", 1]
     ],
@@ -4489,7 +4302,7 @@
     ]
   },
   {
-    "id": "10/1/7/14/2",
+    "id": "10/1/20/2",
     "path": [
       ["Books", "books", 10],
       [
@@ -4497,11 +4310,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Prophecies of Bahá’u’lláh and ‘Abdu’l‑Bahá",
         "prophecies-of-bahaullah-and-abdul-baha",
-        14
+        20
       ],
       ["Napoleon III", "napoleon-iii", 2]
     ],
@@ -4513,7 +4325,7 @@
     ]
   },
   {
-    "id": "10/1/7/14/3",
+    "id": "10/1/20/3",
     "path": [
       ["Books", "books", 10],
       [
@@ -4521,11 +4333,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Prophecies of Bahá’u’lláh and ‘Abdu’l‑Bahá",
         "prophecies-of-bahaullah-and-abdul-baha",
-        14
+        20
       ],
       ["Germany", "germany", 3]
     ],
@@ -4538,7 +4349,7 @@
     ]
   },
   {
-    "id": "10/1/7/14/4",
+    "id": "10/1/20/4",
     "path": [
       ["Books", "books", 10],
       [
@@ -4546,11 +4357,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Prophecies of Bahá’u’lláh and ‘Abdu’l‑Bahá",
         "prophecies-of-bahaullah-and-abdul-baha",
-        14
+        20
       ],
       ["Persia", "persia", 4]
     ],
@@ -4564,7 +4374,7 @@
     ]
   },
   {
-    "id": "10/1/7/14/5",
+    "id": "10/1/20/5",
     "path": [
       ["Books", "books", 10],
       [
@@ -4572,11 +4382,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Prophecies of Bahá’u’lláh and ‘Abdu’l‑Bahá",
         "prophecies-of-bahaullah-and-abdul-baha",
-        14
+        20
       ],
       ["Turkey", "turkey", 5]
     ],
@@ -4599,7 +4408,7 @@
     ]
   },
   {
-    "id": "10/1/7/14/6",
+    "id": "10/1/20/6",
     "path": [
       ["Books", "books", 10],
       [
@@ -4607,11 +4416,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Prophecies of Bahá’u’lláh and ‘Abdu’l‑Bahá",
         "prophecies-of-bahaullah-and-abdul-baha",
-        14
+        20
       ],
       ["America", "america", 6]
     ],
@@ -4625,7 +4433,7 @@
     ]
   },
   {
-    "id": "10/1/7/14/7",
+    "id": "10/1/20/7",
     "path": [
       ["Books", "books", 10],
       [
@@ -4633,11 +4441,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Prophecies of Bahá’u’lláh and ‘Abdu’l‑Bahá",
         "prophecies-of-bahaullah-and-abdul-baha",
-        14
+        20
       ],
       ["The Great War", "the-great-war", 7]
     ],
@@ -4653,7 +4460,7 @@
     ]
   },
   {
-    "id": "10/1/7/14/8",
+    "id": "10/1/20/8",
     "path": [
       ["Books", "books", 10],
       [
@@ -4661,11 +4468,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Prophecies of Bahá’u’lláh and ‘Abdu’l‑Bahá",
         "prophecies-of-bahaullah-and-abdul-baha",
-        14
+        20
       ],
       ["Social Troubles After the War", "social-troubles-after-the-war", 8]
     ],
@@ -4691,7 +4497,7 @@
     ]
   },
   {
-    "id": "10/1/7/14/9",
+    "id": "10/1/20/9",
     "path": [
       ["Books", "books", 10],
       [
@@ -4699,11 +4505,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Prophecies of Bahá’u’lláh and ‘Abdu’l‑Bahá",
         "prophecies-of-bahaullah-and-abdul-baha",
-        14
+        20
       ],
       ["Coming of the Kingdom of God", "coming-of-the-kingdom-of-god", 9]
     ],
@@ -4724,7 +4529,7 @@
     ]
   },
   {
-    "id": "10/1/7/14/10",
+    "id": "10/1/20/10",
     "path": [
       ["Books", "books", 10],
       [
@@ -4732,11 +4537,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
       [
         "Prophecies of Bahá’u’lláh and ‘Abdu’l‑Bahá",
         "prophecies-of-bahaullah-and-abdul-baha",
-        14
+        20
       ],
       ["‘Akká and Haifa", "akka-and-haifa", 10]
     ],
@@ -4749,7 +4553,7 @@
     ]
   },
   {
-    "id": "10/1/7/15",
+    "id": "10/1/21",
     "path": [
       ["Books", "books", 10],
       [
@@ -4757,8 +4561,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Retrospect and Prospect", "retrospect-and-prospect", 15]
+      ["Retrospect and Prospect", "retrospect-and-prospect", 21]
     ],
     "years": [2006, 2006],
     "content": [
@@ -4766,7 +4569,7 @@
     ]
   },
   {
-    "id": "10/1/7/15/1",
+    "id": "10/1/21/1",
     "path": [
       ["Books", "books", 10],
       [
@@ -4774,8 +4577,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Retrospect and Prospect", "retrospect-and-prospect", 15],
+      ["Retrospect and Prospect", "retrospect-and-prospect", 21],
       ["Progress of the Cause", "progress-of-the-cause", 1]
     ],
     "years": [2006, 2006],
@@ -4789,7 +4591,7 @@
     ]
   },
   {
-    "id": "10/1/7/15/2",
+    "id": "10/1/21/2",
     "path": [
       ["Books", "books", 10],
       [
@@ -4797,8 +4599,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Retrospect and Prospect", "retrospect-and-prospect", 15],
+      ["Retrospect and Prospect", "retrospect-and-prospect", 21],
       [
         "Prophethood of Báb and Bahá’u’lláh",
         "prophethood-of-bab-and-bahaullah",
@@ -4812,7 +4613,7 @@
     ]
   },
   {
-    "id": "10/1/7/15/3",
+    "id": "10/1/21/3",
     "path": [
       ["Books", "books", 10],
       [
@@ -4820,8 +4621,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Retrospect and Prospect", "retrospect-and-prospect", 15],
+      ["Retrospect and Prospect", "retrospect-and-prospect", 21],
       ["A Glorious Prospect", "a-glorious-prospect", 3]
     ],
     "years": [2006, 2006],
@@ -4834,7 +4634,7 @@
     ]
   },
   {
-    "id": "10/1/7/15/4",
+    "id": "10/1/21/4",
     "path": [
       ["Books", "books", 10],
       [
@@ -4842,8 +4642,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Retrospect and Prospect", "retrospect-and-prospect", 15],
+      ["Retrospect and Prospect", "retrospect-and-prospect", 21],
       ["Renewal of Religion", "renewal-of-religion", 4]
     ],
     "years": [2006, 2006],
@@ -4852,7 +4651,7 @@
     ]
   },
   {
-    "id": "10/1/7/15/5",
+    "id": "10/1/21/5",
     "path": [
       ["Books", "books", 10],
       [
@@ -4860,8 +4659,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Retrospect and Prospect", "retrospect-and-prospect", 15],
+      ["Retrospect and Prospect", "retrospect-and-prospect", 21],
       ["Need for New Revelation", "need-for-new-revelation", 5]
     ],
     "years": [2006, 2006],
@@ -4870,7 +4668,7 @@
     ]
   },
   {
-    "id": "10/1/7/15/6",
+    "id": "10/1/21/6",
     "path": [
       ["Books", "books", 10],
       [
@@ -4878,8 +4676,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Retrospect and Prospect", "retrospect-and-prospect", 15],
+      ["Retrospect and Prospect", "retrospect-and-prospect", 21],
       ["Truth Is for All", "truth-is-for-all", 6]
     ],
     "years": [2006, 2006],
@@ -4890,7 +4687,7 @@
     ]
   },
   {
-    "id": "10/1/7/15/7",
+    "id": "10/1/21/7",
     "path": [
       ["Books", "books", 10],
       [
@@ -4898,8 +4695,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Retrospect and Prospect", "retrospect-and-prospect", 15],
+      ["Retrospect and Prospect", "retrospect-and-prospect", 21],
       [
         "The Last Will and Testament of ‘Abdu’l‑Bahá",
         "the-last-will-and-testament-of-abdul-baha",
@@ -4925,7 +4721,7 @@
     ]
   },
   {
-    "id": "10/1/7/15/8",
+    "id": "10/1/21/8",
     "path": [
       ["Books", "books", 10],
       [
@@ -4933,8 +4729,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Retrospect and Prospect", "retrospect-and-prospect", 15],
+      ["Retrospect and Prospect", "retrospect-and-prospect", 21],
       [
         "The Guardian of the Cause of God",
         "the-guardian-of-the-cause-of-god",
@@ -4951,7 +4746,7 @@
     ]
   },
   {
-    "id": "10/1/7/15/9",
+    "id": "10/1/21/9",
     "path": [
       ["Books", "books", 10],
       [
@@ -4959,8 +4754,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Retrospect and Prospect", "retrospect-and-prospect", 15],
+      ["Retrospect and Prospect", "retrospect-and-prospect", 21],
       ["Hands of the Cause of God", "hands-of-the-cause-of-god", 9]
     ],
     "years": [2006, 2006],
@@ -4972,7 +4766,7 @@
     ]
   },
   {
-    "id": "10/1/7/15/10",
+    "id": "10/1/21/10",
     "path": [
       ["Books", "books", 10],
       [
@@ -4980,8 +4774,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Retrospect and Prospect", "retrospect-and-prospect", 15],
+      ["Retrospect and Prospect", "retrospect-and-prospect", 21],
       ["The Administrative Order", "the-administrative-order", 10]
     ],
     "years": [2006, 2006],
@@ -5021,7 +4814,7 @@
     ]
   },
   {
-    "id": "10/1/7/15/11",
+    "id": "10/1/21/11",
     "path": [
       ["Books", "books", 10],
       [
@@ -5029,8 +4822,7 @@
         "bahaullah-new-era",
         1
       ],
-      ["Bahá’u’lláh and the New Era", "bahaullah-and-the-new-era", 7],
-      ["Retrospect and Prospect", "retrospect-and-prospect", 15],
+      ["Retrospect and Prospect", "retrospect-and-prospect", 21],
       ["The World Order of Bahá’u’lláh", "the-world-order-of-bahaullah", 11]
     ],
     "years": [2006, 2006],
@@ -5066,7 +4858,7 @@
     ]
   },
   {
-    "id": "10/1/8",
+    "id": "10/1/22",
     "path": [
       ["Books", "books", 10],
       [
@@ -5074,9 +4866,10 @@
         "bahaullah-new-era",
         1
       ],
-      ["Epilogue", "epilogue", 8]
+      ["Epilogue", "epilogue", 22]
     ],
     "years": [2006, 2006],
+    "meta": "Bahá’í Publishing",
     "content": [
       "Under the inspired guidance of Shoghi Effendi the Bahá’í Cause grew steadily in size and in the establishment of its Administrative Order, so that by 1951 there were eleven functioning National Spiritual Assemblies. At that point the Guardian turned to the development of the institutions of the Faith at its international level, appointing the International Bahá’í Council, the forerunner of the Universal House of Justice, and, shortly thereafter, the first contingent of the Hands of the Cause of God. Hitherto Shoghi Effendi has raised certain eminent Bahá’ís to the rank of Hands of the Cause posthumously, one of them being Dr. John E. Esslemont, but it was only in 1951 that he adjudged the time ripe to begin the full development of this important institution. In rapid succession between 1951 and 1957 he appointed thirty‑two Hands and extended the range of their activities, instituting in each continent Auxiliary Boards consisting of believers and appointed by the Hands to be their deputies, assistants and advisers. Twenty‑seven of these Hands were living at the time of his passing.",
       "Through a series of letters, some addressed to Bahá’ís throughout the world, and others to those in specific countries, the Guardian deepened their understanding of the teachings, built up the administrative institutions of the Faith, trained the believers in their correct and effective use, and in 1937 launched the American Bahá’í Community on its implementation of the Divine Plan for the diffusion of Bahá’u’lláh’s Message. This Divine Plan had been revealed by ‘Abdu’l‑Bahá in a number of Tablets written during the years of the First World War and constitutes the charter for the propagation of the Faith.",
