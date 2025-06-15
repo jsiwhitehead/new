@@ -170,7 +170,14 @@ const getDataText = (data: any, c: SectionContent): string => {
   const ngramMap = new Map();
   const strippedMap = new Map();
   for (const section of sections) {
-    if (!section.meta) {
+    if (
+      !section.meta &&
+      section.path[0]![0] !== "Compilations" &&
+      !(
+        section.path[0]![0] === "Ruhi Institute" &&
+        section.path[2]?.[0] !== "A Few Thoughts for the Tutor"
+      )
+    ) {
       section.content.forEach((p, i) => {
         const text = getText(p);
         strippedMap.set(`${section.id}:${i}`, strip(text));

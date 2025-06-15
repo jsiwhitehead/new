@@ -20,8 +20,9 @@ const indexAuthors = {
   "Shoghi Effendi": 5,
   "The Universal House of Justice": 6,
   Documents: 7,
-  Compilations: 8,
-  Books: 9,
+  "Ruhi Institute": 8,
+  Compilations: 9,
+  Books: 10,
 } as Record<string, number>;
 
 const urlAuthors = {
@@ -32,6 +33,7 @@ const urlAuthors = {
   "Shoghi Effendi": "shoghi-effendi",
   "The Universal House of Justice": "the-universal-house-of-justice",
   Documents: "documents",
+  "Ruhi Institute": "ruhi",
   Compilations: "compilations",
   Books: "books",
 } as Record<string, string>;
@@ -255,25 +257,48 @@ const getLength = (c: SectionContent) => {
   return c.text.length;
 };
 
+const ruhiKeys = [
+  "1",
+  "2",
+  "3",
+  "3-2",
+  "3-3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "10",
+  "11",
+  "12",
+  "13",
+  "14",
+  "annas-presentation",
+  "junior-youth-texts",
+];
+
 (async () => {
   fs.emptyDirSync("./data/structure");
 
   for (const author of Object.keys(sources)) {
     await Promise.all(
-      Object.keys(sources[author]!).map(async (file, fileIndex) => {
-        const id = `${author}-${file}`;
-        const res = parseStructuredSections(
-          file,
-          fileIndex,
-          await readText(
-            sources[author]![file]!.length > 0 ? "format" : "manual",
-            id
-          )
-        );
-        if (res.length > 0) {
-          await writeJSON("structure", id, res);
+      (author === "ruhi" ? ruhiKeys : Object.keys(sources[author]!)).map(
+        async (file, fileIndex) => {
+          const id = `${author}-${file}`;
+          const res = parseStructuredSections(
+            file,
+            fileIndex,
+            await readText(
+              sources[author]![file]!.length > 0 ? "format" : "manual",
+              id
+            )
+          );
+          if (res.length > 0) {
+            await writeJSON("structure", id, res);
+          }
         }
-      })
+      )
     );
   }
 

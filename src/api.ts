@@ -186,226 +186,237 @@ const getUrlPath = ({
 };
 
 export default function getData(...urlPath: string[]): RenderSection[] {
-  return data
-    .filter((d) => !d.meta && urlPath.every((p, i) => d.path[i]?.[1] === p))
-    .map((d) => {
-      const content = d.content.map((c, i): SemiRenderContent => {
-        const para = getParagraph(c);
-        if (para.type === "break") return para;
+  const showContent =
+    data.find(
+      (d) =>
+        urlPath.length === d.path.length &&
+        urlPath.every((p, i) => d.path[i]![1] === p)
+    ) ||
+    [
+      "bahaullah/hidden-words",
+      "bahaullah/gleanings-writings-bahaullah",
+    ].includes(urlPath.join("/")) ||
+    (urlPath.length > 1 && ["ruhi", "compilations"].includes(urlPath[0]!));
+  const filtered = data.filter(
+    (d) => !d.meta && urlPath.every((p, i) => d.path[i]?.[1] === p)
+  );
+  if (!showContent) return filtered as any;
+  return filtered.map((d) => {
+    const content = d.content.map((c, i): SemiRenderContent => {
+      const para = getParagraph(c);
+      if (para.type === "break") return para;
 
-        // CAPITALISE QUOTES
-        for (const line of para.parts) {
-          for (let i = 0; i < line.length; i++) {
-            if (line[i]!.quote) {
-              const pre = (
-                (line[i - 1]?.text || "")
+      // CAPITALISE QUOTES
+      for (const line of para.parts) {
+        for (let i = 0; i < line.length; i++) {
+          if (line[i]!.quote) {
+            const pre = (
+              (line[i - 1]?.text || "")
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .toLowerCase()
+                .replace(/\[[^\]]*\]/g, "")
+                .match(/[^a-z0-9]*$/)?.[0] || ""
+            ).replace(/[“”‘’ ]/g, "");
+            if (
+              !pre ||
+              ([".", "!", "?"].includes(pre[pre.length - 1]!) &&
+                !pre.endsWith(". . ."))
+            ) {
+              // if (line[i]!.text !== capitalised(line[i]!.text)) {
+              //   console.log(line[i]!.text);
+              // }
+              line[i]!.text = capitalised(line[i]!.text);
+            }
+          }
+        }
+      }
+
+      // FILL OUT QUOTES
+      if (
+        para.parts.every((line) =>
+          line.every(
+            (part) =>
+              part.quote ||
+              !/[a-z0-9]/.test(
+                part.text
                   .normalize("NFD")
                   .replace(/[\u0300-\u036f]/g, "")
                   .toLowerCase()
                   .replace(/\[[^\]]*\]/g, "")
-                  .match(/[^a-z0-9]*$/)?.[0] || ""
-              ).replace(/[“”‘’ ]/g, "");
-              if (
-                !pre ||
-                ([".", "!", "?"].includes(pre[pre.length - 1]!) &&
-                  !pre.endsWith(". . ."))
-              ) {
-                // if (line[i]!.text !== capitalised(line[i]!.text)) {
-                //   console.log(line[i]!.text);
-                // }
-                line[i]!.text = capitalised(line[i]!.text);
+              )
+          )
+        )
+      ) {
+        const allQuotes = [
+          ...new Set(
+            para.parts.flatMap((line) =>
+              line.flatMap((part) =>
+                part.quote ? [JSON.stringify(part.quote)] : []
+              )
+            )
+          ),
+        ].map((q) => JSON.parse(q));
+        if (allQuotes.length === 1) {
+          para.parts = para.parts.map((line) => [
+            {
+              text: line.map((part) => part.text).join(""),
+              quote: allQuotes[0],
+              quoted: 0,
+            },
+          ]);
+        } else {
+          for (const line of para.parts) {
+            for (let i = 0; i < line.length; i++) {
+              line[i]!.quote = true;
+            }
+          }
+        }
+      } else {
+        for (const line of para.parts) {
+          for (let i = 0; i < line.length; i++) {
+            const current = line[i]!;
+            const prev = line[i - 1];
+            const next = line[i + 1];
+            if (
+              !current.quote &&
+              current.text === " . . . " &&
+              prev?.quote &&
+              next?.quote
+            ) {
+              current.quote = true;
+            }
+            if (current.quote && prev && !prev.quote) {
+              const pre = prev.text.match(/“[^a-z0-9‘]*$|‘[^a-z0-9“]*$/)?.[0];
+              if (pre) {
+                current.text = `${pre}${current.text}`;
+                prev.text = prev.text.slice(0, prev.text.length - pre.length);
+              }
+            }
+            if (current.quote && next && !next.quote) {
+              const post = next.text.match(/^[^a-z0-9’]*”|^[^a-z0-9”]*’/)?.[0];
+              if (post) {
+                current.text = `${current.text}${post}`;
+                next.text = next.text.slice(post.length);
               }
             }
           }
         }
+        for (let i = 0; i < para.parts.length; i++) {
+          para.parts[i] = para.parts[i]!.filter((part) => part.text);
+        }
+      }
 
-        // FILL OUT QUOTES
-        if (
-          para.parts.every((line) =>
-            line.every(
-              (part) =>
-                part.quote ||
-                !/[a-z0-9]/.test(
-                  part.text
-                    .normalize("NFD")
-                    .replace(/[\u0300-\u036f]/g, "")
-                    .toLowerCase()
-                    .replace(/\[[^\]]*\]/g, "")
-                )
-            )
-          )
-        ) {
+      // ADD QUOTED COUNTS
+      const quoted = (d.quoted || {})[i] || [];
+      const quotedIndices = [
+        ...new Set(quoted.flatMap((q) => [q.start, q.end])),
+      ].sort((a, b) => a - b);
+      let currentIndex = 0;
+      const lines = para.parts.map((line) => {
+        const res: {
+          text: string;
+          quoted: number;
+          quote?: true | { section: string; paragraph: number };
+        }[] = [];
+        for (const part of line) {
+          const partIndices = quotedIndices
+            .map((x) => x - currentIndex)
+            .filter((q) => q > 0 && q < part.text.length);
+          let prev = 0;
+          for (const index of partIndices) {
+            res.push({
+              text: part.text.slice(prev, index),
+              quoted: quoted.filter(
+                (q) =>
+                  currentIndex + prev >= q.start &&
+                  currentIndex + index <= q.end
+              ).length,
+              quote: part.quote,
+            });
+            prev = index;
+          }
+          res.push({
+            text: part.text.slice(prev),
+            quoted: quoted.filter(
+              (q) =>
+                currentIndex + prev >= q.start &&
+                currentIndex + part.text.length <= q.end
+            ).length,
+            quote: part.quote,
+          });
+          currentIndex += part.text.length;
+        }
+        currentIndex += 1;
+        return res;
+      });
+
+      return {
+        type: para.type,
+        parts: lines,
+      };
+
+      // if (!Array.isArray(c)) return [getText(c)];
+      // const res: any = c.map((p) => {
+      //   if (typeof p === "string") return p;
+      //   const source = data.find((d) => d.id === p.section)!;
+      //   return {
+      //     quote: getText(source.content[p.paragraph]!).slice(p.start, p.end),
+      //     path: source.path,
+      //     paragraph: p.paragraph + 1,
+      //   };
+      // });
+    });
+    return {
+      ...d,
+      content: content.map((para, index) => {
+        if (para.type === "break") return para;
+        if (para.parts.every((line) => line.every((part) => part.quote))) {
           const allQuotes = [
             ...new Set(
               para.parts.flatMap((line) =>
                 line.flatMap((part) =>
-                  part.quote ? [JSON.stringify(part.quote)] : []
+                  part.quote && part.quote !== true
+                    ? [JSON.stringify(part.quote)]
+                    : []
                 )
               )
             ),
-          ].map((q) => JSON.parse(q));
+          ].map((x) => JSON.parse(x));
           if (allQuotes.length === 1) {
-            para.parts = para.parts.map((line) => [
-              {
-                text: line.map((part) => part.text).join(""),
-                quote: allQuotes[0],
-                quoted: 0,
-              },
-            ]);
-          } else {
-            for (const line of para.parts) {
-              for (let i = 0; i < line.length; i++) {
-                line[i]!.quote = true;
-              }
-            }
-          }
-        } else {
-          for (const line of para.parts) {
-            for (let i = 0; i < line.length; i++) {
-              const current = line[i]!;
-              const prev = line[i - 1];
-              const next = line[i + 1];
-              if (
-                !current.quote &&
-                current.text === " . . . " &&
-                prev?.quote &&
-                next?.quote
-              ) {
-                current.quote = true;
-              }
-              if (current.quote && prev && !prev.quote) {
-                const pre = prev.text.match(/“[^a-z0-9‘]*$|‘[^a-z0-9“]*$/)?.[0];
-                if (pre) {
-                  current.text = `${pre}${current.text}`;
-                  prev.text = prev.text.slice(0, prev.text.length - pre.length);
-                }
-              }
-              if (current.quote && next && !next.quote) {
-                const post = next.text.match(
-                  /^[^a-z0-9’]*”|^[^a-z0-9”]*’/
-                )?.[0];
-                if (post) {
-                  current.text = `${current.text}${post}`;
-                  next.text = next.text.slice(post.length);
-                }
-              }
-            }
-          }
-          for (let i = 0; i < para.parts.length; i++) {
-            para.parts[i] = para.parts[i]!.filter((part) => part.text);
+            return {
+              ...para,
+              parts: para.parts.map((line) =>
+                line.map((part) => ({ ...part, quote: true }))
+              ),
+              paragraph: getParagraphId(d, index),
+              quote: getUrlPath(allQuotes[0]),
+              quoted: [
+                ...new Set(
+                  d.quoted?.[index]?.map((q) => JSON.stringify(getUrlPath(q)))
+                ),
+              ].map((x) => JSON.parse(x)),
+            };
           }
         }
-
-        // ADD QUOTED COUNTS
-        const quoted = (d.quoted || {})[i] || [];
-        const quotedIndices = [
-          ...new Set(quoted.flatMap((q) => [q.start, q.end])),
-        ].sort((a, b) => a - b);
-        let currentIndex = 0;
-        const lines = para.parts.map((line) => {
-          const res: {
-            text: string;
-            quoted: number;
-            quote?: true | { section: string; paragraph: number };
-          }[] = [];
-          for (const part of line) {
-            const partIndices = quotedIndices
-              .map((x) => x - currentIndex)
-              .filter((q) => q > 0 && q < part.text.length);
-            let prev = 0;
-            for (const index of partIndices) {
-              res.push({
-                text: part.text.slice(prev, index),
-                quoted: quoted.filter(
-                  (q) =>
-                    currentIndex + prev >= q.start &&
-                    currentIndex + index <= q.end
-                ).length,
-                quote: part.quote,
-              });
-              prev = index;
-            }
-            res.push({
-              text: part.text.slice(prev),
-              quoted: quoted.filter(
-                (q) =>
-                  currentIndex + prev >= q.start &&
-                  currentIndex + part.text.length <= q.end
-              ).length,
-              quote: part.quote,
-            });
-            currentIndex += part.text.length;
-          }
-          currentIndex += 1;
-          return res;
-        });
-
         return {
-          type: para.type,
-          parts: lines,
-        };
-
-        // if (!Array.isArray(c)) return [getText(c)];
-        // const res: any = c.map((p) => {
-        //   if (typeof p === "string") return p;
-        //   const source = data.find((d) => d.id === p.section)!;
-        //   return {
-        //     quote: getText(source.content[p.paragraph]!).slice(p.start, p.end),
-        //     path: source.path,
-        //     paragraph: p.paragraph + 1,
-        //   };
-        // });
-      });
-      return {
-        ...d,
-        content: content.map((para, index) => {
-          if (para.type === "break") return para;
-          if (para.parts.every((line) => line.every((part) => part.quote))) {
-            const allQuotes = [
-              ...new Set(
-                para.parts.flatMap((line) =>
-                  line.flatMap((part) =>
-                    part.quote && part.quote !== true
-                      ? [JSON.stringify(part.quote)]
-                      : []
-                  )
-                )
-              ),
-            ].map((x) => JSON.parse(x));
-            if (allQuotes.length === 1) {
-              return {
-                ...para,
-                parts: para.parts.map((line) =>
-                  line.map((part) => ({ ...part, quote: true }))
-                ),
-                paragraph: getParagraphId(d, index),
-                quote: getUrlPath(allQuotes[0]),
-                quoted: [
-                  ...new Set(
-                    d.quoted?.[index]?.map((q) => JSON.stringify(getUrlPath(q)))
-                  ),
-                ].map((x) => JSON.parse(x)),
-              };
-            }
-          }
-          return {
-            ...para,
-            parts: para.parts.map((lines) =>
-              lines.map((part) => ({
-                ...part,
-                quote:
-                  part.quote &&
-                  (part.quote === true ? true : getUrlPath(part.quote)),
-              }))
+          ...para,
+          parts: para.parts.map((lines) =>
+            lines.map((part) => ({
+              ...part,
+              quote:
+                part.quote &&
+                (part.quote === true ? true : getUrlPath(part.quote)),
+            }))
+          ),
+          paragraph: getParagraphId(d, index),
+          quoted: [
+            ...new Set(
+              d.quoted?.[index]?.map((q) => JSON.stringify(getUrlPath(q)))
             ),
-            paragraph: getParagraphId(d, index),
-            quoted: [
-              ...new Set(
-                d.quoted?.[index]?.map((q) => JSON.stringify(getUrlPath(q)))
-              ),
-            ].map((x) => JSON.parse(x)),
-          };
-        }),
-      };
-    });
+          ].map((x) => JSON.parse(x)),
+        };
+      }),
+    };
+  });
 }

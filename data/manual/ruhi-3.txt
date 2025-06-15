@@ -1,0 +1,551 @@
+Book 3: Teaching Children’s Classes Grade 1
+author="Ruhi Institute"
+years=[2021.0901,2021.0901]
+
+# A Few Thoughts for the Tutor
+
+This book brings together two units that seek to build capacity in a growing number of individuals to undertake the highly meritorious act of teaching regular classes for the spiritual education of children in neighbourhoods and villages. It is the third in the Ruhi Institute’s main sequence of courses, and the first to open up a specialised path of service for those wishing to pursue it. Participants who decide to do so will go on to study a series of branch courses for teaching children, while continuing to progress, each at a pace suitable to his or her own situation, along the path traced out by the main sequence.
+
+In guiding a group through the book, the tutor should keep the above vision in mind, remembering that only a percentage of the participants may choose to dedicate themselves to this area of endeavour. Beyond its immediate aim, then, the book will serve more broadly to familiarise every individual now firmly set on the path of service with some of the concepts and ideas that give shape to the educational programme for youngsters unfolding in his or her village or neighbourhood. In this, the book hopes to contribute to a heightened awareness within a community, both of its obligation to nurture children spiritually and of the qualities, attitudes and conduct its adult members must display in their interactions with them.
+
+From their study of the second unit of Book 2, participants are already acquainted with ‘Abdu’l‑Bahá’s statement that education is of three kinds: material, human, and spiritual. Here they will be given an opportunity to further their understanding of the latter type of education, by the aid of which the spiritual nature, the higher nature, of the individual is developed. What should be clear from the outset is that spiritual education for children as conceived in the Bahá’í Faith differs fundamentally from the imposition of dogmatic beliefs sometimes associated with religious instruction. It aims to foster, instead, a love for knowledge, an open attitude towards learning, and a constant desire to investigate reality.
+
+It is equally important to acknowledge that, in the education of the young, religious precepts cannot be swept aside, for to do so would be to deny them access to divine truths and spiritual principles, principles that must come to govern their thoughts and actions. Those supporting the claim that youngsters are best left to acquire their own standards and worldviews from their interactions with society, supposedly by free choice, do not seem to appreciate how aggressively political, economic and cultural powers promote patterns of belief and behaviour that serve their own interests. But even if this were not so, there is no reason to assume that succeeding generations would be able to create a better world without an education that nurtures the spiritual nature of the individual. Humanity bereft of guidance from the Divine Educator can produce little more than chaos, injustice, and suffering.
+
+Bahá’í teachings, then, are central to the six‑year programme of child education envisioned in this book and in those that branch off from it. That said, the design of the programme, particularly the sequencing of the content across grades, opens the way for youngsters of all backgrounds to take part. Lessons for Grade 1 are concerned with the development of spiritual qualities in children aged 5 or 6—this, in an effort to contribute to the refinement of character. Grade 2 builds on these lessons by fostering the habits and pattern of conduct that give expression to the inner qualities explored the previous year—for example, the habit of praying, through which an inner state distinguished by the desire to draw close to God is expressed. The next grades turn to the question of knowledge. Specifically, to work consciously for their own spiritual development, individuals must be connected to the Source from which the knowledge of God flows. Themes central to the lives of the Twin Manifestations of God for this Day, as well as Manifestations that appeared before Them, are discussed, then, in the lessons for these grades. The final grade provides children with an opportunity to grow in their knowledge of Bahá’u’lláh’s Revelation, guided by, and benefitting from, the explanations and example of ‘Abdu’l‑Bahá. It is hoped that this will help strengthen the habit in children of turning to His Writings and utterances as they move forward in life and strive to align their thoughts and actions with Bahá’u’lláh’s teachings. By the time they reach the age of 11 or 12, youngsters are ready to make the passage to the junior youth spiritual empowerment programme, in which their rising consciousness will be expanded further through a series of texts, studied alongside an animator, including texts that continue the education they received in Bahá’í children’s classes. Aspiring children’s class teachers should have every confidence that parents who are not themselves Bahá’ís welcome the opportunity to send their sons and daughters to such classes and invariably rejoice in seeing the effects of spiritual education on their tender hearts and minds.
+
+As noted above, classes in Grade 1 focus on the refinement of character. It is within this context, then, that the first unit, “Some Principles of Bahá’í Education”, examines certain fundamental concepts gleaned from the Writings of the Faith that have profound implications for education. The initial half of the unit is given over to this discussion, while the remainder looks at what approaches can be taken in conducting the lessons and at the teacher’s relationship with parents.
+
+One of the first concepts discussed in the unit is human potential, which is explored through the imagery found in Bahá’u’lláh’s statement that likens the human being to “a mine rich in gems of inestimable value”. Participants are asked to reflect on two immediate implications that can be drawn from the statement—namely, that educational approaches which view students as empty vessels waiting to be filled with information ought best to be set aside and that, without proper nurturing, children will not be able to manifest the many gems latent within their inmost beings.
+
+Among the gems with which every individual is endowed, the unit proposes, are those called “spiritual qualities”, seen as permanent structures upon which a noble and upright character can be built. That they constitute a distinct category of “virtues”—a general term used for every kind of praiseworthy attribute, including habits and attitudes as well as skills and abilities—is an essential idea that all participants should adequately grasp. Sections 6 and 7 consider some of the implications of this statement. The tutor will want to make sure that members of the group are able to relate what they are discussing to their study of the third unit of Book 1, where they thought about how spiritual qualities, as faculties of the human soul, must be developed in this life to aid and assist us on our eternal journey towards God. Love of God and knowledge of God are indispensable in nurturing spiritual qualities. It is important for participants to see how the ideas in these two sections set the Grade 1 lessons apart from, say, a course on virtues that treats punctuality and truthfulness as one and the same type of attribute. And, when teachers appreciate this distinction, they will avoid the tendency to view the development of a goodly character primarily in terms of behaviour modification.
+
+Spiritual qualities, of course, have a dynamics of their own, which the core elements of the lessons—prayer, memorisation of quotations, and stories—in particular strive to foster. Participants already have some insight into the nature of these elements from their study of Books 1 and 2, and Section 8 is intended to help them extend what they have learned to the task of teaching children. In doing so, they should recognise that, to cultivate spiritual qualities in youngsters, the lessons put them in immediate contact with the Word of God and inspire them with stories of ‘Abdu’l‑Bahá, the embodiment of the highest human ideals.
+
+Another concept explored in the unit is the fear of God, which is addressed in Section 12. It is, according to the Bahá’í Writings, the “prime factor” in the education of a human being. What is important for participants to understand is that this fear is inseparable from the love of God, for it is a fear born of the desire to please the One we love and to avoid any act that would prevent the bounties of His love from reaching us. In the absence of love, the fear that motivates us to turn away from unseemly conduct is of another kind—fear of chastisement by a wrathful God. This is not an image that should enter the minds of children. While aspiring teachers need to grasp well the relationship between love of God and fear of God in the educational process, they should recognise that it is not a subject they will raise explicitly in class. Rather they must learn to fan the flame of the love of God in the hearts of their students and help them gain the absolute assurance that, having created humanity out of His infinite love, God will never cease to nurture and protect us. It is the love of His Beauty that, in the final analysis, will discourage them from acting in ways contrary to His good pleasure.
+
+Discussion on the above concepts and ideas should lead participants to the realisation that, ultimately, through a process of spiritual education, children should come to regard the acquisition of spiritual qualities as a reward in itself and the possession of an unworthy character as the greatest punishment. All of this, then, should enable participants to view the modification of behaviour in youngsters from a proper perspective—not as a central aim but as an aid to the refinement of character. They will, accordingly, find appropriate ways in their interactions with children to encourage desirable conduct and to discourage unbecoming patterns of behaviour, and some of these are mentioned in Section 13. Other concepts briefly addressed in the section are those related to freedom and discipline. While harsh punishment obviously has no place in the education of children, allowing them absolute freedom to do as they wish is equally damaging to their spiritual development.
+
+The unit turns next to the question of how to maintain order and discipline in a class while creating a joyful learning environment. The tutor should remember that most participants will have had no previous experience teaching children, and so only a few initial ideas are offered here for their consideration. They may wish to return to the relevant sections after they have taken up this act of service and reflect on the ideas in light of experience.
+
+Participants then go on to examine some of the approaches they can follow in engaging children in the activities that make up the lessons. In addition to the core elements of prayer, memorisation of quotations, and stories, highlighted above, these activities include songs, games, and colouring. In analysing the approaches available to them, participants review the first lesson on the spiritual quality of purity.
+
+Finally, in Section 26, they consider the nature of the ongoing conversation that unfolds between a teacher and the parents of youngsters in his or her class. This section builds on what participants have already studied in this regard in Book 2, as well as on any experience they may have gained since then as part of a growing nucleus of friends visiting households with children who attend classes in their neighbourhood or village. The tutor should make sure to give participants sufficient time to carry out the exercise that calls for them to reexamine concepts in this first unit in preparation for their conversations with parents. The exercise will serve as a means for the members of the group to reinforce in their minds many of the concepts and ideas discussed.
+
+The second unit, “Lessons for Children’s Classes, Grade 1”, consists of two parts: the twenty‑four lessons suggested for this grade and preliminary sections designed to enable teachers to become well acquainted with the content of the lessons, each of which is structured around the development of a spiritual quality. Taking four lessons at a time, the preliminary sections guide participants through a review of the core elements of each one, which they analyse in much the same way they did the first on purity in the preceding unit.
+
+A quotation from the Bahá’í Writings constitutes the pivotal element of every lesson. It is accompanied by a short statement that teachers are encouraged to use in introducing the quotation to the children. Though brief, the statement employs a constellation of words and images drawn from the Writings that will help the children start to form a picture in their minds of the dynamics that characterise the spiritual quality addressed. A teacher’s ability to present the introductory remarks in a natural way and assist students in gaining insights into these dynamics will grow through experience and through continued contemplation on the spiritual qualities discussed in the lessons. In this light, participants are asked in the preliminary sections to undertake an initial reflection on the significance of each quality, both in the life of the individual and for their teaching efforts, and a small selection of quotations related to each one is included for this purpose.
+
+Having engaged in such reflection, participants next examine the stories that illustrate the qualities they have been considering. Gleaned largely from the life of ‘Abdu’l‑Bahá, these are intended to offer children a glimpse of the limitless manifestations of spiritual qualities as attributes of the human soul. To this end, some questions are provided for each story to help teachers look beyond the sequence of events to the spiritual reality it explores. Particularly in the case of stories of ‘Abdu’l‑Bahá, these questions are formulated so as to ensure that, in their narration, teachers place emphasis on how He manifested spiritual qualities to the utmost perfection and avoid drawing the kind of immediate and superficial correlation that can distract children from seeing the true significance of His actions.
+
+After participants have analysed each grouping of four lessons in this way, they are asked to spend time practising the various elements among themselves, employing the approaches discussed in the first unit. The importance of the practice component cannot be overestimated. Much will now fall on the tutor to assist the members of the group in their efforts to enhance their ability as potential teachers. The organisation of the study of the lessons into sets of four allows for a degree of flexibility in this respect, and some thought should be given by the tutor on how best to proceed, in consultation, as needed, with the institute coordinator for children’s classes. There may be times when it is possible for participants to complete the study of the entire unit, including its practice component, before they take up this act of service. In that case, it is essential that those wishing to hold classes are able to gain experience swiftly following their completion of Book 3, whether by starting one of their own or by working alongside another teacher, helping out with some of the activities. Under other circumstances, however, it may be fruitful for participants to begin acquiring similar experience in teaching after they have completed the study and practice of, say, one or two sets of four lessons. At appropriate intervals, then, the tutor would bring participants back together to study and practice four more lessons in light of their growing experience. It should be mentioned here that the organisation of the preliminary sections into groups of four lessons does not imply that the spiritual qualities addressed in them are in any special way connected.
+
+Irrespective of such arrangements, it is vital for teachers to become thoroughly familiar with the lessons and prepare well for each class period. Children’s classes will be much more successful if the teacher does not read directly from the book but has learned to recite the prayers and quotations by heart, has prepared to introduce the quotation for the lesson, and has practised telling the story. Aside from preparation of this kind, very little is needed for the classes by way of materials and outside resources, beyond some supplies for games and the colouring sheets and crayons. The colouring sheets, found at the end of the second unit, can be photocopied or reproduced by tracing them out on separate pieces of paper. They can, in addition, be downloaded from the website of the Ruhi Institute in order for prints to be made. Also provided on the website are recordings of the songs for Grade 1, which teachers may wish to use not only to prepare themselves for class but to assist the children in learning to sing them. Those who begin a class for youngsters in their community are encouraged to maintain a notebook dedicated to their efforts, which will enable them to have needed information readily on hand and will strengthen a pattern of preparation and reflection.
+
+It is worthwhile to make explicit here that the twenty‑four lessons for Grade 1 have been designed with the intent of ensuring that each one can be completed in a single class period, under normal circumstances. Dividing the elements of a lesson between two periods contributes to a tendency to prolong activities unnecessarily. More crucially, however, it can undermine the effectiveness of a process of learning in which establishing a rhythm among activities, each of different levels of intensity, but all revolving around one spiritual quality, is essential.
+
+Lastly, a few words should be said about the relationship between the teacher and the students in the educational process, a theme treated in Sections 9 and 10 of the first unit but implicit throughout the entire book. That every teacher should exert the utmost effort to bring to his or her endeavours among children all the spiritual qualities they are studying in Grade 1 is evident. Of these, none will be more important than love, a love that is a reflection of the love of God. This love will be felt in the environment created by the teacher—in the degree of preparation made before class, in the prayers offered at the start of each one, in the language employed in interactions with the students, and in the way students receive encouragement and praise for the progress they are making.
+
+# Unit 1: Some Principles of Bahá’í Education
+purpose="To explore some of the principles and concepts found in the Bahá’í Writings related to education and to reflect on how to engage children in classes that nurture them spiritually"
+
+## Section 1
+
+Children are the most precious treasure a community can possess, for in them are the promise and guarantee of the future. They bear the seeds of the character of future society which is largely shaped by what the adults constituting the community do or fail to do with respect to children. They are a trust no community can neglect with impunity. An all‑embracing love of children, the manner of treating them, the quality of the attention shown them, the spirit of adult behaviour toward them—these are all among the vital aspects of the requisite attitude.
+
+## Section 2
+
+Blessed is that teacher who shall arise to instruct the children, and to guide the people into the pathways of God, the Bestower, the Well‑Beloved.
+
+Among the greatest of all services that can possibly be rendered by man to Almighty God is the education and training of children . . .
+
+According to the explicit divine Text, teaching the children is indispensable and obligatory. It followeth that teachers are servants of the Lord God, since they have arisen to perform this task, which is the same as worship. You must therefore offer praise with every breath, for you are educating your spiritual children.
+
+## Section 3
+
+Regard man as a mine rich in gems of inestimable value. Education can, alone, cause it to reveal its treasures, and enable mankind to benefit therefrom.
+
+## Section 4
+
+## Section 5
+
+Ye should consider the question of goodly character as of the first importance. It is incumbent upon every father and mother to counsel their children over a long period and guide them unto those things which lead to everlasting honour.
+
+Training in morals and good conduct is far more important than book learning. A child that is cleanly, agreeable, of good character, well‑behaved—even though he be ignorant—is preferable to a child that is rude, unwashed, ill‑natured, and yet becoming deeply versed in all the sciences and arts. The reason for this is that the child who conducts himself well, even though he be ignorant, is of benefit to others, while an ill‑natured, ill‑behaved child is corrupted and harmful to others, even though he be learned. If, however, the child be trained to be both learned and good, the result is light upon light.
+
+In a time to come, morals will degenerate to an extreme degree. It is essential that children be reared in the Bahá’í way, that they may find happiness both in this world and the next. If not, they shall be beset by sorrows and troubles, for human happiness is founded upon spiritual behaviour.
+
+## Section 6
+
+## Section 7
+
+Thou didst write as to the children: from the very beginning, the children must receive divine education and must continually be reminded to remember their God. Let the love of God pervade their inmost being, commingled with their mother’s milk.
+
+From his infancy, the child must be nursed at the breast of God’s love, and nurtured in the embrace of His knowledge, that he may radiate light, grow in spirituality, be filled with wisdom and learning, and take on the characteristics of the angelic host.
+
+As to thy question regarding the education of children: it behoveth thee to nurture them at the breast of the love of God, and urge them onward to the things of the spirit, that they may turn their faces unto God; that their ways may conform to the rules of good conduct and their character be second to none; that they make their own all the graces and praiseworthy qualities of humankind . . .
+
+## Section 8
+
+The greatest attainment or the sweetest state is none other than conversation with God. It creates spirituality, creates mindfulness and celestial feelings, begets new attractions of the Kingdom and engenders the susceptibilities of the higher intelligence.
+
+Intone, O My servant, the verses of God that have been received by thee, as intoned by them who have drawn nigh unto Him, that the sweetness of thy melody may kindle thine own soul, and attract the hearts of all men.
+
+Spirit has influence; prayer has spiritual effect.
+
+It behoveth the servant to pray to and seek assistance from God, and to supplicate and implore His aid. Such becometh the rank of servitude, and the Lord will decree whatsoever He desireth, in accordance with His consummate wisdom.
+
+The Word of God may be likened unto a sapling, whose roots have been implanted in the hearts of men. It is incumbent upon you to foster its growth through the living waters of wisdom, of sanctified and holy words, so that its root may become firmly fixed and its branches may spread out as high as the heavens and beyond.
+
+The art of music is divine and effective. It is the food of the soul and spirit. Through the power and charm of music the spirit of man is uplifted. It has wonderful sway and effect in the hearts of children, for their hearts are pure, and melodies have great influence in them. The latent talents with which the hearts of these children are endowed will find expression through the medium of music.
+
+## Section 9
+
+Veiled in My immemorial being and in the ancient eternity of My essence, I knew My love for thee; therefore I created thee, have engraved on thee Mine image and revealed to thee My beauty.
+
+With the hands of power I made thee and with the fingers of strength I created thee; and within thee have I placed the essence of My light.
+
+Thou art My lamp and My light is in thee. Get thou from it thy radiance and seek none other than Me. For I have created thee rich and have bountifully shed My favour upon thee.
+
+## Section 10
+
+Take heed, O people, lest ye be of them that give good counsel to others but forget to follow it themselves.
+
+O My brother! A pure heart is as a mirror; cleanse it with the burnish of love and severance from all save God, that the true sun may shine therein and the eternal morning dawn.
+
+O Son of Being! Thy heart is My home; sanctify it for My descent. Thy spirit is My place of revelation; cleanse it for My manifestation.
+
+The more pure and sanctified the heart of man becomes, the nearer it draws to God, and the light of the Sun of Reality is revealed within it.
+
+First in a human being’s way of life must be purity, then freshness, cleanliness, and independence of spirit. First must the stream bed be cleansed, then may the sweet river waters be led into it.
+
+## Section 11
+
+The Tongue of My power hath, from the heaven of My omnipotent glory, addressed to My creation these words: ‘Observe My commandments, for the love of My beauty.’ Happy is the lover that hath inhaled the divine fragrance of His Best‑Beloved from these words, laden with the perfume of a grace which no tongue can describe.
+
+Let the flame of the love of God burn brightly within your radiant hearts. Feed it with the oil of Divine guidance, and protect it within the shelter of your constancy. Guard it within the globe of trust and detachment from all else but God, so that the evil whisperings of the ungodly may not extinguish its light.
+
+O Son of Being! My love is My stronghold; he that entereth therein is safe and secure, and he that turneth away shall surely stray and perish.
+
+## Section 12
+
+Train these children with divine exhortations. From their childhood instil in their hearts the love of God so they may manifest in their lives the fear of God and have confidence in the bestowals of God. Teach them to free themselves from human imperfections and to acquire the divine perfections latent in the heart of man.
+
+It is incumbent upon thee to summon the people, under all conditions, to whatever will cause them to show forth spiritual characteristics and goodly deeds, so that all may become aware of that which is the cause of human upliftment, and may, with the utmost endeavour, direct themselves towards the most sublime Station and the Pinnacle of Glory. The fear of God hath ever been the prime factor in the education of His creatures. Well is it with them that have attained thereunto!
+
+In this Revelation the hosts that can render it victorious are the hosts of praiseworthy deeds and upright character. The leader and commander of these hosts hath ever been the fear of God, a fear that encompasseth all things and reigneth over all things.
+
+Other attributes of perfection are to fear God, to love God by loving His servants, to exercise mildness and forbearance and calm, to be sincere, amenable, clement and compassionate; to have resolution and courage, trustworthiness and energy, to strive and struggle, to be generous, loyal, without malice, to have zeal and a sense of honour, to be high‑minded and magnanimous, and to have regard for the rights of others.
+
+## Section 13
+
+The root cause of wrongdoing is ignorance, and we must therefore hold fast to the tools of perception and knowledge. Good character must be taught. Light must be spread afar, so that, in the school of humanity, all may acquire the heavenly characteristics of the spirit, and see for themselves beyond any doubt that there is no fiercer hell, no more fiery abyss, than to possess a character that is evil and unsound; no more darksome pit nor loathsome torment than to show forth qualities which deserve to be condemned.
+
+Whensoever a mother seeth that her child hath done well, let her praise and applaud him and cheer his heart; and if the slightest undesirable trait should manifest itself, let her counsel the child and punish him, and use means based on reason, even a slight verbal chastisement should this be necessary. It is not, however, permissible to strike a child, or vilify him, for the child’s character will be totally perverted if he be subjected to blows or verbal abuse.
+
+## Section 14
+
+. . . the children’s school must be a place of utmost discipline and order, that instruction must be thorough, and provision must be made for the rectification and refinement of character; so that, in his earliest years, within the very essence of the child, the divine foundation will be laid and the structure of holiness raised up.
+
+Thou must certainly continue this organised activity without cessation, and attach importance to it, so that day by day it may grow and be quickened with the breaths of the Holy Spirit. If this activity is well organised, rest thou assured that it will yield great results.
+
+## Section 15
+
+## Section 16
+
+## Section 17
+
+## Section 18
+
+He is God! O God, my God! Bestow upon me a pure heart, like unto a pearl.
+
+## Section 19
+
+## Section 20
+
+## Section 21
+
+## Section 22
+
+## Section 23
+
+## Section 24
+
+## Section 25
+
+## Section 26
+
+## Section 27
+
+We prescribe unto all men that which will lead to the exaltation of the Word of God amongst His servants, and likewise, to the advancement of the world of being and the uplift of souls. To this end, the greatest means is education of the child.
+
+The education and training of children is among the most meritorious acts of humankind and draweth down the grace and favour of the All‑Merciful, for education is the indispensable foundation of all human excellence and alloweth man to work his way to the heights of abiding glory. If a child be trained from his infancy, he will, through the loving care of the Holy Gardener, drink in the crystal waters of the spirit and of knowledge, like a young tree amid the rilling brooks. And certainly he will gather to himself the bright rays of the Sun of Truth, and through its light and heat will grow ever fresh and fair in the garden of life. . . .
+
+If, in this momentous task, a mighty effort be exerted, the world of humanity will shine out with other adornings, and shed the fairest light. Then will this darksome place grow luminous, and this abode of earth turn into Heaven.
+
+# Unit 2: Lessons for Children’s Classes Grade 1
+purpose="To develop the capacity to teach classes for children aged five or six that, focused on the refinement of character, consist of the memorisation of prayers and quotations and songs, stories, games, and colouring"
+
+## Section 1
+
+## Section 2
+
+O God! Educate these children. These children are the plants of Thine orchard, the flowers of Thy meadow, the roses of Thy garden. Let Thy rain fall upon them; let the Sun of Reality shine upon them with Thy love. Let Thy breeze refresh them in order that they may be trained, grow and develop, and appear in the utmost beauty. Thou art the Giver. Thou art the Compassionate.
+
+He is God! O God, my God! Bestow upon me a pure heart, like unto a pearl.
+
+## Section 3
+
+The light of men is Justice. Quench it not with the contrary winds of oppression and tyranny. The purpose of justice is the appearance of unity among men.
+
+No radiance can compare with that of justice. The organisation of the world and the tranquillity of mankind depend upon it.
+
+That which traineth the world is Justice, for it is upheld by two pillars, reward and punishment. These two pillars are the sources of life to the world.
+
+O Son of Spirit! The best beloved of all things in My sight is Justice; turn not away therefrom if thou desirest Me, and neglect it not that I may confide in thee. By its aid thou shalt see with thine own eyes and not through the eyes of others, and shalt know of thine own knowledge and not through the knowledge of thy neighbour. Ponder this in thy heart; how it behoveth thee to be. Verily justice is My gift to thee and the sign of My loving‑kindness. Set it then before thine eyes.
+
+The essence of love is for man to turn his heart to the Beloved One, and sever himself from all else but Him, and desire naught save that which is the desire of his Lord.
+
+In this day, to serve the Cause of God is to engender love and fellowship amongst His friends.
+
+The purpose of the appearance of the holy Manifestations hath ever been the establishment of fellowship and love in the world of humanity.
+
+Know thou of a certainty that Love is the secret of God’s holy Dispensation, the manifestation of the All‑Merciful, the fountain of spiritual outpourings. Love is heaven’s kindly light, the Holy Spirit’s eternal breath that vivifieth the human soul.
+
+Say: Let truthfulness and courtesy be your adorning.
+
+Without truthfulness progress and success, in all the worlds of God, are impossible for any soul.
+
+Truthfulness is the goodliest of qualities as it comprehendeth all other virtues. A truthful person will be protected from all moral afflictions, will shrink from every evil deed, and be preserved from every wicked act, inasmuch as all vices and misdeeds are the very antithesis of truthfulness, and a truthful man will hold them all in utter abhorrence.
+
+## Section 4
+
+## Section 5
+
+## Section 6
+
+O Thou kind Lord! These lovely children are the handiwork of the fingers of Thy might and the wondrous signs of Thy greatness. O God! Protect these children, graciously assist them to be educated and enable them to render service to the world of humanity. O God! These children are pearls, cause them to be nurtured within the shell of Thy loving‑kindness.
+
+Thou art the Bountiful, the All‑Loving.
+
+O God, guide me, protect me, make of me a shining lamp and a brilliant star. Thou art the Mighty and the Powerful.
+
+## Section 7
+
+Be generous in your days of plenty, and be patient in the hour of loss.
+
+The beginning of magnanimity is when man expendeth his wealth on himself, on his family and on the poor among his brethren in his Faith.
+
+The more antagonism they meet, the more let them show their own good faith; the more torments and calamities they have to face, the more generously let them pass round the bounteous cup. Such is the spirit which will become the life of the world, such is the spreading light at its heart . . .
+
+Be ye daysprings of generosity, dawning‑points of the mysteries of existence, sites where inspiration alighteth, rising‑places of splendours, souls that are sustained by the Holy Spirit, enamoured of the Lord, detached from all save Him, holy above the characteristics of humankind, clothed in the attributes of the angels of heaven, that ye may win for yourselves the highest bestowal of all, in this new time, this wondrous age.
+
+. . . you must have infinite love for each other, each preferring the other before himself.
+
+Lord! Give me to drink from the chalice of selflessness; with its robe clothe me, and in its ocean immerse me. Make me as dust in the pathway of Thy loved ones, and grant that I may offer up my soul for the earth ennobled by the footsteps of Thy chosen ones in Thy path, O Lord of Glory in the Highest.
+
+Man is he who forgets his own interests for the sake of others. His own comfort he forfeits for the well‑being of all. Nay, rather, his own life must he be willing to forfeit for the life of mankind. Such a man is the honour of the world of humanity. Such a man is the glory of the world of mankind. Such a man is the one who wins eternal bliss. Such a man is near to the threshold of God. Such a man is the very manifestation of eternal happiness.
+
+Soar upon the wings of joy in the atmosphere of the love of God.
+
+All joy to such as have attained His presence, gazed upon His beauty, hearkened unto His melodies, and been quickened by the Word that hath issued forth from His sacred and exalted, His glorious and resplendent lips!
+
+Joy gives us wings! In times of joy our strength is more vital, our intellect keener, and our understanding less clouded.
+
+So far as ye are able, ignite a candle of love in every meeting, and with tenderness rejoice and cheer ye every heart.
+
+Say: The sincere soul longeth for nearness to God even as the suckling babe yearneth for its mother’s breast, nay more ardent is his longing, could ye but know it! Again, his longing is even as the panting of one sore athirst after the living waters of grace, or the yearning of the sinner for forgiveness and mercy.
+
+In these days truthfulness and sincerity are sorely afflicted in the clutches of falsehood, and justice is tormented by the scourge of injustice.
+
+It behoveth everyone to traverse this brief span of life with sincerity and fairness.
+
+Your hearts must be pure and your intentions sincere in order that you may become recipients of the divine bestowals.
+
+## Section 8
+
+## Section 9
+
+## Section 10
+
+O my Lord! Make Thy beauty to be my food, and Thy presence my drink, and Thy pleasure my hope, and praise of Thee my action, and remembrance of Thee my companion, and the power of Thy sovereignty my succourer, and Thy habitation my home, and my dwelling‑place the seat Thou hast sanctified from the limitations imposed upon them who are shut out as by a veil from Thee.
+
+Thou art, verily, the Almighty, the All‑Glorious, the Most Powerful.
+
+Blessed is the spot, and the house, and the place, and the city, and the heart, and the mountain, and the refuge, and the cave, and the valley, and the land, and the sea, and the island, and the meadow where mention of God hath been made, and His praise glorified.
+
+## Section 11
+
+Humility exalteth man to the heaven of glory and power, whilst pride abaseth him to the depths of wretchedness and degradation.
+
+Every soul that walketh humbly with its God, in this Day, and cleaveth unto Him, shall find itself invested with the honour and glory of all goodly names and stations.
+
+They who are the beloved of God, in whatever place they gather and whomsoever they may meet, must evince, in their attitude towards God, and in the manner of their celebration of His praise and glory, such humility and submissiveness that every atom of the dust beneath their feet may attest the depth of their devotion.
+
+It is certain that man’s highest distinction is to be lowly before and obedient to his God . . .
+
+Know thou, that I have wafted unto thee all the fragrances of holiness, have fully revealed to thee My word, have perfected through thee My bounty and have desired for thee that which I have desired for My Self. Be then content with My pleasure and thankful unto Me.
+
+Let God be all‑sufficient for thee. Commune intimately with His Spirit, and be thou of the thankful.
+
+Wherefore, be thankful to God, for having strengthened thee to aid His Cause, for having made the flowers of knowledge and understanding to spring forth in the garden of thine heart. Thus hath His grace encompassed thee, and encompassed the whole of creation.
+
+The truth is that God has endowed man with virtues, powers and ideal faculties of which nature is entirely bereft and by which man is elevated, distinguished and superior. We must thank God for these bestowals, for these powers He has given us, for this crown He has placed upon our heads.
+
+He should forgive the sinful, and never despise his low estate, for none knoweth what his own end shall be.
+
+The inmost essence of all things voiceth in all things the testimony: ‘All forgiveness floweth, in this Day, from God, Him to Whom none can compare, with Whom no partners can be joined, the Sovereign Protector of all men, and the Concealer of their sins!’
+
+Therefore, do not look at the shortcomings of anybody; see with the sight of forgiveness. The imperfect eye beholds imperfections. The eye that covers faults looks toward the Creator of souls.
+
+Let not your heart be offended with anyone. If someone commits an error and wrong toward you, you must instantly forgive him.
+
+Say: Honesty, virtue, wisdom and a saintly character redound to the exaltation of man, while dishonesty, imposture, ignorance and hypocrisy lead to his abasement.
+
+O ye friends of God in His cities and His loved ones in His lands! This Wronged One enjoineth on you honesty and piety. Blessed the city that shineth by their light. Through them man is exalted, and the door of security is unlocked before the face of all creation. Happy the man that cleaveth fast unto them, and recogniseth their virtue, and woe betide him that denieth their station.
+
+Trustworthiness, wisdom and honesty are, of a truth, God’s beauteous adornments for His creatures. These fair garments are a befitting vesture for every temple. Happy are those that comprehend, and well is it with them that acquire such virtues.
+
+## Section 12
+
+## Section 13
+
+O my merciful Lord! This is a hyacinth which hath grown in the garden of Thy good pleasure and a twig which hath appeared in the orchard of true knowledge. Cause it, O Lord of bounty, to be refreshed continually and at all times through Thy vitalising breezes, and make it verdant, fresh and flourishing through the outpourings of the clouds of Thy favours, O Thou kind Lord!
+
+Verily Thou art the All‑Glorious.
+
+O Lord! Plant this tender seedling in the garden of Thy manifold bounties, water it from the fountains of Thy loving‑kindness and grant that it may grow into a goodly plant through the outpourings of Thy favour and grace.
+
+Thou art the Mighty and the Powerful.
+
+## Section 14
+
+Radiate the lights of compassion so that the hearts may be cleansed and purified and that they may take a share and portion from Thy confirmations.
+
+Be compassionate, so that your actions will shine like unto the light streaming forth from the lamp.
+
+Ye are the fruits of one tree and the leaves of one branch; be ye compassionate and kind to all the human race.
+
+Now must the lovers of God arise to carry out these instructions of His: let them be kindly fathers to the children of the human race, and compassionate brothers to the youth, and self‑denying offspring to those bent with years.
+
+Detach yourselves from all else but Me, and turn your faces towards My face, for better is this for you than the things ye possess.
+
+Delight not yourselves in the things of the world and its vain ornaments, neither set your hopes on them. Let your reliance be on the remembrance of God, the Most Exalted, the Most Great.
+
+The essence of detachment is for man to turn his face towards the courts of the Lord, to enter His Presence, behold His Countenance, and stand as witness before Him.
+
+Detachment is as the sun; in whatsoever heart it doth shine it quencheth the fire of covetousness and self. He whose sight is illumined with the light of understanding will assuredly detach himself from the world and the vanities thereof. . . . Let not the world and its vileness grieve you. Happy is he whom riches fill not with vain‑glory, nor poverty with sorrow.
+
+O Son of Man! Wert thou to speed through the immensity of space and traverse the expanse of heaven, yet thou wouldst find no rest save in submission to Our command and humbleness before Our Face.
+
+O quintessence of passion! Put away all covetousness and seek contentment; for the covetous hath ever been deprived, and the contented hath ever been loved and praised.
+
+Tread, therefore, the path of acquiescence and resignation. Let no hardship sadden thy heart, nor set thy hope upon any worldly gifts. Be happy and content with whatsoever God hath willed, that thy heart and soul may find tranquillity and thine inner being and conscience may experience true joy.
+
+We love to see you at all times consorting in amity and concord within the paradise of My good‑pleasure, and to inhale from your acts the fragrance of friendliness and unity, of loving‑kindness and fellowship.
+
+Be ye sincerely kind, not in appearance only. Let each one of God’s loved ones centre his attention on this: to be the Lord’s mercy to man; to be the Lord’s grace. Let him do some good to every person whose path he crosseth, and be of some benefit to him.
+
+. . . why should men be unjust and unkind to each other, showing forth that which is contrary to God? As He loves us, why should we entertain animosity and hate? If God did not love all, He would not have created, trained and provided for all. Loving‑kindness is the divine policy.
+
+Do not be content with showing friendship in words alone, let your heart burn with loving kindness for all who may cross your path.
+
+## Section 15
+
+## Section 16
+
+O my God! O my God! This, Thy servant, hath advanced towards Thee, is passionately wandering in the desert of Thy love, walking in the path of Thy service, anticipating Thy favours, hoping for Thy bounty, relying upon Thy kingdom, and intoxicated by the wine of Thy gift. O my God! Increase the fervour of his affection for Thee, the constancy of his praise of Thee, and the ardour of his love for Thee.
+
+Verily, Thou art the Most Generous, the Lord of grace abounding. There is no other God but Thee, the Forgiving, the Merciful.
+
+Thy name is my healing, O my God, and remembrance of Thee is my remedy. Nearness to Thee is my hope, and love for Thee is my companion. Thy mercy to me is my healing and my succour in both this world and the world to come. Thou, verily, art the All‑Bountiful, the All‑Knowing, the All‑Wise.
+
+## Section 17
+
+Strive as much as ye can to turn wholly toward the Kingdom, that ye may acquire innate courage and ideal power.
+
+May you be sources of comfort to the broken in heart. May you be a refuge for the wanderer. May you be a source of courage to the affrighted one. Thus, through the favour and assistance of God may the standard of the happiness of humanity be held aloft in the centre of the world and the ensign of universal agreement be unfurled.
+
+Set all thy hope in God, and cleave tenaciously to His unfailing mercy. Who else but Him can enrich the destitute, and deliver the fallen from his abasement?
+
+O Moving Form of Dust! I desire communion with thee, but thou wouldst put no trust in Me. The sword of thy rebellion hath felled the tree of thy hope. At all times I am near unto thee, but thou art ever far from Me. Imperishable glory I have chosen for thee, yet boundless shame thou hast chosen for thyself. While there is yet time, return, and lose not thy chance.
+
+Man is under all conditions immersed in a sea of God’s blessings. Therefore, be thou not hopeless under any circumstances, but rather be firm in thy hope.
+
+If the heart turns away from the blessings God offers how can it hope for happiness? If it does not put its hope and trust in God’s Mercy, where can it find rest? Oh, trust in God! for His Bounty is everlasting, and in His Blessings, for they are superb.
+
+O people! The goodliest vesture in the sight of God in this day is trustworthiness. All bounty and honour shall be the portion of the soul that arrayeth itself with this greatest of adornments.
+
+Trustworthiness is as a stronghold to the city of humanity, and as eyes to the human temple. Whosoever remaineth deprived thereof shall, before His Throne, be reckoned as one bereft of vision.
+
+Be ye God’s manifestations of trustworthiness in every land. So perfectly should ye mirror forth this quality that even were ye to travel through cities heaped with gold, your gaze would not for a single moment be seduced by its allure.
+
+O friends! Ye must all be so ablaze in this day with the fire of the love of God that the heat thereof may be manifest in all your veins, your limbs and members of your body, and the peoples of the world may be ignited by this heat and turn to the horizon of the Beloved.
+
+Let thy soul glow with the flame of this undying Fire that burneth in the midmost heart of the world, in such wise that the waters of the universe shall be powerless to cool down its ardour.
+
+Burn thou brightly with the flame of this undying Fire which the All‑Merciful hath ignited in the midmost heart of creation, that through thee the heat of His love may be kindled within the hearts of His favoured ones. Follow in My way and enrapture the hearts of men through remembrance of Me, the Almighty, the Most Exalted.
+
+Kindle the fire of love and burn away all things; then set thy foot into the land of the lovers.
+
+## Section 18
+
+## Section 19
+
+Create in me a pure heart, O my God, and renew a tranquil conscience within me, O my Hope! Through the spirit of power confirm Thou me in Thy Cause, O my Best‑Beloved, and by the light of Thy glory reveal unto me Thy path, O Thou the Goal of my desire! Through the power of Thy transcendent might lift me up unto the heaven of Thy holiness, O Source of my being, and by the breezes of Thine eternity gladden me, O Thou Who art my God! Let Thine everlasting melodies breathe tranquillity on me, O my Companion, and let the riches of Thine ancient countenance deliver me from all except Thee, O my Master, and let the tidings of the revelation of Thine incorruptible Essence bring me joy, O Thou Who art the most manifest of the manifest and the most hidden of the hidden!
+
+O Thou kind Lord! I am a little child, exalt me by admitting me to the kingdom. I am earthly, make me heavenly; I am of the world below, let me belong to the realm above; gloomy, suffer me to become radiant; material, make me spiritual, and grant that I may manifest Thine infinite bounties.
+
+Thou art the Powerful, the All‑Loving.
+
+## Section 20
+
+O flame of the love of God! The ray must shed light and the sun must rise; the full moon must shine and the star must gleam. Since thou art a ray, beseech thou the Lord to enable thee to give illumination and enlightenment, to brighten the horizons and to consume the world with the fire of the love of God.
+
+Live ye one with another, O people, in radiance and joy.
+
+The All‑Loving God created man to radiate the Divine light and to illumine the world by his words, action and life.
+
+Service to humanity is service to God. Let the love and light of the Kingdom radiate through you until all who look upon you shall be illumined by its reflection. Be as stars, brilliant and sparkling in the loftiness of their heavenly station.
+
+The glory of God rest upon thee, upon every steadfast and unwavering heart and upon every constant and faithful soul.
+
+Convey thou unto the handmaids of the Merciful the message that when a test turneth violent they must stand unmoved, and faithful to their love for Bahá. In winter come the storms, and the great winds blow, but then will follow spring in all its beauty, adorning hill and plain with perfumed plants and red anemones, fair to see.
+
+In this day, the one favoured at the Threshold of the Lord is he who handeth round the cup of faithfulness; who bestoweth, even upon his enemies, the jewel of bounty, and lendeth, even to his fallen oppressor, a helping hand; it is he who will, even to the fiercest of his foes, be a loving friend.
+
+O Son of Man! For everything there is a sign. The sign of love is fortitude under My decree and patience under My trials.
+
+Blessed are the steadfastly enduring, they that are patient under ills and hardships, who lament not over anything that befalleth them, and who tread the path of resignation.
+
+Be content with that which hath been ordained by an irrevocable decree, and be of them that endure with patience.
+
+It behoveth whosoever hath set his face towards the Most Sublime Horizon to cleave tenaciously unto the cord of patience, and to put his reliance in God, the Help in Peril, the Unconstrained.
+
+The first and foremost duty prescribed unto men, next to the recognition of Him Who is the Eternal Truth, is the duty of steadfastness in His Cause.
+
+Such must be thy steadfastness in the Cause of God, that no earthly thing whatsoever will have the power to deter thee from thy duty.
+
+Walk thou steadfastly in the love of God, and keep straight on in His Faith, and aid Him through the power of thine utterance.
+
+Thus with steadfast steps we may tread the Path of certitude, that perchance the breeze that bloweth from the meads of the good‑pleasure of God may waft upon us the sweet savours of divine acceptance, and cause us, vanishing mortals that we are, to attain unto the Kingdom of everlasting glory.
+
+Be ye confident and steadfast; your services are confirmed by the powers of heaven, for your intentions are lofty, your purposes pure and worthy.
+
+## Section 21
+
+## Section 22
+
+# 24 Lessons for Children
+
+## Lesson 1
+
+He is God! O God, my God! Bestow upon me a pure heart, like unto a pearl.
+
+O Son of Spirit! My first counsel is this: Possess a pure, kindly and radiant heart . . .
+
+## Lesson 2
+
+Tread ye the path of justice, for this, verily, is the straight path.
+
+## Lesson 3
+
+O Friend! In the garden of thy heart plant naught but the rose of love . . .
+
+## Lesson 4
+
+Truthfulness is the foundation of all human virtues.
+
+## Lesson 5
+
+O God, guide me, protect me, make of me a shining lamp and a brilliant star. Thou art the Mighty and the Powerful.
+
+To give and to be generous are attributes of Mine; well is it with him that adorneth himself with My virtues.
+
+## Lesson 6
+
+Blessed is he who preferreth his brother before himself.
+
+## Lesson 7
+
+O Son of Man! Rejoice in the gladness of thine heart, that thou mayest be worthy to meet Me and to mirror forth My beauty.
+
+## Lesson 8
+
+We should at all times manifest our truthfulness and sincerity . . .
+
+## Lesson 9
+
+Blessed is the spot, and the house, and the place, and the city, and the heart, and the mountain, and the refuge, and the cave, and the valley, and the land, and the sea, and the island, and the meadow where mention of God hath been made, and His praise glorified.
+
+O Son of Man! Humble thyself before Me, that I may graciously visit thee.
+
+## Lesson 10
+
+Be thou happy. Be thou grateful. Arise to render thanks unto God, that thy thankfulness may conduce to an increase of bounty.
+
+## Lesson 11
+
+. . . let your adorning be forgiveness and mercy and that which cheereth the hearts of the well‑favoured of God.
+
+## Lesson 12
+
+Beautify your tongues, O people, with truthfulness, and adorn your souls with the ornament of honesty.
+
+## Lesson 13
+
+O Lord! Plant this tender seedling in the garden of Thy manifold bounties, water it from the fountains of Thy loving‑kindness and grant that it may grow into a goodly plant through the outpourings of Thy favour and grace.
+
+Thou art the Mighty and the Powerful.
+
+The Kingdom of God is founded upon equity and justice, and also upon mercy, compassion, and kindness to every living soul.
+
+## Lesson 14
+
+Know that thy true adornment consisteth in the love of God and in thy detachment from all save Him . . .
+
+## Lesson 15
+
+The source of all glory is acceptance of whatsoever the Lord hath bestowed, and contentment with that which God hath ordained.
+
+## Lesson 16
+
+Blessed is he who mingleth with all men in a spirit of utmost kindliness and love.
+
+## Lesson 17
+
+Thy name is my healing, O my God, and remembrance of Thee is my remedy. Nearness to Thee is my hope, and love for Thee is my companion. Thy mercy to me is my healing and my succour in both this world and the world to come. Thou, verily, art the All‑Bountiful, the All‑Knowing, the All‑Wise.
+
+The source of courage and power is the promotion of the Word of God, and steadfastness in His Love.
+
+## Lesson 18
+
+Never lose thy trust in God. Be thou ever hopeful, for the bounties of God never cease to flow upon man.
+
+## Lesson 19
+
+Trustworthiness is the greatest portal leading unto the tranquillity and security of the people.
+
+## Lesson 20
+
+Be ye enkindled, O people, with the heat of the love of God, that ye may enkindle the hearts of others.
+
+## Lesson 21
+
+O Thou kind Lord! I am a little child, exalt me by admitting me to the kingdom. I am earthly, make me heavenly; I am of the world below, let me belong to the realm above; gloomy, suffer me to become radiant; material, make me spiritual, and grant that I may manifest Thine infinite bounties.
+
+Thou art the Powerful, the All‑Loving.
+
+O Son of Being! Thou art My lamp and My light is in thee. Get thou from it thy radiance and seek none other than Me.
+
+## Lesson 22
+
+Happy is the faithful one who is attired with the vesture of high endeavour and hath arisen to serve this Cause.
+
+## Lesson 23
+
+He, verily, shall increase the reward of them that endure with patience.
+
+## Lesson 24
+
+Supremely lofty will be thy station, if thou remainest steadfast in the Cause of thy Lord.

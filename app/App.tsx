@@ -13,6 +13,7 @@ const authorColours = {
   "Shoghi Effendi": "#f39c12",
   "The Universal House of Justice": "#4834d4",
   Documents: "#8e44ad",
+  "Ruhi Institute": "#8e44ad",
   Compilations: "#8e44ad",
   Books: "#8e44ad",
 } as Record<string, string>;
@@ -84,7 +85,8 @@ export default function App() {
     [
       "bahaullah/hidden-words",
       "bahaullah/gleanings-writings-bahaullah",
-    ].includes(paramPath.join("/"));
+    ].includes(paramPath.join("/")) ||
+    (paramPath.length > 1 && ["ruhi", "compilations"].includes(paramPath[0]!));
 
   const tree = {} as any;
   for (const d of data) {
@@ -355,54 +357,54 @@ export default function App() {
                     </Column>
                   );
 
-                  if (!c.quoted) return main;
-                  return (
-                    <Column gap={25} key={i}>
-                      {main}
-                      {c.quoted.map((q, j) => (
-                        <Row
-                          key={j}
-                          gap={`${11.5}px ${14 * 0.6}px`}
-                          style={{
-                            flexWrap: "wrap",
-                            maxWidth: 400,
-                            opacity: 0.5,
-                            paddingLeft: 30,
-                          }}
-                        >
-                          {q.map((p, k) => (
-                            <Row
-                              gap={14 * 0.6}
-                              style={{ marginLeft: k === 0 ? -30 : 0 }}
-                              key={k}
-                            >
-                              {k > 0 && (
-                                <svg
-                                  style={{ flexShrink: 0, height: 14 * 0.6 }}
-                                  viewBox="-0.5 -1 1.5 2"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <polygon
-                                    points="-0.5,0.866 -0.5,-0.866 1.0,0.0"
-                                    fill="#333"
-                                  />
-                                </svg>
-                              )}
-                              <Text
-                                size={14}
-                                to={p[1]}
-                                style={{
-                                  color: authorColours[(q as any)[0][0]],
-                                }}
-                              >
-                                {p[0]}
-                              </Text>
-                            </Row>
-                          ))}
-                        </Row>
-                      ))}
-                    </Column>
-                  );
+                  if (!c.quoted || true) return main;
+                  // return (
+                  //   <Column gap={25} key={i}>
+                  //     {main}
+                  //     {c.quoted.map((q, j) => (
+                  //       <Row
+                  //         key={j}
+                  //         gap={`${11.5}px ${14 * 0.6}px`}
+                  //         style={{
+                  //           flexWrap: "wrap",
+                  //           maxWidth: 400,
+                  //           opacity: 0.5,
+                  //           paddingLeft: 30,
+                  //         }}
+                  //       >
+                  //         {q.map((p, k) => (
+                  //           <Row
+                  //             gap={14 * 0.6}
+                  //             style={{ marginLeft: k === 0 ? -30 : 0 }}
+                  //             key={k}
+                  //           >
+                  //             {k > 0 && (
+                  //               <svg
+                  //                 style={{ flexShrink: 0, height: 14 * 0.6 }}
+                  //                 viewBox="-0.5 -1 1.5 2"
+                  //                 xmlns="http://www.w3.org/2000/svg"
+                  //               >
+                  //                 <polygon
+                  //                   points="-0.5,0.866 -0.5,-0.866 1.0,0.0"
+                  //                   fill="#333"
+                  //                 />
+                  //               </svg>
+                  //             )}
+                  //             <Text
+                  //               size={14}
+                  //               to={p[1]}
+                  //               style={{
+                  //                 color: authorColours[(q as any)[0][0]],
+                  //               }}
+                  //             >
+                  //               {p[0]}
+                  //             </Text>
+                  //           </Row>
+                  //         ))}
+                  //       </Row>
+                  //     ))}
+                  //   </Column>
+                  // );
                 })}
               </Column>
             );
