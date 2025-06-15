@@ -1,6 +1,6 @@
-A Codification of the Law of Ḥuqúqu’lláh
-author="Compilations"
-years=[2007,2007]
+A Codification of the Law of Ḥuqúqu’lláh (RD)
+author="Documents"
+years=[1987,1987]
 
 # Preamble
 

@@ -97,7 +97,7 @@ const splitQuoted = (text: string): string[] => {
       result[result.length - 1] += char;
     }
   }
-  return result.length === 1 ? ["", result[0]!, ""] : result;
+  return result;
 };
 
 const links = new Map();
@@ -251,6 +251,7 @@ const getDataText = (data: any, c: SectionContent): string => {
         )
       ) {
         clearNgrams(ngrams, section.id, paraIndex);
+
         const { start, end, pre, post } = findQuoteIndices(
           strippedMap.get(`${source.section}:${source.paragraph}`),
           stripped

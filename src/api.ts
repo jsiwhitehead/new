@@ -196,7 +196,8 @@ export default function getData(...urlPath: string[]): RenderSection[] {
       "bahaullah/hidden-words",
       "bahaullah/gleanings-writings-bahaullah",
     ].includes(urlPath.join("/")) ||
-    (urlPath.length > 1 && ["ruhi", "compilations"].includes(urlPath[0]!));
+    (urlPath.length > 1 &&
+      ["documents", "ruhi", "compilations"].includes(urlPath[0]!));
   const filtered = data.filter(
     (d) => !d.meta && urlPath.every((p, i) => d.path[i]?.[1] === p)
   );

@@ -2345,9 +2345,13 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
     "codification-law-huququllah": [
       removeAfter("Notes"),
       [/^Prepared by the Research Department.*/m, ""],
-      title("", "A Codification of the Law of Ḥuqúqu’lláh", {
-        author: "Compilations",
-        years: [2007, 2007],
+      [
+        "A Codification of the Law of Ḥuqúqu’lláh",
+        "A Codification of the Law of Ḥuqúqu’lláh (RD)",
+      ],
+      title("", "A Codification of the Law of Ḥuqúqu’lláh (RD)", {
+        author: "Documents",
+        years: [1987, 1987],
       }),
       [/^[IV]+\./gm, "#"],
     ],
@@ -2391,7 +2395,7 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
         years: [1990.1101, 1990.1101],
       }),
       [/^From/gm, "# From"],
-      ["second condition: they must", "second condition . . . they must"],
+      ["second condition: they must", "second condition . . . they must"],
     ],
     covenant: [
       removeAfter("Notes"),
@@ -2591,10 +2595,10 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
         years: [2017.0901, 2017.0901],
       }),
       [/^[IV]+\./gm, "#"],
-      ["second condition: They must", "second condition . . . They must"],
-      ["vouchsafed to them. In this", "vouchsafed to them. . . . In this"],
-      ["doth not matter. It behoveth", "doth not matter. . . . It behoveth"],
-      ["supreme victory: “O God", "supreme victory: . . . “O God"],
+      ["second condition: They must", "second condition . . . They must"],
+      ["vouchsafed to them. In this", "vouchsafed to them. . . . In this"],
+      ["doth not matter. It behoveth", "doth not matter. . . . It behoveth"],
+      ["supreme victory: “O God", "supreme victory: . . . “O God"],
     ],
     music: [
       removeAfter("Notes"),
@@ -2837,7 +2841,7 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
         years: [1990.0801, 1990.0801],
       }),
       [/^Extract/gm, "# Extract"],
-      ["he may be. The purpose", "he may be. . . . The purpose"],
+      ["he may be. The purpose", "he may be. . . . The purpose"],
     ],
     "universal-house-of-justice-compilation": [
       removeAfter("Index"),

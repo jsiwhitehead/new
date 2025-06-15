@@ -86,7 +86,8 @@ export default function App() {
       "bahaullah/hidden-words",
       "bahaullah/gleanings-writings-bahaullah",
     ].includes(paramPath.join("/")) ||
-    (paramPath.length > 1 && ["ruhi", "compilations"].includes(paramPath[0]!));
+    (paramPath.length > 1 &&
+      ["documents", "ruhi", "compilations"].includes(paramPath[0]!));
 
   const tree = {} as any;
   for (const d of data) {

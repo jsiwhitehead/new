@@ -180,6 +180,7 @@ export const parseStructuredSections = (
           "Intensive growth (ITC)",
           "Bahá’í scholarship: importance, nature, and promotion of (ITC)",
           "Social Action (OSED)",
+          "A Codification of the Law of Ḥuqúqu’lláh (RD)",
           "Promoting Entry by Troops (RD)",
           "The Prosperity of Humankind (BIC)",
           "Turning Point for All Nations (BIC)",
