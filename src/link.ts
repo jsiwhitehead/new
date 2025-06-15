@@ -234,9 +234,10 @@ const getDataText = (data: any, c: SectionContent): string => {
       ...source
     }: { section: string; paragraph: number; years: [number, number] }
   ) => {
-    const normSource = normalise(
-      strippedMap.get(`${source.section}:${source.paragraph}`)
+    const strippedSource = strippedMap.get(
+      `${source.section}:${source.paragraph}`
     );
+    const normSource = normalise(strippedSource);
     if (normSource.replace(/[‑— ]/g, "").includes(norm.replace(/[‑— ]/g, ""))) {
       processSection(source.section);
       const ngrams = getNGrams(norm);
@@ -251,12 +252,15 @@ const getDataText = (data: any, c: SectionContent): string => {
         )
       ) {
         clearNgrams(ngrams, section.id, paraIndex);
-
         const { start, end, pre, post } = findQuoteIndices(
-          strippedMap.get(`${source.section}:${source.paragraph}`),
+          strippedSource,
           stripped
         );
-        return { quote: { ...source, start, end }, pre, post };
+        if (
+          !(strippedSource[start - 1] === "“" && strippedSource[end] === "”")
+        ) {
+          return { quote: { ...source, start, end }, pre, post };
+        }
       }
     }
   };
