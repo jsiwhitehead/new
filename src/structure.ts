@@ -196,6 +196,13 @@ export const parseStructuredSections = (
         ];
         sectionPath[1]![2] = documentsOrder.indexOf(sectionPath[1]![0]) + 1;
       }
+      if (sectionPath[0]![1] === "books") {
+        const booksOrder = [
+          "The Dawn‑Breakers (Nabíl‑i‑Aʻzam)",
+          "Bahá’u’lláh and the New Era (John E. Esslemont)",
+        ];
+        sectionPath[1]![2] = booksOrder.indexOf(sectionPath[1]![0]) + 1;
+      }
 
       sections.push({
         id: sectionPath.map((a: any) => a[2]).join("/"),

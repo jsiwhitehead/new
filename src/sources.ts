@@ -2330,6 +2330,9 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
       ["compassion—“The Lord", "compassion . . . “The Lord"],
     ],
   },
+  books: {
+    "dawn-breakers": [],
+  },
   compilations: {
     "chaste-holy-life": [
       removeAfter("Notes"),
