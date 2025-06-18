@@ -25,6 +25,7 @@ type RenderContent =
       parts: {
         text: string;
         quoted: number;
+        highlight: boolean;
         quote?: true | [string, string][];
       }[][];
       paragraph: string;
@@ -359,7 +360,7 @@ const semiToRender = (
       return {
         ...para,
         parts: para.parts.map((line) =>
-          line.map((part) => ({ ...part, quote: true }))
+          line.map((part) => ({ ...part, quote: true, highlight: false }))
         ),
         paragraph: getParagraphIds(section)[index]!,
         quote: getUrlPath(allQuotes[0]),
@@ -378,6 +379,7 @@ const semiToRender = (
         ...part,
         quote:
           part.quote && (part.quote === true ? true : getUrlPath(part.quote)),
+        highlight: false,
       }))
     ),
     paragraph: getParagraphIds(section)[index]!,
@@ -397,38 +399,33 @@ interface Match {
 }
 
 const escapeForRegex = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-const searchInfo: Record<string, { count: number; matches: Match[] }> = {};
-const getSearchInfo = (word: string) => {
-  const tidied = word
-    .toLowerCase()
-    .replace(/’s$/g, "")
-    .replace(/[^a-z0-9]/g, "");
-  if (!tidied) return null;
-  const token = stem(tidied);
-  if (!token) return { count: 0, matches: [] };
-  if (searchInfo[token]) return searchInfo[token];
-  const searchLine = baseSearch.match(
-    new RegExp(`^${escapeForRegex(token)}=.*`, "m")
-  );
-  if (searchLine) {
-    const [_, info, count] = searchLine[0].split("=");
-    const matches = info!.split(",").map((p) => {
-      const [p2, level] = p.split("|");
-      const [key, score] = p2!.split("_");
-      const [sectionIndex, paraIndex] = key!.split(":");
-      return {
-        section: parseInt(sectionIndex!, 10),
-        paragraph: parseInt(paraIndex!, 10),
-        score: score === undefined ? 2 : parseInt(score, 10),
-        level: level === undefined ? 0 : parseInt(level, 10),
-      };
-    });
-    searchInfo[token] = { count: parseInt(count!, 10), matches };
-  } else {
-    searchInfo[token] = { count: 0, matches: [] };
-  }
-  return searchInfo[token];
-};
+const searchInfo: Record<string, Match[]> = {};
+const getSearchInfo = (tokens: string[]) =>
+  tokens.flatMap((token) => {
+    if (!token) return [];
+    if (searchInfo[token]) return searchInfo[token];
+    const searchLine = baseSearch.match(
+      new RegExp(`^${escapeForRegex(token)}=.*`, "m")
+    );
+    if (searchLine) {
+      const [_, info, count] = searchLine[0].split("=");
+      const matches = info!.split(",").map((p) => {
+        const [p2, level] = p.split("|");
+        const [key, score] = p2!.split("_");
+        const [sectionIndex, paraIndex] = key!.split(":");
+        return {
+          section: parseInt(sectionIndex!, 10),
+          paragraph: parseInt(paraIndex!, 10),
+          score: score === undefined ? 2 : parseInt(score, 10),
+          level: level === undefined ? 0 : parseInt(level, 10),
+        };
+      });
+      searchInfo[token] = matches;
+    } else {
+      searchInfo[token] = [];
+    }
+    return searchInfo[token];
+  });
 
 const collapseSingleKeys = (
   tree: any,
@@ -464,12 +461,26 @@ const getData = (
       ["documents", "ruhi", "compilations"].includes(urlPath[0]!)) ||
     (urlPath.length > 2 && urlPath[1] === "bahaullah-new-era");
 
-  const searchInfo = getSearchInfo(search);
+  const tokens = search
+    .split(/( |—)/)
+    .map((word) =>
+      stem(
+        word
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .toLowerCase()
+          .replace(/’s$/g, "")
+          .replace(/[^a-z0-9]/g, "")
+      )
+    )
+    .filter((t) => t);
+  const searchInfo = getSearchInfo(tokens);
+
   const filtered = dataWithIndices.filter(
     ({ section, index }) =>
       !section.meta &&
       urlPath.every((p, i) => section.path[i]?.[1] === p) &&
-      (!searchInfo || searchInfo.matches.some((m) => m.section === index))
+      (tokens.length === 0 || searchInfo.some((m) => m.section === index))
   );
 
   const tree = {} as any;
@@ -494,11 +505,41 @@ const getData = (
       .map((para, paraIndex) => semiToRender(section, para, paraIndex))
       .filter(
         (_, paraIndex) =>
-          !searchInfo ||
-          searchInfo.matches.some(
+          tokens.length === 0 ||
+          searchInfo.some(
             (m) => m.section === index && m.paragraph === paraIndex
           )
-      );
+      )
+      .map((para) => {
+        if (para.type === "break") return para;
+        return {
+          ...para,
+          parts: para.parts.map((line) =>
+            line.flatMap((part) => {
+              const words = part.text.split(/( |—)/);
+              const res = [{ ...part, text: "" }];
+              for (const word of words) {
+                const tidied = word
+                  .normalize("NFD")
+                  .replace(/[\u0300-\u036f]/g, "")
+                  .toLowerCase()
+                  .replace(/’s$/g, "")
+                  .replace(/[^a-z0-9]/g, "");
+                const token = stem(tidied);
+                if (token && tokens.includes(token)) {
+                  res.push(
+                    { ...part, text: word, highlight: true },
+                    { ...part, text: "" }
+                  );
+                } else {
+                  res[res.length - 1]!.text += word;
+                }
+              }
+              return res.filter((r) => r.text);
+            })
+          ),
+        };
+      });
     return {
       ...section,
       content: content,

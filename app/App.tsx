@@ -150,10 +150,14 @@ const AppInner = ({
                       const inner = (
                         <span
                           style={{
-                            padding: "2.4px 0",
+                            padding: l.highlight ? "2.4px 3.5px" : "2.4px 0",
+                            margin: l.highlight ? "0 -3.5px" : "0",
+                            position: "relative",
+                            zIndex: l.highlight ? 10 : 0,
                             fontWeight: l.quote ? "bold" : "inherit",
-                            background:
-                              l.quoted > 0
+                            background: l.highlight
+                              ? "rgb(255, 247, 158)"
+                              : l.quoted > 0
                                 ? `rgb(255, ${240 - l.quoted * 10}, ${240 - l.quoted * 10})`
                                 : "",
                           }}
@@ -175,9 +179,13 @@ const AppInner = ({
                         return (
                           <span
                             style={{
-                              padding: "2.4px 0",
-                              background:
-                                l.quoted > 0
+                              padding: l.highlight ? "2.4px 3.5px" : "2.4px 0",
+                              margin: l.highlight ? "0 -3.5px" : "0",
+                              position: "relative",
+                              zIndex: l.highlight ? 10 : 0,
+                              background: l.highlight
+                                ? "rgb(255, 247, 158)"
+                                : l.quoted > 0
                                   ? `rgb(255, ${240 - l.quoted * 10}, ${240 - l.quoted * 10})`
                                   : "",
                             }}
@@ -363,7 +371,7 @@ const AppInner = ({
 
 export default function App() {
   const params = useParams();
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("transform");
   const [allData, setAllData] = useState(
     null as {
       data: RenderSection[];
