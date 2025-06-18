@@ -1,7 +1,32 @@
+import { useState } from "react";
+
 import { Row, Text } from "./Utils";
 
 const layerWidth = 40;
 const treeGap = 10;
+
+const TreeItem = ({ label, tree, nextUrl }: any) => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className={open ? "open" : "closed"} style={{ position: "relative" }}>
+      <div
+        onClick={() => setOpen(!open)}
+        style={{
+          display: "block",
+          cursor: "pointer",
+          padding: "5px 0",
+          marginTop: treeGap,
+          marginLeft: -layerWidth,
+          position: "relative",
+        }}
+      >
+        {label}
+      </div>
+      {open && renderTree(tree, nextUrl)}
+    </div>
+  );
+};
 
 const renderTree = (tree: any, currentUrl: string) =>
   Object.keys(tree).map((k, i) => {
@@ -75,7 +100,11 @@ const renderTree = (tree: any, currentUrl: string) =>
             </svg>
           )}
         </div>
-        <Text to={nextUrl} style={{ paddingLeft: 20 }}>
+        <Text
+          onClick={(e) => e.stopPropagation()}
+          to={nextUrl}
+          style={{ paddingLeft: 20 }}
+        >
           {title}
         </Text>
       </Row>
@@ -102,21 +131,7 @@ const renderTree = (tree: any, currentUrl: string) =>
             {label}
           </div>
         ) : (
-          <details style={{ position: "relative" }}>
-            <summary
-              style={{
-                display: "block",
-                cursor: "pointer",
-                padding: "5px 0",
-                marginTop: treeGap,
-                marginLeft: -layerWidth,
-                position: "relative",
-              }}
-            >
-              {label}
-            </summary>
-            {renderTree(tree[k], nextUrl)}
-          </details>
+          <TreeItem label={label} tree={tree[k]} nextUrl={nextUrl} />
         )}
       </div>
     );

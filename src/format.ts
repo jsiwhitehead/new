@@ -1,7 +1,7 @@
 import fs from "fs-extra";
 
-import sources from "./sources.js";
-import { readText, writeText } from "./utils.js";
+import sources from "./sources";
+import { readText, writeText } from "./utils";
 
 (async () => {
   fs.emptyDirSync("./data/format");

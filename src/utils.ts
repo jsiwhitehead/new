@@ -12,7 +12,7 @@ export const readText = (category: string, id: string): Promise<string> =>
 export const readJSON = async (category: string, id: string): Promise<any> => {
   try {
     const fileContent = await fs.promises.readFile(
-      `./data/${category}/${id}.json`,
+      category ? `./data/${category}/${id}.json` : `./data/${id}.json`,
       "utf-8"
     );
     return JSON.parse(fileContent);
@@ -26,7 +26,11 @@ export const writeText = (
   id: string,
   data: string
 ): Promise<void> =>
-  fs.promises.writeFile(`./data/${category}/${id}.txt`, data, "utf-8");
+  fs.promises.writeFile(
+    category ? `./data/${category}/${id}.txt` : `./data/${id}.txt`,
+    data,
+    "utf-8"
+  );
 
 export const writeJSON = async <T>(
   category: string,

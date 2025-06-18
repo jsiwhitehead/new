@@ -13,10 +13,10 @@ body {
 .treebar {
   display: none;
 }
-details[open] > summary > div > .treebar {
+.open > div > div > .treebar {
   display: block;
 }
-details[open] > summary > div > div > svg {
+.open > div > div > div > svg {
   transform: rotate(90deg);
 }
 

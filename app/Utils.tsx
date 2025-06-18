@@ -56,12 +56,14 @@ export function Text({
   size,
   to,
   id,
+  onClick,
   style,
   children,
 }: {
   size?: number;
   to?: string;
   id?: string;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
   style?: React.CSSProperties;
   children: any;
 }) {
@@ -74,6 +76,7 @@ export function Text({
       >
         <Link
           to={to}
+          onClick={onClick}
           style={{
             margin: -5,
             padding: 5,

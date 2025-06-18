@@ -1,6 +1,5 @@
 [
   {
-    "id": "7/10",
     "path": [
       ["Documents", "documents", 7],
       ["Intensive growth (ITC)", "intensive-growth", 10]
@@ -22,7 +21,6 @@
     ]
   },
   {
-    "id": "7/10/1",
     "path": [
       ["Documents", "documents", 7],
       ["Intensive growth (ITC)", "intensive-growth", 10],
@@ -42,7 +40,6 @@
     ]
   },
   {
-    "id": "7/10/2",
     "path": [
       ["Documents", "documents", 7],
       ["Intensive growth (ITC)", "intensive-growth", 10],
@@ -73,7 +70,6 @@
     ]
   },
   {
-    "id": "7/10/3",
     "path": [
       ["Documents", "documents", 7],
       ["Intensive growth (ITC)", "intensive-growth", 10],

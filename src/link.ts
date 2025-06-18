@@ -1,6 +1,24 @@
-import sources from "./sources.js";
-import type { Section, SectionContent } from "./structure.js";
-import { readJSON, writeJSON } from "./utils.js";
+import sources from "./sources";
+import type { Section, SectionContent } from "./structure";
+import { readJSON, writeJSON } from "./utils";
+
+const comparePathNums = (a: number[], b: number[]) => {
+  const len = Math.max(a.length, b.length);
+  for (let i = 0; i < len; i++) {
+    const aVal = a[i];
+    const bVal = b[i];
+
+    if (aVal === undefined) return -1;
+    if (bVal === undefined) return 1;
+
+    if (aVal !== bVal && aVal === 0) return 1;
+    if (aVal !== bVal && bVal === 0) return -1;
+
+    if (aVal < bVal) return -1;
+    if (aVal > bVal) return 1;
+  }
+  return 0;
+};
 
 const strip = (text: string): string =>
   text
@@ -102,8 +120,8 @@ const splitQuoted = (text: string): string[] => {
 
 const links = new Map();
 const checkDoReference = (
-  quoteId: string,
-  sourceId: string,
+  quoteId: number,
+  sourceId: number,
   quoteYears: [number, number],
   sourceYears: [number, number]
 ) => {
@@ -128,13 +146,13 @@ const getText = (p: SectionContent) => {
 const getDataQuote = (
   data: any,
   p: {
-    section: string;
+    section: number;
     paragraph: number;
     start: number;
     end: number;
   }
 ): string => {
-  const source = data.find((d: any) => d.id === p.section)!;
+  const source = data[p.section];
   return getDataText(data, source.content[p.paragraph]!).slice(p.start, p.end);
 };
 
@@ -147,6 +165,61 @@ const getDataText = (data: any, c: SectionContent): string => {
   return c
     .map((p) => (typeof p === "string" ? p : getDataQuote(data, p)))
     .join("");
+};
+
+function getRangeIntersection(
+  start1: number,
+  end1: number,
+  start2: number,
+  end2: number
+) {
+  const start = Math.max(start1, start2);
+  const end = Math.min(end1, end2);
+  if (start < end) return { start, end };
+  else return null;
+}
+
+const getAllQuotes = (
+  data: Section[],
+  quote: {
+    start: number;
+    end: number;
+    section: number;
+    paragraph: number;
+    refStart: number;
+    refEnd: number;
+  }
+): {
+  start: number;
+  end: number;
+  section: number;
+  paragraph: number;
+  refStart: number;
+  refEnd: number;
+}[] => {
+  const offset = quote.start - quote.refStart;
+  return [
+    quote,
+    ...((data[quote.section]!.quoted || {})[quote.paragraph] || []).flatMap(
+      (q2) => {
+        const overlap = getRangeIntersection(
+          quote.refStart,
+          quote.refEnd,
+          q2.start,
+          q2.end
+        );
+        if (!overlap) return [];
+        return getAllQuotes(data, {
+          start: overlap.start + offset,
+          end: overlap.end + offset,
+          section: q2.section,
+          paragraph: q2.paragraph,
+          refStart: overlap.start,
+          refEnd: overlap.end,
+        });
+      }
+    ),
+  ];
 };
 
 (async () => {
@@ -165,11 +238,22 @@ const getDataText = (data: any, c: SectionContent): string => {
   sections.push(...(await readJSON("structure", "prayers")));
   sections.push(...(await readJSON("structure", "shoghi-effendi-messages")));
 
-  sections.sort((a, b) => a.years[0] - b.years[0]);
+  sections.sort((aDoc, bDoc) =>
+    comparePathNums(
+      aDoc.path.map((p: [string, string, number]) => p[2]),
+      bDoc.path.map((p: [string, string, number]) => p[2])
+    )
+  );
+
+  const sectionsAndIndices = sections.map((section, index) => ({
+    section,
+    index,
+  }));
+  sectionsAndIndices.sort((a, b) => a.section.years[0] - b.section.years[0]);
 
   const ngramMap = new Map();
   const strippedMap = new Map();
-  for (const section of sections) {
+  sectionsAndIndices.forEach(({ section, index }) => {
     if (
       !section.meta &&
       section.path[0]![0] !== "Compilations" &&
@@ -180,7 +264,7 @@ const getDataText = (data: any, c: SectionContent): string => {
     ) {
       section.content.forEach((p, i) => {
         const text = getText(p);
-        strippedMap.set(`${section.id}:${i}`, strip(text));
+        strippedMap.set(`${index}:${i}`, strip(text));
         const parts = splitQuoted(text).flatMap((p) =>
           p.split(/( ?\. \. \. ?| ?\[[^\]]*\] ?)/)
         );
@@ -193,7 +277,7 @@ const getDataText = (data: any, c: SectionContent): string => {
               [
                 ...(ngramMap.get(ng) || []),
                 {
-                  section: section.id,
+                  section: index,
                   paragraph: i,
                   years: section.years,
                 },
@@ -203,10 +287,10 @@ const getDataText = (data: any, c: SectionContent): string => {
         });
       });
     }
-  }
+  });
   const clearNgrams = (
     ngrams: string[],
-    sectionId: string,
+    sectionId: number,
     paragraph: number
   ) => {
     for (const ng of ngrams) {
@@ -225,14 +309,14 @@ const getDataText = (data: any, c: SectionContent): string => {
   };
 
   const processPart = (
-    section: Section,
+    sectionIndex: number,
     paraIndex: number,
     stripped: string,
     norm: string,
     {
       years,
       ...source
-    }: { section: string; paragraph: number; years: [number, number] }
+    }: { section: number; paragraph: number; years: [number, number] }
   ) => {
     const strippedSource = strippedMap.get(
       `${source.section}:${source.paragraph}`
@@ -251,7 +335,7 @@ const getDataText = (data: any, c: SectionContent): string => {
             )
         )
       ) {
-        clearNgrams(ngrams, section.id, paraIndex);
+        clearNgrams(ngrams, sectionIndex, paraIndex);
         const { start, end, pre, post } = findQuoteIndices(
           strippedSource,
           stripped
@@ -267,6 +351,7 @@ const getDataText = (data: any, c: SectionContent): string => {
 
   const processPara = (
     section: Section,
+    sectionIndex: number,
     p: SectionContent,
     paraIndex: number
   ) => {
@@ -283,7 +368,7 @@ const getDataText = (data: any, c: SectionContent): string => {
           parts.flatMap((partText) =>
             getNGrams(normalise(strip(partText))).flatMap((ng) =>
               (ngramMap.get(ng) || [])
-                .filter((x: any) => x.section !== section.id)
+                .filter((x: any) => x.section !== sectionIndex)
                 .flatMap((x: any) => JSON.stringify(x))
             )
           )
@@ -294,14 +379,14 @@ const getDataText = (data: any, c: SectionContent): string => {
       for (const source of allSources.map((s) => JSON.parse(s))) {
         if (
           checkDoReference(
-            section.id,
+            sectionIndex,
             source.section,
             section.years,
             source.years
           )
         ) {
           const processFull = processPart(
-            section,
+            sectionIndex,
             paraIndex,
             strip(text),
             normalise(strip(text)),
@@ -317,7 +402,7 @@ const getDataText = (data: any, c: SectionContent): string => {
 
           let allProcessed = parts.flatMap((partText) => {
             const processed = processPart(
-              section,
+              sectionIndex,
               paraIndex,
               strip(partText),
               normalise(strip(partText)),
@@ -360,7 +445,7 @@ const getDataText = (data: any, c: SectionContent): string => {
                             .replace(/[‑— ]/g, "")
                             .includes(norm.replace(/[‑— ]/g, ""))
                         ) {
-                          clearNgrams(getNGrams(norm), section.id, paraIndex);
+                          clearNgrams(getNGrams(norm), sectionIndex, paraIndex);
                           const { start, end, pre, post } = findQuoteIndices(
                             strippedMap.get(
                               `${base.section}:${base.paragraph}`
@@ -421,14 +506,14 @@ const getDataText = (data: any, c: SectionContent): string => {
             for (const source of ngramMap.get(ng)) {
               if (
                 checkDoReference(
-                  section.id,
+                  sectionIndex,
                   source.section,
                   section.years,
                   source.years
                 )
               ) {
                 const processed = processPart(
-                  section,
+                  sectionIndex,
                   paraIndex,
                   strip(partText),
                   norm,
@@ -467,7 +552,7 @@ const getDataText = (data: any, c: SectionContent): string => {
                         .replace(/[‑— ]/g, "")
                         .includes(norm.replace(/[‑— ]/g, ""))
                     ) {
-                      clearNgrams(getNGrams(norm), section.id, paraIndex);
+                      clearNgrams(getNGrams(norm), sectionIndex, paraIndex);
                       const { start, end, pre, post } = findQuoteIndices(
                         strippedMap.get(`${base.section}:${base.paragraph}`),
                         strip(current)
@@ -511,10 +596,10 @@ const getDataText = (data: any, c: SectionContent): string => {
   };
 
   const processedSet = new Set();
-  const processSection = (sectionId: string) => {
-    if (!processedSet.has(sectionId)) {
-      processedSet.add(sectionId);
-      const section = sections.find((s) => s.id === sectionId)!;
+  const processSection = (sectionIndex: number) => {
+    if (!processedSet.has(sectionIndex)) {
+      processedSet.add(sectionIndex);
+      const section = sections[sectionIndex]!;
       if (
         (!["Bahá’u’lláh", "The Báb"].includes(section.path[0]![0]) ||
           ["Gleanings from the Writings of Bahá’u’lláh"].includes(
@@ -523,9 +608,9 @@ const getDataText = (data: any, c: SectionContent): string => {
         !section.prayer
       ) {
         section.content = section.content.map((p, paraIndex) => {
-          const res = processPara(section, p, paraIndex);
+          const res = processPara(section, sectionIndex, p, paraIndex);
           strippedMap.set(
-            `${section.id}:${paraIndex}`,
+            `${sectionIndex}:${paraIndex}`,
             strip(getDataText(sections, res))
           );
           return res;
@@ -533,30 +618,11 @@ const getDataText = (data: any, c: SectionContent): string => {
       }
     }
   };
-  for (const s of sections.reverse()) processSection(s.id);
+  for (let sIndex = sections.length - 1; sIndex >= 0; sIndex--) {
+    processSection(sIndex);
+  }
 
-  sections.sort((aDoc, bDoc) => {
-    const a = aDoc.path.map((p: [string, string, number]) => p[2]);
-    const b = bDoc.path.map((p: [string, string, number]) => p[2]);
-
-    const len = Math.max(a.length, b.length);
-    for (let i = 0; i < len; i++) {
-      const aVal = a[i];
-      const bVal = b[i];
-
-      if (aVal === undefined) return -1;
-      if (bVal === undefined) return 1;
-
-      if (aVal !== bVal && aVal === 0) return 1;
-      if (aVal !== bVal && bVal === 0) return -1;
-
-      if (aVal < bVal) return -1;
-      if (aVal > bVal) return 1;
-    }
-    return 0;
-  });
-
-  const allQuoted = sections.flatMap((section: Section) =>
+  const allQuoted = sections.flatMap((section: Section, sIndex: number) =>
     section.content.flatMap((c, i) => {
       if (!Array.isArray(c)) return [];
       let index = 0;
@@ -568,7 +634,7 @@ const getDataText = (data: any, c: SectionContent): string => {
         return [
           {
             ...a,
-            refSection: section.id,
+            refSection: sIndex,
             refParagraph: i,
             refStart: start,
             refEnd: index,
@@ -577,8 +643,8 @@ const getDataText = (data: any, c: SectionContent): string => {
       });
     })
   );
-  for (const section of sections) {
-    const sectionQuoted = allQuoted.filter((a) => a.section === section.id);
+  sections.forEach((section, sIndex) => {
+    const sectionQuoted = allQuoted.filter((a) => a.section === sIndex);
     const quoted = {} as any;
     section.content.forEach((_: any, i: any) => {
       const paraQuoted = sectionQuoted.filter((a) => a.paragraph === i);
@@ -610,7 +676,59 @@ const getDataText = (data: any, c: SectionContent): string => {
       section.quoted = quoted;
       section.content = content;
     }
-  }
+  });
+
+  const mappedQuoted = sections.map((d) =>
+    Object.keys(d.quoted || {}).reduce((res, k) => {
+      const text = getText(d.content[k as any]!);
+      const allQuotes = d.quoted![k]!.flatMap((q) => getAllQuotes(sections, q));
+      const allRefs = [
+        ...new Set(
+          allQuotes.map((q) => JSON.stringify([q.section, q.paragraph]))
+        ),
+      ].map((x) => JSON.parse(x));
+      return {
+        ...res,
+        [k]: allRefs
+          .flatMap((ref) => {
+            const [refSection, refParagraph] = ref;
+            const refQuotes = allQuotes.filter(
+              (q) => q.section === refSection && q.paragraph === refParagraph
+            );
+            refQuotes.sort((a, b) => a.start - b.start);
+            const merged = [refQuotes[0]!];
+            for (let j = 1; j < refQuotes.length; j++) {
+              const last = merged[merged.length - 1]!;
+              const current = refQuotes[j]!;
+              if (
+                current.start <= last.end ||
+                !/[a-z0-9]/.test(
+                  text.slice(last.end, current.start).replace(/\[[^\]]*\]/g, "")
+                )
+              ) {
+                last.end = Math.max(last.end, current.end);
+              } else {
+                merged.push(current);
+              }
+            }
+            return merged;
+          })
+          .sort((aQuote, bQuote) => {
+            const aDoc = sections[aQuote.section]!;
+            const bDoc = sections[bQuote.section]!;
+            return comparePathNums(
+              aDoc.path.map((p: [string, string, number]) => p[2]),
+              bDoc.path.map((p: [string, string, number]) => p[2])
+            );
+          }),
+      };
+    }, {})
+  );
+  sections.forEach((d, i) => {
+    if (Object.keys(mappedQuoted[i]!).length > 0) {
+      d.quoted = mappedQuoted[i];
+    }
+  });
 
   await writeJSON("", "data", sections);
 })();

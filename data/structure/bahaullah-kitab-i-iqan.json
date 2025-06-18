@@ -1,6 +1,5 @@
 [
   {
-    "id": "1/8",
     "path": [
       ["Bahá’u’lláh", "bahaullah", 1],
       ["The Book of Certitude (The Kitáb‑i‑Íqán)", "kitab-i-iqan", 8]
@@ -12,7 +11,6 @@
     ]
   },
   {
-    "id": "1/8/1",
     "path": [
       ["Bahá’u’lláh", "bahaullah", 1],
       ["The Book of Certitude (The Kitáb‑i‑Íqán)", "kitab-i-iqan", 8],
@@ -25,7 +23,6 @@
     ]
   },
   {
-    "id": "1/8/2/1",
     "path": [
       ["Bahá’u’lláh", "bahaullah", 1],
       ["The Book of Certitude (The Kitáb‑i‑Íqán)", "kitab-i-iqan", 8],
@@ -144,7 +141,6 @@
     ]
   },
   {
-    "id": "1/8/2/2",
     "path": [
       ["Bahá’u’lláh", "bahaullah", 1],
       ["The Book of Certitude (The Kitáb‑i‑Íqán)", "kitab-i-iqan", 8],

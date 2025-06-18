@@ -1,8 +1,7 @@
 import fs from "fs-extra";
 
-import sources from "./sources.js";
-import { readText, writeJSON } from "./utils.js";
-import { doc } from "prettier";
+import sources from "./sources";
+import { readText, writeJSON } from "./utils";
 
 const authorYears = {
   "The Báb": [1844, 1853],
@@ -45,11 +44,10 @@ export type SectionContent =
   | { text: string; lines: number[] }
   | (
       | string
-      | { section: string; paragraph: number; start: number; end: number }
+      | { section: number; paragraph: number; start: number; end: number }
     )[];
 
 export interface Section {
-  id: string;
   path: [string, string, number][];
   years: [number, number];
   translated?: string;
@@ -63,7 +61,7 @@ export interface Section {
     {
       start: number;
       end: number;
-      section: string;
+      section: number;
       paragraph: number;
       refStart: number;
       refEnd: number;
@@ -205,7 +203,6 @@ export const parseStructuredSections = (
       }
 
       sections.push({
-        id: sectionPath.map((a: any) => a[2]).join("/"),
         path: sectionPath.filter(
           (p, i) =>
             !(
@@ -349,7 +346,6 @@ const ruhiKeys = [
           indices[x.path[0]![0]]!,
         ],
       ];
-      x.id = `${x.path[0]![2]}/0/${indices[x.path[0]![0]]}`;
       indices[x.path[0]![0]]!++;
       return x;
     })
@@ -364,7 +360,6 @@ const ruhiKeys = [
         ["Prayers", "prayers", indexAuthors["Prayers"]!],
         [`${index}`, `${index}`, index],
       ];
-      x.id = `${0}/${index}`;
       index++;
       return x;
     })
@@ -385,7 +380,6 @@ const ruhiKeys = [
         index++;
       }
       x.path[2] = [x.path[2]![0], x.path[2]![1], index];
-      x.id = x.path.map((y) => y[2]).join("/");
       return x;
     })
   );

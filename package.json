@@ -9,7 +9,9 @@
     "format": "bun ./src/format.ts",
     "structure": "bun ./src/structure.ts",
     "link": "bun ./src/link.ts",
-    "process": "bun ./src/format.ts; bun ./src/structure.ts; bun ./src/link.ts",
+    "search": "bun ./src/search.ts",
+    "process": "bun ./src/format.ts; bun ./src/structure.ts; bun ./src/link.ts; bun ./src/search.ts",
+    "server": "bun ./src/server.ts",
     "app": "bun ./app/index.html"
   },
   "devDependencies": {

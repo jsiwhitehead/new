@@ -3,8 +3,8 @@ import fs from "fs-extra";
 import fixesJSON from "./fixes.json";
 import spellingsJSON from "./spellings.json";
 
-import sources from "./sources.js";
-import { readText, writeText } from "./utils.js";
+import sources from "./sources";
+import { readText, writeText } from "./utils";
 
 const fixes = fixesJSON as any;
 
