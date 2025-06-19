@@ -28,7 +28,7 @@ const strip = (text: string): string =>
 
 const normalise = (stripped: string) => stripped.replace(/[^a-z0-9‑— ]/g, "");
 
-const getNGrams = (norm: string, n = 9) => {
+const getNGrams = (norm: string, n = 7) => {
   const words = norm.split(/[‑— ]+/).filter((w) => w);
   if (words.length < n) return [];
   const ngrams: string[] = [];
