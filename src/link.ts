@@ -327,7 +327,8 @@ const getAllQuotes = (
     {
       years,
       ...source
-    }: { section: number; paragraph: number; years: [number, number] }
+    }: { section: number; paragraph: number; years: [number, number] },
+    isFull?: true
   ) => {
     const strippedSource = strippedMap.get(
       `${source.section}:${source.paragraph}`
@@ -351,6 +352,7 @@ const getAllQuotes = (
           stripped
         );
         if (
+          isFull ||
           !(strippedSource[start - 1] === "“" && strippedSource[end] === "”")
         ) {
           clearNgrams(ngrams, sectionIndex, paraIndex);
@@ -401,7 +403,8 @@ const getAllQuotes = (
             paraIndex,
             strip(text),
             normalise(strip(text)),
-            source
+            source,
+            true
           );
           if (processFull) {
             return [
