@@ -416,7 +416,7 @@ const getAllQuotes = (
         }
       }
 
-      if (!/\[[^\]]*\]/.test(text)) {
+      if (!/\[[^\]]*\]/.test(text) && !/\. \. \./.test(text)) {
         const allSourcesBackup = [
           ...new Set(
             parts.flatMap((partText) =>
