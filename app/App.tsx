@@ -65,7 +65,6 @@ const AppInner = ({
     tree: any;
   };
 }) => {
-  console.log(data);
   return (
     <Column gap={20}>
       <Breadcrumbs size={17} path={[["All", "/"], ...path]} />

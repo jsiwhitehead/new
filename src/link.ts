@@ -416,45 +416,49 @@ const getAllQuotes = (
         }
       }
 
-      const allSourcesBackup = [
-        ...new Set(
-          parts.flatMap((partText) =>
-            getNGrams(normalise(strip(partText))).flatMap((ng) =>
-              (ngramMapBackup.get(ng) || [])
-                .filter((x: any) => x.section !== sectionIndex)
-                .flatMap((x: any) => JSON.stringify(x))
+      if (!/\[[^\]]*\]/.test(text)) {
+        const allSourcesBackup = [
+          ...new Set(
+            parts.flatMap((partText) =>
+              getNGrams(normalise(strip(partText))).flatMap((ng) =>
+                (ngramMapBackup.get(ng) || [])
+                  .filter((x: any) => x.section !== sectionIndex)
+                  .flatMap((x: any) => JSON.stringify(x))
+              )
             )
-          )
-        ),
-      ].filter((x) => !allSources.includes(x));
+          ),
+        ].filter((x) => !allSources.includes(x));
 
-      for (const source of allSourcesBackup.map((s) => JSON.parse(s))) {
-        if (
-          checkDoReference(
-            sectionIndex,
-            source.section,
-            section.years,
-            source.years
-          )
-        ) {
-          const stripped = strip(text);
-          const norm = normalise(strip(text));
-          const strippedSource = strippedMap.get(
-            `${source.section}:${source.paragraph}`
-          );
-          const normSource = normalise(strippedSource);
+        for (const source of allSourcesBackup.map((s) => JSON.parse(s))) {
           if (
-            normSource
-              .replace(/[‑— ]/g, "")
-              .includes(norm.replace(/[‑— ]/g, ""))
+            checkDoReference(
+              sectionIndex,
+              source.section,
+              section.years,
+              source.years
+            )
           ) {
-            const { start, end, pre, post } = findQuoteIndices(
-              strippedSource,
-              stripped
+            const stripped = strip(text);
+            const norm = normalise(strip(text));
+            const strippedSource = strippedMap.get(
+              `${source.section}:${source.paragraph}`
             );
-            const ngrams = getNGrams(norm);
-            clearNgrams(ngrams, sectionIndex, paraIndex);
-            return [pre, { ...source, start, end }, post].filter((p: any) => p);
+            const normSource = normalise(strippedSource);
+            if (
+              normSource
+                .replace(/[‑— ]/g, "")
+                .includes(norm.replace(/[‑— ]/g, ""))
+            ) {
+              const { start, end, pre, post } = findQuoteIndices(
+                strippedSource,
+                stripped
+              );
+              const ngrams = getNGrams(norm);
+              clearNgrams(ngrams, sectionIndex, paraIndex);
+              return [pre, { ...source, start, end }, post].filter(
+                (p: any) => p
+              );
+            }
           }
         }
       }

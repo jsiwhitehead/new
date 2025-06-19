@@ -1973,6 +1973,7 @@ const sources: Record<
       [/^II$/m, "##"],
       [/^III$/m, "##"],
       [/^IV$/m, "##"],
+      ["long as these prejudices remain", "long as these [prejudices] remain"],
       ["has written: “Wherefore", "has written: . . . “Wherefore"],
       ["such belief.” See how firm", "such belief.” . . . See how firm"],
       [

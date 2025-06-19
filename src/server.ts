@@ -220,11 +220,11 @@ const contentToSemi = (c: SectionContent, quoted: any[]): SemiRenderContent => {
             .normalize("NFD")
             .replace(/[\u0300-\u036f]/g, "")
             .toLowerCase()
-            .replace(/\[[^\]]*\]/g, "")
+            .replace(/\[([^\]]*)\]/g, (_, a) => a)
             .match(/[^a-z0-9]*$/)?.[0] || ""
         ).replace(/[“”‘’ ]/g, "");
         if (
-          !pre ||
+          !line[i - 1] ||
           ([".", "!", "?"].includes(pre[pre.length - 1]!) &&
             !pre.endsWith(". . ."))
         ) {
