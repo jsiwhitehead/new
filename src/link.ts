@@ -256,7 +256,6 @@ const getAllQuotes = (
   const strippedMap = new Map();
   sectionsAndIndices.forEach(({ section, index }) => {
     if (
-      !section.meta &&
       section.path[0]![0] !== "Compilations" &&
       !(
         section.path[0]![0] === "Ruhi Institute" &&

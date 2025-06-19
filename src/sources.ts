@@ -1229,6 +1229,8 @@ const sources: Record<
       }),
       [/^(\d+)$\n\n(.*)\n\n\*\*\*\n\n/gm, (_, a, b) => `# ${a}: ${b}\n\n * `],
       [/^\*\*\*$/gm, ""],
+      [/^He is God! /gm, "He is God!\n\n"],
+      ["O ye Apostles of Bahá’u’lláh! ", "O ye Apostles of Bahá’u’lláh!\n\n"],
     ],
     "tablets-hague-abdul-baha": [
       removeAfter("Notes"),
