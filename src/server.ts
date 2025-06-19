@@ -25,11 +25,11 @@ type RenderContent =
       parts: {
         text: string;
         quoted: number;
-        highlight: boolean;
+        highlight?: true;
         quote?: true | [string, string][];
       }[][];
       paragraph: string;
-      quote?: [string, string][];
+      quote?: true | [string, string][];
       quoted?: [string, string][][];
     };
 
@@ -76,7 +76,8 @@ const getParagraph = (para: SectionContent): SemiRenderContent => {
       if (
         typeof quote !== "string" &&
         quote.start === 0 &&
-        quote.end === text.length
+        quote.end ===
+          getText(data[quote.section]!.content[quote.paragraph]!).length
       ) {
         const res = getParagraph(
           data[quote.section]!.content[quote.paragraph]!
@@ -125,12 +126,12 @@ const capitalised = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 
 const getParagraphIds = (section: Section) => {
   let currentMain = 1;
-  let currentSpecial = 1;
+  let currentSpecial = 0;
   const allIds = section.content.map((para) => {
     if (typeof para === "string") return `${currentMain++}`;
     if ("type" in para) {
       if (para.type === "break") return "";
-      return `${currentMain}_${currentSpecial++}`;
+      return `${currentMain}${["a", "b", "c", "d", "e"][currentSpecial++]}`;
     }
     return `${currentMain++}`;
   });
@@ -147,23 +148,35 @@ const simplifyLinkLabels = {
 const getUrlPath = ({
   section: sectionId,
   paragraph,
+  start,
 }: {
   section: number;
   paragraph: number;
+  start?: number;
 }): [string, string][] => {
   let current = "";
   const section = data[sectionId]!;
-  const paraId = getParagraphIds(section)[paragraph];
-  const res: [string, string][] = [
-    ...(section.path.map((p) => {
-      current = `${current}/${p[1]}`;
-      return [
-        simplifyLinkLabels[p[0]] || p[0].replace(/ \([^\)]*\)/, ""),
-        current,
-      ];
-    }) as [string, string][]),
-    [`Para ${paraId}`, `${current}#${paraId}`],
-  ];
+  const res: [string, string][] = section.path.map((p) => {
+    current = `${current}/${p[1]}`;
+    return [
+      simplifyLinkLabels[p[0]] || p[0].replace(/ \([^\)]*\)/, ""),
+      current,
+    ];
+  });
+  if (
+    !(
+      (start === undefined ? paragraph : start) === 0 &&
+      paragraph === data[sectionId]!.content.length - 1
+    )
+  ) {
+    const paraId = getParagraphIds(section)[paragraph];
+    const startParaId =
+      start === undefined ? start : getParagraphIds(section)[start];
+    res.push([
+      startParaId ? `Paras ${startParaId}-${paraId}` : `Para ${paraId}`,
+      `${current}#${startParaId || paraId}`,
+    ]);
+  }
   if (res[1]![0] === "The Summons of the Lord of Hosts") {
     res.splice(1, 1);
   }
@@ -174,8 +187,14 @@ const getUrlPath = ({
   if (res[1]![0] === "Tablets of the Divine Plan") {
     res[2]![0] = res[2]![0].split(":")[0]!;
   }
+  if (res[1]![0] === "Some Answered Questions") {
+    res[2]![0] = res[2]![0].split(":")[0]!;
+  }
   if (res[1]![0] === "The World Order of Bahá’u’lláh") {
     res.splice(1, 1);
+  }
+  if (res[1]![0] === "God Passes By") {
+    res[2]![0] = res[2]![0].split(":")[0]!;
   }
   if (
     res[0]![0] === "The Universal House of Justice" &&
@@ -251,7 +270,7 @@ const contentToSemi = (c: SectionContent, quoted: any[]): SemiRenderContent => {
     } else {
       for (const line of para.parts) {
         for (let i = 0; i < line.length; i++) {
-          line[i]!.quote = true;
+          line[i]!.quote = line[i]!.quote || true;
         }
       }
     }
@@ -340,55 +359,83 @@ const contentToSemi = (c: SectionContent, quoted: any[]): SemiRenderContent => {
 
 const semiToRender = (
   section: Section,
-  para: SemiRenderContent,
-  index: number
-): RenderContent => {
-  if (para.type === "break") return para;
-  if (para.parts.every((line) => line.every((part) => part.quote))) {
-    const allQuotes = [
-      ...new Set(
-        para.parts.flatMap((line) =>
-          line.flatMap((part) =>
-            part.quote && part.quote !== true
-              ? [JSON.stringify(part.quote)]
-              : []
+  paras: SemiRenderContent[]
+): RenderContent[] => {
+  const paraIds = getParagraphIds(section);
+  const allQuotes: any[] = paras.map(
+    (para): { section: number; paragraph: number } | null => {
+      if (para.type === "break") return null;
+      const allQuotes = [
+        ...new Set(
+          para.parts.flatMap((line) =>
+            line.flatMap((part) =>
+              part.quote && part.quote !== true
+                ? [JSON.stringify(part.quote)]
+                : []
+            )
           )
-        )
-      ),
-    ].map((x) => JSON.parse(x));
-    if (allQuotes.length === 1) {
-      return {
-        ...para,
-        parts: para.parts.map((line) =>
-          line.map((part) => ({ ...part, quote: true, highlight: false }))
         ),
-        paragraph: getParagraphIds(section)[index]!,
-        quote: getUrlPath(allQuotes[0]),
-        quoted: [
-          ...new Set(
-            section.quoted?.[index]?.map((q) => JSON.stringify(getUrlPath(q)))
-          ),
-        ].map((x) => JSON.parse(x)),
-      };
+      ].map((x) => JSON.parse(x));
+      if (allQuotes.length === 1) return allQuotes[0];
+      return null;
     }
-  }
-  return {
-    ...para,
-    parts: para.parts.map((lines) =>
-      lines.map((part) => ({
-        ...part,
-        quote:
-          part.quote && (part.quote === true ? true : getUrlPath(part.quote)),
-        highlight: false,
-      }))
-    ),
-    paragraph: getParagraphIds(section)[index]!,
-    quoted: [
-      ...new Set(
-        section.quoted?.[index]?.map((q) => JSON.stringify(getUrlPath(q)))
+  );
+  allQuotes.slice(0, -1).forEach((q, i) => {
+    if (
+      q &&
+      allQuotes[i + 1] &&
+      allQuotes[i + 1].section === q.section &&
+      allQuotes[i + 1].paragraph === q.paragraph + 1
+    ) {
+      allQuotes[i + 1].start =
+        allQuotes[i].start === undefined
+          ? allQuotes[i].paragraph
+          : allQuotes[i].start;
+      allQuotes[i] = true;
+    }
+  });
+
+  return paras.map((para, paraIndex) => {
+    if (para.type === "break") return para;
+    if (para.parts.every((line) => line.every((part) => part.quote))) {
+      if (allQuotes[paraIndex]) {
+        return {
+          ...para,
+          parts: para.parts.map((line) =>
+            line.map((part) => ({ ...part, quote: true }))
+          ),
+          paragraph: paraIds[paraIndex]!,
+          quote:
+            allQuotes[paraIndex] === true
+              ? allQuotes[paraIndex]
+              : getUrlPath(allQuotes[paraIndex]),
+          quoted: [
+            ...new Set(
+              section.quoted?.[paraIndex]?.map((q) =>
+                JSON.stringify(getUrlPath(q))
+              )
+            ),
+          ].map((x) => JSON.parse(x)),
+        };
+      }
+    }
+    return {
+      ...para,
+      parts: para.parts.map((lines) =>
+        lines.map((part) => ({
+          ...part,
+          quote:
+            part.quote && (part.quote === true ? true : getUrlPath(part.quote)),
+        }))
       ),
-    ].map((x) => JSON.parse(x)),
-  };
+      paragraph: paraIds[paraIndex]!,
+      quoted: [
+        ...new Set(
+          section.quoted?.[paraIndex]?.map((q) => JSON.stringify(getUrlPath(q)))
+        ),
+      ].map((x) => JSON.parse(x)),
+    };
+  });
 };
 
 interface Match {
@@ -497,12 +544,70 @@ const getData = (
   }
 
   const result = filtered.map(({ section, index }) => {
-    const content = section.content
-      .map(
+    const content = semiToRender(
+      section,
+      section.content.map(
         (c, paraIndex): SemiRenderContent =>
           contentToSemi(c, (section.quoted || {})[paraIndex] || [])
       )
-      .map((para, paraIndex) => semiToRender(section, para, paraIndex))
+    )
+      .map((para, paraIndex) => {
+        if (para.type === "break") return para;
+        const match = searchInfo.find(
+          (s) => s.section === index && s.paragraph === paraIndex
+        );
+        if (!match) return para;
+        const lines = para.parts.map((line) => {
+          const res = [];
+          for (const part of line) {
+            if (part.quoted >= match.level) {
+              res.push(part);
+            } else if (res[res.length - 1] !== null) {
+              res.push(null);
+            }
+          }
+          if (res.length === 1 && res[0] === null) return [];
+          return res;
+        });
+        let started = false;
+        lines.forEach((line, i) => {
+          if (line.length === 0) {
+            if (started) {
+              if (
+                lines[i - 1]!.length > 0 &&
+                lines[i - 1]![lines[i - 1]!.length - 1] !== null
+              ) {
+                lines[i - 1]!.push(null);
+              }
+            } else {
+              if (lines[i + 1]!.length > 0 && lines[i + 1]![0] !== null) {
+                lines[i + 1]!.unshift(null);
+              }
+            }
+          } else {
+            started = true;
+          }
+        });
+        return {
+          ...para,
+          parts: lines
+            .map((line) =>
+              line.map((part, i) => {
+                if (part !== null) return part;
+                return {
+                  text:
+                    i === 0
+                      ? ". . . "
+                      : i === line.length - 1
+                        ? " . . ."
+                        : " . . . ",
+                  quoted: 0,
+                };
+              })
+            )
+            .filter((line) => line.length > 0),
+        };
+      })
       .filter(
         (_, paraIndex) =>
           tokens.length === 0 ||

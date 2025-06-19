@@ -65,6 +65,7 @@ const AppInner = ({
     tree: any;
   };
 }) => {
+  console.log(data);
   return (
     <Column gap={20}>
       <Breadcrumbs size={17} path={[["All", "/"], ...path]} />
@@ -77,6 +78,12 @@ const AppInner = ({
 
       {data.map((d, i) => {
         const allSpecial = d.content.every((d) => d.type !== "normal");
+        const allFullQuote = d.content.every(
+          (d) =>
+            d.type === "break" ||
+            d.quote ||
+            d.parts.every((line) => line.every((x) => x.quote))
+        );
         return (
           <Column gap={25} style={{ paddingTop: 30 }} key={i}>
             <Text
@@ -109,7 +116,7 @@ const AppInner = ({
                   id={c.paragraph}
                   key={i}
                   style={
-                    allQuote
+                    allQuote && !allFullQuote
                       ? {
                           fontWeight: "bold",
                           fontStyle: c.type === "info" ? "italic" : "normal",
@@ -154,7 +161,8 @@ const AppInner = ({
                             margin: l.highlight ? "0 -3.5px" : "0",
                             position: "relative",
                             zIndex: l.highlight ? 10 : 0,
-                            fontWeight: l.quote ? "bold" : "inherit",
+                            fontWeight:
+                              l.quote && !allFullQuote ? "bold" : "inherit",
                             background: l.highlight
                               ? "rgb(255, 247, 158)"
                               : l.quoted > 0
@@ -272,44 +280,50 @@ const AppInner = ({
               const main = !c.quote ? (
                 mainText
               ) : (
-                <Column gap={11.5} key={i} style={{ padding: "0 20px" }}>
+                <Column
+                  gap={11.5}
+                  key={i}
+                  style={{ padding: allFullQuote ? "" : "0 20px" }}
+                >
                   {mainText}
-                  <Row
-                    gap={`${11.5}px ${14 * 0.6}px`}
-                    style={{
-                      flexWrap: "wrap",
-                      maxWidth: 400,
-                      marginLeft: "auto",
-                      justifyContent: "flex-end",
-                      opacity: 0.5,
-                    }}
-                  >
-                    {c.quote.map((p, j) => (
-                      <Row gap={14 * 0.6} key={j}>
-                        {j > 0 && (
-                          <svg
-                            style={{ flexShrink: 0, height: 14 * 0.6 }}
-                            viewBox="-0.5 -1 1.5 2"
-                            xmlns="http://www.w3.org/2000/svg"
+                  {c.quote !== true && (
+                    <Row
+                      gap={`${11.5}px ${14 * 0.6}px`}
+                      style={{
+                        flexWrap: "wrap",
+                        maxWidth: 400,
+                        marginLeft: "auto",
+                        justifyContent: "flex-end",
+                        opacity: 0.5,
+                      }}
+                    >
+                      {c.quote.map((p, j) => (
+                        <Row gap={14 * 0.6} key={j}>
+                          {j > 0 && (
+                            <svg
+                              style={{ flexShrink: 0, height: 14 * 0.6 }}
+                              viewBox="-0.5 -1 1.5 2"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <polygon
+                                points="-0.5,0.866 -0.5,-0.866 1.0,0.0"
+                                fill="#333"
+                              />
+                            </svg>
+                          )}
+                          <Text
+                            size={14}
+                            to={p[1]}
+                            style={{
+                              color: authorColours[(c as any).quote[0][0]],
+                            }}
                           >
-                            <polygon
-                              points="-0.5,0.866 -0.5,-0.866 1.0,0.0"
-                              fill="#333"
-                            />
-                          </svg>
-                        )}
-                        <Text
-                          size={14}
-                          to={p[1]}
-                          style={{
-                            color: authorColours[(c as any).quote[0][0]],
-                          }}
-                        >
-                          {p[0]}
-                        </Text>
-                      </Row>
-                    ))}
-                  </Row>
+                            {p[0]}
+                          </Text>
+                        </Row>
+                      ))}
+                    </Row>
+                  )}
                 </Column>
               );
 
@@ -371,7 +385,7 @@ const AppInner = ({
 
 export default function App() {
   const params = useParams();
-  const [searchTerm, setSearchTerm] = useState("transform");
+  const [searchTerm, setSearchTerm] = useState("");
   const [allData, setAllData] = useState(
     null as {
       data: RenderSection[];
@@ -424,8 +438,6 @@ export default function App() {
 
     return () => clearTimeout(debounceTimeout);
   }, [searchTerm, params]);
-
-  console.log(allData);
 
   return (
     <SizeContext value={17}>

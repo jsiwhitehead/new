@@ -9,6 +9,7 @@ const authorYears = {
   "‘Abdu’l‑Bahá": [1892, 1921],
   "Shoghi Effendi": [1921, 1957],
   "The Universal House of Justice": [1963, 3000],
+  Documents: [1963, 3000],
 } as Record<string, [number, number]>;
 
 const indexAuthors = {
@@ -191,6 +192,7 @@ export const parseStructuredSections = (
           "Turning Point for All Nations (BIC)",
           "Youth Conference Materials (WC)",
           "Conservation of the Earth’s Resources (WC)",
+          "Bahá’í.org (WC)",
         ];
         sectionPath[1]![2] = documentsOrder.indexOf(sectionPath[1]![0]) + 1;
       }
@@ -259,14 +261,14 @@ export const parseStructuredSections = (
   });
 };
 
-const getLength = (c: SectionContent) => {
-  if (typeof c === "string") return c.length;
+const getText = (c: SectionContent) => {
+  if (typeof c === "string") return c;
   if ("type" in c) {
-    if (c.type === "break") return 0;
-    return c.text.length;
+    if (c.type === "break") return "";
+    return c.text;
   }
-  if (Array.isArray(c)) return 0;
-  return c.text.length;
+  if (Array.isArray(c)) return "";
+  return c.text;
 };
 
 const ruhiKeys = [
@@ -314,16 +316,16 @@ const ruhiKeys = [
     );
   }
 
-  additional.sort(
-    (a, b) =>
-      a.content.map((x) => getLength(x)).reduce((res, x) => res + x, 0) -
-      b.content.map((x) => getLength(x)).reduce((res, x) => res + x, 0)
-  );
-  prayers.sort(
-    (a, b) =>
-      a.content.map((x) => getLength(x)).reduce((res, x) => res + x, 0) -
-      b.content.map((x) => getLength(x)).reduce((res, x) => res + x, 0)
-  );
+  additional.sort((a, b) => {
+    const aText = a.content.map((x) => getText(x)).join("");
+    const bText = b.content.map((x) => getText(x)).join("");
+    return aText.length - bText.length || aText.localeCompare(bText);
+  });
+  prayers.sort((a, b) => {
+    const aText = a.content.map((x) => getText(x)).join("");
+    const bText = b.content.map((x) => getText(x)).join("");
+    return aText.length - bText.length || aText.localeCompare(bText);
+  });
   messages.sort((a, b) => a.years[0] - b.years[0]);
 
   let indices = {

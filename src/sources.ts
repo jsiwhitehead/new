@@ -1967,6 +1967,10 @@ const sources: Record<
       ],
       [/^# May 1971, to those gathered$/m, "# May 1971, to those gathered (1)"],
       [/^# May 1971, to those gathered$/m, "# May 1971, to those gathered (2)"],
+      [/^I$/m, "##"],
+      [/^II$/m, "##"],
+      [/^III$/m, "##"],
+      [/^IV$/m, "##"],
       ["has written: “Wherefore", "has written: . . . “Wherefore"],
       ["such belief.” See how firm", "such belief.” . . . See how firm"],
       [
@@ -2083,6 +2087,7 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
     "institutes-functioning": [],
     "intensive-growth": [],
     "youth-conference": [],
+    "bahai-org": [],
   },
   ruhi: {
     "1": [],
@@ -2349,6 +2354,9 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
       title("#", "The Power of Example"),
       [/^[A-Z].{0,80}[a-z]$/gm, (a) => `## ${a}`],
       ["## A Chaste and Holy Life", "A Chaste and Holy Life"],
+      ["O SON OF BEING!\n\n", "O SON OF BEING! "],
+      ["O MY FRIEND!\n\n", "O MY FRIEND! "],
+      ["O SON OF MY HANDMAID!\n\n", "O SON OF MY HANDMAID! "],
     ],
     "codification-law-huququllah": [
       removeAfter("Notes"),
@@ -2495,9 +2503,12 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
         "He will, erelong, out of the Bosom of Power, draw forth the",
         "Erelong shall God draw forth, out of the bosom of power, the",
       ],
-      splitLines(/High‑spirited souls by the.*/m, "To lay down a hundred"),
-      splitLines(/From the outset love was.*/m, "So as to put every"),
-      splitLines(/The worldly wise who garner.*/m, "For unto none was"),
+      prefix("High‑spirited souls by the", "\n\n"),
+      prefix("From the outset love was", "\n\n"),
+      prefix("The worldly wise who garner", "\n\n"),
+      // splitLines(/High‑spirited souls by the.*/m, "To lay down a hundred"),
+      // splitLines(/From the outset love was.*/m, "So as to put every"),
+      // splitLines(/The worldly wise who garner.*/m, "For unto none was"),
     ],
     "give-me-thy-grace-serve-thy-loved-ones": [
       removeAfter("This document has been downloaded"),
@@ -2535,6 +2546,7 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
         years: [1998.0801, 1998.0801],
       }),
       [/^From/gm, "# From"],
+      ["‘Abdu’l‑Bahá said . . . :", "[‘Abdu’l‑Bahá said . . . :]"],
     ],
     "importance-deepening": [],
     "importance-obligatory-prayer-fasting": [
@@ -2569,6 +2581,7 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
         }
       ),
       [/^Extract/gm, "# Extract"],
+      ["O SON OF GLORY!\n\n", "O SON OF GLORY! "],
     ],
     "inspiring-heart": [],
     "institution-mashriqul-adhkar": [
@@ -2688,6 +2701,7 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
         "EXTRACTS FROM LETTERS WRITTEN ON BEHALF OF THE UNIVERSAL HOUSE OF JUSTICE:",
         "# Extracts from Letters written on behalf of the Universal House of Justice",
       ],
+      [/\([^)]+\)/g, ""],
     ],
     "power-divine-assistance": [
       removeAfter("Notes"),
@@ -2747,6 +2761,7 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
       [/^\d+\.\d+ /gm, "## "],
       prefix(/^From (a|the|Letters|Communications)/gm, "### "),
       ["### Scholarship", "Scholarship"],
+      ["(“Bahá’í World Faith”, p. 195)", ""],
     ],
     "set-world-order": [
       removeAfter("Notes"),
@@ -2835,6 +2850,10 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
       ),
       prefix(/^[A-Z].*[a-z]$/gm, "## "),
       ["## Social Action", "Social Action"],
+      [
+        /General running expenses.*provide needed support of the poor./s,
+        (a) => a.replace(/\n+/g, " "),
+      ],
     ],
     trustworthiness: [
       removeAfter("Notes"),

@@ -20,6 +20,7 @@ import { readText, writeText } from "./utils";
                 (res, [a, b]) => res.replace(a, b as any),
                 await readText("tidy", id)
               )
+              .replace(/ +/g, " ")
               .replace(/^>\s*$/gm, "")
               .replace(/(#+\n+)+#/gm, "#")
               .replace(/(\s*\n){2,}/g, "\n\n")
