@@ -5,12 +5,22 @@ const dataWithIndices = data.map((section, index) => ({ section, index }));
 
 import type { Section, SectionContent } from "./structure";
 
-export type RenderContent =
+type SemiRenderContent =
   | { type: "break" }
   | { text: string; quote?: true | [string, string][] }[]
   | {
       type: "normal" | "info" | "call" | "framing" | "lines";
       lines: string[];
+      allSpecial: boolean;
+      quote?: [string, string][];
+    };
+
+export type RenderContent =
+  | { type: "break" }
+  | { text: string; quote?: true | [string, string][]; quoted: number }[]
+  | {
+      type: "normal" | "info" | "call" | "framing" | "lines";
+      lines: { text: string; quoted: number }[][];
       allSpecial: boolean;
       quote?: [string, string][];
     };
@@ -103,12 +113,11 @@ const getParagraphIds = (section: Section) => {
   let currentMain = 1;
   let currentSpecial = 0;
   const allIds = section.content.map((para) => {
-    if (typeof para === "string") return `${currentMain++}`;
-    if ("type" in para) {
-      if (para.type === "break") return "";
-      return `${currentMain}${["a", "b", "c", "d", "e"][currentSpecial++]}`;
+    if (typeof para === "string" || !("type" in para)) {
+      currentSpecial = 0;
+      return `${currentMain++}`;
     }
-    return `${currentMain++}`;
+    return `${currentMain}${["a", "b", "c", "d", "e", "f", "g", "h", "i"][currentSpecial++]}`;
   });
   return allIds;
 };
@@ -196,7 +205,7 @@ const getUrlPath = (source: {
   }
 
   for (const chunk of res.slice(1)) {
-    if (chunk[0].startsWith("The ")) chunk[0] = chunk[0].slice(4);
+    if (chunk[0].startsWith("The ")) chunk[0] = capitalise(chunk[0].slice(4));
   }
 
   return res;
@@ -281,7 +290,7 @@ const getAllSpecial = (section: Section) =>
 const getSourceParts = (
   source: { section: number; paragraph: number },
   parts: (string | { start: number; end: number })[]
-): RenderContent => {
+): SemiRenderContent => {
   const res = getPara(
     data[source.section]!.content[source.paragraph]!,
     getAllSpecial(data[source.section]!)
@@ -334,7 +343,10 @@ const getSourceParts = (
   };
 };
 
-const getPara = (para: SectionContent, allSpecial: boolean): RenderContent => {
+const getPara = (
+  para: SectionContent,
+  allSpecial: boolean
+): SemiRenderContent => {
   if (typeof para === "string") return [{ text: para }];
   if (!Array.isArray(para)) {
     if ("type" in para) {
@@ -385,7 +397,7 @@ const getPara = (para: SectionContent, allSpecial: boolean): RenderContent => {
 const getFullQuotedPara = (
   paraBase: SectionContent,
   sources: { section: number; paragraph: number }[]
-): RenderContent => {
+): SemiRenderContent => {
   if (typeof paraBase === "string") {
     return [{ text: paraBase }];
   }
@@ -399,7 +411,9 @@ const getFullQuotedPara = (
       }
   )[];
   if (sources.length === 1) {
-    return getSourceParts(sources[0]!, para);
+    const res = getSourceParts(sources[0]!, para);
+    if (!Array.isArray(res)) return res;
+    return expandQuotes(res);
   }
   return para.flatMap((part, i) => {
     if (typeof part === "string") return [{ text: part }];
@@ -418,10 +432,93 @@ const getFullQuotedPara = (
   });
 };
 
+const addQuoted = (
+  para: SemiRenderContent,
+  quoted: {
+    start: number;
+    end: number;
+    section: number;
+    paragraph: number;
+  }[] = []
+): RenderContent => {
+  if ("type" in para && para.type === "break") return para;
+  const indices = [...new Set(quoted.flatMap((q) => [q.start, q.end]))].sort(
+    (a, b) => a - b
+  );
+  if (Array.isArray(para)) {
+    let current = 0;
+    return para.flatMap((part) => {
+      const partIndices = [
+        0,
+        ...indices
+          .map((x) => x - current)
+          .filter((x) => x > 0 && x < part.text.length),
+        part.text.length,
+      ];
+      const res = partIndices.slice(1).map((end, i) => {
+        const start = partIndices[i]!;
+        return {
+          text: part.text.slice(start, end),
+          quote: part.quote ? (true as true) : undefined,
+          quoted: quoted.filter(
+            (q) => current + start >= q.start && current + end <= q.end
+          ).length,
+        };
+      });
+      if (part.quote) res[res.length - 1]!.quote = part.quote as any;
+      current += part.text.length;
+      return res;
+    });
+  }
+  let current = 0;
+  return {
+    ...para,
+    lines: para.lines.map((part) => {
+      const partIndices = [
+        0,
+        ...indices
+          .map((x) => x - current)
+          .filter((x) => x > 0 && x < part.length),
+        part.length,
+      ];
+      const res = partIndices.slice(1).map((end, i) => {
+        const start = partIndices[i]!;
+        return {
+          text: part.slice(start, end),
+          quoted: quoted.filter(
+            (q) => current + start >= q.start && current + end <= q.end
+          ).length,
+        };
+      });
+      current += part.length + 1;
+      return res;
+    }),
+  };
+};
+
 const getData = (
   search: string,
   ...urlPath: string[]
-): { data: any[]; path: [string, string][]; tree: any } => {
+): {
+  data: any[];
+  path: [string, string][];
+  tree: any;
+  showContent: boolean;
+} => {
+  const showContent =
+    data.find(
+      (d) =>
+        urlPath.length === d.path.length &&
+        urlPath.every((p, i) => d.path[i]![1] === p)
+    ) ||
+    [
+      "bahaullah/hidden-words",
+      "bahaullah/gleanings-writings-bahaullah",
+    ].includes(urlPath.join("/")) ||
+    (urlPath.length > 1 &&
+      ["documents", "ruhi", "compilations"].includes(urlPath[0]!)) ||
+    (urlPath.length > 2 && urlPath[1] === "bahaullah-new-era");
+
   const filtered = dataWithIndices.filter(
     ({ section }) =>
       !section.meta && urlPath.every((p, i) => section.path[i]?.[1] === p)
@@ -436,8 +533,28 @@ const getData = (
   }
   const [path, nestedTree] = collapseSingleKeys(tree, urlPath.length);
 
+  if (!showContent) {
+    return {
+      data: filtered.map(({ section }) => ({ ...section, content: [] })),
+      path,
+      tree: nestedTree,
+      showContent: false,
+    };
+  }
+
   const result = filtered.map(({ section }) => {
     const paraIds = getParagraphIds(section);
+    const paraQuoted = section.content.map((_, paraIndex) => {
+      const base = section.quoted?.[paraIndex];
+      if (!base) return;
+      return [
+        ...new Set(
+          base.map(({ section, paragraph }) =>
+            JSON.stringify({ section, paragraph })
+          )
+        ),
+      ].map((q) => getUrlPath(JSON.parse(q)));
+    });
     if (
       section.content.every(
         (para) =>
@@ -484,28 +601,34 @@ const getData = (
       }
       return {
         ...section,
-        content: section.content.map((para, paraIndex) => {
-          return {
-            content: getFullQuotedPara(para, paraSources[paraIndex]!),
-            source: displaySources[paraIndex]
-              ? getUrlPath(displaySources[paraIndex]!)
-              : undefined,
-            paraId: paraIds[paraIndex]!,
-          };
-        }),
+        content: section.content.map((para, paraIndex) => ({
+          paraId: paraIds[paraIndex]!,
+          content: addQuoted(
+            getFullQuotedPara(para, paraSources[paraIndex]!),
+            section.quoted?.[paraIndex]
+          ),
+          quoted: paraQuoted[paraIndex],
+          source: displaySources[paraIndex]
+            ? getUrlPath(displaySources[paraIndex]!)
+            : undefined,
+        })),
       };
     }
     const allSpecial = getAllSpecial(section);
     return {
       ...section,
       content: section.content.map((para, paraIndex) => ({
-        content: getPara(para, allSpecial),
         paraId: paraIds[paraIndex]!,
+        content: addQuoted(
+          getPara(para, allSpecial),
+          section.quoted?.[paraIndex]
+        ),
+        quoted: paraQuoted[paraIndex],
       })),
     };
   });
 
-  return { data: result, path, tree: nestedTree };
+  return { data: result, path, tree: nestedTree, showContent: true };
 };
 
 Bun.serve({
@@ -524,54 +647,6 @@ Bun.serve({
     },
   },
 });
-
-//   // ADD QUOTED COUNTS
-//   const quotedIndices = [
-//     ...new Set(quoted.flatMap((q) => [q.start, q.end])),
-//   ].sort((a, b) => a - b);
-//   let currentIndex = 0;
-//   const lines = para.parts.map((line) => {
-//     const res: {
-//       text: string;
-//       quoted: number;
-//       quote?: true | { section: number; paragraph: number };
-//     }[] = [];
-//     for (const part of line) {
-//       const partIndices = quotedIndices
-//         .map((x) => x - currentIndex)
-//         .filter((q) => q > 0 && q < part.text.length);
-//       let prev = 0;
-//       for (const index of partIndices) {
-//         res.push({
-//           text: part.text.slice(prev, index),
-//           quoted: quoted.filter(
-//             (q) =>
-//               currentIndex + prev >= q.start && currentIndex + index <= q.end
-//           ).length,
-//           quote: part.quote,
-//         });
-//         prev = index;
-//       }
-//       res.push({
-//         text: part.text.slice(prev),
-//         quoted: quoted.filter(
-//           (q) =>
-//             currentIndex + prev >= q.start &&
-//             currentIndex + part.text.length <= q.end
-//         ).length,
-//         quote: part.quote,
-//       });
-//       currentIndex += part.text.length;
-//     }
-//     currentIndex += 1;
-//     return res;
-//   });
-
-//   return {
-//     type: para.type,
-//     parts: lines,
-//   };
-// };
 
 // interface Match {
 //   section: number;

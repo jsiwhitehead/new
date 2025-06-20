@@ -59,19 +59,6 @@ const Breadcrumbs = ({
   );
 };
 
-//                             style={{
-//                               padding: l.highlight ? "2.4px 3.5px" : "2.4px 0",
-//                               margin: l.highlight ? "0 -3.5px" : "0",
-//                               position: "relative",
-//                               zIndex: l.highlight ? 10 : 0,
-//                               background: l.highlight
-//                                 ? "rgb(255, 247, 158)"
-//                                 : l.quoted > 0
-//                                   ? `rgb(255, ${240 - l.quoted * 10}, ${240 - l.quoted * 10})`
-//                                   : "",
-//                             }}
-//                             key={`${i}-${j}`}
-
 const InlineQuote = ({ path }: { path: [string, string][] }) => (
   <Fragment>
     {path.map(([label, url], k) => (
@@ -139,20 +126,26 @@ const InlineQuote = ({ path }: { path: [string, string][] }) => (
   </Fragment>
 );
 
-const BlockQuote = ({ path }: { path: [string, string][] }) => (
+const BlockQuote = ({
+  path,
+  left,
+}: {
+  path: [string, string][];
+  left?: true;
+}) => (
   <Row
     gap={`${11.5}px ${14 * 0.6}px`}
     style={{
       flexWrap: "wrap",
       maxWidth: 400,
-      marginLeft: "auto",
-      justifyContent: "flex-end",
+      margin: left ? "0 auto 0 30px" : "0 0 0 auto",
+      justifyContent: left ? "flex-start" : "flex-end",
       opacity: 0.5,
     }}
   >
-    {path.map((p, j) => (
-      <Row gap={14 * 0.6} key={j}>
-        {j > 0 && (
+    {path.map((p, i) => (
+      <Row gap={14 * 0.6} key={i}>
+        {i > 0 && (
           <svg
             style={{ flexShrink: 0, height: 14 * 0.6 }}
             viewBox="-0.5 -1 1.5 2"
@@ -165,6 +158,7 @@ const BlockQuote = ({ path }: { path: [string, string][] }) => (
           size={14}
           to={p[1]}
           style={{
+            marginLeft: left && i === 0 ? -30 : 0,
             color: authorColours[path[0]![0]],
             whiteSpace: "nowrap",
           }}
@@ -197,20 +191,34 @@ const Paragraph = ({
   if (Array.isArray(para)) {
     return (
       <Text id={paraId} style={{ textIndent: 20 }}>
-        {para.map((part, i) =>
-          !Array.isArray(part.quote) ? (
-            <span
-              style={{ fontWeight: part.quote ? "bold" : "normal" }}
-              key={i}
-            >
-              {part.text}
-            </span>
-          ) : (
-            <span style={{ fontWeight: "bold" }} key={i}>
+        {para.map((part, i) => {
+          const style = {
+            fontWeight: part.quote ? "bold" : "normal",
+            padding: "2.4px 0",
+            background:
+              part.quoted > 0
+                ? `rgb(255, ${240 - part.quoted * 10}, ${240 - part.quoted * 10})`
+                : "",
+            // padding: l.highlight ? "2.4px 3.5px" : "2.4px 0",
+            // margin: l.highlight ? "0 -3.5px" : "0",
+            // position: "relative",
+            // zIndex: l.highlight ? 10 : 0,
+            // background: l.highlight
+            //   ? "rgb(255, 247, 158)"
+            //   : l.quoted > 0
+            //     ? `rgb(255, ${240 - l.quoted * 10}, ${240 - l.quoted * 10})`
+            //     : "",
+          };
+          return Array.isArray(part.quote) ? (
+            <span style={style} key={i}>
               {part.text} <InlineQuote path={part.quote} />
             </span>
-          )
-        )}
+          ) : (
+            <span style={style} key={i}>
+              {part.text}
+            </span>
+          );
+        })}
       </Text>
     );
   }
@@ -242,8 +250,21 @@ const Paragraph = ({
       }}
     >
       {para.lines.flatMap((line, i) => {
-        const res = <span key={i}>{line}</span>;
-        return i > 0 ? [<br key={`${i}*`} />, res] : [res];
+        const res = line.map((part, j) => (
+          <span
+            style={{
+              padding: "2.4px 0",
+              background:
+                part.quoted > 0
+                  ? `rgb(255, ${240 - part.quoted * 10}, ${240 - part.quoted * 10})`
+                  : "",
+            }}
+            key={`${i}-${j}`}
+          >
+            {part.text}
+          </span>
+        ));
+        return i > 0 ? [<br key={i} />, ...res] : res;
       })}
     </Text>
   );
@@ -260,8 +281,12 @@ const Paragraph = ({
 export default function App() {
   // const params = useParams();
   // const [searchTerm, setSearchTerm] = useState("");
-  const allData: { data: any[]; path: [string, string][]; tree: any } =
-    useLoaderData();
+  const allData: {
+    data: any[];
+    path: [string, string][];
+    tree: any;
+    showContent: boolean;
+  } = useLoaderData();
   // const [allData, setAllData] = useState(
   //   loaderData as { data: any[]; path: [string, string][]; tree: any }
   // );
@@ -316,7 +341,7 @@ export default function App() {
   //   return () => clearTimeout(debounceTimeout);
   // }, [searchTerm, params]);
 
-  const { data, path, tree } = allData;
+  const { data, path, tree, showContent } = allData;
 
   return (
     <SizeContext value={17}>
@@ -348,66 +373,73 @@ export default function App() {
           </div>
         )}
 
-        {data.map((section, index) => (
-          <Column gap={25} style={{ paddingTop: 30 }} key={index}>
-            <Text
-              size={30}
-              style={{
-                fontWeight: "bold",
-                textAlign: "center",
-                paddingBottom: 10,
-              }}
-            >
-              {section.path[section.path.length - 1]![0]}
-            </Text>
-            {section.content.map((para: any) =>
-              !para.source ? (
-                <Paragraph
-                  para={para.content}
-                  paraId={para.paraId}
-                  key={para.paraId}
-                />
-              ) : (
-                <Column
-                  style={{ paddingBottom: 25 }}
-                  gap={25}
-                  key={para.paraId}
-                >
-                  <Paragraph para={para.content} paraId={para.paraId} />
-                  <Row
-                    gap={`${11.5}px ${14 * 0.6}px`}
-                    style={{ flexWrap: "wrap", opacity: 0.5 }}
+        {showContent &&
+          data.map((section, index) => (
+            <Column gap={25} style={{ paddingTop: 30 }} key={index}>
+              <Text
+                size={30}
+                style={{
+                  fontWeight: "bold",
+                  textAlign: "center",
+                  paddingBottom: 10,
+                }}
+              >
+                {section.path[section.path.length - 1]![0]}
+              </Text>
+              {section.content.map((para: any) =>
+                !(para.quoted || para.source) ? (
+                  <Paragraph
+                    para={para.content}
+                    paraId={para.paraId}
+                    key={para.paraId}
+                  />
+                ) : (
+                  <Column
+                    style={{ paddingBottom: 25 }}
+                    gap={25}
+                    key={para.paraId}
                   >
-                    {para.source.map((p: [string, string], j: number) => (
-                      <Row gap={14 * 0.6} key={j}>
-                        {j > 0 && (
-                          <svg
-                            style={{ flexShrink: 0, height: 14 * 0.6 }}
-                            viewBox="-0.5 -1 1.5 2"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <polygon
-                              points="-0.5,0.866 -0.5,-0.866 1.0,0.0"
-                              fill="#333"
-                            />
-                          </svg>
-                        )}
-                        <Text
-                          to={p[1]}
-                          style={{
-                            color: authorColours[para.source[0]![0]],
-                          }}
-                        >
-                          {p[0]}
-                        </Text>
+                    <Paragraph para={para.content} paraId={para.paraId} />
+                    {para.quoted &&
+                      para.quoted.map((path: any, i: number) => (
+                        <BlockQuote key={i} path={path} left />
+                      ))}
+                    {para.source && (
+                      <Row
+                        gap={`${11.5}px ${14 * 0.6}px`}
+                        style={{ flexWrap: "wrap", opacity: 0.5 }}
+                      >
+                        {para.source.map((p: [string, string], j: number) => (
+                          <Row gap={14 * 0.6} key={j}>
+                            {j > 0 && (
+                              <svg
+                                style={{ flexShrink: 0, height: 14 * 0.6 }}
+                                viewBox="-0.5 -1 1.5 2"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <polygon
+                                  points="-0.5,0.866 -0.5,-0.866 1.0,0.0"
+                                  fill="#333"
+                                />
+                              </svg>
+                            )}
+                            <Text
+                              to={p[1]}
+                              style={{
+                                color: authorColours[para.source[0]![0]],
+                              }}
+                            >
+                              {p[0]}
+                            </Text>
+                          </Row>
+                        ))}
                       </Row>
-                    ))}
-                  </Row>
-                </Column>
-              )
-            )}
-          </Column>
-        ))}
+                    )}
+                  </Column>
+                )
+              )}
+            </Column>
+          ))}
       </Column>
     </SizeContext>
   );

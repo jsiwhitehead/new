@@ -136,9 +136,19 @@ const checkDoReference = (
   return false;
 };
 
-const getText = (p: SectionContent) => {
+const getText = (data: any, p: SectionContent) => {
   if (typeof p === "string") return p;
-  if (Array.isArray(p)) return "";
+  if (Array.isArray(p))
+    return p
+      .map((x): string =>
+        typeof x === "string"
+          ? x
+          : getText(data, data[x.section].content[x.paragraph]).slice(
+              x.start,
+              x.end
+            )
+      )
+      .join("");
   if ("type" in p && p.type === "break") return "";
   return p.text;
 };
@@ -263,7 +273,7 @@ const getAllQuotes = (
       )
     ) {
       section.content.forEach((p, i) => {
-        const text = getText(p);
+        const text = getText(sections, p);
         strippedMap.set(`${index}:${i}`, strip(text));
         const parts = splitQuoted(text).flatMap((p) =>
           p.split(/( ?\. \. \. ?| ?\[[^\]]*\] ?)/)
@@ -369,7 +379,7 @@ const getAllQuotes = (
     paraIndex: number
   ) => {
     {
-      const text = getText(p);
+      const text = getText(sections, p);
       if (typeof p !== "string" && !Array.isArray(p)) return p;
 
       const parts = splitQuoted(text)
@@ -843,7 +853,7 @@ const getAllQuotes = (
 
   const mappedQuoted = sections.map((d) =>
     Object.keys(d.quoted || {}).reduce((res, k) => {
-      const text = getText(d.content[k as any]!);
+      const text = getText(sections, d.content[k as any]!);
       const allQuotes = d.quoted![k]!.flatMap((q) => getAllQuotes(sections, q));
       const allRefs = [
         ...new Set(
