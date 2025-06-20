@@ -387,7 +387,9 @@
       ["Ataollah", "‘Aṭá’u’lláh"],
       ["Ruhollah", "Rúḥu’lláh"],
       ["Ruhollah", "Rúḥu’lláh"],
-      ["Ruhollah", "Rúḥu’lláh"]
+      ["Ruhollah", "Rúḥu’lláh"],
+      ["“Kitábu’l-Aqdas,”", "Kitáb‑i‑Aqdas,"],
+      ["Kitábu’l-Aqdas", "Kitáb‑i‑Aqdas"]
     ]
   },
   "prayers": {
@@ -805,7 +807,9 @@
       [
         "prolonged consultation which included consideration",
         "prolonged consideration"
-      ]
+      ],
+      ["“Kitábu’l-Aqdas”", "Kitáb‑i‑Aqdas"],
+      ["“Kitábu’l-Aqdas”", "Kitáb‑i‑Aqdas"]
     ],
     "women": [
       ["Therefore it is incumbent upon", "Therefore is it incumbent upon"]

@@ -1973,6 +1973,9 @@ const sources: Record<
       [/^II$/m, "##"],
       [/^III$/m, "##"],
       [/^IV$/m, "##"],
+      [/\([^\)]+ p\. \d+\)/g, ""],
+      [/\([^\)]+ pp\. \d+—\d+\)/g, ""],
+      [/\([^\)]+ page \d+\)/g, ""],
       ["long as these prejudices remain", "long as these [prejudices] remain"],
       ["has written: “Wherefore", "has written: . . . “Wherefore"],
       ["such belief.” See how firm", "such belief.” . . . See how firm"],
@@ -2433,6 +2436,7 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
       [/^[^#\n].*\n\n^\d+\. ?/gm, ""],
       [/^\d+\. ?/gm, ""],
       [/^3 January 1982, from a letter written.*/gm, ""],
+      ["(“God Passes By”, p. 245)", ""],
     ],
     "crisis-victory": [
       removeAfter("Index"),

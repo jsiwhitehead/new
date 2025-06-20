@@ -82,7 +82,14 @@ export function Text({
             padding: 5,
           }}
         >
-          <p style={{ margin: `-${(textSize * 0.5) / 2}px 0` }}>{children}</p>
+          <p
+            style={{
+              margin: `-${(textSize * 0.5) / 2}px 0`,
+              whiteSpace: "inherit",
+            }}
+          >
+            {children}
+          </p>
         </Link>
       </div>
     );
