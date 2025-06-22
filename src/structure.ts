@@ -10,6 +10,7 @@ const authorYears = {
   "Shoghi Effendi": [1921, 1957],
   "The Universal House of Justice": [1963, 3000],
   Documents: [1963, 3000],
+  Stories: [3000, 3000],
 } as Record<string, [number, number]>;
 
 const indexAuthors = {
@@ -23,6 +24,7 @@ const indexAuthors = {
   "Ruhi Institute": 8,
   Compilations: 9,
   Books: 10,
+  Stories: 11,
 } as Record<string, number>;
 
 const urlAuthors = {
@@ -36,6 +38,7 @@ const urlAuthors = {
   "Ruhi Institute": "ruhi",
   Compilations: "compilations",
   Books: "books",
+  Stories: "stories",
 } as Record<string, string>;
 
 export type SectionContent =
