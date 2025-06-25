@@ -137,7 +137,7 @@ const getParasString = (paras: number[], paraIds: string[]) => {
     const current = paras[i]!;
     if (current === end + 1) {
       end = current;
-    } else {
+    } else if (current !== end) {
       if (start === end) result.push(`Para ${paraIds[start]}`);
       else result.push(`Paras ${paraIds[start]}-${paraIds[end]}`);
       start = end = current;
@@ -176,27 +176,20 @@ const getUrlPath = (source: {
 
   if (res[1]![0] === "The Hidden Words") {
     res[2]![0] = res[2]![0].split(":")[0]!;
-  }
-  if (res[1]![0] === "The Summons of the Lord of Hosts") {
+  } else if (res[1]![0] === "The Summons of the Lord of Hosts") {
     res.splice(1, 1);
-  }
-  if (res[1]![0] === "The Promulgation of Universal Peace") {
+  } else if (res[1]![0] === "The Promulgation of Universal Peace") {
     res[3]![0] = res[3]![0].split(":")[0]!;
     res.splice(2, 1);
-  }
-  if (res[1]![0] === "Tablets of the Divine Plan") {
+  } else if (res[1]![0] === "Tablets of the Divine Plan") {
     res[2]![0] = res[2]![0].split(":")[0]!;
-  }
-  if (res[1]![0] === "Some Answered Questions") {
+  } else if (res[1]![0] === "Some Answered Questions") {
     res[2]![0] = res[2]![0].split(":")[0]!;
-  }
-  if (res[1]![0] === "The World Order of Bahá’u’lláh") {
+  } else if (res[1]![0] === "The World Order of Bahá’u’lláh") {
     res.splice(1, 1);
-  }
-  if (res[1]![0] === "God Passes By") {
+  } else if (res[1]![0] === "God Passes By") {
     res[2]![0] = res[2]![0].split(":")[0]!;
-  }
-  if (
+  } else if (
     res[0]![0] === "The Universal House of Justice" &&
     res[1]![0] === "Selected Messages"
   ) {
@@ -285,7 +278,9 @@ const capitaliseQuotes = (
 };
 
 const getAllSpecial = (section: Section) =>
-  section.content.every((para) => !Array.isArray(para));
+  section.content.every(
+    (para) => !Array.isArray(para) && typeof para !== "string"
+  );
 
 const getSourceParts = (
   source: { section: number; paragraph: number },

@@ -22,6 +22,7 @@ const authorColours = {
   "Ruhi Institute": "#8e44ad",
   Compilations: "#8e44ad",
   Books: "#8e44ad",
+  Stories: "#8e44ad",
 } as Record<string, string>;
 
 const Breadcrumbs = ({

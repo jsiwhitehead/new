@@ -590,7 +590,7 @@ const sources: Record<
       ["\nThe Kitáb‑i‑Aqdas", "\n# The Most Holy Book"],
       prefix(/^In the name of Him Who is the Supreme Ruler/m, "^ "),
       [
-        /^Some Texts Revealed by Bahá’u’lláh Supplementary.*daughter of Thy handmaiden, etc…\)/ms,
+        /^Some Texts Revealed by Bahá’u’lláh Supplementary.*daughter of Thy handmaiden, etc \. \. \.\)/ms,
         "",
       ],
       title("#", "Questions and Answers"),
@@ -2099,8 +2099,8 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
     "1": [],
     "2": [],
     "3": [],
+    "3-1": [],
     "3-2": [],
-    "3-3": [],
     "4": [],
     "5": [],
     "6": [],
