@@ -2907,7 +2907,10 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
     "worldwide-conference": [],
   },
   stories: {
+    "childrens-classes": [],
+    "main-sequence": [],
     bahaullah: [],
+    "hands-cause": [],
   },
 };
 
