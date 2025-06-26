@@ -491,6 +491,89 @@ const addQuoted = (
   };
 };
 
+const filterQuoted = (
+  para: RenderContent,
+  level: number = 0
+): RenderContent | null => {
+  if ("type" in para && para.type === "break") return para;
+  if (Array.isArray(para)) {
+    const res: any[] = [];
+    for (const part of para) {
+      const prevNull = res[res.length - 1] === null;
+      if (part.quoted >= level) {
+        if (part.text.startsWith(". . .") && prevNull) res.pop();
+        res.push(part);
+      } else if (
+        !prevNull &&
+        !(res[res.length - 1]?.text || "").endsWith(". . .")
+      ) {
+        res.push(null);
+      }
+    }
+    if (res.length === 1 && res[0] === null) return null;
+    return res.map((part, i) => {
+      if (part !== null) return part;
+      if (i === 0) {
+        if (res[i + 1].text.startsWith(". . .")) return null;
+        return { text: ". . . ", quoted: 0 };
+      }
+      if (i === res.length - 1) {
+        if (res[i - 1].text.endsWith(". . .")) return null;
+        return { text: " . . .", quoted: 0 };
+      }
+      return { text: " . . . ", quoted: 0 };
+    });
+  }
+  const lines = para.lines.map((line) => {
+    const res: any[] = [];
+    for (const part of line) {
+      const prevNull = res[res.length - 1] === null;
+      if (part.quoted >= level) {
+        if (part.text.startsWith(". . .") && prevNull) res.pop();
+        res.push(part);
+      } else if (
+        !prevNull &&
+        !(res[res.length - 1]?.text || "").endsWith(". . .")
+      ) {
+        res.push(null);
+      }
+    }
+    return res.length === 1 && res[0] === null ? [] : res;
+  });
+  let started = false;
+  lines.forEach((line, i) => {
+    if (line.length === 0) {
+      if (started) {
+        let prev = lines[i - 1]!;
+        if (prev.length > 0 && prev[prev.length - 1] !== null) {
+          prev.push(null);
+        }
+      } else {
+        let next = lines[i + 1];
+        if (next && next.length > 0 && next[0] !== null) {
+          next.unshift(null);
+        }
+      }
+    } else {
+      started = true;
+    }
+  });
+  if (lines.every((line) => line.length === 0)) return null;
+  return {
+    ...para,
+    lines: lines
+      .filter((line) => line.length > 0)
+      .map((line) =>
+        line.map((part, i) => {
+          if (part !== null) return part;
+          if (i === 0) return { text: ". . . ", quoted: 0 };
+          if (i === line.length - 1) return { text: " . . .", quoted: 0 };
+          return { text: " . . . ", quoted: 0 };
+        })
+      ),
+  };
+};
+
 const getData = (
   search: string,
   ...urlPath: string[]
@@ -596,34 +679,44 @@ const getData = (
       }
       return {
         ...section,
-        content: section.content.map((para, paraIndex) => ({
-          paraId: paraIds[paraIndex]!,
-          content: addQuoted(
-            getFullQuotedPara(para, paraSources[paraIndex]!),
-            section.quoted?.[paraIndex]
-          ),
-          quoted: paraQuoted[paraIndex],
-          source: displaySources[paraIndex]
-            ? getUrlPath(displaySources[paraIndex]!)
-            : undefined,
-        })),
+        content: section.content
+          .map((para, paraIndex) => ({
+            paraId: paraIds[paraIndex]!,
+            content: filterQuoted(
+              addQuoted(
+                getFullQuotedPara(para, paraSources[paraIndex]!),
+                section.quoted?.[paraIndex]
+              )
+            ),
+            quoted: paraQuoted[paraIndex],
+            source: displaySources[paraIndex]
+              ? getUrlPath(displaySources[paraIndex]!)
+              : undefined,
+          }))
+          .filter((para) => para.content !== null),
       };
     }
     const allSpecial = getAllSpecial(section);
     return {
       ...section,
-      content: section.content.map((para, paraIndex) => ({
-        paraId: paraIds[paraIndex]!,
-        content: addQuoted(
-          getPara(para, allSpecial),
-          section.quoted?.[paraIndex]
-        ),
-        quoted: paraQuoted[paraIndex],
-      })),
+      content: section.content
+        .map((para, paraIndex) => ({
+          paraId: paraIds[paraIndex]!,
+          content: filterQuoted(
+            addQuoted(getPara(para, allSpecial), section.quoted?.[paraIndex])
+          ),
+          quoted: paraQuoted[paraIndex],
+        }))
+        .filter((para) => para.content !== null),
     };
   });
 
-  return { data: result, path, tree: nestedTree, showContent: true };
+  return {
+    data: result.filter((x) => x.content.length > 0),
+    path,
+    tree: nestedTree,
+    showContent: true,
+  };
 };
 
 Bun.serve({

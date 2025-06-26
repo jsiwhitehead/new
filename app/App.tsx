@@ -11,6 +11,9 @@ import type { RenderContent } from "../src/server";
 import renderTree from "./Tree";
 import { Column, Row, SizeContext, Text } from "./Utils";
 
+const showQuoted = true;
+const showQuoteSources = true;
+
 const authorColours = {
   "The Báb": "#27ae60",
   "Bahá’u’lláh": "#c0392b",
@@ -197,7 +200,7 @@ const Paragraph = ({
             fontWeight: part.quote ? "bold" : "normal",
             padding: "2.4px 0",
             background:
-              part.quoted > 0
+              part.quoted > 0 && showQuoted
                 ? `rgb(255, ${240 - part.quoted * 10}, ${240 - part.quoted * 10})`
                 : "",
             // padding: l.highlight ? "2.4px 3.5px" : "2.4px 0",
@@ -256,7 +259,7 @@ const Paragraph = ({
             style={{
               padding: "2.4px 0",
               background:
-                part.quoted > 0
+                part.quoted > 0 && showQuoted
                   ? `rgb(255, ${240 - part.quoted * 10}, ${240 - part.quoted * 10})`
                   : "",
             }}
@@ -388,7 +391,7 @@ export default function App() {
                 {section.path[section.path.length - 1]![0]}
               </Text>
               {section.content.map((para: any) =>
-                !(para.quoted || para.source) ? (
+                !((para.quoted && showQuoteSources) || para.source) ? (
                   <Paragraph
                     para={para.content}
                     paraId={para.paraId}
@@ -402,6 +405,7 @@ export default function App() {
                   >
                     <Paragraph para={para.content} paraId={para.paraId} />
                     {para.quoted &&
+                      showQuoteSources &&
                       para.quoted.map((path: any, i: number) => (
                         <BlockQuote key={i} path={path} left />
                       ))}

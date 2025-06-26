@@ -2794,33 +2794,36 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
       title("#", "Prayers", {
         prayer: true,
       }),
-      prefix(/^Praised be God, Who hath/gm, '\n\n#\nauthor="Bahá’u’lláh"\n\n'),
-      prefix(/^He is God!/gm, '\n\n#\nauthor="‘Abdu’l‑Bahá"\n\n'),
+      prefix(/^Praised be God, Who hath/gm, '\n\n##\nauthor="Bahá’u’lláh"\n\n'),
+      prefix(/^He is God!/gm, '\n\n##\nauthor="‘Abdu’l‑Bahá"\n\n'),
       prefix(
         /^O my Lord, O my Lord! These two bright/gm,
-        '\n\n#\nauthor="‘Abdu’l‑Bahá"\n\n'
+        '\n\n##\nauthor="‘Abdu’l‑Bahá"\n\n'
       ),
       prefix(
         /^O God, my God! Join in accord/gm,
-        '\n\n#\nauthor="‘Abdu’l‑Bahá"\n\n'
+        '\n\n##\nauthor="‘Abdu’l‑Bahá"\n\n'
       ),
       prefix(
         /^Praise be unto God Who hath adorned/gm,
-        '\n\n#\nauthor="‘Abdu’l‑Bahá"\n\n'
+        '\n\n##\nauthor="‘Abdu’l‑Bahá"\n\n'
       ),
-      prefix(/^O my Lord and my Hope!/gm, '\n\n#\nauthor="‘Abdu’l‑Bahá"\n\n'),
+      prefix(/^O my Lord and my Hope!/gm, '\n\n##\nauthor="‘Abdu’l‑Bahá"\n\n'),
       prefix(
         /^Grant, O my Lord, that this marriage/gm,
-        '\n\n#\nauthor="‘Abdu’l‑Bahá"\n\n'
+        '\n\n##\nauthor="‘Abdu’l‑Bahá"\n\n'
       ),
-      prefix(/^He is the All‑Glorious\./gm, '\n\n#\nauthor="‘Abdu’l‑Bahá"\n\n'),
+      prefix(
+        /^He is the All‑Glorious\./gm,
+        '\n\n##\nauthor="‘Abdu’l‑Bahá"\n\n'
+      ),
       prefix(
         /^O Lord, make Thou this marriage/gm,
-        '\n\n#\nauthor="‘Abdu’l‑Bahá"\n\n'
+        '\n\n##\nauthor="‘Abdu’l‑Bahá"\n\n'
       ),
       prefix(
         /^O Lord! Grant that this marriage/gm,
-        '\n\n#\nauthor="‘Abdu’l‑Bahá"\n\n'
+        '\n\n##\nauthor="‘Abdu’l‑Bahá"\n\n'
       ),
     ],
     "significance-formative-age-our-faith": [
