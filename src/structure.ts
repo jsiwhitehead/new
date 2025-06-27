@@ -41,15 +41,23 @@ const urlAuthors = {
   Stories: "stories",
 } as Record<string, string>;
 
+export interface Quote {
+  section: number;
+  paragraph: number;
+  start: number;
+  end: number;
+}
+export interface RefQuote extends Quote {
+  refStart: number;
+  refEnd: number;
+}
+
 export type SectionContent =
   | string
   | { type: "break" }
   | { text: string; type: "info" | "call" | "framing" }
   | { text: string; lines: number[] }
-  | (
-      | string
-      | { section: number; paragraph: number; start: number; end: number }
-    )[];
+  | (string | Quote)[];
 
 export interface Section {
   path: [string, string, number][];
@@ -60,17 +68,7 @@ export interface Section {
   source?: string;
   summary?: string;
   prayer?: string;
-  quoted?: Record<
-    string,
-    {
-      start: number;
-      end: number;
-      section: number;
-      paragraph: number;
-      refStart: number;
-      refEnd: number;
-    }[]
-  >;
+  quoted?: Record<string, RefQuote[]>;
   content: SectionContent[];
 }
 
