@@ -6,7 +6,7 @@ import {
   useParams,
 } from "react-router";
 
-import type { RenderContent } from "../src/server";
+import type { RenderContent, Quote } from "../src/server";
 
 import renderTree from "./Tree";
 import { Column, Row, SizeContext, Text } from "./Utils";
@@ -63,9 +63,9 @@ const Breadcrumbs = ({
   );
 };
 
-const InlineQuote = ({ path }: { path: [string, string][] }) => (
+const InlineQuote = ({ quote }: { quote: Quote }) => (
   <Fragment>
-    {path.map(([label, url], k) => (
+    {quote.path.map(([label, url], k) => (
       <span
         style={{
           display: "inline-block",
@@ -78,7 +78,7 @@ const InlineQuote = ({ path }: { path: [string, string][] }) => (
             style={{
               fontWeight: "bold",
               fontStyle: "italic",
-              color: authorColours[path[0]![0]],
+              color: authorColours[quote.author],
               opacity: 0.5,
               fontSize: 14,
             }}
@@ -105,7 +105,7 @@ const InlineQuote = ({ path }: { path: [string, string][] }) => (
           style={{
             fontWeight: "bold",
             fontStyle: "italic",
-            color: authorColours[path[0]![0]],
+            color: authorColours[quote.author],
             display: "inline-block",
             textIndent: 0,
             opacity: 0.5,
@@ -120,7 +120,7 @@ const InlineQuote = ({ path }: { path: [string, string][] }) => (
       style={{
         fontWeight: "bold",
         fontStyle: "italic",
-        color: authorColours[path[0]![0]],
+        color: authorColours[quote.author],
         opacity: 0.5,
         fontSize: 14,
       }}
@@ -130,13 +130,7 @@ const InlineQuote = ({ path }: { path: [string, string][] }) => (
   </Fragment>
 );
 
-const BlockQuote = ({
-  path,
-  left,
-}: {
-  path: [string, string][];
-  left?: true;
-}) => (
+const BlockQuote = ({ quote, left }: { quote: Quote; left?: true }) => (
   <Row
     gap={`${11.5}px ${14 * 0.6}px`}
     style={{
@@ -147,7 +141,7 @@ const BlockQuote = ({
       opacity: 0.5,
     }}
   >
-    {path.map((p, i) => (
+    {quote.path.map((p, i) => (
       <Row gap={14 * 0.6} key={i}>
         {i > 0 && (
           <svg
@@ -163,7 +157,7 @@ const BlockQuote = ({
           to={p[1]}
           style={{
             marginLeft: left && i === 0 ? -30 : 0,
-            color: authorColours[path[0]![0]],
+            color: authorColours[quote.author],
             whiteSpace: "nowrap",
           }}
         >
@@ -213,9 +207,9 @@ const Paragraph = ({
             //     ? `rgb(255, ${240 - l.quoted * 10}, ${240 - l.quoted * 10})`
             //     : "",
           };
-          return Array.isArray(part.quote) ? (
+          return typeof part.quote === "object" ? (
             <span style={style} key={i}>
-              {part.text} <InlineQuote path={part.quote} />
+              {part.text} <InlineQuote quote={part.quote} />
             </span>
           ) : (
             <span style={style} key={i}>
@@ -277,7 +271,7 @@ const Paragraph = ({
   ) : (
     <Column style={{ fontWeight: "bold", padding: "0 20px" }} gap={11.5}>
       {inner}
-      <BlockQuote path={para.quote} />
+      <BlockQuote quote={para.quote} />
     </Column>
   );
 };
@@ -347,6 +341,8 @@ export default function App() {
 
   const { data, path, tree, showContent } = allData;
 
+  console.log(data);
+
   return (
     <SizeContext value={17}>
       <ScrollRestoration />
@@ -406,38 +402,40 @@ export default function App() {
                     <Paragraph para={para.content} paraId={para.paraId} />
                     {para.quoted &&
                       showQuoteSources &&
-                      para.quoted.map((path: any, i: number) => (
-                        <BlockQuote key={i} path={path} left />
+                      para.quoted.map((quote: any, i: number) => (
+                        <BlockQuote key={i} quote={quote} left />
                       ))}
                     {para.source && (
                       <Row
                         gap={`${11.5}px ${14 * 0.6}px`}
                         style={{ flexWrap: "wrap", opacity: 0.5 }}
                       >
-                        {para.source.map((p: [string, string], j: number) => (
-                          <Row gap={14 * 0.6} key={j}>
-                            {j > 0 && (
-                              <svg
-                                style={{ flexShrink: 0, height: 14 * 0.6 }}
-                                viewBox="-0.5 -1 1.5 2"
-                                xmlns="http://www.w3.org/2000/svg"
+                        {para.source.path.map(
+                          (p: [string, string], j: number) => (
+                            <Row gap={14 * 0.6} key={j}>
+                              {j > 0 && (
+                                <svg
+                                  style={{ flexShrink: 0, height: 14 * 0.6 }}
+                                  viewBox="-0.5 -1 1.5 2"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <polygon
+                                    points="-0.5,0.866 -0.5,-0.866 1.0,0.0"
+                                    fill="#333"
+                                  />
+                                </svg>
+                              )}
+                              <Text
+                                to={p[1]}
+                                style={{
+                                  color: authorColours[para.source.author],
+                                }}
                               >
-                                <polygon
-                                  points="-0.5,0.866 -0.5,-0.866 1.0,0.0"
-                                  fill="#333"
-                                />
-                              </svg>
-                            )}
-                            <Text
-                              to={p[1]}
-                              style={{
-                                color: authorColours[para.source[0]![0]],
-                              }}
-                            >
-                              {p[0]}
-                            </Text>
-                          </Row>
-                        ))}
+                                {p[0]}
+                              </Text>
+                            </Row>
+                          )
+                        )}
                       </Row>
                     )}
                   </Column>

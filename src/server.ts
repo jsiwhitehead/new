@@ -5,24 +5,29 @@ const dataWithIndices = data.map((section, index) => ({ section, index }));
 
 import type { Section, SectionContent } from "./structure";
 
+export interface Quote {
+  path: [string, string][];
+  author: string;
+}
+
 type SemiRenderContent =
   | { type: "break" }
-  | { text: string; quote?: true | [string, string][] }[]
+  | { text: string; quote?: true | Quote }[]
   | {
       type: "normal" | "info" | "call" | "framing" | "lines";
       lines: string[];
       allSpecial: boolean;
-      quote?: [string, string][];
+      quote?: Quote;
     };
 
 export type RenderContent =
   | { type: "break" }
-  | { text: string; quote?: true | [string, string][]; quoted: number }[]
+  | { text: string; quote?: true | Quote; quoted: number }[]
   | {
       type: "normal" | "info" | "call" | "framing" | "lines";
       lines: { text: string; quoted: number }[][];
       allSpecial: boolean;
-      quote?: [string, string][];
+      quote?: Quote;
     };
 
 const sliceLines = (lines: string[], start: number, end: number) => {
@@ -42,7 +47,7 @@ const sliceLines = (lines: string[], start: number, end: number) => {
 };
 
 const sliceArray = (
-  parts: { text: string; quote?: true | [string, string][] }[],
+  parts: { text: string; quote?: true | Quote }[],
   start: number,
   end: number
 ) => {
@@ -147,10 +152,10 @@ const getParasString = (paras: number[], paraIds: string[]) => {
   return result.join(", ");
 };
 
-const getUrlPath = (source: {
+const getUrlQuote = (source: {
   section: number;
   paragraph: number | number[];
-}) => {
+}): Quote => {
   let current = "";
   const section = data[source.section]!;
   const res: [string, string][] = section.path.map((p) => {
@@ -202,12 +207,13 @@ const getUrlPath = (source: {
     if (chunk[0].startsWith("The ")) chunk[0] = capitalise(chunk[0].slice(4));
   }
 
-  return res;
+  return {
+    path: res,
+    author: section.prayer || section.meta || section.path[0]![0],
+  };
 };
 
-const expandQuotes = (
-  parts: { text: string; quote?: true | [string, string][] }[]
-) => {
+const expandQuotes = (parts: { text: string; quote?: true | Quote }[]) => {
   for (let i = 0; i < parts.length; i++) {
     const current = parts[i]!;
     const prev = parts[i - 1];
@@ -235,7 +241,7 @@ const expandQuotes = (
       }
     }
   }
-  const quotes = parts.filter((part) => Array.isArray(part.quote));
+  const quotes = parts.filter((part) => typeof part.quote === "object");
   for (let i = 0; i < quotes.length - 1; i++) {
     const current = quotes[i]!;
     const next = quotes[i + 1]!;
@@ -261,9 +267,7 @@ const capitaliseLines = (parts: string[]) => {
   }
   return parts;
 };
-const capitaliseQuotes = (
-  parts: { text: string; quote?: true | [string, string][] }[]
-) => {
+const capitaliseQuotes = (parts: { text: string; quote?: true | Quote }[]) => {
   for (let i = 0; i < parts.length; i++) {
     const pre = parts[i - 1]?.text
       .replace(/\[([^\]]*)\]/g, (_, a) => a)
@@ -371,20 +375,20 @@ const getPara = (
     const res = getSourceParts(sources[0]!, para);
     if ("type" in res) {
       if (res.type === "break") return res;
-      return { ...res, quote: getUrlPath(sources[0]!) };
+      return { ...res, quote: getUrlQuote(sources[0]!) };
     }
     return {
       type: "normal",
       lines: [res.map((x) => x.text).join("")],
       allSpecial: false,
-      quote: getUrlPath(sources[0]!),
+      quote: getUrlQuote(sources[0]!),
     };
   }
   return capitaliseQuotes(
     expandQuotes(
       para.map((part) => {
         if (typeof part === "string") return { text: part };
-        return { text: getQuoteText(part), quote: getUrlPath(part) };
+        return { text: getQuoteText(part), quote: getUrlQuote(part) };
       })
     )
   );
@@ -598,13 +602,12 @@ const getData = (
       ["documents", "ruhi", "compilations"].includes(urlPath[0]!)) ||
     (urlPath.length > 2 && urlPath[1] === "bahaullah-new-era");
 
-  const filtered = dataWithIndices.filter(
-    ({ section }) =>
-      !section.meta && urlPath.every((p, i) => section.path[i]?.[1] === p)
+  const filtered = dataWithIndices.filter(({ section }) =>
+    urlPath.every((p, i) => section.path[i]?.[1] === p)
   );
 
   const tree = {} as any;
-  for (const { section } of filtered) {
+  for (const { section } of filtered.filter(({ section }) => !section.meta)) {
     section.path.reduce((res, p) => {
       const key = JSON.stringify([p[0], p[1]]);
       return (res[key] = res[key] || {});
@@ -632,7 +635,7 @@ const getData = (
             JSON.stringify({ section, paragraph })
           )
         ),
-      ].map((q) => getUrlPath(JSON.parse(q)));
+      ].map((q) => getUrlQuote(JSON.parse(q)));
     });
     if (
       section.content.every(
@@ -691,7 +694,7 @@ const getData = (
             ),
             quoted: paraQuoted[paraIndex],
             source: displaySources[paraIndex]
-              ? getUrlPath(displaySources[paraIndex]!)
+              ? getUrlQuote(displaySources[paraIndex]!)
               : undefined,
           }))
           .filter((para) => para.content !== null),

@@ -228,7 +228,8 @@ const joinStringParts = (parts: (string | Quote)[]) => {
     const section = sections[sectionIndex]!;
     return !(
       (["Bahá’u’lláh", "The Báb"].includes(section.path[0]![0]) &&
-        section.path[1]![0] !== "Gleanings from the Writings of Bahá’u’lláh") ||
+        section.path[1]![0] !== "Gleanings from the Writings of Bahá’u’lláh" &&
+        !section.meta) ||
       section.prayer
     );
   };
@@ -267,7 +268,9 @@ const joinStringParts = (parts: (string | Quote)[]) => {
       !(
         section.path[0]![0] === "Ruhi Institute" &&
         section.path[2]?.[0] !== "A Few Thoughts for the Tutor"
-      )
+      ) &&
+      section.path[2]?.[0] !==
+        "A Description of the Kitáb‑i‑Aqdas by Shoghi Effendi"
     ) {
       section.content.forEach((para, i) => {
         for (const ng of para.ngrams) {
@@ -563,20 +566,11 @@ const joinStringParts = (parts: (string | Quote)[]) => {
     if (canBeAQuote(index)) {
       console.log(sections[index]!.path.map((p) => p[0]).join(", "));
       const section = sections[index]!;
-      if (
-        !(
-          (["Bahá’u’lláh", "The Báb"].includes(section.path[0]![0]) &&
-            section.path[1]![0] !==
-              "Gleanings from the Writings of Bahá’u’lláh") ||
-          section.prayer
-        )
-      ) {
-        section.content.forEach((_, paraIndex) => {
-          const ref = { section: index, paragraph: paraIndex };
-          const processed = paraPartQuotes(ref);
-          if (processed) updatePara(ref, processed);
-        });
-      }
+      section.content.forEach((_, paraIndex) => {
+        const ref = { section: index, paragraph: paraIndex };
+        const processed = paraPartQuotes(ref);
+        if (processed) updatePara(ref, processed);
+      });
     }
   }
 

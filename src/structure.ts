@@ -67,6 +67,7 @@ export interface Section {
   reference?: string;
   source?: string;
   summary?: string;
+  purpose?: string;
   prayer?: string;
   quoted?: Record<string, RefQuote[]>;
   content: SectionContent[];
@@ -131,10 +132,13 @@ export const parseStructuredSections = (
 
     if (level !== null) {
       const [base, ...parts] = title.split(/\n/g);
-      const { translated, ...meta } = parts.reduce((res, m) => {
-        const [key, value = "true"] = m.split("=");
-        return { ...res, [key!]: JSON.parse(value) };
-      }, {} as any);
+      const { translated, purpose, summary, ...meta } = parts.reduce(
+        (res, m) => {
+          const [key, value = "true"] = m.split("=");
+          return { ...res, [key!]: JSON.parse(value) };
+        },
+        {} as any
+      );
 
       counters.splice(level);
       counters[level - 1] = (counters[level - 1] || 0) + 1;
@@ -223,6 +227,8 @@ export const parseStructuredSections = (
         ),
         translated,
         ...sectionMeta,
+        purpose,
+        summary,
         author: undefined,
         content: [],
       });
