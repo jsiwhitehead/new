@@ -2,6 +2,44 @@ import sources from "./sources";
 import type { Section, SectionContent } from "./structure";
 import { readJSON, writeJSON } from "./utils";
 
+interface Ref {
+  section: number;
+  paragraph: number;
+}
+
+interface NGramRef extends Ref {
+  years: [number, number];
+}
+
+interface Layers {
+  text: string;
+  cleaned: string;
+  words: string;
+  chars: string;
+  ngrams: string[];
+}
+
+const shallowEqual = (obj1: object, obj2: object) => {
+  if (obj1 === obj2) return true;
+
+  const keys1 = Object.keys(obj1);
+  const keys2 = Object.keys(obj2);
+
+  if (keys1.length !== keys2.length) return false;
+
+  return keys1.every(
+    (k) => obj2.hasOwnProperty(k) && (obj1 as any)[k] === (obj2 as any)[k]
+  );
+};
+
+const uniqueObjects = <T extends object>(arr: T[]) => {
+  const res: T[] = [];
+  for (const obj of arr) {
+    if (!res.some((x) => shallowEqual(x, obj))) res.push(obj);
+  }
+  return res;
+};
+
 const getRangeIntersection = (
   start1: number,
   end1: number,
@@ -32,22 +70,37 @@ const comparePathNums = (a: number[], b: number[]) => {
   return 0;
 };
 
-const strip = (text: string): string =>
+const toCleaned = (text: string): string =>
   text
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase();
 
-const normalise = (stripped: string) => stripped.replace(/[^a-z0-9‑— ]/g, "");
+const toWords = (cleaned: string) =>
+  cleaned
+    .replace(/[^a-z0-9‑— ]/g, "")
+    .replace(/[‑—]/g, " ")
+    .replace(/ +/g, " ")
+    .trim();
 
-const getNGrams = (norm: string, n = 7) => {
-  const words = norm.split(/[‑— ]+/).filter((w) => w);
-  if (words.length < n) return [];
+const toChars = (words: string) => words.replace(/ /g, "");
+
+const getNGrams = (words: string, n = 7) => {
+  const splitWords = words.split(" ");
+  if (splitWords.length < n) return [];
   const ngrams: string[] = [];
-  for (let i = 0; i <= words.length - n; i++) {
-    ngrams.push(words.slice(i, i + n).join(" "));
+  for (let i = 0; i <= splitWords.length - n; i++) {
+    ngrams.push(splitWords.slice(i, i + n).join(" "));
   }
   return ngrams;
+};
+
+const getLayers = (text: string): Layers => {
+  const cleaned = toCleaned(text);
+  const words = toWords(cleaned);
+  const chars = toChars(words);
+  const ngrams = getNGrams(words);
+  return { text, cleaned, words, chars, ngrams };
 };
 
 const splitQuoted = (text: string): string[] => {
@@ -58,14 +111,14 @@ const splitQuoted = (text: string): string[] => {
     const char = text[i]!;
     if (
       char === expectedCloseQuote &&
-      !/[a-z‑]/.test(strip(text[i + 1] || " "))
+      !/[a-z‑]/.test(toCleaned(text[i + 1] || " "))
     ) {
       result.push(char);
       expectedCloseQuote = null;
     } else if (
       !expectedCloseQuote &&
       quotePairs[char] &&
-      !/[a-z‑]/.test(strip(text[i - 1] || " "))
+      !/[a-z‑]/.test(toCleaned(text[i - 1] || " "))
     ) {
       result[result.length - 1] += char;
       result.push("");
@@ -78,46 +131,42 @@ const splitQuoted = (text: string): string[] => {
 };
 
 const findQuoteIndices = (
-  strippedSource: string,
-  strippedQuote: string
+  sourceCleaned: string,
+  quoteCleaned: string
 ): { start: number; end: number; pre: string; post: string } => {
-  const alphaNumChars: string[] = [];
+  const allSourceChars: string[] = [];
   const indexMap: number[] = [];
-  for (let i = 0; i < strippedSource.length; i++) {
-    const char = strippedSource[i]!;
+  for (let i = 0; i < sourceCleaned.length; i++) {
+    const char = sourceCleaned[i]!;
     if (/[a-z0-9]/.test(char)) {
-      alphaNumChars.push(char.toLowerCase());
+      allSourceChars.push(char.toLowerCase());
       indexMap.push(i);
     }
   }
-  const alphaNumSource = alphaNumChars.join("");
+  const sourceChars = allSourceChars.join("");
+  const quoteChars = toChars(toWords(quoteCleaned));
+  const startQuoteIndex = sourceChars.indexOf(quoteChars);
+  const endQuoteIndex = startQuoteIndex + quoteChars.length - 1;
 
-  const alphaNum = normalise(strippedQuote).replace(/[‑— ]/g, "");
-  const startAlphaNumIndex = alphaNumSource.indexOf(alphaNum);
-  const endAlphaNumIndex = startAlphaNumIndex + alphaNum.length - 1;
+  let start = indexMap[startQuoteIndex]!;
+  let end = indexMap[endQuoteIndex]!;
 
-  let start = indexMap[startAlphaNumIndex]!;
-  let end = indexMap[endAlphaNumIndex]!;
-
-  let pre = strippedQuote.match(/^([^a-z0-9]*)/)![1]!;
-  while (start > 0 && strippedSource[start - 1] === pre[pre.length - 1]) {
+  let pre = quoteCleaned.match(/^([^a-z0-9]*)/)![1]!;
+  while (start > 0 && sourceCleaned[start - 1] === pre[pre.length - 1]) {
     start -= 1;
     pre = pre.slice(0, -1);
   }
-  if (strippedSource[start] === " ") {
+  if (sourceCleaned[start] === " ") {
     start += 1;
     pre = `${pre} `;
   }
 
-  let post = strippedQuote.match(/([^a-z0-9]*)$/)![1]!;
-  while (
-    end < strippedSource.length - 1 &&
-    strippedSource[end + 1] === post[0]
-  ) {
+  let post = quoteCleaned.match(/([^a-z0-9]*)$/)![1]!;
+  while (end < sourceCleaned.length - 1 && sourceCleaned[end + 1] === post[0]) {
     end += 1;
     post = post.slice(1);
   }
-  if (strippedSource[end] === " ") {
+  if (sourceCleaned[end] === " ") {
     end -= 1;
     post = ` ${post}`;
   }
@@ -128,8 +177,8 @@ const findQuoteIndices = (
 const links = new Map();
 const checkDoReference = (
   quoteIndex: number,
-  sourceIndex: number,
   quoteYears: [number, number],
+  sourceIndex: number,
   sourceYears: [number, number]
 ) => {
   if (
@@ -144,34 +193,35 @@ const checkDoReference = (
 };
 
 (async () => {
-  const sections: Section[] = [];
+  const baseData: Section[] = [];
   for (const author of Object.keys(sources)) {
     await Promise.all(
       Object.keys(sources[author]!).map(async (file) => {
         const id = `${author}-${file}`;
         const structure = await readJSON("structure", id);
-        if (structure) sections.push(...structure);
+        if (structure) baseData.push(...structure);
       })
     );
   }
-  sections.push(...(await readJSON("structure", "additional")));
-  sections.push(...(await readJSON("structure", "prayers")));
-  sections.push(...(await readJSON("structure", "shoghi-effendi-messages")));
-  sections.sort((aDoc, bDoc) =>
+  baseData.push(...(await readJSON("structure", "additional")));
+  baseData.push(...(await readJSON("structure", "prayers")));
+  baseData.push(...(await readJSON("structure", "shoghi-effendi-messages")));
+  baseData.sort((aDoc, bDoc) =>
     comparePathNums(
       aDoc.path.map((p: [string, string, number]) => p[2]),
       bDoc.path.map((p: [string, string, number]) => p[2])
     )
   );
 
-  const getQuoteText = (p: {
+  const getQuoteText = (quote: {
     section: number;
     paragraph: number;
     start: number;
     end: number;
-  }): string =>
-    getText(sections[p.section]!.content[p.paragraph]!).slice(p.start, p.end);
-  const getText = (para: SectionContent) => {
+  }): string => getText(quote).slice(quote.start, quote.end);
+
+  const getText = (ref: Ref) => {
+    const para = sections[ref.section]!.content[ref.paragraph]!.para;
     if (typeof para === "string") return para;
     if (!Array.isArray(para)) {
       if ("type" in para && para.type === "break") return "";
@@ -184,27 +234,40 @@ const checkDoReference = (
       .join("");
   };
 
-  const yearSortedIndices = sections
-    .map((section, index) => ({
-      section,
-      index,
-    }))
+  const sections = baseData.map((section) => ({
+    ...section,
+    content: section.content.map((para) => ({
+      para,
+      ...getLayers(""),
+      parts: [] as Layers[],
+    })),
+  }));
+
+  const updatePara = (
+    ref: { section: number; paragraph: number },
+    para: SectionContent
+  ) => {
+    const base = sections[ref.section]!.content[ref.paragraph]!;
+    base.para = para;
+    Object.assign(base, getLayers(getText(ref)));
+    const parts = splitQuoted(base.text)
+      .flatMap((p) => p.split(/( ?\. \. \. ?| ?\[[^\]]*\] ?)/))
+      .filter((x) => x);
+    base.parts = parts.map((text) => getLayers(text));
+  };
+
+  sections.forEach((section, index) => {
+    section.content.forEach((para, i) => {
+      updatePara({ section: index, paragraph: i }, para.para);
+    });
+  });
+
+  const yearSortedIndices = baseData
+    .map((section, index) => ({ section, index }))
     .sort((a, b) => a.section.years[0] - b.section.years[0])
     .map(({ index }) => index);
 
-  const strippedMap = new Map<string, string>();
-  const getStripped = (ref: { section: number; paragraph: number }) =>
-    strippedMap.get(`${ref.section}:${ref.paragraph}`) || "";
-  const updateStripped = (ref: { section: number; paragraph: number }) =>
-    strippedMap.set(
-      `${ref.section}:${ref.paragraph}`,
-      strip(getText(sections[ref.section]!.content[ref.paragraph]!))
-    );
-
-  const ngramMap = new Map<
-    string,
-    { section: number; paragraph: number; years: [number, number] }[]
-  >();
+  const ngramMap = new Map<string, NGramRef[]>();
   yearSortedIndices.forEach((index) => {
     const section = sections[index]!;
     if (
@@ -214,14 +277,9 @@ const checkDoReference = (
         section.path[2]?.[0] !== "A Few Thoughts for the Tutor"
       )
     ) {
-      section.content.forEach((p, i) => {
-        const text = getText(p);
-        updateStripped({ section: index, paragraph: i });
-        const parts = splitQuoted(text).flatMap((p) =>
-          p.split(/( ?\. \. \. ?| ?\[[^\]]*\] ?)/)
-        );
-        parts.forEach((partText) => {
-          for (const ng of getNGrams(normalise(strip(partText)))) {
+      section.content.forEach((content, i) => {
+        content.parts.forEach((part) => {
+          for (const ng of part.ngrams) {
             ngramMap.set(
               ng,
               [
@@ -253,43 +311,32 @@ const checkDoReference = (
       }
     }
   };
-  const ngramMapAll = new Map(ngramMap);
+  const ngramMapFull = new Map(ngramMap);
 
-  const processPart = (
-    ref: { section: number; paragraph: number },
-    stripped: string,
-    norm: string,
-    {
-      years,
-      ...source
-    }: { section: number; paragraph: number; years: [number, number] },
-    isFull?: true
-  ) => {
-    const strippedSource = getStripped(source);
-    const normSource = normalise(strippedSource);
-    if (normSource.replace(/[‑— ]/g, "").includes(norm.replace(/[‑— ]/g, ""))) {
-      processSection(source.section);
-      const ngrams = getNGrams(norm);
+  const processPart = (part: Layers, sourceRef: Ref, isFull?: true) => {
+    const source = sections[sourceRef.section]!.content[sourceRef.paragraph]!;
+    if (source.chars.includes(part.chars)) {
+      processSection(sourceRef.section);
       if (
-        ngrams.some((ng) =>
+        part.ngrams.some((ng) =>
           ngramMap
             .get(ng)
             ?.some(
-              (x: any) =>
-                x.section === source.section && x.paragraph === source.paragraph
+              (x) =>
+                x.section === sourceRef.section &&
+                x.paragraph === sourceRef.paragraph
             )
         )
       ) {
         const { start, end, pre, post } = findQuoteIndices(
-          strippedSource,
-          stripped
+          source.cleaned,
+          part.cleaned
         );
         if (
           isFull ||
-          !(strippedSource[start - 1] === "“" && strippedSource[end] === "”")
+          !(source.cleaned[start - 1] === "“" && source.cleaned[end] === "”")
         ) {
-          clearNgrams(ref, ngrams);
-          return { quote: { ...source, start, end }, pre, post };
+          return { quote: { ...sourceRef, start, end }, pre, post };
         }
       }
     }
@@ -299,110 +346,73 @@ const checkDoReference = (
     const section = sections[ref.section]!;
     const para = section.content[ref.paragraph]!;
 
-    const text = getText(para);
-    if (typeof para !== "string" && !Array.isArray(para)) return para;
+    if (typeof para.para !== "string") return null;
 
-    const parts = splitQuoted(text)
-      .flatMap((p) => p.split(/( ?\. \. \. ?| ?\[[^\]]*\] ?)/))
-      .filter((p: any) => p);
-
-    const allSources = [
-      ...new Set(
-        parts.flatMap((partText) =>
-          getNGrams(normalise(strip(partText))).flatMap((ng) =>
-            (ngramMap.get(ng) || [])
-              .filter((x) => x.section !== ref.section)
-              .flatMap((x) => JSON.stringify(x))
-          )
+    const allSources = uniqueObjects(
+      para.parts.flatMap((part) =>
+        part.ngrams.flatMap((ng) =>
+          (ngramMap.get(ng) || []).filter((x) => x.section !== ref.section)
         )
-      ),
-    ];
-    if (allSources.length === 0) return para;
+      )
+    );
+    if (allSources.length === 0) return null;
 
-    for (const source of allSources.map((s) => JSON.parse(s))) {
+    for (const sourceRef of allSources) {
       if (
         checkDoReference(
           ref.section,
-          source.section,
           section.years,
-          source.years
+          sourceRef.section,
+          sourceRef.years
         )
       ) {
-        const processFull = processPart(
-          ref,
-          strip(text),
-          normalise(strip(text)),
-          source,
-          true
-        );
+        const processFull = processPart(para, sourceRef, true);
         if (processFull) {
+          clearNgrams(ref, para.ngrams);
           return [processFull.pre, processFull.quote, processFull.post].filter(
-            (p: any) => p
+            (p) => p
           );
         }
       }
     }
 
-    if (!/\[[^\]]*\]/.test(text) && !/\. \. \./.test(text)) {
-      const allSourcesBackup = [
-        ...new Set(
-          parts.flatMap((partText) =>
-            getNGrams(normalise(strip(partText))).flatMap((ng) =>
-              (ngramMapAll.get(ng) || [])
-                .filter((x: any) => x.section !== ref.section)
-                .flatMap((x: any) => JSON.stringify(x))
+    if (!/\[[^\]]*\]/.test(para.text) && !/\. \. \./.test(para.text)) {
+      const allSourcesFull = uniqueObjects(
+        para.parts.flatMap((part) =>
+          part.ngrams.flatMap((ng) =>
+            (ngramMapFull.get(ng) || []).filter(
+              (x) => x.section !== ref.section
             )
           )
-        ),
-      ].filter((x) => !allSources.includes(x));
+        )
+      ).filter((x) => !allSources.some((y) => shallowEqual(x, y)));
 
-      for (const source of allSourcesBackup.map((s) => JSON.parse(s))) {
+      for (const { years, ...sourceRef } of allSourcesFull) {
         if (
-          checkDoReference(
-            ref.section,
-            source.section,
-            section.years,
-            source.years
-          )
+          checkDoReference(ref.section, section.years, sourceRef.section, years)
         ) {
-          const stripped = strip(text);
-          const norm = normalise(strip(text));
-          const strippedSource = getStripped(source);
-          const normSource = normalise(strippedSource);
-          if (
-            normSource
-              .replace(/[‑— ]/g, "")
-              .includes(norm.replace(/[‑— ]/g, ""))
-          ) {
+          const source =
+            sections[sourceRef.section]!.content[sourceRef.paragraph]!;
+          if (source.chars.includes(para.chars)) {
             const { start, end, pre, post } = findQuoteIndices(
-              strippedSource,
-              stripped
+              source.cleaned,
+              para.cleaned
             );
-            const ngrams = getNGrams(norm);
-            clearNgrams(ref, ngrams);
-            return [pre, { ...source, start, end }, post].filter((p: any) => p);
+            clearNgrams(ref, para.ngrams);
+            return [pre, { ...sourceRef, start, end }, post].filter((p) => p);
           }
         }
       }
     }
 
-    for (const source of allSources.map((s) => JSON.parse(s))) {
+    for (const { years, ...sourceRef } of allSources) {
       if (
-        checkDoReference(
-          ref.section,
-          source.section,
-          section.years,
-          source.years
-        )
+        checkDoReference(ref.section, section.years, sourceRef.section, years)
       ) {
-        let allProcessed = parts.flatMap((partText) => {
-          const processed = processPart(
-            ref,
-            strip(partText),
-            normalise(strip(partText)),
-            source
-          );
-          if (!processed) return [partText];
+        let allProcessed = para.parts.flatMap((part) => {
+          const processed = processPart(part, sourceRef);
+          if (!processed) return [part.text];
+          clearNgrams(ref, para.ngrams);
           return [processed.pre, processed.quote, processed.post];
         });
 
@@ -414,30 +424,28 @@ const checkDoReference = (
               for (let j = i + dir; j >= 0; j += dir) {
                 const current = allProcessed[j];
                 if (typeof current === "string") {
-                  const stripped = strip(current);
-                  if (/[a-z0-9]/.test(stripped.replace(/\[[^\]]*\]/g, ""))) {
-                    if (stripped.split(/ /g).length < 5) {
-                      const sourceStripped = getStripped(base);
-                      if (sourceStripped.includes(stripped)) {
+                  const curr = getLayers(current);
+                  const source =
+                    sections[base.section]!.content[base.paragraph]!;
+                  if (
+                    /[a-z0-9]/.test(curr.cleaned.replace(/\[[^\]]*\]/g, ""))
+                  ) {
+                    if (curr.cleaned.split(/ /g).length < 5) {
+                      if (source.cleaned.includes(curr.cleaned)) {
                         allProcessed[j] = {
                           ...base,
-                          start: sourceStripped.indexOf(stripped),
+                          start: source.cleaned.indexOf(curr.cleaned),
                           end:
-                            sourceStripped.indexOf(stripped) + stripped.length,
+                            source.cleaned.indexOf(curr.cleaned) +
+                            curr.cleaned.length,
                         };
                       }
                     } else {
-                      const norm = normalise(strip(current));
-                      const normSource = normalise(getStripped(base));
-                      if (
-                        normSource
-                          .replace(/[‑— ]/g, "")
-                          .includes(norm.replace(/[‑— ]/g, ""))
-                      ) {
-                        clearNgrams(ref, getNGrams(norm));
+                      if (source.chars.includes(curr.chars)) {
+                        clearNgrams(ref, curr.ngrams);
                         const { start, end, pre, post } = findQuoteIndices(
-                          getStripped(base),
-                          strip(current)
+                          source.cleaned,
+                          curr.cleaned
                         );
                         allInserts[j] = { pre, post };
                         allProcessed[j] = {
@@ -463,52 +471,60 @@ const checkDoReference = (
           allProcessed.every(
             (processed) =>
               typeof processed !== "string" ||
-              !/[a-z0-9]/.test(strip(processed).replace(/\[[^\]]*\]/g, ""))
+              !/[a-z0-9]/.test(toCleaned(processed).replace(/\[[^\]]*\]/g, ""))
           )
         ) {
           return allProcessed
-            .reduce((res, part) => {
-              if (
-                typeof part === "string" &&
-                typeof res[res.length - 1] === "string"
-              ) {
-                res[res.length - 1] += part;
-              } else {
-                res.push(part);
-              }
-              return res;
-            }, [] as any[])
-            .filter((p: any) => p);
+            .reduce(
+              (res, part) => {
+                if (
+                  typeof part === "string" &&
+                  typeof res[res.length - 1] === "string"
+                ) {
+                  res[res.length - 1] += part;
+                } else {
+                  res.push(part);
+                }
+                return res;
+              },
+              [] as (
+                | string
+                | {
+                    section: number;
+                    paragraph: number;
+                    start: number;
+                    end: number;
+                  }
+              )[]
+            )
+            .filter((p) => p);
         }
       }
     }
 
-    let processedParts = parts.flatMap((partText) => {
-      const norm = normalise(strip(partText));
-      const ngrams = getNGrams(norm);
-      if (ngrams.length === 0) return [partText];
-
-      for (const ng of ngrams) {
+    let processedParts = para.parts.flatMap((part) => {
+      if (part.ngrams.length === 0) return [part.text];
+      for (const ng of part.ngrams) {
         if (ngramMap.has(ng)) {
-          for (const source of ngramMap.get(ng)!) {
+          for (const { years, ...sourceRef } of ngramMap.get(ng)!) {
             if (
               checkDoReference(
                 ref.section,
-                source.section,
                 section.years,
-                source.years
+                sourceRef.section,
+                years
               )
             ) {
-              const processed = processPart(ref, strip(partText), norm, source);
+              const processed = processPart(part, sourceRef);
               if (processed) {
+                clearNgrams(ref, part.ngrams);
                 return [processed.pre, processed.quote, processed.post];
               }
             }
           }
         }
       }
-
-      return [partText];
+      return [part.text];
     });
 
     const partInserts: Record<string, { pre: string; post: string }> = {};
@@ -519,22 +535,17 @@ const checkDoReference = (
           for (let j = i + dir; j >= 0; j += dir) {
             const current = processedParts[j];
             if (typeof current === "string") {
+              const curr = getLayers(current);
+              const source = sections[base.section]!.content[base.paragraph]!;
               if (
                 !(current[0] === "”" && current[current.length - 1] === "“")
               ) {
-                const stripped = strip(current);
-                if (/[a-z0-9]/.test(stripped.replace(/\[[^\]]*\]/g, ""))) {
-                  const norm = normalise(strip(current));
-                  const normSource = normalise(getStripped(base));
-                  if (
-                    normSource
-                      .replace(/[‑— ]/g, "")
-                      .includes(norm.replace(/[‑— ]/g, ""))
-                  ) {
-                    clearNgrams(ref, getNGrams(norm));
+                if (/[a-z0-9]/.test(curr.cleaned.replace(/\[[^\]]*\]/g, ""))) {
+                  if (source.chars.includes(curr.chars)) {
+                    clearNgrams(ref, curr.ngrams);
                     const { start, end, pre, post } = findQuoteIndices(
-                      getStripped(base),
-                      strip(current)
+                      source.cleaned,
+                      curr.cleaned
                     );
                     partInserts[j] = { pre, post };
                     processedParts[j] = {
@@ -557,20 +568,31 @@ const checkDoReference = (
     );
 
     const result = processedParts
-      .reduce((res, part) => {
-        if (
-          typeof part === "string" &&
-          typeof res[res.length - 1] === "string"
-        ) {
-          res[res.length - 1] += part;
-        } else {
-          res.push(part);
-        }
-        return res;
-      }, [] as any[])
-      .filter((p: any) => p);
+      .reduce(
+        (res, part) => {
+          if (
+            typeof part === "string" &&
+            typeof res[res.length - 1] === "string"
+          ) {
+            res[res.length - 1] += part;
+          } else {
+            res.push(part);
+          }
+          return res;
+        },
+        [] as (
+          | string
+          | {
+              section: number;
+              paragraph: number;
+              start: number;
+              end: number;
+            }
+        )[]
+      )
+      .filter((p) => p);
 
-    return result.length === 1 && typeof result[0] === "string" ? para : result;
+    return result.length === 1 && typeof result[0] === "string" ? null : result;
   };
 
   const processedSet = new Set();
@@ -585,19 +607,19 @@ const checkDoReference = (
           )) &&
         !section.prayer
       ) {
-        section.content = section.content.map((_, paraIndex) => {
+        console.log(section.path.map((p) => p[0]).join(", "));
+        section.content.forEach((_, paraIndex) => {
           const ref = { section: sectionIndex, paragraph: paraIndex };
-          const res = processPara(ref);
-          updateStripped(ref);
-          return res;
+          const processed = processPara(ref);
+          if (processed) updatePara(ref, processed);
         });
         for (let i = 0; i < section.content.length; i++) {
-          const base = section.content[i];
+          const base = section.content[i]!;
           if (
-            Array.isArray(base) &&
-            base.filter((x) => typeof x !== "string").length === 1
+            Array.isArray(base.para) &&
+            base.para.filter((x) => typeof x !== "string").length === 1
           ) {
-            const baseSource = base.find((x) => typeof x !== "string")!;
+            const baseSource = base.para.find((x) => typeof x !== "string")!;
             for (const dir of [-1, 1]) {
               for (
                 let j = i + dir;
@@ -605,34 +627,24 @@ const checkDoReference = (
                 j += dir
               ) {
                 const current = section.content[j]!;
-                const text = getText(current);
-                const stripped = strip(text);
-                const norm = normalise(stripped);
-                if (/[a-z0-9]/.test(norm)) {
-                  const source = {
+                if (current.chars.length > 0) {
+                  const sourceRef = {
                     section: baseSource.section,
                     paragraph: baseSource.paragraph + (j - i),
                   };
-                  const strippedSource = getStripped(source);
-                  const normSource = normalise(strippedSource);
-                  if (
-                    normSource
-                      .replace(/[‑— ]/g, "")
-                      .includes(norm.replace(/[‑— ]/g, ""))
-                  ) {
+                  const source =
+                    sections[sourceRef.section]!.content[sourceRef.paragraph]!;
+                  if (source?.chars.includes(current.chars)) {
                     const { start, end, pre, post } = findQuoteIndices(
-                      strippedSource,
-                      stripped
+                      source.cleaned,
+                      current.cleaned
                     );
-                    const ngrams = getNGrams(norm);
-                    const ref = { section: sectionIndex, paragraph: j };
-                    clearNgrams(ref, ngrams);
-                    section.content[j] = [
-                      pre,
-                      { ...source, start, end },
-                      post,
-                    ].filter((x) => x);
-                    updateStripped(ref);
+                    const currentRef = { section: sectionIndex, paragraph: j };
+                    clearNgrams(currentRef, current.ngrams);
+                    updatePara(
+                      currentRef,
+                      [pre, { ...sourceRef, start, end }, post].filter((x) => x)
+                    );
                   } else {
                     break;
                   }
@@ -648,11 +660,11 @@ const checkDoReference = (
   };
   for (const index of yearSortedIndices.reverse()) processSection(index);
 
-  const allQuoted = sections.flatMap((section: Section, sIndex: number) =>
-    section.content.flatMap((c, i) => {
-      if (!Array.isArray(c)) return [];
+  const allQuoted = sections.flatMap((section, sIndex) =>
+    section.content.flatMap((para, i) => {
+      if (!Array.isArray(para.para)) return [];
       let index = 0;
-      return c.flatMap((a) => {
+      return para.para.flatMap((a) => {
         const text = typeof a === "string" ? a : getQuoteText(a);
         const start = index;
         index += text.length;
@@ -746,7 +758,7 @@ const checkDoReference = (
 
   const mappedQuoted = sections.map((d) =>
     Object.keys(d.quoted || {}).reduce((res, k) => {
-      const text = getText(d.content[k as any]!);
+      // const text = getText(d.content[k as any]!);
       const allQuotes = d.quoted![k]!.flatMap((q) => getAllQuotes(q));
       const allRefs = [
         ...new Set(
@@ -769,7 +781,10 @@ const checkDoReference = (
               if (
                 current.start <= last.end ||
                 !/[a-z0-9]/.test(
-                  text.slice(last.end, current.start).replace(/\[[^\]]*\]/g, "")
+                  d.content[parseInt(k, 10)]!.text.slice(
+                    last.end,
+                    current.start
+                  ).replace(/\[[^\]]*\]/g, "")
                 )
               ) {
                 last.end = Math.max(last.end, current.end);
@@ -796,5 +811,12 @@ const checkDoReference = (
     }
   });
 
-  await writeJSON("", "data", sections);
+  await writeJSON(
+    "",
+    "data",
+    sections.map((section) => ({
+      ...section,
+      content: section.content.map((para) => para.para),
+    }))
+  );
 })();
