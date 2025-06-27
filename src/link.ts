@@ -335,6 +335,29 @@ const joinStringParts = (parts: (string | Quote)[]) => {
     }
   };
 
+  const checkSmallPart = (base: Quote, source: Layers, current: Layers) => {
+    if (source.cleaned.includes(current.cleaned)) {
+      const start = source.cleaned.indexOf(current.cleaned);
+      if (start < base.start || base.end <= start) {
+        return {
+          quote: { ...base, start, end: start + current.cleaned.length },
+        };
+      }
+    }
+    const cleaned = current.cleaned.endsWith(",")
+      ? current.cleaned.slice(0, -1)
+      : current.cleaned;
+    if (source.cleaned.includes(cleaned)) {
+      const start = source.cleaned.indexOf(cleaned);
+      if (start < base.start || base.end <= start) {
+        return {
+          quote: { ...base, start, end: start + cleaned.length },
+          post: ",",
+        };
+      }
+    }
+  };
+
   const extendQuoteParts = (ref: Ref, parts: (string | Quote)[]) => {
     const inserts: Record<string, { pre: string; post: string }> = {};
     for (let i = parts.length - 1; i >= 0; i -= 1) {
@@ -348,15 +371,11 @@ const joinStringParts = (parts: (string | Quote)[]) => {
               const source = sections[base.section]!.content[base.paragraph]!;
               if (!textIsConnector(curr.cleaned)) {
                 if (curr.cleaned.split(/ /g).length < 5) {
-                  if (source.cleaned.includes(curr.cleaned)) {
+                  const res = checkSmallPart(base, source, curr);
+                  if (res) {
                     clearNgrams(ref, curr.ngrams);
-                    parts[j] = {
-                      ...base,
-                      start: source.cleaned.indexOf(curr.cleaned),
-                      end:
-                        source.cleaned.indexOf(curr.cleaned) +
-                        curr.cleaned.length,
-                    };
+                    if (res.post) inserts[j] = { pre: "", post: res.post };
+                    parts[j] = res.quote;
                   }
                 } else {
                   if (source.chars.includes(curr.chars)) {
