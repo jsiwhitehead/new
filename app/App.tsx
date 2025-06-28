@@ -1,9 +1,10 @@
-import { Fragment, useState, useEffect, useRef } from "react";
+import { Fragment, useState, useEffect } from "react";
 import {
   Link,
   ScrollRestoration,
   useLoaderData,
-  useParams,
+  useNavigate,
+  useSearchParams,
 } from "react-router";
 
 import type { RenderContent, Quote } from "../src/server";
@@ -11,8 +12,8 @@ import type { RenderContent, Quote } from "../src/server";
 import renderTree from "./Tree";
 import { Column, Row, SizeContext, Text } from "./Utils";
 
-const showQuoted = true;
-const showQuoteSources = true;
+const showQuoted = false;
+const showQuoteSources = false;
 
 const authorColours = {
   "The Báb": "#27ae60",
@@ -277,71 +278,31 @@ const Paragraph = ({
 };
 
 export default function App() {
-  // const params = useParams();
-  // const [searchTerm, setSearchTerm] = useState("");
   const allData: {
     data: any[];
     path: [string, string][];
     tree: any;
     showContent: boolean;
   } = useLoaderData();
-  // const [allData, setAllData] = useState(
-  //   loaderData as { data: any[]; path: [string, string][]; tree: any }
-  // );
-  // const [loading, setLoading] = useState(false);
-  // const abortControllerRef = useRef(null as any);
 
-  // useEffect(() => {
-  //   if (!searchTerm) {
-  //     setAllData(loaderData);
-  //     return;
-  //   }
+  const [searchParams] = useSearchParams();
 
-  //   const { path1, path2, path3, path4, path5, path6, path7 } = params;
-  //   const paramPath = [path1, path2, path3, path4, path5, path6, path7].filter(
-  //     (p) => p
-  //   ) as string[];
+  const [level, setLevel] = useState(
+    parseInt(searchParams.get("level") || "0", 10)
+  );
+  useEffect(() => {
+    setLevel(parseInt(searchParams.get("level") || "0", 10));
+  }, [searchParams]);
 
-  //   const debounceTimeout = setTimeout(() => {
-  //     // Abort previous fetch
-  //     if (abortControllerRef.current) {
-  //       abortControllerRef.current.abort();
-  //     }
-
-  //     const controller = new AbortController();
-  //     abortControllerRef.current = controller;
-
-  //     const fetchData = async () => {
-  //       setLoading(true);
-  //       try {
-  //         const res = await fetch(
-  //           `http://localhost:8000/api/${encodeURIComponent(
-  //             JSON.stringify({
-  //               path: paramPath,
-  //               search: searchTerm,
-  //             })
-  //           )}`,
-  //           { signal: controller.signal }
-  //         );
-  //         setAllData(await res.json());
-  //       } catch (error) {
-  //         if ((error as any).name !== "AbortError") {
-  //           console.error("Fetch error:", error);
-  //         }
-  //       } finally {
-  //         setLoading(false);
-  //       }
-  //     };
-
-  //     fetchData();
-  //   }, 0);
-
-  //   return () => clearTimeout(debounceTimeout);
-  // }, [searchTerm, params]);
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate(
+      { search: `?level=${level}` },
+      { replace: true, preventScrollReset: true }
+    );
+  }, [level]);
 
   const { data, path, tree, showContent } = allData;
-
-  console.log(data);
 
   return (
     <SizeContext value={17}>
@@ -371,6 +332,17 @@ export default function App() {
           <div style={{ paddingLeft: 15 }}>
             {renderTree(tree, path[path.length - 1]?.[1] || "")}
           </div>
+        )}
+
+        {showContent && (
+          <input
+            type="range"
+            value={level}
+            min={0}
+            max={5}
+            step={1}
+            onChange={(e) => setLevel(parseInt(e.target.value, 10))}
+          />
         )}
 
         {showContent &&

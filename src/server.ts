@@ -498,7 +498,7 @@ const addQuoted = (
 
 const filterQuoted = (
   para: RenderContent,
-  level: number = 0
+  level: number
 ): RenderContent | null => {
   if ("type" in para && para.type === "break") return para;
   if (Array.isArray(para)) {
@@ -580,8 +580,9 @@ const filterQuoted = (
 };
 
 const getData = (
-  search: string,
-  ...urlPath: string[]
+  urlPath: string[],
+  level: number,
+  search: string
 ): {
   data: any[];
   path: [string, string][];
@@ -690,7 +691,8 @@ const getData = (
               addQuoted(
                 getFullQuotedPara(para, paraSources[paraIndex]!),
                 section.quoted?.[paraIndex]
-              )
+              ),
+              level
             ),
             quoted: paraQuoted[paraIndex],
             source: displaySources[paraIndex]
@@ -707,7 +709,8 @@ const getData = (
         .map((para, paraIndex) => ({
           paraId: paraIds[paraIndex]!,
           content: filterQuoted(
-            addQuoted(getPara(para, allSpecial), section.quoted?.[paraIndex])
+            addQuoted(getPara(para, allSpecial), section.quoted?.[paraIndex]),
+            level
           ),
           quoted: paraQuoted[paraIndex],
         }))
@@ -727,8 +730,8 @@ Bun.serve({
   port: 8000,
   routes: {
     "/api/:query": (req) => {
-      const { path, search } = JSON.parse(req.params.query);
-      const data = getData(search, ...path);
+      const { path, level, search } = JSON.parse(req.params.query);
+      const data = getData(path, level, search);
       const res = Response.json(data);
       res.headers.set("Access-Control-Allow-Origin", "*");
       res.headers.set(
