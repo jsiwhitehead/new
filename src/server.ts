@@ -241,14 +241,6 @@ const expandQuotes = (parts: { text: string; quote?: true | Quote }[]) => {
       }
     }
   }
-  const quotes = parts.filter((part) => typeof part.quote === "object");
-  for (let i = 0; i < quotes.length - 1; i++) {
-    const current = quotes[i]!;
-    const next = quotes[i + 1]!;
-    if (JSON.stringify(current.quote) === JSON.stringify(next.quote)) {
-      current.quote = true;
-    }
-  }
   return parts.filter((part) => part.text);
 };
 
@@ -459,13 +451,12 @@ const addQuoted = (
         const start = partIndices[i]!;
         return {
           text: part.text.slice(start, end),
-          quote: part.quote ? (true as true) : undefined,
+          quote: part.quote,
           quoted: quoted.filter(
             (q) => current + start >= q.start && current + end <= q.end
           ).length,
         };
       });
-      if (part.quote) res[res.length - 1]!.quote = part.quote as any;
       current += part.text.length;
       return res;
     });
@@ -496,6 +487,20 @@ const addQuoted = (
   };
 };
 
+const joinAdjacentQuotes = (
+  parts: { text: string; quote?: true | Quote; quoted: number }[]
+) => {
+  const quotes = parts.filter((part) => typeof part.quote === "object");
+  for (let i = 0; i < quotes.length - 1; i++) {
+    const current = quotes[i]!;
+    const next = quotes[i + 1]!;
+    if (JSON.stringify(current.quote) === JSON.stringify(next.quote)) {
+      current.quote = true;
+    }
+  }
+  return parts;
+};
+
 const filterQuoted = (
   para: RenderContent,
   level: number
@@ -516,18 +521,20 @@ const filterQuoted = (
       }
     }
     if (res.length === 1 && res[0] === null) return null;
-    return res.map((part, i) => {
-      if (part !== null) return part;
-      if (i === 0) {
-        if (res[i + 1].text.startsWith(". . .")) return null;
-        return { text: ". . . ", quoted: 0 };
-      }
-      if (i === res.length - 1) {
-        if (res[i - 1].text.endsWith(". . .")) return null;
-        return { text: " . . .", quoted: 0 };
-      }
-      return { text: " . . . ", quoted: 0 };
-    });
+    return joinAdjacentQuotes(
+      res.map((part, i) => {
+        if (part !== null) return part;
+        if (i === 0) {
+          if (res[i + 1].text.startsWith(". . .")) return null;
+          return { text: ". . . ", quoted: 0 };
+        }
+        if (i === res.length - 1) {
+          if (res[i - 1].text.endsWith(". . .")) return null;
+          return { text: " . . .", quoted: 0 };
+        }
+        return { text: " . . . ", quoted: 0 };
+      })
+    );
   }
   const lines = para.lines.map((line) => {
     const res: any[] = [];
@@ -577,6 +584,55 @@ const filterQuoted = (
         })
       ),
   };
+};
+
+const alternateQuoteMarks = (
+  para: RenderContent | null
+): RenderContent | null => {
+  if (para === null) return para;
+  if ("type" in para && para.type === "break") return para;
+  if (Array.isArray(para)) {
+    let level = 1;
+    for (const part of para) {
+      let res = "";
+      for (let i = 0; i < part.text.length; i++) {
+        if (part.text[i] === "“") {
+          level++;
+          if (level % 2 === 0) res += "“";
+          else res += "‘";
+        } else if (part.text[i] === "”") {
+          if (level % 2 === 0) res += "”";
+          else res += "’";
+          level--;
+        } else {
+          res += part.text[i];
+        }
+      }
+      part.text = res;
+    }
+    return para;
+  }
+  let level = 1;
+  for (const line of para.lines) {
+    for (const part of line) {
+      let res = "";
+      for (let i = 0; i < part.text.length; i++) {
+        if (part.text[i] === "“") {
+          level++;
+          if (level % 2 === 0) res += "“";
+          else res += "‘";
+        } else if (part.text[i] === "”") {
+          if (level % 2 === 0) res += "”";
+          else res += "’";
+          level--;
+        } else {
+          res += part.text[i];
+        }
+      }
+      part.text = res;
+    }
+  }
+  return para;
 };
 
 const getData = (
@@ -687,12 +743,14 @@ const getData = (
         content: section.content
           .map((para, paraIndex) => ({
             paraId: paraIds[paraIndex]!,
-            content: filterQuoted(
-              addQuoted(
-                getFullQuotedPara(para, paraSources[paraIndex]!),
-                section.quoted?.[paraIndex]
-              ),
-              level
+            content: alternateQuoteMarks(
+              filterQuoted(
+                addQuoted(
+                  getFullQuotedPara(para, paraSources[paraIndex]!),
+                  section.quoted?.[paraIndex]
+                ),
+                level
+              )
             ),
             quoted: paraQuoted[paraIndex],
             source: displaySources[paraIndex]
@@ -708,9 +766,11 @@ const getData = (
       content: section.content
         .map((para, paraIndex) => ({
           paraId: paraIds[paraIndex]!,
-          content: filterQuoted(
-            addQuoted(getPara(para, allSpecial), section.quoted?.[paraIndex]),
-            level
+          content: alternateQuoteMarks(
+            filterQuoted(
+              addQuoted(getPara(para, allSpecial), section.quoted?.[paraIndex]),
+              level
+            )
           ),
           quoted: paraQuoted[paraIndex],
         }))

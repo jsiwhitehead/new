@@ -594,7 +594,7 @@ Announce to the friends that six hundred tonnes of stones destined for the arcad
 years=[1949.1219,1949.1219]
 summary="Faithless Brother Hussein"
 
-Faithless brother Hussein, already abased through dishonourable conduct over period of years followed by association with Covenant‑breakers in Holy Land and efforts to undermine Guardian’s position, recently further demeaned himself through marriage under obscure circumstances with lowborn Christian girl in Europe. This disgraceful alliance, following four successive marriages by sisters and cousins with three sons of Covenant‑breaker denounced repeatedly by ‘Abdu’l‑Bahá as His enemy, and daughter of notorious political agitator, brands them with infamy greater than any associated with marriages contracted by old Covenant‑breakers whether belonging to family of Muḥammad‑‘Alí or Badí’u’lláh.
+Faithless brother Hussein, already abased through dishonourable conduct over period of years followed by association with Covenant‑breakers in Holy Land and efforts to undermine Guardian’s position, recently further demeaned himself through marriage under obscure circumstances with lowborn Christian girl in Europe. This disgraceful alliance, following four successive marriages by sisters and cousins with three sons of Covenant‑breaker denounced repeatedly by ‘Abdu’l‑Bahá as His enemy, and daughter of notorious political agitator, brands them with infamy greater than any associated with marriages contracted by old Covenant‑breakers whether belonging to family of Muḥammad‑‘Alí or Badí‘u’lláh.
 
 ## 25 February 1950
 years=[1950.0225,1950.0225]
@@ -704,9 +704,9 @@ My heart is greatly relieved by the splendid, welcome evidences of the intensifi
 
 ## 3 November 1950
 years=[1950.1103,1950.1103]
-summary="Badí’u’lláh Has Miserably Perished"
+summary="Badí‘u’lláh Has Miserably Perished"
 
-Badí’u’lláh, brother and chief lieutenant of archbreaker of divine Covenant, has miserably perished after sixty years’ ceaseless, fruitless efforts to undermine the divinely‑appointed Order, having witnessed within the last five months the deaths of his nephews Shoa and Musa, notorious standard‑bearers of the rebellion associated with the name of their perfidious father.
+Badí‘u’lláh, brother and chief lieutenant of archbreaker of divine Covenant, has miserably perished after sixty years’ ceaseless, fruitless efforts to undermine the divinely‑appointed Order, having witnessed within the last five months the deaths of his nephews Shoa and Musa, notorious standard‑bearers of the rebellion associated with the name of their perfidious father.
 
 ## 8 November 1950
 years=[1950.1108,1950.1108]

@@ -73,6 +73,262 @@ export interface Section {
   content: SectionContent[];
 }
 
+const ignoreStarts: string[] = [
+  "aba",
+  "Aba‑",
+  "Abbas",
+  "Abbud",
+  "Abdi",
+  "Abdu",
+  "Abid",
+  "Ad",
+  "Akka",
+  "Ala",
+  "Ali",
+  "Allamiy",
+  "Amman",
+  "Amr",
+  "Amu",
+  "Anbar",
+  "Aqay",
+  "Arab",
+  "Arafat",
+  "Arafih",
+  "Arid",
+  "arif",
+  "Arif",
+  "Arshiyyih",
+  "Ashura",
+  "Askari",
+  "Ata",
+  "Atri",
+  "Attar",
+  "Avalim",
+  "ayn",
+  "Ayn",
+  "Azamat",
+  "Azim",
+  "Aziz",
+  "Ibrani",
+  "Ilm",
+  "Imad",
+  "Imarat",
+  "Imran",
+  "Inayati",
+  "Inayatu",
+  "Iraq",
+  "IRAQ",
+  "Isa",
+  "Ishqabad",
+  "Ishraqat",
+  "Izra",
+  "Izzat",
+  "Udi",
+  "ulama",
+  "Ulama",
+  "ulemas",
+  "Umar",
+  "Urf",
+  "Urvatu",
+  "Uthman",
+  "Uthmaniyyih",
+  "Uzza",
+  "neath",
+  "Neath",
+];
+const ignoreEnds: string[] = [
+  "‑al",
+  "Ala",
+  "Asma",
+  "Ba",
+  "Badi",
+  "Baqi",
+  "Fayha",
+  "Ha",
+  "Hadba",
+  "Jami",
+  "juz",
+  "Kha",
+  "khuda",
+  "Nisa",
+  "Ra",
+  "Raqsha",
+  "Shafa",
+  "Shar",
+  "Shay",
+  "Shuhada",
+  "Shuhuda",
+  "Ta",
+  "Ulama",
+  "Usanlu",
+  "Vasi",
+  "Za",
+  "Zawra",
+  "adversaries",
+  "animals",
+  "Anis",
+  "Apostles",
+  "Assemblies",
+  "authorities",
+  "authors",
+  "auxiliaries",
+  "Babis",
+  "Baha’is",
+  "believers",
+  "Bolles",
+  "boys",
+  "Boys",
+  "butchers",
+  "clients",
+  "cockatrice",
+  "Committees",
+  "communities",
+  "compatriots",
+  "Councils",
+  "Counsellors",
+  "countries",
+  "cowards",
+  "Thy creatures",
+  "days",
+  "defendants",
+  "delegates",
+  "disciples",
+  "the doctors",
+  "Edwards",
+  "electors",
+  "of His enemies",
+  "way the enemies",
+  "exiles",
+  "Faiths",
+  "families",
+  "fathers",
+  "fingers",
+  "forebears",
+  "Founders",
+  "His friends",
+  "the friends",
+  "The friends",
+  "frogs",
+  "fullers",
+  "girls",
+  "Girls",
+  "goats",
+  "Hands",
+  "hearers",
+  "hearts",
+  "heirs",
+  "horses",
+  "hours",
+  "husbands",
+  "individuals",
+  "Jesus",
+  "jewellers",
+  "judges",
+  "leaders",
+  "lovers",
+  "martyrs",
+  "title: Martyrs",
+  "mediums",
+  "members",
+  "months",
+  "Moses",
+  "mullas",
+  "the nations",
+  "Nations",
+  "oppressors",
+  "organisers",
+  "others",
+  "parents",
+  "participants",
+  "partners",
+  "peoples",
+  "persons",
+  "Pharisees",
+  "pilgrims",
+  "Pilgrims",
+  "prisoners",
+  "about the prophets",
+  "their Prophets",
+  "pupils",
+  "Pythias",
+  "readers",
+  "recipients",
+  "representatives",
+  "rulers",
+  "sceptics",
+  "servants",
+  "soldiers",
+  "spiders",
+  "supporters",
+  "the teachers",
+  "The teachers",
+  "travellers",
+  "Vanners",
+  "victims",
+  "visitors",
+  "Visitors",
+  "voters",
+  "wayfarers",
+  "Williams",
+  "wits",
+  "wives",
+  "Writers",
+  "years",
+  "youngsters",
+];
+
+const convertQuotes = (text: string) => {
+  const cleaned = text.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  // if (cleaned.length !== text.length) {
+  //   console.log(text);
+  // }
+  let countStart = 0;
+  let countEnd = 0;
+  let marked = "";
+  let res = "";
+  for (let i = 0; i < cleaned.length; i++) {
+    marked += cleaned[i];
+    if (cleaned[i] === "‘") {
+      if (
+        !(
+          /[A-Za-z0-9‑‘]/.test(cleaned[i - 1] || "") ||
+          ignoreStarts.some((x) => cleaned.slice(i + 1).startsWith(x)) ||
+          ignoreStarts.some((x) =>
+            cleaned.slice(i + 1).startsWith(x.toUpperCase())
+          )
+        )
+      ) {
+        marked += "#";
+        countStart++;
+        res += "“";
+      } else {
+        res += text[i];
+      }
+    } else if (cleaned[i] === "’") {
+      if (
+        !(
+          /[A-Za-z0-9‑]/.test(cleaned[i + 1] || "") ||
+          ignoreEnds.some((x) => cleaned.slice(0, i).endsWith(x)) ||
+          ignoreEnds.some((x) => cleaned.slice(0, i).endsWith(x.toUpperCase()))
+        )
+      ) {
+        marked += "$";
+        countEnd++;
+        res += "”";
+      } else {
+        res += text[i];
+      }
+    } else {
+      res += text[i];
+    }
+  }
+  // if (countStart !== countEnd) {
+  //   console.log("ITEM");
+  //   console.log(marked);
+  // }
+  return res;
+};
+
 const getContentItem = (line: string): SectionContent => {
   if (line === "***") {
     return { type: "break" };
@@ -238,7 +494,9 @@ export const parseStructuredSections = (
 
       if (title) lastLevel = level;
     } else {
-      sections[sections.length - 1]!.content.push(getContentItem(line));
+      sections[sections.length - 1]!.content.push(
+        getContentItem(convertQuotes(line))
+      );
     }
   }
 
@@ -341,6 +599,7 @@ const ruhiKeys = [
     "‘Abdu’l‑Bahá": 1,
     "Shoghi Effendi": 1,
     "The Universal House of Justice": 1,
+    Documents: 1,
   } as Record<string, number>;
   await writeJSON(
     "structure",

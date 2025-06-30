@@ -2094,6 +2094,7 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
     "intensive-growth": [],
     "youth-conference": [],
     "bahai-org": [],
+    additional: [],
   },
   ruhi: {
     "1": [],

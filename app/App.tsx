@@ -12,8 +12,8 @@ import type { RenderContent, Quote } from "../src/server";
 import renderTree from "./Tree";
 import { Column, Row, SizeContext, Text } from "./Utils";
 
-const showQuoted = false;
-const showQuoteSources = false;
+const showQuoted = true;
+const showQuoteSources = true;
 
 const authorColours = {
   "The Báb": "#27ae60",
