@@ -214,10 +214,20 @@ const getUrlQuote = (source: {
 };
 
 const expandQuotes = (parts: { text: string; quote?: true | Quote }[]) => {
-  for (let i = 0; i < parts.length; i++) {
-    const current = parts[i]!;
-    const prev = parts[i - 1];
-    const next = parts[i + 1];
+  const joined: { text: string; quote?: true | Quote }[] = [];
+  for (const part of parts) {
+    const last = joined[joined.length - 1];
+    if (!part.quote && last && !last.quote) {
+      last.text += part.text;
+    } else {
+      joined.push(part);
+    }
+  }
+
+  for (let i = 0; i < joined.length; i++) {
+    const current = joined[i]!;
+    const prev = joined[i - 1];
+    const next = joined[i + 1];
     if (
       !current.quote &&
       textIsConnector(current.text) &&
@@ -227,21 +237,21 @@ const expandQuotes = (parts: { text: string; quote?: true | Quote }[]) => {
       current.quote = true;
     }
     if (current.quote && prev && !prev.quote) {
-      const pre = prev.text.match(/“[^a-z0-9‘]*$|‘[^a-z0-9“]*$/)?.[0];
+      const pre = prev.text.match(/“[^a-z0-9‘]*$/)?.[0];
       if (pre) {
         current.text = `${pre}${current.text}`;
         prev.text = prev.text.slice(0, prev.text.length - pre.length);
       }
     }
     if (current.quote && next && !next.quote) {
-      const post = next.text.match(/^[^a-z0-9’]*”|^[^a-z0-9”]*’/)?.[0];
+      const post = next.text.match(/^[^a-z0-9’]*”/)?.[0];
       if (post) {
         current.text = `${current.text}${post}`;
         next.text = next.text.slice(post.length);
       }
     }
   }
-  return parts.filter((part) => part.text);
+  return joined.filter((part) => part.text);
 };
 
 const capitalise = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
@@ -487,7 +497,7 @@ const addQuoted = (
   };
 };
 
-const joinAdjacentQuotes = (
+const connectAdjacentQuotes = (
   parts: { text: string; quote?: true | Quote; quoted: number }[]
 ) => {
   const quotes = parts.filter((part) => typeof part.quote === "object");
@@ -521,7 +531,7 @@ const filterQuoted = (
       }
     }
     if (res.length === 1 && res[0] === null) return null;
-    return joinAdjacentQuotes(
+    return connectAdjacentQuotes(
       res.map((part, i) => {
         if (part !== null) return part;
         if (i === 0) {
@@ -635,6 +645,20 @@ const alternateQuoteMarks = (
   return para;
 };
 
+const joinParagraphBreaks = (paras: any[]) => {
+  const res: any[] = [];
+  for (const para of paras) {
+    if (para.content.type === "break") {
+      const last = res[res.length - 1];
+      if (last && last?.content.type !== "break") res.push(para);
+    } else {
+      res.push(para);
+    }
+  }
+  if (res[res.length - 1]?.content.type === "break") res.pop();
+  return res;
+};
+
 const getData = (
   urlPath: string[],
   level: number,
@@ -740,41 +764,48 @@ const getData = (
       }
       return {
         ...section,
-        content: section.content
+        content: joinParagraphBreaks(
+          section.content
+            .map((para, paraIndex) => ({
+              paraId: paraIds[paraIndex]!,
+              content: alternateQuoteMarks(
+                filterQuoted(
+                  addQuoted(
+                    getFullQuotedPara(para, paraSources[paraIndex]!),
+                    section.quoted?.[paraIndex]
+                  ),
+                  level
+                )
+              ),
+              quoted: paraQuoted[paraIndex],
+              source: displaySources[paraIndex]
+                ? getUrlQuote(displaySources[paraIndex]!)
+                : undefined,
+            }))
+            .filter((para) => para.content !== null)
+        ),
+      };
+    }
+    const allSpecial = getAllSpecial(section);
+    return {
+      ...section,
+      content: joinParagraphBreaks(
+        section.content
           .map((para, paraIndex) => ({
             paraId: paraIds[paraIndex]!,
             content: alternateQuoteMarks(
               filterQuoted(
                 addQuoted(
-                  getFullQuotedPara(para, paraSources[paraIndex]!),
+                  getPara(para, allSpecial),
                   section.quoted?.[paraIndex]
                 ),
                 level
               )
             ),
             quoted: paraQuoted[paraIndex],
-            source: displaySources[paraIndex]
-              ? getUrlQuote(displaySources[paraIndex]!)
-              : undefined,
           }))
-          .filter((para) => para.content !== null),
-      };
-    }
-    const allSpecial = getAllSpecial(section);
-    return {
-      ...section,
-      content: section.content
-        .map((para, paraIndex) => ({
-          paraId: paraIds[paraIndex]!,
-          content: alternateQuoteMarks(
-            filterQuoted(
-              addQuoted(getPara(para, allSpecial), section.quoted?.[paraIndex]),
-              level
-            )
-          ),
-          quoted: paraQuoted[paraIndex],
-        }))
-        .filter((para) => para.content !== null),
+          .filter((para) => para.content !== null)
+      ),
     };
   });
 
