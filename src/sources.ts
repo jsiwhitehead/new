@@ -2290,7 +2290,6 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
       ],
       ["second condition:—They must", "second condition . . . They must"],
       ["own opinion and must", "own opinion and . . . must"],
-      ["vouchsafed to them. In this", "vouchsafed to them. . . . In this"],
       ["has attained! . . . Thou has", "hast attained! . . . Thou hast"],
       [
         "Hearing! O Thou the Compassionate God! Bestow upon me a heart which, like unto glass",
@@ -2625,7 +2624,6 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
       }),
       [/^[IV]+\./gm, "#"],
       ["second condition: They must", "second condition . . . They must"],
-      ["vouchsafed to them. In this", "vouchsafed to them. . . . In this"],
       ["doth not matter. It behoveth", "doth not matter. . . . It behoveth"],
       ["supreme victory: “O God", "supreme victory: . . . “O God"],
     ],

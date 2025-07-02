@@ -241,10 +241,6 @@ const joinStringParts = (parts: (string | Quote)[]) => {
     const base = sections[ref.section]!.content[ref.paragraph]!;
     base.para = para;
     Object.assign(base, getLayers(getText(ref)));
-    // const parts = splitQuoted(base.text)
-    //   .flatMap((p) => p.split(/( ?\. \. \. ?| ?\[[^\]]*\] ?)/))
-    //   .filter((x) => x);
-    // base.parts = parts.map((text) => getLayers(text));
   };
 
   sections.forEach((section, index) => {
@@ -323,20 +319,34 @@ const joinStringParts = (parts: (string | Quote)[]) => {
     return uniqueRefs(filtered.map(({ years, ...ref }) => ref));
   };
 
-  const processPart = (part: Layers, sourceRef: Ref) => {
+  const processPart = (
+    part: Layers,
+    sourceRef: Ref,
+    canQuoteQuote: boolean
+  ) => {
     const source = sections[sourceRef.section]!.content[sourceRef.paragraph]!;
     if (source.chars.includes(part.chars)) {
       processSection(sourceRef.section);
-      if (
-        part.ngrams.some((ng) =>
-          ngramMap.get(ng)?.some((x) => refsEqual(x, sourceRef))
-        )
-      ) {
-        const { start, end, pre, post } = findQuoteIndices(
-          source.cleaned,
-          part.cleaned
-        );
-        return [pre, { ...sourceRef, start, end }, post].filter((p) => p);
+      if (processedMap.get(sourceRef.section) === "complete") {
+        if (
+          part.ngrams.some((ng) =>
+            ngramMap.get(ng)?.some((x) => refsEqual(x, sourceRef))
+          )
+        ) {
+          const { start, end, pre, post } = findQuoteIndices(
+            source.cleaned,
+            part.cleaned
+          );
+          if (
+            canQuoteQuote ||
+            !(
+              /“[^a-z0-9‘]*$/.test(source.cleaned.slice(0, start)) &&
+              /^[^a-z0-9’]*”/.test(source.cleaned.slice(end))
+            )
+          ) {
+            return [pre, { ...sourceRef, start, end }, post].filter((p) => p);
+          }
+        }
       }
     }
   };
@@ -409,21 +419,21 @@ const joinStringParts = (parts: (string | Quote)[]) => {
     );
   };
 
-  const paraAllQuote = (ref: { section: number; paragraph: number }) => {
+  const processPara = (ref: { section: number; paragraph: number }) => {
     const para = sections[ref.section]!.content[ref.paragraph]!;
     if (typeof para.para !== "string") return;
 
     const allSources = getPossibleSources(ref, para.ngrams);
 
-    // Whole paragraph quoted from one source
-    for (const sourceRef of allSources) {
-      const processed = processPart(para, sourceRef);
-      if (processed) {
-        clearNgrams(ref, para.ngrams);
-        addLink(ref.section, sourceRef.section);
-        return processed;
-      }
-    }
+    // // Whole paragraph quoted from one source
+    // for (const sourceRef of allSources) {
+    //   const processed = processPart(para, sourceRef);
+    //   if (processed) {
+    //     clearNgrams(ref, para.ngrams);
+    //     addLink(ref.section, sourceRef.section);
+    //     return processed;
+    //   }
+    // }
 
     // // Whole paragraph quoted from one source that is partially a quote
     // if (!/\[[^\]]*\]/.test(para.text) && !/\. \. \./.test(para.text)) {
@@ -454,7 +464,9 @@ const joinStringParts = (parts: (string | Quote)[]) => {
     for (const sourceRef of allSources) {
       const processedParts = extendQuoteParts(
         ref,
-        parts.flatMap((part) => processPart(part, sourceRef) || [part.text])
+        parts.flatMap(
+          (part) => processPart(part, sourceRef, true) || [part.text]
+        )
       );
       if (
         processedParts.every(
@@ -472,7 +484,7 @@ const joinStringParts = (parts: (string | Quote)[]) => {
       ref,
       parts.flatMap((part) => {
         for (const sourceRef of getPossibleSources(ref, part.ngrams)) {
-          const processed = processPart(part, sourceRef);
+          const processed = processPart(part, sourceRef, true);
           if (processed) return processed;
         }
         return [part.text];
@@ -489,12 +501,38 @@ const joinStringParts = (parts: (string | Quote)[]) => {
       }
       return processedParts;
     }
+
+    // Inline quotes
+    const chunks = splitQuoted(para.text);
+    const result = extendQuoteParts(
+      ref,
+      chunks.flatMap((chunk, i) => {
+        if (i % 2 === 0) return [chunk];
+        const parts = chunk
+          .split(/( ?\. \. \. ?| ?\[[^\]]*\] ?)/)
+          .filter((p) => p)
+          .map((text) => getLayers(text));
+        return parts.flatMap((part) => {
+          const partSources = getPossibleSources(ref, part.ngrams);
+          for (const sourceRef of partSources) {
+            const processed = processPart(part, sourceRef, false);
+            if (processed) {
+              clearNgrams(ref, part.ngrams);
+              return processed;
+            }
+          }
+          return [part.text];
+        });
+      })
+    );
+    if (result.length === 1 && typeof result[0] === "string") return;
+    return result;
   };
 
-  const processedSet = new Set();
+  const processedMap = new Map<number, "started" | "complete">();
   const processSection = (sectionIndex: number) => {
-    if (!processedSet.has(sectionIndex)) {
-      processedSet.add(sectionIndex);
+    if (!processedMap.has(sectionIndex)) {
+      processedMap.set(sectionIndex, "started");
       const section = sections[sectionIndex]!;
 
       if (canBeAQuote(sectionIndex)) {
@@ -503,7 +541,7 @@ const joinStringParts = (parts: (string | Quote)[]) => {
         // Whole paragraphs are a quote
         section.content.forEach((_, paraIndex) => {
           const ref = { section: sectionIndex, paragraph: paraIndex };
-          const processed = paraAllQuote(ref);
+          const processed = processPara(ref);
           if (processed) updatePara(ref, processed);
         });
 
@@ -551,61 +589,10 @@ const joinStringParts = (parts: (string | Quote)[]) => {
         //   }
         // }
       }
+      processedMap.set(sectionIndex, "complete");
     }
   };
   for (const index of yearSortedIndices) processSection(index);
-
-  const paraPartQuotes = (ref: { section: number; paragraph: number }) => {
-    const section = sections[ref.section]!;
-    const para = section.content[ref.paragraph]!;
-
-    if (typeof para.para !== "string") return;
-
-    const chunks = splitQuoted(para.text);
-    const result = chunks.flatMap((chunk, i) => {
-      if (i % 2 === 0) return [chunk];
-      const parts = chunk
-        .split(/( ?\. \. \. ?| ?\[[^\]]*\] ?)/)
-        .filter((p) => p)
-        .map((text) => getLayers(text));
-      return parts.flatMap((part) => {
-        const partSources = getPossibleSources(ref, part.ngrams);
-        for (const sourceRef of partSources) {
-          const source =
-            sections[sourceRef.section]!.content[sourceRef.paragraph]!;
-          if (source.chars.includes(part.chars)) {
-            const { start, end, pre, post } = findQuoteIndices(
-              source.cleaned,
-              part.cleaned
-            );
-            if (
-              !(
-                source.cleaned[start - 1] === "“" && source.cleaned[end] === "”"
-              )
-            ) {
-              clearNgrams(ref, part.ngrams);
-              return [pre, { ...sourceRef, start, end }, post].filter((p) => p);
-            }
-          }
-        }
-        return [part.text];
-      });
-    });
-    if (result.length === 1 && typeof result[0] === "string") return;
-    return result;
-  };
-
-  for (const index of yearSortedIndices) {
-    if (canBeAQuote(index)) {
-      console.log(sections[index]!.path.map((p) => p[0]).join(", "));
-      const section = sections[index]!;
-      section.content.forEach((_, paraIndex) => {
-        const ref = { section: index, paragraph: paraIndex };
-        const processed = paraPartQuotes(ref);
-        if (processed) updatePara(ref, processed);
-      });
-    }
-  }
 
   // Added quoted information
   const allQuoted = sections.flatMap((section, sIndex) =>

@@ -7,13 +7,13 @@ import {
   useSearchParams,
 } from "react-router";
 
-import type { RenderContent, Quote } from "../src/server";
+import type { RenderContent, RenderQuote } from "../src/server";
 
 import renderTree from "./Tree";
 import { Column, Row, SizeContext, Text } from "./Utils";
 
-const showQuoted = true;
-const showQuoteSources = true;
+const showQuoted = false;
+const showQuoteSources = false;
 
 const authorColours = {
   "The Báb": "#27ae60",
@@ -64,7 +64,7 @@ const Breadcrumbs = ({
   );
 };
 
-const InlineQuote = ({ quote }: { quote: Quote }) => (
+const InlineQuote = ({ quote }: { quote: RenderQuote }) => (
   <Fragment>
     {quote.path.map(([label, url], k) => (
       <span
@@ -131,7 +131,7 @@ const InlineQuote = ({ quote }: { quote: Quote }) => (
   </Fragment>
 );
 
-const BlockQuote = ({ quote, left }: { quote: Quote; left?: true }) => (
+const BlockQuote = ({ quote, left }: { quote: RenderQuote; left?: true }) => (
   <Row
     gap={`${11.5}px ${14 * 0.6}px`}
     style={{
@@ -296,10 +296,12 @@ export default function App() {
 
   const navigate = useNavigate();
   useEffect(() => {
-    navigate(
-      { search: `?level=${level}` },
-      { replace: true, preventScrollReset: true }
-    );
+    if (level !== parseInt(searchParams.get("level") || "0", 10)) {
+      navigate(
+        { search: `?level=${level}` },
+        { replace: true, preventScrollReset: true }
+      );
+    }
   }, [level]);
 
   const { data, path, tree, showContent } = allData;
