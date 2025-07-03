@@ -74,12 +74,15 @@ const toWords = (cleaned: string) =>
 
 const toChars = (words: string) => words.replace(/ /g, "");
 
+const shortPassages = ["whatever decreaseth fear increaseth courage"];
 const getNGrams = (words: string, n = 7) => {
   const splitWords = words.split(" ");
-  if (splitWords.length < n) return [];
   const ngrams: string[] = [];
   for (let i = 0; i <= splitWords.length - n; i++) {
     ngrams.push(splitWords.slice(i, i + n).join(" "));
+  }
+  for (const short of shortPassages) {
+    if (words.includes(short)) ngrams.push(short);
   }
   return ngrams;
 };
@@ -159,11 +162,11 @@ const findQuoteIndices = (
   return { start, end: end + 1, pre, post };
 };
 
-const links = new Map();
-const addLink = (quoteIndex: number, sourceIndex: number) =>
-  links.set(sourceIndex, [...(links.get(sourceIndex) || []), quoteIndex]);
-const checkCanLink = (quoteIndex: number, sourceIndex: number) =>
-  !(links.get(quoteIndex) || []).includes(sourceIndex);
+// const links = new Map();
+// const addLink = (quoteIndex: number, sourceIndex: number) =>
+//   links.set(sourceIndex, [...(links.get(sourceIndex) || []), quoteIndex]);
+// const checkCanLink = (quoteIndex: number, sourceIndex: number) =>
+//   !(links.get(quoteIndex) || []).includes(sourceIndex);
 
 const joinStringParts = (parts: (string | Quote)[]) => {
   const res = [];
@@ -217,20 +220,34 @@ const joinStringParts = (parts: (string | Quote)[]) => {
 
   const sections = baseData.map((section) => ({
     ...section,
-    content: section.content.map((para) => ({
-      para,
-      ...getLayers(""),
-      // parts: [] as Layers[],
-    })),
+    content: section.content.map((para) => ({ para, ...getLayers("") })),
   }));
 
   const canBeAQuote = (sectionIndex: number) => {
     const section = sections[sectionIndex]!;
     return !(
-      (["Bahá’u’lláh", "The Báb"].includes(section.path[0]![0]) &&
-        section.path[1]![0] !== "Gleanings from the Writings of Bahá’u’lláh" &&
+      (["Bahá’u’lláh", "The Báb", "‘Abdu’l‑Bahá"].includes(
+        section.path[0]![0]
+      ) &&
+        ![
+          "Gleanings from the Writings of Bahá’u’lláh",
+          "Selections from the Writings of ‘Abdu’l‑Bahá",
+        ].includes(section.path[1]![0]) &&
         !section.meta) ||
       section.prayer
+    );
+  };
+
+  const canBeQuoted = (sectionIndex: number) => {
+    const section = sections[sectionIndex]!;
+    return (
+      section.path[0]![0] !== "Compilations" &&
+      !(
+        section.path[0]![0] === "Ruhi Institute" &&
+        section.path[2]?.[0] !== "A Few Thoughts for the Tutor"
+      ) &&
+      section.path[2]?.[0] !==
+        "A Description of the Kitáb‑i‑Aqdas by Shoghi Effendi"
     );
   };
 
@@ -259,15 +276,7 @@ const joinStringParts = (parts: (string | Quote)[]) => {
   const ngramMap = new Map<string, NGramRef[]>();
   yearSortedIndices.forEach((index) => {
     const section = sections[index]!;
-    if (
-      section.path[0]![0] !== "Compilations" &&
-      !(
-        section.path[0]![0] === "Ruhi Institute" &&
-        section.path[2]?.[0] !== "A Few Thoughts for the Tutor"
-      ) &&
-      section.path[2]?.[0] !==
-        "A Description of the Kitáb‑i‑Aqdas by Shoghi Effendi"
-    ) {
+    if (canBeQuoted(index)) {
       section.content.forEach((para, i) => {
         for (const ng of para.ngrams) {
           ngramMap.set(ng, [
@@ -293,20 +302,17 @@ const joinStringParts = (parts: (string | Quote)[]) => {
       }
     }
   };
-  // const ngramMapFull = new Map(ngramMap);
+  const ngramMapFull = new Map(ngramMap);
 
   const getPossibleSources = (
     ref: Ref,
-    ngrams: string[]
-    // full: boolean = false
+    ngrams: string[],
+    full: boolean = false
   ) => {
     const refYears = sections[ref.section]!.years;
     const filtered = ngrams
       .flatMap((ng) =>
-        // ((full ? ngramMapFull : ngramMap).get(ng) || []).filter(
-        //   (x) => x.section !== ref.section && x.years[0] <= refYears[1]
-        // )
-        (ngramMap.get(ng) || []).filter(
+        ((full ? ngramMapFull : ngramMap).get(ng) || []).filter(
           (x) => x.section !== ref.section && x.years[0] <= refYears[1]
         )
       )
@@ -374,12 +380,16 @@ const joinStringParts = (parts: (string | Quote)[]) => {
     }
   };
 
-  const extendQuoteParts = (ref: Ref, parts: (string | Quote)[]) => {
+  const extendQuoteParts = (
+    ref: Ref,
+    parts: (string | Quote)[],
+    inline: boolean
+  ) => {
     const inserts: Record<string, { pre: string; post: string }> = {};
     for (let i = parts.length - 1; i >= 0; i -= 1) {
       const base = parts[i]!;
       if (typeof base !== "string") {
-        [-1, 1].forEach((dir) => {
+        (inline ? [-2, 2] : [-1, 1]).forEach((dir) => {
           for (let j = i + dir; j >= 0; j += dir) {
             const current = parts[j];
             if (typeof current === "string") {
@@ -423,15 +433,61 @@ const joinStringParts = (parts: (string | Quote)[]) => {
     const para = sections[ref.section]!.content[ref.paragraph]!;
     if (typeof para.para !== "string") return;
 
-    const allSources = getPossibleSources(ref, para.ngrams);
+    const parts = para.text
+      .split(/( ?\. \. \. ?| ?\[[^\]]*\] ?)/)
+      .filter((p) => p)
+      .map((text) => getLayers(text));
 
-    // // Whole paragraph quoted from one source
-    // for (const sourceRef of allSources) {
-    //   const processed = processPart(para, sourceRef);
-    //   if (processed) {
-    //     clearNgrams(ref, para.ngrams);
-    //     addLink(ref.section, sourceRef.section);
-    //     return processed;
+    // All paragraph parts quoted from one source
+    for (const sourceRef of getPossibleSources(ref, para.ngrams)) {
+      const processedParts = extendQuoteParts(
+        ref,
+        parts.flatMap(
+          (part) => processPart(part, sourceRef, true) || [part.text]
+        ),
+        false
+      );
+      if (
+        processedParts.every(
+          (p) => typeof p !== "string" || textIsConnector(toCleaned(p))
+        )
+      ) {
+        clearNgrams(ref, para.ngrams);
+        // addLink(ref.section, sourceRef.section);
+        return processedParts;
+      }
+    }
+
+    // // All paragraph parts quoted from one source that is partially a quote
+    // for (const sourceRef of getPossibleSources(ref, para.ngrams, true)) {
+    //   if (processedMap.get(sourceRef.section) === "complete") {
+    //     const processedParts = extendQuoteParts(
+    //       ref,
+    //       parts.flatMap((part) => {
+    //         if (textIsConnector(toCleaned(part.text))) return [para.text];
+    //         const source =
+    //           sections[sourceRef.section]!.content[sourceRef.paragraph]!;
+    //         if (source.chars.includes(part.chars)) {
+    //           const { start, end, pre, post } = findQuoteIndices(
+    //             source.cleaned,
+    //             part.cleaned
+    //           );
+    //           return [pre, { ...sourceRef, start, end }, post].filter((p) => p);
+    //         }
+    //         return [part.text];
+    //       }),
+    //       false
+    //     );
+
+    //     if (
+    //       processedParts.every(
+    //         (p) => typeof p !== "string" || textIsConnector(toCleaned(p))
+    //       )
+    //     ) {
+    //       clearNgrams(ref, para.ngrams);
+    //       addLink(ref.section, sourceRef.section);
+    //       return processedParts;
+    //     }
     //   }
     // }
 
@@ -455,30 +511,6 @@ const joinStringParts = (parts: (string | Quote)[]) => {
     //   }
     // }
 
-    const parts = para.text
-      .split(/( ?\. \. \. ?| ?\[[^\]]*\] ?)/)
-      .filter((p) => p)
-      .map((text) => getLayers(text));
-
-    // All paragraph parts quoted from one source
-    for (const sourceRef of allSources) {
-      const processedParts = extendQuoteParts(
-        ref,
-        parts.flatMap(
-          (part) => processPart(part, sourceRef, true) || [part.text]
-        )
-      );
-      if (
-        processedParts.every(
-          (p) => typeof p !== "string" || textIsConnector(toCleaned(p))
-        )
-      ) {
-        clearNgrams(ref, para.ngrams);
-        addLink(ref.section, sourceRef.section);
-        return processedParts;
-      }
-    }
-
     // All paragraph parts quoted from multiple sources
     const processedParts = extendQuoteParts(
       ref,
@@ -488,7 +520,8 @@ const joinStringParts = (parts: (string | Quote)[]) => {
           if (processed) return processed;
         }
         return [part.text];
-      })
+      }),
+      false
     );
     if (
       processedParts.every(
@@ -496,9 +529,9 @@ const joinStringParts = (parts: (string | Quote)[]) => {
       )
     ) {
       clearNgrams(ref, para.ngrams);
-      for (const part of processedParts) {
-        if (typeof part !== "string") addLink(ref.section, part.section);
-      }
+      // for (const part of processedParts) {
+      //   if (typeof part !== "string") addLink(ref.section, part.section);
+      // }
       return processedParts;
     }
 
@@ -523,7 +556,8 @@ const joinStringParts = (parts: (string | Quote)[]) => {
           }
           return [part.text];
         });
-      })
+      }),
+      true
     );
     if (result.length === 1 && typeof result[0] === "string") return;
     return result;
@@ -545,49 +579,49 @@ const joinStringParts = (parts: (string | Quote)[]) => {
           if (processed) updatePara(ref, processed);
         });
 
-        // // Extending to neighbouring quoted paragraphs
-        // for (let i = 0; i < section.content.length; i++) {
-        //   const base = section.content[i]!;
-        //   if (
-        //     Array.isArray(base.para) &&
-        //     base.para.filter((x) => typeof x !== "string").length === 1
-        //   ) {
-        //     const baseSource = base.para.find((x) => typeof x !== "string")!;
-        //     for (const dir of [-1, 1]) {
-        //       for (
-        //         let j = i + dir;
-        //         j >= 0 && j < section.content.length;
-        //         j += dir
-        //       ) {
-        //         const current = section.content[j]!;
-        //         if (current.chars.length > 0) {
-        //           const sourceRef = {
-        //             section: baseSource.section,
-        //             paragraph: baseSource.paragraph + (j - i),
-        //           };
-        //           const source =
-        //             sections[sourceRef.section]!.content[sourceRef.paragraph]!;
-        //           if (source?.chars.includes(current.chars)) {
-        //             const { start, end, pre, post } = findQuoteIndices(
-        //               source.cleaned,
-        //               current.cleaned
-        //             );
-        //             const currentRef = { section: sectionIndex, paragraph: j };
-        //             clearNgrams(currentRef, current.ngrams);
-        //             updatePara(
-        //               currentRef,
-        //               [pre, { ...sourceRef, start, end }, post].filter((x) => x)
-        //             );
-        //           } else {
-        //             break;
-        //           }
-        //         } else {
-        //           break;
-        //         }
-        //       }
-        //     }
-        //   }
-        // }
+        // Extending to neighbouring quoted paragraphs
+        for (let i = 0; i < section.content.length; i++) {
+          const base = section.content[i]!;
+          if (
+            Array.isArray(base.para) &&
+            base.para.filter((x) => typeof x !== "string").length === 1
+          ) {
+            const baseSource = base.para.find((x) => typeof x !== "string")!;
+            for (const dir of [-1, 1]) {
+              for (
+                let j = i + dir;
+                j >= 0 && j < section.content.length;
+                j += dir
+              ) {
+                const current = section.content[j]!;
+                if (current.chars.length > 0) {
+                  const sourceRef = {
+                    section: baseSource.section,
+                    paragraph: baseSource.paragraph + (j - i),
+                  };
+                  const source =
+                    sections[sourceRef.section]!.content[sourceRef.paragraph]!;
+                  if (source?.chars.includes(current.chars)) {
+                    const { start, end, pre, post } = findQuoteIndices(
+                      source.cleaned,
+                      current.cleaned
+                    );
+                    const currentRef = { section: sectionIndex, paragraph: j };
+                    clearNgrams(currentRef, current.ngrams);
+                    updatePara(
+                      currentRef,
+                      [pre, { ...sourceRef, start, end }, post].filter((x) => x)
+                    );
+                  } else {
+                    break;
+                  }
+                } else {
+                  break;
+                }
+              }
+            }
+          }
+        }
       }
       processedMap.set(sectionIndex, "complete");
     }

@@ -1365,8 +1365,6 @@ const sources: Record<
         "#",
         "Part One: Excerpts from the Will and Testament of ‘Abdu’l‑Bahá",
         {
-          author: "‘Abdu’l‑Bahá",
-          years: [1901, 1908],
           items: true,
         }
       ),
