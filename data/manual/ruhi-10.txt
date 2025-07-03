@@ -1,8 +1,8 @@
 Book 10: Building Vibrant Communities
 author="Ruhi Institute"
-years=[2018.0524,2018.0524]
 
 # Unit 1: Accompanying One Another on the Path of Service
+years=[2016.0601,2016.0601]
 
 ## Section 1
 
@@ -167,6 +167,7 @@ There are currently two points along the sequence at which an individual may cho
 Praise be to God that the divine outpourings are infinite, the melody of the lordly principles is in the utmost efficacy, the most great Orb shining with perfect splendour, the cohorts of the Supreme Concourse are attacking with invincible power, the tongues are sharper than the swords, the hearts are more brilliant than the light of electricity, the magnanimity of the friends precedes all the magnanimities of the former and subsequent generations, the souls are divinely attracted, and the fire of the love of God is enkindled.
 
 # Unit 2: Consultation
+years=[2017.0509,2017.0509]
 
 ## Section 1
 
@@ -399,6 +400,7 @@ O God! Make this assemblage radiant. Make the hearts merciful. Confer the bounti
 O Divine Providence! This assemblage is composed of Thy friends who are attracted to Thy beauty and are set ablaze by the fire of Thy love. Turn these souls into heavenly angels, resuscitate them through the breath of Thy Holy Spirit, grant them eloquent tongues and resolute hearts, bestow upon them heavenly power and merciful susceptibilities, cause them to become the promulgators of the oneness of mankind and the cause of love and concord in the world of humanity, so that the perilous darkness of ignorant prejudice may vanish through the light of the Sun of Truth, this dreary world may become illumined, this material realm may absorb the rays of the world of spirit, these different colours may merge into one colour and the melody of praise may rise to the kingdom of Thy sanctity.
 
 # Unit 3: Dynamics of Service on an Area Teaching Committee
+years=[2018.0524,2018.0524]
 
 ## Section 1
 

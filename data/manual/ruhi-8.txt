@@ -1,8 +1,8 @@
 Book 8: The Covenant of Bahá’u’lláh
 author="Ruhi Institute"
-years=[2016.0905,2016.0905]
 
 # Unit 1: The Centre of the Covenant and His Will and Testament
+years=[2015.0901,2015.0901]
 
 ## Section 1
 
@@ -379,6 +379,7 @@ O ye real friends! Make ye an effort that this universe may become another unive
 Senses and faculties have been bestowed upon us, to be devoted to the service of the general good; so that we, distinguished above all other forms of life for perceptiveness and reason, should labour at all times and along all lines, whether the occasion be great or small, ordinary or extraordinary, until all mankind are safely gathered into the impregnable stronghold of knowledge.
 
 # Unit 2: The Guardian of the Faith
+years=[2012.0622,2012.0622]
 
 ## Section 1
 
@@ -707,6 +708,7 @@ I rejoice to learn of the formation of the first Spiritual Assembly in . . . ,
 How greatly I admire the spirit that has inspired, and impelled you to cross the seas and settle in such difficult surroundings, and initiate so glorious a phase in the unfoldment of a God‑given Plan. Posterity will extol your present achievements and derive inspiration from your noble acts and services. You are often in my thoughts and prayers and the Beloved Master, the Author of the Plan, is truly well pleased with you. Persevere, be happy and grateful for so priceless a privilege.
 
 # Unit 3: The Universal House of Justice
+years=[2016.0905,2016.0905]
 
 ## Section 1
 

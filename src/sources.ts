@@ -1258,11 +1258,7 @@ const sources: Record<
     ],
     "twelve-table-talks-abdul-baha": [
       removeAfter("Notes"),
-      [
-        "Twelve Table Talks given by ‘Abdu’l‑Bahá in ‘Akká",
-        "Twelve Table Talks in ‘Akká",
-      ],
-      title("", "Twelve Table Talks in ‘Akká", {
+      title("", "Twelve Table Talks Given by ‘Abdu’l‑Bahá in ‘Akká", {
         author: "‘Abdu’l‑Bahá",
         years: [1904, 1907],
       }),
@@ -1309,10 +1305,7 @@ const sources: Record<
       [/^\+[^*]*(\*\*\*|$)/gms, "***"],
       [/—‘Abdu’l‑Bahá/g, ""],
       [/\*\*\*\n\n(.*)/gm, (_, a) => `#\nsource="${a}"`],
-      [
-        "Extract from a Tablet of ‘Abdu’l‑Bahá",
-        '#\nsource="Extract from a Tablet of ‘Abdu’l‑Bahá"',
-      ],
+      ["A Tablet of ‘Abdu’l‑Bahá", '#\nsource="A Tablet of ‘Abdu’l‑Bahá"'],
       makeLines(/^Phoenix of Truth! For .* thou’rt returned!$/gms),
       makeLines(/^O zephyr, shouldst thou .* fragrant thy breath\.$/gms),
       makeLines(/^General running expenses .* support of the poor\.$/gms),
@@ -2879,6 +2872,7 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
       [/^Extract/gm, "# Extract"],
       ["he may be. The purpose", "he may be. . . . The purpose"],
     ],
+    "universal-education": [],
     "universal-house-of-justice-compilation": [
       removeAfter("Index"),
       [/^A Compilation Prepared by the Research.*/m, ""],

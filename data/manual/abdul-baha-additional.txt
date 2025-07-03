@@ -1327,11 +1327,6 @@ source="‘Abdu’l‑Bahá, in Bahá’í Scriptures: Selections from the Utter
 Today the confirmations of the Kingdom of Abhá are with those who renounce themselves, forget their own opinions, cast aside personalities and are thinking of the welfare of others. Whosoever has lost himself has found the universe and the inhabitants thereof. Whosoever is occupied with himself is wandering in the desert of heedlessness and regret. The ‘Master Key’ to self‑mastery is self‑forgetting. The road to the palace of life is through the path of renunciation.
 
 #
-source="Tablets of ‘Abdu’l‑Bahá Abbás, vol. 1, p. 18"
-
-Verily, I praise my Supreme Lord for choosing you to call in His Name among the people, for attracting you to the beauty of the All‑Glorious, and for strengthening you to render His Cause victorious.
-
-#
 source="Tablets of ‘Abdu’l‑Bahá Abbás (New York: Bahá’í Publishing Committee, 1916), vol. 3, p. 530"
 
 Thy letter was like a perfumed bouquet of flowers shedding abroad the fragrance of faith and certitude. Well done! Well done! Thou hast turned thy face toward the unseen Kingdom. Splendid! Splendid! Thou wast attracted to the Beauty of the Almighty! Marvellous! Marvellous! How fortunate thou wast to have attained unto this supreme bounty!
@@ -1384,10 +1379,6 @@ That is to say, man must become evanescent in God. Must forget his own selfish c
 source="Tablets of Abdu’l‑Bahá Abbás, vol. 3, p. 727"
 
 I hope that, through the bounties of Him Who quickeneth the spirits, thou mayest not for a moment remain still, nor be deterred from pulsating like unto an artery in the body of the world, that thou mayest ever breathe the spirit of life into the hearts and enable the souls to soar in the realms above.
-
-#
-
-Pleasing and acceptable as is a righteous person before God’s Holy Threshold, yet good works should proceed from knowledge. However matchless and exquisite may be a blind man’s handiwork, yet he himself is deprived of seeing it. How sorely do certain animals labour on man’s behalf, what loads they bear for him, how greatly they contribute to his ease and comfort; and yet, because they are unwitting, they earn no recompense for all their pains. The clouds rain down their bounty, nurturing the plants and flowers, and imparting verdure and enchantment to the plain and prairie, the forest and the garden; but yet, unconscious as they are of the results and fruit of their outpourings, they win no praise or honour, nor earn the gratitude and approbation of any man. The lamp imparteth light, but as it hath no consciousness of doing so, no one is indebted to it. This apart, a man of righteous deeds and goodly conduct will assuredly turn towards the Light, in whichever quarter he behold it. The point is this, that faith compriseth both knowledge and the performance of good works.
 
 #
 source="‘Abdu’l‑Bahá, Bahá’í Scriptures: Selections from the Utterances of Bahá’u’lláh and ‘Abdu’l‑Bahá, no. 969, p. 503"
@@ -3144,3 +3135,8 @@ To be a Bahá’í simply means to love all the world; to love humanity and try 
 #
 
 If ye be truly united, if ye agree to promote that which is the essential purpose, and to show forth an all‑unifying love, I swear by Him Who causeth the seed to split and the breeze to waft, so great a light will shine forth from your faces as to reach the highest heavens, the fame of your glory will be noised abroad, the evidences of your preeminence will spread throughout all regions, your power will penetrate the realities of all things, your aims and purposes will exert their influence upon the great and mighty nations, your spirits will encompass the whole world of being, and ye will discover yourselves to be kings in the dominions of the Kingdom, and attired with the glorious crowns of the invisible Realm, and become the marshals of the army of peace, and princes of the forces of light, and stars shining from the horizon of perfection, and brilliant lamps shedding their radiance upon men.
+
+#
+source="‘Abdu’l‑Bahá in London, p. 91"
+
+I find England awake; there is spiritual life here. But your poor are so very poor! This should not be. On the one hand you have wealth, and great luxury; on the other hand men and women are living in the extremities of hunger and want. This great contrast of life is one of the blots on the civilisation of this enlightened age. You must turn attention more earnestly to the betterment of the conditions of the poor. Do not be satisfied until each one with whom you are concerned is to you as a member of your family. Regard each one either as a father, or as a brother, or as a sister, or as a mother, or as a child. If you can attain to this, your difficulties will vanish, you will know what to do. This is the teaching of Bahá’u’lláh.

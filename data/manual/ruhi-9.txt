@@ -1,8 +1,8 @@
 Book 9: Gaining an Historical Perspective
 author="Ruhi Institute"
-years=[2019.0612,2019.0612]
 
 # Unit 1: The Eternal Covenant
+years=[2017.0409,2017.0409]
 
 ## Section 1
 
@@ -74,7 +74,7 @@ Should there be ignited in thy heart the burning brand of the love of God, thou 
 
 O living flame of heavenly love! Thine heart hath been so fired with the love of God that from ten thousand leagues afar its warmth and radiance may be felt and seen. The fire lit by mortal hand imparteth light and warmth to but a little space, whereas that sacred flame which the Hand of God hath kindled, though burning in the east, will set aflame the west and give warmth to both the north and the south; nay, it shall rise from this world to glow with the hottest flame in the realms on high, flooding with light the Kingdom of eternal glory.
 
-Were you to ponder, but for a while, these utterances in your heart, you would surely find the portals of understanding unlocked before your face, and would behold all knowledge and the mysteries thereof unveiled before your eyes.
+Wert thou to ponder, but for a while, these utterances in thy heart, thou wouldst surely find the portals of understanding unlocked before thy face, and wouldst behold all knowledge and the mysteries thereof unveiled before thine eyes.
 
 Say, implore God to open to your hearts the portals of true understanding that ye may be apprised of that of which no one is apprised. Verily, He is the Giver, the Forgiving, the Compassionate.
 
@@ -436,7 +436,7 @@ Think not that We have revealed unto you a mere code of laws. Nay, rather, We ha
 
 O Son of Man! Veiled in My immemorial being and in the ancient eternity of My essence, I knew My love for thee; therefore I created thee, have engraved on thee Mine image and revealed to thee My beauty.
 
-O Son of Spirit! My claim on thee is great, it cannot be forgotten. My grace to thee is plenteous, it cannot be veiled. My love has made in thee its home, it cannot be concealed. My light is manifest to thee, it cannot be obscured.
+O Son of Spirit! My claim on thee is great, it cannot be forgotten. My grace to thee is plenteous, it cannot be veiled. My love hath made in thee its home, it cannot be concealed. My light is manifest to thee, it cannot be obscured.
 
 O Son of Being! My love is My stronghold; he that entereth therein is safe and secure, and he that turneth away shall surely stray and perish.
 
@@ -481,6 +481,7 @@ Say: True liberty consisteth in man’s submission unto My commandments, little 
 O Son of Man! Wert thou to speed through the immensity of space and traverse the expanse of heaven, yet thou wouldst find no rest save in submission to Our command and humbleness before Our Face.
 
 # Unit 2: Passage to Maturity
+years=[2018.0528,2018.0528]
 
 ## Section 1
 
@@ -705,6 +706,7 @@ God says in the Qur’án: ‘Take ye hold of the Cord of God, all of you, and b
 In the contingent world there are many collective centres which are conducive to association and unity between the children of men. For example, patriotism is a collective centre; nationalism is a collective centre; identity of interests is a collective centre; political alliance is a collective centre; the union of ideals is a collective centre, and the prosperity of the world of humanity is dependent upon the organisation and promotion of the collective centres. Nevertheless, all the above institutions are, in reality, the matter and not the substance, accidental and not eternal—temporary and not everlasting. With the appearance of great revolutions and upheavals, all these collective centres are swept away. But the Collective Centre of the Kingdom, embodying the institutions and divine teachings, is the eternal Collective Centre. It establishes relationship between the East and the West, organises the oneness of the world of humanity, and destroys the foundation of differences. It overcomes and includes all the other collective centres. Like unto the ray of the sun, it dispels entirely the darkness encompassing all the regions, bestows ideal life, and causes the effulgence of divine illumination. Through the breaths of the Holy Spirit it performs miracles; the Orient and the Occident embrace each other, the North and South become intimates and associates, conflicting and contending opinions disappear, antagonistic aims are brushed aside, the law of the struggle for existence is abrogated, and the canopy of the oneness of the world of humanity is raised on the apex of the globe, casting its shade over all the races of men. Consequently, the real Collective Centre is the body of the divine teachings, which include all the degrees and embrace all the universal relations and necessary laws of humanity.
 
 # Unit 3: A Sacred Enterprise
+years=[2019.0612,2019.0612]
 
 ## Section 1
 
