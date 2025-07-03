@@ -536,6 +536,14 @@ const sources: Record<
       ["their hands.” Although the", "their hands.”\n\nAlthough the"],
       ["inmost selves. . . . That the", "inmost selves. . . .\n\nThat the"],
       ["bear witness unto that", "bear witness to that"],
+      [/\(/g, "["],
+      [/\)/g, "]"],
+      [
+        "[so great is this reflecting power]",
+        "(so great is this reflecting power)",
+      ],
+      ["Say: O God, my God!", "Say: . . .\n\nO God, my God!"],
+      ["Say: O my Lord", "Say: . . .\n\nO my Lord"],
     ],
     "hidden-words": [
       [/^Bahá’u’lláh/m, ""],
@@ -2331,6 +2339,7 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
       ],
       ["should they keep aloof from", "should they . . . keep aloof from"],
       ["compassion—“The Lord", "compassion . . . “The Lord"],
+      ["O Land of Tá (Ṭihrán)", "O Land of Tá [Ṭihrán]"],
     ],
   },
   books: {

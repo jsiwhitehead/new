@@ -12,8 +12,8 @@ import type { RenderContent, RenderQuote } from "../src/server";
 import renderTree from "./Tree";
 import { Column, Row, SizeContext, Text } from "./Utils";
 
-const showQuoted = true;
-const showQuoteSources = true;
+const showQuoted = false;
+const showQuotedSources = false;
 const showInlineSources = true;
 
 const authorColours = {
@@ -299,135 +299,123 @@ export default function App() {
     <SizeContext value={17}>
       <ScrollRestoration />
       <Column
-        gap={20}
+        gap={40}
         style={{
           padding: "30px 10px 120px",
-          maxWidth: "670px",
+          maxWidth: "730px",
           margin: "0 auto",
         }}
       >
-        <Text to="/" style={{ color: "darkred", fontWeight: "bold" }}>
-          Bahá’í Explore
-        </Text>
+        <Column gap={20}>
+          <Text to="/" style={{ color: "darkred", fontWeight: "bold" }}>
+            Bahá’í Explore
+          </Text>
 
-        {/* <input
+          {/* <input
           type="text"
           value={searchTerm}
           placeholder="Search..."
           onChange={(e) => setSearchTerm(e.target.value)}
         /> */}
 
-        <Breadcrumbs size={17} path={[["All", "/"], ...path]} />
+          <Breadcrumbs size={17} path={[["All", "/"], ...path]} />
 
-        {Object.keys(tree).length > 0 && (
-          <div style={{ paddingLeft: 15 }}>
-            {renderTree(tree, path[path.length - 1]?.[1] || "")}
-          </div>
-        )}
+          {Object.keys(tree).length > 0 && (
+            <div style={{ paddingLeft: 15 }}>
+              {renderTree(tree, path[path.length - 1]?.[1] || "")}
+            </div>
+          )}
 
-        {showContent && (
-          <input
-            type="range"
-            value={level}
-            min={0}
-            max={5}
-            step={1}
-            onChange={(e) => setLevel(parseInt(e.target.value, 10))}
-          />
-        )}
-
+          {showContent && (
+            <input
+              type="range"
+              value={level}
+              min={0}
+              max={5}
+              step={1}
+              onChange={(e) => setLevel(parseInt(e.target.value, 10))}
+            />
+          )}
+        </Column>
         {showContent &&
-          data.map((section, index) => (
-            <Column gap={25} style={{ paddingTop: 30 }} key={index}>
-              <Text
-                size={30}
-                style={{
-                  fontWeight: "bold",
-                  textAlign: "center",
-                  paddingBottom: 10,
-                }}
-              >
-                {section.path[section.path.length - 1]![0]}
-              </Text>
-              {section.content.map((para: any) =>
-                !(
-                  (para.quoted.length > 0 && showQuoteSources) ||
-                  para.sources.length > 0
-                ) ? (
-                  <Paragraph
-                    para={para.content}
-                    paraId={para.paraId}
-                    quotes={para.quotes}
-                    key={para.paraId}
-                  />
-                ) : (
-                  <Column
-                    style={{ paddingBottom: 25 }}
-                    gap={25}
-                    key={para.paraId}
-                  >
-                    <Paragraph
-                      para={para.content}
-                      paraId={para.paraId}
-                      quotes={para.quotes}
-                    />
-                    {para.quoted.length > 0 &&
-                      showQuoteSources &&
-                      para.quoted.map((quote: any, i: number) => (
+          data.map(({ sources, content }, index) => (
+            <Fragment key={index}>
+              {index !== 0 && <div style={{ height: 3, background: "#ddd" }} />}
+              <Column gap={25}>
+                <Column gap={11.5} style={{ paddingBottom: 15 }}>
+                  {sources.map((source: any, i: number) => (
+                    <Row
+                      gap={`${11.5}px ${14 * 0.6}px`}
+                      style={{ flexWrap: "wrap", fontWeight: "bold" }}
+                      key={i}
+                    >
+                      {source.path.map(
+                        ([label, url]: [string, string], j: number) => (
+                          <Row gap={14 * 0.6} key={j}>
+                            {j > 0 && (
+                              <svg
+                                style={{
+                                  flexShrink: 0,
+                                  height: 14 * 0.6,
+                                }}
+                                viewBox="-0.5 -1 1.5 2"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <polygon
+                                  points="-0.5,0.866 -0.5,-0.866 1.0,0.0"
+                                  fill="#333"
+                                />
+                              </svg>
+                            )}
+                            <Text
+                              to={source.author === "Ruhi Institute" ? "" : url}
+                              style={{
+                                color: authorColours[source.author],
+                              }}
+                            >
+                              {label}
+                            </Text>
+                          </Row>
+                        )
+                      )}
+                    </Row>
+                  ))}
+                </Column>
+                {content.map((para: any) =>
+                  !(para.quoted.length > 0 && showQuotedSources) ? (
+                    <div
+                      key={para.paraId}
+                      style={{ maxWidth: 670, width: "100%", margin: "0 auto" }}
+                    >
+                      <Paragraph
+                        para={para.content}
+                        paraId={para.paraId}
+                        quotes={para.quotes}
+                      />
+                    </div>
+                  ) : (
+                    <Column
+                      style={{
+                        maxWidth: 670,
+                        margin: "0 auto",
+                        paddingBottom: 25,
+                      }}
+                      gap={25}
+                      key={para.paraId}
+                    >
+                      <Paragraph
+                        para={para.content}
+                        paraId={para.paraId}
+                        quotes={para.quotes}
+                      />
+                      {para.quoted.map((quote: any, i: number) => (
                         <BlockQuote key={i} quote={quote} left />
                       ))}
-                    {para.sources.length > 0 && (
-                      <Column gap={11.5}>
-                        {para.sources.map((source: any) => (
-                          <Row
-                            gap={`${11.5}px ${14 * 0.6}px`}
-                            style={{
-                              flexWrap: "wrap",
-                              opacity: 0.5,
-                              fontWeight: "bold",
-                            }}
-                          >
-                            {source.path.map(
-                              ([label, url]: [string, string], j: number) => (
-                                <Row gap={14 * 0.6} key={j}>
-                                  {j > 0 && (
-                                    <svg
-                                      style={{
-                                        flexShrink: 0,
-                                        height: 14 * 0.6,
-                                      }}
-                                      viewBox="-0.5 -1 1.5 2"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <polygon
-                                        points="-0.5,0.866 -0.5,-0.866 1.0,0.0"
-                                        fill="#333"
-                                      />
-                                    </svg>
-                                  )}
-                                  <Text
-                                    to={
-                                      source.author === "Ruhi Institute"
-                                        ? ""
-                                        : url
-                                    }
-                                    style={{
-                                      color: authorColours[source.author],
-                                    }}
-                                  >
-                                    {label}
-                                  </Text>
-                                </Row>
-                              )
-                            )}
-                          </Row>
-                        ))}
-                      </Column>
-                    )}
-                  </Column>
-                )
-              )}
-            </Column>
+                    </Column>
+                  )
+                )}
+              </Column>
+            </Fragment>
           ))}
       </Column>
     </SizeContext>

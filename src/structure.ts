@@ -73,6 +73,13 @@ export interface Section {
   content: SectionContent[];
 }
 
+const toChars = (text: string): string =>
+  text
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, "");
+
 const ignoreStarts: string[] = [
   "aba",
   "Aba‑",
@@ -619,18 +626,25 @@ const ruhiKeys = [
     })
   );
   let index = 1;
+  const prayersChars = prayers.map((p) =>
+    p.content.map((c) => toChars(getText(c))).join("")
+  );
   await writeJSON(
     "structure",
     "prayers",
-    prayers.map((x) => {
-      x.prayer = x.path[0]![0];
-      x.path = [
-        ["Prayers", "prayers", indexAuthors["Prayers"]!],
-        [`${index}`, `${index}`, index],
-      ];
-      index++;
-      return x;
-    })
+    prayers
+      .filter(
+        (_, i) => !prayersChars.slice(i + 1).some((x) => x === prayersChars[i])
+      )
+      .map((x) => {
+        x.prayer = x.path[0]![0];
+        x.path = [
+          ["Prayers", "prayers", indexAuthors["Prayers"]!],
+          [`${index}`, `${index}`, index],
+        ];
+        index++;
+        return x;
+      })
   );
   let currentMessage = "";
   index = 0;

@@ -422,10 +422,8 @@ const mergeQuotes = (quotes: Ref[]) => {
 };
 
 const getRenderContent = (
-  para: ParaText | null
-): { content: RenderContent | null; quotes: MultiRef[] } => {
-  if (!para) return { content: null, quotes: [] };
-
+  para: ParaText
+): { content: RenderContent; quotes: MultiRef[] } => {
   capitaliseQuotes(para);
   alternateQuoteMarks(para);
 
@@ -551,9 +549,7 @@ const joinQuotes = (quotes: MultiRef[][]) => {
       const next = quotes[i + 1]![0]!;
       if (
         current.section === next.section &&
-        current.paragraph[current.paragraph.length - 1]! <=
-          next.paragraph[0]! &&
-        data[current.section]!.path[1]![0] !== "The Hidden Words"
+        current.paragraph[current.paragraph.length - 1]! <= next.paragraph[0]!
       ) {
         next.paragraph = [...current.paragraph, ...next.paragraph];
         quotes[i] = [];
@@ -610,7 +606,7 @@ const getData = (
     };
   }
 
-  const result = filtered.map(({ section }) => {
+  const result = filtered.flatMap(({ section, index }) => {
     const paraIds = getParagraphIds(section);
     const allFullQuote = section.content.every((para) => {
       if (typeof para === "string") {
@@ -646,38 +642,66 @@ const getData = (
                 bDoc.path.map((p: [string, string, number]) => p[2])
               );
             }),
-          sources: mergeQuotes(
-            allFullQuote && Array.isArray(para)
-              ? para.filter((part) => typeof part !== "string")
-              : []
-          ),
+          sources: allFullQuote
+            ? mergeQuotes(
+                Array.isArray(para)
+                  ? para.filter((part) => typeof part !== "string")
+                  : []
+              )
+            : [{ section: index, paragraph: [paraIndex] }],
         };
       })
       .filter((para) => para !== null);
-    const joinedQuotes = joinQuotes(content.map((c) => c.quotes));
     const joinedSources = joinQuotes(content.map((c) => c.sources));
-    return {
-      ...section,
-      content: content
-        .map((p, i) => ({
-          ...p,
-          quotes: joinedQuotes[i]!.map((q) => getUrlQuote(q)),
-          quoted: [
-            ...new Set(p.quoted.map((q) => JSON.stringify(getUrlQuote(q)))),
-          ].map((q) => JSON.parse(q)),
-          sources: joinedSources[i]!.map((q) => getUrlQuote(q)),
-        }))
-        .filter((p, i) => {
-          if ((p.content as any)?.type !== "break") return true;
-          return [content[i - 1]?.content, content[i + 1]?.content].some(
-            (p) => p && (p as any)?.type !== "break"
-          );
-        }),
-    };
+    return content
+      .map((p, i) => ({ ...p, sources: joinedSources[i]! }))
+      .filter((p, i) => {
+        if ((p.content as any)?.type !== "break") return true;
+        return [content[i - 1]?.content, content[i + 1]?.content].some(
+          (p) => p && (p as any)?.type !== "break"
+        );
+      });
   });
 
+  const docs = [
+    {
+      sources: [] as MultiRef[],
+      content: [] as {
+        paraId: string;
+        content: RenderContent;
+        quoted: Ref[];
+        quotes: MultiRef[];
+      }[],
+    },
+  ];
+  for (const { sources, ...para } of result) {
+    if (sources.length > 1) {
+      docs.push({ sources, content: [para] }, { sources: [], content: [] });
+    } else {
+      docs[docs.length - 1]!.content.push(para);
+      if (sources.length === 1) {
+        docs[docs.length - 1]!.sources = sources;
+        docs.push({ sources: [], content: [] });
+      }
+    }
+  }
+
   return {
-    data: result.filter((x) => x.content.length > 0),
+    data: docs
+      .filter((d) => d.content.length > 0)
+      .map((d) => {
+        const joinedQuotes = joinQuotes(d.content.map((c) => c.quotes));
+        return {
+          sources: d.sources.map((q) => getUrlQuote(q)),
+          content: d.content.map((p, i) => ({
+            ...p,
+            quoted: [
+              ...new Set(p.quoted.map((q) => JSON.stringify(getUrlQuote(q)))),
+            ].map((q) => JSON.parse(q)) as RenderQuote[],
+            quotes: joinedQuotes[i]!.map((q) => getUrlQuote(q)),
+          })),
+        };
+      }),
     path,
     tree: nestedTree,
     showContent: true,
