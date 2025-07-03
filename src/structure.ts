@@ -21,10 +21,10 @@ const indexAuthors = {
   "Shoghi Effendi": 5,
   "The Universal House of Justice": 6,
   Documents: 7,
-  "Ruhi Institute": 8,
-  Compilations: 9,
-  Books: 10,
-  Stories: 11,
+  Compilations: 8,
+  Books: 9,
+  Stories: 10,
+  "Ruhi Institute": 11,
 } as Record<string, number>;
 
 const urlAuthors = {
@@ -35,10 +35,10 @@ const urlAuthors = {
   "Shoghi Effendi": "shoghi-effendi",
   "The Universal House of Justice": "the-universal-house-of-justice",
   Documents: "documents",
-  "Ruhi Institute": "ruhi",
   Compilations: "compilations",
   Books: "books",
   Stories: "stories",
+  "Ruhi Institute": "ruhi",
 } as Record<string, string>;
 
 export interface Quote {

@@ -44,3 +44,21 @@ export const writeJSON = async <T>(
     "utf-8"
   );
 };
+
+export const comparePathNums = (a: number[], b: number[]) => {
+  const len = Math.max(a.length, b.length);
+  for (let i = 0; i < len; i++) {
+    const aVal = a[i];
+    const bVal = b[i];
+
+    if (aVal === undefined) return -1;
+    if (bVal === undefined) return 1;
+
+    if (aVal !== bVal && aVal === 0) return 1;
+    if (aVal !== bVal && bVal === 0) return -1;
+
+    if (aVal < bVal) return -1;
+    if (aVal > bVal) return 1;
+  }
+  return 0;
+};

@@ -1,6 +1,13 @@
 import baseData from "../data/data.json";
 
+import type { Ref } from "./link";
 import type { Quote, Section, SectionContent } from "./structure";
+import { comparePathNums } from "./utils";
+
+interface MultiRef {
+  section: number;
+  paragraph: number[];
+}
 
 export interface RenderQuote {
   path: [string, string][];
@@ -11,27 +18,18 @@ interface ParaText {
   type?: "break" | "info" | "call" | "framing";
   text: string;
   lines?: number[];
-  quotes?: {
-    start: number;
-    end: number;
-    quote: { section: number; paragraph: number };
-  }[];
-  quoted: {
-    start: number;
-    end: number;
-    quote: { section: number; paragraph: number };
-  }[];
+  quotes?: { start: number; end: number; quote: Ref }[];
+  quoted: { start: number; end: number; quote: Ref }[];
   allSpecial: boolean;
 }
 
 export type RenderContent =
   | { type: "break" }
-  | { text: string; quote?: true | RenderQuote; quoted: number }[]
+  | { text: string; quoted: number; quote?: true | RenderQuote }[]
   | {
-      type: "normal" | "info" | "call" | "framing" | "lines";
+      type: "info" | "call" | "framing" | "lines" | "quote";
       lines: { text: string; quoted: number }[][];
       allSpecial: boolean;
-      quote?: RenderQuote;
     };
 
 const data = baseData as Section[];
@@ -92,10 +90,7 @@ const getParasString = (paras: number[], paraIds: string[]) => {
   return result.join(", ");
 };
 
-const getUrlQuote = (source: {
-  section: number;
-  paragraph: number | number[];
-}): RenderQuote => {
+const getUrlQuote = (source: Ref | MultiRef): RenderQuote => {
   let current = "";
   const section = data[source.section]!;
   const res: [string, string][] = section.path.map((p) => {
@@ -141,6 +136,11 @@ const getUrlQuote = (source: {
   ) {
     res[2]![0] = res[2]![0].split(",")[0]!;
     res.splice(1, 1);
+  } else if (res[1]![0] === "Junior Youth Texts") {
+    res.splice(1, 1);
+  }
+  if (res[0]![0] === "Ruhi Institute") {
+    res.splice(2);
   }
 
   for (const chunk of res.slice(1)) {
@@ -185,12 +185,7 @@ const getQuoteText = (quote: Quote) =>
 
 const getPara = (
   para: SectionContent,
-  flatQuoted: {
-    start: number;
-    end: number;
-    section: number;
-    paragraph: number;
-  }[] = [],
+  flatQuoted: Quote[] = [],
   allSpecial: boolean
 ): ParaText => {
   const quoted = flatQuoted.map(({ start, end, section, paragraph }) => ({
@@ -205,20 +200,11 @@ const getPara = (
     return { text: getQuoteText(part), quote: part };
   });
   let current = 0;
-  const res = {
-    text: "",
-    quotes: [] as {
-      start: number;
-      end: number;
-      quote: { section: number; paragraph: number };
-    }[],
-    quoted,
-    allSpecial,
-  };
+  const res: ParaText = { text: "", quotes: [], quoted, allSpecial };
   for (const { text, quote } of parts) {
     res.text += text;
     if (quote) {
-      res.quotes.push({
+      res.quotes!.push({
         start: current,
         end: current + text.length,
         quote: { section: quote.section, paragraph: quote.paragraph },
@@ -226,8 +212,8 @@ const getPara = (
     }
     current += text.length;
   }
-  for (let i = 0; i < res.quotes.length; i++) {
-    const current = res.quotes[i]!;
+  for (let i = 0; i < res.quotes!.length; i++) {
+    const current = res.quotes![i]!;
     const pre = res.text.slice(0, current.start).match(/“[^a-z0-9‘]*$/)?.[0];
     if (pre) current.start = current.start - pre.length;
     const post = res.text.slice(current.end).match(/^[^a-z0-9’]*”/)?.[0];
@@ -241,7 +227,7 @@ const slicePara = (
   part: { start: number; end: number }
 ): ParaText => {
   const lines = para.lines
-    ? para.lines.filter((x) => part.start < x && x < part.end)
+    ? para.lines.filter((x) => part.start <= x && x <= part.end)
     : [];
   const quotes = para.quotes
     ? para.quotes.filter((q) => q.start < part.end && part.start < q.end)
@@ -249,10 +235,7 @@ const slicePara = (
   return {
     type: para.type,
     text: para.text.slice(part.start, part.end),
-    lines:
-      lines.length > 0
-        ? [0, ...lines.map((x) => x - part.start), part.end]
-        : undefined,
+    lines: lines.length > 0 ? lines.map((x) => x - part.start) : undefined,
     quotes:
       quotes.length > 0
         ? quotes.map((q) => ({
@@ -274,57 +257,34 @@ const slicePara = (
 
 const joinParaParts = (parts: (string | ParaText)[]): ParaText => {
   const paraParts = parts.filter((p) => typeof p !== "string");
-
-  if (paraParts.length === 1 && paraParts[0]!.lines) {
-    const result: ParaText = {
-      text: "",
-      lines: [],
-      quoted: [],
-      allSpecial: paraParts[0]!.allSpecial,
-    };
-    let current = 0;
-    for (const part of parts) {
-      if (typeof part === "string") {
-        result.text += part;
-        current += part.length;
-      } else {
-        result.text += part.text;
-        result.lines = part.lines!.map((x) => x + current);
-        result.quoted = part.quoted.map((q) => ({
-          start: q.start + current,
-          end: q.end + current,
-          quote: q.quote,
-        }));
-        current += part.text.length;
-      }
-    }
-    return result;
-  }
-
   const types = [...new Set(paraParts.map((p) => p.type))];
   const allSpecials = [...new Set(paraParts.map((p) => p.allSpecial))];
-  const result: ParaText = {
+
+  const res: ParaText = {
     type: types.length === 1 ? types[0] : undefined,
     text: "",
+    lines: [],
     quotes: [],
     quoted: [],
     allSpecial: allSpecials.length === 1 ? allSpecials[0]! : false,
   };
+
   let current = 0;
   for (const part of parts) {
     if (typeof part === "string") {
-      result.text += part;
+      res.text += part;
       current += part.length;
     } else {
-      result.text += part.text;
-      result.quotes!.push(
+      res.text += part.text;
+      res.lines!.push(...(part.lines || []).map((x) => x + current));
+      res.quotes!.push(
         ...(part.quotes || []).map((q) => ({
           start: q.start + current,
           end: q.end + current,
           quote: q.quote,
         }))
       );
-      result.quoted.push(
+      res.quoted.push(
         ...part.quoted.map((q) => ({
           start: q.start + current,
           end: q.end + current,
@@ -334,18 +294,26 @@ const joinParaParts = (parts: (string | ParaText)[]): ParaText => {
       current += part.text.length;
     }
   }
-  if (result.quotes!.length === 0) delete result.quotes;
-  return result;
+
+  res.lines = [...new Set([0, ...res.lines!, res.text.length])];
+  if (res.lines.length === 2) delete res.lines;
+
+  if (res.quotes!.length > 0) delete res.lines;
+  else delete res.quotes;
+
+  if (res.quotes || res.lines) delete res.type;
+
+  return res;
 };
 
 const getFullQuotedPara = (paraBase: SectionContent): ParaText => {
   if (typeof paraBase === "string") {
     return { text: paraBase, quoted: [], allSpecial: false };
   }
-  const para = paraBase as (
-    | string
-    | { section: number; paragraph: number; start: number; end: number }
-  )[];
+  if (!Array.isArray(paraBase)) {
+    return { type: "break", text: "", quoted: [], allSpecial: false };
+  }
+  const para = paraBase as (string | Quote)[];
   return joinParaParts(
     para.map((part) => {
       if (typeof part === "string") return part;
@@ -375,6 +343,8 @@ const getIndices = (
   ].sort((a, b) => a - b);
 
 const filterQuoted = (para: ParaText, level: number): ParaText | null => {
+  if (para.type === "break") return para;
+
   const indices = getIndices(para.text.length, para.quoted);
   const quotedParts = indices
     .slice(1)
@@ -438,37 +408,42 @@ const alternateQuoteMarks = (para: ParaText) => {
   para.text = res;
 };
 
+const mergeQuotes = (quotes: Ref[]) => {
+  const res: MultiRef[] = [];
+  for (const { section, paragraph } of quotes) {
+    if (!res.find((s) => s.section === section)) {
+      res.push({ section, paragraph: [paragraph] });
+    } else {
+      const s = res.find((s) => s.section === section)!;
+      s.paragraph.push(paragraph);
+    }
+  }
+  return res;
+};
+
 const getRenderContent = (
   para: ParaText | null
-): { content: RenderContent | null; quoted: RenderQuote[] } => {
-  if (!para) return { content: null, quoted: [] };
+): { content: RenderContent | null; quotes: MultiRef[] } => {
+  if (!para) return { content: null, quotes: [] };
 
-  const quoted = [
-    ...new Set(para.quoted.map((q) => JSON.stringify(q.quote))),
-  ].map((q) => getUrlQuote(JSON.parse(q)));
   capitaliseQuotes(para);
   alternateQuoteMarks(para);
 
-  if (para.type === "break") return { content: { type: "break" }, quoted };
+  if (para.type === "break") return { content: { type: "break" }, quotes: [] };
 
   const quotedIndices = getIndices(para.text.length, para.quoted);
 
-  const sources: { section: number; paragraph: number }[] = [
-    ...new Set((para.quotes || []).map(({ quote }) => JSON.stringify(quote))),
-  ].map((x) => JSON.parse(x));
-
   const quoteIndices = getIndices(para.text.length, para.quotes || []);
-  const quoteParts: {
-    text: string;
-    quote?: { section: number; paragraph: number } | true;
-  }[] = quoteIndices.slice(1).map((end, i) => {
-    const start = quoteIndices[i]!;
-    return {
-      text: para.text.slice(start, end),
-      quote: (para.quotes || []).find((q) => q.start <= start && end <= q.end)
-        ?.quote,
-    };
-  });
+  const quoteParts: { text: string; quote?: Ref | true }[] = quoteIndices
+    .slice(1)
+    .map((end, i) => {
+      const start = quoteIndices[i]!;
+      return {
+        text: para.text.slice(start, end),
+        quote: (para.quotes || []).find((q) => q.start <= start && end <= q.end)
+          ?.quote,
+      };
+    });
   for (let i = 0; i < quoteParts.length; i++) {
     const current = quoteParts[i]!;
     const prev = quoteParts[i - 1]!;
@@ -483,12 +458,11 @@ const getRenderContent = (
     }
   }
 
-  const singleQuote =
-    sources.length === 1 && quoteParts.every((part) => part.quote);
-  if (singleQuote || para.type) {
+  const allQuote = quoteParts.every((part) => part.quote);
+  if (allQuote || para.type) {
     return {
       content: {
-        type: singleQuote ? "normal" : para.type!,
+        type: allQuote ? "quote" : para.type!,
         lines: [
           quotedIndices.slice(1).map((end, i) => {
             const start = quotedIndices[i]!;
@@ -501,9 +475,10 @@ const getRenderContent = (
           }),
         ],
         allSpecial: para.allSpecial,
-        quote: singleQuote ? getUrlQuote(sources[0]!) : undefined,
       },
-      quoted,
+      quotes: mergeQuotes(
+        ((allQuote && para.quotes) || []).map((q) => q.quote!)
+      ),
     };
   }
 
@@ -530,7 +505,7 @@ const getRenderContent = (
         }),
         allSpecial: para.allSpecial,
       },
-      quoted,
+      quotes: [],
     };
   }
 
@@ -566,71 +541,26 @@ const getRenderContent = (
       (resQuoteParts[i]!.quote as any) = true;
     }
   }
-  return { content: result, quoted };
+  return { content: result, quotes: [] };
 };
 
-const getDisplaySources = (section: Section) => {
-  if (
-    !section.content.every(
-      (para) =>
-        (typeof para === "string" && textIsConnector(para)) ||
-        (Array.isArray(para) &&
-          para.every(
-            (part) => typeof part !== "string" || textIsConnector(part)
-          ))
-    )
-  ) {
-    return null;
-  }
-  const paraSources: { section: number; paragraph: number }[][] =
-    section.content.map((para) => {
-      if (!Array.isArray(para)) return [];
-      return [
-        ...new Set(
-          para
-            .filter((part) => typeof part !== "string")
-            .map(({ section, paragraph }) =>
-              JSON.stringify({ section, paragraph })
-            )
-        ),
-      ].map((x) => JSON.parse(x));
-    });
-  const displaySources: (null | {
-    section: number;
-    paragraph: number[];
-  })[] = paraSources.map((s) =>
-    s.length === 1
-      ? { section: s[0]!.section, paragraph: [s[0]!.paragraph] }
-      : null
-  );
-  for (let i = 0; i < displaySources.length - 1; i++) {
-    const current = displaySources[i];
-    const next = displaySources[i + 1];
-    if (
-      current &&
-      next &&
-      current.section === next.section &&
-      data[current.section]!.path[1]![0] !== "The Hidden Words"
-    ) {
-      next.paragraph = [...current.paragraph, ...next.paragraph];
-      displaySources[i] = null;
+const joinQuotes = (quotes: MultiRef[][]) => {
+  for (let i = 0; i < quotes.length - 1; i++) {
+    if (quotes[i]!.length === 1 && quotes[i + 1]?.length === 1) {
+      const current = quotes[i]![0]!;
+      const next = quotes[i + 1]![0]!;
+      if (
+        current.section === next.section &&
+        current.paragraph[current.paragraph.length - 1]! <=
+          next.paragraph[0]! &&
+        data[current.section]!.path[1]![0] !== "The Hidden Words"
+      ) {
+        next.paragraph = [...current.paragraph, ...next.paragraph];
+        quotes[i] = [];
+      }
     }
   }
-  return displaySources;
-};
-
-const joinParagraphBreaks = (paras: any[]) => {
-  const res: any[] = [];
-  for (const para of paras) {
-    if (para.content.type === "break") {
-      const last = res[res.length - 1];
-      if (last && last?.content.type !== "break") res.push(para);
-    } else {
-      res.push(para);
-    }
-  }
-  if (res[res.length - 1]?.content.type === "break") res.pop();
-  return res;
+  return quotes;
 };
 
 const getData = (
@@ -682,28 +612,67 @@ const getData = (
 
   const result = filtered.map(({ section }) => {
     const paraIds = getParagraphIds(section);
-    const displaySources = getDisplaySources(section);
+    const allFullQuote = section.content.every((para) => {
+      if (typeof para === "string") {
+        return textIsConnector(para);
+      }
+      if (Array.isArray(para)) {
+        return para.every(
+          (part) => typeof part !== "string" || textIsConnector(part)
+        );
+      }
+      return "type" in para && para.type === "break";
+    });
     const allSpecial = getAllSpecial(section);
+    const content = section.content
+      .map((para, paraIndex) => {
+        const paraText = filterQuoted(
+          allFullQuote
+            ? getFullQuotedPara(para)
+            : getPara(para, section.quoted?.[paraIndex], allSpecial),
+          level
+        );
+        if (!paraText) return null;
+        return {
+          paraId: paraIds[paraIndex]!,
+          ...getRenderContent(paraText),
+          quoted: paraText.quoted
+            .map((q) => q.quote)
+            .sort((aQuote, bQuote) => {
+              const aDoc = data[aQuote.section]!;
+              const bDoc = data[bQuote.section]!;
+              return comparePathNums(
+                aDoc.path.map((p: [string, string, number]) => p[2]),
+                bDoc.path.map((p: [string, string, number]) => p[2])
+              );
+            }),
+          sources: mergeQuotes(
+            allFullQuote && Array.isArray(para)
+              ? para.filter((part) => typeof part !== "string")
+              : []
+          ),
+        };
+      })
+      .filter((para) => para !== null);
+    const joinedQuotes = joinQuotes(content.map((c) => c.quotes));
+    const joinedSources = joinQuotes(content.map((c) => c.sources));
     return {
       ...section,
-      content: joinParagraphBreaks(
-        section.content
-          .map((para, paraIndex) => ({
-            paraId: paraIds[paraIndex]!,
-            ...getRenderContent(
-              filterQuoted(
-                displaySources
-                  ? getFullQuotedPara(para)
-                  : getPara(para, section.quoted?.[paraIndex], allSpecial),
-                level
-              )
-            ),
-            source: displaySources?.[paraIndex]
-              ? getUrlQuote(displaySources[paraIndex]!)
-              : undefined,
-          }))
-          .filter((para) => para.content !== null)
-      ),
+      content: content
+        .map((p, i) => ({
+          ...p,
+          quotes: joinedQuotes[i]!.map((q) => getUrlQuote(q)),
+          quoted: [
+            ...new Set(p.quoted.map((q) => JSON.stringify(getUrlQuote(q)))),
+          ].map((q) => JSON.parse(q)),
+          sources: joinedSources[i]!.map((q) => getUrlQuote(q)),
+        }))
+        .filter((p, i) => {
+          if ((p.content as any)?.type !== "break") return true;
+          return [content[i - 1]?.content, content[i + 1]?.content].some(
+            (p) => p && (p as any)?.type !== "break"
+          );
+        }),
     };
   });
 

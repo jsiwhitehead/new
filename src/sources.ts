@@ -1982,6 +1982,7 @@ Emphasising, in this same Charter of the Administrative Order, the importance of
 
 Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, hath not obeyed God; whoso rebelleth against him and against them hath rebelled against God; whoso opposeth him hath opposed God; whoso contendeth with them hath contended with God. . . .`,
       ],
+      ["“the chosen branch” (Ghuṣn‑i‑Mumtáz)", "“the chosen branch”"],
     ],
     "additional-messages": [],
     additional: [],
@@ -2112,6 +2113,7 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
       [/^A Selection of Prayers Revealed by.*/m, ""],
       removeAfter("Notes"),
       ["Bahá’í Prayers", ""],
+      [/Intone, O My .*Source of power and wisdom.\n\n—Bahá’u’lláh/s, ""],
       [/Obligatory Prayers.*Kitáb‑i‑Aqdas, p\. 36/s, ""],
       [/Marriage.*abide by the Will of God.”/s, ""],
       [/The Fast.*through March 20./s, ""],
@@ -2161,7 +2163,6 @@ Whatsoever they decide is of God. Whoso obeyeth him not, neither obeyeth them, h
       prefix(/^\(This Tablet is read at the Shrines/m, "* "),
       prefix(/^\(This prayer, revealed by ‘Abdu’l‑Bahá/m, "* "),
       prefix(/^Whoso reciteth this prayer with lowliness/m, "* "),
-      prefix("Intone, O My servant, the verses of God", "prayer=false\n\n"),
       prefix("He is the King, the All‑Knowing, the", "prayer=false\n\n"),
       prefix("In the Name of God, the Most Ancient", "prayer=false\n\n"),
       prefix("He is the Gracious, the Well‑Beloved!", "prayer=false\n\n"),

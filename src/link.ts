@@ -1,8 +1,8 @@
 import sources from "./sources";
 import type { Quote, RefQuote, Section, SectionContent } from "./structure";
-import { readJSON, writeJSON } from "./utils";
+import { comparePathNums, readJSON, writeJSON } from "./utils";
 
-interface Ref {
+export interface Ref {
   section: number;
   paragraph: number;
 }
@@ -39,24 +39,6 @@ const getRangeIntersection = (
   const end = Math.min(end1, end2);
   if (start < end) return { start, end };
   else return null;
-};
-
-const comparePathNums = (a: number[], b: number[]) => {
-  const len = Math.max(a.length, b.length);
-  for (let i = 0; i < len; i++) {
-    const aVal = a[i];
-    const bVal = b[i];
-
-    if (aVal === undefined) return -1;
-    if (bVal === undefined) return 1;
-
-    if (aVal !== bVal && aVal === 0) return 1;
-    if (aVal !== bVal && bVal === 0) return -1;
-
-    if (aVal < bVal) return -1;
-    if (aVal > bVal) return 1;
-  }
-  return 0;
 };
 
 const toCleaned = (text: string): string =>
@@ -100,19 +82,17 @@ const textIsConnector = (cleaned: string) =>
 
 const splitQuoted = (text: string): string[] => {
   const result: string[] = [""];
-  let expectedCloseQuote: string | null = null;
-  const quotePairs: Record<string, string> = { "“": "”" };
+  let level = 0;
   for (let i = 0; i < text.length; i++) {
     const char = text[i]!;
-    if (char === expectedCloseQuote) {
-      result.push(char);
-      expectedCloseQuote = null;
-    } else if (!expectedCloseQuote && quotePairs[char]) {
-      result[result.length - 1] += char;
-      result.push("");
-      expectedCloseQuote = quotePairs[char];
-    } else {
-      result[result.length - 1] += char;
+    if (char === "”") {
+      level--;
+      if (level === 0) result.push("");
+    }
+    result[result.length - 1] += char;
+    if (char === "“") {
+      if (level === 0) result.push("");
+      level++;
     }
   }
   return result;
@@ -161,12 +141,6 @@ const findQuoteIndices = (
 
   return { start, end: end + 1, pre, post };
 };
-
-// const links = new Map();
-// const addLink = (quoteIndex: number, sourceIndex: number) =>
-//   links.set(sourceIndex, [...(links.get(sourceIndex) || []), quoteIndex]);
-// const checkCanLink = (quoteIndex: number, sourceIndex: number) =>
-//   !(links.get(quoteIndex) || []).includes(sourceIndex);
 
 const joinStringParts = (parts: (string | Quote)[]) => {
   const res = [];
@@ -360,7 +334,8 @@ const joinStringParts = (parts: (string | Quote)[]) => {
   const checkSmallPart = (base: Quote, source: Layers, current: Layers) => {
     if (source.cleaned.includes(current.cleaned)) {
       const start = source.cleaned.indexOf(current.cleaned);
-      if (start < base.start || base.end <= start) {
+      const end = start + current.cleaned.length;
+      if (end <= base.start || base.end <= start) {
         return {
           quote: { ...base, start, end: start + current.cleaned.length },
         };
@@ -371,7 +346,8 @@ const joinStringParts = (parts: (string | Quote)[]) => {
       : current.cleaned;
     if (source.cleaned.includes(cleaned)) {
       const start = source.cleaned.indexOf(cleaned);
-      if (start < base.start || base.end <= start) {
+      const end = start + cleaned.length;
+      if (end <= base.start || base.end <= start) {
         return {
           quote: { ...base, start, end: start + cleaned.length },
           post: ",",
@@ -389,29 +365,34 @@ const joinStringParts = (parts: (string | Quote)[]) => {
     for (let i = parts.length - 1; i >= 0; i -= 1) {
       const base = parts[i]!;
       if (typeof base !== "string") {
-        (inline ? [-2, 2] : [-1, 1]).forEach((dir) => {
+        [-1, 1].forEach((dir) => {
           for (let j = i + dir; j >= 0; j += dir) {
             const current = parts[j];
             if (typeof current === "string") {
-              const curr = getLayers(current);
-              const source = sections[base.section]!.content[base.paragraph]!;
-              if (!textIsConnector(curr.cleaned)) {
-                if (curr.cleaned.split(/ /g).length < 5) {
-                  const res = checkSmallPart(base, source, curr);
-                  if (res) {
-                    clearNgrams(ref, curr.ngrams);
-                    if (res.post) inserts[j] = { pre: "", post: res.post };
-                    parts[j] = res.quote;
-                  }
-                } else {
-                  if (source.chars.includes(curr.chars)) {
-                    clearNgrams(ref, curr.ngrams);
-                    const { start, end, pre, post } = findQuoteIndices(
-                      source.cleaned,
-                      curr.cleaned
-                    );
-                    inserts[j] = { pre, post };
-                    parts[j] = { ...base, start, end };
+              if (
+                !inline ||
+                !(current.startsWith("”") || current.endsWith("“"))
+              ) {
+                const curr = getLayers(current);
+                const source = sections[base.section]!.content[base.paragraph]!;
+                if (!textIsConnector(curr.cleaned)) {
+                  if (curr.cleaned.split(/ /g).length < 5) {
+                    const res = checkSmallPart(base, source, curr);
+                    if (res) {
+                      clearNgrams(ref, curr.ngrams);
+                      if (res.post) inserts[j] = { pre: "", post: res.post };
+                      parts[j] = res.quote;
+                    }
+                  } else {
+                    if (source.chars.includes(curr.chars)) {
+                      clearNgrams(ref, curr.ngrams);
+                      const { start, end, pre, post } = findQuoteIndices(
+                        source.cleaned,
+                        curr.cleaned
+                      );
+                      inserts[j] = { pre, post };
+                      parts[j] = { ...base, start, end };
+                    }
                   }
                 }
               }
