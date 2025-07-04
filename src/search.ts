@@ -1,88 +1,96 @@
+import type { Ref } from "./link";
 import stem from "./searchStem";
-import type { Section, SectionContent } from "./structure";
+import type { Quote, Section } from "./structure";
 import { readJSON, writeText } from "./utils";
 
-const getQuote = (
-  data: Section[],
-  p: {
-    section: number;
-    paragraph: number;
-    start: number;
-    end: number;
+const SCORE_BASE = 1;
+
+const sections = (await readJSON("", "data")) as Section[];
+
+const getQuoteText = (quote: Quote): string =>
+  getText(quote).slice(quote.start, quote.end);
+
+const getText = (ref: Ref): string => {
+  const para = sections[ref.section]!.content[ref.paragraph]!;
+  if (typeof para === "string") return para;
+  if (!Array.isArray(para)) {
+    if ("type" in para && para.type === "break") return "";
+    return para.text;
   }
-): string => {
-  const source = data[p.section]!;
-  return getText(data, source.content[p.paragraph]!).slice(p.start, p.end);
+  return para
+    .map((part) => (typeof part === "string" ? part : getQuoteText(part)))
+    .join("");
 };
 
-const getText = (data: Section[], c: SectionContent): string => {
-  if (typeof c === "string") return c;
-  if (!Array.isArray(c)) {
-    if ("type" in c && c.type === "break") return "";
-    return c.text;
-  }
-  return c.map((p) => (typeof p === "string" ? p : getQuote(data, p))).join("");
-};
-
-(async () => {
-  const sections = (await readJSON("", "data")) as Section[];
-  const searchIndex = new Map<string, string[]>();
-  const counts: Record<string, number> = {};
-  sections.slice(0, 100000).forEach((section, sectionIndex) => {
-    console.log(section.path.map((p) => p[0]).join(", "));
-    section.content.forEach((para, paraIndex) => {
-      const key = `${sectionIndex}:${paraIndex}`;
-      const text = getText(sections, para);
-      const words = text
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .split(/( |—)/);
-      let current = 0;
-      const tokens: { token: string; score: number }[] = [];
-      for (const word of words) {
-        const tidied = word
-          .toLowerCase()
-          .replace(/’s$/g, "")
-          .replace(/[^a-z0-9]/g, "");
-        const token = stem(tidied);
-        if (token) {
-          const score = ((section.quoted || {})[paraIndex] || []).filter(
-            (q) => q.start <= current && current + word.length <= q.end
-          ).length;
-          tokens.push({ token, score });
+const searchIndex = new Map<string, string[]>();
+const tokenCounts: Record<string, number> = {};
+sections.forEach((section, sectionIndex) => {
+  console.log(section.path.map((p) => p[0]).join(", "));
+  section.content.forEach((_, paraIndex) => {
+    const key = `${sectionIndex}:${paraIndex}`;
+    const text = getText({ section: sectionIndex, paragraph: paraIndex });
+    const words = text
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .replace(/[‑—]/g, " ")
+      .replace(/ +/g, " ")
+      .trim()
+      .split(" ");
+    let current = 0;
+    const tokens: { token: string; score: number }[] = [];
+    for (const word of words) {
+      const tidied = word.replace(/’s$/g, "").replace(/[^a-z0-9]/g, "");
+      const token = stem(tidied);
+      if (token) {
+        const score = ((section.quoted || {})[paraIndex] || []).filter(
+          (q) => q.start < current + word.length && current < q.end
+        ).length;
+        tokens.push({ token, score });
+      }
+      current += word.length;
+    }
+    for (const token of [...new Set(tokens.map((t) => t.token))]) {
+      const scores = tokens
+        .filter((t) => t.token === token)
+        .map((t) => t.score);
+      const counts = Array.from<number>({
+        length: Math.max(...scores) + 1,
+      }).fill(0);
+      for (const score of scores) counts[score]!++;
+      let cumulative = 0;
+      for (let i = counts.length - 1; i >= 0; i--) {
+        if (counts[i]! > 0) {
+          counts[i]! = cumulative = counts[i]! * (i + SCORE_BASE) + cumulative;
         }
-        current += word.length;
       }
-      for (const token of [...new Set(tokens.map((t) => t.token))]) {
-        const tScores = tokens
-          .filter((t) => t.token === token)
-          .map((t) => t.score);
-        const tokenScore = tScores.reduce((res, x) => res + x + 2, 0);
-        const tokenLevel = Math.min(...tScores);
-        let v = `${key}`;
-        if (tokenScore !== 2) v += `_${tokenScore}`;
-        if (tokenLevel !== 0) v += `|${tokenLevel}`;
-        searchIndex.set(token, [...(searchIndex.get(token) || []), v]);
-        if (counts[token] === undefined) counts[token] = 0;
-        counts[token]++;
+      let v = `${key}`;
+      if (counts[0]! > SCORE_BASE || counts.length > 1) {
+        for (let i = 0; i < counts.length; i++) {
+          if (counts[i]! > 0) {
+            v += `,${i}=${counts[i]!}`;
+          }
+        }
       }
-    });
+      searchIndex.set(token, [...(searchIndex.get(token) || []), v]);
+      tokenCounts[token] = (tokenCounts[token] || 0) + 1;
+    }
   });
+});
 
-  const sortedTokens = Object.keys(counts).sort(
-    (a, b) => counts[b]! - counts[a]!
-  );
-  const searchIndexData = sortedTokens
-    .map((k) => {
-      let res = "";
-      res += `${k}=${searchIndex.get(k)!.join(",")}`;
-      if (counts[k]! > 1) res += `=${counts[k]}`;
-      return res;
-    })
-    .join("\n");
+const sortedTokens = Object.keys(tokenCounts).sort(
+  (a, b) => tokenCounts[b]! - tokenCounts[a]!
+);
+const searchIndexData = sortedTokens
+  .map((k) => {
+    let res = "";
+    res += `${k}_${searchIndex.get(k)!.join("|")}`;
+    if (tokenCounts[k]! > 1) res += `_${tokenCounts[k]}`;
+    return res;
+  })
+  .join("\n");
 
-  await writeText("", "search", searchIndexData);
-})();
+await writeText("", "search", searchIndexData);
 
 // import { promises as fs } from "fs";
 

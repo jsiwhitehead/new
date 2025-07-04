@@ -181,20 +181,15 @@ const Paragraph = ({
         {para.map((part, i) => {
           const style = {
             fontWeight: part.quote ? "bold" : "normal",
-            padding: "2.4px 0",
-            background:
-              part.quoted > 0 && showQuoted
+            padding: part.highlight ? "2.4px 3.5px" : "2.4px 0",
+            margin: part.highlight ? "0 -3.5px" : "0",
+            position: "relative" as "relative",
+            zIndex: part.highlight ? 10 : 0,
+            background: part.highlight
+              ? "rgb(255, 247, 158)"
+              : part.quoted > 0 && showQuoted
                 ? `rgb(255, ${240 - part.quoted * 10}, ${240 - part.quoted * 10})`
                 : "",
-            // padding: l.highlight ? "2.4px 3.5px" : "2.4px 0",
-            // margin: l.highlight ? "0 -3.5px" : "0",
-            // position: "relative",
-            // zIndex: l.highlight ? 10 : 0,
-            // background: l.highlight
-            //   ? "rgb(255, 247, 158)"
-            //   : l.quoted > 0
-            //     ? `rgb(255, ${240 - l.quoted * 10}, ${240 - l.quoted * 10})`
-            //     : "",
           };
           return typeof part.quote === "object" ? (
             <span style={style} key={i}>
@@ -239,9 +234,13 @@ const Paragraph = ({
         const res = line.map((part, j) => (
           <span
             style={{
-              padding: "2.4px 0",
-              background:
-                part.quoted > 0 && showQuoted
+              padding: part.highlight ? "2.4px 3.5px" : "2.4px 0",
+              margin: part.highlight ? "0 -3.5px" : "0",
+              position: "relative" as "relative",
+              zIndex: part.highlight ? 10 : 0,
+              background: part.highlight
+                ? "rgb(255, 247, 158)"
+                : part.quoted > 0 && showQuoted
                   ? `rgb(255, ${240 - part.quoted * 10}, ${240 - part.quoted * 10})`
                   : "",
             }}
@@ -283,15 +282,31 @@ export default function App() {
     setLevel(parseInt(searchParams.get("level") || "0", 10));
   }, [searchParams]);
 
+  const [search, setSearch] = useState(searchParams.get("search") || "");
+  useEffect(() => {
+    setSearch(searchParams.get("search") || "");
+  }, [searchParams]);
+
   const navigate = useNavigate();
   useEffect(() => {
     if (level !== parseInt(searchParams.get("level") || "0", 10)) {
       navigate(
-        { search: `?level=${level}` },
+        { search: `?level=${level}&search=${encodeURIComponent(search)}` },
         { replace: true, preventScrollReset: true }
       );
     }
   }, [level]);
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (search !== (searchParams.get("search") || "")) {
+        navigate(
+          { search: `?level=${level}&search=${encodeURIComponent(search)}` },
+          { replace: true, preventScrollReset: true }
+        );
+      }
+    }, 500);
+    return () => clearTimeout(timeout);
+  }, [search]);
 
   const { data, path, tree, showContent } = allData;
 
@@ -311,13 +326,6 @@ export default function App() {
             Bahá’í Explore
           </Text>
 
-          {/* <input
-          type="text"
-          value={searchTerm}
-          placeholder="Search..."
-          onChange={(e) => setSearchTerm(e.target.value)}
-        /> */}
-
           <Breadcrumbs size={17} path={[["All", "/"], ...path]} />
 
           {Object.keys(tree).length > 0 && (
@@ -334,6 +342,15 @@ export default function App() {
               max={5}
               step={1}
               onChange={(e) => setLevel(parseInt(e.target.value, 10))}
+            />
+          )}
+
+          {showContent && (
+            <input
+              type="text"
+              value={search}
+              placeholder="Search..."
+              onChange={(e) => setSearch(e.target.value)}
             />
           )}
         </Column>

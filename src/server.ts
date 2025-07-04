@@ -1,6 +1,9 @@
 import baseData from "../data/data.json";
+import baseSearch from "../data/search.txt";
+import spellingsJSON from "./spellings.json";
 
 import type { Ref } from "./link";
+import stem from "./searchStem";
 import type { Quote, Section, SectionContent } from "./structure";
 import { comparePathNums } from "./utils";
 
@@ -20,15 +23,21 @@ interface ParaText {
   lines?: number[];
   quotes?: { start: number; end: number; quote: Ref }[];
   quoted: { start: number; end: number; quote: Ref }[];
+  highlights: { start: number; end: number }[];
   allSpecial: boolean;
 }
 
 export type RenderContent =
   | { type: "break" }
-  | { text: string; quoted: number; quote?: true | RenderQuote }[]
+  | {
+      text: string;
+      quoted: number;
+      highlight: boolean;
+      quote?: true | RenderQuote;
+    }[]
   | {
       type: "info" | "call" | "framing" | "lines" | "quote";
-      lines: { text: string; quoted: number }[][];
+      lines: { text: string; quoted: number; highlight: boolean }[][];
       allSpecial: boolean;
     };
 
@@ -193,14 +202,15 @@ const getPara = (
     end,
     quote: { section, paragraph },
   }));
-  if (typeof para === "string") return { text: para, quoted, allSpecial };
-  if (!Array.isArray(para)) return { text: "", ...para, quoted, allSpecial };
+  const base = { quoted, highlights: [], allSpecial };
+  if (typeof para === "string") return { text: para, ...base };
+  if (!Array.isArray(para)) return { text: "", ...para, ...base };
   const parts = para.map((part) => {
     if (typeof part === "string") return { text: part };
     return { text: getQuoteText(part), quote: part };
   });
   let current = 0;
-  const res: ParaText = { text: "", quotes: [], quoted, allSpecial };
+  const res: ParaText = { text: "", quotes: [], ...base };
   for (const { text, quote } of parts) {
     res.text += text;
     if (quote) {
@@ -251,6 +261,12 @@ const slicePara = (
         end: Math.min(q.end, part.end) - part.start,
         quote: q.quote,
       })),
+    highlights: para.highlights
+      .filter((q) => q.start < part.end && part.start < q.end)
+      .map((q) => ({
+        start: Math.max(q.start, part.start) - part.start,
+        end: Math.min(q.end, part.end) - part.start,
+      })),
     allSpecial: para.allSpecial,
   };
 };
@@ -266,6 +282,7 @@ const joinParaParts = (parts: (string | ParaText)[]): ParaText => {
     lines: [],
     quotes: [],
     quoted: [],
+    highlights: [],
     allSpecial: allSpecials.length === 1 ? allSpecials[0]! : false,
   };
 
@@ -291,6 +308,12 @@ const joinParaParts = (parts: (string | ParaText)[]): ParaText => {
           quote: q.quote,
         }))
       );
+      res.highlights.push(
+        ...part.highlights.map((q) => ({
+          start: q.start + current,
+          end: q.end + current,
+        }))
+      );
       current += part.text.length;
     }
   }
@@ -307,12 +330,9 @@ const joinParaParts = (parts: (string | ParaText)[]): ParaText => {
 };
 
 const getFullQuotedPara = (paraBase: SectionContent): ParaText => {
-  if (typeof paraBase === "string") {
-    return { text: paraBase, quoted: [], allSpecial: false };
-  }
-  if (!Array.isArray(paraBase)) {
-    return { type: "break", text: "", quoted: [], allSpecial: false };
-  }
+  const base = { quoted: [], highlights: [], allSpecial: false };
+  if (typeof paraBase === "string") return { text: paraBase, ...base };
+  if (!Array.isArray(paraBase)) return { type: "break", text: "", ...base };
   const para = paraBase as (string | Quote)[];
   return joinParaParts(
     para.map((part) => {
@@ -429,7 +449,7 @@ const getRenderContent = (
 
   if (para.type === "break") return { content: { type: "break" }, quotes: [] };
 
-  const quotedIndices = getIndices(para.text.length, para.quoted);
+  const indices = getIndices(para.text.length, para.quoted, para.highlights);
 
   const quoteIndices = getIndices(para.text.length, para.quotes || []);
   const quoteParts: { text: string; quote?: Ref | true }[] = quoteIndices
@@ -462,13 +482,16 @@ const getRenderContent = (
       content: {
         type: allQuote ? "quote" : para.type!,
         lines: [
-          quotedIndices.slice(1).map((end, i) => {
-            const start = quotedIndices[i]!;
+          indices.slice(1).map((end, i) => {
+            const start = indices[i]!;
             return {
               text: para.text.slice(start, end),
               quoted: para.quoted.filter(
                 (q) => q.start <= start && end <= q.end
               ).length,
+              highlight: para.highlights.some(
+                (q) => q.start <= start && end <= q.end
+              ),
             };
           }),
         ],
@@ -488,7 +511,7 @@ const getRenderContent = (
           const lineStart = para.lines![i]!;
           const lineIndices = [
             lineStart,
-            ...quotedIndices.filter((x) => lineStart < x && x < lineEnd),
+            ...indices.filter((x) => lineStart < x && x < lineEnd),
             lineEnd,
           ];
           return lineIndices.slice(1).map((end, j) => {
@@ -498,6 +521,9 @@ const getRenderContent = (
               quoted: para.quoted.filter(
                 (q) => q.start <= start && end <= q.end
               ).length,
+              highlight: para.highlights.some(
+                (q) => q.start <= start && end <= q.end
+              ),
             };
           });
         }),
@@ -511,7 +537,7 @@ const getRenderContent = (
   const result = quoteParts.flatMap((part) => {
     const partIndices = [
       0,
-      ...quotedIndices
+      ...indices
         .map((x) => x - current)
         .filter((x) => x > 0 && x < part.text.length),
       part.text.length,
@@ -525,6 +551,9 @@ const getRenderContent = (
         quoted: para.quoted.filter(
           (q) => current + start >= q.start && current + end <= q.end
         ).length,
+        highlight: para.highlights.some(
+          (q) => current + start >= q.start && current + end <= q.end
+        ),
       };
     });
     current += part.text.length;
@@ -549,7 +578,9 @@ const joinQuotes = (quotes: MultiRef[][]) => {
       const next = quotes[i + 1]![0]!;
       if (
         current.section === next.section &&
-        current.paragraph[current.paragraph.length - 1]! <= next.paragraph[0]!
+        (next.paragraph.length === 0 ||
+          current.paragraph[current.paragraph.length - 1]! <=
+            next.paragraph[0]!)
       ) {
         next.paragraph = [...current.paragraph, ...next.paragraph];
         quotes[i] = [];
@@ -557,6 +588,84 @@ const joinQuotes = (quotes: MultiRef[][]) => {
     }
   }
   return quotes;
+};
+
+interface Match {
+  section: number;
+  paragraph: number;
+  scores: { level: number; score: number }[];
+}
+
+const escapeForRegex = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const searchInfo: Record<string, { matches: Match[]; count: number }> = {};
+const getTokenInfo = (token: string) => {
+  if (searchInfo[token]) return searchInfo[token];
+  const searchLine = baseSearch.match(
+    new RegExp(`^${escapeForRegex(token)}_.*`, "m")
+  );
+  if (!searchLine) {
+    searchInfo[token] = { matches: [], count: 0 };
+  } else {
+    const [_, info, count] = searchLine[0].split("_");
+    const matches = info!.split("|").map((match) => {
+      const [key, ...levelCounts] = match.split(",");
+      const [sectionIndex, paraIndex] = key!.split(":");
+      return {
+        section: parseInt(sectionIndex!, 10),
+        paragraph: parseInt(paraIndex!, 10),
+        scores: levelCounts.map((l) => {
+          const [level, score] = l.split("=");
+          return { level: parseInt(level!, 10), score: parseInt(score!, 10) };
+        }),
+      };
+    });
+    searchInfo[token] = { matches, count: parseInt(count!, 10) };
+  }
+  return searchInfo[token];
+};
+
+const spellingsBase = spellingsJSON as any;
+const spellings = Object.assign(
+  spellingsBase.main,
+  ...spellingsBase.sets
+    .map(({ changes, roots, adjust = {} }: any) =>
+      roots.map((r: any) =>
+        Object.assign(
+          {},
+          ...Object.keys(changes).map((original) => {
+            const changed = changes[original] as any;
+            if (!adjust[r]) return { [`${r}${original}`]: `${r}${changed}` };
+            return {
+              [`${r}${original}`]: `${adjust[r]}${changed}`,
+              [`${adjust[r]}${original}`]: `${adjust[r]}${changed}`,
+              [`${r}${changed}`]: `${adjust[r]}${changed}`,
+            };
+          })
+        )
+      )
+    )
+    .flat()
+);
+const spellingsKeys = Object.keys(spellings);
+
+const highlightTokens = (para: ParaText, tokens: string[]): ParaText => {
+  if (tokens.length === 0) return para;
+  const result = { ...para, highlights: [...para.highlights] };
+  const words = para.text
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .split(/([‑— ]+)/g)
+    .filter((s) => s);
+  let current = 0;
+  for (const word of words) {
+    const token = stem(word.replace(/’s$/g, "").replace(/[^a-z0-9]/g, ""));
+    if (tokens.includes(token)) {
+      result.highlights.push({ start: current, end: current + word.length });
+    }
+    current += word.length;
+  }
+  return result;
 };
 
 const getData = (
@@ -584,8 +693,36 @@ const getData = (
       ["documents", "ruhi", "compilations"].includes(urlPath[0]!)) ||
     (urlPath.length > 2 && urlPath[1] === "bahaullah-new-era");
 
-  const filtered = dataWithIndices.filter(({ section }) =>
-    urlPath.every((p, i) => section.path[i]?.[1] === p)
+  const tokens = spellingsKeys
+    .reduce(
+      (res, k) =>
+        res.replace(new RegExp(`\\b${k}\\b`, "ig"), (m: string) => {
+          if ([...m].every((s) => s === s.toUpperCase())) {
+            return spellings[k].toUpperCase();
+          } else if (m[0] === m[0]!.toUpperCase()) {
+            return capitalise(spellings[k]);
+          }
+          return spellings[k];
+        }),
+      search
+    )
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .split(/[‑— ]+/g)
+    .map((word) => stem(word.replace(/’s$/g, "").replace(/[^a-z0-9]/g, "")))
+    .filter((s) => s);
+  const matches = tokens.flatMap((token) => getTokenInfo(token));
+
+  const filtered = dataWithIndices.filter(
+    ({ section, index }) =>
+      urlPath.every((p, i) => section.path[i]?.[1] === p) &&
+      (tokens.length === 0 ||
+        matches.some((m) =>
+          m.matches.some(
+            (x) => x.section === index && x.scores.some((y) => y.level >= level)
+          )
+        ))
   );
 
   const tree = {} as any;
@@ -598,12 +735,7 @@ const getData = (
   const [path, nestedTree] = collapseSingleKeys(tree, urlPath.length);
 
   if (!showContent) {
-    return {
-      data: filtered.map(({ section }) => ({ ...section, content: [] })),
-      path,
-      tree: nestedTree,
-      showContent: false,
-    };
+    return { data: [], path, tree: nestedTree, showContent: false };
   }
 
   const result = filtered.flatMap(({ section, index }) => {
@@ -620,47 +752,86 @@ const getData = (
       return "type" in para && para.type === "break";
     });
     const allSpecial = getAllSpecial(section);
-    const content = section.content
-      .map((para, paraIndex) => {
-        const paraText = filterQuoted(
-          allFullQuote
-            ? getFullQuotedPara(para)
-            : getPara(para, section.quoted?.[paraIndex], allSpecial),
-          level
-        );
-        if (!paraText) return null;
+    const content = section.content.map((para, paraIndex) => {
+      const base = { paraId: paraIds[paraIndex]!, quoted: [], quotes: [] };
+      const filteredPara = filterQuoted(
+        allFullQuote
+          ? getFullQuotedPara(para)
+          : getPara(para, section.quoted?.[paraIndex], allSpecial),
+        level
+      );
+      if (
+        !filteredPara ||
+        (tokens.length > 0 &&
+          !matches.some((m) =>
+            m.matches.some(
+              (x) => x.section === index && x.paragraph === paraIndex
+            )
+          ))
+      ) {
         return {
-          paraId: paraIds[paraIndex]!,
-          ...getRenderContent(paraText),
-          quoted: paraText.quoted
-            .map((q) => q.quote)
-            .sort((aQuote, bQuote) => {
-              const aDoc = data[aQuote.section]!;
-              const bDoc = data[bQuote.section]!;
-              return comparePathNums(
-                aDoc.path.map((p: [string, string, number]) => p[2]),
-                bDoc.path.map((p: [string, string, number]) => p[2])
-              );
-            }),
-          sources: allFullQuote
-            ? mergeQuotes(
-                Array.isArray(para)
-                  ? para.filter((part) => typeof part !== "string")
-                  : []
-              )
-            : [{ section: index, paragraph: [paraIndex] }],
+          ...base,
+          content: [
+            { text: ". . .", quoted: 0, highlight: false },
+          ] as RenderContent,
+          sources: [{ section: index, paragraph: [] }],
         };
-      })
-      .filter((para) => para !== null);
-    const joinedSources = joinQuotes(content.map((c) => c.sources));
-    return content
-      .map((p, i) => ({ ...p, sources: joinedSources[i]! }))
-      .filter((p, i) => {
-        if ((p.content as any)?.type !== "break") return true;
-        return [content[i - 1]?.content, content[i + 1]?.content].some(
-          (p) => p && (p as any)?.type !== "break"
-        );
-      });
+      }
+      const highlightedPara = highlightTokens(filteredPara, tokens);
+      return {
+        ...base,
+        ...getRenderContent(highlightedPara),
+        quoted: highlightedPara.quoted
+          .map((q) => q.quote)
+          .sort((aQuote, bQuote) => {
+            const aDoc = data[aQuote.section]!;
+            const bDoc = data[bQuote.section]!;
+            return comparePathNums(
+              aDoc.path.map((p: [string, string, number]) => p[2]),
+              bDoc.path.map((p: [string, string, number]) => p[2])
+            );
+          }),
+        sources: allFullQuote
+          ? mergeQuotes(
+              Array.isArray(para)
+                ? para.filter((part) => typeof part !== "string")
+                : []
+            )
+          : [{ section: index, paragraph: [paraIndex] }],
+      };
+    });
+    let readyBreak = false;
+    let readyDots = false;
+    const merged: any[] = [];
+    for (const p of content) {
+      if ((p.content as any).type === "break") {
+        if (readyBreak) {
+          merged.push(p);
+          readyBreak = false;
+          readyDots = true;
+        }
+      } else if ((p.content as any)[0]?.text === ". . .") {
+        if (readyDots) {
+          merged.push(p);
+          readyDots = false;
+        }
+      } else {
+        merged.push(p);
+        readyBreak = true;
+        readyDots = true;
+      }
+    }
+    if ((merged[merged.length - 1]!.content as any)[0]?.text === ". . .") {
+      merged.pop();
+    }
+    if ((merged[merged.length - 1]!.content as any)[0]?.type === "break") {
+      merged.pop();
+    }
+    if ((merged[merged.length - 1]!.content as any)[0]?.text === ". . .") {
+      merged.pop();
+    }
+    const joinedSources = joinQuotes(merged.map((c) => c.sources));
+    return merged.map((p, i) => ({ ...p, sources: joinedSources[i]! }));
   });
 
   const docs = [
@@ -724,206 +895,3 @@ Bun.serve({
     },
   },
 });
-
-// interface Match {
-//   section: number;
-//   paragraph: number;
-//   score: number;
-//   level: number;
-// }
-
-// const escapeForRegex = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-// const searchInfo: Record<string, Match[]> = {};
-// const getSearchInfo = (tokens: string[]) =>
-//   tokens.flatMap((token) => {
-//     if (!token) return [];
-//     if (searchInfo[token]) return searchInfo[token];
-//     const searchLine = baseSearch.match(
-//       new RegExp(`^${escapeForRegex(token)}=.*`, "m")
-//     );
-//     if (searchLine) {
-//       const [_, info, count] = searchLine[0].split("=");
-//       const matches = info!.split(",").map((p) => {
-//         const [p2, level] = p.split("|");
-//         const [key, score] = p2!.split("_");
-//         const [sectionIndex, paraIndex] = key!.split(":");
-//         return {
-//           section: parseInt(sectionIndex!, 10),
-//           paragraph: parseInt(paraIndex!, 10),
-//           score: score === undefined ? 2 : parseInt(score, 10),
-//           level: level === undefined ? 0 : parseInt(level, 10),
-//         };
-//       });
-//       searchInfo[token] = matches;
-//     } else {
-//       searchInfo[token] = [];
-//     }
-//     return searchInfo[token];
-//   });
-
-// const getData = (
-//   search: string,
-//   ...urlPath: string[]
-// ): { data: RenderSection[]; path: [string, string][]; tree: any } => {
-//   const showContent =
-//     data.find(
-//       (d) =>
-//         urlPath.length === d.path.length &&
-//         urlPath.every((p, i) => d.path[i]![1] === p)
-//     ) ||
-//     [
-//       "bahaullah/hidden-words",
-//       "bahaullah/gleanings-writings-bahaullah",
-//     ].includes(urlPath.join("/")) ||
-//     (urlPath.length > 1 &&
-//       ["documents", "ruhi", "compilations"].includes(urlPath[0]!)) ||
-//     (urlPath.length > 2 && urlPath[1] === "bahaullah-new-era");
-
-//   const tokens = search
-//     .split(/( |—)/)
-//     .map((word) =>
-//       stem(
-//         word
-//           .normalize("NFD")
-//           .replace(/[\u0300-\u036f]/g, "")
-//           .toLowerCase()
-//           .replace(/’s$/g, "")
-//           .replace(/[^a-z0-9]/g, "")
-//       )
-//     )
-//     .filter((t) => t);
-//   const searchInfo = getSearchInfo(tokens);
-
-//   const filtered = dataWithIndices.filter(
-//     ({ section, index }) =>
-//       !section.meta &&
-//       urlPath.every((p, i) => section.path[i]?.[1] === p) &&
-//       (tokens.length === 0 || searchInfo.some((m) => m.section === index))
-//   );
-
-//   const tree = {} as any;
-//   for (const { section } of filtered) {
-//     section.path.reduce((res, p) => {
-//       const key = JSON.stringify([p[0], p[1]]);
-//       return (res[key] = res[key] || {});
-//     }, tree);
-//   }
-//   const [path, nestedTree] = collapseSingleKeys(tree, urlPath.length);
-
-//   if (!showContent) {
-//     return { data: [], path, tree: nestedTree };
-//   }
-
-//   const result = filtered.map(({ section, index }) => {
-//     const content = semiToRender(
-//       section,
-//       section.content.map(
-//         (c, paraIndex): SemiRenderContent =>
-//           contentToSemi(c, (section.quoted || {})[paraIndex] || [])
-//       )
-//     )
-//       .map((para, paraIndex) => {
-//         if (para.type === "break") return para;
-//         const match = searchInfo.find(
-//           (s) => s.section === index && s.paragraph === paraIndex
-//         );
-//         if (!match) return para;
-//         const lines = para.parts.map((line) => {
-//           const res = [];
-//           for (const part of line) {
-//             if (part.quoted >= match.level) {
-//               res.push(part);
-//             } else if (res[res.length - 1] !== null) {
-//               res.push(null);
-//             }
-//           }
-//           if (res.length === 1 && res[0] === null) return [];
-//           return res;
-//         });
-//         let started = false;
-//         lines.forEach((line, i) => {
-//           if (line.length === 0) {
-//             if (started) {
-//               if (
-//                 lines[i - 1]!.length > 0 &&
-//                 lines[i - 1]![lines[i - 1]!.length - 1] !== null
-//               ) {
-//                 lines[i - 1]!.push(null);
-//               }
-//             } else {
-//               if (lines[i + 1]!.length > 0 && lines[i + 1]![0] !== null) {
-//                 lines[i + 1]!.unshift(null);
-//               }
-//             }
-//           } else {
-//             started = true;
-//           }
-//         });
-//         return {
-//           ...para,
-//           parts: lines
-//             .map((line) =>
-//               line.map((part, i) => {
-//                 if (part !== null) return part;
-//                 return {
-//                   text:
-//                     i === 0
-//                       ? ". . . "
-//                       : i === line.length - 1
-//                         ? " . . ."
-//                         : " . . . ",
-//                   quoted: 0,
-//                 };
-//               })
-//             )
-//             .filter((line) => line.length > 0),
-//         };
-//       })
-//       .filter(
-//         (_, paraIndex) =>
-//           tokens.length === 0 ||
-//           searchInfo.some(
-//             (m) => m.section === index && m.paragraph === paraIndex
-//           )
-//       )
-//       .map((para) => {
-//         if (para.type === "break") return para;
-//         return {
-//           ...para,
-//           parts: para.parts.map((line) =>
-//             line.flatMap((part) => {
-//               const words = part.text.split(/( |—)/);
-//               const res = [{ ...part, text: "" }];
-//               for (const word of words) {
-//                 const tidied = word
-//                   .normalize("NFD")
-//                   .replace(/[\u0300-\u036f]/g, "")
-//                   .toLowerCase()
-//                   .replace(/’s$/g, "")
-//                   .replace(/[^a-z0-9]/g, "");
-//                 const token = stem(tidied);
-//                 if (token && tokens.includes(token)) {
-//                   res.push(
-//                     { ...part, text: word, highlight: true },
-//                     { ...part, text: "" }
-//                   );
-//                 } else {
-//                   res[res.length - 1]!.text += word;
-//                 }
-//               }
-//               return res.filter((r) => r.text);
-//             })
-//           ),
-//         };
-//       });
-//     return {
-//       ...section,
-//       content: content,
-//     };
-//   });
-//   return {
-//     data: result,
-//     path,
-//     tree: nestedTree,
-//   };
-// };

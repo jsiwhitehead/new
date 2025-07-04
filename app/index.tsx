@@ -10,13 +10,12 @@ const route = {
     const paramPath = [path1, path2, path3, path4, path5, path6, path7].filter(
       (p) => p
     ) as string[];
-    const level = parseInt(
-      new URL(request.url).searchParams.get("level") || "0",
-      10
-    );
+    const searchParams = new URL(request.url).searchParams;
+    const level = parseInt(searchParams.get("level") || "0", 10);
+    const search = searchParams.get("search") || "";
     const res = await fetch(
       `http://localhost:8000/api/${encodeURIComponent(
-        JSON.stringify({ path: paramPath, level, search: "" })
+        JSON.stringify({ path: paramPath, level, search })
       )}`
     );
     return await res.json();
