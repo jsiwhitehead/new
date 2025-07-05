@@ -1,10 +1,23 @@
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  ScrollRestoration,
+  useLoaderData,
+} from "react-router";
+import { SizeContext } from "./Utils";
 
 import App from "./App";
 
+const Root = () => (
+  <SizeContext value={17}>
+    <ScrollRestoration />
+    <App {...useLoaderData()} />
+  </SizeContext>
+);
+
 const route = {
-  Component: App,
+  Component: Root,
   loader: async ({ params, request }: any) => {
     const { path1, path2, path3, path4, path5, path6, path7 } = params;
     const paramPath = [path1, path2, path3, path4, path5, path6, path7].filter(
