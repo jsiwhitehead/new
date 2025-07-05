@@ -1,9 +1,25 @@
+import stem from "../utils/searchStem";
+import type {
+  Quote,
+  Range,
+  Ref,
+  Section,
+  SectionContent,
+} from "../utils/types";
+import {
+  capitalise,
+  compareArrays,
+  doesRangeInclude,
+  doRangesIntersect,
+  fixSpellings,
+  getQuoteText,
+  getRangesIntersect,
+  moveRange,
+  textIsConnector,
+} from "../utils/utils";
+
 import baseData from "../data/data.json";
 import baseSearch from "../data/search.txt";
-
-import stem from "../utils/searchStem";
-import type { Quote, Ref, Section, SectionContent } from "../utils/types";
-import { comparePathNums, fixSpellings } from "../utils/utils";
 
 interface MultiRef {
   section: number;
@@ -40,9 +56,6 @@ export type RenderContent =
     };
 
 const data = baseData as Section[];
-const dataWithIndices = data.map((section, index) => ({ section, index }));
-
-const capitalise = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 
 const collapseSingleKeys = (
   tree: any,
@@ -165,31 +178,6 @@ const getAllSpecial = (section: Section) =>
     (para) => !Array.isArray(para) && typeof para !== "string"
   );
 
-const textIsConnector = (text: string) =>
-  !/[a-z0-9]/.test(
-    text
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .toLowerCase()
-      .replace(/\[[^\]]*\]/g, "")
-  );
-
-const getText = (para: SectionContent): string => {
-  if (typeof para === "string") return para;
-  if (!Array.isArray(para)) {
-    if ("type" in para && para.type === "break") return "";
-    return para.text;
-  }
-  return para
-    .map((part) => (typeof part === "string" ? part : getQuoteText(part)))
-    .join("");
-};
-const getQuoteText = (quote: Quote) =>
-  getText(data[quote.section]!.content[quote.paragraph]!).slice(
-    quote.start,
-    quote.end
-  );
-
 const getPara = (
   para: SectionContent,
   flatQuoted: Quote[] = [],
@@ -205,7 +193,7 @@ const getPara = (
   if (!Array.isArray(para)) return { text: "", ...para, ...base };
   const parts = para.map((part) => {
     if (typeof part === "string") return { text: part };
-    return { text: getQuoteText(part), quote: part };
+    return { text: getQuoteText(data, part), quote: part };
   });
   let current = 0;
   const res: ParaText = { text: "", quotes: [], ...base };
@@ -230,44 +218,29 @@ const getPara = (
   return res;
 };
 
-const slicePara = (
-  para: ParaText,
-  part: { start: number; end: number }
-): ParaText => {
-  const lines = para.lines
-    ? para.lines.filter((x) => part.start <= x && x <= part.end)
-    : [];
-  const quotes = para.quotes
-    ? para.quotes.filter((q) => q.start < part.end && part.start < q.end)
-    : [];
-  return {
-    type: para.type,
-    text: para.text.slice(part.start, part.end),
-    lines: lines.length > 0 ? lines.map((x) => x - part.start) : undefined,
-    quotes:
-      quotes.length > 0
-        ? quotes.map((q) => ({
-            start: Math.max(q.start, part.start) - part.start,
-            end: Math.min(q.end, part.end) - part.start,
-            quote: q.quote,
-          }))
-        : undefined,
-    quoted: para.quoted
-      .filter((q) => q.start < part.end && part.start < q.end)
-      .map((q) => ({
-        start: Math.max(q.start, part.start) - part.start,
-        end: Math.min(q.end, part.end) - part.start,
-        quote: q.quote,
-      })),
-    highlights: para.highlights
-      .filter((q) => q.start < part.end && part.start < q.end)
-      .map((q) => ({
-        start: Math.max(q.start, part.start) - part.start,
-        end: Math.min(q.end, part.end) - part.start,
-      })),
-    allSpecial: para.allSpecial,
-  };
-};
+const slicePara = (para: ParaText, part: Range): ParaText => ({
+  type: para.type,
+  text: para.text.slice(part.start, part.end),
+  lines: para.lines
+    ?.filter((x) => doesRangeInclude(part, x))
+    .map((x) => x - part.start),
+  quotes: para.quotes
+    ?.filter((q) => doRangesIntersect(q, part))
+    .map((q) => ({
+      ...moveRange(getRangesIntersect(q, part)!, -part.start),
+      quote: q.quote,
+    })),
+  quoted: para.quoted
+    .filter((q) => doRangesIntersect(q, part))
+    .map((q) => ({
+      ...moveRange(getRangesIntersect(q, part)!, -part.start),
+      quote: q.quote,
+    })),
+  highlights: para.highlights
+    .filter((q) => doRangesIntersect(q, part))
+    .map((q) => moveRange(getRangesIntersect(q, part)!, -part.start)),
+  allSpecial: para.allSpecial,
+});
 
 const joinParaParts = (parts: (string | ParaText)[]): ParaText => {
   const paraParts = parts.filter((p) => typeof p !== "string");
@@ -294,24 +267,17 @@ const joinParaParts = (parts: (string | ParaText)[]): ParaText => {
       res.lines!.push(...(part.lines || []).map((x) => x + current));
       res.quotes!.push(
         ...(part.quotes || []).map((q) => ({
-          start: q.start + current,
-          end: q.end + current,
+          ...moveRange(q, current),
           quote: q.quote,
         }))
       );
       res.quoted.push(
         ...part.quoted.map((q) => ({
-          start: q.start + current,
-          end: q.end + current,
+          ...moveRange(q, current),
           quote: q.quote,
         }))
       );
-      res.highlights.push(
-        ...part.highlights.map((q) => ({
-          start: q.start + current,
-          end: q.end + current,
-        }))
-      );
+      res.highlights.push(...part.highlights.map((q) => moveRange(q, current)));
       current += part.text.length;
     }
   }
@@ -547,10 +513,10 @@ const getRenderContent = (
         quote:
           typeof part.quote === "object" ? getUrlQuote(part.quote) : part.quote,
         quoted: para.quoted.filter(
-          (q) => current + start >= q.start && current + end <= q.end
+          (q) => q.start <= current + start && current + end <= q.end
         ).length,
         highlight: para.highlights.some(
-          (q) => current + start >= q.start && current + end <= q.end
+          (q) => q.start <= current + start && current + end <= q.end
         ),
       };
     });
@@ -676,16 +642,19 @@ const getData = (
     .filter((s) => s);
   const matches = tokens.flatMap((token) => getTokenInfo(token));
 
-  const filtered = dataWithIndices.filter(
-    ({ section, index }) =>
-      urlPath.every((p, i) => section.path[i]?.[1] === p) &&
-      (tokens.length === 0 ||
-        matches.some((m) =>
-          m.matches.some(
-            (x) => x.section === index && x.scores.some((y) => y.level >= level)
-          )
-        ))
-  );
+  const filtered = data
+    .map((section, index) => ({ section, index }))
+    .filter(
+      ({ section, index }) =>
+        urlPath.every((p, i) => section.path[i]?.[1] === p) &&
+        (tokens.length === 0 ||
+          matches.some((m) =>
+            m.matches.some(
+              (x) =>
+                x.section === index && x.scores.some((y) => y.level >= level)
+            )
+          ))
+    );
 
   const tree = {} as any;
   for (const { section } of filtered.filter(({ section }) => !section.meta)) {
@@ -752,7 +721,7 @@ const getData = (
           .sort((aQuote, bQuote) => {
             const aDoc = data[aQuote.section]!;
             const bDoc = data[bQuote.section]!;
-            return comparePathNums(
+            return compareArrays(
               aDoc.path.map((p: [string, string, number]) => p[2]),
               bDoc.path.map((p: [string, string, number]) => p[2])
             );

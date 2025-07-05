@@ -1,18 +1,14 @@
+export interface Range {
+  start: number;
+  end: number;
+}
+
 export interface Ref {
   section: number;
   paragraph: number;
 }
 
-export interface Quote {
-  section: number;
-  paragraph: number;
-  start: number;
-  end: number;
-}
-export interface RefQuote extends Quote {
-  refStart: number;
-  refEnd: number;
-}
+export type Quote = Range & Ref;
 
 export type SectionContent =
   | string
@@ -31,6 +27,6 @@ export interface Section {
   summary?: string;
   purpose?: string;
   prayer?: string;
-  quoted?: Record<string, RefQuote[]>;
+  quoted?: Record<string, Quote[]>;
   content: SectionContent[];
 }

@@ -2,16 +2,22 @@ import sources from "./sources";
 import { readJSON, writeJSON } from "../utils/files";
 import type {
   Quote,
+  Range,
   Ref,
-  RefQuote,
   Section,
   SectionContent,
 } from "../utils/types";
-import { comparePathNums } from "../utils/utils";
-
-interface NGramRef extends Ref {
-  years: [number, number];
-}
+import {
+  compareArrays,
+  getQuoteText,
+  getRangesIntersect,
+  getText,
+  moveRange,
+  refsEqual,
+  toCleaned,
+  textIsConnector,
+  uniqueRefs,
+} from "../utils/utils";
 
 interface Layers {
   text: string;
@@ -21,34 +27,25 @@ interface Layers {
   ngrams: string[];
 }
 
-const refsEqual = (a: Ref, b: Ref) =>
-  a.section === b.section && a.paragraph === b.paragraph;
-
-const uniqueRefs = (arr: Ref[]) => {
-  const res: Ref[] = [];
-  for (const obj of arr) {
-    if (!res.some((x) => refsEqual(x, obj))) res.push(obj);
-  }
-  return res;
-};
-
-const getRangeIntersection = (
-  start1: number,
-  end1: number,
-  start2: number,
-  end2: number
-) => {
-  const start = Math.max(start1, start2);
-  const end = Math.min(end1, end2);
-  if (start < end) return { start, end };
-  else return null;
-};
-
-const toCleaned = (text: string): string =>
-  text
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase();
+const data: Section[] = [];
+for (const author of Object.keys(sources)) {
+  await Promise.all(
+    Object.keys(sources[author]!).map(async (file) => {
+      const id = `${author}-${file}`;
+      const structure = await readJSON("structure", id);
+      if (structure) data.push(...structure);
+    })
+  );
+}
+for (const id of ["additional", "prayers", "shoghi-effendi-messages"]) {
+  data.push(...(await readJSON("structure", id)));
+}
+data.sort((a, b) =>
+  compareArrays(
+    a.path.map((p: [string, string, number]) => p[2]),
+    b.path.map((p: [string, string, number]) => p[2])
+  )
+);
 
 const toWords = (cleaned: string) =>
   cleaned
@@ -80,8 +77,16 @@ const getLayers = (text: string): Layers => {
   return { text, cleaned, words, chars, ngrams };
 };
 
-const textIsConnector = (cleaned: string) =>
-  !/[a-z0-9]/.test(cleaned.replace(/\[[^\]]*\]/g, ""));
+const layers = data.map(({ content }, section) =>
+  content.map((_, paragraph) =>
+    getLayers(getText(data, { section, paragraph }))
+  )
+);
+
+const updatePara = (ref: Ref, para: SectionContent) => {
+  data[ref.section]!.content[ref.paragraph]! = para;
+  layers[ref.section]![ref.paragraph]! = getLayers(getText(data, ref));
+};
 
 const splitQuoted = (text: string): string[] => {
   const result: string[] = [""];
@@ -157,154 +162,84 @@ const joinStringParts = (parts: (string | Quote)[]) => {
   return res.filter((part) => part);
 };
 
-const baseData: Section[] = [];
-for (const author of Object.keys(sources)) {
-  await Promise.all(
-    Object.keys(sources[author]!).map(async (file) => {
-      const id = `${author}-${file}`;
-      const structure = await readJSON("structure", id);
-      if (structure) baseData.push(...structure);
-    })
-  );
-}
-baseData.push(...(await readJSON("structure", "additional")));
-baseData.push(...(await readJSON("structure", "prayers")));
-baseData.push(...(await readJSON("structure", "shoghi-effendi-messages")));
-baseData.sort((aDoc, bDoc) =>
-  comparePathNums(
-    aDoc.path.map((p: [string, string, number]) => p[2]),
-    bDoc.path.map((p: [string, string, number]) => p[2])
-  )
-);
-
-const getQuoteText = (quote: Quote): string =>
-  getText(quote).slice(quote.start, quote.end);
-
-const getText = (ref: Ref) => {
-  const para = sections[ref.section]!.content[ref.paragraph]!.para;
-  if (typeof para === "string") return para;
-  if (!Array.isArray(para)) {
-    if ("type" in para && para.type === "break") return "";
-    return para.text;
-  }
-  return para
-    .map((part): string =>
-      typeof part === "string" ? part : getQuoteText(part)
-    )
-    .join("");
-};
-
-const sections = baseData.map((section) => ({
-  ...section,
-  content: section.content.map((para) => ({ para, ...getLayers("") })),
-}));
-
-const canBeAQuote = (sectionIndex: number) => {
-  const section = sections[sectionIndex]!;
+const canBeAQuote = (section: number) => {
+  const { path, prayer, meta } = data[section]!;
   return !(
-    (["Bahá’u’lláh", "The Báb", "‘Abdu’l‑Bahá"].includes(section.path[0]![0]) &&
+    (["Bahá’u’lláh", "The Báb", "‘Abdu’l‑Bahá"].includes(path[0]![0]) &&
       ![
         "Gleanings from the Writings of Bahá’u’lláh",
         "Selections from the Writings of ‘Abdu’l‑Bahá",
-      ].includes(section.path[1]![0]) &&
-      !section.meta) ||
-    section.prayer
+      ].includes(path[1]![0]) &&
+      !meta) ||
+    prayer
   );
 };
 
-const canBeQuoted = (sectionIndex: number) => {
-  const section = sections[sectionIndex]!;
+const canBeQuoted = (section: number) => {
+  const { path } = data[section]!;
   return (
-    section.path[0]![0] !== "Compilations" &&
+    path[0]![0] !== "Compilations" &&
     !(
-      section.path[0]![0] === "Ruhi Institute" &&
-      section.path[2]?.[0] !== "A Few Thoughts for the Tutor"
+      path[0]![0] === "Ruhi Institute" &&
+      path[2]?.[0] !== "A Few Thoughts for the Tutor"
     ) &&
-    section.path[2]?.[0] !==
-      "A Description of the Kitáb‑i‑Aqdas by Shoghi Effendi"
+    path[2]?.[0] !== "A Description of the Kitáb‑i‑Aqdas by Shoghi Effendi"
   );
 };
 
-const updatePara = (
-  ref: { section: number; paragraph: number },
-  para: SectionContent
-) => {
-  const base = sections[ref.section]!.content[ref.paragraph]!;
-  base.para = para;
-  Object.assign(base, getLayers(getText(ref)));
-};
-
-sections.forEach((section, index) => {
-  section.content.forEach((para, i) => {
-    updatePara({ section: index, paragraph: i }, para.para);
-  });
-});
-
-const yearSortedIndices = baseData
+const yearSortedIndices = data
   .map((section, index) => ({ section, index }))
   .sort((a, b) => a.section.years[0] - b.section.years[0] || a.index - b.index)
   .map(({ index }) => index);
 
-const ngramMap = new Map<string, NGramRef[]>();
-yearSortedIndices.forEach((index) => {
-  const section = sections[index]!;
-  if (canBeQuoted(index)) {
-    section.content.forEach((para, i) => {
-      for (const ng of para.ngrams) {
+const ngramMap = new Map<string, { ref: Ref; years: [number, number] }[]>();
+yearSortedIndices.forEach((section) => {
+  const { content, years } = data[section]!;
+  if (canBeQuoted(section)) {
+    content.forEach((_, paragraph) => {
+      for (const ng of layers[section]![paragraph]!.ngrams) {
         ngramMap.set(ng, [
           ...(ngramMap.get(ng) || []),
-          { section: index, paragraph: i, years: section.years },
+          { ref: { section, paragraph }, years },
         ]);
       }
     });
   }
 });
-const clearNgrams = (
-  ref: { section: number; paragraph: number },
-  ngrams: string[]
-) => {
+const clearNgrams = (ref: Ref, ngrams: string[]) => {
   for (const ng of ngrams) {
     if (ngramMap.has(ng)) {
-      const filtered = ngramMap
-        .get(ng)!
-        .filter(
-          (x) => !(x.section === ref.section && x.paragraph === ref.paragraph)
-        );
+      const filtered = ngramMap.get(ng)!.filter((x) => !refsEqual(x.ref, ref));
       ngramMap.set(ng, filtered);
     }
   }
 };
-const ngramMapFull = new Map(ngramMap);
 
-const getPossibleSources = (
-  ref: Ref,
-  ngrams: string[],
-  full: boolean = false
-) => {
-  const refYears = sections[ref.section]!.years;
+const getPossibleSources = (ref: Ref, ngrams: string[]) => {
+  const refYears = data[ref.section]!.years;
   const filtered = ngrams
     .flatMap((ng) =>
-      ((full ? ngramMapFull : ngramMap).get(ng) || []).filter(
-        (x) => x.section !== ref.section && x.years[0] <= refYears[1]
+      (ngramMap.get(ng) || []).filter(
+        (x) => x.ref.section !== ref.section && x.years[0] <= refYears[1]
       )
     )
     .sort(
       (a, b) =>
         a.years[0] - b.years[0] ||
-        a.section - b.section ||
-        a.paragraph - b.paragraph
+        a.ref.section - b.ref.section ||
+        a.ref.paragraph - b.ref.paragraph
     );
-  return uniqueRefs(filtered.map(({ years, ...ref }) => ref));
+  return uniqueRefs(filtered.map((x) => x.ref));
 };
 
 const processPart = (part: Layers, sourceRef: Ref, canQuoteQuote: boolean) => {
-  const source = sections[sourceRef.section]!.content[sourceRef.paragraph]!;
+  const source = layers[sourceRef.section]![sourceRef.paragraph]!;
   if (source.chars.includes(part.chars)) {
     processSection(sourceRef.section);
     if (processedMap.get(sourceRef.section) === "complete") {
       if (
         part.ngrams.some((ng) =>
-          ngramMap.get(ng)?.some((x) => refsEqual(x, sourceRef))
+          ngramMap.get(ng)?.some((x) => refsEqual(x.ref, sourceRef))
         )
       ) {
         const { start, end, pre, post } = findQuoteIndices(
@@ -368,7 +303,7 @@ const extendQuoteParts = (
               !(current.startsWith("”") || current.endsWith("“"))
             ) {
               const curr = getLayers(current);
-              const source = sections[base.section]!.content[base.paragraph]!;
+              const source = layers[base.section]![base.paragraph]!;
               if (!textIsConnector(curr.cleaned)) {
                 if (curr.cleaned.split(/ /g).length < 5) {
                   const res = checkSmallPart(base, source, curr);
@@ -404,9 +339,10 @@ const extendQuoteParts = (
   );
 };
 
-const processPara = (ref: { section: number; paragraph: number }) => {
-  const para = sections[ref.section]!.content[ref.paragraph]!;
-  if (typeof para.para !== "string") return;
+const processPara = (ref: Ref) => {
+  if (typeof data[ref.section]!.content[ref.paragraph]! !== "string") return;
+
+  const para = layers[ref.section]![ref.paragraph]!;
 
   const parts = para.text
     .split(/( ?\. \. \. ?| ?\[[^\]]*\] ?)/)
@@ -431,55 +367,6 @@ const processPara = (ref: { section: number; paragraph: number }) => {
       return processedParts;
     }
   }
-
-  // // All paragraph parts quoted from one source that is partially a quote
-  // for (const sourceRef of getPossibleSources(ref, para.ngrams, true)) {
-  //   if (processedMap.get(sourceRef.section) === "complete") {
-  //     const processedParts = extendQuoteParts(
-  //       ref,
-  //       parts.flatMap((part) => {
-  //         if (textIsConnector(toCleaned(part.text))) return [para.text];
-  //         const source =
-  //           sections[sourceRef.section]!.content[sourceRef.paragraph]!;
-  //         if (source.chars.includes(part.chars)) {
-  //           const { start, end, pre, post } = findQuoteIndices(
-  //             source.cleaned,
-  //             part.cleaned
-  //           );
-  //           return [pre, { ...sourceRef, start, end }, post].filter((p) => p);
-  //         }
-  //         return [part.text];
-  //       }),
-  //       false
-  //     );
-
-  //     if (
-  //       processedParts.every(
-  //         (p) => typeof p !== "string" || textIsConnector(toCleaned(p))
-  //       )
-  //     ) {
-  //       clearNgrams(ref, para.ngrams);
-  //       return processedParts;
-  //     }
-  //   }
-  // }
-
-  // // Whole paragraph quoted from one source that is partially a quote
-  // if (!/\[[^\]]*\]/.test(para.text) && !/\. \. \./.test(para.text)) {
-  //   const allSourcesFull = getPossibleSources(ref, para.ngrams);
-  //   for (const sourceRef of allSourcesFull) {
-  //     const source =
-  //       sections[sourceRef.section]!.content[sourceRef.paragraph]!;
-  //     if (source.chars.includes(para.chars)) {
-  //       const { start, end, pre, post } = findQuoteIndices(
-  //         source.cleaned,
-  //         para.cleaned
-  //       );
-  //       clearNgrams(ref, para.ngrams);
-  //       return [pre, { ...sourceRef, start, end }, post].filter((p) => p);
-  //     }
-  //   }
-  // }
 
   // All paragraph parts quoted from multiple sources
   const processedParts = extendQuoteParts(
@@ -531,49 +418,44 @@ const processPara = (ref: { section: number; paragraph: number }) => {
 };
 
 const processedMap = new Map<number, "started" | "complete">();
-const processSection = (sectionIndex: number) => {
-  if (!processedMap.has(sectionIndex)) {
-    processedMap.set(sectionIndex, "started");
-    const section = sections[sectionIndex]!;
+const processSection = (section: number) => {
+  if (!processedMap.has(section)) {
+    processedMap.set(section, "started");
+    const { path, content } = data[section]!;
 
-    if (canBeAQuote(sectionIndex)) {
-      console.log(section.path.map((p) => p[0]).join(", "));
+    if (canBeAQuote(section)) {
+      console.log(path.map((p) => p[0]).join(", "));
 
       // Whole paragraphs are a quote
-      section.content.forEach((_, paraIndex) => {
-        const ref = { section: sectionIndex, paragraph: paraIndex };
+      content.forEach((_, paragraph) => {
+        const ref = { section, paragraph };
         const processed = processPara(ref);
         if (processed) updatePara(ref, processed);
       });
 
       // Extending to neighbouring quoted paragraphs
-      for (let i = 0; i < section.content.length; i++) {
-        const base = section.content[i]!;
+      for (let i = 0; i < content.length; i++) {
+        const base = content[i]!;
         if (
-          Array.isArray(base.para) &&
-          base.para.filter((x) => typeof x !== "string").length === 1
+          Array.isArray(base) &&
+          base.filter((x) => typeof x !== "string").length === 1
         ) {
-          const baseSource = base.para.find((x) => typeof x !== "string")!;
+          const baseSource = base.find((x) => typeof x !== "string")!;
           for (const dir of [-1, 1]) {
-            for (
-              let j = i + dir;
-              j >= 0 && j < section.content.length;
-              j += dir
-            ) {
-              const current = section.content[j]!;
+            for (let j = i + dir; j >= 0 && j < content.length; j += dir) {
+              const current = layers[section]![j]!;
               if (current.chars.length > 0) {
                 const sourceRef = {
                   section: baseSource.section,
                   paragraph: baseSource.paragraph + (j - i),
                 };
-                const source =
-                  sections[sourceRef.section]!.content[sourceRef.paragraph]!;
+                const source = layers[sourceRef.section]![sourceRef.paragraph]!;
                 if (source?.chars.includes(current.chars)) {
                   const { start, end, pre, post } = findQuoteIndices(
                     source.cleaned,
                     current.cleaned
                   );
-                  const currentRef = { section: sectionIndex, paragraph: j };
+                  const currentRef = { section, paragraph: j };
                   clearNgrams(currentRef, current.ngrams);
                   updatePara(
                     currentRef,
@@ -590,147 +472,120 @@ const processSection = (sectionIndex: number) => {
         }
       }
     }
-    processedMap.set(sectionIndex, "complete");
+    processedMap.set(section, "complete");
   }
 };
 for (const index of yearSortedIndices) processSection(index);
 
 // Added quoted information
-const allQuoted = sections.flatMap((section, sIndex) =>
-  section.content.flatMap((para, i) => {
-    if (!Array.isArray(para.para)) return [];
-    let index = 0;
-    return para.para.flatMap((a) => {
-      const text = typeof a === "string" ? a : getQuoteText(a);
-      const start = index;
-      index += text.length;
-      if (typeof a === "string") return [];
-      return [
-        {
-          ...a,
-          refSection: sIndex,
-          refParagraph: i,
-          refStart: start,
-          refEnd: index,
-        },
-      ];
-    });
-  })
-);
-sections.forEach((section, sIndex) => {
-  const sectionQuoted = allQuoted.filter((a) => a.section === sIndex);
-  const quoted = {} as any;
-  section.content.forEach((_: any, i: any) => {
-    const paraQuoted = sectionQuoted.filter((a) => a.paragraph === i);
-    if (paraQuoted.length > 0) {
-      const paras = [
-        ...new Set(paraQuoted.map((q) => `${q.refSection}:${q.refParagraph}`)),
-      ];
-      quoted[i] = paras.flatMap((para) => {
-        const quoted = paraQuoted.filter(
-          (q) => `${q.refSection}:${q.refParagraph}` === para
-        );
-        quoted.sort((a, b) => a.start - b.start);
-        return quoted.map((q) => ({
-          start: q.start,
-          end: q.end,
-          section: q.refSection,
-          paragraph: q.refParagraph,
-          refStart: q.refStart,
-          refEnd: q.refEnd,
-        }));
+
+type RefQuote = { quote: Quote; refRange: Range };
+
+const allQuoted: { quote: Quote; ref: Quote }[] = data.flatMap(
+  (section, sIndex) =>
+    section.content.flatMap((para, i) => {
+      if (!Array.isArray(para)) return [];
+      let index = 0;
+      return para.flatMap((part) => {
+        const text = typeof part === "string" ? part : getQuoteText(data, part);
+        const start = index;
+        index += text.length;
+        if (typeof part === "string") return [];
+        return [
+          {
+            quote: part,
+            ref: { section: sIndex, paragraph: i, start, end: index },
+          },
+        ];
       });
-    }
+    })
+);
+
+const quoted: RefQuote[][][] = data.map(({ content }, section) => {
+  const sectionQuoted = allQuoted.filter((a) => a.quote.section === section);
+  return content.map((_, i) => {
+    const paraQuoted = sectionQuoted.filter((a) => a.quote.paragraph === i);
+    return uniqueRefs(paraQuoted.map((q) => q.ref)).flatMap((ref) => {
+      const quoted = paraQuoted.filter((q) => refsEqual(q.ref, ref));
+      quoted.sort((a, b) => a.quote.start - b.quote.start);
+      return quoted.map((q) => ({
+        quote: {
+          start: q.quote.start,
+          end: q.quote.end,
+          section: q.ref.section,
+          paragraph: q.ref.paragraph,
+        },
+        refRange: {
+          start: q.ref.start,
+          end: q.ref.end,
+        },
+      }));
+    });
   });
-  if (sectionQuoted.length > 0) {
-    const content = section.content;
-    delete (section as any).content;
-    section.quoted = quoted;
-    section.content = content;
-  }
 });
 
-const getAllQuotes = (quote: RefQuote): RefQuote[] => {
-  const offset = quote.start - quote.refStart;
+const getAllQuotes = (base: RefQuote): RefQuote[] => {
+  const { quote, refRange } = base;
+  const offset = quote.start - refRange.start;
   return [
-    quote,
-    ...((sections[quote.section]!.quoted || {})[quote.paragraph] || []).flatMap(
-      (q2) => {
-        const overlap = getRangeIntersection(
-          quote.refStart,
-          quote.refEnd,
-          q2.start,
-          q2.end
-        );
-        if (!overlap) return [];
-        return getAllQuotes({
-          start: overlap.start + offset,
-          end: overlap.end + offset,
-          section: q2.section,
-          paragraph: q2.paragraph,
-          refStart: overlap.start,
-          refEnd: overlap.end,
-        });
-      }
-    ),
+    base,
+    ...quoted[quote.section]![quote.paragraph]!.flatMap((q2) => {
+      const overlap = getRangesIntersect(refRange, q2.quote);
+      if (!overlap) return [];
+      return getAllQuotes({
+        quote: { ...q2.quote, ...moveRange(overlap, offset) },
+        refRange: overlap,
+      });
+    }),
   ];
 };
 
-const mappedQuoted = sections.map((d) =>
-  Object.keys(d.quoted || {}).reduce((res, k) => {
-    const allQuotes = d.quoted![k]!.flatMap((q) => getAllQuotes(q));
-    const allRefs = [
-      ...new Set(
-        allQuotes.map((q) => JSON.stringify([q.section, q.paragraph]))
-      ),
-    ].map((x) => JSON.parse(x));
-    return {
-      ...res,
-      [k]: allRefs
-        .flatMap((ref) => {
-          const [refSection, refParagraph] = ref;
-          const refQuotes = allQuotes.filter(
-            (q) => q.section === refSection && q.paragraph === refParagraph
-          );
-          refQuotes.sort((a, b) => a.start - b.start);
-          const cleaned = d.content[parseInt(k, 10)]!.cleaned;
-          const merged = [refQuotes[0]!];
-          for (let j = 1; j < refQuotes.length; j++) {
-            const last = merged[merged.length - 1]!;
-            const current = refQuotes[j]!;
-            if (
-              current.start <= last.end ||
-              textIsConnector(cleaned.slice(last.end, current.start))
-            ) {
-              last.end = Math.max(last.end, current.end);
-            } else {
-              merged.push(current);
-            }
+const mappedQuoted = quoted.map((contentQuotes, section) =>
+  contentQuotes.map((paraQuotes, paragraph) => {
+    const allQuotes = paraQuotes.flatMap((q) => getAllQuotes(q));
+    const allRefs = uniqueRefs(allQuotes.map((q) => q.quote));
+    return allRefs
+      .flatMap((ref) => {
+        const refQuotes = allQuotes.filter((q) => refsEqual(q.quote, ref));
+        refQuotes.sort((a, b) => a.quote.start - b.quote.start);
+        const cleaned = layers[section]![paragraph]!.cleaned;
+        const merged = [refQuotes[0]!];
+        for (let i = 1; i < refQuotes.length; i++) {
+          const last = merged[merged.length - 1]!;
+          const current = refQuotes[i]!;
+          if (
+            current.quote.start < last.quote.end ||
+            textIsConnector(cleaned.slice(last.quote.end, current.quote.start))
+          ) {
+            last.quote.end = Math.max(last.quote.end, current.quote.end);
+          } else {
+            merged.push(current);
           }
-          return merged;
-        })
-        .sort((aQuote, bQuote) => {
-          const aDoc = sections[aQuote.section]!;
-          const bDoc = sections[bQuote.section]!;
-          return comparePathNums(
-            aDoc.path.map((p: [string, string, number]) => p[2]),
-            bDoc.path.map((p: [string, string, number]) => p[2])
-          );
-        }),
-    };
-  }, {})
+        }
+        return merged;
+      })
+      .sort((a, b) => {
+        const aDoc = data[a.quote.section]!;
+        const bDoc = data[b.quote.section]!;
+        return compareArrays(
+          aDoc.path.map((p: [string, string, number]) => p[2]),
+          bDoc.path.map((p: [string, string, number]) => p[2])
+        );
+      });
+  })
 );
-sections.forEach((d, i) => {
-  if (Object.keys(mappedQuoted[i]!).length > 0) {
-    d.quoted = mappedQuoted[i];
+
+data.forEach((d, section) => {
+  if (mappedQuoted[section]!.some((q) => q.length > 0)) {
+    const content = d.content;
+    delete (d as any).content;
+    d.quoted = mappedQuoted[section]!.reduce(
+      (res, q, i) =>
+        q.length > 0 ? { ...res, [i]: q.map((x) => x.quote) } : res,
+      {}
+    );
+    d.content = content;
   }
 });
 
-await writeJSON(
-  "",
-  "data",
-  sections.map((section) => ({
-    ...section,
-    content: section.content.map((para) => para.para),
-  }))
-);
+await writeJSON("", "data", data);

@@ -1,33 +1,19 @@
 import { readJSON, writeText } from "../utils/files";
 import stem from "../utils/searchStem";
-import type { Ref, Quote, Section } from "../utils/types";
+import type { Section } from "../utils/types";
+import { getText } from "../utils/utils";
 
 const SCORE_BASE = 1;
 
-const sections = (await readJSON("", "data")) as Section[];
-
-const getQuoteText = (quote: Quote): string =>
-  getText(quote).slice(quote.start, quote.end);
-
-const getText = (ref: Ref): string => {
-  const para = sections[ref.section]!.content[ref.paragraph]!;
-  if (typeof para === "string") return para;
-  if (!Array.isArray(para)) {
-    if ("type" in para && para.type === "break") return "";
-    return para.text;
-  }
-  return para
-    .map((part) => (typeof part === "string" ? part : getQuoteText(part)))
-    .join("");
-};
+const data = (await readJSON("", "data")) as Section[];
 
 const searchIndex = new Map<string, string[]>();
 const tokenCounts: Record<string, number> = {};
-sections.forEach((section, sectionIndex) => {
-  console.log(section.path.map((p) => p[0]).join(", "));
-  section.content.forEach((_, paraIndex) => {
-    const key = `${sectionIndex}:${paraIndex}`;
-    const text = getText({ section: sectionIndex, paragraph: paraIndex });
+data.forEach(({ path, content, quoted }, section) => {
+  console.log(path.map((p) => p[0]).join(", "));
+  content.forEach((_, paragraph) => {
+    const key = `${section}:${paragraph}`;
+    const text = getText(data, { section, paragraph });
     const words = text
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
@@ -39,7 +25,7 @@ sections.forEach((section, sectionIndex) => {
       const tidied = word.replace(/’s$/g, "").replace(/[^a-z0-9]/g, "");
       const token = stem(tidied);
       if (token) {
-        const score = ((section.quoted || {})[paraIndex] || []).filter(
+        const score = ((quoted || {})[paragraph] || []).filter(
           (q) => q.start < current + word.length && current < q.end
         ).length;
         tokens.push({ token, score });
