@@ -1,17 +1,26 @@
-import { readJSON, writeText } from "../utils/files";
+import { readJSON, writeJSON, writeText } from "../utils/files";
 import stem from "../utils/searchStem";
 import type { Section } from "../utils/types";
-import { getText } from "../utils/utils";
-
-const SCORE_BASE = 1;
+import { getText, SCORE_BASE } from "../utils/utils";
 
 const data = (await readJSON("", "data")) as Section[];
 
+const getLayersString = (values: number[]) => {
+  const res = [];
+  for (let i = 0; i < values.length; i++) {
+    if (values[i]! > 0) {
+      res.push(`${i}=${values[i]!}`);
+    }
+  }
+  return res.join(",");
+};
+
+const paraLengths: string[][] = [];
 const searchIndex = new Map<string, string[]>();
 const tokenCounts: Record<string, number> = {};
 data.forEach(({ path, content, quoted }, section) => {
   console.log(path.map((p) => p[0]).join(", "));
-  content.forEach((_, paragraph) => {
+  paraLengths[section] = content.map((_, paragraph) => {
     const key = `${section}:${paragraph}`;
     const text = getText(data, { section, paragraph });
     const words = text
@@ -22,8 +31,7 @@ data.forEach(({ path, content, quoted }, section) => {
     let current = 0;
     const tokens: { token: string; score: number }[] = [];
     for (const word of words) {
-      const tidied = word.replace(/’s$/g, "").replace(/[^a-z0-9]/g, "");
-      const token = stem(tidied);
+      const token = stem(word.replace(/’s$/g, "").replace(/[^a-z0-9]/g, ""));
       if (token) {
         const score = ((quoted || {})[paragraph] || []).filter(
           (q) => q.start < current + word.length && current < q.end
@@ -32,6 +40,7 @@ data.forEach(({ path, content, quoted }, section) => {
       }
       current += word.length;
     }
+
     for (const token of [...new Set(tokens.map((t) => t.token))]) {
       const scores = tokens
         .filter((t) => t.token === token)
@@ -40,23 +49,29 @@ data.forEach(({ path, content, quoted }, section) => {
         length: Math.max(...scores) + 1,
       }).fill(0);
       for (const score of scores) counts[score]!++;
-      let cumulative = 0;
+      let countCurr = 0;
       for (let i = counts.length - 1; i >= 0; i--) {
         if (counts[i]! > 0) {
-          counts[i]! = cumulative = counts[i]! * (i + SCORE_BASE) + cumulative;
+          counts[i]! = countCurr = counts[i]! * (i + SCORE_BASE) + countCurr;
         }
       }
       let v = `${key}`;
       if (counts[0]! > SCORE_BASE || counts.length > 1) {
-        for (let i = 0; i < counts.length; i++) {
-          if (counts[i]! > 0) {
-            v += `,${i}=${counts[i]!}`;
-          }
-        }
+        v += `,${getLayersString(counts)}`;
       }
       searchIndex.set(token, [...(searchIndex.get(token) || []), v]);
       tokenCounts[token] = (tokenCounts[token] || 0) + 1;
     }
+
+    const lengths = Array.from<number>({
+      length: Math.max(...tokens.map((t) => t.score)) + 1,
+    }).fill(0);
+    for (const token of tokens) lengths[token.score]!++;
+    let lenCurr = 0;
+    for (let i = lengths.length - 1; i >= 0; i--) {
+      if (lengths[i]! > 0) lengths[i]! = lenCurr = lengths[i]! + lenCurr;
+    }
+    return getLayersString(lengths);
   });
 });
 
@@ -72,6 +87,7 @@ const searchIndexData = sortedTokens
   })
   .join("\n");
 
+await writeJSON("", "lengths", paraLengths);
 await writeText("", "search", searchIndexData);
 
 // import { promises as fs } from "fs";

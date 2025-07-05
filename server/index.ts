@@ -49,7 +49,7 @@ const joinQuotes = (quotes: MultiRef[][]) => {
 
 const getData = (
   urlPath: string[],
-  level: number,
+  baseLevel: number,
   search: string
 ): {
   data: any[];
@@ -57,53 +57,52 @@ const getData = (
   tree: any;
   showContent: boolean;
 } => {
-  const showContent =
-    data.find(
-      (d) =>
-        urlPath.length === d.path.length &&
-        urlPath.every((p, i) => d.path[i]![1] === p)
-    ) ||
-    [
-      "bahaullah/hidden-words",
-      "bahaullah/gleanings-writings-bahaullah",
-      "abdul-baha/selections-writings-abdul-baha",
-    ].includes(urlPath.join("/")) ||
-    (urlPath.length > 1 &&
-      ["documents", "ruhi", "compilations"].includes(urlPath[0]!)) ||
-    (urlPath.length > 2 && urlPath[1] === "bahaullah-new-era");
+  // const showContent =
+  //   data.find(
+  //     (d) =>
+  //       urlPath.length === d.path.length &&
+  //       urlPath.every((p, i) => d.path[i]![1] === p)
+  //   ) ||
+  //   [
+  //     "bahaullah/hidden-words",
+  //     "bahaullah/gleanings-writings-bahaullah",
+  //     "abdul-baha/selections-writings-abdul-baha",
+  //   ].includes(urlPath.join("/")) ||
+  //   (urlPath.length > 1 &&
+  //     ["documents", "ruhi", "compilations"].includes(urlPath[0]!)) ||
+  //   (urlPath.length > 2 && urlPath[1] === "bahaullah-new-era");
 
-  const matches = getMatches(search);
-
-  const filtered = data
+  const filteredSections = data
     .map((section, index) => ({ section, index }))
-    .filter(
-      ({ section, index }) =>
-        urlPath.every((p, i) => section.path[i]?.[1] === p) &&
-        (!matches ||
-          matches.some((m) =>
-            m.matches.some(
-              (x) =>
-                x.section === index && x.scores.some((y) => y.level >= level)
-            )
-          ))
-    );
+    .filter(({ section }) =>
+      urlPath.every((p, i) => section.path[i]?.[1] === p)
+    )
+    .map(({ index }) => index);
+
+  const matches = getMatches(filteredSections, search, baseLevel);
+
+  const searchSections = matches
+    ? filteredSections.filter((section) =>
+        matches.refs.some((m) => m.ref.section === section)
+      )
+    : filteredSections;
 
   const tree = {} as any;
-  for (const { section } of filtered.filter(({ section }) => !section.meta)) {
-    section.path.reduce((res, p) => {
+  for (const section of searchSections) {
+    data[section]!.path.reduce((res, p) => {
       const key = JSON.stringify([p[0], p[1]]);
       return (res[key] = res[key] || {});
     }, tree);
   }
   const [path, nestedTree] = collapseSingleKeys(tree, urlPath.length);
 
-  if (!showContent) {
+  if (!matches) {
     return { data: [], path, tree: nestedTree, showContent: false };
   }
 
-  const result = filtered.flatMap(({ section, index }) => {
-    const paraIds = getParagraphIds(section.content);
-    const allFullQuote = section.content.every((para) => {
+  const result = matches.refs.slice(0, 30).flatMap(({ ref, level }) => {
+    const paraIds = getParagraphIds(data[ref.section]!.content);
+    const allFullQuote = data[ref.section]!.content.every((para) => {
       if (typeof para === "string") {
         return textIsConnector(para);
       }
@@ -114,25 +113,20 @@ const getData = (
       }
       return "type" in para && para.type === "break";
     });
-    const allSpecial = getAllSpecial(section.content);
-    const content = section.content.map((para, paraIndex) => {
-      const base = { paraId: paraIds[paraIndex]!, quoted: [], quotes: [] };
-      const notInSearch =
-        matches &&
-        !matches.some((m) =>
-          m.matches.some(
-            (x) =>
-              x.section === index &&
-              x.paragraph === paraIndex &&
-              x.scores.some((y) => y.level >= level)
-          )
-        );
+    const allSpecial = getAllSpecial(data[ref.section]!.content);
+    const content = data[ref.section]!.content.map((para, paragraph) => {
+      const base = { paraId: paraIds[paragraph]!, quoted: [], quotes: [] };
+      const notInSearch = ref.paragraph !== paragraph;
       const filteredPara = notInSearch
         ? null
         : filterQuoted(
             allFullQuote
               ? getFullQuotedPara(para)
-              : getPara(para, section.quoted?.[paraIndex], allSpecial),
+              : getPara(
+                  para,
+                  data[ref.section]!.quoted?.[paragraph],
+                  allSpecial
+                ),
             level
           );
       if (!filteredPara) {
@@ -141,12 +135,12 @@ const getData = (
           content: [
             { text: ". . .", quoted: 0, highlight: false },
           ] as RenderContent,
-          sources: [{ section: index, paragraph: [] }],
+          sources: [{ section: ref.section, paragraph: [] }],
         };
       }
       filteredPara.highlights = getTokenHighlights(
         filteredPara.text,
-        (matches || []).map((m) => m.token)
+        matches.tokens
       );
       return {
         ...base,
@@ -167,7 +161,7 @@ const getData = (
                 ? para.filter((part) => typeof part !== "string")
                 : []
             )
-          : [{ section: index, paragraph: [paraIndex] }],
+          : [{ section: ref.section, paragraph: [paragraph] }],
       };
     });
     let readyBreak = false;

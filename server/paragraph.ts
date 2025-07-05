@@ -200,7 +200,7 @@ export const filterQuoted = (
 const capitaliseQuotes = (para: FlatPara) => {
   para.text = para.text
     .replace(/^[a-z]/, (s) => s.toUpperCase())
-    .replace(/([^ ][.?!] |^)“+[a-z]/g, (s) => s.toUpperCase());
+    .replace(/([^ ][.?!] |^)(“+[a-z])/g, (_, a, b) => a + b.toUpperCase());
 };
 
 const alternateQuoteMarks = (para: FlatPara) => {
