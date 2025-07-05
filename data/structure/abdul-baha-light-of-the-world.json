@@ -113,12 +113,12 @@
       "Consider how the burning meteor of the Covenant hath pierced the heart of the world. Witness the rays that stream forth from the unseen Kingdom upon the lands of the Slavs and the Turks.",
       {
         "text": "Shed splendours on the Orient, And perfumes scatter in the West, Carry light unto the Slav, And the Turk with life invest.",
-        "lines": [0, 31, 65, 92, 123]
+        "lines": [30, 64, 91]
       },
       "And yet these deniers, even as the bats of darkness, have crawled into their caves of apathy and deny the existence of the sun. How well hath it been said:",
       {
         "text": "Granted that this morn be called a darksome night, Are seeing eyes also blinded by the light?",
-        "lines": [0, 51, 94]
+        "lines": [50]
       },
       "Nay, by the righteousness of the Lord! Erelong thou shalt hear the sound of this Bugle and the blasts of this Trumpet coming from the Concourse on high. Glory be to my Lord, the All‑Glorious! Upon thee be greetings and praise."
     ]
@@ -254,7 +254,7 @@
       "The village of the Blessed Beauty in Mázindarán was attacked by a host of twelve thousand brutal men. They plundered and pillaged so relentlessly that no sign of any possession or goods remained; they even left no crop for the inhabitants of the village. They set fire to the straw, burned the oil, and massacred a number of the innocent. They then herded the peasants together in chains, sent them to Ṭihrán, and cast them into prison. They cut the chin as well as the beard of that spirit of spirits, Mullá ‘Abdu’l‑Fattáḥ, and they marched him to Ṭihrán, barefoot and in chains. Despite his old age and his frailty, the guards showed him no mercy. But even whilst bound by chains and on foot, with blood pouring from his wounded face, that spirit of detachment raised up his voice in prayer, to his very last breath, rendering thanks unto the Lord of Signs for having been made the victim of plunder and pillage, for having been bound in shackles and fetters in the path of the Beloved. With his beard tinged with his own blood, he walked all the way and, upon arrival at the prison in Ṭihrán, surrendered his soul into the hands of his Beloved and sacrificed himself for the Loving Friend. Beaming with joy, he laid down his life in the path of that great Luminary. How truly hath the poet said:",
       {
         "text": "That beam of bliss and ecstasy Did stay with him forevermore, Even as Aḥmad, the Praised, Who is always with the Peerless Lord.",
-        "lines": [0, 31, 62, 90, 128]
+        "lines": [30, 61, 89]
       },
       "In short, let the loved ones of God render thanks unto the All‑Merciful Lord for their share of these afflictions and for their astounding patience and forbearance. Through His unfailing grace, a radiant morn shall surely follow this dreary night, and a bright horizon will succeed this foul cloud. This deadly poison shall give way to purest honey, and this sore wound will at last receive a healing balm. The Glory of Glories rest upon you!"
     ]
@@ -434,7 +434,7 @@
       "Thou too must be my companion, and abandon not the arena in the face of afflictions and calamities. Thou must not merely refrain from complaining, but must rather be thankful. One day in Baghdád, the Blessed Beauty—may my soul be offered up for His servants—addressing us, uttered this verse:",
       {
         "text": "Either speak no more of love, or content thyself with what hath been ordained; Thus hath it been decreed by My command, and such is My law and My way.",
-        "lines": [0, 79, 151]
+        "lines": [78]
       },
       "At that instant, ‘Abdu’l‑Bahá understood what was expected of him.",
       "And now, through His infinite favours, I hope that days as sweet as honey may once again return. Grieve not, neither sorrow nor repine. “Forsake all complaint and tend to the flock.” My wish for thee is that, by the favour of the Blessed Beauty, thou mayest find ease of heart and soul. The Glory of Glories rest upon thee."
@@ -630,7 +630,7 @@
       "‘Abdu’l‑Bahá yearneth to join the friends in servitude to the Threshold of Bahá, but he is abashed and doth sigh, lament, and repeat this verse by day and by night:",
       {
         "text": "Before the Friend how can I ever lift my face, Abashed that I did naught to befit His grace?",
-        "lines": [0, 47, 93]
+        "lines": [46]
       },
       "The Glory of Glories rest upon you."
     ]
@@ -698,7 +698,7 @@
       "O friends, make ye a mighty effort! O loved ones, arise and bestir yourselves! Occupy yourselves not with the tales and accounts of those who waver in the Covenant, for these are but confused dreams and idle and childish talk. Speak of them that are steadfast, and tread the path of them that stand unwaveringly firm!",
       {
         "text": "The duty of long years of love obey, And tell the tale of blissful days gone by.",
-        "lines": [0, 37, 81]
+        "lines": [36]
       }
     ]
   },
@@ -1094,27 +1094,27 @@
       "Praise be to God that the hosts of His all‑glorious Kingdom are rushing forth, the stars of His Most Sublime Horizon are shining bright, the banner of guidance is waving aloft, the showers of the clouds of bounty are raining down upon all, the Daystar of the heaven of divine knowledge is shining resplendent, the joyful festival of the Kingdom is being held in the utmost delight, and the Morn of divine grace is casting abroad the rays of guidance. The anthem of the Abhá Kingdom can be heard from the celestial Concourse:",
       {
         "text": "O lifeless one, bereft of heart and soul, Come to life, come thou to life!",
-        "lines": [0, 42, 75]
+        "lines": [41]
       },
       {
         "text": "O slumbering one, wrapt in mire and clay, Awake, do thou awake!",
-        "lines": [0, 42, 64]
+        "lines": [41]
       },
       {
         "text": "O drunken one, so dazed and gone astray, Clear thy mind, clear thou thy mind!",
-        "lines": [0, 41, 78]
+        "lines": [40]
       },
       {
         "text": "The world is filled with sweetest musk; the eyes are brightened with His light; the heavens now are set ablaze. From life and self be freed, be wholly freed!",
-        "lines": [0, 112, 158]
+        "lines": [111]
       },
       {
         "text": "Now is the time for sacrifice; here waft the breaths of Paradise; secrets Divine are all made known. Lead thou the lovers nigh, lead them nigh!",
-        "lines": [0, 101, 144]
+        "lines": [100]
       },
       {
         "text": "The sweetly singing mystic bird, upon a verdant cypress bough, imparteth knowledge to the soul; Commit His secrets to thy heart! Commit His secrets to thy heart!",
-        "lines": [0, 96, 162]
+        "lines": [95]
       }
     ]
   },
@@ -1409,7 +1409,7 @@
       "O thou binder of books! Shouldst thou refer to the heavenly Books and Sacred Scriptures, and ponder the meanings enshrined therein, thou wouldst see that all their tidings and signs herald the advent of the Light of Truth and the Centre of Divinity. Forget not the tradition that saith: “Whatsoever is in the Torah, the Gospel, and other Scriptures is in the Qur’án, and whatsoever is in the Qur’án is in its Exordium, and whatsoever is in its Exordium is in the Basmalah, and whatsoever is in the Basmalah is in the Bá’.” But alas, for the eyes of the people are blind, and their ears are deaf. How well hath it been said:",
       {
         "text": "To speak of the subtleties of Saná’í before the foolish and the weak of mind Is like plucking the lute for the deaf or holding a mirror to the blind.",
-        "lines": [0, 77, 150]
+        "lines": [76]
       },
       "Gracious God! How strange, how very strange! The people of the Book have withdrawn behind the veils, whilst the common people comprehend the mysteries of the Word. This is but a token of the bounteous favour of my Lord, the Almighty, the All‑Bountiful. Upon thee be greetings and praise."
     ]
@@ -1513,7 +1513,7 @@
       "That is, this wondrous Dispensation is so different and distinguished from the previous ones that, even as ye witness, though it is still the first century, so many mysteries of creation have, within so short a period, stepped forth out of the realm of the invisible into the visible world. How many well‑guarded secrets once enshrined within the realm of the unseen have been revealed! How many discoveries have been made of the hidden realities of things, and how many inventions and wonders have appeared! Infer then from this what the future shall hold.",
       {
         "text": "Await the break of His sovereign morn, These are but effects of its early dawn!",
-        "lines": [0, 39, 80]
+        "lines": [38]
       },
       "The Glory of Glories rest upon you."
     ]

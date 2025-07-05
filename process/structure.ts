@@ -318,12 +318,12 @@ const getContentItem = (line: string): SectionContent => {
   }
   if (line.startsWith(">")) {
     const lines = line.split("\n").map((t) => t.slice(2));
-    return {
-      text: lines.join(" "),
-      lines: lines
-        .map((l) => l.length + 1)
-        .reduce((res, i) => [...res, res[res.length - 1]! + i], [0]),
-    };
+    const indices = lines
+      .slice(0, -1)
+      .map((l) => l.length + 1)
+      .reduce((res, x) => [...res, res[res.length - 1]! + x], [-1]);
+    indices.shift();
+    return { text: lines.join(" "), lines: indices };
   }
   return line;
 };

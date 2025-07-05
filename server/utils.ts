@@ -3,12 +3,12 @@ import type { Range, Ref, Section, SectionContent } from "../utils/types";
 import baseData from "../data/data.json";
 export const data = baseData as Section[];
 
-export interface ParaText {
+export interface FlatPara {
   type?: "break" | "info" | "call" | "framing";
   text: string;
   lines?: number[];
-  quotes?: { start: number; end: number; quote: Ref }[];
-  quoted: { start: number; end: number; quote: Ref }[];
+  quotes?: { range: Range; quote: Ref }[];
+  quoted: { range: Range; quote: Ref }[];
   highlights: Range[];
   allSpecial: boolean;
 }

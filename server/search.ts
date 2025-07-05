@@ -1,9 +1,8 @@
 import stem from "../utils/searchStem";
+import type { Range } from "../utils/types";
 import { fixSpellings } from "../utils/utils";
 
 import searchIndex from "../data/search.txt";
-
-import type { ParaText } from "./utils";
 
 interface Match {
   section: number;
@@ -52,10 +51,10 @@ export const getMatches = (search: string) => {
     : tokens.flatMap((token) => ({ token, ...getTokenInfo(token) }));
 };
 
-export const highlightTokens = (para: ParaText, tokens: string[]): ParaText => {
-  if (tokens.length === 0) return para;
-  const result = { ...para, highlights: [...para.highlights] };
-  const words = para.text
+export const getTokenHighlights = (text: string, tokens: string[]): Range[] => {
+  if (tokens.length === 0) return [];
+  const highlights: Range[] = [];
+  const words = text
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
@@ -65,9 +64,9 @@ export const highlightTokens = (para: ParaText, tokens: string[]): ParaText => {
   for (const word of words) {
     const token = stem(word.replace(/’s$/g, "").replace(/[^a-z0-9]/g, ""));
     if (tokens.includes(token)) {
-      result.highlights.push({ start: current, end: current + word.length });
+      highlights.push({ start: current, end: current + word.length });
     }
     current += word.length;
   }
-  return result;
+  return highlights;
 };

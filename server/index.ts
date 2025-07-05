@@ -8,7 +8,7 @@ import {
   getRenderContent,
 } from "./paragraph";
 import { getUrlQuote } from "./quote";
-import { getMatches, highlightTokens } from "./search";
+import { getMatches, getTokenHighlights } from "./search";
 import type { MultiRef, RenderContent, RenderQuote } from "./utils";
 import { data, getAllSpecial, getParagraphIds, mergeQuotes } from "./utils";
 
@@ -144,14 +144,14 @@ const getData = (
           sources: [{ section: index, paragraph: [] }],
         };
       }
-      const highlightedPara = highlightTokens(
-        filteredPara,
+      filteredPara.highlights = getTokenHighlights(
+        filteredPara.text,
         (matches || []).map((m) => m.token)
       );
       return {
         ...base,
-        ...getRenderContent(highlightedPara),
-        quoted: highlightedPara.quoted
+        ...getRenderContent(filteredPara),
+        quoted: filteredPara.quoted
           .map((q) => q.quote)
           .sort((aQuote, bQuote) => {
             const aDoc = data[aQuote.section]!;
