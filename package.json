@@ -4,12 +4,12 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "download": "bun ./src/download.ts",
-    "tidy": "bun ./src/tidy.ts",
-    "format": "bun ./src/format.ts",
-    "structure": "bun ./src/structure.ts",
-    "link": "bun ./src/link.ts",
-    "search": "bun ./src/search.ts",
+    "download": "bun ./process/download.ts",
+    "tidy": "bun ./process/tidy.ts",
+    "format": "bun ./process/format.ts",
+    "structure": "bun ./process/structure.ts",
+    "link": "bun ./process/link.ts",
+    "search": "bun ./process/search.ts",
     "server": "bun ./server/server.ts",
     "app": "bun ./app/index.html"
   },
