@@ -7,7 +7,7 @@ import {
   useSearchParams,
 } from "react-router";
 
-import type { RenderContent, RenderQuote } from "../server/server";
+import type { RenderContent, RenderQuote } from "../server/utils";
 
 import renderTree from "./Tree";
 import { Column, Row, SizeContext, Text } from "./Utils";

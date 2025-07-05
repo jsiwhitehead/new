@@ -10,7 +10,7 @@
     "structure": "bun ./process/structure.ts",
     "link": "bun ./process/link.ts",
     "search": "bun ./process/search.ts",
-    "server": "bun ./server/server.ts",
+    "server": "bun ./server/index.ts",
     "app": "bun ./app/index.html"
   },
   "devDependencies": {

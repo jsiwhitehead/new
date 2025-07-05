@@ -3560,7 +3560,7 @@ var step5 = function (s: string) {
  * stem( 'consisting' );
  * // -> consist
  */
-const stem = function (w: string) {
+const stem = function (w: string): string {
   const word = w
     .toLowerCase()
     .replace(/[’']s\b/g, "")
