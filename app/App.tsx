@@ -7,7 +7,7 @@ import {
   useSearchParams,
 } from "react-router";
 
-import type { RenderContent, RenderQuote } from "../src/server";
+import type { RenderContent, RenderQuote } from "../server/server";
 
 import renderTree from "./Tree";
 import { Column, Row, SizeContext, Text } from "./Utils";
@@ -32,9 +32,11 @@ const authorColours = {
 const Breadcrumbs = ({
   path,
   size,
+  search,
 }: {
   path: [string, string][];
   size: number;
+  search: string;
 }) => {
   return (
     <Row
@@ -44,7 +46,7 @@ const Breadcrumbs = ({
         paddingLeft: 30,
       }}
     >
-      {path.map((p, i) => (
+      {path.map(([label, url], i) => (
         <Row gap={size * 0.6} style={{ marginLeft: i === 0 ? -30 : 0 }} key={i}>
           {i > 0 && (
             <svg
@@ -55,8 +57,11 @@ const Breadcrumbs = ({
               <polygon points="-0.5,0.866 -0.5,-0.866 1.0,0.0" fill="#333" />
             </svg>
           )}
-          <Text size={size} to={p[1]}>
-            {p[0]}
+          <Text
+            size={size}
+            to={search ? `${url}?search=${encodeURIComponent(search)}` : url}
+          >
+            {label}
           </Text>
         </Row>
       ))}
@@ -291,7 +296,17 @@ export default function App() {
   useEffect(() => {
     if (level !== parseInt(searchParams.get("level") || "0", 10)) {
       navigate(
-        { search: `?level=${level}&search=${encodeURIComponent(search)}` },
+        {
+          search:
+            "?" +
+            [
+              ["level", level],
+              ["search", search],
+            ]
+              .filter((x) => x[1])
+              .map((x) => x.map((y) => encodeURIComponent(y)).join("="))
+              .join("&"),
+        },
         { replace: true, preventScrollReset: true }
       );
     }
@@ -300,7 +315,17 @@ export default function App() {
     const timeout = setTimeout(() => {
       if (search !== (searchParams.get("search") || "")) {
         navigate(
-          { search: `?level=${level}&search=${encodeURIComponent(search)}` },
+          {
+            search:
+              "?" +
+              [
+                ["level", level],
+                ["search", search],
+              ]
+                .filter((x) => x[1])
+                .map((x) => x.map((y) => encodeURIComponent(y)).join("="))
+                .join("&"),
+          },
           { replace: true, preventScrollReset: true }
         );
       }
@@ -326,11 +351,26 @@ export default function App() {
             Bahá’í Explore
           </Text>
 
-          <Breadcrumbs size={17} path={[["All", "/"], ...path]} />
+          <input
+            type="text"
+            value={search}
+            placeholder="Search..."
+            onChange={(e) => setSearch(e.target.value)}
+          />
+
+          <Breadcrumbs
+            size={17}
+            path={[["All", "/"], ...path]}
+            search={searchParams.get("search") || ""}
+          />
 
           {Object.keys(tree).length > 0 && (
             <div style={{ paddingLeft: 15 }}>
-              {renderTree(tree, path[path.length - 1]?.[1] || "")}
+              {renderTree(
+                tree,
+                path[path.length - 1]?.[1] || "",
+                searchParams.get("search") || ""
+              )}
             </div>
           )}
 
@@ -342,15 +382,6 @@ export default function App() {
               max={5}
               step={1}
               onChange={(e) => setLevel(parseInt(e.target.value, 10))}
-            />
-          )}
-
-          {showContent && (
-            <input
-              type="text"
-              value={search}
-              placeholder="Search..."
-              onChange={(e) => setSearch(e.target.value)}
             />
           )}
         </Column>

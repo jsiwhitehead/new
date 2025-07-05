@@ -1,9 +1,8 @@
-import fs from "fs-extra";
 import * as cheerio from "cheerio";
 import type { ChildNode, Element } from "domhandler";
 
-import { writeText } from "./utils";
 import sources from "./sources";
+import { emptyDir, writeText } from "../utils/files";
 
 const inline = [
   "span",
@@ -54,69 +53,67 @@ const getText = (root: Element): string => {
     .trim();
 };
 
-(async () => {
-  fs.emptyDirSync("./data/download");
+await emptyDir("./data/download");
 
-  for (const author of Object.keys(sources)) {
-    await Promise.all(
-      Object.keys(sources[author]!).map(async (file) => {
-        if (sources[author]![file]!.length > 0) {
-          const id = `${author}-${file}`;
-          if (id !== "the-universal-house-of-justice-messages") {
-            const urlFile =
-              file === "secret-divine-civilisation"
-                ? "secret-divine-civilization"
-                : file;
-            const $ = await fetchHtml(
-              `https://www.bahai.org/library/${
-                [
-                  "official-statements-commentaries",
-                  "publications-individual-authors",
-                ].includes(author)
-                  ? "other-literature"
-                  : "authoritative-texts"
-              }/${author}/${urlFile}/${
-                urlFile === "additional-tablets-extracts-talks"
-                  ? `${urlFile}-abdul-baha`
-                  : urlFile
-              }.xhtml`
-            );
-            const body = $("body").get(0);
-            if (body) {
-              await writeText("download", id, getText(body));
-            }
+for (const author of Object.keys(sources)) {
+  await Promise.all(
+    Object.keys(sources[author]!).map(async (file) => {
+      if (sources[author]![file]!.length > 0) {
+        const id = `${author}-${file}`;
+        if (id !== "the-universal-house-of-justice-messages") {
+          const urlFile =
+            file === "secret-divine-civilisation"
+              ? "secret-divine-civilization"
+              : file;
+          const $ = await fetchHtml(
+            `https://www.bahai.org/library/${
+              [
+                "official-statements-commentaries",
+                "publications-individual-authors",
+              ].includes(author)
+                ? "other-literature"
+                : "authoritative-texts"
+            }/${author}/${urlFile}/${
+              urlFile === "additional-tablets-extracts-talks"
+                ? `${urlFile}-abdul-baha`
+                : urlFile
+            }.xhtml`
+          );
+          const body = $("body").get(0);
+          if (body) {
+            await writeText("download", id, getText(body));
           }
         }
-      })
-    );
-  }
-
-  const $messages = await fetchHtml(
-    "https://www.bahai.org/library/authoritative-texts/the-universal-house-of-justice/messages/"
-  );
-
-  const messageRows = $messages("tbody > tr[id]").toArray().reverse();
-
-  const messages = await Promise.all(
-    messageRows.map(async (row) => {
-      const id = row.attribs["id"];
-      const tds = cheerio.load(row)("td").toArray();
-      const [title, addressee, summary] = tds.map((td) =>
-        cheerio.load(td)("td").text().trim()
-      );
-
-      const $ = await fetchHtml(
-        `https://www.bahai.org/library/authoritative-texts/the-universal-house-of-justice/messages/${id}/${id}.xhtml`
-      );
-      const body = $("body").get(0);
-      const text = body ? getText(body) : "";
-      return ["#", id, title, addressee, summary, "", text].join("\n");
+      }
     })
   );
+}
 
-  await writeText(
-    "download",
-    "the-universal-house-of-justice-messages",
-    messages.join("\n\n")
-  );
-})();
+const $messages = await fetchHtml(
+  "https://www.bahai.org/library/authoritative-texts/the-universal-house-of-justice/messages/"
+);
+
+const messageRows = $messages("tbody > tr[id]").toArray().reverse();
+
+const messages = await Promise.all(
+  messageRows.map(async (row) => {
+    const id = row.attribs["id"];
+    const tds = cheerio.load(row)("td").toArray();
+    const [title, addressee, summary] = tds.map((td) =>
+      cheerio.load(td)("td").text().trim()
+    );
+
+    const $ = await fetchHtml(
+      `https://www.bahai.org/library/authoritative-texts/the-universal-house-of-justice/messages/${id}/${id}.xhtml`
+    );
+    const body = $("body").get(0);
+    const text = body ? getText(body) : "";
+    return ["#", id, title, addressee, summary, "", text].join("\n");
+  })
+);
+
+await writeText(
+  "download",
+  "the-universal-house-of-justice-messages",
+  messages.join("\n\n")
+);

@@ -1,7 +1,6 @@
-import fs from "fs-extra";
-
 import sources from "./sources";
-import { readText, writeJSON } from "./utils";
+import { emptyDir, readText, writeJSON } from "../utils/files";
+import type { Section, SectionContent } from "../utils/types";
 
 const authorYears = {
   "The Báb": [1844, 1853],
@@ -40,38 +39,6 @@ const urlAuthors = {
   Stories: "stories",
   "Ruhi Institute": "ruhi",
 } as Record<string, string>;
-
-export interface Quote {
-  section: number;
-  paragraph: number;
-  start: number;
-  end: number;
-}
-export interface RefQuote extends Quote {
-  refStart: number;
-  refEnd: number;
-}
-
-export type SectionContent =
-  | string
-  | { type: "break" }
-  | { text: string; type: "info" | "call" | "framing" }
-  | { text: string; lines: number[] }
-  | (string | Quote)[];
-
-export interface Section {
-  path: [string, string, number][];
-  years: [number, number];
-  translated?: string;
-  meta?: string;
-  reference?: string;
-  source?: string;
-  summary?: string;
-  purpose?: string;
-  prayer?: string;
-  quoted?: Record<string, RefQuote[]>;
-  content: SectionContent[];
-}
 
 const toChars = (text: string): string =>
   text
@@ -564,105 +531,103 @@ const ruhiKeys = [
   "junior-youth-texts",
 ];
 
-(async () => {
-  fs.emptyDirSync("./data/structure");
+await emptyDir("./data/structure");
 
-  for (const author of Object.keys(sources)) {
-    await Promise.all(
-      (author === "ruhi" ? ruhiKeys : Object.keys(sources[author]!)).map(
-        async (file, fileIndex) => {
-          const id = `${author}-${file}`;
-          const res = parseStructuredSections(
-            file,
-            fileIndex,
-            await readText(
-              sources[author]![file]!.length > 0 ? "format" : "manual",
-              id
-            )
-          );
-          if (res.length > 0) {
-            await writeJSON("structure", id, res);
-          }
+for (const author of Object.keys(sources)) {
+  await Promise.all(
+    (author === "ruhi" ? ruhiKeys : Object.keys(sources[author]!)).map(
+      async (file, fileIndex) => {
+        const id = `${author}-${file}`;
+        const res = parseStructuredSections(
+          file,
+          fileIndex,
+          await readText(
+            sources[author]![file]!.length > 0 ? "format" : "manual",
+            id
+          )
+        );
+        if (res.length > 0) {
+          await writeJSON("structure", id, res);
         }
-      )
-    );
-  }
-
-  additional.sort((a, b) => {
-    const aText = a.content.map((x) => getText(x)).join("");
-    const bText = b.content.map((x) => getText(x)).join("");
-    return aText.length - bText.length || aText.localeCompare(bText);
-  });
-  prayers.sort((a, b) => {
-    const aText = a.content.map((x) => getText(x)).join("");
-    const bText = b.content.map((x) => getText(x)).join("");
-    return aText.length - bText.length || aText.localeCompare(bText);
-  });
-  messages.sort((a, b) => a.years[0] - b.years[0]);
-
-  let indices = {
-    "The Báb": 1,
-    "Bahá’u’lláh": 1,
-    "‘Abdu’l‑Bahá": 1,
-    "Shoghi Effendi": 1,
-    "The Universal House of Justice": 1,
-    Documents: 1,
-  } as Record<string, number>;
-  await writeJSON(
-    "structure",
-    "additional",
-    additional.map((x) => {
-      x.path = [
-        x.path[0]!,
-        ["Additional", "additional", 0],
-        [
-          `${indices[x.path[0]![0]]}`,
-          `${indices[x.path[0]![0]]}`,
-          indices[x.path[0]![0]]!,
-        ],
-      ];
-      indices[x.path[0]![0]]!++;
-      return x;
-    })
-  );
-  let index = 1;
-  const prayersChars = prayers.map((p) =>
-    p.content.map((c) => toChars(getText(c))).join("")
-  );
-  await writeJSON(
-    "structure",
-    "prayers",
-    prayers
-      .filter(
-        (_, i) => !prayersChars.slice(i + 1).some((x) => x === prayersChars[i])
-      )
-      .map((x) => {
-        x.prayer = x.path[0]![0];
-        x.path = [
-          ["Prayers", "prayers", indexAuthors["Prayers"]!],
-          [`${index}`, `${index}`, index],
-        ];
-        index++;
-        return x;
-      })
-  );
-  let currentMessage = "";
-  index = 0;
-  await writeJSON(
-    "structure",
-    "shoghi-effendi-messages",
-    messages.map((x) => {
-      x.path = [
-        x.path[0]!,
-        ["Selected Messages", "messages", 1],
-        ...x.path.slice(x.path[1]![0] === "Citadel of Faith" ? 3 : 2),
-      ];
-      if (x.path[2]![0] !== currentMessage) {
-        currentMessage = x.path[2]![0];
-        index++;
       }
-      x.path[2] = [x.path[2]![0], x.path[2]![1], index];
+    )
+  );
+}
+
+additional.sort((a, b) => {
+  const aText = a.content.map((x) => getText(x)).join("");
+  const bText = b.content.map((x) => getText(x)).join("");
+  return aText.length - bText.length || aText.localeCompare(bText);
+});
+prayers.sort((a, b) => {
+  const aText = a.content.map((x) => getText(x)).join("");
+  const bText = b.content.map((x) => getText(x)).join("");
+  return aText.length - bText.length || aText.localeCompare(bText);
+});
+messages.sort((a, b) => a.years[0] - b.years[0]);
+
+let indices = {
+  "The Báb": 1,
+  "Bahá’u’lláh": 1,
+  "‘Abdu’l‑Bahá": 1,
+  "Shoghi Effendi": 1,
+  "The Universal House of Justice": 1,
+  Documents: 1,
+} as Record<string, number>;
+await writeJSON(
+  "structure",
+  "additional",
+  additional.map((x) => {
+    x.path = [
+      x.path[0]!,
+      ["Additional", "additional", 0],
+      [
+        `${indices[x.path[0]![0]]}`,
+        `${indices[x.path[0]![0]]}`,
+        indices[x.path[0]![0]]!,
+      ],
+    ];
+    indices[x.path[0]![0]]!++;
+    return x;
+  })
+);
+let index = 1;
+const prayersChars = prayers.map((p) =>
+  p.content.map((c) => toChars(getText(c))).join("")
+);
+await writeJSON(
+  "structure",
+  "prayers",
+  prayers
+    .filter(
+      (_, i) => !prayersChars.slice(i + 1).some((x) => x === prayersChars[i])
+    )
+    .map((x) => {
+      x.prayer = x.path[0]![0];
+      x.path = [
+        ["Prayers", "prayers", indexAuthors["Prayers"]!],
+        [`${index}`, `${index}`, index],
+      ];
+      index++;
       return x;
     })
-  );
-})();
+);
+let currentMessage = "";
+index = 0;
+await writeJSON(
+  "structure",
+  "shoghi-effendi-messages",
+  messages.map((x) => {
+    x.path = [
+      x.path[0]!,
+      ["Selected Messages", "messages", 1],
+      ...x.path.slice(x.path[1]![0] === "Citadel of Faith" ? 3 : 2),
+    ];
+    if (x.path[2]![0] !== currentMessage) {
+      currentMessage = x.path[2]![0];
+      index++;
+    }
+    x.path[2] = [x.path[2]![0], x.path[2]![1], index];
+    return x;
+  })
+);

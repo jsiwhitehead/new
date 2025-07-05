@@ -1,7 +1,6 @@
-import type { Ref } from "./link";
-import stem from "./searchStem";
-import type { Quote, Section } from "./structure";
-import { readJSON, writeText } from "./utils";
+import { readJSON, writeText } from "../utils/files";
+import stem from "../utils/searchStem";
+import type { Ref, Quote, Section } from "../utils/types";
 
 const SCORE_BASE = 1;
 

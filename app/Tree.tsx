@@ -5,7 +5,7 @@ import { Row, Text } from "./Utils";
 const layerWidth = 40;
 const treeGap = 10;
 
-const TreeItem = ({ label, tree, nextUrl }: any) => {
+const TreeItem = ({ label, tree, nextUrl, search }: any) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -23,12 +23,12 @@ const TreeItem = ({ label, tree, nextUrl }: any) => {
       >
         {label}
       </div>
-      {open && renderTree(tree, nextUrl)}
+      {open && renderTree(tree, nextUrl, search)}
     </div>
   );
 };
 
-const renderTree = (tree: any, currentUrl: string) =>
+const renderTree = (tree: any, currentUrl: string, search: string) =>
   Object.keys(tree).map((k, i) => {
     const [title, url] = JSON.parse(k);
     const nextUrl = `${currentUrl}/${url}`;
@@ -102,7 +102,9 @@ const renderTree = (tree: any, currentUrl: string) =>
         </div>
         <Text
           onClick={(e) => e.stopPropagation()}
-          to={nextUrl}
+          to={
+            search ? `${nextUrl}?search=${encodeURIComponent(search)}` : nextUrl
+          }
           style={{ paddingLeft: 20 }}
         >
           {title}
@@ -131,7 +133,12 @@ const renderTree = (tree: any, currentUrl: string) =>
             {label}
           </div>
         ) : (
-          <TreeItem label={label} tree={tree[k]} nextUrl={nextUrl} />
+          <TreeItem
+            label={label}
+            tree={tree[k]}
+            nextUrl={nextUrl}
+            search={search}
+          />
         )}
       </div>
     );
