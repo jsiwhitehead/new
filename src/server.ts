@@ -700,7 +700,10 @@ const getData = (
           if ([...m].every((s) => s === s.toUpperCase())) {
             return spellings[k].toUpperCase();
           } else if (m[0] === m[0]!.toUpperCase()) {
-            return capitalise(spellings[k]);
+            return spellings[k]
+              .split(" ")
+              .map((s: string) => capitalise(s))
+              .join(" ");
           }
           return spellings[k];
         }),
@@ -754,21 +757,22 @@ const getData = (
     const allSpecial = getAllSpecial(section);
     const content = section.content.map((para, paraIndex) => {
       const base = { paraId: paraIds[paraIndex]!, quoted: [], quotes: [] };
-      const filteredPara = filterQuoted(
-        allFullQuote
-          ? getFullQuotedPara(para)
-          : getPara(para, section.quoted?.[paraIndex], allSpecial),
-        level
-      );
-      if (
-        !filteredPara ||
-        (tokens.length > 0 &&
-          !matches.some((m) =>
-            m.matches.some(
-              (x) => x.section === index && x.paragraph === paraIndex
-            )
-          ))
-      ) {
+      const notInSearch =
+        tokens.length > 0 &&
+        !matches.some((m) =>
+          m.matches.some(
+            (x) => x.section === index && x.paragraph === paraIndex
+          )
+        );
+      const filteredPara = notInSearch
+        ? null
+        : filterQuoted(
+            allFullQuote
+              ? getFullQuotedPara(para)
+              : getPara(para, section.quoted?.[paraIndex], allSpecial),
+            level
+          );
+      if (!filteredPara) {
         return {
           ...base,
           content: [

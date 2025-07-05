@@ -63,6 +63,10 @@ const getText = (root: Element): string => {
         if (sources[author]![file]!.length > 0) {
           const id = `${author}-${file}`;
           if (id !== "the-universal-house-of-justice-messages") {
+            const urlFile =
+              file === "secret-divine-civilisation"
+                ? "secret-divine-civilization"
+                : file;
             const $ = await fetchHtml(
               `https://www.bahai.org/library/${
                 [
@@ -71,10 +75,10 @@ const getText = (root: Element): string => {
                 ].includes(author)
                   ? "other-literature"
                   : "authoritative-texts"
-              }/${author}/${file}/${
-                file === "additional-tablets-extracts-talks"
-                  ? `${file}-abdul-baha`
-                  : file
+              }/${author}/${urlFile}/${
+                urlFile === "additional-tablets-extracts-talks"
+                  ? `${urlFile}-abdul-baha`
+                  : urlFile
               }.xhtml`
             );
             const body = $("body").get(0);

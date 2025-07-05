@@ -54,7 +54,10 @@ const capitalise = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
                     if ([...m].every((s) => s === s.toUpperCase())) {
                       return allChanges[k].toUpperCase();
                     } else if (m[0] === m[0]!.toUpperCase()) {
-                      return capitalise(allChanges[k]);
+                      return allChanges[k]
+                        .split(" ")
+                        .map((s: string) => capitalise(s))
+                        .join(" ");
                     }
                     return allChanges[k];
                   }),

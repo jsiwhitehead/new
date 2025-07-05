@@ -33,10 +33,7 @@ sections.forEach((section, sectionIndex) => {
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
       .toLowerCase()
-      .replace(/[‑—]/g, " ")
-      .replace(/ +/g, " ")
-      .trim()
-      .split(" ");
+      .split(/([‑— ]+)/g);
     let current = 0;
     const tokens: { token: string; score: number }[] = [];
     for (const word of words) {

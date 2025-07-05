@@ -1064,7 +1064,7 @@ const sources: Record<
       ],
       ["life, in that world. It", "life, in that world.\n\nIt"],
     ],
-    "secret-divine-civilization": [
+    "secret-divine-civilisation": [
       ["‘Abdu’l‑Bahá", ""],
       [/^Translated from the Persian by Marzieh Gail.*/m, ""],
       removeAfter("Notes"),
