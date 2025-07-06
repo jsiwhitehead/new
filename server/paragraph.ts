@@ -219,6 +219,13 @@ export const getRenderContent = (
 
   if (para.type === "break") return { content: { type: "break" }, quotes: [] };
 
+  if (para.text === ". . .") {
+    return {
+      content: [{ text: ". . .", quoted: 0, highlight: false }],
+      quotes: [],
+    };
+  }
+
   const indices = getIndices(para.text.length, para.quoted, para.highlights);
 
   const quoteIndices = getIndices(para.text.length, para.quotes || []);

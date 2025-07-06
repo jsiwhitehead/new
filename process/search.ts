@@ -5,6 +5,8 @@ import { getText } from "../utils/utils";
 
 const data = (await readJSON("", "data")) as Section[];
 
+const LEVEL_MULTIPLIER = 2;
+
 const getLayersString = (values: number[]) => {
   const res = [];
   for (let i = 0; i < values.length; i++) {
@@ -55,7 +57,8 @@ data.forEach(({ path, content, quoted }, section) => {
         let countCurr = 0;
         for (let i = counts.length - 1; i >= 0; i--) {
           if (counts[i]! > 0) {
-            counts[i]! = countCurr = counts[i]! * (i + 1) + countCurr;
+            counts[i]! = countCurr =
+              counts[i]! * (i * LEVEL_MULTIPLIER + 1) + countCurr;
           }
         }
         let v = key;
@@ -73,7 +76,8 @@ data.forEach(({ path, content, quoted }, section) => {
       let lenCurr = 0;
       for (let i = lengths.length - 1; i >= 0; i--) {
         if (lengths[i]! > 0) {
-          lengths[i]! = lenCurr = lengths[i]! * (i + 1) + lenCurr;
+          lengths[i]! = lenCurr =
+            lengths[i]! * (i * LEVEL_MULTIPLIER + 1) + lenCurr;
         }
       }
       return getLayersString(lengths);

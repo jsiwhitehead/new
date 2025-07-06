@@ -5,7 +5,7 @@ import Paragraph from "./Paragraph";
 import { BlockQuote } from "./Quotes";
 import { authorColours, Column, RightArrow, Row, Text } from "./Utils";
 
-export const showQuoted = true;
+export const showQuoted = false;
 export const showQuotedSources = false;
 
 export default function App({

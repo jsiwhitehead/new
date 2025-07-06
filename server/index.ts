@@ -63,21 +63,6 @@ const getData = (
   tree: any;
   showContent: boolean;
 } => {
-  // const showContent =
-  //   data.find(
-  //     (d) =>
-  //       urlPath.length === d.path.length &&
-  //       urlPath.every((p, i) => d.path[i]![1] === p)
-  //   ) ||
-  //   [
-  //     "bahaullah/hidden-words",
-  //     "bahaullah/gleanings-writings-bahaullah",
-  //     "abdul-baha/selections-writings-abdul-baha",
-  //   ].includes(urlPath.join("/")) ||
-  //   (urlPath.length > 1 &&
-  //     ["documents", "ruhi", "compilations"].includes(urlPath[0]!)) ||
-  //   (urlPath.length > 2 && urlPath[1] === "bahaullah-new-era");
-
   const filteredSections = data
     .map((section, index) => ({ section, index }))
     .filter(({ section }) =>
@@ -93,23 +78,65 @@ const getData = (
       )
     : filteredSections;
 
-  const tree = {} as any;
+  const filteredTree = {} as any;
+  for (const section of filteredSections) {
+    data[section]!.path.reduce((res, p) => {
+      const key = JSON.stringify([p[0], p[1]]);
+      return (res[key] = res[key] || {});
+    }, filteredTree);
+  }
+  const [path] = collapseSingleKeys(filteredTree, urlPath.length);
+
+  const searchTree = {} as any;
   for (const section of searchSections) {
     data[section]!.path.reduce((res, p) => {
       const key = JSON.stringify([p[0], p[1]]);
       return (res[key] = res[key] || {});
-    }, tree);
+    }, searchTree);
   }
-  const [path, nestedTree] = collapseSingleKeys(tree, urlPath.length);
+  const [_, nestedTree] = collapseSingleKeys(searchTree, urlPath.length);
 
-  if (!matches) {
+  const showContent =
+    matches ||
+    data.find(
+      (d) =>
+        urlPath.length === d.path.length &&
+        urlPath.every((p, i) => d.path[i]![1] === p)
+    ) ||
+    [
+      "bahaullah/hidden-words",
+      "bahaullah/gleanings-writings-bahaullah",
+      "abdul-baha/selections-writings-abdul-baha",
+    ].includes(urlPath.join("/")) ||
+    (urlPath.length > 1 &&
+      ["documents", "ruhi", "compilations"].includes(urlPath[0]!)) ||
+    (urlPath.length > 2 && urlPath[1] === "bahaullah-new-era");
+
+  if (!showContent) {
     return { data: [], path, tree: nestedTree, showContent: false };
   }
 
+  const passages: {
+    section: number;
+    start: number;
+    levels: (null | number)[];
+  }[] =
+    matches?.matches ||
+    filteredSections.map((section) => {
+      const d = data[section]!;
+      return {
+        section,
+        start: 0,
+        levels: Array.from<number>({ length: d.content.length }).fill(
+          baseLevel
+        ),
+      };
+    });
+
   const baseResult: { paraId: string; para: FlatPara; sources: MultiRef[] }[] =
     [];
-  while (baseResult.length < 30 && matches.matches.length > 0) {
-    const { section, start, levels } = matches.matches.shift()!;
+  while ((!matches || baseResult.length < 30) && passages.length > 0) {
+    const { section, start, levels } = passages.shift()!;
     const paraIds = getParagraphIds(data[section]!.content);
     const allSpecial = getAllSpecial(data[section]!.content);
     const sliced = data[section]!.content.slice(start, start + levels.length);
@@ -170,15 +197,50 @@ const getData = (
           )
       )
     ) {
-      const joinedSources = joinQuotes(content.map((c) => c.sources));
+      let readyBreak = false;
+      let readyDots = false;
+      const merged: { paraId: string; para: FlatPara; sources: MultiRef[] }[] =
+        [];
+      for (const p of content) {
+        if (p.para.type === "break") {
+          if (readyBreak) {
+            merged.push(p);
+            readyBreak = false;
+            readyDots = true;
+          }
+        } else if (p.para.text === ". . .") {
+          if (readyDots) {
+            merged.push(p);
+            readyDots = false;
+          }
+        } else {
+          merged.push(p);
+          readyBreak = true;
+          readyDots = true;
+        }
+      }
+      if (merged.length > 0) {
+        if (merged[merged.length - 1]!.para.text === ". . .") {
+          merged.pop();
+        }
+        if (merged[merged.length - 1]!.para.type === "break") {
+          merged.pop();
+        }
+        if (merged[merged.length - 1]!.para.text === ". . .") {
+          merged.pop();
+        }
+      }
+      const joinedSources = joinQuotes(merged.map((c) => c.sources));
       baseResult.push(
-        ...content.map((p, i) => ({ ...p, sources: joinedSources[i]! }))
+        ...merged.map((p, i) => ({ ...p, sources: joinedSources[i]! }))
       );
     }
   }
 
   const result = baseResult.map(({ para, paraId, sources }) => {
-    para.highlights = getTokenHighlights(para.text, matches.tokens);
+    if (matches) {
+      para.highlights = getTokenHighlights(para.text, matches.tokens);
+    }
     return {
       paraId,
       ...getRenderContent(para),
@@ -193,39 +255,6 @@ const getData = (
       sources,
     };
   });
-
-  // let readyBreak = false;
-  // let readyDots = false;
-  // const merged: any[] = [];
-  // for (const p of content) {
-  //   if ((p.content as any).type === "break") {
-  //     if (readyBreak) {
-  //       merged.push(p);
-  //       readyBreak = false;
-  //       readyDots = true;
-  //     }
-  //   } else if ((p.content as any)[0]?.text === ". . .") {
-  //     if (readyDots) {
-  //       merged.push(p);
-  //       readyDots = false;
-  //     }
-  //   } else {
-  //     merged.push(p);
-  //     readyBreak = true;
-  //     readyDots = true;
-  //   }
-  // }
-  // if (merged.length > 0) {
-  //   if ((merged[merged.length - 1]!.content as any)[0]?.text === ". . .") {
-  //     merged.pop();
-  //   }
-  //   if ((merged[merged.length - 1]!.content as any)[0]?.type === "break") {
-  //     merged.pop();
-  //   }
-  //   if ((merged[merged.length - 1]!.content as any)[0]?.text === ". . .") {
-  //     merged.pop();
-  //   }
-  // }
 
   const docs = [
     {
