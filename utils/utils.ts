@@ -2,9 +2,23 @@ import spellingsJSON from "./spellings.json";
 
 import type { Quote, Range, Ref, Section } from "./types";
 
-export const SCORE_BASE = 1;
-
 export const capitalise = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+
+export const sum = (array: number[]) => array.reduce((a, b) => a + b, 0);
+
+export const makeObject = <T, U>(
+  array: T[],
+  map: (value: T) => [string, U | undefined]
+) =>
+  array.reduce<Record<string, U>>((res, item) => {
+    const [k, v] = map(item);
+    return v === undefined ? res : { ...res, [k]: v };
+  }, {});
+
+export const mapObject = <T, U>(
+  obj: Record<string, T>,
+  map: (value: T, key: string) => U | undefined
+) => makeObject(Object.keys(obj), (k) => [k, map(obj[k]!, k)]);
 
 export const refsEqual = (a: Ref, b: Ref) =>
   a.section === b.section && a.paragraph === b.paragraph;

@@ -1,14 +1,73 @@
 import stem from "../utils/searchStem";
-import type { Range, Ref } from "../utils/types";
-import { fixSpellings, SCORE_BASE } from "../utils/utils";
+import type { Range } from "../utils/types";
+import { fixSpellings, sum } from "../utils/utils";
 
-import paraLengthsJSON from "../data/lengths.json";
+import lengthsJSON from "../data/lengths.json";
 import searchIndex from "../data/search.txt";
 
-interface Match {
-  ref: Ref;
-  scores: { level: number; score: number }[];
-}
+type Layers = { level: number; value: number }[];
+
+const splitLayers = (layers: string, defValue: number): Layers =>
+  layers
+    ? layers.split(",").map((l) => {
+        const [level, value] = l.split("=");
+        return { level: parseInt(level!, 10), value: parseInt(value!, 10) };
+      })
+    : [{ level: 0, value: defValue }];
+
+const parasTotal: number = (lengthsJSON as any).total;
+
+const parasLengths: (string | Layers)[][] = (lengthsJSON as any).lengths;
+const getParaLength = (section: number, paragraph: number, level: number) => {
+  if (typeof parasLengths[section]![paragraph]! === "string") {
+    parasLengths[section]![paragraph]! = splitLayers(
+      parasLengths[section]![paragraph]!,
+      0
+    );
+  }
+  const result = parasLengths[section]![paragraph]! as Layers;
+  return result.find((x) => x.level >= level)!.value;
+};
+
+const escapeForRegex = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const tokenMatches: Record<
+  string,
+  { token: string; section: number; paragraph: number; matches: Layers }[]
+> = {};
+const getTokenMatches = (
+  token: string
+): { token: string; section: number; paragraph: number; matches: Layers }[] => {
+  if (!tokenMatches[token]) {
+    const line = searchIndex.match(
+      new RegExp(`^${escapeForRegex(token)}_.*`, "m")
+    );
+    if (!line) {
+      tokenMatches[token] = [];
+    } else {
+      const [_, info] = line[0].split("_");
+      tokenMatches[token] = info!.split("|").map((s) => {
+        const [key, ...layers] = s.split(",");
+        const [section, paragraph] = key!.split(":");
+        return {
+          token,
+          section: parseInt(section!, 10),
+          paragraph: parseInt(paragraph!, 10),
+          matches: splitLayers(layers.join(","), 1),
+        };
+      });
+    }
+  }
+  return tokenMatches[token];
+};
+
+const lengthIdfs: Record<number, number> = {};
+const getTokenIdf = (token: string) => {
+  const length = getTokenMatches(token).length;
+  if (!lengthIdfs[length]) {
+    lengthIdfs[length] = Math.log(parasTotal / length);
+  }
+  return lengthIdfs[length];
+};
 
 const trailingMatchLength = <T>(array: T[], test: (item: T) => boolean) => {
   let count = 0;
@@ -17,65 +76,6 @@ const trailingMatchLength = <T>(array: T[], test: (item: T) => boolean) => {
     count++;
   }
   return count;
-};
-
-const paraLengths = paraLengthsJSON as (
-  | string
-  | { level: number; length: number }[]
-)[][];
-const getParaLength = (
-  section: number,
-  paragraph: number,
-  level: number = 0
-) => {
-  if (typeof paraLengths[section]![paragraph]! === "string") {
-    paraLengths[section]![paragraph]! = paraLengths[section]![paragraph]!.split(
-      ","
-    ).map((l) => {
-      if (!l) return { level: 0, length: 0 };
-      const [level, length] = l.split("=");
-      return { level: parseInt(level!, 10), length: parseInt(length!, 10) };
-    });
-  }
-  return paraLengths[section]![paragraph]!.find((x) => x.level >= level)!
-    .length;
-};
-
-const escapeForRegex = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-const searchInfo: Record<string, { matches: Match[]; count: number }> = {};
-const getTokenInfo = (token: string) => {
-  if (!searchInfo[token]) {
-    const searchLine = searchIndex.match(
-      new RegExp(`^${escapeForRegex(token)}_.*`, "m")
-    );
-    if (!searchLine) {
-      searchInfo[token] = { matches: [], count: 0 };
-    } else {
-      const [_, info, count] = searchLine[0].split("_");
-      const matches = info!.split("|").map((match) => {
-        const [key, ...levelCounts] = match.split(",");
-        const [section, paragraph] = key!.split(":");
-        return {
-          ref: {
-            section: parseInt(section!, 10),
-            paragraph: parseInt(paragraph!, 10),
-          },
-          scores:
-            levelCounts.length > 0
-              ? levelCounts.map((l) => {
-                  const [level, score] = l.split("=");
-                  return {
-                    level: parseInt(level!, 10),
-                    score: parseInt(score!, 10),
-                  };
-                })
-              : [{ level: 0, score: SCORE_BASE }],
-        };
-      });
-      searchInfo[token] = { matches, count: parseInt(count!, 10) };
-    }
-  }
-  return searchInfo[token];
 };
 
 export const getMatches = (
@@ -96,36 +96,23 @@ export const getMatches = (
   ];
   if (tokens.length === 0) return null;
 
-  const tokensMatches: Record<string, { matches: Match[]; idf: number }> =
-    tokens.reduce((res, token) => {
-      const tokenMatches = getTokenInfo(token).matches;
-      return {
-        ...res,
-        [token]: {
-          matches: tokenMatches,
-          idf: paraLengths.length / (1 + tokenMatches.length),
-        },
-      };
-    }, {});
-
-  const matches = tokens.flatMap((token) =>
-    tokensMatches[token]!.matches.filter(
+  const matches = tokens
+    .flatMap((token) => getTokenMatches(token))
+    .filter(
       (m) =>
-        sections.includes(m.ref.section) &&
-        m.scores.some((s) => s.level >= level)
-    ).map(({ ref, scores }) => ({
-      token,
-      ref,
-      ...scores.find((s) => s.level >= level)!,
-    }))
-  );
+        sections.includes(m.section) && m.matches.find((s) => s.level >= level)
+    )
+    .map(({ matches, ...m }) => ({
+      ...m,
+      ...matches.find((s) => s.level >= level)!,
+    }));
 
-  const allSections = [...new Set(matches.map((m) => m.ref.section))];
-  const result = allSections.flatMap((section) => {
-    const sectionMatches = matches.filter((m) => m.ref.section === section);
-    const paras = paraLengths[section]!.map((_, paragraph) => {
+  const allSections = [...new Set(matches.map((m) => m.section))];
+  const groups = allSections.flatMap((section) => {
+    const sectionMatches = matches.filter((m) => m.section === section);
+    const paras = parasLengths[section]!.map((_, paragraph) => {
       const paraMatches = sectionMatches.filter(
-        (m) => m.ref.paragraph === paragraph
+        (m) => m.paragraph === paragraph
       );
       const paraLevel =
         paraMatches.length === 0
@@ -135,9 +122,8 @@ export const getMatches = (
       return {
         level: paraLevel,
         length: paraLength,
-        score: paraMatches
-          .map((m) => m.score * tokensMatches[m.token]!.idf)
-          .reduce((a, b) => a + b, 0),
+        score: sum(paraMatches.map((m) => m.value * getTokenIdf(m.token))),
+        done: false,
       };
     });
 
@@ -151,13 +137,17 @@ export const getMatches = (
       let best;
       for (let start = 0; start < paras.length; start++) {
         for (let end = start; end < paras.length; end++) {
+          if (paras[end]!.done) {
+            break;
+          }
           const sliced = paras.slice(start, end + 1);
-          if (trailingMatchLength(sliced, (x) => x.score === 0) > 3) break;
-          const score = sliced.map((p) => p.score).reduce((a, b) => a + b, 0);
-          const length = sliced.map((p) => p.length).reduce((a, b) => a + b, 0);
-          const computed = score / length;
-          if (computed > 0 && (!best || computed > best.score)) {
-            best = { start, end, score: computed };
+          if (trailingMatchLength(sliced, (x) => !x.score) > 3) {
+            break;
+          }
+          const length = sum(sliced.map((p) => p.length));
+          const score = sum(sliced.map((p) => p.score)) / length;
+          if (score > 0 && (!best || score > best.score)) {
+            best = { start, end, score };
           }
         }
       }
@@ -169,12 +159,12 @@ export const getMatches = (
           section,
           start: best.start,
           levels: indices.map((paragraph) =>
-            paras[paragraph]!.score > 0 ? paras[paragraph]!.level : null
+            paras[paragraph]!.score ? paras[paragraph]!.level : null
           ),
           score: best.score,
         });
         for (const paragraph of indices) {
-          paras[paragraph]!.score = 0;
+          paras[paragraph]!.done = true;
         }
       } else {
         break;
@@ -183,7 +173,7 @@ export const getMatches = (
     return grouped;
   });
 
-  return { tokens, matches: result.sort((a, b) => b.score - a.score) };
+  return { tokens, matches: groups.sort((a, b) => b.score - a.score) };
 };
 
 export const getTokenHighlights = (text: string, tokens: string[]): Range[] => {

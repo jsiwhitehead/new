@@ -1,7 +1,7 @@
 import { readJSON, writeJSON, writeText } from "../utils/files";
 import stem from "../utils/searchStem";
 import type { Section } from "../utils/types";
-import { getText, SCORE_BASE } from "../utils/utils";
+import { getText } from "../utils/utils";
 
 const data = (await readJSON("", "data")) as Section[];
 
@@ -15,12 +15,14 @@ const getLayersString = (values: number[]) => {
   return res.join(",");
 };
 
+let totalParas = 0;
 const paraLengths: string[][] = [];
 const searchIndex = new Map<string, string[]>();
 const tokenCounts: Record<string, number> = {};
 data.forEach(({ path, content, quoted }, section) => {
   console.log(path.map((p) => p[0]).join(", "));
   paraLengths[section] = content.map((_, paragraph) => {
+    totalParas++;
     const key = `${section}:${paragraph}`;
     const text = getText(data, { section, paragraph });
     const words = text
@@ -52,11 +54,11 @@ data.forEach(({ path, content, quoted }, section) => {
       let countCurr = 0;
       for (let i = counts.length - 1; i >= 0; i--) {
         if (counts[i]! > 0) {
-          counts[i]! = countCurr = counts[i]! * (i + SCORE_BASE) + countCurr;
+          counts[i]! = countCurr = counts[i]! * (i + 1) + countCurr;
         }
       }
-      let v = `${key}`;
-      if (counts[0]! > SCORE_BASE || counts.length > 1) {
+      let v = key;
+      if (counts[0]! > 1 || counts.length > 1) {
         v += `,${getLayersString(counts)}`;
       }
       searchIndex.set(token, [...(searchIndex.get(token) || []), v]);
@@ -69,7 +71,9 @@ data.forEach(({ path, content, quoted }, section) => {
     for (const token of tokens) lengths[token.score]!++;
     let lenCurr = 0;
     for (let i = lengths.length - 1; i >= 0; i--) {
-      if (lengths[i]! > 0) lengths[i]! = lenCurr = lengths[i]! + lenCurr;
+      if (lengths[i]! > 0) {
+        lengths[i]! = lenCurr = lengths[i]! * (i + 1) + lenCurr;
+      }
     }
     return getLayersString(lengths);
   });
@@ -79,15 +83,9 @@ const sortedTokens = Object.keys(tokenCounts).sort(
   (a, b) => tokenCounts[b]! - tokenCounts[a]!
 );
 const searchIndexData = sortedTokens
-  .map((k) => {
-    let res = "";
-    res += `${k}_${searchIndex.get(k)!.join("|")}`;
-    if (tokenCounts[k]! > 1) res += `_${tokenCounts[k]}`;
-    return res;
-  })
+  .map((k) => `${k}_${searchIndex.get(k)!.join("|")}`)
   .join("\n");
-
-await writeJSON("", "lengths", paraLengths);
+await writeJSON("", "lengths", { total: totalParas, lengths: paraLengths });
 await writeText("", "search", searchIndexData);
 
 // import { promises as fs } from "fs";
