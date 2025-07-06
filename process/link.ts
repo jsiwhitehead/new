@@ -559,24 +559,13 @@ const mappedQuoted = baseQuoted.map((contentQuotes, section) =>
         }
         return merged;
       })
-      .map((x) => ({ ...x.quote, ...x.range }))
-      .sort((a, b) => {
-        const aDoc = data[a.section]!;
-        const bDoc = data[b.section]!;
-        return compareArrays(
-          aDoc.path.map((p: [string, string, number]) => p[2]),
-          bDoc.path.map((p: [string, string, number]) => p[2])
-        );
-      });
+      .map((x) => ({ ...x.quote, ...x.range }));
   })
 );
 
 data.forEach(({ content }, section) => {
   content.forEach((para, paragraph) => {
-    if (
-      Array.isArray(para) &&
-      para.every((part) => typeof part !== "string" || textIsConnector(part))
-    ) {
+    if (Array.isArray(para)) {
       const res = para.map((part) => {
         if (typeof part === "string") return { text: part };
         return { text: getQuoteText(data, part), quote: part };
@@ -596,6 +585,13 @@ data.forEach(({ content }, section) => {
               ),
             }))
           );
+        } else {
+          const range = { start: current, end: current + part.text.length };
+          quoted.push(
+            ...mappedQuoted[section]![paragraph]!.filter((q) =>
+              doRangesIntersect(q, range)
+            ).map((q) => ({ ...q, ...getRangesIntersect(q, range) }))
+          );
         }
         current += part.text.length;
       }
@@ -609,7 +605,20 @@ data.forEach((d, section) => {
     const content = d.content;
     delete (d as any).content;
     d.quoted = mappedQuoted[section]!.reduce(
-      (res, quoted, i) => (quoted.length > 0 ? { ...res, [i]: quoted } : res),
+      (res, quoted, i) =>
+        quoted.length > 0
+          ? {
+              ...res,
+              [i]: quoted.sort((a, b) => {
+                const aDoc = data[a.section]!;
+                const bDoc = data[b.section]!;
+                return compareArrays(
+                  aDoc.path.map((p: [string, string, number]) => p[2]),
+                  bDoc.path.map((p: [string, string, number]) => p[2])
+                );
+              }),
+            }
+          : res,
       {}
     );
     d.content = content;

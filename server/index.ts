@@ -83,7 +83,7 @@ const getData = (
 
   const searchSections = matches
     ? filteredSections.filter((section) =>
-        matches.refs.some((m) => m.ref.section === section)
+        matches.matches.some((m) => m.section === section)
       )
     : filteredSections;
 
@@ -100,98 +100,106 @@ const getData = (
     return { data: [], path, tree: nestedTree, showContent: false };
   }
 
-  const result = matches.refs.slice(0, 30).flatMap(({ ref, level }) => {
-    const paraIds = getParagraphIds(data[ref.section]!.content);
-    const allFullQuote = data[ref.section]!.content.every((para) => {
-      if (typeof para === "string") {
-        return textIsConnector(para);
-      }
-      if (Array.isArray(para)) {
-        return para.every(
-          (part) => typeof part !== "string" || textIsConnector(part)
-        );
-      }
-      return "type" in para && para.type === "break";
-    });
-    const allSpecial = getAllSpecial(data[ref.section]!.content);
-    const content = data[ref.section]!.content.map((para, paragraph) => {
-      const base = { paraId: paraIds[paragraph]!, quoted: [], quotes: [] };
-      const notInSearch = ref.paragraph !== paragraph;
-      const filteredPara = notInSearch
-        ? null
-        : filterQuoted(
-            allFullQuote ? getFullQuotedPara(para) : getPara(para, allSpecial),
-            data[ref.section]!.quoted?.[paragraph] || [],
-            level
+  const result = matches.matches
+    .slice(0, 30)
+    .flatMap(({ section, start, levels }) => {
+      const paraIds = getParagraphIds(data[section]!.content);
+      const allFullQuote = data[section]!.content.every((para) => {
+        if (typeof para === "string") {
+          return textIsConnector(para);
+        }
+        if (Array.isArray(para)) {
+          return para.every(
+            (part) => typeof part !== "string" || textIsConnector(part)
           );
-      if (!filteredPara) {
+        }
+        return "type" in para && para.type === "break";
+      });
+      const allSpecial = getAllSpecial(data[section]!.content);
+      const content = data[section]!.content.slice(
+        start,
+        start + levels.length
+      ).map((para, index) => {
+        const paragraph = index + start;
+        const base = { paraId: paraIds[paragraph]!, quoted: [], quotes: [] };
+        const filteredPara =
+          levels[index] === null
+            ? null
+            : filterQuoted(
+                allFullQuote
+                  ? getFullQuotedPara(para)
+                  : getPara(para, allSpecial),
+                data[section]!.quoted?.[paragraph] || [],
+                levels[index]!
+              );
+        if (!filteredPara) {
+          return {
+            ...base,
+            content: [
+              { text: ". . .", quoted: 0, highlight: false },
+            ] as RenderContent,
+            sources: [{ section, paragraph: [] }],
+          };
+        }
+        filteredPara.highlights = getTokenHighlights(
+          filteredPara.text,
+          matches.tokens
+        );
         return {
           ...base,
-          content: [
-            { text: ". . .", quoted: 0, highlight: false },
-          ] as RenderContent,
-          sources: [{ section: ref.section, paragraph: [] }],
+          ...getRenderContent(filteredPara),
+          quoted: filteredPara.quoted.sort((aQuote, bQuote) => {
+            const aDoc = data[aQuote.section]!;
+            const bDoc = data[bQuote.section]!;
+            return compareArrays(
+              aDoc.path.map((p: [string, string, number]) => p[2]),
+              bDoc.path.map((p: [string, string, number]) => p[2])
+            );
+          }),
+          sources: allFullQuote
+            ? mergeQuotes(
+                Array.isArray(para)
+                  ? para.filter((part) => typeof part !== "string")
+                  : []
+              )
+            : [{ section, paragraph: [paragraph] }],
         };
-      }
-      filteredPara.highlights = getTokenHighlights(
-        filteredPara.text,
-        matches.tokens
-      );
-      return {
-        ...base,
-        ...getRenderContent(filteredPara),
-        quoted: filteredPara.quoted.sort((aQuote, bQuote) => {
-          const aDoc = data[aQuote.section]!;
-          const bDoc = data[bQuote.section]!;
-          return compareArrays(
-            aDoc.path.map((p: [string, string, number]) => p[2]),
-            bDoc.path.map((p: [string, string, number]) => p[2])
-          );
-        }),
-        sources: allFullQuote
-          ? mergeQuotes(
-              Array.isArray(para)
-                ? para.filter((part) => typeof part !== "string")
-                : []
-            )
-          : [{ section: ref.section, paragraph: [paragraph] }],
-      };
-    });
-    let readyBreak = false;
-    let readyDots = false;
-    const merged: any[] = [];
-    for (const p of content) {
-      if ((p.content as any).type === "break") {
-        if (readyBreak) {
+      });
+      let readyBreak = false;
+      let readyDots = false;
+      const merged: any[] = [];
+      for (const p of content) {
+        if ((p.content as any).type === "break") {
+          if (readyBreak) {
+            merged.push(p);
+            readyBreak = false;
+            readyDots = true;
+          }
+        } else if ((p.content as any)[0]?.text === ". . .") {
+          if (readyDots) {
+            merged.push(p);
+            readyDots = false;
+          }
+        } else {
           merged.push(p);
-          readyBreak = false;
+          readyBreak = true;
           readyDots = true;
         }
-      } else if ((p.content as any)[0]?.text === ". . .") {
-        if (readyDots) {
-          merged.push(p);
-          readyDots = false;
+      }
+      if (merged.length > 0) {
+        if ((merged[merged.length - 1]!.content as any)[0]?.text === ". . .") {
+          merged.pop();
         }
-      } else {
-        merged.push(p);
-        readyBreak = true;
-        readyDots = true;
+        if ((merged[merged.length - 1]!.content as any)[0]?.type === "break") {
+          merged.pop();
+        }
+        if ((merged[merged.length - 1]!.content as any)[0]?.text === ". . .") {
+          merged.pop();
+        }
       }
-    }
-    if (merged.length > 0) {
-      if ((merged[merged.length - 1]!.content as any)[0]?.text === ". . .") {
-        merged.pop();
-      }
-      if ((merged[merged.length - 1]!.content as any)[0]?.type === "break") {
-        merged.pop();
-      }
-      if ((merged[merged.length - 1]!.content as any)[0]?.text === ". . .") {
-        merged.pop();
-      }
-    }
-    const joinedSources = joinQuotes(merged.map((c) => c.sources));
-    return merged.map((p, i) => ({ ...p, sources: joinedSources[i]! }));
-  });
+      const joinedSources = joinQuotes(merged.map((c) => c.sources));
+      return merged.map((p, i) => ({ ...p, sources: joinedSources[i]! }));
+    });
 
   const docs = [
     {
