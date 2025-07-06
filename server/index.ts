@@ -120,13 +120,8 @@ const getData = (
       const filteredPara = notInSearch
         ? null
         : filterQuoted(
-            allFullQuote
-              ? getFullQuotedPara(para)
-              : getPara(
-                  para,
-                  data[ref.section]!.quoted?.[paragraph],
-                  allSpecial
-                ),
+            allFullQuote ? getFullQuotedPara(para) : getPara(para, allSpecial),
+            data[ref.section]!.quoted?.[paragraph] || [],
             level
           );
       if (!filteredPara) {

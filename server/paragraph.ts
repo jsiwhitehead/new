@@ -26,10 +26,9 @@ const mapRanges = <T>(indices: number[], map: (range: Range) => T) =>
 
 export const getPara = (
   para: SectionContent,
-  quoted: Quote[] = [],
   allSpecial: boolean
 ): FlatPara => {
-  const base = { quoted, highlights: [], allSpecial };
+  const base = { quoted: [], highlights: [], allSpecial };
   if (typeof para === "string") return { text: para, ...base };
   if (!Array.isArray(para)) return { text: "", ...para, ...base };
   const parts = para.map((part) => {
@@ -140,7 +139,6 @@ export const getFullQuotedPara = (paraBase: SectionContent): FlatPara => {
       return slicePara(
         getPara(
           section.content[part.paragraph]!,
-          section.quoted?.[part.paragraph],
           getAllSpecial(section.content)
         ),
         part
@@ -151,8 +149,11 @@ export const getFullQuotedPara = (paraBase: SectionContent): FlatPara => {
 
 export const filterQuoted = (
   para: FlatPara,
+  quoted: Quote[],
   level: number
 ): FlatPara | null => {
+  para.quoted = quoted;
+
   if (para.type === "break") return para;
 
   const indices = getIndices(para.text.length, para.quoted);

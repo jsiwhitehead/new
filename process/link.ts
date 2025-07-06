@@ -9,6 +9,7 @@ import type {
 } from "../utils/types";
 import {
   compareArrays,
+  doRangesIntersect,
   getQuoteText,
   getRangesIntersect,
   getText,
@@ -501,7 +502,7 @@ const allQuoting: { source: Quote; quote: Quote }[] = data.flatMap(
     })
 );
 
-const quoted: RefQuote[][][] = data.map(({ content }, section) => {
+const baseQuoted: RefQuote[][][] = data.map(({ content }, section) => {
   const sectionQuoted = allQuoting.filter((a) => a.source.section === section);
   return content.map((_, paragraph) => {
     const paraQuoted = sectionQuoted.filter(
@@ -523,7 +524,7 @@ const getAllQuotes = (base: RefQuote): RefQuote[] => {
   const offset = range.start - quote.start;
   return [
     base,
-    ...quoted[quote.section]![quote.paragraph]!.flatMap((q2) => {
+    ...baseQuoted[quote.section]![quote.paragraph]!.flatMap((q2) => {
       const overlap = getRangesIntersect(quote, q2.range);
       if (!overlap) return [];
       return getAllQuotes({
@@ -534,7 +535,7 @@ const getAllQuotes = (base: RefQuote): RefQuote[] => {
   ];
 };
 
-const mappedQuoted = quoted.map((contentQuotes, section) =>
+const mappedQuoted = baseQuoted.map((contentQuotes, section) =>
   contentQuotes.map((paraQuotes, paragraph) => {
     const allQuotes = paraQuotes.flatMap((q) => getAllQuotes(q));
     const allRefs = uniqueRefs(allQuotes.map((q) => q.quote));
@@ -558,9 +559,10 @@ const mappedQuoted = quoted.map((contentQuotes, section) =>
         }
         return merged;
       })
+      .map((x) => ({ ...x.quote, ...x.range }))
       .sort((a, b) => {
-        const aDoc = data[a.quote.section]!;
-        const bDoc = data[b.quote.section]!;
+        const aDoc = data[a.section]!;
+        const bDoc = data[b.section]!;
         return compareArrays(
           aDoc.path.map((p: [string, string, number]) => p[2]),
           bDoc.path.map((p: [string, string, number]) => p[2])
@@ -569,15 +571,45 @@ const mappedQuoted = quoted.map((contentQuotes, section) =>
   })
 );
 
+data.forEach(({ content }, section) => {
+  content.forEach((para, paragraph) => {
+    if (
+      Array.isArray(para) &&
+      para.every((part) => typeof part !== "string" || textIsConnector(part))
+    ) {
+      const res = para.map((part) => {
+        if (typeof part === "string") return { text: part };
+        return { text: getQuoteText(data, part), quote: part };
+      });
+      let current = 0;
+      const quoted: Quote[] = [];
+      for (const part of res) {
+        if (part.quote) {
+          quoted.push(
+            ...mappedQuoted[part.quote.section]![part.quote.paragraph]!.filter(
+              (q) => doRangesIntersect(q, part.quote)
+            ).map((q) => ({
+              ...q,
+              ...moveRange(
+                getRangesIntersect(q, part.quote)!,
+                -part.quote.start + current
+              ),
+            }))
+          );
+        }
+        current += part.text.length;
+      }
+      mappedQuoted[section]![paragraph]! = quoted;
+    }
+  });
+});
+
 data.forEach((d, section) => {
   if (mappedQuoted[section]!.some((q) => q.length > 0)) {
     const content = d.content;
     delete (d as any).content;
     d.quoted = mappedQuoted[section]!.reduce(
-      (res, q, i) =>
-        q.length > 0
-          ? { ...res, [i]: q.map((x) => ({ ...x.quote, ...x.range })) }
-          : res,
+      (res, quoted, i) => (quoted.length > 0 ? { ...res, [i]: quoted } : res),
       {}
     );
     d.content = content;
