@@ -15,7 +15,9 @@ import {
   getText,
   moveRange,
   refsEqual,
+  toChars,
   toCleaned,
+  toWords,
   textIsConnector,
   uniqueRefs,
 } from "../utils/utils";
@@ -47,15 +49,6 @@ data.sort((a, b) =>
     b.path.map((p: [string, string, number]) => p[2])
   )
 );
-
-const toWords = (cleaned: string) =>
-  cleaned
-    .replace(/[^a-z0-9‑— ]/g, "")
-    .replace(/[‑—]/g, " ")
-    .replace(/ +/g, " ")
-    .trim();
-
-const toChars = (words: string) => words.replace(/ /g, "");
 
 const shortPassages = ["whatever decreaseth fear increaseth courage"];
 const getNGrams = (words: string, n = 7) => {
@@ -565,7 +558,10 @@ const mappedQuoted = baseQuoted.map((contentQuotes, section) =>
 
 data.forEach(({ content }, section) => {
   content.forEach((para, paragraph) => {
-    if (Array.isArray(para)) {
+    if (
+      Array.isArray(para) &&
+      para.every((part) => typeof part !== "string" || textIsConnector(part))
+    ) {
       const res = para.map((part) => {
         if (typeof part === "string") return { text: part };
         return { text: getQuoteText(data, part), quote: part };
@@ -584,13 +580,6 @@ data.forEach(({ content }, section) => {
                 -part.quote.start + current
               ),
             }))
-          );
-        } else {
-          const range = { start: current, end: current + part.text.length };
-          quoted.push(
-            ...mappedQuoted[section]![paragraph]!.filter((q) =>
-              doRangesIntersect(q, range)
-            ).map((q) => ({ ...q, ...getRangesIntersect(q, range) }))
           );
         }
         current += part.text.length;

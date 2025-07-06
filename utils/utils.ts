@@ -37,6 +37,15 @@ export const toCleaned = (text: string): string =>
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase();
 
+export const toWords = (cleaned: string) =>
+  cleaned
+    .replace(/[^a-z0-9‑— ]/g, "")
+    .replace(/[‑—]/g, " ")
+    .replace(/ +/g, " ")
+    .trim();
+
+export const toChars = (words: string) => words.replace(/ /g, "");
+
 export const textIsConnector = (cleaned: string) =>
   !/[a-z0-9]/.test(cleaned.replace(/\[[^\]]*\]/g, ""));
 

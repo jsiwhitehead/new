@@ -22,7 +22,7 @@ const getParaLength = (section: number, paragraph: number, level: number) => {
   if (typeof parasLengths[section]![paragraph]! === "string") {
     parasLengths[section]![paragraph]! = splitLayers(
       parasLengths[section]![paragraph]!,
-      0
+      1
     );
   }
   const result = parasLengths[section]![paragraph]! as Layers;

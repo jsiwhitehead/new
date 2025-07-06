@@ -20,63 +20,65 @@ const paraLengths: string[][] = [];
 const searchIndex = new Map<string, string[]>();
 const tokenCounts: Record<string, number> = {};
 data.forEach(({ path, content, quoted }, section) => {
-  console.log(path.map((p) => p[0]).join(", "));
-  paraLengths[section] = content.map((_, paragraph) => {
-    totalParas++;
-    const key = `${section}:${paragraph}`;
-    const text = getText(data, { section, paragraph });
-    const words = text
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .toLowerCase()
-      .split(/([‑— ]+)/g);
-    let current = 0;
-    const tokens: { token: string; score: number }[] = [];
-    for (const word of words) {
-      const token = stem(word.replace(/’s$/g, "").replace(/[^a-z0-9]/g, ""));
-      if (token) {
-        const score = ((quoted || {})[paragraph] || []).filter(
-          (q) => q.start < current + word.length && current < q.end
-        ).length;
-        tokens.push({ token, score });
+  if (path[0]![0] !== "Stories") {
+    console.log(path.map((p) => p[0]).join(", "));
+    paraLengths[section] = content.map((_, paragraph) => {
+      totalParas++;
+      const key = `${section}:${paragraph}`;
+      const text = getText(data, { section, paragraph });
+      const words = text
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .split(/([‑— ]+)/g);
+      let current = 0;
+      const tokens: { token: string; score: number }[] = [];
+      for (const word of words) {
+        const token = stem(word.replace(/’s$/g, "").replace(/[^a-z0-9]/g, ""));
+        if (token) {
+          const score = ((quoted || {})[paragraph] || []).filter(
+            (q) => q.start < current + word.length && current < q.end
+          ).length;
+          tokens.push({ token, score });
+        }
+        current += word.length;
       }
-      current += word.length;
-    }
 
-    for (const token of [...new Set(tokens.map((t) => t.token))]) {
-      const scores = tokens
-        .filter((t) => t.token === token)
-        .map((t) => t.score);
-      const counts = Array.from<number>({
-        length: Math.max(...scores) + 1,
+      for (const token of [...new Set(tokens.map((t) => t.token))]) {
+        const scores = tokens
+          .filter((t) => t.token === token)
+          .map((t) => t.score);
+        const counts = Array.from<number>({
+          length: Math.max(...scores) + 1,
+        }).fill(0);
+        for (const score of scores) counts[score]!++;
+        let countCurr = 0;
+        for (let i = counts.length - 1; i >= 0; i--) {
+          if (counts[i]! > 0) {
+            counts[i]! = countCurr = counts[i]! * (i + 1) + countCurr;
+          }
+        }
+        let v = key;
+        if (counts[0]! > 1 || counts.length > 1) {
+          v += `,${getLayersString(counts)}`;
+        }
+        searchIndex.set(token, [...(searchIndex.get(token) || []), v]);
+        tokenCounts[token] = (tokenCounts[token] || 0) + 1;
+      }
+
+      const lengths = Array.from<number>({
+        length: Math.max(...tokens.map((t) => t.score)) + 1,
       }).fill(0);
-      for (const score of scores) counts[score]!++;
-      let countCurr = 0;
-      for (let i = counts.length - 1; i >= 0; i--) {
-        if (counts[i]! > 0) {
-          counts[i]! = countCurr = counts[i]! * (i + 1) + countCurr;
+      for (const token of tokens) lengths[token.score]!++;
+      let lenCurr = 0;
+      for (let i = lengths.length - 1; i >= 0; i--) {
+        if (lengths[i]! > 0) {
+          lengths[i]! = lenCurr = lengths[i]! * (i + 1) + lenCurr;
         }
       }
-      let v = key;
-      if (counts[0]! > 1 || counts.length > 1) {
-        v += `,${getLayersString(counts)}`;
-      }
-      searchIndex.set(token, [...(searchIndex.get(token) || []), v]);
-      tokenCounts[token] = (tokenCounts[token] || 0) + 1;
-    }
-
-    const lengths = Array.from<number>({
-      length: Math.max(...tokens.map((t) => t.score)) + 1,
-    }).fill(0);
-    for (const token of tokens) lengths[token.score]!++;
-    let lenCurr = 0;
-    for (let i = lengths.length - 1; i >= 0; i--) {
-      if (lengths[i]! > 0) {
-        lengths[i]! = lenCurr = lengths[i]! * (i + 1) + lenCurr;
-      }
-    }
-    return getLayersString(lengths);
-  });
+      return getLayersString(lengths);
+    });
+  }
 });
 
 const sortedTokens = Object.keys(tokenCounts).sort(
