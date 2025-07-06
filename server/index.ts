@@ -145,16 +145,14 @@ const getData = (
       return {
         ...base,
         ...getRenderContent(filteredPara),
-        quoted: filteredPara.quoted
-          .map((q) => q.quote)
-          .sort((aQuote, bQuote) => {
-            const aDoc = data[aQuote.section]!;
-            const bDoc = data[bQuote.section]!;
-            return compareArrays(
-              aDoc.path.map((p: [string, string, number]) => p[2]),
-              bDoc.path.map((p: [string, string, number]) => p[2])
-            );
-          }),
+        quoted: filteredPara.quoted.sort((aQuote, bQuote) => {
+          const aDoc = data[aQuote.section]!;
+          const bDoc = data[bQuote.section]!;
+          return compareArrays(
+            aDoc.path.map((p: [string, string, number]) => p[2]),
+            bDoc.path.map((p: [string, string, number]) => p[2])
+          );
+        }),
         sources: allFullQuote
           ? mergeQuotes(
               Array.isArray(para)

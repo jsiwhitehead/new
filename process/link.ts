@@ -479,9 +479,9 @@ for (const index of yearSortedIndices) processSection(index);
 
 // Added quoted information
 
-type RefQuote = { quote: Quote; refRange: Range };
+type RefQuote = { range: Range; quote: Quote };
 
-const allQuoted: { quote: Quote; ref: Quote }[] = data.flatMap(
+const allQuoting: { source: Quote; quote: Quote }[] = data.flatMap(
   (section, sIndex) =>
     section.content.flatMap((para, i) => {
       if (!Array.isArray(para)) return [];
@@ -493,8 +493,8 @@ const allQuoted: { quote: Quote; ref: Quote }[] = data.flatMap(
         if (typeof part === "string") return [];
         return [
           {
-            quote: part,
-            ref: { section: sIndex, paragraph: i, start, end: index },
+            source: part,
+            quote: { section: sIndex, paragraph: i, start, end: index },
           },
         ];
       });
@@ -502,39 +502,33 @@ const allQuoted: { quote: Quote; ref: Quote }[] = data.flatMap(
 );
 
 const quoted: RefQuote[][][] = data.map(({ content }, section) => {
-  const sectionQuoted = allQuoted.filter((a) => a.quote.section === section);
-  return content.map((_, i) => {
-    const paraQuoted = sectionQuoted.filter((a) => a.quote.paragraph === i);
-    return uniqueRefs(paraQuoted.map((q) => q.ref)).flatMap((ref) => {
-      const quoted = paraQuoted.filter((q) => refsEqual(q.ref, ref));
-      quoted.sort((a, b) => a.quote.start - b.quote.start);
-      return quoted.map((q) => ({
-        quote: {
-          start: q.quote.start,
-          end: q.quote.end,
-          section: q.ref.section,
-          paragraph: q.ref.paragraph,
-        },
-        refRange: {
-          start: q.ref.start,
-          end: q.ref.end,
-        },
+  const sectionQuoted = allQuoting.filter((a) => a.source.section === section);
+  return content.map((_, paragraph) => {
+    const paraQuoted = sectionQuoted.filter(
+      (a) => a.source.paragraph === paragraph
+    );
+    return uniqueRefs(paraQuoted.map((q) => q.quote)).flatMap((quote) => {
+      const quotedBy = paraQuoted.filter((q) => refsEqual(q.quote, quote));
+      quotedBy.sort((a, b) => a.source.start - b.source.start);
+      return quotedBy.map((q) => ({
+        range: { start: q.source.start, end: q.source.end },
+        quote: q.quote,
       }));
     });
   });
 });
 
 const getAllQuotes = (base: RefQuote): RefQuote[] => {
-  const { quote, refRange } = base;
-  const offset = quote.start - refRange.start;
+  const { range, quote } = base;
+  const offset = range.start - quote.start;
   return [
     base,
     ...quoted[quote.section]![quote.paragraph]!.flatMap((q2) => {
-      const overlap = getRangesIntersect(refRange, q2.quote);
+      const overlap = getRangesIntersect(quote, q2.range);
       if (!overlap) return [];
       return getAllQuotes({
-        quote: { ...q2.quote, ...moveRange(overlap, offset) },
-        refRange: overlap,
+        range: moveRange(overlap, offset),
+        quote: { ...q2.quote, ...overlap },
       });
     }),
   ];
@@ -545,19 +539,19 @@ const mappedQuoted = quoted.map((contentQuotes, section) =>
     const allQuotes = paraQuotes.flatMap((q) => getAllQuotes(q));
     const allRefs = uniqueRefs(allQuotes.map((q) => q.quote));
     return allRefs
-      .flatMap((ref) => {
-        const refQuotes = allQuotes.filter((q) => refsEqual(q.quote, ref));
-        refQuotes.sort((a, b) => a.quote.start - b.quote.start);
+      .flatMap((quote) => {
+        const refQuotes = allQuotes.filter((q) => refsEqual(q.quote, quote));
+        refQuotes.sort((a, b) => a.range.start - b.range.start);
         const cleaned = layers[section]![paragraph]!.cleaned;
         const merged = [refQuotes[0]!];
         for (let i = 1; i < refQuotes.length; i++) {
           const last = merged[merged.length - 1]!;
           const current = refQuotes[i]!;
           if (
-            current.quote.start < last.quote.end ||
-            textIsConnector(cleaned.slice(last.quote.end, current.quote.start))
+            current.range.start < last.range.end ||
+            textIsConnector(cleaned.slice(last.range.end, current.range.start))
           ) {
-            last.quote.end = Math.max(last.quote.end, current.quote.end);
+            last.range.end = Math.max(last.range.end, current.range.end);
           } else {
             merged.push(current);
           }
@@ -581,7 +575,9 @@ data.forEach((d, section) => {
     delete (d as any).content;
     d.quoted = mappedQuoted[section]!.reduce(
       (res, q, i) =>
-        q.length > 0 ? { ...res, [i]: q.map((x) => x.quote) } : res,
+        q.length > 0
+          ? { ...res, [i]: q.map((x) => ({ ...x.quote, ...x.range })) }
+          : res,
       {}
     );
     d.content = content;

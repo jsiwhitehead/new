@@ -1,4 +1,10 @@
-import type { Range, Ref, Section, SectionContent } from "../utils/types";
+import type {
+  Quote,
+  Range,
+  Ref,
+  Section,
+  SectionContent,
+} from "../utils/types";
 
 import baseData from "../data/data.json";
 export const data = baseData as Section[];
@@ -7,8 +13,8 @@ export interface FlatPara {
   type?: "break" | "info" | "call" | "framing";
   text: string;
   lines?: number[];
-  quotes?: { range: Range; quote: Ref }[];
-  quoted: { range: Range; quote: Ref }[];
+  quotes?: Quote[];
+  quoted: Quote[];
   highlights: Range[];
   allSpecial: boolean;
 }
