@@ -42,7 +42,7 @@ const Root = () => {
       if (location.state) {
         c.para.highlights.push(
           ...location.state.flatMap((part: string) => {
-            const start = c.para.text.indexOf(part);
+            const start = c.para.text.toLowerCase().indexOf(part.toLowerCase());
             if (start === -1) return [];
             return [{ start, end: start + part.length }];
           })

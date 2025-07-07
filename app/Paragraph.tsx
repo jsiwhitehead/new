@@ -169,7 +169,7 @@ export default function Paragraph({
         }}
         onClick={() => setShowQuoted(!showQuoted)}
       >
-        {showQuoted ? "Hide" : "Show"} citations ({quoted.length})
+        {showQuoted ? "Hide citations" : `${quoted.length} citations`}
       </Text>
       {showQuoted &&
         quoted.map((quote: any, i: number) => (

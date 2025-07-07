@@ -19,6 +19,8 @@ import { getMatches, getTokenHighlights } from "./search";
 import type { FlatPara, MultiRef, RenderQuote } from "./utils";
 import { data, getAllSpecial, getParagraphIds, mergeQuotes } from "./utils";
 
+const SEARCH_COUNT = 30;
+
 const collapseSingleKeys = (
   tree: any,
   maxDepth: number
@@ -142,9 +144,16 @@ const getData = (
       };
     });
 
-  const baseResult: { paraId: string; para: FlatPara; sources: MultiRef[] }[] =
-    [];
-  while ((!matches || baseResult.length < 30) && passages.length > 0) {
+  const baseResult: {
+    paraId: string;
+    para: FlatPara;
+    sources: MultiRef[];
+    chars: string;
+  }[] = [];
+  while (
+    (!matches || baseResult.length < SEARCH_COUNT + 5) &&
+    passages.length > 0
+  ) {
     const { section, start, levels } = passages.shift()!;
     const paraIds = getParagraphIds(data[section]!.content);
     const allSpecial = getAllSpecial(data[section]!.content);
@@ -201,54 +210,68 @@ const getData = (
           : [{ section, paragraph: [paragraph] }],
       };
     });
-    if (
-      !matches ||
-      content.some(
-        ({ para }) =>
-          !baseResult.some((x) =>
-            toChars(toWords(toCleaned(x.para.text))).includes(
-              toChars(toWords(toCleaned(para.text)))
-            )
-          )
-      )
-    ) {
-      let readyBreak = false;
-      let readyDots = false;
-      const merged: { paraId: string; para: FlatPara; sources: MultiRef[] }[] =
-        [];
-      for (const p of content) {
-        if (p.para.type === "break") {
-          if (readyBreak) {
-            merged.push(p);
-            readyBreak = false;
-            readyDots = true;
-          }
-        } else if (p.para.text === ". . .") {
-          if (readyDots) {
-            merged.push(p);
-            readyDots = false;
-          }
-        } else {
+
+    let readyBreak = false;
+    let readyDots = false;
+    const merged: { paraId: string; para: FlatPara; sources: MultiRef[] }[] =
+      [];
+    for (const p of content) {
+      if (p.para.type === "break") {
+        if (readyBreak) {
           merged.push(p);
-          readyBreak = true;
+          readyBreak = false;
           readyDots = true;
         }
+      } else if (p.para.text === ". . .") {
+        if (readyDots) {
+          merged.push(p);
+          readyDots = false;
+        }
+      } else {
+        merged.push(p);
+        readyBreak = true;
+        readyDots = true;
       }
-      if (merged.length > 0) {
-        if (merged[merged.length - 1]!.para.text === ". . .") {
-          merged.pop();
-        }
-        if (merged[merged.length - 1]!.para.type === "break") {
-          merged.pop();
-        }
-        if (merged[merged.length - 1]!.para.text === ". . .") {
-          merged.pop();
-        }
+    }
+    if (merged.length > 0) {
+      if (merged[merged.length - 1]!.para.text === ". . .") {
+        merged.pop();
       }
-      const joinedSources = joinQuotes(merged.map((c) => c.sources));
-      baseResult.push(
-        ...merged.map((p, i) => ({ ...p, sources: joinedSources[i]! }))
-      );
+      if (merged[merged.length - 1]!.para.type === "break") {
+        merged.pop();
+      }
+      if (merged[merged.length - 1]!.para.text === ". . .") {
+        merged.pop();
+      }
+    }
+    const joinedSources = joinQuotes(merged.map((c) => c.sources));
+    const mappedSources = merged.map((p, i) => ({
+      ...p,
+      sources: joinedSources[i]!,
+      chars: toChars(toWords(toCleaned(p.para.text))),
+    }));
+
+    if (!matches) {
+      baseResult.push(...mappedSources);
+    } else {
+      const dupe = baseResult
+        .slice(-5)
+        .findIndex((x) =>
+          mappedSources.some(({ chars }) => chars.includes(x.chars))
+        );
+      if (dupe !== -1) {
+        baseResult.splice(
+          Math.max(0, baseResult.length - 5) + dupe,
+          1,
+          ...mappedSources
+        );
+      } else if (
+        mappedSources.some(
+          ({ chars }) => !baseResult.some((x) => x.chars.includes(chars))
+        )
+      ) {
+        baseResult.push(...mappedSources);
+      }
     }
   }
 
@@ -295,9 +318,28 @@ const getData = (
     }
   }
 
+  let sliceIndex = 0;
+  let totalParas = 0;
+  while (totalParas < SEARCH_COUNT && sliceIndex < docs.length) {
+    totalParas += docs[sliceIndex++]!.content.length;
+  }
+
   return {
     docs: docs
-      .filter((d) => d.content.length > 0)
+      .slice(0, sliceIndex)
+      .filter((d) => {
+        if (d.content.length === 0) {
+          return false;
+        }
+        if (
+          d.sources.length > 0 &&
+          d.content.length === 1 &&
+          d.content[0]!.para.text === ". . ."
+        ) {
+          return false;
+        }
+        return true;
+      })
       .map((d) => {
         const joinedQuotes = joinQuotes(d.content.map((c) => c.quotes));
         return {

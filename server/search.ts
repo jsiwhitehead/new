@@ -7,6 +7,7 @@ import searchIndex from "../data/search.txt";
 
 const K = 1.2; // term saturation, low k more like binary presence of terms
 const B = 0.3; // length normalisation 0-1, 0 = long & short treated the same
+const L = 0.6; // level lowering factor
 
 type Layers = { level: number; value: number }[];
 
@@ -123,7 +124,7 @@ export const getMatches = (
       const paraLevel =
         paraMatches.length === 0
           ? 0
-          : Math.floor(Math.min(...paraMatches.map((m) => m.level)) * 0.75);
+          : Math.floor(Math.min(...paraMatches.map((m) => m.level)) * L);
       const paraLength = getParaLength(section, paragraph, paraLevel);
       return {
         level: paraLevel,
