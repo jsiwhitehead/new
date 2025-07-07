@@ -22,6 +22,7 @@ let totalLength = 0;
 const paraLengths: string[][] = [];
 const searchIndex = new Map<string, string[]>();
 const tokenCounts: Record<string, number> = {};
+const tokenWords = new Map<string, Set<string>>();
 data.forEach(({ path, content, quoted }, section) => {
   if (path[0]![0] !== "Stories") {
     console.log(path.map((p) => p[0]).join(", "));
@@ -42,6 +43,12 @@ data.forEach(({ path, content, quoted }, section) => {
             (q) => q.start < current + word.length && current < q.end
           ).length;
           tokens.push({ token, score });
+          tokenWords.set(
+            token,
+            (tokenWords.get(token) || new Set()).add(
+              word.replace(/’s$/g, "").replace(/[^a-z0-9‘’]/g, "")
+            )
+          );
         }
         current += word.length;
       }
@@ -100,6 +107,18 @@ await writeJSON("", "lengths", {
   lengths: paraLengths,
 });
 await writeText("", "search", searchIndexData);
+
+await writeText(
+  "",
+  "tokens",
+  sortedTokens
+    .sort((a, b) => a.localeCompare(b))
+    .map(
+      (token) =>
+        `${token} = ${[...(tokenWords.get(token) || [])].sort((a, b) => a.localeCompare(b)).join(" | ")}`
+    )
+    .join("\n\n")
+);
 
 // import { promises as fs } from "fs";
 

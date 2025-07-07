@@ -3583,6 +3583,7 @@ const stem = function (w: string): string {
     if (word.startsWith("conception")) return "conception";
     if (word.startsWith("conference")) return "conference";
     if (word.startsWith("constitution")) return "constitution";
+    if (word.startsWith("contention")) return "contenti";
     if (word.startsWith("continent")) return "continent";
     if (word.startsWith("craftsm")) return "craftsperson";
     if (word.startsWith("craftsp")) return "craftsperson";

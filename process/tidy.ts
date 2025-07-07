@@ -1,8 +1,8 @@
-import fixesJSON from "./fixes.json";
-
-import sources from "./sources.ts";
 import { emptyDir, readText, writeText } from "../utils/files.ts";
-import { fixSpellings } from "../utils/utils.ts";
+import fixSpellings from "../utils/spellings.ts";
+
+import fixesJSON from "./fixes.json" with { type: "json" };
+import sources from "./sources.ts";
 
 const fixes = fixesJSON as unknown as Record<
   string,

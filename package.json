@@ -7,12 +7,12 @@
     "node": ">=23.7.0"
   },
   "scripts": {
-    "download": "node ./process/download.ts",
-    "tidy": "node ./process/tidy.ts",
-    "format": "node ./process/format.ts",
-    "structure": "node ./process/structure.ts",
-    "link": "node ./process/link.ts",
-    "search": "node ./process/search.ts",
+    "download": "bun ./process/download.ts",
+    "tidy": "bun ./process/tidy.ts",
+    "format": "bun ./process/format.ts",
+    "structure": "bun ./process/structure.ts",
+    "link": "bun ./process/link.ts",
+    "search": "bun ./process/search.ts",
     "server": "node ./server/index.ts",
     "app": "NODE_ENV=local bun ./static/index.html",
     "build": "rm -rf dist && bun build ./static/index.html --minify --outdir=dist --public-path /"
