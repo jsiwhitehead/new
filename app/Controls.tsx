@@ -50,11 +50,11 @@ const Breadcrumbs = ({
 export default function Controls({
   path,
   tree,
-  showRange,
+  showContent,
 }: {
   path: [string, string][];
   tree: any;
-  showRange: boolean;
+  showContent: boolean;
 }) {
   const [params] = useSearchParams();
 
@@ -74,7 +74,7 @@ export default function Controls({
   useEffect(() => {
     if (level !== getUrlNumber(params, "level")) {
       navigate(
-        { search: makeUrlSearch(["level", level], ["search", search]) },
+        { search: makeUrlSearch(["search", search], ["level", level]) },
         { replace: true, preventScrollReset: true }
       );
     }
@@ -83,7 +83,7 @@ export default function Controls({
   const runSearch = () => {
     if (search !== getUrlString(params, "search")) {
       navigate(
-        { search: makeUrlSearch(["level", level], ["search", search]) },
+        { search: makeUrlSearch(["search", search], ["level", level]) },
         { replace: true, preventScrollReset: true }
       );
     }
@@ -93,10 +93,10 @@ export default function Controls({
     return () => clearTimeout(timeout);
   }, [search]);
 
-  const linkUrlSearch = makeUrlSearch([
-    "search",
-    getUrlString(params, "search"),
-  ]);
+  const linkUrlSearch = makeUrlSearch(
+    ["search", getUrlString(params, "search")],
+    ["level", getUrlNumber(params, "level")]
+  );
 
   return (
     <Column gap={20}>
@@ -131,7 +131,7 @@ export default function Controls({
         </div>
       )}
 
-      {showRange && (
+      {showContent && (
         <Column gap={10}>
           <input
             type="range"

@@ -35,7 +35,7 @@ export default function App({
         margin: "0 auto",
       }}
     >
-      <Controls path={path} tree={tree} showRange={showContent} />
+      <Controls path={path} tree={tree} showContent={showContent} />
       {showContent &&
         docs.map(({ sources, content }, index) => {
           const toHighlight =
