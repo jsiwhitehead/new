@@ -1,8 +1,8 @@
 import * as cheerio from "cheerio";
 import type { ChildNode, Element } from "domhandler";
 
-import sources from "./sources";
-import { emptyDir, writeText } from "../utils/files";
+import sources from "./sources.ts";
+import { emptyDir, writeText } from "../utils/files.ts";
 
 const inline = [
   "span",

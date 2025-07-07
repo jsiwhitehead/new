@@ -1,12 +1,12 @@
-import sources from "./sources";
-import { readJSON, writeJSON } from "../utils/files";
+import sources from "./sources.ts";
+import { readJSON, writeJSON } from "../utils/files.ts";
 import type {
   Quote,
   Range,
   Ref,
   Section,
   SectionContent,
-} from "../utils/types";
+} from "../utils/types.ts";
 import {
   compareArrays,
   doRangesIntersect,
@@ -20,7 +20,7 @@ import {
   toWords,
   textIsConnector,
   uniqueRefs,
-} from "../utils/utils";
+} from "../utils/utils.ts";
 
 interface Layers {
   text: string;

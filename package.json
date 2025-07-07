@@ -3,29 +3,31 @@
   "module": "index.ts",
   "type": "module",
   "private": true,
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
-    "download": "bun ./process/download.ts",
-    "tidy": "bun ./process/tidy.ts",
-    "format": "bun ./process/format.ts",
-    "structure": "bun ./process/structure.ts",
-    "link": "bun ./process/link.ts",
-    "search": "bun ./process/search.ts",
-    "server": "bun ./server/index.ts",
-    "app": "bun ./static/index.html",
+    "download": "node ./process/download.ts",
+    "tidy": "node ./process/tidy.ts",
+    "format": "node ./process/format.ts",
+    "structure": "node ./process/structure.ts",
+    "link": "node ./process/link.ts",
+    "search": "node ./process/search.ts",
+    "server": "node ./server/index.ts",
+    "app": "NODE_ENV=local bun ./static/index.html",
     "build": "bun build ./static/index.html --minify --outdir=dist"
   },
   "devDependencies": {
     "@types/bun": "^1.2.15",
     "@types/cheerio": "^1.0.0",
+    "@types/express": "^5.0.3",
     "@types/fs-extra": "^11.0.4",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.6"
   },
-  "peerDependencies": {
-    "typescript": "^5"
-  },
   "dependencies": {
     "cheerio": "^1.0.0",
+    "express": "^5.1.0",
     "fs-extra": "^11.3.0",
     "prettier": "^3.5.3",
     "react": "^19.1.0",

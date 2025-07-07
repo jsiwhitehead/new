@@ -1,6 +1,6 @@
-import type { Section, SectionContent } from "../utils/types";
+import type { Section, SectionContent } from "../utils/types.ts";
 
-import baseData from "../data/data.json";
+import baseData from "../data/data.json" with { type: "json" };
 export const data = baseData as Section[];
 
 export const getAllSpecial = (content: SectionContent[]) =>

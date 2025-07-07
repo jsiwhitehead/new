@@ -4,7 +4,7 @@ import type {
   Range,
   Ref,
   SectionContent,
-} from "../utils/types";
+} from "../utils/types.ts";
 import {
   doesRangeInclude,
   doRangesIntersect,
@@ -14,9 +14,9 @@ import {
   mapRanges,
   moveRange,
   refsEqual,
-} from "../utils/utils";
+} from "../utils/utils.ts";
 
-import { data, getAllSpecial } from "./utils";
+import { data, getAllSpecial } from "./utils.ts";
 
 export const addSourceQuotes = (para: FlatPara, ref: Ref) => {
   para.sourceQuotes = [{ ...ref, start: 0, end: para.text.length }];

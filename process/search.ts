@@ -1,7 +1,7 @@
-import { readJSON, writeJSON, writeText } from "../utils/files";
-import stem from "../utils/searchStem";
-import type { Section } from "../utils/types";
-import { getText } from "../utils/utils";
+import { readJSON, writeJSON, writeText } from "../utils/files.ts";
+import stem from "../utils/searchStem.ts";
+import type { Section } from "../utils/types.ts";
+import { getText } from "../utils/utils.ts";
 
 const data = (await readJSON("", "data")) as Section[];
 

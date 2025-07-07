@@ -1,10 +1,11 @@
-import stem from "../utils/searchStem";
-import fixSpellings from "../utils/spellings";
-import type { Range } from "../utils/types";
-import { sum } from "../utils/utils";
+import { readText } from "../utils/files.ts";
+import stem from "../utils/searchStem.ts";
+import fixSpellings from "../utils/spellings.ts";
+import type { Range } from "../utils/types.ts";
+import { sum } from "../utils/utils.ts";
 
-import lengthsJSON from "../data/lengths.json";
-import searchIndex from "../data/search.txt";
+import lengthsJSON from "../data/lengths.json" with { type: "json" };
+const searchIndex = await readText("", "search");
 
 const K = 1.2; // term saturation, low k more like binary presence of terms
 const B = 0.3; // length normalisation 0-1, 0 = long & short treated the same

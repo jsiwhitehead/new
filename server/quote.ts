@@ -1,7 +1,7 @@
-import type { MultiRef, Ref, RenderQuote } from "../utils/types";
-import { capitalise } from "../utils/utils";
+import type { MultiRef, Ref, RenderQuote } from "../utils/types.ts";
+import { capitalise } from "../utils/utils.ts";
 
-import { data, getParagraphIds } from "./utils";
+import { data, getParagraphIds } from "./utils.ts";
 
 const simplifyLinkLabels = {
   "Gleanings from the Writings of Bahá’u’lláh": "Gleanings",

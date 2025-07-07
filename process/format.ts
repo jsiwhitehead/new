@@ -1,5 +1,5 @@
-import sources from "./sources";
-import { emptyDir, readText, writeText } from "../utils/files";
+import sources from "./sources.ts";
+import { emptyDir, readText, writeText } from "../utils/files.ts";
 
 await emptyDir("./data/format");
 

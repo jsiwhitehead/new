@@ -7,7 +7,7 @@ import {
   useLocation,
 } from "react-router";
 
-import type { FlatPara, RenderQuote, SemiPara } from "../utils/types";
+import type { RenderQuote, SemiPara } from "../utils/types";
 
 import App from "./App";
 import { getRenderContent } from "./render";
@@ -73,9 +73,13 @@ const route = {
     const level = parseInt(searchParams.get("level") || "0", 10);
     const search = searchParams.get("search") || "";
     const res = await fetch(
-      `http://localhost:8000/api/${encodeURIComponent(
-        JSON.stringify({ path: paramPath, level, search })
-      )}`
+      process.env.NODE_ENV === "local"
+        ? `http://localhost:8000/api/${encodeURIComponent(
+            JSON.stringify({ path: paramPath, level, search })
+          )}`
+        : `/api/${encodeURIComponent(
+            JSON.stringify({ path: paramPath, level, search })
+          )}`
     );
     return await res.json();
   },

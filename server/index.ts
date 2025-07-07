@@ -1,10 +1,12 @@
+import express from "express";
+
 import type {
   FlatPara,
   MultiRef,
   Ref,
   RenderQuote,
   SemiPara,
-} from "../utils/types";
+} from "../utils/types.ts";
 import {
   compareArrays,
   getQuoteParts,
@@ -13,17 +15,17 @@ import {
   toChars,
   toCleaned,
   toWords,
-} from "../utils/utils";
+} from "../utils/utils.ts";
 
 import {
   addSourceQuotes,
   filterQuoted,
   getFullQuotedPara,
   getPara,
-} from "./paragraph";
-import { getUrlQuote } from "./quote";
-import { getMatches, getTokenHighlights } from "./search";
-import { data, getAllSpecial, getParagraphIds } from "./utils";
+} from "./paragraph.ts";
+import { getUrlQuote } from "./quote.ts";
+import { getMatches, getTokenHighlights } from "./search.ts";
+import { data, getAllSpecial, getParagraphIds } from "./utils.ts";
 
 const SEARCH_COUNT = 30;
 
@@ -374,19 +376,44 @@ const getData = (
   };
 };
 
-Bun.serve({
-  port: 8000,
-  routes: {
-    "/api/:query": (req) => {
-      const { path, level, search } = JSON.parse(req.params.query);
-      const data = getData(path, level, search);
-      const res = Response.json(data);
-      res.headers.set("Access-Control-Allow-Origin", "*");
-      res.headers.set(
-        "Access-Control-Allow-Methods",
-        "GET, POST, PUT, DELETE, OPTIONS"
-      );
-      return res;
-    },
-  },
+// Bun.serve({
+//   port: 8000,
+//   routes: {
+//     "/api/:query": (req) => {
+//       const { path, level, search } = JSON.parse(req.params.query);
+//       const data = getData(path, level, search);
+//       const res = Response.json(data);
+//       res.headers.set("Access-Control-Allow-Origin", "*");
+//       res.headers.set(
+//         "Access-Control-Allow-Methods",
+//         "GET, POST, PUT, DELETE, OPTIONS"
+//       );
+//       return res;
+//     },
+//   },
+// });
+
+const app = express();
+const port = 8000;
+
+app.get("/api/:query", (req, res) => {
+  try {
+    const { query } = req.params;
+    const { path, level, search } = JSON.parse(query);
+
+    const data = getData(path, level, search);
+
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader(
+      "Access-Control-Allow-Methods",
+      "GET, POST, PUT, DELETE, OPTIONS"
+    );
+    res.json(data);
+  } catch (err) {
+    res.status(400).json({ error: "Invalid JSON in URL parameter" });
+  }
+});
+
+app.listen(port, () => {
+  console.log(`Express server running on http://localhost:${port}`);
 });

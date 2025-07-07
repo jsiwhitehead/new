@@ -1,6 +1,6 @@
-import spellingsJSON from "./spellings.json";
+import spellingsJSON from "./spellings.json" with { type: "json" };
 
-import { capitalise } from "./utils";
+import { capitalise } from "./utils.ts";
 
 const spellingsBase = spellingsJSON as any;
 const spellings: Record<string, string> = Object.assign(

@@ -1,6 +1,6 @@
-import sources from "./sources";
-import { emptyDir, readText, writeJSON } from "../utils/files";
-import type { Section, SectionContent } from "../utils/types";
+import sources from "./sources.ts";
+import { emptyDir, readText, writeJSON } from "../utils/files.ts";
+import type { Section, SectionContent } from "../utils/types.ts";
 
 const authorYears = {
   "The Báb": [1844, 1853],
