@@ -8,14 +8,15 @@ import {
 } from "../utils/utils";
 
 import {
+  addSourceQuotes,
   filterQuoted,
   getFullQuotedPara,
   getPara,
-  getRenderContent,
+  getParaQuotes,
 } from "./paragraph";
 import { getUrlQuote } from "./quote";
 import { getMatches, getTokenHighlights } from "./search";
-import type { FlatPara, MultiRef, RenderContent, RenderQuote } from "./utils";
+import type { FlatPara, MultiRef, RenderQuote } from "./utils";
 import { data, getAllSpecial, getParagraphIds, mergeQuotes } from "./utils";
 
 const collapseSingleKeys = (
@@ -58,7 +59,15 @@ const getData = (
   baseLevel: number,
   search: string
 ): {
-  data: any[];
+  docs: {
+    sources: RenderQuote[];
+    content: {
+      quoted: RenderQuote[];
+      quotes: RenderQuote[];
+      paraId: string;
+      para: FlatPara;
+    }[];
+  }[];
   path: [string, string][];
   tree: any;
   showContent: boolean;
@@ -113,7 +122,7 @@ const getData = (
     (urlPath.length > 2 && urlPath[1] === "bahaullah-new-era");
 
   if (!showContent) {
-    return { data: [], path, tree: nestedTree, showContent: false };
+    return { docs: [], path, tree: nestedTree, showContent: false };
   }
 
   const passages: {
@@ -159,7 +168,10 @@ const getData = (
           : filterQuoted(
               allFullQuote
                 ? getFullQuotedPara(para)
-                : getPara(para, allSpecial),
+                : addSourceQuotes(getPara(para, allSpecial), {
+                    section,
+                    paragraph,
+                  }),
               data[section]!.quoted?.[paragraph] || [],
               levels[index]!
             );
@@ -170,11 +182,13 @@ const getData = (
             text: ". . .",
             quoted: [],
             highlights: [],
+            sourceQuotes: [],
             allSpecial: false,
           } as FlatPara,
           sources: [{ section, paragraph: [] }],
         };
       }
+      if (matches) filteredPara.allSpecial = true;
       return {
         paraId: paraIds[paragraph]!,
         para: filteredPara,
@@ -244,7 +258,8 @@ const getData = (
     }
     return {
       paraId,
-      ...getRenderContent(para),
+      para,
+      quotes: getParaQuotes(para).quotes,
       quoted: para.quoted.sort((aQuote, bQuote) => {
         const aDoc = data[aQuote.section]!;
         const bDoc = data[bQuote.section]!;
@@ -262,7 +277,7 @@ const getData = (
       sources: [] as MultiRef[],
       content: [] as {
         paraId: string;
-        content: RenderContent;
+        para: FlatPara;
         quoted: Ref[];
         quotes: MultiRef[];
       }[],
@@ -281,7 +296,7 @@ const getData = (
   }
 
   return {
-    data: docs
+    docs: docs
       .filter((d) => d.content.length > 0)
       .map((d) => {
         const joinedQuotes = joinQuotes(d.content.map((c) => c.quotes));

@@ -146,6 +146,7 @@ export default function Paragraph({
     <Column
       style={{
         maxWidth: 670,
+        width: "100%",
         margin: "0 auto",
       }}
       gap={25}

@@ -4,17 +4,63 @@ import {
   RouterProvider,
   ScrollRestoration,
   useLoaderData,
+  useLocation,
 } from "react-router";
-import { SizeContext } from "./Utils";
+
+import { getRenderContent } from "../server/paragraph";
+import type { FlatPara, RenderQuote } from "../server/utils";
 
 import App from "./App";
+import { SizeContext } from "./Utils";
 
-const Root = () => (
-  <SizeContext value={17}>
-    <ScrollRestoration />
-    <App {...useLoaderData()} />
-  </SizeContext>
-);
+const Root = () => {
+  const {
+    docs: baseDocs,
+    path,
+    tree,
+    showContent,
+  } = useLoaderData<{
+    docs: {
+      sources: RenderQuote[];
+      content: {
+        quoted: RenderQuote[];
+        quotes: RenderQuote[];
+        paraId: string;
+        para: FlatPara;
+      }[];
+    }[];
+    path: [string, string][];
+    tree: any;
+    showContent: boolean;
+  }>();
+
+  const location = useLocation();
+
+  const docs = baseDocs.map((d) => ({
+    sources: d.sources,
+    content: d.content.map((c) => {
+      if (location.state) {
+        c.para.highlights.push(
+          ...location.state.flatMap((part: string) => {
+            const start = c.para.text.indexOf(part);
+            if (start === -1) return [];
+            return [{ start, end: start + part.length }];
+          })
+        );
+      }
+      return {
+        ...c,
+        content: getRenderContent(c.para),
+      };
+    }),
+  }));
+  return (
+    <SizeContext value={17}>
+      <ScrollRestoration />
+      <App docs={docs} path={path} tree={tree} showContent={showContent} />
+    </SizeContext>
+  );
+};
 
 const route = {
   Component: Root,

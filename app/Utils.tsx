@@ -68,6 +68,7 @@ export function Row({
 export function Text({
   size,
   to,
+  state,
   id,
   onClick,
   style,
@@ -75,6 +76,7 @@ export function Text({
 }: {
   size?: number;
   to?: string;
+  state?: any;
   id?: string;
   onClick?: React.MouseEventHandler<any>;
   style?: React.CSSProperties;
@@ -90,6 +92,7 @@ export function Text({
       >
         <Link
           to={to}
+          state={state}
           style={{
             margin: -5,
             padding: 5,

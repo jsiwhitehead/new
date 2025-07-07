@@ -16,6 +16,7 @@ export interface FlatPara {
   quotes?: Quote[];
   quoted: Quote[];
   highlights: Range[];
+  sourceQuotes: Quote[];
   allSpecial: boolean;
 }
 
