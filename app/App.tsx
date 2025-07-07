@@ -83,7 +83,7 @@ export default function App({
                   ))}
                 </Column>
                 {content.map((para) => (
-                  <Paragraph {...para} key={para.paraId} />
+                  <Paragraph key={para.paraId} {...para} />
                 ))}
               </Column>
             </Fragment>

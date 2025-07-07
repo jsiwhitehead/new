@@ -15,7 +15,7 @@
     "search": "node ./process/search.ts",
     "server": "node ./server/index.ts",
     "app": "NODE_ENV=local bun ./static/index.html",
-    "build": "bun build ./static/index.html --minify --outdir=dist"
+    "build": "rm -rf dist && bun build ./static/index.html --minify --outdir=dist --public-path /"
   },
   "devDependencies": {
     "@types/bun": "^1.2.15",
