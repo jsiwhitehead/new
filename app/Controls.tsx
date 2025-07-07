@@ -79,15 +79,17 @@ export default function Controls({
       );
     }
   }, [level]);
+
+  const runSearch = () => {
+    if (search !== getUrlString(params, "search")) {
+      navigate(
+        { search: makeUrlSearch(["level", level], ["search", search]) },
+        { replace: true, preventScrollReset: true }
+      );
+    }
+  };
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (search !== getUrlString(params, "search")) {
-        navigate(
-          { search: makeUrlSearch(["level", level], ["search", search]) },
-          { replace: true, preventScrollReset: true }
-        );
-      }
-    }, 500);
+    const timeout = setTimeout(runSearch, 1000);
     return () => clearTimeout(timeout);
   }, [search]);
 
@@ -112,6 +114,9 @@ export default function Controls({
           padding: "5px 18px",
         }}
         onChange={(e) => setSearch(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") runSearch();
+        }}
       />
 
       <Breadcrumbs
