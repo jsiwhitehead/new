@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "engines": {
-    "node": "24.x"
+    "node": ">=23.7.0"
   },
   "scripts": {
     "download": "node ./process/download.ts",
