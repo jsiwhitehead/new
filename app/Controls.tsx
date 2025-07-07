@@ -59,10 +59,16 @@ export default function Controls({
   const [params] = useSearchParams();
 
   const [level, setLevel] = useState(getUrlNumber(params, "level"));
-  useEffect(() => setLevel(getUrlNumber(params, "level")), [params]);
+  useEffect(() => {
+    const newLevel = getUrlNumber(params, "level");
+    if (newLevel !== level) setLevel(newLevel);
+  }, [params]);
 
   const [search, setSearch] = useState(getUrlString(params, "search"));
-  useEffect(() => setSearch(getUrlString(params, "search")), [params]);
+  useEffect(() => {
+    const newSearch = getUrlString(params, "search");
+    if (newSearch !== search) setSearch(newSearch);
+  }, [params]);
 
   const navigate = useNavigate();
   useEffect(() => {

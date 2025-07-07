@@ -188,6 +188,7 @@ const getData = (
       };
     });
     if (
+      !matches ||
       content.some(
         ({ para }) =>
           !baseResult.some((x) =>

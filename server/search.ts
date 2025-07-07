@@ -5,6 +5,9 @@ import { fixSpellings, sum } from "../utils/utils";
 import lengthsJSON from "../data/lengths.json";
 import searchIndex from "../data/search.txt";
 
+const K = 1.2; // term saturation, low k more like binary presence of terms
+const B = 0.3; // length normalisation 0-1, 0 = long & short treated the same
+
 type Layers = { level: number; value: number }[];
 
 const splitLayers = (layers: string, defValue: number): Layers =>
@@ -16,6 +19,7 @@ const splitLayers = (layers: string, defValue: number): Layers =>
     : [{ level: 0, value: defValue }];
 
 const parasTotal: number = (lengthsJSON as any).total;
+const parasAverage: number = (lengthsJSON as any).average;
 
 const parasLengths: (string | Layers)[][] = (lengthsJSON as any).lengths;
 const getParaLength = (section: number, paragraph: number, level: number) => {
@@ -62,11 +66,13 @@ const getTokenMatches = (
 
 const lengthIdfs: Record<number, number> = {};
 const getTokenIdf = (token: string) => {
-  const length = getTokenMatches(token).length;
-  if (!lengthIdfs[length]) {
-    lengthIdfs[length] = Math.log(parasTotal / length);
+  const tokenTotal = getTokenMatches(token).length;
+  if (!lengthIdfs[tokenTotal]) {
+    lengthIdfs[tokenTotal] = Math.log(
+      (parasTotal - tokenTotal + 0.5) / (tokenTotal + 0.5) + 1
+    );
   }
-  return lengthIdfs[length];
+  return lengthIdfs[tokenTotal];
 };
 
 const trailingMatchLength = <T>(array: T[], test: (item: T) => boolean) => {
@@ -122,7 +128,14 @@ export const getMatches = (
       return {
         level: paraLevel,
         length: paraLength,
-        score: sum(paraMatches.map((m) => m.value * getTokenIdf(m.token))),
+        scores: tokens
+          .map((token) => ({
+            token,
+            score: sum(
+              paraMatches.filter((m) => m.token === token).map((m) => m.value)
+            ),
+          }))
+          .filter((s) => s.score > 0),
         done: false,
       };
     });
@@ -141,11 +154,23 @@ export const getMatches = (
             break;
           }
           const sliced = paras.slice(start, end + 1);
-          if (trailingMatchLength(sliced, (x) => !x.score) > 3) {
+          if (trailingMatchLength(sliced, (x) => x.scores.length === 0) > 3) {
             break;
           }
-          const length = sum(sliced.map((p) => p.length));
-          const score = sum(sliced.map((p) => p.score)) / length;
+          const length = sum(sliced.map((p) => p.length)) / parasAverage;
+          const score = sum(
+            tokens.map((token) => {
+              const tf = sum(
+                sliced.map(
+                  (p) => p.scores.find((s) => s.token === token)?.score || 0
+                )
+              );
+              return (
+                ((tf * (K + 1)) / (tf + K * (1 - B + B * length))) *
+                getTokenIdf(token)
+              );
+            })
+          );
           if (score > 0 && (!best || score > best.score)) {
             best = { start, end, score };
           }
@@ -159,7 +184,9 @@ export const getMatches = (
           section,
           start: best.start,
           levels: indices.map((paragraph) =>
-            paras[paragraph]!.score ? paras[paragraph]!.level : null
+            paras[paragraph]!.scores.length === 0
+              ? null
+              : paras[paragraph]!.level
           ),
           score: best.score,
         });
