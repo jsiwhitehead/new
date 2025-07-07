@@ -7,11 +7,12 @@ import {
   useLocation,
 } from "react-router";
 
-import type { RenderQuote, SemiPara } from "../utils/types";
+import type { Ref, RenderQuote, SemiPara } from "../utils/types";
 
 import App from "./App";
 import { getRenderContent } from "./render";
 import { SizeContext } from "./Utils";
+import { refsEqual } from "../utils/utils";
 
 const Root = () => {
   const {
@@ -27,6 +28,7 @@ const Root = () => {
         quotes: RenderQuote[];
         paraId: string;
         para: SemiPara;
+        ref: Ref;
       }[];
     }[];
     path: [string, string][];
@@ -40,13 +42,16 @@ const Root = () => {
     sources: d.sources,
     content: d.content.map((c) => {
       if (location.state) {
-        c.para.highlights.push(
-          ...location.state.flatMap((part: string) => {
-            const start = c.para.text.toLowerCase().indexOf(part.toLowerCase());
-            if (start === -1) return [];
-            return [{ start, end: start + part.length }];
-          })
-        );
+        if (location.state.type === "quote") {
+          c.para.highlights.push(
+            ...(c.para.quotes || [])
+              .filter((q) => refsEqual(q.base, location.state.ref))
+              .map((q) => ({ start: q.base.start, end: q.base.end })),
+            ...c.para.sourceQuotes
+              .filter((q) => refsEqual(q, location.state.ref))
+              .map((q) => ({ start: q.start, end: q.end }))
+          );
+        }
       }
       return {
         ...c,

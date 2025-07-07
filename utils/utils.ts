@@ -112,33 +112,20 @@ export const getIndices = (length: number, ...markers: Range[][]) =>
 export const mapRanges = <T>(indices: number[], map: (range: Range) => T) =>
   indices.slice(1).map((end, i) => map({ start: indices[i]!, end }));
 
-export const mergeQuotes = (quotes: Ref[]) => {
-  const res: MultiRef[] = [];
-  for (const { section, paragraph } of quotes) {
-    if (!res.find((s) => s.section === section)) {
-      res.push({ section, paragraph: [paragraph] });
-    } else {
-      const s = res.find((s) => s.section === section)!;
-      s.paragraph.push(paragraph);
-    }
-  }
-  return res;
-};
-
 export const getQuoteParts = <T>(
   text: string,
-  quotes: { range: Range; quote: T }[]
+  quotes: { base: Quote; quote: T }[]
 ) => {
   const quoteIndices = getIndices(
     text.length,
-    quotes.map((q) => q.range)
+    quotes.map((q) => q.base)
   );
   const quoteParts: { text: string; quote?: T | true }[] = mapRanges(
     quoteIndices,
     (range) => {
       return {
         text: text.slice(range.start, range.end),
-        quote: quotes.find((q) => doesRangeInclude(q.range, range))?.quote,
+        quote: quotes.find((q) => doesRangeInclude(q.base, range))?.quote,
       };
     }
   );

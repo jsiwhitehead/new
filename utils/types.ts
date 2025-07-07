@@ -46,7 +46,7 @@ export interface SemiPara {
   type?: "break" | "info" | "call" | "framing";
   text: string;
   lines?: number[];
-  quotes?: { range: Range; quote: RenderQuote }[];
+  quotes?: { base: Quote; quote: RenderQuote }[];
   quoted: Quote[];
   highlights: Range[];
   sourceQuotes: Quote[];

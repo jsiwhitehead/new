@@ -13,7 +13,6 @@ import {
   getRangesIntersect,
   mapRanges,
   moveRange,
-  refsEqual,
 } from "../utils/utils.ts";
 
 import { data, getAllSpecial } from "./utils.ts";
@@ -127,17 +126,6 @@ const joinParaParts = (parts: (string | FlatPara)[]): FlatPara => {
       current += part.text.length;
     }
   }
-
-  const sourceQuotes = res.sourceQuotes.slice(0, 1);
-  for (const q of res.sourceQuotes.slice(1)) {
-    const last = sourceQuotes[sourceQuotes.length - 1]!;
-    if (refsEqual(q, last) && q.start === last.end) {
-      last.end = q.end;
-    } else {
-      sourceQuotes.push(q);
-    }
-  }
-  res.sourceQuotes = sourceQuotes;
 
   res.lines = res.lines!.filter((x) => 0 < x && x < res.text.length);
   if (res.lines.length === 0) delete res.lines;

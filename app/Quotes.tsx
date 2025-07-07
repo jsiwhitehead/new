@@ -5,7 +5,13 @@ import type { RenderQuote } from "../utils/types";
 
 import { authorColours, RightArrow, Row, Text } from "./Utils";
 
-export function InlineQuote({ quote }: { quote: RenderQuote }) {
+export function InlineQuote({
+  quote,
+  state,
+}: {
+  quote: RenderQuote;
+  state: any;
+}) {
   return (
     <Fragment>
       {quote.path.map(([label, url], k) => (
@@ -31,6 +37,7 @@ export function InlineQuote({ quote }: { quote: RenderQuote }) {
           )}
           <Link
             to={quote.author === "Ruhi Institute" ? "" : url}
+            state={k === quote.path.length - 1 ? state : undefined}
             style={{ display: "inline-block", textIndent: 0 }}
           >
             {label}
@@ -55,9 +62,11 @@ export function InlineQuote({ quote }: { quote: RenderQuote }) {
 export function BlockQuote({
   quote,
   left,
+  state,
 }: {
   quote: RenderQuote;
   left?: true;
+  state: any;
 }) {
   return (
     <Row
@@ -77,6 +86,7 @@ export function BlockQuote({
           <Text
             size={14}
             to={quote.author === "Ruhi Institute" ? "" : url}
+            state={i === quote.path.length - 1 ? state : undefined}
             style={{
               marginLeft: left && i === 0 ? -30 : 0,
               color: authorColours[quote.author],

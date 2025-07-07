@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 
-import type { RenderContent, RenderQuote, SemiPara } from "../utils/types";
+import type { Ref, RenderContent, RenderQuote, SemiPara } from "../utils/types";
 
 import Controls from "./Controls";
 import Paragraph from "./Paragraph";
@@ -20,6 +20,7 @@ export default function App({
       paraId: string;
       para: SemiPara;
       content: RenderContent;
+      ref: Ref;
     }[];
   }[];
   path: [string, string][];
@@ -38,14 +39,9 @@ export default function App({
       <Controls path={path} tree={tree} showContent={showContent} />
       {showContent &&
         docs.map(({ sources, content }, index) => {
-          const toHighlight =
-            sources.length === 1
-              ? content.flatMap((c) =>
-                  c.para.sourceQuotes.map((q) =>
-                    c.para.text.slice(q.start, q.end)
-                  )
-                )
-              : null;
+          // const toHighlight = content.flatMap((c) =>
+          //   c.para.sourceQuotes.map((q) => c.para.text.slice(q.start, q.end))
+          // );
           return (
             <Fragment key={index}>
               {index !== 0 && <div style={{ height: 3, background: "#ddd" }} />}
@@ -69,9 +65,10 @@ export default function App({
                                 color: authorColours[source.author],
                               }}
                               state={
-                                toHighlight && j === source.path.length - 1
-                                  ? toHighlight
-                                  : undefined
+                                undefined
+                                // j === source.path.length - 1
+                                //   ? toHighlight
+                                //   : undefined
                               }
                             >
                               {label}

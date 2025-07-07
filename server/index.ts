@@ -10,7 +10,6 @@ import type {
 import {
   compareArrays,
   getQuoteParts,
-  mergeQuotes,
   textIsConnector,
   toChars,
   toCleaned,
@@ -45,6 +44,19 @@ const collapseSingleKeys = (
   return [path, current];
 };
 
+const mergeQuotes = (quotes: Ref[]) => {
+  const res: MultiRef[] = [];
+  for (const { section, paragraph } of quotes) {
+    if (!res.find((s) => s.section === section)) {
+      res.push({ section, paragraph: [paragraph] });
+    } else {
+      const s = res.find((s) => s.section === section)!;
+      s.paragraph.push(paragraph);
+    }
+  }
+  return res;
+};
+
 const joinQuotes = (quotes: MultiRef[][]) => {
   for (let i = 0; i < quotes.length - 1; i++) {
     if (quotes[i]!.length === 1 && quotes[i + 1]?.length === 1) {
@@ -76,6 +88,7 @@ const getData = (
       quotes: RenderQuote[];
       paraId: string;
       para: SemiPara;
+      ref: Ref;
     }[];
   }[];
   path: [string, string][];
@@ -157,6 +170,7 @@ const getData = (
     para: FlatPara;
     sources: MultiRef[];
     chars: string;
+    ref: Ref;
   }[] = [];
   while (
     (!matches || baseResult.length < SEARCH_COUNT + 5) &&
@@ -203,6 +217,7 @@ const getData = (
             allSpecial: false,
           } as FlatPara,
           sources: [{ section, paragraph: [] }],
+          ref: { section, paragraph },
         };
       }
       if (matches) filteredPara.allSpecial = true;
@@ -216,13 +231,18 @@ const getData = (
                 : []
             )
           : [{ section, paragraph: [paragraph] }],
+        ref: { section, paragraph },
       };
     });
 
     let readyBreak = false;
     let readyDots = false;
-    const merged: { paraId: string; para: FlatPara; sources: MultiRef[] }[] =
-      [];
+    const merged: {
+      paraId: string;
+      para: FlatPara;
+      sources: MultiRef[];
+      ref: Ref;
+    }[] = [];
     for (const p of content) {
       if (p.para.type === "break") {
         if (readyBreak) {
@@ -283,19 +303,19 @@ const getData = (
     }
   }
 
-  const result = baseResult.map(({ para, paraId, sources }) => {
+  const result = baseResult.map(({ para, paraId, sources, ref }) => {
     if (matches) {
       para.highlights = getTokenHighlights(para.text, matches.tokens);
     }
     const quoteParts = getQuoteParts(
       para.text,
-      para.quotes?.map((q) => ({ range: q, quote: q })) || []
+      para.quotes?.map((q) => ({ base: q, quote: q })) || []
     );
     return {
       paraId,
       para: {
         ...para,
-        quotes: para.quotes?.map((q) => ({ range: q, quote: getUrlQuote(q) })),
+        quotes: para.quotes?.map((q) => ({ base: q, quote: getUrlQuote(q) })),
       },
       quotes: quoteParts.every((part) => part.quote)
         ? mergeQuotes(para.quotes || [])
@@ -309,6 +329,7 @@ const getData = (
         );
       }),
       sources,
+      ref,
     };
   });
 
@@ -320,6 +341,7 @@ const getData = (
         para: SemiPara;
         quoted: Ref[];
         quotes: MultiRef[];
+        ref: Ref;
       }[],
     },
   ];
@@ -335,10 +357,14 @@ const getData = (
     }
   }
 
-  let sliceIndex = 0;
-  let totalParas = 0;
-  while (totalParas < SEARCH_COUNT && sliceIndex < docs.length) {
-    totalParas += docs[sliceIndex++]!.content.length;
+  let sliceIndex: number | undefined = 0;
+  if (matches) {
+    let totalParas = 0;
+    while (totalParas < SEARCH_COUNT && sliceIndex < docs.length) {
+      totalParas += docs[sliceIndex++]!.content.length;
+    }
+  } else {
+    sliceIndex = undefined;
   }
 
   return {
@@ -375,23 +401,6 @@ const getData = (
     showContent: true,
   };
 };
-
-// Bun.serve({
-//   port: 8000,
-//   routes: {
-//     "/api/:query": (req) => {
-//       const { path, level, search } = JSON.parse(req.params.query);
-//       const data = getData(path, level, search);
-//       const res = Response.json(data);
-//       res.headers.set("Access-Control-Allow-Origin", "*");
-//       res.headers.set(
-//         "Access-Control-Allow-Methods",
-//         "GET, POST, PUT, DELETE, OPTIONS"
-//       );
-//       return res;
-//     },
-//   },
-// });
 
 const app = express();
 const port = 8000;

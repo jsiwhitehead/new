@@ -1,22 +1,24 @@
 import { useState } from "react";
 
-import type { RenderContent, RenderQuote } from "../utils/types";
+import type { Ref, RenderContent, RenderQuote, SemiPara } from "../utils/types";
 
 import { BlockQuote, InlineQuote } from "./Quotes";
 import { Column, Text } from "./Utils";
 
 function ParagraphBase({
-  para,
+  content,
   paraId,
   quotes,
+  para,
   showQuoted,
 }: {
-  para: RenderContent;
+  content: RenderContent;
   paraId: string;
   quotes: RenderQuote[];
+  para: SemiPara;
   showQuoted: boolean;
 }) {
-  if ("type" in para && para.type === "break") {
+  if ("type" in content && content.type === "break") {
     return (
       <Text
         id={paraId}
@@ -27,10 +29,10 @@ function ParagraphBase({
       </Text>
     );
   }
-  if (Array.isArray(para)) {
+  if (Array.isArray(content)) {
     return (
       <Text id={paraId} style={{ textIndent: 20 }}>
-        {para.map((part, i) => {
+        {content.map((part, i) => {
           const style = {
             fontWeight: part.quote ? "bold" : "normal",
             padding: part.highlight ? "2.4px 3.5px" : "2.4px 0",
@@ -45,7 +47,7 @@ function ParagraphBase({
           };
           return typeof part.quote === "object" ? (
             <span style={style} key={i}>
-              {part.text} <InlineQuote quote={part.quote} />
+              {part.text} <InlineQuote quote={part.quote} state={undefined} />
             </span>
           ) : (
             <span style={style} key={i}>
@@ -62,27 +64,31 @@ function ParagraphBase({
       id={paraId}
       style={{
         fontStyle:
-          para.type === "info" || para.type === "framing"
+          content.type === "info" || content.type === "framing"
             ? "italic"
             : "inherit",
-        textTransform: para.type === "call" ? "uppercase" : "inherit",
+        textTransform: content.type === "call" ? "uppercase" : "inherit",
         textAlign:
-          para.type === "info" || para.type === "call" ? "justify" : "inherit",
+          content.type === "info" || content.type === "call"
+            ? "justify"
+            : "inherit",
         textAlignLast:
-          para.type === "info" || para.type === "call" ? "center" : "inherit",
+          content.type === "info" || content.type === "call"
+            ? "center"
+            : "inherit",
         padding:
-          para.type === "info" || para.type === "call"
-            ? para.allSpecial
+          content.type === "info" || content.type === "call"
+            ? content.allSpecial
               ? "0 20px"
               : "0 40px"
-            : para.type === "lines"
-              ? para.allSpecial
+            : content.type === "lines"
+              ? content.allSpecial
                 ? "0"
                 : "0 70px"
               : "0",
       }}
     >
-      {para.lines.flatMap((line, i) => {
+      {content.lines.flatMap((line, i) => {
         const res = line.map((part, j) => (
           <span
             style={{
@@ -105,13 +111,13 @@ function ParagraphBase({
       })}
     </Text>
   );
-  return para.type !== "quote" ? (
+  return content.type !== "quote" ? (
     inner
   ) : (
     <Column style={{ fontWeight: "bold", padding: "0 20px" }} gap={11.5}>
       {inner}
       {quotes.map((quote, i) => (
-        <BlockQuote key={i} quote={quote} />
+        <BlockQuote key={i} quote={quote} state={undefined} />
       ))}
     </Column>
   );
@@ -122,11 +128,15 @@ export default function Paragraph({
   content,
   quoted,
   quotes,
+  para,
+  ref,
 }: {
   paraId: string;
   content: RenderContent;
   quoted: RenderQuote[];
   quotes: RenderQuote[];
+  para: SemiPara;
+  ref: Ref;
 }) {
   const [showQuoted, setShowQuoted] = useState(false);
 
@@ -136,9 +146,10 @@ export default function Paragraph({
       style={{ maxWidth: 670, width: "100%", margin: "0 auto" }}
     >
       <ParagraphBase
-        para={content}
+        content={content}
         paraId={paraId}
         quotes={quotes}
+        para={para}
         showQuoted={showQuoted}
       />
     </div>
@@ -153,9 +164,10 @@ export default function Paragraph({
       key={paraId}
     >
       <ParagraphBase
-        para={content}
+        content={content}
         paraId={paraId}
         quotes={quotes}
+        para={para}
         showQuoted={showQuoted}
       />
       <Text
@@ -173,7 +185,12 @@ export default function Paragraph({
       </Text>
       {showQuoted &&
         quoted.map((quote: any, i: number) => (
-          <BlockQuote key={i} quote={quote} left />
+          <BlockQuote
+            key={i}
+            quote={quote}
+            left
+            state={{ type: "quote", ref }}
+          />
         ))}
     </Column>
   );
