@@ -105,7 +105,12 @@ export default function Controls({
       <input
         type="text"
         value={search}
-        placeholder="Search..."
+        placeholder="Search . . ."
+        style={{
+          borderRadius: 100,
+          border: "2px solid #ccc",
+          padding: "5px 18px",
+        }}
         onChange={(e) => setSearch(e.target.value)}
       />
 
@@ -122,14 +127,30 @@ export default function Controls({
       )}
 
       {showRange && (
-        <input
-          type="range"
-          value={level}
-          min={0}
-          max={5}
-          step={1}
-          onChange={(e) => setLevel(parseInt(e.target.value, 10))}
-        />
+        <Column gap={10}>
+          <input
+            type="range"
+            value={level}
+            min={0}
+            max={5}
+            step={1}
+            onChange={(e) => setLevel(parseInt(e.target.value, 10))}
+          />
+          <Row>
+            <Text
+              size={14}
+              style={{ width: "50%", textAlign: "left", fontWeight: "bold" }}
+            >
+              All passages
+            </Text>
+            <Text
+              size={14}
+              style={{ width: "50%", textAlign: "right", fontWeight: "bold" }}
+            >
+              Most common
+            </Text>
+          </Row>
+        </Column>
       )}
     </Column>
   );
