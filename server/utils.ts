@@ -1,48 +1,7 @@
-import type {
-  Quote,
-  Range,
-  Ref,
-  Section,
-  SectionContent,
-} from "../utils/types";
+import type { Section, SectionContent } from "../utils/types";
 
 import baseData from "../data/data.json";
 export const data = baseData as Section[];
-
-export interface FlatPara {
-  type?: "break" | "info" | "call" | "framing";
-  text: string;
-  lines?: number[];
-  quotes?: Quote[];
-  quoted: Quote[];
-  highlights: Range[];
-  sourceQuotes: Quote[];
-  allSpecial: boolean;
-}
-
-export interface MultiRef {
-  section: number;
-  paragraph: number[];
-}
-
-export interface RenderQuote {
-  path: [string, string][];
-  author: string;
-}
-
-export type RenderContent =
-  | { type: "break" }
-  | {
-      text: string;
-      quoted: number;
-      highlight: boolean;
-      quote?: true | RenderQuote;
-    }[]
-  | {
-      type: "info" | "call" | "framing" | "lines" | "quote";
-      lines: { text: string; quoted: number; highlight: boolean }[][];
-      allSpecial: boolean;
-    };
 
 export const getAllSpecial = (content: SectionContent[]) =>
   content.every((para) => !Array.isArray(para) && typeof para !== "string");
@@ -58,17 +17,4 @@ export const getParagraphIds = (content: SectionContent[]) => {
     return `${currentMain}${["a", "b", "c", "d", "e", "f", "g", "h", "i"][currentSpecial++]}`;
   });
   return allIds;
-};
-
-export const mergeQuotes = (quotes: Ref[]) => {
-  const res: MultiRef[] = [];
-  for (const { section, paragraph } of quotes) {
-    if (!res.find((s) => s.section === section)) {
-      res.push({ section, paragraph: [paragraph] });
-    } else {
-      const s = res.find((s) => s.section === section)!;
-      s.paragraph.push(paragraph);
-    }
-  }
-  return res;
 };

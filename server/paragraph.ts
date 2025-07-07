@@ -1,29 +1,22 @@
-import type { Quote, Range, Ref, SectionContent } from "../utils/types";
+import type {
+  FlatPara,
+  Quote,
+  Range,
+  Ref,
+  SectionContent,
+} from "../utils/types";
 import {
   doesRangeInclude,
   doRangesIntersect,
+  getIndices,
   getQuoteText,
   getRangesIntersect,
+  mapRanges,
   moveRange,
   refsEqual,
-  textIsConnector,
 } from "../utils/utils";
 
-import { getUrlQuote } from "./quote";
-import type { FlatPara, RenderContent } from "./utils";
-import { data, getAllSpecial, mergeQuotes } from "./utils";
-
-const getIndices = (length: number, ...markers: Range[][]) =>
-  [
-    ...new Set([
-      0,
-      ...markers.flatMap((m) => m.flatMap(({ start, end }) => [start, end])),
-      length,
-    ]),
-  ].sort((a, b) => a - b);
-
-const mapRanges = <T>(indices: number[], map: (range: Range) => T) =>
-  indices.slice(1).map((end, i) => map({ start: indices[i]!, end }));
+import { data, getAllSpecial } from "./utils";
 
 export const addSourceQuotes = (para: FlatPara, ref: Ref) => {
   para.sourceQuotes = [{ ...ref, start: 0, end: para.text.length }];
@@ -229,143 +222,4 @@ export const filterQuoted = (
     })
     .filter((p) => p);
   return joinParaParts(parts);
-};
-
-const capitaliseQuotes = (para: FlatPara) => {
-  para.text = para.text
-    .replace(/^[a-z]/, (s) => s.toUpperCase())
-    .replace(/([^ ][.?!] |^)(“+[a-z])/g, (_, a, b) => a + b.toUpperCase());
-};
-
-const alternateQuoteMarks = (para: FlatPara) => {
-  let level = 1;
-  let res = "";
-  for (let i = 0; i < para.text.length; i++) {
-    if (para.text[i] === "“") {
-      level++;
-      if (level % 2 === 0) res += "“";
-      else res += "‘";
-    } else if (para.text[i] === "”") {
-      if (level % 2 === 0) res += "”";
-      else res += "’";
-      level--;
-    } else {
-      res += para.text[i];
-    }
-  }
-  para.text = res;
-};
-
-export const getParaQuotes = (para: FlatPara) => {
-  const quoteIndices = getIndices(para.text.length, para.quotes || []);
-  const quoteParts: { text: string; quote?: Ref | true }[] = mapRanges(
-    quoteIndices,
-    (range) => ({
-      text: para.text.slice(range.start, range.end),
-      quote: (para.quotes || []).find((q) => doesRangeInclude(q, range)),
-    })
-  );
-  for (let i = 0; i < quoteParts.length; i++) {
-    const current = quoteParts[i]!;
-    const prev = quoteParts[i - 1]!;
-    const next = quoteParts[i + 1]!;
-    if (
-      !current.quote &&
-      textIsConnector(current.text) &&
-      (!prev || prev.quote) &&
-      (!next || next.quote)
-    ) {
-      current.quote = true;
-    }
-  }
-  return {
-    quoteParts,
-    quotes: quoteParts.every((part) => part.quote)
-      ? mergeQuotes(para.quotes || [])
-      : [],
-  };
-};
-
-export const getRenderContent = (para: FlatPara): RenderContent => {
-  capitaliseQuotes(para);
-  alternateQuoteMarks(para);
-
-  if (para.type === "break") return { type: "break" };
-
-  if (para.text === ". . .") {
-    return [{ text: ". . .", quoted: 0, highlight: false }];
-  }
-
-  const indices = getIndices(para.text.length, para.quoted, para.highlights);
-
-  const { quoteParts, quotes } = getParaQuotes(para);
-
-  const allQuote = quoteParts.every((part) => part.quote);
-  if (allQuote || para.type) {
-    return {
-      type: allQuote ? "quote" : para.type!,
-      lines: [
-        mapRanges(indices, (range) => ({
-          text: para.text.slice(range.start, range.end),
-          quoted: para.quoted.filter((q) => doesRangeInclude(q, range)).length,
-          highlight: para.highlights.some((h) => doesRangeInclude(h, range)),
-        })),
-      ],
-      allSpecial: para.allSpecial,
-    };
-  }
-
-  if (para.lines) {
-    return {
-      type: "lines",
-      lines: mapRanges([-1, ...para.lines, para.text.length], (lineRange) => {
-        const lineIndices = [
-          lineRange.start + 1,
-          ...indices.filter(
-            (x) => lineRange.start + 1 < x && x < lineRange.end
-          ),
-          lineRange.end,
-        ];
-        return mapRanges(lineIndices, (range) => ({
-          text: para.text.slice(range.start, range.end),
-          quoted: para.quoted.filter((q) => doesRangeInclude(q, range)).length,
-          highlight: para.highlights.some((h) => doesRangeInclude(h, range)),
-        }));
-      }),
-      allSpecial: para.allSpecial,
-    };
-  }
-
-  let current = 0;
-  const result = quoteParts.flatMap((part) => {
-    const partIndices = [
-      0,
-      ...indices
-        .map((x) => x - current)
-        .filter((x) => 0 < x && x < part.text.length),
-      part.text.length,
-    ];
-    const res = mapRanges(partIndices, (range) => {
-      const moved = moveRange(range, current);
-      return {
-        text: part.text.slice(range.start, range.end),
-        quote:
-          typeof part.quote === "object" ? getUrlQuote(part.quote) : part.quote,
-        quoted: para.quoted.filter((q) => doesRangeInclude(q, moved)).length,
-        highlight: para.highlights.some((h) => doesRangeInclude(h, moved)),
-      };
-    });
-    current += part.text.length;
-    return res;
-  });
-  const resQuoteParts = result.filter((x) => typeof x.quote === "object");
-  for (let i = 0; i < resQuoteParts.length; i++) {
-    if (
-      JSON.stringify(resQuoteParts[i]?.quote) ===
-      JSON.stringify(resQuoteParts[i + 1]?.quote)
-    ) {
-      (resQuoteParts[i]!.quote as any) = true;
-    }
-  }
-  return result;
 };

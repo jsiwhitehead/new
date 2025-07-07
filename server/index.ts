@@ -1,6 +1,14 @@
-import type { Ref } from "../utils/types";
+import type {
+  FlatPara,
+  MultiRef,
+  Ref,
+  RenderQuote,
+  SemiPara,
+} from "../utils/types";
 import {
   compareArrays,
+  getQuoteParts,
+  mergeQuotes,
   textIsConnector,
   toChars,
   toCleaned,
@@ -12,12 +20,10 @@ import {
   filterQuoted,
   getFullQuotedPara,
   getPara,
-  getParaQuotes,
 } from "./paragraph";
 import { getUrlQuote } from "./quote";
 import { getMatches, getTokenHighlights } from "./search";
-import type { FlatPara, MultiRef, RenderQuote } from "./utils";
-import { data, getAllSpecial, getParagraphIds, mergeQuotes } from "./utils";
+import { data, getAllSpecial, getParagraphIds } from "./utils";
 
 const SEARCH_COUNT = 30;
 
@@ -67,7 +73,7 @@ const getData = (
       quoted: RenderQuote[];
       quotes: RenderQuote[];
       paraId: string;
-      para: FlatPara;
+      para: SemiPara;
     }[];
   }[];
   path: [string, string][];
@@ -279,10 +285,19 @@ const getData = (
     if (matches) {
       para.highlights = getTokenHighlights(para.text, matches.tokens);
     }
+    const quoteParts = getQuoteParts(
+      para.text,
+      para.quotes?.map((q) => ({ range: q, quote: q })) || []
+    );
     return {
       paraId,
-      para,
-      quotes: getParaQuotes(para).quotes,
+      para: {
+        ...para,
+        quotes: para.quotes?.map((q) => ({ range: q, quote: getUrlQuote(q) })),
+      },
+      quotes: quoteParts.every((part) => part.quote)
+        ? mergeQuotes(para.quotes || [])
+        : [],
       quoted: para.quoted.sort((aQuote, bQuote) => {
         const aDoc = data[aQuote.section]!;
         const bDoc = data[bQuote.section]!;
@@ -300,7 +315,7 @@ const getData = (
       sources: [] as MultiRef[],
       content: [] as {
         paraId: string;
-        para: FlatPara;
+        para: SemiPara;
         quoted: Ref[];
         quotes: MultiRef[];
       }[],

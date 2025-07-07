@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Link } from "react-router";
 
-import type { RenderQuote } from "../server/utils";
+import type { RenderQuote } from "../utils/types";
 
 import { authorColours, RightArrow, Row, Text } from "./Utils";
 

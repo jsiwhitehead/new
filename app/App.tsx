@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 
-import type { FlatPara, RenderContent, RenderQuote } from "../server/utils";
+import type { RenderContent, RenderQuote, SemiPara } from "../utils/types";
 
 import Controls from "./Controls";
 import Paragraph from "./Paragraph";
@@ -18,7 +18,7 @@ export default function App({
       quoted: RenderQuote[];
       quotes: RenderQuote[];
       paraId: string;
-      para: FlatPara;
+      para: SemiPara;
       content: RenderContent;
     }[];
   }[];

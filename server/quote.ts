@@ -1,7 +1,6 @@
-import type { Ref } from "../utils/types";
+import type { MultiRef, Ref, RenderQuote } from "../utils/types";
 import { capitalise } from "../utils/utils";
 
-import type { MultiRef, RenderQuote } from "./utils";
 import { data, getParagraphIds } from "./utils";
 
 const simplifyLinkLabels = {

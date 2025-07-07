@@ -11,7 +11,8 @@
     "link": "bun ./process/link.ts",
     "search": "bun ./process/search.ts",
     "server": "bun ./server/index.ts",
-    "app": "bun ./static/index.html"
+    "app": "bun ./static/index.html",
+    "build": "bun build ./static/index.html --minify --outdir=dist"
   },
   "devDependencies": {
     "@types/bun": "^1.2.15",

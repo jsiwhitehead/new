@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import type { RenderContent, RenderQuote } from "../server/utils";
+import type { RenderContent, RenderQuote } from "../utils/types";
 
 import { BlockQuote, InlineQuote } from "./Quotes";
 import { Column, Text } from "./Utils";

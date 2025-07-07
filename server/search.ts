@@ -1,6 +1,7 @@
 import stem from "../utils/searchStem";
+import fixSpellings from "../utils/spellings";
 import type { Range } from "../utils/types";
-import { fixSpellings, sum } from "../utils/utils";
+import { sum } from "../utils/utils";
 
 import lengthsJSON from "../data/lengths.json";
 import searchIndex from "../data/search.txt";

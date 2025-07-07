@@ -7,10 +7,10 @@ import {
   useLocation,
 } from "react-router";
 
-import { getRenderContent } from "../server/paragraph";
-import type { FlatPara, RenderQuote } from "../server/utils";
+import type { FlatPara, RenderQuote, SemiPara } from "../utils/types";
 
 import App from "./App";
+import { getRenderContent } from "./render";
 import { SizeContext } from "./Utils";
 
 const Root = () => {
@@ -26,7 +26,7 @@ const Root = () => {
         quoted: RenderQuote[];
         quotes: RenderQuote[];
         paraId: string;
-        para: FlatPara;
+        para: SemiPara;
       }[];
     }[];
     path: [string, string][];

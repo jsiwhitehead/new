@@ -30,3 +30,49 @@ export interface Section {
   quoted?: Record<string, Quote[]>;
   content: SectionContent[];
 }
+
+export interface FlatPara {
+  type?: "break" | "info" | "call" | "framing";
+  text: string;
+  lines?: number[];
+  quotes?: Quote[];
+  quoted: Quote[];
+  highlights: Range[];
+  sourceQuotes: Quote[];
+  allSpecial: boolean;
+}
+
+export interface SemiPara {
+  type?: "break" | "info" | "call" | "framing";
+  text: string;
+  lines?: number[];
+  quotes?: { range: Range; quote: RenderQuote }[];
+  quoted: Quote[];
+  highlights: Range[];
+  sourceQuotes: Quote[];
+  allSpecial: boolean;
+}
+
+export interface MultiRef {
+  section: number;
+  paragraph: number[];
+}
+
+export interface RenderQuote {
+  path: [string, string][];
+  author: string;
+}
+
+export type RenderContent =
+  | { type: "break" }
+  | {
+      text: string;
+      quoted: number;
+      highlight: boolean;
+      quote?: true | RenderQuote;
+    }[]
+  | {
+      type: "info" | "call" | "framing" | "lines" | "quote";
+      lines: { text: string; quoted: number; highlight: boolean }[][];
+      allSpecial: boolean;
+    };

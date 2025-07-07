@@ -1,6 +1,4 @@
-import spellingsJSON from "./spellings.json";
-
-import type { Quote, Range, Ref, Section } from "./types";
+import type { MultiRef, Quote, Range, Ref, Section } from "./types";
 
 export const capitalise = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
@@ -102,42 +100,60 @@ export const compareArrays = (a: number[], b: number[]) => {
   return 0;
 };
 
-const spellingsBase = spellingsJSON as any;
-const spellings: Record<string, string> = Object.assign(
-  spellingsBase.main,
-  ...spellingsBase.sets
-    .map(({ changes, roots, adjust = {} }: any) =>
-      roots.map((r: any) =>
-        Object.assign(
-          {},
-          ...Object.keys(changes).map((original) => {
-            const changed = changes[original] as any;
-            if (!adjust[r]) return { [`${r}${original}`]: `${r}${changed}` };
-            return {
-              [`${r}${original}`]: `${adjust[r]}${changed}`,
-              [`${adjust[r]}${original}`]: `${adjust[r]}${changed}`,
-              [`${r}${changed}`]: `${adjust[r]}${changed}`,
-            };
-          })
-        )
-      )
-    )
-    .flat()
-);
-const spellingsKeys = Object.keys(spellings);
-export const fixSpellings = (text: string) => {
-  return spellingsKeys.reduce(
-    (res, k) =>
-      res.replace(new RegExp(`\\b${k}\\b`, "ig"), (m) => {
-        if ([...m].every((s) => s === s.toUpperCase())) {
-          return spellings[k]!.toUpperCase();
-        } else if (m[0] === m[0]!.toUpperCase()) {
-          return spellings[k]!.split(" ")
-            .map((s: string) => capitalise(s))
-            .join(" ");
-        }
-        return spellings[k]!;
-      }),
-    text
+export const getIndices = (length: number, ...markers: Range[][]) =>
+  [
+    ...new Set([
+      0,
+      ...markers.flatMap((m) => m.flatMap(({ start, end }) => [start, end])),
+      length,
+    ]),
+  ].sort((a, b) => a - b);
+
+export const mapRanges = <T>(indices: number[], map: (range: Range) => T) =>
+  indices.slice(1).map((end, i) => map({ start: indices[i]!, end }));
+
+export const mergeQuotes = (quotes: Ref[]) => {
+  const res: MultiRef[] = [];
+  for (const { section, paragraph } of quotes) {
+    if (!res.find((s) => s.section === section)) {
+      res.push({ section, paragraph: [paragraph] });
+    } else {
+      const s = res.find((s) => s.section === section)!;
+      s.paragraph.push(paragraph);
+    }
+  }
+  return res;
+};
+
+export const getQuoteParts = <T>(
+  text: string,
+  quotes: { range: Range; quote: T }[]
+) => {
+  const quoteIndices = getIndices(
+    text.length,
+    quotes.map((q) => q.range)
   );
+  const quoteParts: { text: string; quote?: T | true }[] = mapRanges(
+    quoteIndices,
+    (range) => {
+      return {
+        text: text.slice(range.start, range.end),
+        quote: quotes.find((q) => doesRangeInclude(q.range, range))?.quote,
+      };
+    }
+  );
+  for (let i = 0; i < quoteParts.length; i++) {
+    const current = quoteParts[i]!;
+    const prev = quoteParts[i - 1]!;
+    const next = quoteParts[i + 1]!;
+    if (
+      !current.quote &&
+      textIsConnector(current.text) &&
+      (!prev || prev.quote) &&
+      (!next || next.quote)
+    ) {
+      current.quote = true;
+    }
+  }
+  return quoteParts;
 };
