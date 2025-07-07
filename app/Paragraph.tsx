@@ -1,17 +1,20 @@
+import { useState } from "react";
+
 import type { RenderContent, RenderQuote } from "../server/utils";
 
-import { showQuoted } from "./App";
 import { BlockQuote, InlineQuote } from "./Quotes";
 import { Column, Text } from "./Utils";
 
-export default function Paragraph({
+function ParagraphBase({
   para,
   paraId,
   quotes,
+  showQuoted,
 }: {
   para: RenderContent;
   paraId: string;
   quotes: RenderQuote[];
+  showQuoted: boolean;
 }) {
   if ("type" in para && para.type === "break") {
     return (
@@ -110,6 +113,67 @@ export default function Paragraph({
       {quotes.map((quote, i) => (
         <BlockQuote key={i} quote={quote} />
       ))}
+    </Column>
+  );
+}
+
+export default function Paragraph({
+  paraId,
+  content,
+  quoted,
+  quotes,
+}: {
+  paraId: string;
+  content: RenderContent;
+  quoted: RenderQuote[];
+  quotes: RenderQuote[];
+}) {
+  const [showQuoted, setShowQuoted] = useState(false);
+
+  return quoted.length === 0 ? (
+    <div
+      key={paraId}
+      style={{ maxWidth: 670, width: "100%", margin: "0 auto" }}
+    >
+      <ParagraphBase
+        para={content}
+        paraId={paraId}
+        quotes={quotes}
+        showQuoted={showQuoted}
+      />
+    </div>
+  ) : (
+    <Column
+      style={{
+        maxWidth: 670,
+        margin: "0 auto",
+      }}
+      gap={25}
+      key={paraId}
+    >
+      <ParagraphBase
+        para={content}
+        paraId={paraId}
+        quotes={quotes}
+        showQuoted={showQuoted}
+      />
+      <Text
+        size={14}
+        style={{
+          fontWeight: "bold",
+          fontStyle: "italic",
+          cursor: "pointer",
+          userSelect: "none",
+          opacity: 0.5,
+        }}
+        onClick={() => setShowQuoted(!showQuoted)}
+      >
+        {showQuoted ? "Hide" : "Show"} citations ({quoted.length})
+      </Text>
+      {showQuoted &&
+        quoted.map((quote: any, i: number) => (
+          <BlockQuote key={i} quote={quote} left />
+        ))}
     </Column>
   );
 }

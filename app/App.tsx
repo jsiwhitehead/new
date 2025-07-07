@@ -2,11 +2,7 @@ import { Fragment } from "react";
 
 import Controls from "./Controls";
 import Paragraph from "./Paragraph";
-import { BlockQuote } from "./Quotes";
 import { authorColours, Column, RightArrow, Row, Text } from "./Utils";
-
-export const showQuoted = true;
-export const showQuotedSources = false;
 
 export default function App({
   data,
@@ -59,39 +55,9 @@ export default function App({
                   </Row>
                 ))}
               </Column>
-              {content.map((para: any) =>
-                !(para.quoted.length > 0 && showQuotedSources) ? (
-                  <div
-                    key={para.paraId}
-                    style={{ maxWidth: 670, width: "100%", margin: "0 auto" }}
-                  >
-                    <Paragraph
-                      para={para.content}
-                      paraId={para.paraId}
-                      quotes={para.quotes}
-                    />
-                  </div>
-                ) : (
-                  <Column
-                    style={{
-                      maxWidth: 670,
-                      margin: "0 auto",
-                      paddingBottom: 25,
-                    }}
-                    gap={25}
-                    key={para.paraId}
-                  >
-                    <Paragraph
-                      para={para.content}
-                      paraId={para.paraId}
-                      quotes={para.quotes}
-                    />
-                    {para.quoted.map((quote: any, i: number) => (
-                      <BlockQuote key={i} quote={quote} left />
-                    ))}
-                  </Column>
-                )
-              )}
+              {content.map((para: any) => (
+                <Paragraph {...para} key={para.paraId} />
+              ))}
             </Column>
           </Fragment>
         ))}

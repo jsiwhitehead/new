@@ -76,7 +76,7 @@ export function Text({
   size?: number;
   to?: string;
   id?: string;
-  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
+  onClick?: React.MouseEventHandler<any>;
   style?: React.CSSProperties;
   children: any;
 }) {
@@ -86,10 +86,10 @@ export function Text({
       <div
         id={id}
         style={{ ...style, display: "flex", fontSize: textSize, flexGrow: 1 }}
+        onClick={onClick}
       >
         <Link
           to={to}
-          onClick={onClick}
           style={{
             margin: -5,
             padding: 5,
@@ -108,7 +108,11 @@ export function Text({
     );
   }
   return (
-    <div id={id} style={{ ...style, display: "flex", fontSize: textSize }}>
+    <div
+      id={id}
+      style={{ ...style, display: "flex", fontSize: textSize }}
+      onClick={onClick}
+    >
       <p style={{ margin: `-${(textSize * 0.5) / 2}px 0` }}>{children}</p>
     </div>
   );
