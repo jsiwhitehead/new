@@ -139,7 +139,7 @@ function ParagraphBase({
         <BlockQuote
           key={i}
           quote={quote}
-          state={{ type: "quoted", ref, text: [para.text] }}
+          state={{ type: "source", refs: [ref], text: [para.text] }}
         />
       ))}
     </Column>

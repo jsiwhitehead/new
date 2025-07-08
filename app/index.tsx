@@ -44,9 +44,6 @@ const getOverlapRange = (base: string, pattern: string) => {
 };
 
 const getHighlights = (para: string, ranges: Range[], text: string[]) => {
-  console.log(para);
-  console.log(ranges);
-  console.log(text);
   const patterns = text.flatMap((t) => getSplitText(t.toLowerCase()));
   const res = ranges
     .flatMap((range) => {
