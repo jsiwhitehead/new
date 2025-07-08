@@ -37,7 +37,7 @@ export function InlineQuote({
           )}
           <Link
             to={quote.author === "Ruhi Institute" ? "" : url}
-            state={k === quote.path.length - 1 ? state : undefined}
+            state={state}
             style={{ display: "inline-block", textIndent: 0 }}
           >
             {label}
@@ -86,7 +86,7 @@ export function BlockQuote({
           <Text
             size={14}
             to={quote.author === "Ruhi Institute" ? "" : url}
-            state={i === quote.path.length - 1 ? state : undefined}
+            state={state}
             style={{
               marginLeft: left && i === 0 ? -30 : 0,
               color: authorColours[quote.author],

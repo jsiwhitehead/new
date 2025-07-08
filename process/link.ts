@@ -542,7 +542,7 @@ const mappedQuoted = baseQuoted.map((contentQuotes, section) =>
           const last = merged[merged.length - 1]!;
           const current = refQuotes[i]!;
           if (
-            current.range.start < last.range.end ||
+            current.range.start <= last.range.end ||
             textIsConnector(cleaned.slice(last.range.end, current.range.start))
           ) {
             last.range.end = Math.max(last.range.end, current.range.end);

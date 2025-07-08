@@ -42,7 +42,28 @@ export const getRenderContent = (para: SemiPara): RenderContent => {
     return [{ text: ". . .", quoted: 0, highlight: false }];
   }
 
-  const indices = getIndices(para.text.length, para.quoted, para.highlights);
+  if (para.quotes) {
+    for (let i = 0; i < para.quotes!.length; i++) {
+      const { base } = para.quotes![i]!;
+      const pre = para.text.slice(0, base.start).match(/“[^a-z0-9‘]*$/)?.[0];
+      if (pre) base.start = base.start - pre.length;
+      const post = para.text.slice(base.end).match(/^[^a-z0-9’]*”/)?.[0];
+      if (post) base.end = base.end + post.length;
+    }
+  }
+
+  for (const h of para.highlights) {
+    const pre = para.text.slice(0, h.start).match(/[^ ]*$/)?.[0];
+    if (pre) h.start = h.start - pre.length;
+    const post = para.text.slice(h.end).match(/^[^ ]*/)?.[0];
+    if (post) h.end = h.end + post.length;
+  }
+
+  const indices = getIndices(
+    para.text.length,
+    para.quoted,
+    para.highlights
+  ).filter((x) => !para.highlights.some((h) => h.start < x && x < h.end));
 
   const quoteParts = getQuoteParts(para.text, para.quotes || []);
 

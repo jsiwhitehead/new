@@ -1,4 +1,4 @@
-import type { MultiRef, Quote, Range, Ref, Section } from "./types.ts";
+import type { Quote, Range, Ref, Section } from "./types.ts";
 
 export const capitalise = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 

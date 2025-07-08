@@ -180,7 +180,7 @@ const getData = (
     const paraIds = getParagraphIds(data[section]!.content);
     const allSpecial = getAllSpecial(data[section]!.content);
     const sliced = data[section]!.content.slice(start, start + levels.length);
-    const allFullQuote = sliced.every((para) => {
+    const fullQuote = sliced.map((para) => {
       if (typeof para === "string") {
         return textIsConnector(para);
       }
@@ -191,6 +191,7 @@ const getData = (
       }
       return "type" in para && para.type === "break";
     });
+    const allFullQuote = fullQuote.every((x) => x);
     const content = sliced.map((para, index) => {
       const paragraph = index + start;
       const filteredPara =
@@ -231,7 +232,12 @@ const getData = (
                 : []
             )
           : [{ section, paragraph: [paragraph] }],
-        ref: { section, paragraph },
+        ref: (fullQuote[index] &&
+          Array.isArray(para) &&
+          para.find((part) => typeof part !== "string")) || {
+          section,
+          paragraph,
+        },
       };
     });
 

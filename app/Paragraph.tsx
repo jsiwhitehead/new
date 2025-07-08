@@ -10,12 +10,14 @@ function ParagraphBase({
   paraId,
   quotes,
   para,
+  ref,
   showQuoted,
 }: {
   content: RenderContent;
   paraId: string;
   quotes: RenderQuote[];
   para: SemiPara;
+  ref: Ref;
   showQuoted: boolean;
 }) {
   if ("type" in content && content.type === "break") {
@@ -45,9 +47,26 @@ function ParagraphBase({
                 ? `rgb(255, ${240 - part.quoted * 10}, ${240 - part.quoted * 10})`
                 : "",
           };
+          const quoteParts = content.slice(0, i).filter((p) => p.quote);
+          const index = quoteParts
+            .toReversed()
+            .findIndex((p) => p.quote !== true);
           return typeof part.quote === "object" ? (
             <span style={style} key={i}>
-              {part.text} <InlineQuote quote={part.quote} state={undefined} />
+              {part.text}{" "}
+              <InlineQuote
+                quote={part.quote}
+                state={{
+                  type: "quoted",
+                  ref,
+                  text: [
+                    ...quoteParts
+                      .slice(index === -1 ? 0 : quoteParts.length - index)
+                      .map((p) => p.text),
+                    part.text,
+                  ],
+                }}
+              />
             </span>
           ) : (
             <span style={style} key={i}>
@@ -117,7 +136,11 @@ function ParagraphBase({
     <Column style={{ fontWeight: "bold", padding: "0 20px" }} gap={11.5}>
       {inner}
       {quotes.map((quote, i) => (
-        <BlockQuote key={i} quote={quote} state={undefined} />
+        <BlockQuote
+          key={i}
+          quote={quote}
+          state={{ type: "quoted", ref, text: [para.text] }}
+        />
       ))}
     </Column>
   );
@@ -150,6 +173,7 @@ export default function Paragraph({
         paraId={paraId}
         quotes={quotes}
         para={para}
+        ref={ref}
         showQuoted={showQuoted}
       />
     </div>
@@ -168,6 +192,7 @@ export default function Paragraph({
         paraId={paraId}
         quotes={quotes}
         para={para}
+        ref={ref}
         showQuoted={showQuoted}
       />
       <Text
@@ -181,15 +206,15 @@ export default function Paragraph({
         }}
         onClick={() => setShowQuoted(!showQuoted)}
       >
-        {showQuoted ? "Hide citations" : `${quoted.length} citations`}
+        {showQuoted ? "[Hide citations]" : `${quoted.length} citations`}
       </Text>
       {showQuoted &&
-        quoted.map((quote: any, i: number) => (
+        quoted.map((quote, i) => (
           <BlockQuote
             key={i}
             quote={quote}
             left
-            state={{ type: "quote", ref }}
+            state={{ type: "quote", ref, text: [para.text] }}
           />
         ))}
     </Column>

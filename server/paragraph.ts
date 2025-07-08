@@ -13,6 +13,9 @@ import {
   getRangesIntersect,
   mapRanges,
   moveRange,
+  refsEqual,
+  textIsConnector,
+  uniqueRefs,
 } from "../utils/utils.ts";
 
 import { data, getAllSpecial } from "./utils.ts";
@@ -46,13 +49,6 @@ export const getPara = (
     }
     current += text.length;
   }
-  for (let i = 0; i < res.quotes!.length; i++) {
-    const quote = res.quotes![i]!;
-    const pre = res.text.slice(0, quote.start).match(/“[^a-z0-9‘]*$/)?.[0];
-    if (pre) quote.start = quote.start - pre.length;
-    const post = res.text.slice(quote.end).match(/^[^a-z0-9’]*”/)?.[0];
-    if (post) quote.end = quote.end + post.length;
-  }
   return res;
 };
 
@@ -85,6 +81,32 @@ const slicePara = (para: FlatPara, part: Range): FlatPara => ({
     })),
   allSpecial: para.allSpecial,
 });
+
+const mergeRanges = <T extends Range>(text: string, ranges: T[]) => {
+  ranges.sort((a, b) => a.start - b.start);
+  const merged = ranges.slice(0, 1);
+  for (let i = 1; i < ranges.length; i++) {
+    const last = merged[merged.length - 1]!;
+    const current = ranges[i]!;
+    if (
+      current.start <= last.end ||
+      textIsConnector(text.slice(last.end, current.start))
+    ) {
+      last.end = Math.max(last.end, current.end);
+    } else {
+      merged.push(current);
+    }
+  }
+  return merged;
+};
+
+const mergeQuotes = <T extends Quote>(text: string, quotes: T[]) =>
+  uniqueRefs(quotes).flatMap((ref) =>
+    mergeRanges(
+      text,
+      quotes.filter((q) => refsEqual(q, ref))
+    )
+  );
 
 const joinParaParts = (parts: (string | FlatPara)[]): FlatPara => {
   const paraParts = parts.filter((p) => typeof p !== "string");
@@ -126,6 +148,11 @@ const joinParaParts = (parts: (string | FlatPara)[]): FlatPara => {
       current += part.text.length;
     }
   }
+
+  res.quotes = mergeQuotes(res.text, res.quotes!);
+  res.quoted = mergeQuotes(res.text, res.quoted);
+  res.highlights = mergeRanges(res.text, res.highlights);
+  res.sourceQuotes = mergeQuotes(res.text, res.sourceQuotes);
 
   res.lines = res.lines!.filter((x) => 0 < x && x < res.text.length);
   if (res.lines.length === 0) delete res.lines;

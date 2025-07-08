@@ -126,7 +126,10 @@ export const getMatches = (
       const paraLevel =
         paraMatches.length === 0
           ? 0
-          : Math.floor(Math.min(...paraMatches.map((m) => m.level)) * L);
+          : Math.max(
+              level,
+              Math.floor(Math.min(...paraMatches.map((m) => m.level)) * L)
+            );
       const paraLength = getParaLength(section, paragraph, paraLevel);
       return {
         level: paraLevel,

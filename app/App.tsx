@@ -64,12 +64,11 @@ export default function App({
                               style={{
                                 color: authorColours[source.author],
                               }}
-                              state={
-                                undefined
-                                // j === source.path.length - 1
-                                //   ? toHighlight
-                                //   : undefined
-                              }
+                              state={{
+                                type: "source",
+                                refs: content.map((c) => c.ref),
+                                text: content.map((c) => c.para.text),
+                              }}
                             >
                               {label}
                             </Text>

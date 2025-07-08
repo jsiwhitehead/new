@@ -10966,18 +10966,6 @@
   },
   {
     "path": [
-      ["Documents", "documents", 7],
-      ["Additional", "additional", 0],
-      ["1", "1", 1]
-    ],
-    "years": [1887, 1888],
-    "source": "Nabíl‑i‑Aʻẓam",
-    "content": [
-      "Many a night no less than ten persons subsisted on no more than a pennyworth of dates. No one knew to whom actually belonged the shoes, the cloaks, or the robes that were to be found in their houses. Whoever went to the bazaar could claim that the shoes upon his feet were his own, and each one who entered the presence of Bahá’u’lláh could affirm that the cloak and robe he then wore belonged to him. . . . O, for the joy of those days, and the gladness and wonder of those hours!"
-    ]
-  },
-  {
-    "path": [
       ["Shoghi Effendi", "shoghi-effendi", 5],
       ["Additional", "additional", 0],
       ["320", "320", 320]
@@ -13867,6 +13855,18 @@
     "years": [1963, 3000],
     "content": [
       ". . . the Universal House of Justice instructs us to say that it is to be expected that books will be written against the Faith attempting to distort its teachings, to denigrate its accomplishments, to vilify its Founders and leaders and to destroy its very foundations. The friends should not be unduly exercised when these books appear and certainly no issue should be made of them. There should be no attempt made to destroy or remove such books from libraries. On the other hand there is no need at all for the friends to acquire them, and indeed, the best plan is to ignore them entirely."
+    ]
+  },
+  {
+    "path": [
+      ["Documents", "documents", 7],
+      ["Additional", "additional", 0],
+      ["1", "1", 1]
+    ],
+    "years": [1887, 1888],
+    "source": "Nabíl‑i‑Aʻẓam",
+    "content": [
+      "Many a night no less than ten persons subsisted on no more than a pennyworth of dates. No one knew to whom actually belonged the shoes, the cloaks, or the robes that were to be found in their houses. Whoever went to the bazaar could claim that the shoes upon his feet were his own, and each one who entered the presence of Bahá’u’lláh could affirm that the cloak and robe he then wore belonged to him. Their own names they had forgotten, their hearts were emptied of aught else except adoration for their Beloved. . . . O, for the joy of those days, and the gladness and wonder of those hours!"
     ]
   },
   {
