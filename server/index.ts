@@ -2,26 +2,21 @@ import express from "express";
 
 import type {
   FlatPara,
-  MultiRef,
+  Quote,
   Ref,
+  RefQuote,
   RenderQuote,
   SemiPara,
 } from "../utils/types.ts";
 import {
   compareArrays,
-  getQuoteParts,
   textIsConnector,
   toChars,
   toCleaned,
   toWords,
 } from "../utils/utils.ts";
 
-import {
-  addSourceQuotes,
-  filterQuoted,
-  getFullQuotedPara,
-  getPara,
-} from "./paragraph.ts";
+import { filterQuoted, getFullQuotedPara, getPara } from "./paragraph.ts";
 import { getUrlQuote } from "./quote.ts";
 import { getMatches, getTokenHighlights } from "./search.ts";
 import { data, getAllSpecial, getParagraphIds } from "./utils.ts";
@@ -44,48 +39,16 @@ const collapseSingleKeys = (
   return [path, current];
 };
 
-const mergeQuotes = (quotes: Ref[]) => {
-  const res: MultiRef[] = [];
-  for (const { section, paragraph } of quotes) {
-    if (!res.find((s) => s.section === section)) {
-      res.push({ section, paragraph: [paragraph] });
-    } else {
-      const s = res.find((s) => s.section === section)!;
-      s.paragraph.push(paragraph);
-    }
-  }
-  return res;
-};
-
-const joinQuotes = (quotes: MultiRef[][]) => {
-  for (let i = 0; i < quotes.length - 1; i++) {
-    if (quotes[i]!.length === 1 && quotes[i + 1]?.length === 1) {
-      const current = quotes[i]![0]!;
-      const next = quotes[i + 1]![0]!;
-      if (
-        current.section === next.section &&
-        (next.paragraph.length === 0 ||
-          current.paragraph[current.paragraph.length - 1]! <=
-            next.paragraph[0]!)
-      ) {
-        next.paragraph = [...current.paragraph, ...next.paragraph];
-        quotes[i] = [];
-      }
-    }
-  }
-  return quotes;
-};
-
 const getData = (
   urlPath: string[],
   baseLevel: number,
   search: string
 ): {
   docs: {
-    sources: RenderQuote[];
+    sources: { quote: Quote; render: RenderQuote }[];
     content: {
-      quoted: RenderQuote[];
-      quotes: RenderQuote[];
+      quoted: { quote: Quote; render: RenderQuote }[];
+      quotes: { quote: Quote; render: RenderQuote }[];
       paraId: string;
       para: SemiPara;
       ref: Ref;
@@ -168,9 +131,10 @@ const getData = (
   const baseResult: {
     paraId: string;
     para: FlatPara;
-    sources: MultiRef[];
+    sources: Quote[];
     chars: string;
     ref: Ref;
+    fullQuote: boolean;
   }[] = [];
   while (
     (!matches || baseResult.length < SEARCH_COUNT + 5) &&
@@ -185,8 +149,10 @@ const getData = (
         return textIsConnector(para);
       }
       if (Array.isArray(para)) {
-        return para.every(
-          (part) => typeof part !== "string" || textIsConnector(part)
+        return (
+          para.every(
+            (part) => typeof part !== "string" || textIsConnector(part)
+          ) && para.some((part) => typeof part !== "string")
         );
       }
       return "type" in para && para.type === "break";
@@ -194,16 +160,12 @@ const getData = (
     const allFullQuote = fullQuote.every((x) => x);
     const content = sliced.map((para, index) => {
       const paragraph = index + start;
+      const ref = { section, paragraph };
       const filteredPara =
         levels[index] === null
           ? null
           : filterQuoted(
-              allFullQuote
-                ? getFullQuotedPara(para)
-                : addSourceQuotes(getPara(para, allSpecial), {
-                    section,
-                    paragraph,
-                  }),
+              allFullQuote ? getFullQuotedPara(para) : getPara(ref, allSpecial),
               data[section]!.quoted?.[paragraph] || [],
               levels[index]!
             );
@@ -217,27 +179,18 @@ const getData = (
             sourceQuotes: [],
             allSpecial: false,
           } as FlatPara,
-          sources: [{ section, paragraph: [] }],
-          ref: { section, paragraph },
+          sources: [{ section, paragraph, start: 0, end: 0 }],
+          ref,
+          fullQuote: false,
         };
       }
       if (matches) filteredPara.allSpecial = true;
       return {
         paraId: paraIds[paragraph]!,
         para: filteredPara,
-        sources: allFullQuote
-          ? mergeQuotes(
-              Array.isArray(para)
-                ? para.filter((part) => typeof part !== "string")
-                : []
-            )
-          : [{ section, paragraph: [paragraph] }],
-        ref: (fullQuote[index] &&
-          Array.isArray(para) &&
-          para.find((part) => typeof part !== "string")) || {
-          section,
-          paragraph,
-        },
+        sources: filteredPara.sourceQuotes.map((q) => q.quote),
+        ref,
+        fullQuote: fullQuote[index]!,
       };
     });
 
@@ -246,8 +199,9 @@ const getData = (
     const merged: {
       paraId: string;
       para: FlatPara;
-      sources: MultiRef[];
+      sources: Quote[];
       ref: Ref;
+      fullQuote: boolean;
     }[] = [];
     for (const p of content) {
       if (p.para.type === "break") {
@@ -278,10 +232,9 @@ const getData = (
         merged.pop();
       }
     }
-    const joinedSources = joinQuotes(merged.map((c) => c.sources));
-    const mappedSources = merged.map((p, i) => ({
+
+    const mappedSources = merged.map((p) => ({
       ...p,
-      sources: joinedSources[i]!,
       chars: toChars(toWords(toCleaned(p.para.text))),
     }));
 
@@ -309,26 +262,23 @@ const getData = (
     }
   }
 
-  const result = baseResult.map(({ para, paraId, sources, ref }) => {
+  const result = baseResult.map(({ para, paraId, sources, ref, fullQuote }) => {
     if (matches) {
       para.highlights = getTokenHighlights(para.text, matches.tokens);
     }
-    const quoteParts = getQuoteParts(
-      para.text,
-      para.quotes?.map((q) => ({ base: q, quote: q })) || []
-    );
     return {
       paraId,
       para: {
         ...para,
-        quotes: para.quotes?.map((q) => ({ base: q, quote: getUrlQuote(q) })),
+        quotes: para.quotes?.map((q) => ({
+          quote: q,
+          render: getUrlQuote(q.quote),
+        })),
       },
-      quotes: quoteParts.every((part) => part.quote)
-        ? mergeQuotes(para.quotes || [])
-        : [],
+      quotes: fullQuote ? para.quotes! : undefined,
       quoted: para.quoted.sort((aQuote, bQuote) => {
-        const aDoc = data[aQuote.section]!;
-        const bDoc = data[bQuote.section]!;
+        const aDoc = data[aQuote.quote.section]!;
+        const bDoc = data[bQuote.quote.section]!;
         return compareArrays(
           aDoc.path.map((p: [string, string, number]) => p[2]),
           bDoc.path.map((p: [string, string, number]) => p[2])
@@ -341,12 +291,12 @@ const getData = (
 
   const docs = [
     {
-      sources: [] as MultiRef[],
+      sources: [] as Quote[],
       content: [] as {
         paraId: string;
         para: SemiPara;
-        quoted: Ref[];
-        quotes: MultiRef[];
+        quoted: RefQuote[];
+        quotes?: RefQuote[];
         ref: Ref;
       }[],
     },
@@ -389,19 +339,20 @@ const getData = (
         }
         return true;
       })
-      .map((d) => {
-        const joinedQuotes = joinQuotes(d.content.map((c) => c.quotes));
-        return {
-          sources: d.sources.map((q) => getUrlQuote(q)),
-          content: d.content.map((p, i) => ({
-            ...p,
-            quoted: [
-              ...new Set(p.quoted.map((q) => JSON.stringify(getUrlQuote(q)))),
-            ].map((q) => JSON.parse(q)) as RenderQuote[],
-            quotes: joinedQuotes[i]!.map((q) => getUrlQuote(q)),
+      .map((d) => ({
+        sources: d.sources.map((q) => ({ quote: q, render: getUrlQuote(q) })),
+        content: d.content.map((p) => ({
+          ...p,
+          quoted: p.quoted.map((q) => ({
+            quote: q.quote,
+            render: getUrlQuote(q.quote),
           })),
-        };
-      }),
+          quotes: (p.quotes || []).map((q) => ({
+            quote: q.quote,
+            render: getUrlQuote(q.quote),
+          })),
+        })),
+      })),
     path,
     tree: nestedTree,
     showContent: true,

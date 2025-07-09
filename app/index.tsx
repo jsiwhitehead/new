@@ -7,59 +7,12 @@ import {
   useLocation,
 } from "react-router";
 
-import type { Range, Ref, RenderQuote, SemiPara } from "../utils/types";
-import { moveRange, refsEqual, textIsConnector } from "../utils/utils";
+import type { Quote, Ref, RenderQuote, SemiPara } from "../utils/types";
+import { refsEqual } from "../utils/utils";
 
 import App from "./App";
 import { getRenderContent } from "./render";
 import { SizeContext } from "./Utils";
-
-const getSplitText = (text: string) => {
-  let current = 0;
-  const res: { text: string; start: number }[] = [];
-  res.push({ text, start: 0 });
-  for (const part of text.split(/( ?\. \. \. ?| ?\[[^\]]*\] ?)/)) {
-    if (!textIsConnector(part)) {
-      res.push({ text: part, start: current });
-    }
-    current += part.length;
-  }
-  return res;
-};
-
-const getOverlapRange = (base: string, pattern: string) => {
-  for (let offset = -pattern.length + 1; offset < base.length; offset++) {
-    const baseStart = Math.max(0, offset);
-    const baseEnd = Math.min(base.length, offset + pattern.length);
-
-    const patternStart = Math.max(0, -offset);
-    const patternEnd = patternStart + (baseEnd - baseStart);
-
-    const baseSlice = base.slice(baseStart, baseEnd);
-    const patternSlice = pattern.slice(patternStart, patternEnd);
-
-    if (baseSlice === patternSlice) return { start: baseStart, end: baseEnd };
-  }
-  return null;
-};
-
-const getHighlights = (para: string, ranges: Range[], text: string[]) => {
-  const patterns = text.flatMap((t) => getSplitText(t.toLowerCase()));
-  const res = ranges
-    .flatMap((range) => {
-      const base = getSplitText(
-        para.slice(range.start, range.end).toLowerCase()
-      );
-      return patterns.flatMap((p) =>
-        base.flatMap((b) => {
-          const overlap = getOverlapRange(b.text, p.text);
-          return overlap ? [moveRange(overlap, range.start + b.start)] : [];
-        })
-      );
-    })
-    .sort((a, b) => a.start - b.start);
-  return res;
-};
 
 const Root = () => {
   const {
@@ -69,10 +22,10 @@ const Root = () => {
     showContent,
   } = useLoaderData<{
     docs: {
-      sources: RenderQuote[];
+      sources: { quote: Quote; render: RenderQuote }[];
       content: {
-        quoted: RenderQuote[];
-        quotes: RenderQuote[];
+        quoted: { quote: Quote; render: RenderQuote }[];
+        quotes: { quote: Quote; render: RenderQuote }[];
         paraId: string;
         para: SemiPara;
         ref: Ref;
@@ -85,44 +38,13 @@ const Root = () => {
 
   const location = useLocation();
 
-  console.log(location.state);
-
   const docs = baseDocs.map((d) => ({
     sources: d.sources,
     content: d.content.map((c) => {
       if (location.state) {
-        if (location.state.type === "quote") {
-          c.para.highlights.push(
-            ...getHighlights(
-              c.para.text,
-              [
-                ...(c.para.quotes || [])
-                  .filter((q) => refsEqual(q.base, location.state.ref))
-                  .map((q) => q.base),
-                ...c.para.sourceQuotes.filter((q) =>
-                  refsEqual(q, location.state.ref)
-                ),
-              ],
-              location.state.text
-            )
-          );
-        } else if (location.state.type === "quoted") {
-          c.para.highlights.push(
-            ...getHighlights(
-              c.para.text,
-              c.para.quoted.filter((q) => refsEqual(q, location.state.ref)),
-              location.state.text
-            )
-          );
-        } else if (location.state.type === "source") {
-          if (location.state.refs.some((ref: Ref) => refsEqual(ref, c.ref))) {
-            c.para.highlights.push(
-              ...getHighlights(
-                c.para.text,
-                [{ start: 0, end: c.para.text.length }],
-                location.state.text
-              )
-            );
+        for (const part of location.state) {
+          if (refsEqual(part, c.ref)) {
+            c.para.highlights.push({ start: part.start, end: part.end });
           }
         }
       }

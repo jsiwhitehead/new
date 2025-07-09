@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 
-import type { Ref, RenderContent, RenderQuote, SemiPara } from "../utils/types";
+import type { Quote, RenderContent, RenderQuote } from "../utils/types";
 
 import Controls from "./Controls";
 import Paragraph from "./Paragraph";
@@ -13,14 +13,12 @@ export default function App({
   showContent,
 }: {
   docs: {
-    sources: RenderQuote[];
+    sources: { quote: Quote; render: RenderQuote }[];
     content: {
-      quoted: RenderQuote[];
-      quotes: RenderQuote[];
+      quoted: { quote: Quote; render: RenderQuote }[];
+      quotes: { quote: Quote; render: RenderQuote }[];
       paraId: string;
-      para: SemiPara;
       content: RenderContent;
-      ref: Ref;
     }[];
   }[];
   path: [string, string][];
@@ -38,53 +36,46 @@ export default function App({
     >
       <Controls path={path} tree={tree} showContent={showContent} />
       {showContent &&
-        docs.map(({ sources, content }, index) => {
-          // const toHighlight = content.flatMap((c) =>
-          //   c.para.sourceQuotes.map((q) => c.para.text.slice(q.start, q.end))
-          // );
-          return (
-            <Fragment key={index}>
-              {index !== 0 && <div style={{ height: 3, background: "#ddd" }} />}
-              <Column gap={25}>
-                <Column gap={11.5} style={{ paddingBottom: 15 }}>
-                  {sources.map((source, i) => (
-                    <Row
-                      gap={`${11.5}px ${14 * 0.6}px`}
-                      style={{ flexWrap: "wrap", fontWeight: "bold" }}
-                      key={i}
-                    >
-                      {source.path.map(
-                        ([label, url]: [string, string], j: number) => (
-                          <Row gap={14 * 0.6} key={j}>
-                            {j > 0 && (
-                              <RightArrow size={14 * 0.6} color="#333" />
-                            )}
-                            <Text
-                              to={source.author === "Ruhi Institute" ? "" : url}
-                              style={{
-                                color: authorColours[source.author],
-                              }}
-                              state={{
-                                type: "source",
-                                refs: content.map((c) => c.ref),
-                                text: content.map((c) => c.para.text),
-                              }}
-                            >
-                              {label}
-                            </Text>
-                          </Row>
-                        )
-                      )}
-                    </Row>
-                  ))}
-                </Column>
-                {content.map((para) => (
-                  <Paragraph key={para.paraId} {...para} />
+        docs.map(({ sources, content }, index) => (
+          <Fragment key={index}>
+            {index !== 0 && <div style={{ height: 3, background: "#ddd" }} />}
+            <Column gap={25}>
+              <Column gap={11.5} style={{ paddingBottom: 15 }}>
+                {sources.map((source, i) => (
+                  <Row
+                    gap={`${11.5}px ${14 * 0.6}px`}
+                    style={{ flexWrap: "wrap", fontWeight: "bold" }}
+                    key={i}
+                  >
+                    {source.render.path.map(
+                      ([label, url]: [string, string], j: number) => (
+                        <Row gap={14 * 0.6} key={j}>
+                          {j > 0 && <RightArrow size={14 * 0.6} color="#333" />}
+                          <Text
+                            to={
+                              source.render.author === "Ruhi Institute"
+                                ? ""
+                                : url
+                            }
+                            style={{
+                              color: authorColours[source.render.author],
+                            }}
+                            state={[source.quote]}
+                          >
+                            {label}
+                          </Text>
+                        </Row>
+                      )
+                    )}
+                  </Row>
                 ))}
               </Column>
-            </Fragment>
-          );
-        })}
+              {content.map((para) => (
+                <Paragraph key={para.paraId} {...para} />
+              ))}
+            </Column>
+          </Fragment>
+        ))}
     </Column>
   );
 }

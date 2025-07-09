@@ -2,8 +2,8 @@ import sources from "./sources.ts";
 import { readJSON, writeJSON } from "../utils/files.ts";
 import type {
   Quote,
-  Range,
   Ref,
+  RefQuote,
   Section,
   SectionContent,
 } from "../utils/types.ts";
@@ -473,8 +473,6 @@ for (const index of yearSortedIndices) processSection(index);
 
 // Added quoted information
 
-type RefQuote = { range: Range; quote: Quote };
-
 const allQuoting: { source: Quote; quote: Quote }[] = data.flatMap(
   (section, sIndex) =>
     section.content.flatMap((para, i) => {
@@ -511,7 +509,6 @@ const baseQuoted: RefQuote[][][] = data.map(({ content }, section) => {
     });
   });
 });
-
 const getAllQuotes = (base: RefQuote): RefQuote[] => {
   const { range, quote } = base;
   const offset = range.start - quote.start;
@@ -527,33 +524,8 @@ const getAllQuotes = (base: RefQuote): RefQuote[] => {
     }),
   ];
 };
-
-const mappedQuoted = baseQuoted.map((contentQuotes, section) =>
-  contentQuotes.map((paraQuotes, paragraph) => {
-    const allQuotes = paraQuotes.flatMap((q) => getAllQuotes(q));
-    const allRefs = uniqueRefs(allQuotes.map((q) => q.quote));
-    return allRefs
-      .flatMap((quote) => {
-        const refQuotes = allQuotes.filter((q) => refsEqual(q.quote, quote));
-        refQuotes.sort((a, b) => a.range.start - b.range.start);
-        const cleaned = layers[section]![paragraph]!.cleaned;
-        const merged = [refQuotes[0]!];
-        for (let i = 1; i < refQuotes.length; i++) {
-          const last = merged[merged.length - 1]!;
-          const current = refQuotes[i]!;
-          if (
-            current.range.start <= last.range.end ||
-            textIsConnector(cleaned.slice(last.range.end, current.range.start))
-          ) {
-            last.range.end = Math.max(last.range.end, current.range.end);
-          } else {
-            merged.push(current);
-          }
-        }
-        return merged;
-      })
-      .map((x) => ({ ...x.quote, ...x.range }));
-  })
+const allQuoted = baseQuoted.map((contentQuotes) =>
+  contentQuotes.map((paraQuotes) => paraQuotes.flatMap((q) => getAllQuotes(q)))
 );
 
 data.forEach(({ content }, section) => {
@@ -567,43 +539,48 @@ data.forEach(({ content }, section) => {
         return { text: getQuoteText(data, part), quote: part };
       });
       let current = 0;
-      const quoted: Quote[] = [];
+      const quoted: RefQuote[] = [];
       for (const part of res) {
         if (part.quote) {
           quoted.push(
-            ...mappedQuoted[part.quote.section]![part.quote.paragraph]!.filter(
-              (q) => doRangesIntersect(q, part.quote)
-            ).map((q) => ({
-              ...q,
-              ...moveRange(
-                getRangesIntersect(q, part.quote)!,
-                -part.quote.start + current
-              ),
-            }))
+            ...allQuoted[part.quote.section]![part.quote.paragraph]!.filter(
+              (q) => doRangesIntersect(q.range, part.quote)
+            ).map((q) => {
+              const range = getRangesIntersect(q.range, part.quote)!;
+              return {
+                range: moveRange(range, current - part.quote.start),
+                quote: {
+                  ...q.quote,
+                  ...moveRange(range, q.quote.start - q.range.start),
+                },
+              };
+            })
           );
         }
         current += part.text.length;
       }
-      mappedQuoted[section]![paragraph]! = quoted;
+      allQuoted[section]![paragraph]! = quoted;
     }
   });
 });
 
 data.forEach((d, section) => {
-  if (mappedQuoted[section]!.some((q) => q.length > 0)) {
+  if (allQuoted[section]!.some((q) => q.length > 0)) {
     const content = d.content;
     delete (d as any).content;
-    d.quoted = mappedQuoted[section]!.reduce(
+    d.quoted = allQuoted[section]!.reduce(
       (res, quoted, i) =>
         quoted.length > 0
           ? {
               ...res,
               [i]: quoted.sort((a, b) => {
-                const aDoc = data[a.section]!;
-                const bDoc = data[b.section]!;
-                return compareArrays(
-                  aDoc.path.map((p: [string, string, number]) => p[2]),
-                  bDoc.path.map((p: [string, string, number]) => p[2])
+                const aDoc = data[a.quote.section]!;
+                const bDoc = data[b.quote.section]!;
+                return (
+                  compareArrays(
+                    aDoc.path.map((p: [string, string, number]) => p[2]),
+                    bDoc.path.map((p: [string, string, number]) => p[2])
+                  ) || a.range.start - b.range.start
                 );
               }),
             }

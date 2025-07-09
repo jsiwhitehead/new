@@ -10,6 +10,8 @@ export interface Ref {
 
 export type Quote = Range & Ref;
 
+export type RefQuote = { range: Range; quote: Quote };
+
 export type SectionContent =
   | string
   | { type: "break" }
@@ -27,7 +29,7 @@ export interface Section {
   summary?: string;
   purpose?: string;
   prayer?: string;
-  quoted?: Record<string, Quote[]>;
+  quoted?: Record<string, RefQuote[]>;
   content: SectionContent[];
 }
 
@@ -35,10 +37,10 @@ export interface FlatPara {
   type?: "break" | "info" | "call" | "framing";
   text: string;
   lines?: number[];
-  quotes?: Quote[];
-  quoted: Quote[];
+  quotes?: RefQuote[];
+  quoted: RefQuote[];
   highlights: Range[];
-  sourceQuotes: Quote[];
+  sourceQuotes: RefQuote[];
   allSpecial: boolean;
 }
 
@@ -46,16 +48,11 @@ export interface SemiPara {
   type?: "break" | "info" | "call" | "framing";
   text: string;
   lines?: number[];
-  quotes?: { base: Quote; quote: RenderQuote }[];
-  quoted: Quote[];
+  quotes?: { quote: RefQuote; render: RenderQuote }[];
+  quoted: RefQuote[];
   highlights: Range[];
-  sourceQuotes: Quote[];
+  sourceQuotes: RefQuote[];
   allSpecial: boolean;
-}
-
-export interface MultiRef {
-  section: number;
-  paragraph: number[];
 }
 
 export interface RenderQuote {
@@ -69,7 +66,7 @@ export type RenderContent =
       text: string;
       quoted: number;
       highlight: boolean;
-      quote?: true | RenderQuote;
+      quote?: true | { quote: Quote; render: RenderQuote };
     }[]
   | {
       type: "info" | "call" | "framing" | "lines" | "quote";

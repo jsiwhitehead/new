@@ -111,36 +111,3 @@ export const getIndices = (length: number, ...markers: Range[][]) =>
 
 export const mapRanges = <T>(indices: number[], map: (range: Range) => T) =>
   indices.slice(1).map((end, i) => map({ start: indices[i]!, end }));
-
-export const getQuoteParts = <T>(
-  text: string,
-  quotes: { base: Quote; quote: T }[]
-) => {
-  const quoteIndices = getIndices(
-    text.length,
-    quotes.map((q) => q.base)
-  );
-  const quoteParts: { text: string; quote?: T | true }[] = mapRanges(
-    quoteIndices,
-    (range) => {
-      return {
-        text: text.slice(range.start, range.end),
-        quote: quotes.find((q) => doesRangeInclude(q.base, range))?.quote,
-      };
-    }
-  );
-  for (let i = 0; i < quoteParts.length; i++) {
-    const current = quoteParts[i]!;
-    const prev = quoteParts[i - 1]!;
-    const next = quoteParts[i + 1]!;
-    if (
-      !current.quote &&
-      textIsConnector(current.text) &&
-      (!prev || prev.quote) &&
-      (!next || next.quote)
-    ) {
-      current.quote = true;
-    }
-  }
-  return quoteParts;
-};

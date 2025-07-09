@@ -3,6 +3,7 @@ import type {
   Quote,
   Range,
   Ref,
+  RefQuote,
   SectionContent,
 } from "../utils/types.ts";
 import {
@@ -13,22 +14,11 @@ import {
   getRangesIntersect,
   mapRanges,
   moveRange,
-  refsEqual,
-  textIsConnector,
-  uniqueRefs,
 } from "../utils/utils.ts";
 
 import { data, getAllSpecial } from "./utils.ts";
 
-export const addSourceQuotes = (para: FlatPara, ref: Ref) => {
-  para.sourceQuotes = [{ ...ref, start: 0, end: para.text.length }];
-  return para;
-};
-
-export const getPara = (
-  para: SectionContent,
-  allSpecial: boolean
-): FlatPara => {
+const getParaBase = (para: SectionContent, allSpecial: boolean): FlatPara => {
   const base = { quoted: [], highlights: [], sourceQuotes: [], allSpecial };
   if (typeof para === "string") return { text: para, ...base };
   if (!Array.isArray(para)) return { text: "", ...para, ...base };
@@ -42,13 +32,19 @@ export const getPara = (
     res.text += text;
     if (quote) {
       res.quotes!.push({
-        ...quote,
-        start: current,
-        end: current + text.length,
+        range: { start: current, end: current + text.length },
+        quote,
       });
     }
     current += text.length;
   }
+  return res;
+};
+export const getPara = (ref: Ref, allSpecial: boolean): FlatPara => {
+  const para = data[ref.section]!.content[ref.paragraph]!;
+  const res = getParaBase(para, allSpecial);
+  const range = { start: 0, end: res.text.length };
+  res.sourceQuotes = [{ range, quote: { ...ref, ...range } }];
   return res;
 };
 
@@ -59,54 +55,46 @@ const slicePara = (para: FlatPara, part: Range): FlatPara => ({
     ?.filter((x) => doesRangeInclude(part, x))
     .map((x) => x - part.start),
   quotes: para.quotes
-    ?.filter((q) => doRangesIntersect(q, part))
-    .map((q) => ({
-      ...q,
-      ...moveRange(getRangesIntersect(q, part)!, -part.start),
-    })),
+    ?.filter((q) => doRangesIntersect(q.range, part))
+    .map((q) => {
+      const range = getRangesIntersect(q.range, part)!;
+      return {
+        range: moveRange(range, -part.start),
+        quote: {
+          ...q.quote,
+          ...moveRange(range, q.quote.start - q.range.start),
+        },
+      };
+    }),
   quoted: para.quoted
-    .filter((q) => doRangesIntersect(q, part))
-    .map((q) => ({
-      ...q,
-      ...moveRange(getRangesIntersect(q, part)!, -part.start),
-    })),
+    .filter((q) => doRangesIntersect(q.range, part))
+    .map((q) => {
+      const range = getRangesIntersect(q.range, part)!;
+      return {
+        range: moveRange(range, -part.start),
+        quote: {
+          ...q.quote,
+          ...moveRange(range, q.quote.start - q.range.start),
+        },
+      };
+    }),
   highlights: para.highlights
     .filter((q) => doRangesIntersect(q, part))
     .map((q) => moveRange(getRangesIntersect(q, part)!, -part.start)),
   sourceQuotes: para.sourceQuotes
-    ?.filter((q) => doRangesIntersect(q, part))
-    .map((q) => ({
-      ...q,
-      ...moveRange(getRangesIntersect(q, part)!, -part.start),
-    })),
+    .filter((q) => doRangesIntersect(q.range, part))
+    .map((q) => {
+      const range = getRangesIntersect(q.range, part)!;
+      return {
+        range: moveRange(range, -part.start),
+        quote: {
+          ...q.quote,
+          ...moveRange(range, q.quote.start - q.range.start),
+        },
+      };
+    }),
   allSpecial: para.allSpecial,
 });
-
-const mergeRanges = <T extends Range>(text: string, ranges: T[]) => {
-  ranges.sort((a, b) => a.start - b.start);
-  const merged = ranges.slice(0, 1);
-  for (let i = 1; i < ranges.length; i++) {
-    const last = merged[merged.length - 1]!;
-    const current = ranges[i]!;
-    if (
-      current.start <= last.end ||
-      textIsConnector(text.slice(last.end, current.start))
-    ) {
-      last.end = Math.max(last.end, current.end);
-    } else {
-      merged.push(current);
-    }
-  }
-  return merged;
-};
-
-const mergeQuotes = <T extends Quote>(text: string, quotes: T[]) =>
-  uniqueRefs(quotes).flatMap((ref) =>
-    mergeRanges(
-      text,
-      quotes.filter((q) => refsEqual(q, ref))
-    )
-  );
 
 const joinParaParts = (parts: (string | FlatPara)[]): FlatPara => {
   const paraParts = parts.filter((p) => typeof p !== "string");
@@ -133,26 +121,27 @@ const joinParaParts = (parts: (string | FlatPara)[]): FlatPara => {
       res.text += part.text;
       res.lines!.push(...(part.lines || []).map((x) => x + current));
       res.quotes!.push(
-        ...(part.quotes || []).map((q) => ({ ...q, ...moveRange(q, current) }))
+        ...(part.quotes || []).map((q) => ({
+          range: moveRange(q.range, current),
+          quote: q.quote,
+        }))
       );
       res.quoted.push(
-        ...part.quoted.map((q) => ({ ...q, ...moveRange(q, current) }))
+        ...part.quoted.map((q) => ({
+          range: moveRange(q.range, current),
+          quote: q.quote,
+        }))
       );
       res.highlights.push(...part.highlights.map((q) => moveRange(q, current)));
-      res.sourceQuotes!.push(
-        ...(part.sourceQuotes || []).map((q) => ({
-          ...q,
-          ...moveRange(q, current),
+      res.sourceQuotes.push(
+        ...part.sourceQuotes.map((q) => ({
+          range: moveRange(q.range, current),
+          quote: q.quote,
         }))
       );
       current += part.text.length;
     }
   }
-
-  res.quotes = mergeQuotes(res.text, res.quotes!);
-  res.quoted = mergeQuotes(res.text, res.quoted);
-  res.highlights = mergeRanges(res.text, res.highlights);
-  res.sourceQuotes = mergeQuotes(res.text, res.sourceQuotes);
 
   res.lines = res.lines!.filter((x) => 0 < x && x < res.text.length);
   if (res.lines.length === 0) delete res.lines;
@@ -175,44 +164,34 @@ export const getFullQuotedPara = (paraBase: SectionContent): FlatPara => {
   if (typeof paraBase === "string") return { text: paraBase, ...base };
   if (!Array.isArray(paraBase)) return { type: "break", text: "", ...base };
   const para = paraBase as (string | Quote)[];
-  const sourceQuotes: Quote[] = [];
-  let current = 0;
-  const result = joinParaParts(
-    para.map((part) => {
-      if (typeof part === "string") {
-        current += part.length;
-        return part;
-      }
-      const section = data[part.section]!;
-      const end = current + part.end - part.start;
-      sourceQuotes.push({ ...part, start: current, end });
-      current = end;
-      return slicePara(
-        getPara(
-          section.content[part.paragraph]!,
-          getAllSpecial(section.content)
-        ),
-        part
-      );
-    })
+  return joinParaParts(
+    para.map((part) =>
+      typeof part === "string"
+        ? part
+        : slicePara(
+            getPara(part, getAllSpecial(data[part.section]!.content)),
+            part
+          )
+    )
   );
-  result.sourceQuotes = sourceQuotes;
-  return result;
 };
 
 export const filterQuoted = (
   para: FlatPara,
-  quoted: Quote[],
+  quoted: RefQuote[],
   level: number
 ): FlatPara | null => {
   para.quoted = quoted;
 
   if (para.type === "break") return para;
 
-  const indices = getIndices(para.text.length, para.quoted);
+  const indices = getIndices(
+    para.text.length,
+    para.quoted.map((q) => q.range)
+  );
   const quotedParts = mapRanges(indices, (range) => ({
     range,
-    quoted: para.quoted.filter((q) => doesRangeInclude(q, range)).length,
+    quoted: para.quoted.filter((q) => doesRangeInclude(q.range, range)).length,
   })).filter((q) => q.quoted >= level);
 
   let current = 0;

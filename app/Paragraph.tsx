@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import type { Ref, RenderContent, RenderQuote, SemiPara } from "../utils/types";
+import type { Quote, RenderContent, RenderQuote } from "../utils/types";
 
 import { BlockQuote, InlineQuote } from "./Quotes";
 import { Column, Text } from "./Utils";
@@ -9,15 +9,11 @@ function ParagraphBase({
   content,
   paraId,
   quotes,
-  para,
-  ref,
   showQuoted,
 }: {
   content: RenderContent;
   paraId: string;
-  quotes: RenderQuote[];
-  para: SemiPara;
-  ref: Ref;
+  quotes: { quote: Quote; render: RenderQuote }[];
   showQuoted: boolean;
 }) {
   if ("type" in content && content.type === "break") {
@@ -47,25 +43,12 @@ function ParagraphBase({
                 ? `rgb(255, ${240 - part.quoted * 10}, ${240 - part.quoted * 10})`
                 : "",
           };
-          const quoteParts = content.slice(0, i).filter((p) => p.quote);
-          const index = quoteParts
-            .toReversed()
-            .findIndex((p) => p.quote !== true);
           return typeof part.quote === "object" ? (
             <span style={style} key={i}>
               {part.text}{" "}
               <InlineQuote
-                quote={part.quote}
-                state={{
-                  type: "quoted",
-                  ref,
-                  text: [
-                    ...quoteParts
-                      .slice(index === -1 ? 0 : quoteParts.length - index)
-                      .map((p) => p.text),
-                    part.text,
-                  ],
-                }}
+                quote={part.quote.render}
+                state={[part.quote.quote]}
               />
             </span>
           ) : (
@@ -136,11 +119,7 @@ function ParagraphBase({
     <Column style={{ fontWeight: "bold", padding: "0 20px" }} gap={11.5}>
       {inner}
       {quotes.map((quote, i) => (
-        <BlockQuote
-          key={i}
-          quote={quote}
-          state={{ type: "source", refs: [ref], text: [para.text] }}
-        />
+        <BlockQuote key={i} quote={quote.render} state={[quote.quote]} />
       ))}
     </Column>
   );
@@ -151,15 +130,11 @@ export default function Paragraph({
   content,
   quoted,
   quotes,
-  para,
-  ref,
 }: {
   paraId: string;
   content: RenderContent;
-  quoted: RenderQuote[];
-  quotes: RenderQuote[];
-  para: SemiPara;
-  ref: Ref;
+  quoted: { quote: Quote; render: RenderQuote }[];
+  quotes: { quote: Quote; render: RenderQuote }[];
 }) {
   const [showQuoted, setShowQuoted] = useState(false);
 
@@ -172,8 +147,6 @@ export default function Paragraph({
         content={content}
         paraId={paraId}
         quotes={quotes}
-        para={para}
-        ref={ref}
         showQuoted={showQuoted}
       />
     </div>
@@ -191,8 +164,6 @@ export default function Paragraph({
         content={content}
         paraId={paraId}
         quotes={quotes}
-        para={para}
-        ref={ref}
         showQuoted={showQuoted}
       />
       <Text
@@ -210,12 +181,7 @@ export default function Paragraph({
       </Text>
       {showQuoted &&
         quoted.map((quote, i) => (
-          <BlockQuote
-            key={i}
-            quote={quote}
-            left
-            state={{ type: "quote", ref, text: [para.text] }}
-          />
+          <BlockQuote key={i} quote={quote.render} left state={[quote.quote]} />
         ))}
     </Column>
   );

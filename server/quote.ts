@@ -1,4 +1,4 @@
-import type { MultiRef, Ref, RenderQuote } from "../utils/types.ts";
+import type { Ref, RenderQuote } from "../utils/types.ts";
 import { capitalise } from "../utils/utils.ts";
 
 import { data, getParagraphIds } from "./utils.ts";
@@ -27,9 +27,9 @@ const getParasString = (paras: number[], paraIds: string[]) => {
   return result.join(", ");
 };
 
-export const getUrlQuote = (source: Ref | MultiRef): RenderQuote => {
+export const getUrlQuote = (ref: Ref): RenderQuote => {
   let current = "";
-  const section = data[source.section]!;
+  const section = data[ref.section]!;
   const res: [string, string][] = section.path.map((p) => {
     current = `${current}/${p[1]}`;
     return [
@@ -37,9 +37,9 @@ export const getUrlQuote = (source: Ref | MultiRef): RenderQuote => {
       current,
     ];
   });
-  const paragraphs = Array.isArray(source.paragraph)
-    ? source.paragraph
-    : [source.paragraph];
+  const paragraphs = Array.isArray(ref.paragraph)
+    ? ref.paragraph
+    : [ref.paragraph];
   const paraIds = getParagraphIds(section.content);
   if (
     !Array.from({ length: paraIds.length }).every((_, i) =>
