@@ -1,4 +1,4 @@
-import type { Ref, RenderQuote } from "../utils/types.ts";
+import type { MultiQuote, Ref, RenderQuote } from "../utils/types.ts";
 import { capitalise } from "../utils/utils.ts";
 
 import { data, getParagraphIds } from "./utils.ts";
@@ -27,7 +27,7 @@ const getParasString = (paras: number[], paraIds: string[]) => {
   return result.join(", ");
 };
 
-export const getUrlQuote = (ref: Ref): RenderQuote => {
+export const getUrlQuote = (ref: Ref | MultiQuote): RenderQuote => {
   let current = "";
   const section = data[ref.section]!;
   const res: [string, string][] = section.path.map((p) => {

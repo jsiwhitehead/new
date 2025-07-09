@@ -2,18 +2,22 @@ import express from "express";
 
 import type {
   FlatPara,
+  MultiQuote,
   Quote,
+  QuoteLink,
   Ref,
   RefQuote,
-  RenderQuote,
   SemiPara,
 } from "../utils/types.ts";
 import {
   compareArrays,
+  joinQuotes,
+  refsEqual,
   textIsConnector,
   toChars,
   toCleaned,
   toWords,
+  uniqueRefs,
 } from "../utils/utils.ts";
 
 import { filterQuoted, getFullQuotedPara, getPara } from "./paragraph.ts";
@@ -45,10 +49,10 @@ const getData = (
   search: string
 ): {
   docs: {
-    sources: { quote: Quote; render: RenderQuote }[];
+    sources: QuoteLink[];
     content: {
-      quoted: { quote: Quote; render: RenderQuote }[];
-      quotes: { quote: Quote; render: RenderQuote }[];
+      quoted: QuoteLink[];
+      quotes: QuoteLink[];
       paraId: string;
       para: SemiPara;
       ref: Ref;
@@ -131,7 +135,7 @@ const getData = (
   const baseResult: {
     paraId: string;
     para: FlatPara;
-    sources: Quote[];
+    sources: MultiQuote[];
     chars: string;
     ref: Ref;
     fullQuote: boolean;
@@ -179,7 +183,7 @@ const getData = (
             sourceQuotes: [],
             allSpecial: false,
           } as FlatPara,
-          sources: [{ section, paragraph, start: 0, end: 0 }],
+          sources: [{ section, paragraph: -1, start: 0, end: 0 }],
           ref,
           fullQuote: false,
         };
@@ -233,8 +237,10 @@ const getData = (
       }
     }
 
-    const mappedSources = merged.map((p) => ({
+    const joinedSources = joinQuotes(merged.map((p) => p.sources));
+    const mappedSources = merged.map((p, i) => ({
       ...p,
+      sources: joinedSources[i]!,
       chars: toChars(toWords(toCleaned(p.para.text))),
     }));
 
@@ -275,7 +281,7 @@ const getData = (
           render: getUrlQuote(q.quote),
         })),
       },
-      quotes: fullQuote ? para.quotes! : undefined,
+      quotes: fullQuote ? para.quotes?.map((q) => q.quote) : undefined,
       quoted: para.quoted.sort((aQuote, bQuote) => {
         const aDoc = data[aQuote.quote.section]!;
         const bDoc = data[bQuote.quote.section]!;
@@ -289,19 +295,25 @@ const getData = (
     };
   });
 
+  const joinedQuotes = joinQuotes(result.map((r) => r.quotes || []));
+  const mappedQuotes = result.map((r, i) => ({
+    ...r,
+    quotes: joinedQuotes[i]!,
+  }));
+
   const docs = [
     {
-      sources: [] as Quote[],
+      sources: [] as MultiQuote[],
       content: [] as {
         paraId: string;
         para: SemiPara;
         quoted: RefQuote[];
-        quotes?: RefQuote[];
+        quotes: MultiQuote[];
         ref: Ref;
       }[],
     },
   ];
-  for (const { sources, ...para } of result) {
+  for (const { sources, ...para } of mappedQuotes) {
     if (sources.length > 1) {
       docs.push({ sources, content: [para] }, { sources: [], content: [] });
     } else {
@@ -340,18 +352,39 @@ const getData = (
         return true;
       })
       .map((d) => ({
-        sources: d.sources.map((q) => ({ quote: q, render: getUrlQuote(q) })),
-        content: d.content.map((p) => ({
-          ...p,
-          quoted: p.quoted.map((q) => ({
-            quote: q.quote,
-            render: getUrlQuote(q.quote),
-          })),
-          quotes: (p.quotes || []).map((q) => ({
-            quote: q.quote,
-            render: getUrlQuote(q.quote),
-          })),
+        sources: d.sources.map((q) => ({
+          quotes: q.quotes,
+          render: getUrlQuote(q),
         })),
+        content: d.content.map((p) => {
+          const quotedQuotes = p.quoted.map((q) => q.quote);
+          const quoted = uniqueRefs(quotedQuotes)
+            .map((ref) => ({
+              section: ref.section,
+              paragraph: [ref.paragraph],
+              quotes: quotedQuotes.filter((q) => refsEqual(ref, q)),
+            }))
+            .map((q) => ({
+              quotes: q.quotes,
+              render: getUrlQuote(q),
+            }));
+          return {
+            ...p,
+            quoted: quoted.filter(
+              (q1, i) =>
+                !quoted
+                  .slice(i + 1)
+                  .some(
+                    (q2) =>
+                      JSON.stringify(q1.render) === JSON.stringify(q2.render)
+                  )
+            ),
+            quotes: p.quotes.map((q) => ({
+              quotes: q.quotes,
+              render: getUrlQuote(q),
+            })),
+          };
+        }),
       })),
     path,
     tree: nestedTree,
@@ -363,21 +396,21 @@ const app = express();
 const port = 8000;
 
 app.get("/api/:query", (req, res) => {
-  try {
-    const { query } = req.params;
-    const { path, level, search } = JSON.parse(query);
+  // try {
+  const { query } = req.params;
+  const { path, level, search } = JSON.parse(query);
 
-    const data = getData(path, level, search);
+  const data = getData(path, level, search);
 
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader(
-      "Access-Control-Allow-Methods",
-      "GET, POST, PUT, DELETE, OPTIONS"
-    );
-    res.json(data);
-  } catch (err) {
-    res.status(400).json({ error: "Invalid JSON in URL parameter" });
-  }
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, DELETE, OPTIONS"
+  );
+  res.json(data);
+  // } catch (err) {
+  //   res.status(400).json({ error: "Invalid JSON in URL parameter" });
+  // }
 });
 
 app.listen(port, () => {

@@ -73,7 +73,7 @@ export function BlockQuote({
       gap={`${11.5}px ${14 * 0.6}px`}
       style={{
         flexWrap: "wrap",
-        maxWidth: 400,
+        maxWidth: left ? "auto" : 400,
         margin: left ? "0 auto 0 30px" : "0 0 0 auto",
         justifyContent: left ? "flex-start" : "flex-end",
         opacity: 0.5,

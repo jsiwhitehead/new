@@ -1,5 +1,6 @@
 import type {
   Quote,
+  QuoteLink,
   SemiPara,
   RenderContent,
   RenderQuote,
@@ -9,6 +10,7 @@ import {
   getIndices,
   mapRanges,
   moveRange,
+  refsEqual,
   textIsConnector,
 } from "../utils/utils";
 
@@ -68,9 +70,21 @@ export const getRenderContent = (para: SemiPara): RenderContent => {
 
   const indices = getIndices(
     para.text.length,
-    para.quoted.map((q) => q.range),
-    para.highlights
-  ).filter((x) => !para.highlights.some((h) => h.start < x && x < h.end));
+    para.quoted
+      .map((q) => q.range)
+      .flatMap(({ start, end }) =>
+        Array.from({ length: end - start + 1 }, (_, i) => ({
+          start: start + i,
+          end: start + i,
+        }))
+      ),
+    para.highlights.flatMap(({ start, end }) =>
+      Array.from({ length: end - start + 1 }, (_, i) => ({
+        start: start + i,
+        end: start + i,
+      }))
+    )
+  );
 
   const quoteIndices = getIndices(
     para.text.length,
@@ -141,7 +155,7 @@ export const getRenderContent = (para: SemiPara): RenderContent => {
   }
 
   let current = 0;
-  return quoteParts.flatMap((part) => {
+  const result = quoteParts.flatMap((part) => {
     const partIndices = [
       0,
       ...indices
@@ -153,7 +167,10 @@ export const getRenderContent = (para: SemiPara): RenderContent => {
       const moved = moveRange(range, current);
       return {
         text: part.text.slice(range.start, range.end),
-        quote: typeof part.quote === "object" ? part.quote : part.quote,
+        quote:
+          typeof part.quote === "object"
+            ? { quotes: [part.quote.quote], render: part.quote.render }
+            : part.quote,
         quoted: para.quoted.filter((q) => doesRangeInclude(q.range, moved))
           .length,
         highlight: para.highlights.some((h) => doesRangeInclude(h, moved)),
@@ -162,4 +179,16 @@ export const getRenderContent = (para: SemiPara): RenderContent => {
     current += part.text.length;
     return res;
   });
+
+  const resQuoteParts = result.filter((x) => typeof x.quote === "object");
+  for (let i = 0; i < resQuoteParts.length - 1; i++) {
+    const current = resQuoteParts[i]!.quote as QuoteLink;
+    const next = resQuoteParts[i + 1]!.quote as QuoteLink;
+    if (refsEqual(current.quotes[0]!, next.quotes[0]!)) {
+      next.quotes.push(...current.quotes);
+      resQuoteParts[i]!.quote = true;
+    }
+  }
+
+  return result;
 };

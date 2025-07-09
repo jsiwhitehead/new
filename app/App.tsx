@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 
-import type { Quote, RenderContent, RenderQuote } from "../utils/types";
+import type { QuoteLink, RenderContent, SemiPara } from "../utils/types";
 
 import Controls from "./Controls";
 import Paragraph from "./Paragraph";
@@ -13,11 +13,12 @@ export default function App({
   showContent,
 }: {
   docs: {
-    sources: { quote: Quote; render: RenderQuote }[];
+    sources: QuoteLink[];
     content: {
-      quoted: { quote: Quote; render: RenderQuote }[];
-      quotes: { quote: Quote; render: RenderQuote }[];
+      quoted: QuoteLink[];
+      quotes: QuoteLink[];
       paraId: string;
+      para: SemiPara;
       content: RenderContent;
     }[];
   }[];
@@ -60,7 +61,7 @@ export default function App({
                             style={{
                               color: authorColours[source.render.author],
                             }}
-                            state={[source.quote]}
+                            state={source.quotes}
                           >
                             {label}
                           </Text>

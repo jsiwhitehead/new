@@ -1,21 +1,23 @@
 import { useState } from "react";
 
-import type { Quote, RenderContent, RenderQuote } from "../utils/types";
+import type { QuoteLink, RenderContent, SemiPara } from "../utils/types";
 
 import { BlockQuote, InlineQuote } from "./Quotes";
 import { Column, Text } from "./Utils";
 
-function ParagraphBase({
+const ParagraphBase = ({
   content,
   paraId,
   quotes,
   showQuoted,
+  fills,
 }: {
   content: RenderContent;
-  paraId: string;
-  quotes: { quote: Quote; render: RenderQuote }[];
+  paraId?: string;
+  quotes: QuoteLink[];
   showQuoted: boolean;
-}) {
+  fills: boolean;
+}) => {
   if ("type" in content && content.type === "break") {
     return (
       <Text
@@ -33,22 +35,26 @@ function ParagraphBase({
         {content.map((part, i) => {
           const style = {
             fontWeight: part.quote ? "bold" : "normal",
-            padding: part.highlight ? "2.4px 3.5px" : "2.4px 0",
-            margin: part.highlight ? "0 -3.5px" : "0",
-            position: "relative" as "relative",
-            zIndex: part.highlight ? 10 : 0,
-            background: part.highlight
-              ? "rgb(255, 247, 158)"
-              : part.quoted > 0 && showQuoted
-                ? `rgb(255, ${240 - part.quoted * 10}, ${240 - part.quoted * 10})`
-                : "",
+            ...(fills
+              ? {
+                  padding: "2.4px 3.5px",
+                  margin: "0 -3.5px",
+                  position: "relative" as "relative",
+                  zIndex: part.highlight ? 100 : part.quoted,
+                  background: part.highlight
+                    ? "rgb(255, 247, 158)"
+                    : part.quoted > 0 && showQuoted
+                      ? `rgb(255, ${240 - part.quoted * 10}, ${240 - part.quoted * 10})`
+                      : "",
+                }
+              : { padding: "2.4px 3.5px", margin: "0 -3.5px" }),
           };
           return typeof part.quote === "object" ? (
             <span style={style} key={i}>
               {part.text}{" "}
               <InlineQuote
                 quote={part.quote.render}
-                state={[part.quote.quote]}
+                state={part.quote.quotes}
               />
             </span>
           ) : (
@@ -93,17 +99,21 @@ function ParagraphBase({
       {content.lines.flatMap((line, i) => {
         const res = line.map((part, j) => (
           <span
-            style={{
-              padding: part.highlight ? "2.4px 3.5px" : "2.4px 0",
-              margin: part.highlight ? "0 -3.5px" : "0",
-              position: "relative" as "relative",
-              zIndex: part.highlight ? 10 : 0,
-              background: part.highlight
-                ? "rgb(255, 247, 158)"
-                : part.quoted > 0 && showQuoted
-                  ? `rgb(255, ${240 - part.quoted * 10}, ${240 - part.quoted * 10})`
-                  : "",
-            }}
+            style={
+              fills
+                ? {
+                    padding: "2.4px 3.5px",
+                    margin: "0 -3.5px",
+                    position: "relative" as "relative",
+                    zIndex: part.highlight ? 100 : part.quoted,
+                    background: part.highlight
+                      ? "rgb(255, 247, 158)"
+                      : part.quoted > 0 && showQuoted
+                        ? `rgb(255, ${240 - part.quoted * 10}, ${240 - part.quoted * 10})`
+                        : "",
+                  }
+                : { padding: "2.4px 3.5px", margin: "0 -3.5px" }
+            }
             key={`${i}-${j}`}
           >
             {part.text}
@@ -116,25 +126,66 @@ function ParagraphBase({
   return content.type !== "quote" ? (
     inner
   ) : (
-    <Column style={{ fontWeight: "bold", padding: "0 20px" }} gap={11.5}>
+    <Column
+      style={{
+        fontWeight: "bold",
+        padding: "0 20px",
+      }}
+      gap={11.5}
+    >
       {inner}
       {quotes.map((quote, i) => (
-        <BlockQuote key={i} quote={quote.render} state={[quote.quote]} />
+        <BlockQuote key={i} quote={quote.render} state={quote.quotes} />
       ))}
     </Column>
   );
-}
+};
+
+const ParagraphWrap = ({
+  para,
+  ...props
+}: {
+  content: RenderContent;
+  para: SemiPara;
+  paraId: string;
+  quotes: QuoteLink[];
+  showQuoted: boolean;
+}) => {
+  const hasFills = props.showQuoted || para.highlights.length > 0;
+  return (
+    <div style={{ position: "relative" }}>
+      {hasFills && (
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            color: "transparent",
+          }}
+        >
+          <ParagraphBase {...props} paraId={undefined} fills={true} />
+        </div>
+      )}
+      <div style={{ position: "relative", zIndex: 200 }}>
+        <ParagraphBase {...props} fills={false} />
+      </div>
+    </div>
+  );
+};
 
 export default function Paragraph({
   paraId,
+  para,
   content,
   quoted,
   quotes,
 }: {
   paraId: string;
+  para: SemiPara;
   content: RenderContent;
-  quoted: { quote: Quote; render: RenderQuote }[];
-  quotes: { quote: Quote; render: RenderQuote }[];
+  quoted: QuoteLink[];
+  quotes: QuoteLink[];
 }) {
   const [showQuoted, setShowQuoted] = useState(false);
 
@@ -143,8 +194,9 @@ export default function Paragraph({
       key={paraId}
       style={{ maxWidth: 670, width: "100%", margin: "0 auto" }}
     >
-      <ParagraphBase
+      <ParagraphWrap
         content={content}
+        para={para}
         paraId={paraId}
         quotes={quotes}
         showQuoted={showQuoted}
@@ -156,12 +208,14 @@ export default function Paragraph({
         maxWidth: 670,
         width: "100%",
         margin: "0 auto",
+        paddingBottom: showQuoted ? 20 : 0,
       }}
       gap={25}
       key={paraId}
     >
-      <ParagraphBase
+      <ParagraphWrap
         content={content}
+        para={para}
         paraId={paraId}
         quotes={quotes}
         showQuoted={showQuoted}
@@ -181,7 +235,7 @@ export default function Paragraph({
       </Text>
       {showQuoted &&
         quoted.map((quote, i) => (
-          <BlockQuote key={i} quote={quote.render} left state={[quote.quote]} />
+          <BlockQuote key={i} quote={quote.render} left state={quote.quotes} />
         ))}
     </Column>
   );

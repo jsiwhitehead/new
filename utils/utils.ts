@@ -1,4 +1,4 @@
-import type { Quote, Range, Ref, Section } from "./types.ts";
+import type { MultiQuote, Quote, Range, Ref, Section } from "./types.ts";
 
 export const capitalise = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
@@ -111,3 +111,44 @@ export const getIndices = (length: number, ...markers: Range[][]) =>
 
 export const mapRanges = <T>(indices: number[], map: (range: Range) => T) =>
   indices.slice(1).map((end, i) => map({ start: indices[i]!, end }));
+
+export const mergeQuotes = (quotes: Quote[]): MultiQuote[] => {
+  const res: { section: number; paragraph: number[]; quotes: Quote[] }[] = [];
+  for (const q of quotes) {
+    if (!res.find((s) => s.section === q.section)) {
+      res.push(
+        q.paragraph !== -1
+          ? { section: q.section, paragraph: [q.paragraph], quotes: [q] }
+          : { section: q.section, paragraph: [], quotes: [] }
+      );
+    } else {
+      const s = res.find((s) => s.section === q.section)!;
+      if (q.paragraph !== -1) {
+        s.paragraph.push(q.paragraph);
+        s.quotes.push(q);
+      }
+    }
+  }
+  return res;
+};
+
+export const joinQuotes = (quotes: Quote[][]): MultiQuote[][] => {
+  const merged = quotes.map((q) => mergeQuotes(q));
+  for (let i = 0; i < merged.length - 1; i++) {
+    if (merged[i]!.length === 1 && merged[i + 1]!.length === 1) {
+      const current = merged[i]![0]!;
+      const next = merged[i + 1]![0]!;
+      if (
+        current.section === next.section &&
+        (next.paragraph.length === 0 ||
+          current.paragraph[current.paragraph.length - 1]! <=
+            next.paragraph[0]!)
+      ) {
+        next.paragraph = [...current.paragraph, ...next.paragraph];
+        next.quotes = [...current.quotes, ...next.quotes];
+        merged[i] = [];
+      }
+    }
+  }
+  return merged;
+};

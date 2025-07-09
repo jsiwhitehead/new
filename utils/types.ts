@@ -12,6 +12,12 @@ export type Quote = Range & Ref;
 
 export type RefQuote = { range: Range; quote: Quote };
 
+export type MultiQuote = {
+  section: number;
+  paragraph: number[];
+  quotes: Quote[];
+};
+
 export type SectionContent =
   | string
   | { type: "break" }
@@ -60,13 +66,18 @@ export interface RenderQuote {
   author: string;
 }
 
+export type QuoteLink = {
+  quotes: Quote[];
+  render: RenderQuote;
+};
+
 export type RenderContent =
   | { type: "break" }
   | {
       text: string;
       quoted: number;
       highlight: boolean;
-      quote?: true | { quote: Quote; render: RenderQuote };
+      quote?: true | QuoteLink;
     }[]
   | {
       type: "info" | "call" | "framing" | "lines" | "quote";
