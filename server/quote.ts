@@ -1,4 +1,4 @@
-import type { MultiQuote, Ref, RenderQuote } from "../utils/types.ts";
+import type { MultiQuote, Quote, RenderQuote } from "../utils/types.ts";
 import { capitalise } from "../utils/utils.ts";
 
 import { data, getParagraphIds } from "./utils.ts";
@@ -27,7 +27,7 @@ const getParasString = (paras: number[], paraIds: string[]) => {
   return result.join(", ");
 };
 
-export const getUrlQuote = (ref: Ref | MultiQuote): RenderQuote => {
+export const getUrlQuote = (ref: Quote | MultiQuote): RenderQuote => {
   let current = "";
   const section = data[ref.section]!;
   const res: [string, string][] = section.path.map((p) => {
@@ -46,9 +46,15 @@ export const getUrlQuote = (ref: Ref | MultiQuote): RenderQuote => {
       paragraphs.includes(i)
     )
   ) {
+    const firstPara = Math.min(...paragraphs);
+    const ranges =
+      "quotes" in ref
+        ? ref.quotes.filter((q) => q.paragraph === firstPara)
+        : [ref];
+
     res.push([
       getParasString(paragraphs, paraIds),
-      `${current}#${paraIds[Math.min(...paragraphs)]}`,
+      `${current}#${paraIds[firstPara]}_${Math.min(...ranges.map((r) => r.start))}`,
     ]);
   }
 

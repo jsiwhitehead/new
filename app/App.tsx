@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 
-import type { QuoteLink, RenderContent, SemiPara } from "../utils/types";
+import type { QuoteLink, Ref, RenderContent, SemiPara } from "../utils/types";
 
 import Controls from "./Controls";
 import Paragraph from "./Paragraph";
@@ -20,6 +20,7 @@ export default function App({
       paraId: string;
       para: SemiPara;
       content: RenderContent;
+      ref: Ref;
     }[];
   }[];
   path: [string, string][];
@@ -72,7 +73,10 @@ export default function App({
                 ))}
               </Column>
               {content.map((para) => (
-                <Paragraph key={para.paraId} {...para} />
+                <Paragraph
+                  key={`${para.ref.section}:${para.ref.paragraph}`}
+                  {...para}
+                />
               ))}
             </Column>
           </Fragment>

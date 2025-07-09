@@ -39,7 +39,10 @@ const alternateQuoteMarks = (para: SemiPara) => {
   para.text = res;
 };
 
-export const getRenderContent = (para: SemiPara): RenderContent => {
+export const getRenderContent = (
+  para: SemiPara,
+  paraId: string
+): RenderContent => {
   capitaliseQuotes(para);
   alternateQuoteMarks(para);
 
@@ -48,6 +51,8 @@ export const getRenderContent = (para: SemiPara): RenderContent => {
   if (para.text === ". . .") {
     return [{ text: ". . .", quoted: 0, highlight: false }];
   }
+
+  const highlightIndices = getIndices(para.text.length, para.highlights);
 
   if (para.quotes) {
     for (let i = 0; i < para.quotes!.length; i++) {
@@ -126,6 +131,9 @@ export const getRenderContent = (para: SemiPara): RenderContent => {
           quoted: para.quoted.filter((q) => doesRangeInclude(q.range, range))
             .length,
           highlight: para.highlights.some((h) => doesRangeInclude(h, range)),
+          id: highlightIndices.includes(range.start)
+            ? `${paraId}_${range.start}`
+            : undefined,
         })),
       ],
       allSpecial: para.allSpecial,
@@ -148,6 +156,9 @@ export const getRenderContent = (para: SemiPara): RenderContent => {
           quoted: para.quoted.filter((q) => doesRangeInclude(q.range, range))
             .length,
           highlight: para.highlights.some((h) => doesRangeInclude(h, range)),
+          id: highlightIndices.includes(range.start)
+            ? `${paraId}_${range.start}`
+            : undefined,
         }));
       }),
       allSpecial: para.allSpecial,
@@ -174,6 +185,9 @@ export const getRenderContent = (para: SemiPara): RenderContent => {
         quoted: para.quoted.filter((q) => doesRangeInclude(q.range, moved))
           .length,
         highlight: para.highlights.some((h) => doesRangeInclude(h, moved)),
+        id: highlightIndices.includes(moved.start)
+          ? `${paraId}_${moved.start}`
+          : undefined,
       };
     });
     current += part.text.length;

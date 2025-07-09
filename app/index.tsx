@@ -49,7 +49,7 @@ const Root = () => {
           }
         }
       }
-      return { ...c, para, content: getRenderContent(para) };
+      return { ...c, para, content: getRenderContent(para, c.paraId) };
     }),
   }));
   return (

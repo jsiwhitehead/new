@@ -77,10 +77,16 @@ export type RenderContent =
       text: string;
       quoted: number;
       highlight: boolean;
+      id?: string;
       quote?: true | QuoteLink;
     }[]
   | {
       type: "info" | "call" | "framing" | "lines" | "quote";
-      lines: { text: string; quoted: number; highlight: boolean }[][];
+      lines: {
+        text: string;
+        quoted: number;
+        highlight: boolean;
+        id?: string;
+      }[][];
       allSpecial: boolean;
     };

@@ -7,31 +7,25 @@ import { Column, Text } from "./Utils";
 
 const ParagraphBase = ({
   content,
-  paraId,
   quotes,
   showQuoted,
   fills,
 }: {
   content: RenderContent;
-  paraId?: string;
   quotes: QuoteLink[];
   showQuoted: boolean;
   fills: boolean;
 }) => {
   if ("type" in content && content.type === "break") {
     return (
-      <Text
-        id={paraId}
-        size={13}
-        style={{ textAlign: "center", padding: "10px 0" }}
-      >
+      <Text size={13} style={{ textAlign: "center", padding: "10px 0" }}>
         * * *
       </Text>
     );
   }
   if (Array.isArray(content)) {
     return (
-      <Text id={paraId} style={{ textIndent: 20 }}>
+      <Text style={{ textIndent: 20 }}>
         {content.map((part, i) => {
           const style = {
             fontWeight: part.quote ? "bold" : "normal",
@@ -50,7 +44,7 @@ const ParagraphBase = ({
               : { padding: "2.4px 3.5px", margin: "0 -3.5px" }),
           };
           return typeof part.quote === "object" ? (
-            <span style={style} key={i}>
+            <span id={!fills ? part.id : undefined} style={style} key={i}>
               {part.text}{" "}
               <InlineQuote
                 quote={part.quote.render}
@@ -58,7 +52,7 @@ const ParagraphBase = ({
               />
             </span>
           ) : (
-            <span style={style} key={i}>
+            <span id={!fills ? part.id : undefined} style={style} key={i}>
               {part.text}
             </span>
           );
@@ -69,7 +63,6 @@ const ParagraphBase = ({
 
   const inner = (
     <Text
-      id={paraId}
       style={{
         fontStyle:
           content.type === "info" || content.type === "framing"
@@ -99,6 +92,7 @@ const ParagraphBase = ({
       {content.lines.flatMap((line, i) => {
         const res = line.map((part, j) => (
           <span
+            id={!fills ? part.id : undefined}
             style={
               fills
                 ? {
@@ -164,7 +158,7 @@ const ParagraphWrap = ({
             color: "transparent",
           }}
         >
-          <ParagraphBase {...props} paraId={undefined} fills={true} />
+          <ParagraphBase {...props} fills={true} />
         </div>
       )}
       <div style={{ position: "relative", zIndex: 200 }}>
