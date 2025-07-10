@@ -87,7 +87,7 @@ const getData = (
   const [path] = collapseSingleKeys(filteredTree, urlPath.length);
 
   const searchTree = {} as any;
-  for (const section of searchSections) {
+  for (const section of searchSections.filter((s) => !data[s]!.meta)) {
     data[section]!.path.reduce((res, p) => {
       const key = JSON.stringify([p[0], p[1]]);
       return (res[key] = res[key] || {});
@@ -109,7 +109,8 @@ const getData = (
     ].includes(urlPath.join("/")) ||
     (urlPath.length > 1 &&
       ["documents", "ruhi", "compilations"].includes(urlPath[0]!)) ||
-    (urlPath.length > 2 && urlPath[1] === "bahaullah-new-era");
+    (urlPath.length > 2 &&
+      ["bahai-sacred-writings", "bahaullah-new-era"].includes(urlPath[1]!));
 
   if (!showContent) {
     return { docs: [], path, tree: nestedTree, showContent: false };

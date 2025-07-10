@@ -28,6 +28,7 @@
         "orer": "ourer",
         "oreds": "oureds",
         "ored": "oured",
+        "orly": "ourly",
         "ory": "oury",
         "ors": "ours",
         "or": "our"
@@ -151,6 +152,7 @@
         "swive",
         "tasse",
         "towe",
+        "tramme",
         "trave",
         "tria",
         "tunne",
@@ -744,7 +746,7 @@
 
     "magellanes": "magallanes",
 
-    "loath": "loth",
+    "loth": "loath",
 
     "likable": "likeable",
 
@@ -1093,10 +1095,6 @@
     "dawn tide": "dawntide",
     "day‑spring": "dayspring",
     "day spring": "dayspring",
-    "day‑star": "daystar",
-    "day star": "daystar",
-    "day‑stars": "daystars",
-    "day stars": "daystars",
     "day‑time": "daytime",
     "day time": "daytime",
     "death‑bed": "deathbed",
@@ -1312,6 +1310,10 @@
     "cosharers": "co‑sharers",
     "coworkers": "co‑workers",
     "cupbearer": "cup‑bearer",
+    "daystar": "day‑star",
+    "day star": "day‑star",
+    "daystars": "day‑stars",
+    "day stars": "day‑stars",
     "deepfelt": "deep‑felt",
     "deepseated": "deep‑seated",
     "everexistent": "ever‑existent",

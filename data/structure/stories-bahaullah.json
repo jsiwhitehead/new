@@ -37,7 +37,8 @@
     "path": [
       ["Stories", "stories", 10],
       ["Stories of Bahá’u’lláh", "bahaullah", 3],
-      ["Stories of Bahá’u’lláh", "stories-of-bahaullah", 3]
+      ["Stories of Bahá’u’lláh", "stories-of-bahaullah", 3],
+      ["Opening quotations", "opening-quotations", 1]
     ],
     "years": [3000, 3000],
     "content": [
@@ -53,7 +54,7 @@
       [
         "He was heralded by the Báb, Himself a Manifestation of God",
         "he-was-heralded-by-the-bab-himself-a-manifestation-of-god",
-        1
+        2
       ]
     ],
     "years": [3000, 3000],
@@ -78,7 +79,7 @@
       [
         "Bahá’u’lláh—A descendant of Abraham and Zoroaster, promoting the Cause of the Báb; The first intimations of His station",
         "bahaullah-a-descendant-of-abraham-and-zoroaster-promoting-the-cause-of-the-bab-the-first-intimations-of-his-station",
-        2
+        3
       ]
     ],
     "years": [3000, 3000],
@@ -105,7 +106,7 @@
       [
         "He was a kind father to the downtrodden, the poor and needy",
         "he-was-a-kind-father-to-the-downtrodden-the-poor-and-needy",
-        3
+        4
       ]
     ],
     "years": [3000, 3000],
@@ -125,7 +126,7 @@
       [
         "From His early youth signs of greatness were apparent",
         "from-his-early-youth-signs-of-greatness-were-apparent",
-        4
+        5
       ]
     ],
     "years": [3000, 3000],
@@ -145,7 +146,7 @@
       [
         "He always defended the Prophets of the past",
         "he-always-defended-the-prophets-of-the-past",
-        5
+        6
       ]
     ],
     "years": [3000, 3000],
@@ -174,7 +175,7 @@
       [
         "He directed the transfer of the remains of the Báb",
         "he-directed-the-transfer-of-the-remains-of-the-bab",
-        6
+        7
       ]
     ],
     "years": [3000, 3000],
@@ -207,7 +208,7 @@
       [
         "He directed the rescue of Ṭáhirih",
         "he-directed-the-rescue-of-tahirih",
-        7
+        8
       ]
     ],
     "years": [3000, 3000],
@@ -232,7 +233,7 @@
       [
         "He unveiled the glory of the new Faith to Fáṭimih‑Bagum, the mother of the Báb",
         "he-unveiled-the-glory-of-the-new-faith-to-fatimih-bagum-the-mother-of-the-bab",
-        8
+        9
       ]
     ],
     "years": [3000, 3000],
@@ -249,7 +250,7 @@
       [
         "He assented to the requests of Khadíjih‑Bagum, the wife of the Báb",
         "he-assented-to-the-requests-of-khadijih-bagum-the-wife-of-the-bab",
-        9
+        10
       ]
     ],
     "years": [3000, 3000],
@@ -272,7 +273,7 @@
       ["Stories", "stories", 10],
       ["Stories of Bahá’u’lláh", "bahaullah", 3],
       ["Stories of Bahá’u’lláh", "stories-of-bahaullah", 3],
-      ["He favoured Maryam", "he-favoured-maryam", 10]
+      ["He favoured Maryam", "he-favoured-maryam", 11]
     ],
     "years": [3000, 3000],
     "content": [
@@ -290,7 +291,7 @@
       [
         "Sárih Khánum and Sakínih Khánum, faithful sisters",
         "sarih-khanum-and-sakinih-khanum-faithful-sisters",
-        11
+        12
       ]
     ],
     "years": [3000, 3000],
@@ -306,7 +307,7 @@
       [
         "Release from the Síyáh‑Chál and exile",
         "release-from-the-siyah-chal-and-exile",
-        12
+        13
       ]
     ],
     "years": [3000, 3000],
@@ -339,7 +340,7 @@
       [
         "He vindicated the miracles of all the Prophets",
         "he-vindicated-the-miracles-of-all-the-prophets",
-        13
+        14
       ]
     ],
     "years": [3000, 3000],
@@ -360,7 +361,7 @@
       [
         "His glory made His enemies humble in His presence",
         "his-glory-made-his-enemies-humble-in-his-presence",
-        14
+        15
       ]
     ],
     "years": [3000, 3000],
@@ -380,7 +381,7 @@
       [
         "The declaration of His station fulfilled the prophecies",
         "the-declaration-of-his-station-fulfilled-the-prophecies",
-        15
+        16
       ]
     ],
     "years": [3000, 3000],
@@ -408,7 +409,7 @@
       [
         "Never before in the history of religion, with the exception of the Bábí Dispensation, has a Manifestation of God left to posterity Tablets written in His own hand",
         "never-before-in-the-history-of-religion-with-the-exception-of-the-babi-dispensation-has-a-manifestation-of-god-left-to-posterity-tablets-written-in-his-own-hand",
-        16
+        17
       ]
     ],
     "years": [3000, 3000],
@@ -428,7 +429,7 @@
       [
         "The verses of God streamed forth as in a copious rain",
         "the-verses-of-god-streamed-forth-as-in-a-copious-rain",
-        17
+        18
       ]
     ],
     "years": [3000, 3000],
@@ -450,7 +451,7 @@
       [
         "The revelation of the Kitáb‑i‑Aqdas, the Most Holy Book",
         "the-revelation-of-the-kitab-i-aqdas-the-most-holy-book",
-        18
+        19
       ]
     ],
     "years": [3000, 3000],
@@ -463,7 +464,7 @@
       "After its revelation Bahá’u’lláh permitted Zaynu’l‑Muqarrabín, one of His devoted companions, who was formerly a mujtahid (Doctor of Islámic law) and highly experienced in the application of Islámic law, to ask any questions he might have regarding the application of the laws of Bahá’u’lláh. The answers given by Him are contained in a book known as Questions and Answers which is to be regarded as an appendix to the Kitáb‑i‑Aqdas.",
       "In a Tablet written by Mírzá Áqá Ján, Bahá’u’lláh’s amanuensis, dated 15th of Jamádiyu’l‑Avval 1290 (11 July 1873), it is stated that the Kitáb‑i‑Aqdas was revealed around that time. It also refers to the circumstances which led to its revelation. For some years, the believers had been asking questions about the laws of the Faith, but Bahá’u’lláh did not find it timely to respond to them. While in Adrianople He revealed a number of laws in His Persian writings, but did not release them to the believers. Questions continued to come to him while in ‘Akká, and when the time was propitious, Bahá’u’lláh revealed the Kitáb‑i‑Aqdas. But from the beginning He stressed to His followers the need to be discreet and wise in the implementation of its laws. He advised them not to practise any of its provisions which might prove to be untimely or could cause agitation or disturbance among the people.",
       "Shortly after the revelation of the Kitáb‑i‑Aqdas, Ḥájí Siyyid Javád‑i‑Karbilá’í, a distinguished believer who was held in high esteem by the community, was anxious for the Bahá’ís to implement the laws of that Book. In a Tablet addressed to him, Bahá’u’lláh discloses the preeminent position which the Kitáb‑i‑Aqdas occupies, refers to it as the most great magnet through which the hearts of the peoples of the world will be attracted, and prophesies that through it the majesty and sovereignty of God will, erelong, be made manifest. But He counsels Ḥájí Siyyid Javád to exercise caution and wisdom in the implementation of its laws at that time. The following is an extract from the above‑mentioned Tablet to Ḥájí Siyyid Javád:",
-      "For a number of years, petitions reach the Most Holy Presence from various lands begging for the laws of God, but We held back the Pen ere the appointed time had come. Thereupon the Daystar of the laws and ordinances shone forth from above the horizon of the Will of God, as a token of His grace unto the peoples of the world. He, verily, is the Ever‑Forgiving, the Most Generous . . . Indeed the laws of God are like unto the ocean and the children of men as fish, did they but know it. However, in observing them one must exercise tact and wisdom . . . Since most people are feeble and far removed from the purpose of God, therefore one must observe tact and prudence under all conditions, so that nothing might happen that could cause disturbance and dissension or raise clamour among the heedless. Verily, His bounty hath surpassed the whole universe and His bestowals encompassed all that dwell on earth. One must guide mankind to the ocean of true understanding in a spirit of love and tolerance. The Kitáb‑i‑Aqdas itself beareth eloquent testimony to the loving providence of God.",
+      "For a number of years, petitions reach the Most Holy Presence from various lands begging for the laws of God, but We held back the Pen ere the appointed time had come. Thereupon the Day‑star of the laws and ordinances shone forth from above the horizon of the Will of God, as a token of His grace unto the peoples of the world. He, verily, is the Ever‑Forgiving, the Most Generous . . . Indeed the laws of God are like unto the ocean and the children of men as fish, did they but know it. However, in observing them one must exercise tact and wisdom . . . Since most people are feeble and far removed from the purpose of God, therefore one must observe tact and prudence under all conditions, so that nothing might happen that could cause disturbance and dissension or raise clamour among the heedless. Verily, His bounty hath surpassed the whole universe and His bestowals encompassed all that dwell on earth. One must guide mankind to the ocean of true understanding in a spirit of love and tolerance. The Kitáb‑i‑Aqdas itself beareth eloquent testimony to the loving providence of God.",
       "In the same year that the Kitáb‑i‑Aqdas was revealed Bahá’u’lláh allowed Jamál‑i‑Burújirdí, who was then in ‘Akká, to copy parts of it and share it with the friends in Persia. But again He emphasised wisdom and discretion in the application of its laws. Through their mercy and compassion the Manifestations of God do not announce all their new laws to their followers suddenly. Knowing man’s strong attachment to old laws and customs, they introduce their new laws gradually over a period of time during which their followers become enlightened and ready to receive them.",
       "The study of the Writings of Bahá’u’lláh and ‘Abdu’l‑Bahá makes it clear that most of the laws of the Kitáb‑i‑Aqdas, apart from those which are of a spiritual nature, or in conformity with the conditions prevailing at the time, are designed for the future when the Bahá’í Faith becomes the religion of the land. It is then that these laws will be fully implemented within the framework of a new civilisation which is to emerge later from amidst the chaos and confusion of present‑day society.",
       "Shoghi Effendi, the Guardian of the Faith, has described the laws of the Kitáb‑i‑Aqdas as the “warp and woof” of Bahá’u’lláh’s World Order. Without these laws, mankind will not be able to take part in the establishment of the promised Kingdom of God on earth. The World Order of Bahá’u’lláh, however, is still growing in its embryonic form. In the fullness of time it will be born and will usher in an age the glories of which we in this day cannot fully visualise, an age in which the teachings of Bahá’u’lláh will guide and govern the life of man on this planet. Then and only then will the wisdom and significance of all the laws of the Kitáb‑i‑Aqdas become manifest, their relevance to the needs of the age become apparent and their application become a vital necessity."
@@ -477,7 +478,7 @@
       [
         "The Revelation of the Kitáb‑i‑Íqán",
         "the-revelation-of-the-kitab-i-iqan",
-        19
+        20
       ]
     ],
     "years": [3000, 3000],
@@ -500,7 +501,7 @@
       ["Stories", "stories", 10],
       ["Stories of Bahá’u’lláh", "bahaullah", 3],
       ["Stories of Bahá’u’lláh", "stories-of-bahaullah", 3],
-      ["Chanting God’s Verses", "chanting-gods-verses", 20]
+      ["Chanting God’s Verses", "chanting-gods-verses", 21]
     ],
     "years": [3000, 3000],
     "content": [
@@ -516,7 +517,7 @@
       [
         "The verses of God were rapidly revealed, without prior contemplation",
         "the-verses-of-god-were-rapidly-revealed-without-prior-contemplation",
-        21
+        22
       ]
     ],
     "years": [3000, 3000],
@@ -535,7 +536,7 @@
       [
         "The sayings of the learned appeared before His face",
         "the-sayings-of-the-learned-appeared-before-his-face",
-        22
+        23
       ]
     ],
     "years": [3000, 3000],
@@ -554,7 +555,7 @@
       [
         "The Ancient Beauty submitted Himself to a ruthless enemy",
         "the-ancient-beauty-submitted-himself-to-a-ruthless-enemy",
-        23
+        24
       ]
     ],
     "years": [3000, 3000],
@@ -572,7 +573,7 @@
       [
         "Tribulations will make the Cause victorious",
         "tribulations-will-make-the-cause-victorious",
-        24
+        25
       ]
     ],
     "years": [3000, 3000],
@@ -594,7 +595,7 @@
       [
         "During His exile to Sulaymáníyyih, He became the focal point for true knowledge",
         "during-his-exile-to-sulaymaniyyih-he-became-the-focal-point-for-true-knowledge",
-        25
+        26
       ]
     ],
     "years": [3000, 3000],
@@ -619,7 +620,7 @@
       [
         "The acts of some believers increased His sorrows",
         "the-acts-of-some-believers-increased-his-sorrows",
-        26
+        27
       ]
     ],
     "years": [3000, 3000],
@@ -637,7 +638,7 @@
       [
         "There were days when a mere loaf of bread was not available to Him",
         "there-were-days-when-a-mere-loaf-of-bread-was-not-available-to-him",
-        27
+        28
       ]
     ],
     "years": [3000, 3000],
@@ -653,7 +654,7 @@
       [
         "Knowing he had no power to confront Bahá’u’lláh, Mírzá Yaḥyá attempted to take His life",
         "knowing-he-had-no-power-to-confront-bahaullah-mirza-yahya-attempted-to-take-his-life",
-        28
+        29
       ]
     ],
     "years": [3000, 3000],
@@ -673,7 +674,7 @@
       [
         "He came to this corrupt world to establish justice, trust, security and faith",
         "he-came-to-this-corrupt-world-to-establish-justice-trust-security-and-faith",
-        29
+        30
       ]
     ],
     "years": [3000, 3000],
@@ -701,7 +702,7 @@
       [
         "The “Most Great House” in Baghdád",
         "the-most-great-house-in-baghdad",
-        30
+        31
       ]
     ],
     "years": [3000, 3000],
@@ -722,7 +723,7 @@
       [
         "His movements, His manners, were a miracle",
         "his-movements-his-manners-were-a-miracle",
-        31
+        32
       ]
     ],
     "years": [3000, 3000],
@@ -740,7 +741,7 @@
       [
         "The transcendental majesty of His Person",
         "the-transcendental-majesty-of-his-person",
-        32
+        33
       ]
     ],
     "years": [3000, 3000],
@@ -756,7 +757,7 @@
       ["Stories", "stories", 10],
       ["Stories of Bahá’u’lláh", "bahaullah", 3],
       ["Stories of Bahá’u’lláh", "stories-of-bahaullah", 3],
-      ["Some accounts of His glory", "some-accounts-of-his-glory", 33]
+      ["Some accounts of His glory", "some-accounts-of-his-glory", 34]
     ],
     "years": [3000, 3000],
     "content": [
@@ -787,7 +788,7 @@
       [
         "The majesty of Bahá’u’lláh was overwhelming",
         "the-majesty-of-bahaullah-was-overwhelming",
-        34
+        35
       ]
     ],
     "years": [3000, 3000],
@@ -805,7 +806,7 @@
       [
         "He lived with the utmost simplicity in the path of God",
         "he-lived-with-the-utmost-simplicity-in-the-path-of-god",
-        35
+        36
       ]
     ],
     "years": [3000, 3000],
@@ -820,7 +821,7 @@
       ["Stories", "stories", 10],
       ["Stories of Bahá’u’lláh", "bahaullah", 3],
       ["Stories of Bahá’u’lláh", "stories-of-bahaullah", 3],
-      ["He lived a life of austerity", "he-lived-a-life-of-austerity", 36]
+      ["He lived a life of austerity", "he-lived-a-life-of-austerity", 37]
     ],
     "years": [3000, 3000],
     "content": [
@@ -838,7 +839,7 @@
       ["Stories", "stories", 10],
       ["Stories of Bahá’u’lláh", "bahaullah", 3],
       ["Stories of Bahá’u’lláh", "stories-of-bahaullah", 3],
-      ["He caused the stars to fall", "he-caused-the-stars-to-fall", 37]
+      ["He caused the stars to fall", "he-caused-the-stars-to-fall", 38]
     ],
     "years": [3000, 3000],
     "content": [
@@ -863,7 +864,7 @@
       [
         "He “chastises with the scourge of loving‑kindness and compassion”",
         "he-chastises-with-the-scourge-of-loving-kindness-and-compassion",
-        38
+        39
       ]
     ],
     "years": [3000, 3000],
@@ -886,7 +887,7 @@
       [
         "The “Most Great Separation” between truth and falsehood",
         "the-most-great-separation-between-truth-and-falsehood",
-        39
+        40
       ]
     ],
     "years": [3000, 3000],
@@ -911,7 +912,7 @@
       ["Stories", "stories", 10],
       ["Stories of Bahá’u’lláh", "bahaullah", 3],
       ["Stories of Bahá’u’lláh", "stories-of-bahaullah", 3],
-      ["He feared no one", "he-feared-no-one", 40]
+      ["He feared no one", "he-feared-no-one", 41]
     ],
     "years": [3000, 3000],
     "content": [
@@ -926,7 +927,7 @@
       "Mírzá Áqá Ján mentions that when Bahá’u’lláh left for the mosque with Mír Muḥammad, he himself was not in the house, as he had gone to attend to some business in town. He heard the news and hastened back. On his way he saw a large crowd on both sides of the street and they told him that Bahá’u’lláh had just gone to the mosque of Sulṭán Salím. Mírzá Áqá Ján immediately went to the mosque, where he found Bahá’u’lláh uttering the verses of God in majestic tone and in great profusion. None of the companions of Bahá’u’lláh was permitted by Him to accompany Him except Mír Muḥammad and Mírzá Áqá Ján who followed. Those members of the public who were in the mosque were amazed by what they saw. So powerful were the words of Bahá’u’lláh that a Persian man who heard them was awestruck; he was trembling all over and tears flowed from his eyes. Bahá’u’lláh at one point ordered Mír Muḥammad to go and call Mírzá Yaḥyá to come with all his sins and transgressions and face his Lord. Bahá’u’lláh remained in the mosque till near sunset, while Mírzá Yaḥyá and Siyyid Muḥammad stayed at home and gave some excuses to Mír Muḥammad for not attending.",
       "Ḥájí Mírzá Ḥaydar‑‘Alí, who was in Adrianople at the time, has written the account of that day. This is a translation of some of his reminiscences:",
       "The meeting was to be on Friday at the mosque of Sulṭán Salím at the time of the congregational prayer when the Muslims gather inside in great numbers . . . Mír Muḥammad‑i‑Mukárí from Shíráz who was a Bábí could not imagine that Azal had broken the Covenant. So he begged the Blessed Beauty to enlighten him. Bahá’u’lláh said to him that if ever Azal came face to face with Him at a meeting place, then he could consider Azal’s claims to be true. Mír Muḥammad accepted this statement as a criterion for distinguishing between truth and falsehood, and he endeavoured to bring this meeting about.",
-      "The news and date of the confrontation became known among the peoples of Muslim, Christian and Jewish religions in the city. All of them had heard of the miracles of Moses and the story of His confrontation with Pharaoh. And now they were expecting the meeting face to face in the mosque between His Holiness the Shaykh Effendi (a designation by which the people called Bahá’u’lláh to express their reverence for Him) and Mírzá ‘Alí who had denied Him. (For fear of being recognised, Azal had called himself by this name.) Therefore, from the morning of Friday until before noon, a large multitude drawn from the followers of these three religions had thronged the area between the house of Amru’lláh . . . and the entrance to the mosque. The crowd was so large that it was difficult to move about. Bahá’u’lláh, the Daystar of Glory, emerged from His home . . . and as He passed through the crowd, people showed such reverence as is difficult to describe. They greeted Him with salutations, bowed and opened the way for Him to pass. Many of them prostrated themselves at His feet and kissed them. Bahá’u’lláh, the Countenance of majesty and omnipotence, in acknowledgement greeted the crowd by raising His hands (as was customary among the Ottomans), and expressed His good wishes. This continued all the way to the mosque. As soon as He entered the mosque, the preacher, who was delivering his discourse, became speechless or perhaps he forgot his words. Bahá’u’lláh went forward, seated Himself and then gave permission to the preacher to continue. Eventually the preaching and prayers came to an end. But Azal did not turn up. We heard that he had feigned illness and asked to be excused.",
+      "The news and date of the confrontation became known among the peoples of Muslim, Christian and Jewish religions in the city. All of them had heard of the miracles of Moses and the story of His confrontation with Pharaoh. And now they were expecting the meeting face to face in the mosque between His Holiness the Shaykh Effendi (a designation by which the people called Bahá’u’lláh to express their reverence for Him) and Mírzá ‘Alí who had denied Him. (For fear of being recognised, Azal had called himself by this name.) Therefore, from the morning of Friday until before noon, a large multitude drawn from the followers of these three religions had thronged the area between the house of Amru’lláh . . . and the entrance to the mosque. The crowd was so large that it was difficult to move about. Bahá’u’lláh, the Day‑star of Glory, emerged from His home . . . and as He passed through the crowd, people showed such reverence as is difficult to describe. They greeted Him with salutations, bowed and opened the way for Him to pass. Many of them prostrated themselves at His feet and kissed them. Bahá’u’lláh, the Countenance of majesty and omnipotence, in acknowledgement greeted the crowd by raising His hands (as was customary among the Ottomans), and expressed His good wishes. This continued all the way to the mosque. As soon as He entered the mosque, the preacher, who was delivering his discourse, became speechless or perhaps he forgot his words. Bahá’u’lláh went forward, seated Himself and then gave permission to the preacher to continue. Eventually the preaching and prayers came to an end. But Azal did not turn up. We heard that he had feigned illness and asked to be excused.",
       "In every city in the Ottoman Empire, there are Mawlavís, who are dervishes and followers of Mawlaví (Jaláli’d‑Dín‑i‑Rúmí), the author of Mathnaví. Every Friday they hold their services in their takyihs (centres of congregation) when they whirl around their master and chant certain words in unison. Inside its chambers some play music and sing delightful melodies. When Bahá’u’lláh was about to leave the mosque He said: “We owe a visit to the Mawlavís. We had better go to their takyih.” As He rose to go, the Governor of Adrianople and other dignitaries, together with the divines, availed themselves of the opportunity to be in His presence and so they accompanied Him. As a token of their humility and courtesy, the Governor, the Shaykhu’l‑Islám, the ‘Ulamá and other dignitaries walked four or five steps behind Bahá’u’lláh while the stream of His utterance was flowing. Sometimes, through His grace and loving‑kindness, Bahá’u’lláh would stop and beckon the Governor and the others to walk in front. But they would refuse to do so. In this way, with majesty and glory born of God, Bahá’u’lláh arrived in the takyih. At that time the Shaykh of the Mawlavís was standing in the centre and the dervishes were circling around and chanting. As soon as their eyes beheld Him, they all stopped their service without any reason. They bowed and showed their respect for Him and became absolutely silent. Bahá’u’lláh then seated Himself, permitted others who were with Him to be seated, and then He gave permission to the Shaykh to resume his service again.",
       "The news was widely circulated in Adrianople that when Shaykh Effendi (Bahá’u’lláh) had entered the mosque the preacher was unable to deliver his sermon and when he went to the takyih the dervishes and their leader forgot their words and stopped their service. The following evening some believers attained His presence and I was among them . . . Bahá’u’lláh made these remarks: “When We entered the crowded mosque, the preacher forgot the words of his sermon, and when We arrived inside the takyih, the dervishes were suddenly filled with such awe and wonder that they became speechless and silent. However, since people are brought up in vain imaginings, they foolishly consider such events as supernatural acts and regard them as miracles!”",
       "Ḥájí Mírzá Ḥaydar‑‘Alí then describes how much he was touched by these words of Bahá’u’lláh. Through these words he clearly saw the difference between the ways of God and those of man. He recalls his meetings with men of eminence, leaders of religion and outstanding personalities who, without exception, were eager to publicise their slightest achievements and to exploit every opportunity through which they could enhance their fame and consolidate their positions. But this is not so with the Manifestations of God. Bahá’u’lláh, in this instance, by refuting the claims of the people who attributed miracles to Him, demonstrated that His glory does not depend upon the praise of men and their actions. He stands far above the human world and is its Ruler.",
@@ -945,7 +946,7 @@
       [
         "The Persian ambassador finally saw in Him divine attributes Those mainly responsible for Bahá’u’lláh’s final banishment from Adrianople to ‘Akká were the Prime Minister, ‘Alí Páshá, the Foreign Minister, Fu’ád Páshá and the Persian Ambassador, Ḥájí Mírzá Ḥusayn Khán (the Mushíru’d‑Dawlih). These three worked together closely until they succeeded in their efforts to banish Bahá’u’lláh to ‘Akká and to impose on Him life imprisonment within the walls of that prison city. Bahá’u’lláh prophesied that ‘Alí Páshá and Fu’ád Páshá would be struck down by the hand of God as a punishment for their action.",
         "the-persian-ambassador-finally-saw-in-him-divine-attributes-those-mainly-responsible-for-bahaullahs-final-banishment-from-adrianople-to-akka-were-the-prime-minister-ali-pasha-the-foreign-minister-fuad-pasha-and-the-persian-ambassador-haji-mirza-husayn-khan-the-mushirud-dawlih-these-three-worked-together-closely-until-they-succeeded-in-their-efforts-to-banish-bahaullah-to-akka-and-to-impose-on-him-life-imprisonment-within-the-walls-of-that-prison-city-bahaullah-prophesied-that-ali-pasha-and-fuad-pasha-would-be-struck-down-by-the-hand-of-god-as-a-punishment-for-their-action",
-        41
+        42
       ]
     ],
     "years": [3000, 3000],
@@ -963,7 +964,7 @@
       ["Stories", "stories", 10],
       ["Stories of Bahá’u’lláh", "bahaullah", 3],
       ["Stories of Bahá’u’lláh", "stories-of-bahaullah", 3],
-      ["The exile from Adrianople", "the-exile-from-adrianople", 42]
+      ["The exile from Adrianople", "the-exile-from-adrianople", 43]
     ],
     "years": [3000, 3000],
     "content": [
@@ -993,7 +994,7 @@
       [
         "His arrival at ‘Akká, the Most Great Prison",
         "his-arrival-at-akka-the-most-great-prison",
-        43
+        44
       ]
     ],
     "years": [3000, 3000],
@@ -1017,7 +1018,7 @@
       [
         "‘Akká—The most desolate of cities",
         "akka-the-most-desolate-of-cities",
-        44
+        45
       ]
     ],
     "years": [3000, 3000],
@@ -1045,7 +1046,7 @@
       [
         "His enemies intended that His imprisonment would destroy the Cause",
         "his-enemies-intended-that-his-imprisonment-would-destroy-the-cause",
-        45
+        46
       ]
     ],
     "years": [3000, 3000],
@@ -1065,7 +1066,7 @@
       [
         "The fulfilment of the prophecy of His coming to ‘Akká",
         "the-fulfilment-of-the-prophecy-of-his-coming-to-akka",
-        46
+        47
       ]
     ],
     "years": [3000, 3000],
@@ -1084,7 +1085,7 @@
       [
         "He revealed a healing prayer for the believers",
         "he-revealed-a-healing-prayer-for-the-believers",
-        47
+        48
       ]
     ],
     "years": [3000, 3000],
@@ -1103,7 +1104,7 @@
       [
         "His response to attempts on His life",
         "his-response-to-attempts-on-his-life",
-        48
+        49
       ]
     ],
     "years": [3000, 3000],
@@ -1126,7 +1127,7 @@
       [
         "The Muftí of ‘Akká, became attracted to Bahá’u’lláh",
         "the-mufti-of-akka-became-attracted-to-bahaullah",
-        49
+        50
       ]
     ],
     "years": [3000, 3000],
@@ -1146,7 +1147,7 @@
       [
         "The guards saw that the Prisoner was endowed with divine authority",
         "the-guards-saw-that-the-prisoner-was-endowed-with-divine-authority",
-        50
+        51
       ]
     ],
     "years": [3000, 3000],
@@ -1163,7 +1164,7 @@
       [
         "The death of Mírzá Mihdí, His youngest son",
         "the-death-of-mirza-mihdi-his-youngest-son",
-        51
+        52
       ]
     ],
     "years": [3000, 3000],
@@ -1192,7 +1193,7 @@
       ["Stories", "stories", 10],
       ["Stories of Bahá’u’lláh", "bahaullah", 3],
       ["Stories of Bahá’u’lláh", "stories-of-bahaullah", 3],
-      ["He comforted Navváb", "he-comforted-navvab", 52]
+      ["He comforted Navváb", "he-comforted-navvab", 53]
     ],
     "years": [3000, 3000],
     "content": [
@@ -1210,7 +1211,7 @@
       ["Stories", "stories", 10],
       ["Stories of Bahá’u’lláh", "bahaullah", 3],
       ["Stories of Bahá’u’lláh", "stories-of-bahaullah", 3],
-      ["He opened the prison gates", "he-opened-the-prison-gates", 53]
+      ["He opened the prison gates", "he-opened-the-prison-gates", 54]
     ],
     "years": [3000, 3000],
     "content": [
@@ -1229,7 +1230,7 @@
       [
         "When He was interrogated, He answered, “My Name is Bahá’u’lláh (Light of God) and My country is Núr (Light)”",
         "when-he-was-interrogated-he-answered-my-name-is-bahaullah-light-of-god-and-my-country-is-nur-light",
-        54
+        55
       ]
     ],
     "years": [3000, 3000],
@@ -1255,7 +1256,7 @@
       [
         "He waved at believers from the barracks",
         "he-waved-at-believers-from-the-barracks",
-        55
+        56
       ]
     ],
     "years": [3000, 3000],
@@ -1275,7 +1276,7 @@
       [
         "He directed the believers to leave their affairs in the hands of God",
         "he-directed-the-believers-to-leave-their-affairs-in-the-hands-of-god",
-        56
+        57
       ]
     ],
     "years": [3000, 3000],
@@ -1297,7 +1298,7 @@
       [
         "His confinement in the Most Great Prison ends",
         "his-confinement-in-the-most-great-prison-ends",
-        57
+        58
       ]
     ],
     "years": [3000, 3000],
@@ -1318,7 +1319,7 @@
       [
         "His life at Mazra‘ih was a turning point in His ministry",
         "his-life-at-mazraih-was-a-turning-point-in-his-ministry",
-        58
+        59
       ]
     ],
     "years": [3000, 3000],
@@ -1341,7 +1342,7 @@
       [
         "Oceans of love, surged in the hearts of the believers who were with Bahá’u’lláh at Mazra‘ih",
         "oceans-of-love-surged-in-the-hearts-of-the-believers-who-were-with-bahaullah-at-mazraih",
-        59
+        60
       ]
     ],
     "years": [3000, 3000],
@@ -1362,7 +1363,7 @@
       ["Stories", "stories", 10],
       ["Stories of Bahá’u’lláh", "bahaullah", 3],
       ["Stories of Bahá’u’lláh", "stories-of-bahaullah", 3],
-      ["The Master shielded Him", "the-master-shielded-him", 60]
+      ["The Master shielded Him", "the-master-shielded-him", 61]
     ],
     "years": [3000, 3000],
     "content": [
@@ -1383,7 +1384,7 @@
       [
         "The Mansion of Bahjí was specially built to serve as the Seat of God in His Day",
         "the-mansion-of-bahji-was-specially-built-to-serve-as-the-seat-of-god-in-his-day",
-        61
+        62
       ]
     ],
     "years": [3000, 3000],
@@ -1406,7 +1407,7 @@
       [
         "An episode connected with His arrival at the Mansion of Bahjí",
         "an-episode-connected-with-his-arrival-at-the-mansion-of-bahji",
-        62
+        63
       ]
     ],
     "years": [3000, 3000],
@@ -1426,7 +1427,7 @@
       [
         "“The Lord is near.”—The Templers of Haifa",
         "the-lord-is-near-the-templers-of-haifa",
-        63
+        64
       ]
     ],
     "years": [3000, 3000],
@@ -1447,7 +1448,7 @@
       [
         "When ‘Abdu’l‑Bahá visited Bahjí, Bahá’u’lláh evinced great joy",
         "when-abdul-baha-visited-bahji-bahaullah-evinced-great-joy",
-        64
+        65
       ]
     ],
     "years": [3000, 3000],
@@ -1467,7 +1468,7 @@
       [
         "They were struck by His majestic presence",
         "they-were-struck-by-his-majestic-presence",
-        65
+        66
       ]
     ],
     "years": [3000, 3000],
@@ -1483,7 +1484,7 @@
       [
         "He returned to ‘Akká from time to time",
         "he-returned-to-akka-from-time-to-time",
-        66
+        67
       ]
     ],
     "years": [3000, 3000],
@@ -1502,7 +1503,7 @@
       [
         "His companions in ‘Akká showed love, devotion and unity",
         "his-companions-in-akka-showed-love-devotion-and-unity",
-        67
+        68
       ]
     ],
     "years": [3000, 3000],
@@ -1530,7 +1531,7 @@
       [
         "“Did you see how the Hand of Power . . . brought you here?”",
         "did-you-see-how-the-hand-of-power--brought-you-here",
-        68
+        69
       ]
     ],
     "years": [3000, 3000],
@@ -1548,7 +1549,7 @@
       [
         "“If the kings and rulers of the world had embraced the Faith in this day, you people could never have found an entry into this exalted court”",
         "if-the-kings-and-rulers-of-the-world-had-embraced-the-faith-in-this-day-you-people-could-never-have-found-an-entry-into-this-exalted-court",
-        69
+        70
       ]
     ],
     "years": [3000, 3000],
@@ -1566,7 +1567,7 @@
       [
         "He helped the believers to feel relaxed in His presence",
         "he-helped-the-believers-to-feel-relaxed-in-his-presence",
-        70
+        71
       ]
     ],
     "years": [3000, 3000],
@@ -1590,7 +1591,7 @@
       [
         "“You considered coming to the Most Great Prison to be of prime importance”",
         "you-considered-coming-to-the-most-great-prison-to-be-of-prime-importance",
-        71
+        72
       ]
     ],
     "years": [3000, 3000],
@@ -1613,7 +1614,7 @@
       [
         "“You must live to serve the Cause”",
         "you-must-live-to-serve-the-cause",
-        72
+        73
       ]
     ],
     "years": [3000, 3000],
@@ -1632,7 +1633,7 @@
       [
         "“Your pilgrimage is . . . accepted by Us”",
         "your-pilgrimage-is--accepted-by-us",
-        73
+        74
       ]
     ],
     "years": [3000, 3000],
@@ -1653,7 +1654,7 @@
       [
         "“Yes, We are the One who has sent the Messengers”",
         "yes-we-are-the-one-who-has-sent-the-messengers",
-        74
+        75
       ]
     ],
     "years": [3000, 3000],
@@ -1670,7 +1671,7 @@
       [
         "“Tell me in your own words your own understanding of the subject”",
         "tell-me-in-your-own-words-your-own-understanding-of-the-subject",
-        75
+        76
       ]
     ],
     "years": [3000, 3000],
@@ -1704,7 +1705,7 @@
       [
         "“Oh the joy . . . when Bahá’u’lláh went to the beautiful Riḍván”",
         "oh-the-joy--when-bahaullah-went-to-the-beautiful-ridvan",
-        76
+        77
       ]
     ],
     "years": [3000, 3000],
@@ -1729,7 +1730,7 @@
       [
         "“The trees proclaimed: ‘Behold the evidences of God’s Mercy’”",
         "the-trees-proclaimed-behold-the-evidences-of-gods-mercy",
-        77
+        78
       ]
     ],
     "years": [3000, 3000],
@@ -1750,7 +1751,7 @@
       [
         "He saw himself standing in the presence of the Lord of the Old Testament",
         "he-saw-himself-standing-in-the-presence-of-the-lord-of-the-old-testament",
-        78
+        79
       ]
     ],
     "years": [3000, 3000],
@@ -1770,7 +1771,7 @@
       [
         "This is not the day for asking questions",
         "this-is-not-the-day-for-asking-questions",
-        79
+        80
       ]
     ],
     "years": [3000, 3000],
@@ -1791,7 +1792,7 @@
       [
         "The outpourings of His grace and bounty did not cease",
         "the-outpourings-of-his-grace-and-bounty-did-not-cease",
-        80
+        81
       ]
     ],
     "years": [3000, 3000],
@@ -1809,7 +1810,7 @@
       ["Stories", "stories", 10],
       ["Stories of Bahá’u’lláh", "bahaullah", 3],
       ["Stories of Bahá’u’lláh", "stories-of-bahaullah", 3],
-      ["The ascension of Bahá’u’lláh", "the-ascension-of-bahaullah", 81]
+      ["The ascension of Bahá’u’lláh", "the-ascension-of-bahaullah", 82]
     ],
     "years": [3000, 3000],
     "content": [
@@ -1818,7 +1819,7 @@
       "On the eve of Sunday, the eleventh of the month of Shavvál 1309 AH (8 May 1892), fifty days after Naw‑Rúz, He contracted a fever, though He did not mention it to anyone. The following morning a number of the friends attained His presence. Late in the afternoon the fever was intensified. In the evening only one of the companions who had an urgent demand was admitted to His presence. On Monday (the second day of His illness) only one of the friends admitted. On Tuesday this helpless servant was given the honour of an audience with His blessed Person. At noon He summoned me to His presence alone and spoke to me for about half an hour, sometimes seated and sometimes pacing up and down. He vouchsafed unto me His infinite bounties and His exalted utterances reached the acme of perfection.",
       "I wish I had known that this was going to be my last audience with Him, so that I could have clung to the hem of His holy vesture and begged Him to accept me as a sacrifice in His path, to relieve me from the vanity of this world and admit me into the realm of everlasting joy. Alas! Alas! what had been preordained did come to pass.",
       "In the afternoon of that day Ḥájí Níyáz [a well‑known believer] arrived from Egypt and, along with some others, was permitted to attain the presence of Bahá’u’lláh. Till sunset a number of the friends were admitted into His presence in groups. The following day the door of union with Him was closed to the face of the believers, no one was able to attain His presence, and an atmosphere of gloom and sorrow descended upon the hearts of His forlorn lovers. This situation remained unchanged for a few days, until Monday (the ninth day) which proved to be the day of grief for the friends. On that day the Most Great Branch left the presence of Bahá’u’lláh and went to the Pilgrim House. He conveyed Bahá’u’lláh’s greetings to all, and said that the Ancient Beauty had stated: “All the friends must remain patient and steadfast, and arise for the promotion of the Cause of God. They should not become perturbed, because I shall always be with them, and will remember and care for them.” On hearing these piercing words the hearts of the believers were crying out with grief, for the tone of ‘Abdu’l‑Bahá’s remarks indicated that the end of the earthly life of the One who was the Lord of all creation was fast approaching. The friends were thrown into such turmoil and dismay that they were about to expire.",
-      "This being so, the bounties of the Incomparable Beloved were vouchsafed unto all, and the following day, Tuesday (the tenth day), was turned into a joyful day. The daystar of delight and blissfulness shone forth and the Most Great Branch conveyed at the hour of dawn the joyful news of the well‑being of His blessed Person. Happy and smiling, He arrived at the Pilgrim House, and like unto a musk‑laden breeze which had wafted from the abode of the Beloved, or as the holy Spirit of the Mercy of the Lord, He awoke the friends one by one, bade them arise, drink their morning tea with the utmost joy, and offer thanksgiving to God, for, Praise be to His Most Exalted and Glorious Being, perfect health had returned to His blessed Person, and the signs of the most great favours were manifested in His countenance. Truly, on that day the joy and happiness of the friends, those who circled around the throne of the Beauty of their Lord, were such that all the inhabitants of ‘Akká and indeed the people of Syria were influenced and affected by their condition. All the people both low and high were congratulating each other as in a day of festival.",
+      "This being so, the bounties of the Incomparable Beloved were vouchsafed unto all, and the following day, Tuesday (the tenth day), was turned into a joyful day. The day‑star of delight and blissfulness shone forth and the Most Great Branch conveyed at the hour of dawn the joyful news of the well‑being of His blessed Person. Happy and smiling, He arrived at the Pilgrim House, and like unto a musk‑laden breeze which had wafted from the abode of the Beloved, or as the holy Spirit of the Mercy of the Lord, He awoke the friends one by one, bade them arise, drink their morning tea with the utmost joy, and offer thanksgiving to God, for, Praise be to His Most Exalted and Glorious Being, perfect health had returned to His blessed Person, and the signs of the most great favours were manifested in His countenance. Truly, on that day the joy and happiness of the friends, those who circled around the throne of the Beauty of their Lord, were such that all the inhabitants of ‘Akká and indeed the people of Syria were influenced and affected by their condition. All the people both low and high were congratulating each other as in a day of festival.",
       "The reason for this was that on the same day that Bahá’u’lláh contracted the fever, the government rounded up about one thousand farmers and poor people, clad them in military uniforms and held them against their will as conscripts. They were receiving military training to be dispatched to far‑off lands in a few days’ time. The tents of these oppressed people were near the grounds of the Mansion of Bahjí, and the cries of their weeping and lamenting and those of their families could be heard by day and by night. However, in the morning of the “day of joy”, a royal telegram was unexpectedly received ordering the release of the conscripts. This news was rapturously received by the people who were filled with delight. The Most Great Branch on that day distributed food among the conscripts, the poor, the inmates of prison and the orphans. Consequently the people of ‘Akká and outside were heartily offering thanks to Bahá’u’lláh for His loving favours and gifts. No one among the inhabitants of Syria could remember having seen a day as blissful as that day.",
       "That same day the Most Great Branch went to ‘Akká, visited every Bahá’í household and conveyed to every single believer, man and woman alike, loving greetings from the Blessed Beauty. On Sunday (the fifteenth day) afternoon, all the friends who were present at the Mansion, together with pilgrims and resident Bahá’ís, were summoned to Bahá’u’lláh’s presence. The entire body of the friends, weeping and grief‑stricken, attained His presence as He lay in bed leaning against one of his sons.",
       "The Tongue of Grandeur (Bahá’u’lláh) gently and affectionately addressed them all saying: “I am well pleased with you all, you have rendered many services, and been very assiduous in your labours. You have come here every morning and evening. May God assist you to remain united. May He aid you to exalt the Cause of the Lord of being.”",
@@ -1835,7 +1836,8 @@
         "Stories of Some Notable Believers",
         "stories-of-some-notable-believers",
         4
-      ]
+      ],
+      ["Opening quotations", "opening-quotations", 1]
     ],
     "years": [3000, 3000],
     "content": [
@@ -1856,7 +1858,7 @@
       [
         "Mírzá Buzurg, surnamed Badí‘—He became attracted to Bahá’u’lláh",
         "mirza-buzurg-surnamed-badi-he-became-attracted-to-bahaullah",
-        1
+        2
       ]
     ],
     "years": [3000, 3000],
@@ -1877,7 +1879,7 @@
         "stories-of-some-notable-believers",
         4
       ],
-      ["Badí‘ was created anew", "badi-was-created-anew", 2]
+      ["Badí‘ was created anew", "badi-was-created-anew", 3]
     ],
     "years": [3000, 3000],
     "content": [
@@ -1903,7 +1905,7 @@
       [
         "Badí‘ begged to carry the message to the Sháh",
         "badi-begged-to-carry-the-message-to-the-shah",
-        3
+        4
       ]
     ],
     "years": [3000, 3000],
@@ -1936,7 +1938,7 @@
       [
         "The tale of the officer who tortured Badí‘",
         "the-tale-of-the-officer-who-tortured-badi",
-        4
+        5
       ]
     ],
     "years": [3000, 3000],
@@ -1966,7 +1968,7 @@
       [
         "Ḥájí Abu’l‑Ḥasan, surnamed Amín—He was completely dedicated to the Faith",
         "haji-abul-hasan-surnamed-amin-he-was-completely-dedicated-to-the-faith",
-        5
+        6
       ]
     ],
     "years": [3000, 3000],
@@ -1988,7 +1990,7 @@
         "stories-of-some-notable-believers",
         4
       ],
-      ["Mírzá Abu’l‑Faḍl—His conversion", "mirza-abul-fadl-his-conversion", 6]
+      ["Mírzá Abu’l‑Faḍl—His conversion", "mirza-abul-fadl-his-conversion", 7]
     ],
     "years": [3000, 3000],
     "content": [
@@ -2036,7 +2038,7 @@
       [
         "Mírzá Abu’l‑Faḍl—He surrendered his intellectual gifts to God",
         "mirza-abul-fadl-he-surrendered-his-intellectual-gifts-to-god",
-        7
+        8
       ]
     ],
     "years": [3000, 3000],
@@ -2059,7 +2061,7 @@
       [
         "Mírzá Abu’l‑Faḍl—“I am only a drop from the vast ocean of Bahá’u’lláh’s school”",
         "mirza-abul-fadl-i-am-only-a-drop-from-the-vast-ocean-of-bahaullahs-school",
-        8
+        9
       ]
     ],
     "years": [3000, 3000],
@@ -2084,7 +2086,7 @@
       [
         "Mírzá Abu’l‑Faḍl—Accounts of his service",
         "mirza-abul-fadl-accounts-of-his-service",
-        9
+        10
       ]
     ],
     "years": [3000, 3000],
@@ -2125,7 +2127,7 @@
       [
         "Mírzá ‘Alí‑Muḥammad, surnamed Varqá—He burned away the idols of vain imaginings",
         "mirza-ali-muhammad-surnamed-varqa-he-burned-away-the-idols-of-vain-imaginings",
-        10
+        11
       ]
     ],
     "years": [3000, 3000],
@@ -2160,7 +2162,7 @@
       [
         "Mullá ‘Alí‑Akbar, Ḥájí Akhund—He stood on the shore of Truth",
         "mulla-ali-akbar-haji-akhund-he-stood-on-the-shore-of-truth",
-        11
+        12
       ]
     ],
     "years": [3000, 3000],
@@ -2209,7 +2211,7 @@
       [
         "Mullá Muḥammad‑i‑Qá’iní, surnamed Nabíl‑i‑Akbar—His search for truth",
         "mulla-muhammad-i-qaini-surnamed-nabil-i-akbar-his-search-for-truth",
-        12
+        13
       ]
     ],
     "years": [3000, 3000],
@@ -2240,7 +2242,7 @@
       [
         "Mullá Muḥammad‑i‑Qá’iní, surnamed Nabíl‑i‑Akbar—He was possessed of a new heart",
         "mulla-muhammad-i-qaini-surnamed-nabil-i-akbar-he-was-possessed-of-a-new-heart",
-        13
+        14
       ]
     ],
     "years": [3000, 3000],
@@ -2280,7 +2282,7 @@
       [
         "Ḥájí Mírzá Muḥammad‑Taqí—He erected the first Mashriqu’l‑Adhkár in the Bahá’í world",
         "haji-mirza-muhammad-taqi-he-erected-the-first-mashriqul-adhkar-in-the-bahai-world",
-        14
+        15
       ]
     ],
     "years": [3000, 3000],
@@ -2309,7 +2311,7 @@
       [
         "Ḥájí Mírzá Muḥammad‑Taqí (Ibn‑i‑Abhar)—The flame of the love of Bahá’u’lláh burned brightly in his heart",
         "haji-mirza-muhammad-taqi-ibn-i-abhar-the-flame-of-the-love-of-bahaullah-burned-brightly-in-his-heart",
-        15
+        16
       ]
     ],
     "years": [3000, 3000],
@@ -2349,7 +2351,7 @@
       [
         "Mullá Muḥammad, surnamed Nabíl‑i‑A‘ẓam—The chronicler of the Cause",
         "mulla-muhammad-surnamed-nabil-i-azam-the-chronicler-of-the-cause",
-        16
+        17
       ]
     ],
     "years": [3000, 3000],
@@ -2379,7 +2381,7 @@
       [
         "Shaykh Káẓim, surnamed Samandar—A flame of the love of God",
         "shaykh-kazim-surnamed-samandar-a-flame-of-the-love-of-god",
-        17
+        18
       ]
     ],
     "years": [3000, 3000],
@@ -2405,7 +2407,7 @@
       [
         "Mírzá Ḥusayn, surnamed Mishkín‑Qalam—He dedicated his life wholly to the Cause",
         "mirza-husayn-surnamed-mishkin-qalam-he-dedicated-his-life-wholly-to-the-cause",
-        18
+        19
       ]
     ],
     "years": [3000, 3000],
@@ -2429,7 +2431,7 @@
       [
         "Mírzá Ḥasan, surnamed Adíb—All his learning and erudition were now harnessed to the Faith",
         "mirza-hasan-surnamed-adib-all-his-learning-and-erudition-were-now-harnessed-to-the-faith",
-        19
+        20
       ]
     ],
     "years": [3000, 3000],
@@ -2455,7 +2457,7 @@
       [
         "Mullá Zaynu’l‑‘Ábidín, surnamed Zaynu’l‑Muqarrabín—The questions he asked Bahá’u’lláh became a supplement to the Kitáb‑i‑Aqdas",
         "mulla-zaynul-abidin-surnamed-zaynul-muqarrabin-the-questions-he-asked-bahaullah-became-a-supplement-to-the-kitab-i-aqdas",
-        20
+        21
       ]
     ],
     "years": [3000, 3000],
@@ -2485,7 +2487,7 @@
       [
         "Mírzá ‘Alí‑Muḥammad (Ibn‑i‑Aṣdaq)‑Bahá’u’lláh urged him to be as a flame of fire",
         "mirza-ali-muhammad-ibn-i-asdaq-bahaullah-urged-him-to-be-as-a-flame-of-fire",
-        21
+        22
       ]
     ],
     "years": [3000, 3000],
@@ -2515,7 +2517,7 @@
       [
         "Ḥájí Sháh‑Muḥammad‑i‑Manshádí—He was on fire with love",
         "haji-shah-muhammad-i-manshadi-he-was-on-fire-with-love",
-        22
+        23
       ]
     ],
     "years": [3000, 3000],
@@ -2546,7 +2548,7 @@
       [
         "Mullá Sádiq‑i‑Khurásání, surnamed Ismu’llahu’l‑Aṣdaq—He stood out as a tower of strength",
         "mulla-sadiq-i-khurasani-surnamed-ismullahul-asdaq-he-stood-out-as-a-tower-of-strength",
-        23
+        24
       ]
     ],
     "years": [3000, 3000],
@@ -2578,14 +2580,14 @@
       [
         "Ḥájí Mírzá Ḥaydar‑‘Alí—He was filled with a new spirit",
         "haji-mirza-haydar-ali-he-was-filled-with-a-new-spirit",
-        24
+        25
       ]
     ],
     "years": [3000, 3000],
     "content": [
       "Notable among those who travelled to Adrianople and attained the presence of their Lord was Ḥájí Mírzá Ḥaydar‑‘Alí, one of the most illustrious of Bahá’u’lláh’s disciples. Ḥájí Mírzá Ḥaydar‑‘Alí has written in his book, the Bihjatu’ṣ‑Ṣudúr (Delight of the Hearts) some reminiscences of Bahá’u’lláh and of some events which he witnessed in Adrianople and later in ‘Akká as well as in Persia and ‘Iráq. He travelled to Adrianople in the year 1283 AH (1866—7) and was permitted by Bahá’u’lláh to remain there for about seven months. During this period he attained the presence of Bahá’u’lláh almost every day. As a result of this personal contact with Bahá’u’lláh, Ḥájí Mírzá Ḥaydar‑‘Alí was set on fire and was filled with a new spirit. He was an embodiment of detachment, humility and self‑effacement. Having truly recognised the august station of Bahá’u’lláh, his whole being was dominated by a passionate love and adoration for Him.",
       "He writes an interesting story of his own spiritual awakening and struggles:",
-      "In the early days of the Faith in Iṣfáhán, when I began to study the Tablets and Writings of the Báb, and listen to the explanations of the friends, I found the proofs of His Revelation convincing and conclusive and the testimonies supremely sound and perfect. So I was assured in myself that this Cause was the Cause of God and the Manifestation of His Grandeur, the dawning of the Daystar of Truth promised to be revealed by the Almighty. But when I was alone with no one to talk to, I was often overtaken with doubts. The idle fancies of my past life and the whisperings of the evil one were tempting me . . . God knows how much I wept and how many nights I stayed awake till morning. There were days when I forgot to eat because I was so immersed in my thoughts. I tried by every means to relieve myself of these doubts. Several times I became steadfast in the Cause and believed, but later I would waver and become perplexed and dismayed.",
+      "In the early days of the Faith in Iṣfáhán, when I began to study the Tablets and Writings of the Báb, and listen to the explanations of the friends, I found the proofs of His Revelation convincing and conclusive and the testimonies supremely sound and perfect. So I was assured in myself that this Cause was the Cause of God and the Manifestation of His Grandeur, the dawning of the Day‑star of Truth promised to be revealed by the Almighty. But when I was alone with no one to talk to, I was often overtaken with doubts. The idle fancies of my past life and the whisperings of the evil one were tempting me . . . God knows how much I wept and how many nights I stayed awake till morning. There were days when I forgot to eat because I was so immersed in my thoughts. I tried by every means to relieve myself of these doubts. Several times I became steadfast in the Cause and believed, but later I would waver and become perplexed and dismayed.",
       "Then one night I had a dream that a town‑crier in . . . Iṣfáhán was announcing this message: “O people, the Seal of the Prophets is here in a certain house and has given permission for anyone who wishes to attain His presence to go there. Remember that a mere glance at His countenance is more meritorious than service in both worlds.” On hearing this, I hastened and entered the house. I had never seen such a building. I went upstairs and arrived in an area which had a roof over it and was surrounded by rooms and chambers. The Manifestation of the All‑Glorious was pacing up and down and some people were standing motionless. I arrived and spontaneously prostrated myself at His feet. Graciously He lifted me up with His own hands and, standing, said “A person may claim that he has come here wholly for the sake of God, and has truly attained the presence of His Lord, when he is not held back by the onslaught of the peoples of the world, who with drawn swords attack him and intend to take his life because he has embraced the Cause of God. Otherwise, he cannot truthfully say that his motive was to seek God.”",
       "On hearing these words, I woke up from my dream and found myself assured, joyous and thankful. All my doubts had completely disappeared. I learned the mysteries of martyrdom, persecution and sufferings which were inflicted upon the believers in every Dispensation. I was amazed as I looked back upon the doubts I had entertained, my ignorance, low‑mindedness, weakness of faith and shallowness of thought. I used to laugh at myself also, because in my wakeful hours, I had heard many similar statements and also read them in the Tablets and holy Books of the past, and was not assured by them. And now, through this dream, I had acquired faith and assurance . . .",
       "However, time passed, and about fourteen years later I was in the “Land of Mystery” (Adrianople) where I stayed for seven months. Every day, through His bounty, I used to attain the presence of Bahá’u’lláh once, twice and sometimes more. But during this period, I never thought of my dream. One evening about four or five hours after sunset I was sitting with Áqá Mírzá Muḥammad‑Qulí and Áqá Muḥammad‑Báqir‑i‑Qahvih‑chí, in the tea‑room [a room set aside for Bahá’u’lláh’s companions and visitors]. That day I had not attained the presence of Bahá’u’lláh and was most eager for an opportunity to do so. Although I could never bring myself to ask for permission, in my innermost heart I was entreating and invoking Him for this honour. But there was no hope, for it was far too late. Suddenly, the door opened and the Most Great Branch, Who in those days was known as Sirru’lláh [the Mystery of God] entered and summoned me to follow Him. When I came out of the room, I saw the Ancient Beauty pacing in the roofed area of the house. The stream of His utterance was flowing and a few souls were standing. I prostrated myself at His feet, whereupon He lifted me up with His blessed hands. He turned to me and said:",
@@ -2604,7 +2606,7 @@
       [
         "Ḥájí Mírzá Ḥaydar ‘Alí—“We were freed from this world . . .”",
         "haji-mirza-haydar-ali-we-were-freed-from-this-world-",
-        25
+        26
       ]
     ],
     "years": [3000, 3000],
@@ -2658,7 +2660,7 @@
       [
         "Ḥájí ‘Abdu’l‑Majíd—He would not recant his faith",
         "haji-abdul-majid-he-would-not-recant-his-faith",
-        26
+        27
       ]
     ],
     "years": [3000, 3000],
@@ -2701,7 +2703,7 @@
       [
         "Shaykh Salmán—He disseminated the Tablets of God with love and wisdom",
         "shaykh-salman-he-disseminated-the-tablets-of-god-with-love-and-wisdom",
-        27
+        28
       ]
     ],
     "years": [3000, 3000],
@@ -2735,7 +2737,7 @@
       [
         "Shaykh Salmán—“I do not consider anybody great except the Ancient Beauty and the Master”",
         "shaykh-salman-i-do-not-consider-anybody-great-except-the-ancient-beauty-and-the-master",
-        28
+        29
       ]
     ],
     "years": [3000, 3000],
@@ -2758,7 +2760,7 @@
       [
         "Ḥájí Mullá Mihdiy‑i‑‘Aṭri—He shed abroad the attar of the love of God",
         "haji-mulla-mihdiy-i-atri-he-shed-abroad-the-attar-of-the-love-of-god",
-        29
+        30
       ]
     ],
     "years": [3000, 3000],
@@ -2787,7 +2789,7 @@
       [
         "Khátún Ján—A protector of Ṭáhirih",
         "khatun-jan-a-protector-of-tahirih",
-        30
+        31
       ]
     ],
     "years": [3000, 3000],
@@ -2809,7 +2811,7 @@
       [
         "Fáṭimih‑Bagum—She pleaded the case of the prisoners",
         "fatimih-bagum-she-pleaded-the-case-of-the-prisoners",
-        31
+        32
       ]
     ],
     "years": [3000, 3000],
@@ -2831,7 +2833,7 @@
       [
         "Ustád Muḥammad‑‘Alí—A flame of the love of Bahá’u’lláh",
         "ustad-muhammad-ali-a-flame-of-the-love-of-bahaullah",
-        32
+        33
       ]
     ],
     "years": [3000, 3000],
@@ -2868,7 +2870,7 @@
       [
         "“O Aḥmad! . . . Remember My days during thy days”",
         "o-ahmad--remember-my-days-during-thy-days",
-        33
+        34
       ]
     ],
     "years": [3000, 3000],
@@ -2922,7 +2924,7 @@
       [
         "Siyyid Ashraf, Abá‑Baṣir and Umm‑i‑Ashraf—“I will disown you as my son . . . if you . . . allow them to turn you away from the Truth”",
         "siyyid-ashraf-aba-basir-and-umm-i-ashraf-i-will-disown-you-as-my-son--if-you--allow-them-to-turn-you-away-from-the-truth",
-        34
+        35
       ]
     ],
     "years": [3000, 3000],
@@ -2965,7 +2967,7 @@
       [
         "Sulaymán Khán—He carried the Faith to India",
         "sulayman-khan-he-carried-the-faith-to-india",
-        35
+        36
       ]
     ],
     "years": [3000, 3000],
@@ -2998,7 +3000,7 @@
       [
         "Sulaymán Khán’s mission to Persia",
         "sulayman-khans-mission-to-persia",
-        36
+        37
       ]
     ],
     "years": [3000, 3000],
@@ -3030,7 +3032,7 @@
       [
         "Siyyid Muṣtafáy‑i‑Rúmí—He served the Cause with distinction in Burma",
         "siyyid-mustafay-i-rumi-he-served-the-cause-with-distinction-in-burma",
-        37
+        38
       ]
     ],
     "years": [3000, 3000],
@@ -3050,7 +3052,7 @@
       [
         "Ḥakím Masíḥ—The first Jewish believer",
         "hakim-masih-the-first-jewish-believer",
-        38
+        39
       ]
     ],
     "years": [3000, 3000],
@@ -3078,7 +3080,7 @@
       [
         "Fáris—The first Christian believer",
         "faris-the-first-christian-believer",
-        39
+        40
       ]
     ],
     "years": [3000, 3000],
@@ -3115,7 +3117,7 @@
       [
         "Suhráb‑i‑Púr‑Kávús and Kay‑Khusraw‑i‑Khudádád—The first Zoroastrian believers",
         "suhrab-i-pur-kavus-and-kay-khusraw-i-khudadad-the-first-zoroastrian-believers",
-        40
+        41
       ]
     ],
     "years": [3000, 3000],
@@ -3141,7 +3143,7 @@
       [
         "Mírzá ‘Azízu’lláh—“I heard the announcement that the Lord of Hosts . . . hath appeared”",
         "mirza-azizullah-i-heard-the-announcement-that-the-lord-of-hosts--hath-appeared",
-        41
+        42
       ]
     ],
     "years": [3000, 3000],
@@ -3171,7 +3173,7 @@
       [
         "Mírzá ‘Azízu’lláh—He gave the message to Baron Rothschild and Leo Tolstoy",
         "mirza-azizullah-he-gave-the-message-to-baron-rothschild-and-leo-tolstoy",
-        42
+        43
       ]
     ],
     "years": [3000, 3000],
@@ -3194,7 +3196,7 @@
       [
         "Ḥájí Muḥammad‑Ṭáhir‑i‑Málmírí—Teacher of the truth of the Revelation",
         "haji-muhammad-tahir-i-malmiri-teacher-of-the-truth-of-the-revelation",
-        43
+        44
       ]
     ],
     "years": [3000, 3000],
@@ -3226,7 +3228,7 @@
       [
         "Ḥájí Muḥammad‑Ṭáhir‑i‑Málmírí—The crowning glory of his life was attaining the presence of Bahá’u’lláh",
         "haji-muhammad-tahir-i-malmiri-the-crowning-glory-of-his-life-was-attaining-the-presence-of-bahaullah",
-        44
+        45
       ]
     ],
     "years": [3000, 3000],
@@ -3258,7 +3260,7 @@
       [
         "Ḥájí Siyyid Javád‑i‑Karbilá’í—He immediately recognised the greatness of Bahá’u’lláh",
         "haji-siyyid-javad-i-karbilai-he-immediately-recognised-the-greatness-of-bahaullah",
-        45
+        46
       ]
     ],
     "years": [3000, 3000],
@@ -3297,7 +3299,7 @@
       [
         "Mírzá Muḥammad‑‘Alíy‑i‑Nahrí—A leading exponent of the Faith",
         "mirza-muhammad-aliy-i-nahri-a-leading-exponent-of-the-faith",
-        46
+        47
       ]
     ],
     "years": [3000, 3000],
@@ -3325,7 +3327,7 @@
       [
         "Ḥájí Naṣir—A brilliant light that shone forth above the horizon of resignation",
         "haji-nasir-a-brilliant-light-that-shone-forth-above-the-horizon-of-resignation",
-        47
+        48
       ]
     ],
     "years": [3000, 3000],
@@ -3351,7 +3353,7 @@
       [
         "Ḥájí Siyyid ‘Alí—An embodiment of servitude",
         "haji-siyyid-ali-an-embodiment-of-servitude",
-        48
+        49
       ]
     ],
     "years": [3000, 3000],
@@ -3372,7 +3374,7 @@
       [
         "Ḥájí Mírzá’s vision of Bahá’u’lláh",
         "haji-mirzas-vision-of-bahaullah",
-        49
+        50
       ]
     ],
     "years": [3000, 3000],
@@ -3394,7 +3396,7 @@
       [
         "Ḥájí Mírzá and his wife—“Whatever is God’s Will will happen”; Rubábih, the prostitute, shows a magnanimous spirit",
         "haji-mirza-and-his-wife-whatever-is-gods-will-will-happen-rubabih-the-prostitute-shows-a-magnanimous-spirit",
-        50
+        51
       ]
     ],
     "years": [3000, 3000],
@@ -3441,7 +3443,7 @@
       [
         "Siyyid Ismá‘íl Dhabíh—Worlds of spirit opened before his eyes",
         "siyyid-ismail-dhabih-worlds-of-spirit-opened-before-his-eyes",
-        51
+        52
       ]
     ],
     "years": [3000, 3000],
@@ -3467,7 +3469,7 @@
       [
         "Ḥáji‑Abdu’r‑Raḥím‑i‑Qannád—He was much loved by Bahá’u’lláh",
         "haji-abdur-rahim-i-qannad-he-was-much-loved-by-bahaullah",
-        52
+        53
       ]
     ],
     "years": [3000, 3000],
@@ -3494,7 +3496,7 @@
       [
         "Mullá‑Riḍá—He had a passionate love for Bahá’u’lláh",
         "mulla-rida-he-had-a-passionate-love-for-bahaullah",
-        53
+        54
       ]
     ],
     "years": [3000, 3000],
@@ -3528,7 +3530,7 @@
       [
         "Mírzá ‘Abbás, Qábil—The Hidden Words transformed him",
         "mirza-abbas-qabil-the-hidden-words-transformed-him",
-        54
+        55
       ]
     ],
     "years": [3000, 3000],
@@ -3550,7 +3552,7 @@
       [
         "Siyyid Ja‘far‑i‑Yazdí—“. . . it won’t matter if you spit upon my face”",
         "siyyid-jafar-i-yazdi--it-wont-matter-if-you-spit-upon-my-face",
-        55
+        56
       ]
     ],
     "years": [3000, 3000],
@@ -3590,7 +3592,7 @@
       [
         "Áqá Muḥammad‑‘Alí—A delightful companion to Bahá’u’lláh",
         "aqa-muhammad-ali-a-delightful-companion-to-bahaullah",
-        56
+        57
       ]
     ],
     "years": [3000, 3000],
@@ -3614,7 +3616,7 @@
       [
         "Mírzá Muṣṭafá—“Kill me before Shaykh Aḥmad, that I may not see them shed his blood”",
         "mirza-mustafa-kill-me-before-shaykh-ahmad-that-i-may-not-see-them-shed-his-blood",
-        57
+        58
       ]
     ],
     "years": [3000, 3000],
@@ -3639,7 +3641,7 @@
       [
         "Mullá Muḥammad‑i‑Manshádí—“I will not come to the mosque again”",
         "mulla-muhammad-i-manshadi-i-will-not-come-to-the-mosque-again",
-        58
+        59
       ]
     ],
     "years": [3000, 3000],
@@ -3670,7 +3672,7 @@
       [
         "Muḥammad‑Khán—He was instantly enslaved",
         "muhammad-khan-he-was-instantly-enslaved",
-        59
+        60
       ]
     ],
     "years": [3000, 3000],
@@ -3697,7 +3699,7 @@
       [
         "Áqá Mírzá Áqáy‑i‑Afnán (Núru’d‑Din)—He received many bounties from Bahá’u’lláh",
         "aqa-mirza-aqay-i-afnan-nurud-din-he-received-many-bounties-from-bahaullah",
-        60
+        61
       ]
     ],
     "years": [3000, 3000],
@@ -3736,7 +3738,7 @@
       [
         "Mullá Káẓim—He refused to recant his faith",
         "mulla-kazim-he-refused-to-recant-his-faith",
-        61
+        62
       ]
     ],
     "years": [3000, 3000],
@@ -3758,7 +3760,7 @@
       [
         "Ḥájí Muḥammad‑Riḍá—He gave all to his Beloved",
         "haji-muhammad-rida-he-gave-all-to-his-beloved",
-        62
+        63
       ]
     ],
     "years": [3000, 3000],
@@ -3787,7 +3789,7 @@
       [
         "‘Abdu’r‑Raḥím—He could not resist the urge to see Bahá’u’lláh",
         "abdur-rahim-he-could-not-resist-the-urge-to-see-bahaullah",
-        63
+        64
       ]
     ],
     "years": [3000, 3000],
@@ -3821,7 +3823,7 @@
       [
         "Abu’l‑Qásim—The gardener of Riḍván",
         "abul-qasim-the-gardener-of-ridvan",
-        64
+        65
       ]
     ],
     "years": [3000, 3000],
@@ -3853,14 +3855,14 @@
       [
         "Ḥájí Muḥammad‑Báqir‑i‑Qazvíní—He fell from grace but was saved",
         "haji-muhammad-baqir-i-qazvini-he-fell-from-grace-but-was-saved",
-        65
+        66
       ]
     ],
     "years": [3000, 3000],
     "content": [
       "Ḥaji Muḥammad‑Báqir‑i‑Qazvíní had an unusual Bahá’í career; he was one who fell from grace, but was saved towards the end of his life. Ḥaji Muḥammad‑Báqir attained the presence of Bahá’u’lláh in Baghdád. While there he requested Bahá’u’lláh to bestow wealth upon him. Bahá’u’lláh acceded to his plea and assured him that God would grant his wish. Soon afterwards he became very rich, but as a result grew heedless of the Cause of God.",
       "In the course of Ḥájí Mírzá Ḥaydar‑‘Alí’s account of what appears to be his first audience with Bahá’u’lláh in Adrianople, we find the following story of Ḥájí Muḥammad‑Báqir.",
-      "Because it was the early days of the rise of the Daystar of the World, Bahá’u’lláh asked me to give Him an account of the state of the believers in Ṭihrán, Qazvín, Zanján and Tabríz, the towns I had passed through. He inquired of their faith, and their love for the Cause. I did not reply. (It was not unusual for the believers who were in the presence of Bahá’u’lláh not to reply to His questions. In the first place, they were so carried away that they could not utter a word. Secondly, to speak was regarded by many as being contrary to the spirit of utter self‑effacement in His presence.) After we [Ḥájí Mírzá Ḥaydar‑‘Alí and his two companions] were dismissed from His presence, we were taken to a place where it was arranged for us to stay. There, Bahá’u’lláh sent someone to whom I could recount the conditions of the believers. I reported all I knew about each person, including the late Ḥájí Muḥammad‑Báqir who was at that time a well‑known merchant, foremost among the believers in faith, certitude and enthusiasm, and was serving the Cause with devotion and self‑sacrifice.",
+      "Because it was the early days of the rise of the Day‑star of the World, Bahá’u’lláh asked me to give Him an account of the state of the believers in Ṭihrán, Qazvín, Zanján and Tabríz, the towns I had passed through. He inquired of their faith, and their love for the Cause. I did not reply. (It was not unusual for the believers who were in the presence of Bahá’u’lláh not to reply to His questions. In the first place, they were so carried away that they could not utter a word. Secondly, to speak was regarded by many as being contrary to the spirit of utter self‑effacement in His presence.) After we [Ḥájí Mírzá Ḥaydar‑‘Alí and his two companions] were dismissed from His presence, we were taken to a place where it was arranged for us to stay. There, Bahá’u’lláh sent someone to whom I could recount the conditions of the believers. I reported all I knew about each person, including the late Ḥájí Muḥammad‑Báqir who was at that time a well‑known merchant, foremost among the believers in faith, certitude and enthusiasm, and was serving the Cause with devotion and self‑sacrifice.",
       "The messenger left and after some minutes returned with an exalted Tablet which had been revealed in honour of the Ḥájí. He stated [on behalf of Bahá’u’lláh]: “This man attained the presence of Bahá’u’lláh in Baghdád. There he wrote a letter to Him and begged for wealth and prosperity. In answer, this exalted and wonderful Tablet was revealed for him. In it Bahá’u’lláh stated that his request would be granted and that the doors of prosperity and wealth would be opened for him from every direction. He warned him, however, to be on his guard and not to allow riches to become a barrier and make him heedless.",
       "Now you are here to attain the presence of Bahá’u’lláh and in the future you will witness that this man [Ḥájí Muḥammad‑Báqir] will be overtaken with fear to such an extent that he will renounce God and His Cause. Not long after, he will make substantial losses, following which he will write a letter to Bahá’u’lláh and repent. God will then turn his losses into profit and he will become again highly successful in his business and will emerge as the foremost merchant in Constantinople and Tabríz. However, this time he will wax prouder than before, more heedless and deprived . . . This time he will lose all his possessions, will be unable to continue trading and will become helpless in arranging his affairs. It is then that he will repent and return, and will be content to live as a poor man. He will spend the days of his life in the service of the Cause of God. His end will be blessed and he will receive great confirmations from God.” He then said to me: “Remember all these things, for they will come to pass, and you shall witness them.”",
       "We were in Adrianople when news came that Javád, the younger brother of the Ḥájí, had been arrested and cast into prison. Ḥaji Muḥammad‑Báqir had paid one thousand túmáns (a very large sum of money in those days) for the release of his brother and had left Tabríz for Constantinople in great haste. Upon arrival he had gone to visit the late Mushíru’d‑Dawlih, the Persian Ambassador, and there in his presence had recanted his Faith. Bahá’u’lláh affirmed that this was the beginning of his tests and instructed that believers passing through Constantinople should not associate with him.",
@@ -3885,7 +3887,7 @@
       [
         "Mullá Muḥammad ‘Alí—He was a shining example of faith",
         "mulla-muhammad-ali-he-was-a-shining-example-of-faith",
-        66
+        67
       ]
     ],
     "years": [3000, 3000],
@@ -3908,7 +3910,7 @@
       [
         "‘Alí‑Akbar‑i‑Ḥakkák—Nothing could make him denounce the Faith",
         "ali-akbar-i-hakkak-nothing-could-make-him-denounce-the-faith",
-        67
+        68
       ]
     ],
     "years": [3000, 3000],
@@ -3953,7 +3955,7 @@
       [
         "Háshim Khán—“People like me . . . are like the sand . . . when the sun rises . . . this sand is the first to become illumined by its rays”",
         "hashim-khan-people-like-me--are-like-the-sand--when-the-sun-rises--this-sand-is-the-first-to-become-illumined-by-its-rays",
-        68
+        69
       ]
     ],
     "years": [3000, 3000],
@@ -3974,7 +3976,7 @@
       [
         "Mírzá Muḥammad—The revelation of a special prayer",
         "mirza-muhammad-the-revelation-of-a-special-prayer",
-        69
+        70
       ]
     ],
     "years": [3000, 3000],

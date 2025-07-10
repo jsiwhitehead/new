@@ -237,6 +237,7 @@ const sources: Record<
   >
 > = {
   bahaullah: {
+    "bahai-sacred-writings": [],
     "call-divine-beloved": [
       [/^(4|5|6)$/gm, "##"],
       [/^\d+$/gm, "#"],

@@ -602,6 +602,8 @@
 
 *attila = attila
 
+*attributesss = attributesss
+
 *auckland = auckland
 
 *auguste = auguste
@@ -7458,6 +7460,8 @@
 
 *uthmaniyyih = ‘uthmaniyyih
 
+*utterancesss = utterancesss
+
 *uzbeg = uzbegs
 
 *uzbekistan = uzbekistan
@@ -8472,7 +8476,7 @@
 
 22nd = 22nd
 
-24 = 240 | 243
+24 = 240 | 241 | 243
 
 2400 = 24000
 
@@ -12802,8 +12806,6 @@ daylight = daylight
 
 dayspr = dayspring | daysprings
 
-daystar = daystar | daystars
-
 daytim = daytime | daytimes
 
 daze = dazed
@@ -13193,6 +13195,8 @@ detent = detention | detentions
 deterior = deteriorate | deteriorated | deteriorates | deteriorating | deterioration
 
 determin = determination | determinations | determine | determined | determinedly | determines | determinest | determineth | determining | determinism | deterministic
+
+deterr = deterrence
 
 detest = detestable | detestation | detested
 
@@ -16958,7 +16962,7 @@ idl = idle | idleness | idly
 
 idol = idol | idolaters | idolator | idolators | idolatrous | idolatry | idolised | idols
 
-ignit = ignite | ignited | ignition
+ignit = ignite | ignited | igniting | ignition
 
 ignobl = ignoble
 
@@ -17272,7 +17276,7 @@ incit = incite | incited | incitement | incitements | incites | inciting
 
 incivil = incivility
 
-inclement = inclement
+inclement = inclemency | inclement
 
 inclin = inclination | inclinations | incline | inclined | inclines | inclinest | inclineth | inclining
 
@@ -18734,7 +18738,7 @@ loam = loam
 
 loan = loan
 
-loath = loathe | loathed | loathes | loathing | loathsome
+loath = loath | loathe | loathed | loathes | loathing | loathsome
 
 loav = loaves
 
@@ -18758,7 +18762,7 @@ locus = locus
 
 locust = locusts
 
-lodestar = lodestar
+lodestar = lodestar | lodestars
 
 lodeston = lodestone
 
@@ -18813,8 +18817,6 @@ lose = lose | loses | loseth | losing | loss | losses | lost
 lot = lot | lots
 
 lote = lote
-
-loth = loth
 
 lott = lotteries
 
@@ -19884,7 +19886,7 @@ negot = negotiable | negotiate | negotiated | negotiation | negotiations
 
 negro = negro | negroes
 
-neighbour = neighborly | neighbour | neighbour’s | neighbouring | neighbours
+neighbour = neighbour | neighbour’s | neighbouring | neighbourly | neighbours
 
 neighbourhood = neighbourhood | neighbourhoods
 
@@ -20218,6 +20220,8 @@ obsequ = obsequious
 
 observ = observable | observance | observances | observant | observation | observations | observe | observed | observer | observers | observes | observest | observeth | observing
 
+observator = observatory
+
 obsess = obsessed | obsession | obsessions
 
 obsolet = obsolescence | obsolescent | obsolete
@@ -20228,7 +20232,7 @@ obstin = obstinacy | obstinate | obstinately
 
 obstruct = obstruct | obstructed | obstructeth | obstructing | obstruction | obstructions | obstructive | obstructiveness | obstructs
 
-obtain = obtain | obtainable | obtained | obtaining | obtains
+obtain = obtain | obtainable | obtained | obtaineth | obtaining | obtains
 
 obtus = obtuse
 
@@ -22632,7 +22636,7 @@ refashion = refashion | refashioned
 
 refil = refilled
 
-refin = refine | refined | refinement | refinements | refiner | refining
+refin = refine | refined | refinement | refinements | refiner | refineth | refining
 
 refinish = refinished
 
@@ -23750,7 +23754,7 @@ secur = secure | secured | securely | secureth | securing | security
 
 sedentar = sedentary
 
-sedit = sedition | seditious | seditiousness
+sedit = sedition | seditions | seditious | seditiousness
 
 seduc = seduced | seductions | seductive
 
@@ -24142,7 +24146,7 @@ silakhur = silakhuri
 
 silent = silence | silenced | silences | silencing | silent | silently
 
-silk = silk | silken
+silk = silk | silken | silks
 
 silv = silver
 
@@ -24441,6 +24445,8 @@ somm = somme
 son = son | sons
 
 songbird = songbird | songbirds
+
+sonhood = sonhood
 
 sonship = sonship
 
@@ -26062,7 +26068,7 @@ traitor = traitor | traitors
 
 trajector = trajectory
 
-trammel = trammeled | trammels
+trammel = trammelled | trammels
 
 tramp = tramp
 

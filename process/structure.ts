@@ -447,6 +447,7 @@ export const parseStructuredSections = (
                 "gems-of-divine-mysteries",
                 "the-book-of-certitude",
                 "selections-writings-bab",
+                "selections-from-the-writings-of-bahaullah",
                 "selections-from-the-writings-of-abdul-baha",
                 "part-two-letters-from-shoghi-effendi",
                 "century-of-light",
@@ -540,7 +541,7 @@ for (const author of Object.keys(sources)) {
         const id = `${author}-${file}`;
         const res = parseStructuredSections(
           file,
-          fileIndex,
+          author === "abdul-baha" ? fileIndex + 1 : fileIndex,
           await readText(
             sources[author]![file]!.length > 0 ? "format" : "manual",
             id

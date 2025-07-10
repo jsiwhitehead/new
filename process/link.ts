@@ -50,7 +50,11 @@ data.sort((a, b) =>
   )
 );
 
-const shortPassages = ["whatever decreaseth fear increaseth courage"];
+const shortPassages = [
+  "whatever decreaseth fear increaseth courage",
+  "thus tahirih became the eighteenth believer",
+];
+
 const getNGrams = (words: string, n = 7) => {
   const splitWords = words.split(" ");
   const ngrams: string[] = [];
@@ -163,6 +167,7 @@ const canBeAQuote = (section: number) => {
       ![
         "Gleanings from the Writings of Bahá’u’lláh",
         "Selections from the Writings of ‘Abdu’l‑Bahá",
+        "Bahá’í Sacred Writings",
       ].includes(path[1]![0]) &&
       !meta) ||
     prayer
@@ -223,7 +228,15 @@ const getPossibleSources = (ref: Ref, ngrams: string[]) => {
         a.ref.section - b.ref.section ||
         a.ref.paragraph - b.ref.paragraph
     );
-  return uniqueRefs(filtered.map((x) => x.ref));
+  const result = uniqueRefs(filtered.map((x) => x.ref));
+  if (
+    ["Bahá’u’lláh", "‘Abdu’l‑Bahá"].includes(data[ref.section]!.path[0]![0])
+  ) {
+    return result.filter(
+      (r) => data[r.section]!.path[1]?.[0] !== "Bahá’í Sacred Writings"
+    );
+  }
+  return result;
 };
 
 const processPart = (part: Layers, sourceRef: Ref, canQuoteQuote: boolean) => {
