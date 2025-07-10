@@ -88,10 +88,6 @@ export default function Controls({
       );
     }
   };
-  useEffect(() => {
-    const timeout = setTimeout(runSearch, 1000);
-    return () => clearTimeout(timeout);
-  }, [search]);
 
   const linkUrlSearch = makeUrlSearch(
     ["search", getUrlString(params, "search")],

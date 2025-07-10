@@ -165,9 +165,9 @@ const getFillsRenderContent = (
   }
 
   for (const h of para.highlights) {
-    const pre = para.text.slice(0, h.start).match(/[^ ]*$/)?.[0];
+    const pre = para.text.slice(0, h.start).match(/[^— ]*$/)?.[0];
     if (pre) h.start = h.start - pre.length;
-    const post = para.text.slice(h.end).match(/^[^ ]*/)?.[0];
+    const post = para.text.slice(h.end).match(/^[^— ]*/)?.[0];
     if (post) h.end = h.end + post.length;
   }
 
