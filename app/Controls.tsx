@@ -146,13 +146,13 @@ export default function Controls({
               size={14}
               style={{ width: "50%", textAlign: "left", fontWeight: "bold" }}
             >
-              All passages
+              All Passages
             </Text>
             <Text
               size={14}
               style={{ width: "50%", textAlign: "right", fontWeight: "bold" }}
             >
-              Most common
+              Most Common
             </Text>
           </Row>
         </Column>

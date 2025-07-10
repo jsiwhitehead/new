@@ -39,7 +39,105 @@ const alternateQuoteMarks = (para: SemiPara) => {
   para.text = res;
 };
 
-export const getRenderContent = (
+const getBaseRenderContent = (para: SemiPara): RenderContent => {
+  capitaliseQuotes(para);
+  alternateQuoteMarks(para);
+
+  if (para.type === "break") return { type: "break" };
+
+  if (para.text === ". . .") {
+    return [{ text: ". . .", quoted: 0, highlight: false }];
+  }
+
+  if (para.quotes) {
+    for (let i = 0; i < para.quotes!.length; i++) {
+      const {
+        quote: { range },
+      } = para.quotes![i]!;
+      const pre = para.text.slice(0, range.start).match(/“[^a-z0-9‘]*$/)?.[0];
+      if (pre) range.start = range.start - pre.length;
+      const post = para.text.slice(range.end).match(/^[^a-z0-9’]*”/)?.[0];
+      if (post) range.end = range.end + post.length;
+    }
+  }
+
+  const quoteIndices = getIndices(
+    para.text.length,
+    (para.quotes || []).map((q) => q.quote.range)
+  );
+  const quoteParts: {
+    text: string;
+    quote?: { quote: Quote; render: RenderQuote } | true;
+  }[] = mapRanges(quoteIndices, (range) => {
+    const q = (para.quotes || []).find((q) =>
+      doesRangeInclude(q.quote.range, range)
+    );
+    return {
+      text: para.text.slice(range.start, range.end),
+      quote: q && { quote: q.quote.quote, render: q.render },
+    };
+  });
+  for (let i = 0; i < quoteParts.length; i++) {
+    const current = quoteParts[i]!;
+    const prev = quoteParts[i - 1]!;
+    const next = quoteParts[i + 1]!;
+    if (
+      !current.quote &&
+      textIsConnector(current.text) &&
+      (!prev || prev.quote) &&
+      (!next || next.quote)
+    ) {
+      current.quote = true;
+    }
+  }
+
+  const allQuote = quoteParts.every((part) => part.quote);
+  if (allQuote || para.type) {
+    return {
+      type: allQuote ? "quote" : para.type!,
+      lines: [[{ text: para.text, quoted: 0, highlight: false }]],
+      allSpecial: para.allSpecial,
+    };
+  }
+
+  if (para.lines) {
+    return {
+      type: "lines",
+      lines: mapRanges([-1, ...para.lines, para.text.length], (lineRange) => [
+        {
+          text: para.text.slice(lineRange.start + 1, lineRange.end),
+          quoted: 0,
+          highlight: false,
+        },
+      ]),
+      allSpecial: para.allSpecial,
+    };
+  }
+
+  const result = quoteParts.flatMap((part) => ({
+    text: part.text,
+    quote:
+      typeof part.quote === "object"
+        ? { quotes: [part.quote.quote], render: part.quote.render }
+        : part.quote,
+    quoted: 0,
+    highlight: false,
+  }));
+
+  const resQuoteParts = result.filter((x) => typeof x.quote === "object");
+  for (let i = 0; i < resQuoteParts.length - 1; i++) {
+    const current = resQuoteParts[i]!.quote as QuoteLink;
+    const next = resQuoteParts[i + 1]!.quote as QuoteLink;
+    if (refsEqual(current.quotes[0]!, next.quotes[0]!)) {
+      next.quotes.push(...current.quotes);
+      resQuoteParts[i]!.quote = true;
+    }
+  }
+
+  return result;
+};
+
+const getFillsRenderContent = (
   para: SemiPara,
   paraId: string
 ): RenderContent => {
@@ -206,3 +304,10 @@ export const getRenderContent = (
 
   return result;
 };
+
+export const getRenderContent = (
+  para: SemiPara,
+  paraId: string,
+  hasFills: boolean
+): RenderContent =>
+  hasFills ? getFillsRenderContent(para, paraId) : getBaseRenderContent(para);

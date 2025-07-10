@@ -19,7 +19,6 @@ export default function App({
       quotes: QuoteLink[];
       paraId: string;
       para: SemiPara;
-      content: RenderContent;
       ref: Ref;
     }[];
   }[];

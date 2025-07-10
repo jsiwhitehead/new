@@ -4,23 +4,15 @@ import {
   RouterProvider,
   ScrollRestoration,
   useLoaderData,
-  useLocation,
 } from "react-router";
 
 import type { QuoteLink, Ref, SemiPara } from "../utils/types";
-import { refsEqual } from "../utils/utils";
 
 import App from "./App";
-import { getRenderContent } from "./render";
 import { SizeContext } from "./Utils";
 
 const Root = () => {
-  const {
-    docs: baseDocs,
-    path,
-    tree,
-    showContent,
-  } = useLoaderData<{
+  const { docs, path, tree, showContent } = useLoaderData<{
     docs: {
       sources: QuoteLink[];
       content: {
@@ -36,22 +28,6 @@ const Root = () => {
     showContent: boolean;
   }>();
 
-  const location = useLocation();
-
-  const docs = baseDocs.map((d) => ({
-    sources: d.sources,
-    content: d.content.map((c) => {
-      const para = { ...c.para, highlights: [...c.para.highlights] };
-      if (location.state) {
-        for (const part of location.state) {
-          if (refsEqual(part, c.ref)) {
-            para.highlights.push({ start: part.start, end: part.end });
-          }
-        }
-      }
-      return { ...c, para, content: getRenderContent(para, c.paraId) };
-    }),
-  }));
   return (
     <SizeContext value={17}>
       <ScrollRestoration />

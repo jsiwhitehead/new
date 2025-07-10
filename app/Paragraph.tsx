@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { useLocation } from "react-router";
 
-import type { QuoteLink, RenderContent, SemiPara } from "../utils/types";
+import type { QuoteLink, Ref, RenderContent, SemiPara } from "../utils/types";
+import { refsEqual } from "../utils/utils";
 
 import { BlockQuote, InlineQuote } from "./Quotes";
+import { getRenderContent } from "./render";
 import { Column, Text } from "./Utils";
 
 const ParagraphBase = ({
@@ -135,18 +138,37 @@ const ParagraphBase = ({
   );
 };
 
-const ParagraphWrap = ({
-  para,
-  ...props
+export default function Paragraph({
+  paraId,
+  para: basePara,
+  quoted,
+  quotes,
+  ref,
 }: {
-  content: RenderContent;
-  para: SemiPara;
   paraId: string;
+  para: SemiPara;
+  quoted: QuoteLink[];
   quotes: QuoteLink[];
-  showQuoted: boolean;
-}) => {
-  const hasFills = props.showQuoted || para.highlights.length > 0;
-  return (
+  ref: Ref;
+}) {
+  const [showQuoted, setShowQuoted] = useState(false);
+
+  const location = useLocation();
+
+  const para = { ...basePara, highlights: [...basePara.highlights] };
+  if (location.state) {
+    for (const part of location.state) {
+      if (refsEqual(part, ref)) {
+        para.highlights.push({ start: part.start, end: part.end });
+      }
+    }
+  }
+
+  const hasFills = showQuoted || para.highlights.length > 0;
+
+  const content = getRenderContent(para, paraId, hasFills);
+
+  const paragraph = (
     <div style={{ position: "relative" }}>
       {hasFills && (
         <div
@@ -158,43 +180,31 @@ const ParagraphWrap = ({
             color: "transparent",
           }}
         >
-          <ParagraphBase {...props} fills={true} />
+          <ParagraphBase
+            content={content}
+            quotes={quotes}
+            showQuoted={showQuoted}
+            fills={true}
+          />
         </div>
       )}
       <div style={{ position: "relative", zIndex: 200 }}>
-        <ParagraphBase {...props} fills={false} />
+        <ParagraphBase
+          content={content}
+          quotes={quotes}
+          showQuoted={showQuoted}
+          fills={false}
+        />
       </div>
     </div>
   );
-};
-
-export default function Paragraph({
-  paraId,
-  para,
-  content,
-  quoted,
-  quotes,
-}: {
-  paraId: string;
-  para: SemiPara;
-  content: RenderContent;
-  quoted: QuoteLink[];
-  quotes: QuoteLink[];
-}) {
-  const [showQuoted, setShowQuoted] = useState(false);
 
   return quoted.length === 0 ? (
     <div
       key={paraId}
       style={{ maxWidth: 670, width: "100%", margin: "0 auto" }}
     >
-      <ParagraphWrap
-        content={content}
-        para={para}
-        paraId={paraId}
-        quotes={quotes}
-        showQuoted={showQuoted}
-      />
+      {paragraph}
     </div>
   ) : (
     <Column
@@ -207,13 +217,7 @@ export default function Paragraph({
       gap={25}
       key={paraId}
     >
-      <ParagraphWrap
-        content={content}
-        para={para}
-        paraId={paraId}
-        quotes={quotes}
-        showQuoted={showQuoted}
-      />
+      {paragraph}
       <Text
         size={14}
         style={{
