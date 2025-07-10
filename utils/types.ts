@@ -37,6 +37,7 @@ export interface Section {
   prayer?: string;
   quoted?: Record<string, RefQuote[]>;
   content: SectionContent[];
+  extract?: string;
 }
 
 export interface FlatPara {

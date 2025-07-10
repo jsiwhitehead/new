@@ -88,8 +88,13 @@ const getData = (
 
   const searchTree = {} as any;
   for (const section of searchSections.filter((s) => !data[s]!.meta)) {
-    data[section]!.path.reduce((res, p) => {
-      const key = JSON.stringify([p[0], p[1]]);
+    data[section]!.path.reduce((res, p, i) => {
+      const key = JSON.stringify([
+        i === data[section]!.path.length - 1 && data[section]!.extract
+          ? `${p[0]}: ${data[section]!.extract}`
+          : p[0],
+        p[1],
+      ]);
       return (res[key] = res[key] || {});
     }, searchTree);
   }

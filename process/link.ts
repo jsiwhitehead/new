@@ -20,6 +20,9 @@ import {
   toWords,
   textIsConnector,
   uniqueRefs,
+  getIndices,
+  mapRanges,
+  doesRangeInclude,
 } from "../utils/utils.ts";
 
 interface Layers {
@@ -601,6 +604,64 @@ data.forEach((d, section) => {
       {}
     );
     d.content = content;
+  }
+});
+
+const EXTRACT_WORDS = 15;
+
+data.forEach((d, section) => {
+  if (/^\d+$/.test(d.path[d.path.length - 1]![0])) {
+    const quotedParts = d.content.map((_, paragraph) => {
+      const text = getText(data, { section, paragraph });
+      if (!d.quoted?.[paragraph]) return [{ text, quoted: 0 }];
+      const indices = getIndices(
+        text.length,
+        d.quoted![paragraph]!.map((q) => q.range)
+      );
+      return mapRanges(indices, (range) => ({
+        text: text.slice(range.start, range.end),
+        quoted: d.quoted![paragraph]!.filter((q) =>
+          doesRangeInclude(q.range, range)
+        ).length,
+      }));
+    });
+    const partsMax = quotedParts.map((x) =>
+      Math.max(...x.map((y) => y.quoted))
+    );
+    const maxLevel = Math.max(...partsMax);
+    const maxParts = quotedParts[partsMax.indexOf(maxLevel)]!;
+    const levelsWords = Array.from({
+      length: Math.floor(maxLevel * 0.6) + 1,
+    }).map((_, level) => {
+      const res: (string | null)[] = [];
+      for (const part of maxParts) {
+        if (part.quoted >= level) {
+          res.push(part.text);
+        } else if (res[res.length - 1] !== null) {
+          res.push(null);
+        }
+      }
+      const text = res
+        .map((p) => (p === null ? " . . . " : p))
+        .join("")
+        .replace(/ +/g, " ")
+        .trim();
+      return {
+        text,
+        words: toCleaned(text)
+          .replace(/[^a-z0-9‑]/g, " ")
+          .split(/( *[a-z0-9‑]+)/g)
+          .filter((s) => s),
+      };
+    });
+    const words =
+      levelsWords.toReversed().find((w) => w.words.length >= EXTRACT_WORDS) ||
+      levelsWords[0]!;
+    d.extract = words.text.slice(
+      0,
+      words.words.slice(0, EXTRACT_WORDS).join("").length
+    );
+    if (words.words.length > EXTRACT_WORDS) d.extract += " . . .";
   }
 });
 
