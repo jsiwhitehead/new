@@ -107,11 +107,7 @@ const getData = (
         urlPath.length === d.path.length &&
         urlPath.every((p, i) => d.path[i]![1] === p)
     ) ||
-    [
-      "bahaullah/hidden-words",
-      "bahaullah/gleanings-writings-bahaullah",
-      "abdul-baha/selections-writings-abdul-baha",
-    ].includes(urlPath.join("/")) ||
+    ["bahaullah/hidden-words"].includes(urlPath.join("/")) ||
     (urlPath.length > 1 &&
       ["documents", "ruhi", "compilations"].includes(urlPath[0]!)) ||
     (urlPath.length > 2 &&

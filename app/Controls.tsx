@@ -89,6 +89,10 @@ export default function Controls({
     }
   };
 
+  useEffect(() => {
+    if (search === "") runSearch();
+  }, [search]);
+
   const linkUrlSearch = makeUrlSearch(
     ["search", getUrlString(params, "search")],
     ["level", getUrlNumber(params, "level")]

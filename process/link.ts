@@ -633,15 +633,29 @@ data.forEach((d, section) => {
     const levelsWords = Array.from({
       length: Math.floor(maxLevel * 0.6) + 1,
     }).map((_, level) => {
-      const res: (string | null)[] = [];
+      const res: ({ text: string; connector: boolean } | null)[] = [];
       for (const part of maxParts) {
         if (part.quoted >= level) {
-          res.push(part.text);
+          res.push({ text: part.text, connector: false });
+        } else if (textIsConnector(part.text)) {
+          if (res[res.length - 1]?.connector) {
+            res[res.length - 1]!.text += part.text;
+          } else {
+            res.push({ text: part.text, connector: true });
+          }
         } else if (res[res.length - 1] !== null) {
           res.push(null);
         }
       }
-      const text = res
+      const mapped: (string | null)[] = [];
+      res.forEach((x, i) => {
+        if (x && (!x.connector || (res[i - 1] && res[i + 1]))) {
+          mapped.push(x.text);
+        } else if (mapped[mapped.length - 1] !== null) {
+          mapped.push(null);
+        }
+      });
+      const text = mapped
         .map((p) => (p === null ? " . . . " : p))
         .join("")
         .replace(/ +/g, " ")

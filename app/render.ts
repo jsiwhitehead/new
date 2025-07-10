@@ -164,6 +164,14 @@ const getFillsRenderContent = (
     }
   }
 
+  for (let i = 0; i < para.quoted.length; i++) {
+    const { range } = para.quoted[i]!;
+    const pre = para.text.slice(0, range.start).match(/“[^a-z0-9‘]*$/)?.[0];
+    if (pre) range.start = range.start - pre.length;
+    const post = para.text.slice(range.end).match(/^[^a-z0-9’]*”/)?.[0];
+    if (post) range.end = range.end + post.length;
+  }
+
   for (const h of para.highlights) {
     const pre = para.text.slice(0, h.start).match(/[^— ]*$/)?.[0];
     if (pre) h.start = h.start - pre.length;
