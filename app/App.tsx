@@ -1,6 +1,7 @@
 import { Fragment } from "react";
+import { useNavigation } from "react-router";
 
-import type { QuoteLink, Ref, RenderContent, SemiPara } from "../utils/types";
+import type { QuoteLink, Ref, SemiPara } from "../utils/types";
 
 import Controls from "./Controls";
 import Paragraph from "./Paragraph";
@@ -26,6 +27,9 @@ export default function App({
   tree: any;
   showContent: boolean;
 }) {
+  const navigation = useNavigation();
+  const isNavigating = Boolean(navigation.location);
+
   return (
     <Column
       gap={40}
@@ -35,8 +39,14 @@ export default function App({
         margin: "0 auto",
       }}
     >
-      <Controls path={path} tree={tree} showContent={showContent} />
-      {showContent &&
+      <Controls
+        path={path}
+        tree={tree}
+        showContent={showContent}
+        isLoading={isNavigating}
+      />
+      {!isNavigating &&
+        showContent &&
         docs.map(({ sources, content }, index) => (
           <Fragment key={index}>
             {index !== 0 && <div style={{ height: 3, background: "#ddd" }} />}

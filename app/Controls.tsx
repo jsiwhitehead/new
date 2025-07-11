@@ -51,10 +51,12 @@ export default function Controls({
   path,
   tree,
   showContent,
+  isLoading,
 }: {
   path: [string, string][];
   tree: any;
   showContent: boolean;
+  isLoading: boolean;
 }) {
   const [params] = useSearchParams();
 
@@ -100,9 +102,17 @@ export default function Controls({
 
   return (
     <Column gap={20}>
-      <Text to="/" style={{ color: "darkred", fontWeight: "bold" }}>
-        Bahá’í Explore
-      </Text>
+      <Row gap={30} style={{}}>
+        <Text
+          to="/"
+          style={{ color: "darkred", fontWeight: "bold", flexGrow: 0 }}
+        >
+          Bahá’í Explore
+        </Text>
+        {isLoading && (
+          <Text style={{ fontStyle: "italic" }}>Loading . . .</Text>
+        )}
+      </Row>
 
       <input
         type="text"
