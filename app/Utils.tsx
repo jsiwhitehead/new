@@ -87,7 +87,7 @@ export function Text({
     return (
       <div
         id={id}
-        style={{ ...style, display: "flex", fontSize: textSize, flexGrow: 1 }}
+        style={{ display: "flex", fontSize: textSize, flexGrow: 1, ...style }}
         onClick={onClick}
       >
         <Link
@@ -113,7 +113,7 @@ export function Text({
   return (
     <div
       id={id}
-      style={{ ...style, display: "flex", fontSize: textSize }}
+      style={{ display: "flex", fontSize: textSize, ...style }}
       onClick={onClick}
     >
       <p style={{ margin: `-${(textSize * 0.5) / 2}px 0` }}>{children}</p>
