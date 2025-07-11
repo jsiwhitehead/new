@@ -14,6 +14,7 @@ import {
   getRangesIntersect,
   mapRanges,
   moveRange,
+  textIsConnector,
 } from "../utils/utils.ts";
 
 import { data, getAllSpecial } from "./utils.ts";
@@ -192,28 +193,43 @@ export const filterQuoted = (
   const quotedParts = mapRanges(indices, (range) => ({
     range,
     quoted: para.quoted.filter((q) => doesRangeInclude(q.range, range)).length,
-  })).filter((q) => q.quoted >= level);
+  }));
 
-  let current = 0;
-  const nullParts: (null | FlatPara)[] = [];
-  for (const { range } of quotedParts) {
-    if (current < range.start) nullParts.push(null);
-    nullParts.push(slicePara(para, range));
-    current = range.end;
+  const res: (null | { para: FlatPara; connector: boolean })[] = [];
+  for (const { range, quoted } of quotedParts) {
+    if (quoted >= level) {
+      res.push({ para: slicePara(para, range), connector: false });
+    } else if (textIsConnector(para.text.slice(range.start, range.end))) {
+      if (res[res.length - 1]?.connector) {
+        res[res.length - 1]!.para = joinParaParts([
+          res[res.length - 1]!.para,
+          slicePara(para, range),
+        ]);
+      } else {
+        res.push({ para: slicePara(para, range), connector: true });
+      }
+    } else if (res[res.length - 1] !== null) {
+      res.push(null);
+    }
   }
-  if (current < para.text.length) nullParts.push(null);
 
-  if (nullParts.every((p) => p === null)) return null;
-  const parts = nullParts
-    .flatMap((p, i) => {
-      if (p !== null) return p;
-      const prev = nullParts[i - 1]?.text || "";
-      const next = nullParts[i + 1]?.text || "";
-      if (prev.endsWith(". . .") || next.startsWith(". . .")) return [];
-      if (i === 0) return ". . . ";
-      if (i === nullParts.length - 1) return " . . .";
-      return " . . . ";
-    })
-    .filter((p) => p);
+  const mapped: (FlatPara | null)[] = [];
+  res.forEach((x, i) => {
+    if (x && (!x.connector || (res[i - 1] && res[i + 1]))) {
+      mapped.push(x.para);
+    } else if (mapped[mapped.length - 1] !== null) {
+      mapped.push(null);
+    }
+  });
+
+  if (mapped.every((p) => p === null)) return null;
+
+  const parts = mapped.map((p, i) => {
+    if (p !== null) return p;
+    if (i === 0) return ". . . ";
+    if (i === mapped.length - 1) return " . . .";
+    return " . . . ";
+  });
+
   return joinParaParts(parts);
 };

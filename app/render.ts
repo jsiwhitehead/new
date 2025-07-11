@@ -137,6 +137,21 @@ const getBaseRenderContent = (para: SemiPara): RenderContent => {
   return result;
 };
 
+const getBreakRanges = (text: string, start: number) => {
+  const indices = [
+    ...new Set([
+      0,
+      ...[...text.matchAll(/[ —]/g)]
+        .map((m) => m.index)
+        .flatMap((x) => [x, x + 1]),
+      text.length,
+    ]),
+  ].sort((a, b) => a - b);
+  return indices
+    .slice(1)
+    .map((end, i) => moveRange({ start: indices[i]!, end }, start));
+};
+
 const getFillsRenderContent = (
   para: SemiPara,
   paraId: string
@@ -173,9 +188,9 @@ const getFillsRenderContent = (
   }
 
   for (const h of para.highlights) {
-    const pre = para.text.slice(0, h.start).match(/[^— ]*$/)?.[0];
+    const pre = para.text.slice(0, h.start).match(/[^—‑ ]*$/)?.[0];
     if (pre) h.start = h.start - pre.length;
-    const post = para.text.slice(h.end).match(/^[^— ]*/)?.[0];
+    const post = para.text.slice(h.end).match(/^[^—‑ ]*/)?.[0];
     if (post) h.end = h.end + post.length;
   }
 
@@ -184,16 +199,10 @@ const getFillsRenderContent = (
     para.quoted
       .map((q) => q.range)
       .flatMap(({ start, end }) =>
-        Array.from({ length: end - start + 1 }, (_, i) => ({
-          start: start + i,
-          end: start + i,
-        }))
+        getBreakRanges(para.text.slice(start, end), start)
       ),
     para.highlights.flatMap(({ start, end }) =>
-      Array.from({ length: end - start + 1 }, (_, i) => ({
-        start: start + i,
-        end: start + i,
-      }))
+      getBreakRanges(para.text.slice(start, end), start)
     )
   );
 
