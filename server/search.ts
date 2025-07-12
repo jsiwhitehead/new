@@ -1,49 +1,91 @@
 import { readText } from "../utils/files.ts";
-import stem from "../utils/searchStem.ts";
+import stem, { isStopword } from "../utils/searchStem.ts";
 import fixSpellings from "../utils/spellings.ts";
 import type { Range } from "../utils/types.ts";
-import { sum } from "../utils/utils.ts";
+import { doRangesIntersect, sum } from "../utils/utils.ts";
 
 import lengthsJSON from "../data/lengths.json" with { type: "json" };
 const searchIndex = await readText("", "search");
 
+type Lengths = { level: number; length: number }[];
+type Positions = { level: number; positions: number[] };
+
 const K = 1.2; // term saturation, low k more like binary presence of terms
 const B = 0.3; // length normalisation 0-1, 0 = long & short treated the same
+const P = 5; // proximity weight factor
 const L = 0.6; // level lowering factor
 
-type Layers = { level: number; value: number }[];
+const getMinSpan = (positions: number[][]) => {
+  const pointers: number[] = Array(positions.length).fill(0);
+  let minSpan = Infinity;
 
-const splitLayers = (layers: string, defValue: number): Layers =>
-  layers
-    ? layers.split(",").map((l) => {
-        const [level, value] = l.split("=");
-        return { level: parseInt(level!, 10), value: parseInt(value!, 10) };
-      })
-    : [{ level: 0, value: defValue }];
+  while (true) {
+    const currentPositions = pointers.map((p, i) => positions[i]![p]!);
+    const currentMin = Math.min(...currentPositions);
+    const currentMax = Math.max(...currentPositions);
+    const span = currentMax - currentMin + 1;
+
+    if (span < minSpan) minSpan = span;
+
+    let minIndex = -1;
+    let minValue = Infinity;
+    for (let i = 0; i < positions.length; i++) {
+      if (positions[i]![pointers[i]!]! < minValue) {
+        minValue = positions[i]![pointers[i]!]!;
+        minIndex = i;
+      }
+    }
+
+    pointers[minIndex]!++;
+    if (pointers[minIndex]! >= positions[minIndex]!.length) break;
+  }
+
+  return minSpan;
+};
 
 const parasTotal: number = (lengthsJSON as any).total;
 const parasAverage: number = (lengthsJSON as any).average;
 
-const parasLengths: (string | Layers)[][] = (lengthsJSON as any).lengths;
+const parasLengths: (string | Lengths)[][] = (lengthsJSON as any).lengths;
 const getParaLength = (section: number, paragraph: number, level: number) => {
   if (typeof parasLengths[section]![paragraph]! === "string") {
-    parasLengths[section]![paragraph]! = splitLayers(
-      parasLengths[section]![paragraph]!,
-      1
-    );
+    parasLengths[section]![paragraph]! = (
+      parasLengths[section]![paragraph]! || "0=1"
+    )
+      .split(",")
+      .map((l) => {
+        const [level, value] = l.split("=");
+        return { level: parseInt(level!, 10), length: parseInt(value!, 10) };
+      });
   }
-  const result = parasLengths[section]![paragraph]! as Layers;
-  return result.find((x) => x.level >= level)!.value;
+  const result = parasLengths[section]![paragraph]! as Lengths;
+  return result.find((x) => x.level >= level)!.length;
 };
 
 const escapeForRegex = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 const tokenMatches: Record<
   string,
-  { token: string; section: number; paragraph: number; matches: Layers }[]
+  {
+    token: string;
+    stopword: boolean;
+    section: number;
+    paragraph: number;
+    matches: Positions[];
+  }[]
 > = {};
-const getTokenMatches = (
-  token: string
-): { token: string; section: number; paragraph: number; matches: Layers }[] => {
+const getTokenMatches = ({
+  token,
+  stopword,
+}: {
+  token: string;
+  stopword: boolean;
+}): {
+  token: string;
+  stopword: boolean;
+  section: number;
+  paragraph: number;
+  matches: Positions[];
+}[] => {
   if (!tokenMatches[token]) {
     const line = searchIndex.match(
       new RegExp(`^${escapeForRegex(token)}_.*`, "m")
@@ -57,9 +99,16 @@ const getTokenMatches = (
         const [section, paragraph] = key!.split(":");
         return {
           token,
+          stopword,
           section: parseInt(section!, 10),
           paragraph: parseInt(paragraph!, 10),
-          matches: splitLayers(layers.join(","), 1),
+          matches: layers.map((l) => {
+            const [level, positions] = l.split("=");
+            return {
+              level: parseInt(level!, 10),
+              positions: positions!.split("-").map((p) => parseInt(p, 10)),
+            };
+          }),
         };
       });
     }
@@ -69,22 +118,13 @@ const getTokenMatches = (
 
 const lengthIdfs: Record<number, number> = {};
 const getTokenIdf = (token: string) => {
-  const tokenTotal = getTokenMatches(token).length;
+  const tokenTotal = getTokenMatches({ token, stopword: false }).length;
   if (!lengthIdfs[tokenTotal]) {
     lengthIdfs[tokenTotal] = Math.log(
       (parasTotal - tokenTotal + 0.5) / (tokenTotal + 0.5) + 1
     );
   }
   return lengthIdfs[tokenTotal];
-};
-
-const trailingMatchLength = <T>(array: T[], test: (item: T) => boolean) => {
-  let count = 0;
-  for (let i = array.length - 1; i >= 0; i--) {
-    if (!test(array[i]!)) break;
-    count++;
-  }
-  return count;
 };
 
 export const getMatches = (
@@ -99,11 +139,15 @@ export const getMatches = (
         .replace(/[\u0300-\u036f]/g, "")
         .toLowerCase()
         .split(/[‑— ]+/g)
-        .map((word) => stem(word.replace(/’s$/g, "").replace(/[^a-z0-9]/g, "")))
-        .filter((s) => s)
+        .map((word) => word.replace(/’s$/g, "").replace(/[^a-z0-9]/g, ""))
+        .filter((word) => word)
+        .map((word) => ({
+          token: stem(word),
+          stopword: isStopword(word),
+        }))
     ),
   ];
-  if (tokens.length === 0) return null;
+  if (tokens.filter((x) => !x.stopword).length === 0) return null;
 
   const matches = tokens
     .flatMap((token) => getTokenMatches(token))
@@ -116,13 +160,29 @@ export const getMatches = (
       ...matches.find((s) => s.level >= level)!,
     }));
 
-  const allSections = [...new Set(matches.map((m) => m.section))];
-  const groups = allSections.flatMap((section) => {
-    const sectionMatches = matches.filter((m) => m.section === section);
+  const sectionMatches: Record<
+    string,
+    {
+      section: number;
+      paragraph: number;
+      token: string;
+      stopword: boolean;
+      level: number;
+      positions: number[];
+    }[]
+  > = {};
+  for (const m of matches) {
+    sectionMatches[m.section] = sectionMatches[m.section] || [];
+    sectionMatches[m.section]!.push(m);
+  }
+  const runs = [
+    ...new Set(matches.filter((x) => !x.stopword).map((m) => m.section)),
+  ].flatMap((section) => {
     const paras = parasLengths[section]!.map((_, paragraph) => {
-      const paraMatches = sectionMatches.filter(
+      const paraAllMatches = sectionMatches[section]!.filter(
         (m) => m.paragraph === paragraph
       );
+      const paraMatches = paraAllMatches.filter((m) => !m.stopword);
       const paraLevel =
         paraMatches.length === 0
           ? 0
@@ -131,82 +191,117 @@ export const getMatches = (
               Math.floor(Math.min(...paraMatches.map((m) => m.level)) * L)
             );
       const paraLength = getParaLength(section, paragraph, paraLevel);
+      if (paraMatches.length === 0) {
+        return {
+          level: paraLevel,
+          length: paraLength,
+          scores: {},
+          proximity: 0,
+          done: false,
+        };
+      }
+      const proxTokens = tokens
+        .map(({ token }) => ({
+          token,
+          positions: paraAllMatches
+            .filter((m) => m.token === token)
+            .flatMap((m) => m.positions),
+        }))
+        .filter((x) => x.positions.length > 0);
       return {
         level: paraLevel,
         length: paraLength,
-        scores: tokens
-          .map((token) => ({
-            token,
-            score: sum(
-              paraMatches.filter((m) => m.token === token).map((m) => m.value)
-            ),
-          }))
-          .filter((s) => s.score > 0),
+        scores: tokens.reduce<Record<string, number>>((res, { token }) => {
+          const score = sum(
+            paraMatches
+              .filter((m) => m.token === token)
+              .map((m) => m.positions.length * (m.level + 1))
+          );
+          if (score === 0) return res;
+          return { ...res, [token]: score };
+        }, {}),
+        proximity:
+          Math.pow(sum(proxTokens.map((x) => getTokenIdf(x.token))), 2) /
+          getMinSpan(proxTokens.map((x) => x.positions)),
         done: false,
       };
     });
 
-    const grouped: {
+    const firstPara = paras.findIndex((x) => x.proximity > 0);
+    const lastPara = paras.findLastIndex((x) => x.proximity > 0);
+
+    let allRuns: {
+      start: number;
+      end: number;
+      levels: (number | null)[];
+      score: number;
+      scoreInfo: any;
+    }[] = [];
+    for (let start = firstPara; start <= lastPara; start++) {
+      if (paras[start]!.proximity === 0) continue;
+      let gap = 0;
+      for (let end = start; end <= lastPara; end++) {
+        if (paras[end]!.proximity === 0) gap++;
+        else gap = 0;
+        if (gap > 3) break;
+        if (paras[end]!.proximity > 0) {
+          const sliced = paras.slice(start, end + 1);
+          const length = sum(sliced.map((p) => p.length)) / parasAverage;
+          const tfIdf = sum(
+            tokens
+              .filter((x) => !x.stopword)
+              .map(({ token }) => {
+                const tf = sum(sliced.map((p) => p.scores[token] || 0));
+                return (
+                  ((tf * (K + 1)) / (tf + K * (1 - B + B * length))) *
+                  getTokenIdf(token)
+                );
+              })
+          );
+          const proximity = Math.max(...sliced.map((p) => p.proximity));
+          const score = tfIdf + P * proximity;
+          const levels: (number | null)[] = [];
+          for (let paragraph = start; paragraph <= end; paragraph++) {
+            levels.push(
+              paras[paragraph]!.scores.length === 0
+                ? null
+                : paras[paragraph]!.level
+            );
+          }
+          allRuns.push({
+            start,
+            end: end + 1,
+            levels,
+            score,
+            scoreInfo: { tfIdf, proximity },
+          });
+        }
+      }
+    }
+
+    const result: {
       section: number;
       start: number;
       levels: (number | null)[];
       score: number;
+      scoreInfo: any;
     }[] = [];
-    while (true) {
-      let best;
-      for (let start = 0; start < paras.length; start++) {
-        for (let end = start; end < paras.length; end++) {
-          if (paras[end]!.done) {
-            break;
-          }
-          const sliced = paras.slice(start, end + 1);
-          if (trailingMatchLength(sliced, (x) => x.scores.length === 0) > 3) {
-            break;
-          }
-          const length = sum(sliced.map((p) => p.length)) / parasAverage;
-          const score = sum(
-            tokens.map((token) => {
-              const tf = sum(
-                sliced.map(
-                  (p) => p.scores.find((s) => s.token === token)?.score || 0
-                )
-              );
-              return (
-                ((tf * (K + 1)) / (tf + K * (1 - B + B * length))) *
-                getTokenIdf(token)
-              );
-            })
-          );
-          if (score > 0 && (!best || score > best.score)) {
-            best = { start, end, score };
-          }
-        }
-      }
-      if (best) {
-        const indices = Array.from({ length: best.end - best.start + 1 }).map(
-          (_, i) => best.start + i
-        );
-        grouped.push({
-          section,
-          start: best.start,
-          levels: indices.map((paragraph) =>
-            paras[paragraph]!.scores.length === 0
-              ? null
-              : paras[paragraph]!.level
-          ),
-          score: best.score,
-        });
-        for (const paragraph of indices) {
-          paras[paragraph]!.done = true;
-        }
-      } else {
-        break;
-      }
+    while (allRuns.length > 0) {
+      const maxScore = Math.max(...allRuns.map((x) => x.score));
+      const best = allRuns.find((x) => x.score === maxScore)!;
+      result.push({
+        section,
+        start: best.start,
+        levels: best.levels,
+        score: best.score,
+        scoreInfo: best.scoreInfo,
+      });
+      allRuns = allRuns.filter((x) => !doRangesIntersect(x, best));
     }
-    return grouped;
+    return result;
   });
 
-  return { tokens, matches: groups.sort((a, b) => b.score - a.score) };
+  return { tokens, matches: runs.sort((a, b) => b.score - a.score) };
 };
 
 export const getTokenHighlights = (text: string, tokens: string[]): Range[] => {

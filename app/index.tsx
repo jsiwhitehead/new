@@ -21,6 +21,7 @@ const Root = () => {
         paraId: string;
         para: SemiPara;
         ref: Ref;
+        scoreInfo: any;
       }[];
     }[];
     path: [string, string][];

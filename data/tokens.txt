@@ -7924,7 +7924,15 @@
 
 *zunuz = zunuzi
 
-10 = 100 | 101 | 102 | 103 | 109
+0 = 0
+
+08 = 08
+
+09 = 09
+
+1 = 1
+
+10 = 10 | 100 | 101 | 102 | 103 | 109
 
 100 = 1000
 
@@ -7952,7 +7960,7 @@
 
 10y6 = 10360
 
-11 = 110 | 111 | 112 | 113 | 119
+11 = 11 | 110 | 111 | 112 | 113 | 119
 
 110 = 1100
 
@@ -7976,7 +7984,7 @@
 
 11y97 = 11397
 
-12 = 120 | 123 | 1231 | 129
+12 = 12 | 120 | 123 | 1231 | 129
 
 120 = 1200
 
@@ -8036,7 +8044,9 @@
 
 12y5 = 1235
 
-14 = 140 | 141 | 142 | 143 | 149
+13 = 13
+
+14 = 14 | 140 | 141 | 142 | 143 | 149
 
 140 = 1400
 
@@ -8062,7 +8072,7 @@
 
 14th = 14th
 
-15 = 150 | 151 | 152 | 153
+15 = 15 | 150 | 151 | 152 | 153
 
 150 = 1500
 
@@ -8086,7 +8096,7 @@
 
 15th = 15th
 
-16 = 160 | 162 | 169
+16 = 16 | 160 | 162 | 169
 
 160 = 1600
 
@@ -8100,7 +8110,7 @@
 
 16th = 16th
 
-17 = 170 | 171 | 172 | 179
+17 = 17 | 170 | 171 | 172 | 179
 
 1700 = 17000
 
@@ -8120,7 +8130,7 @@
 
 17th = 17th
 
-18 = 180 | 181 | 182 | 1830 | 1831 | 1832 | 189
+18 = 18 | 180 | 181 | 182 | 1830 | 1831 | 1832 | 189
 
 180 = 1800
 
@@ -8202,7 +8212,7 @@
 
 18y8 = 1838
 
-19 = 190 | 191 | 1930 | 1931 | 1932 | 1939 | 199
+19 = 19 | 190 | 191 | 1930 | 1931 | 1932 | 1939 | 199
 
 190 = 1900 | 1901 | 1902 | 1903 | 1909
 
@@ -8394,7 +8404,9 @@
 
 1yy7 = 1337
 
-20 = 200 | 203 | 2031 | 209
+2 = 2
+
+20 = 20 | 200 | 203 | 2031 | 209
 
 200 = 2000 | 2001 | 2002 | 2003 | 2009
 
@@ -8440,7 +8452,7 @@
 
 20th = 20th
 
-21 = 213 | 219
+21 = 21 | 213 | 219
 
 21000 = 210000
 
@@ -8457,6 +8469,8 @@
 21st = 21st
 
 21y6 = 2136
+
+22 = 22
 
 220 = 2200
 
@@ -8476,13 +8490,15 @@
 
 22nd = 22nd
 
-24 = 240 | 241 | 243
+23 = 23
+
+24 = 24 | 240 | 241 | 243
 
 2400 = 24000
 
 24th = 24th
 
-25 = 250
+25 = 25 | 250
 
 250 = 2500
 
@@ -8508,7 +8524,7 @@
 
 25y7 = 25371
 
-26 = 260 | 261 | 263
+26 = 26 | 260 | 261 | 263
 
 260 = 2600
 
@@ -8520,7 +8536,7 @@
 
 26th = 26th
 
-27 = 279
+27 = 27 | 279
 
 2700 = 27000
 
@@ -8532,7 +8548,7 @@
 
 27y7 = 27371
 
-28 = 280
+28 = 28 | 280
 
 280 = 2800
 
@@ -8543,6 +8559,8 @@
 288 = 288
 
 28th = 28th
+
+29 = 29
 
 2900 = 29000
 
@@ -8562,7 +8580,31 @@
 
 2yrd = 23rd
 
-40 = 400 | 409
+3 = 3
+
+30 = 30
+
+31 = 31
+
+32 = 32
+
+33 = 33
+
+34 = 34
+
+35 = 35
+
+36 = 36
+
+37 = 37
+
+38 = 38
+
+39 = 39
+
+4 = 4
+
+40 = 40 | 400 | 409
 
 400 = 4000
 
@@ -8572,11 +8614,19 @@
 
 40th = 40th
 
+41 = 41
+
+42 = 42
+
+43 = 43
+
+44 = 44
+
 444 = 444
 
 447 = 4471
 
-45 = 450
+45 = 45 | 450
 
 450 = 4500
 
@@ -8586,15 +8636,19 @@
 
 457 = 457
 
-46 = 461
+46 = 46 | 461
 
 4600 = 46000
 
 46yy4 = 46334
 
+47 = 47
+
+48 = 48
+
 481 = 4810 | 4812
 
-49 = 490
+49 = 49 | 490
 
 498 = 498
 
@@ -8604,7 +8658,9 @@
 
 4y = 431 | 432
 
-50 = 500
+5 = 5
+
+50 = 50 | 500
 
 500 = 5000
 
@@ -8614,11 +8670,15 @@
 
 50th = 50th
 
-51 = 519
+51 = 51 | 519
+
+52 = 52
 
 5214 = 52142
 
-54 = 540
+53 = 53
+
+54 = 54 | 540
 
 5400 = 54000
 
@@ -8628,13 +8688,21 @@
 
 54th = 54th
 
+55 = 55
+
 55000 = 550000
 
 557 = 557
 
+56 = 56
+
 5600 = 56000
 
-57 = 571
+57 = 57 | 571
+
+58 = 58
+
+59 = 59
 
 5th = 5th
 
@@ -8642,7 +8710,9 @@
 
 5y6 = 536
 
-60 = 600
+6 = 6
+
+60 = ’60 | 60 | 600
 
 600 = 6000
 
@@ -8654,25 +8724,33 @@
 
 60s = 60s
 
-61 = 613
+61 = 61 | 613
+
+62 = 62
 
 626 = 626
 
-64 = 642
+63 = 63
 
-66 = 660
+64 = 64 | 642
+
+65 = 65
+
+66 = 66 | 660
 
 661 = 6612
+
+67 = 67
 
 670 = 6703
 
 675 = 675
 
-68 = 681
+68 = 68 | 681
 
 6804 = 6804
 
-69 = 692 | 693
+69 = 69 | 692 | 693
 
 6950 = 69500
 
@@ -8680,21 +8758,35 @@
 
 6y8 = 638
 
-70 = 700 | 702
+7 = 7
+
+70 = 70 | 700 | 702
 
 7000 = 70000
 
-74 = 741
+71 = 71
 
-75 = 750
+72 = 72
+
+73 = 73
+
+74 = 74 | 741
+
+75 = 75 | 750
 
 756 = 756
 
 75th = 75th
 
-78 = 780
+76 = 76
+
+77 = 77
+
+78 = 78 | 780
 
 78th = 78th
+
+79 = 79
 
 7th = 7th
 
@@ -8702,21 +8794,35 @@
 
 7y7 = 737
 
-80 = 800 | 802
+8 = 8
+
+80 = ’80 | 80 | 800 | 802
 
 800 = 8000
 
 8000 = 80000
 
-81 = 813
+81 = 81 | 813
 
 817 = 817
 
-84 = 849
+82 = 82
+
+83 = 83
+
+84 = 84 | 849
 
 846 = 846
 
+85 = 85
+
 867 = 8670
+
+87 = 87
+
+88 = 88
+
+89 = 89
 
 898 = 898
 
@@ -8724,13 +8830,17 @@
 
 8y00 = 83000
 
-90 = 900
+9 = 9
+
+90 = 90 | 900
 
 9000 = 90000
 
 90th = 90th
 
-91 = 911
+91 = 91 | 911
+
+92 = 92
 
 920 = 9200
 
@@ -8738,11 +8848,23 @@
 
 926 = 926
 
-97 = 973
+93 = 93
+
+94 = 94
+
+95 = 95
+
+96 = 96
+
+97 = 97 | 973
+
+98 = 98
+
+99 = 99
 
 9th = 9th
 
-a = aerie
+a = a | aerie
 
 ab = abi | ably | abu
 
@@ -8803,6 +8925,8 @@ aborigin = aboriginal
 abort = abortion | abortive
 
 abound = abound | abounded | aboundeth | abounding | abounds
+
+about = about
 
 aboutiss = aboutissement
 
@@ -8954,7 +9078,7 @@ acumen = acumen
 
 acut = acute | acutely | acuteness
 
-ad = added | addeth | adding | adi
+ad = ‘ad | ad | added | addeth | adding | adi
 
 adam = adam | adamic | adams
 
@@ -9136,6 +9260,8 @@ afternoon = afternoon | afternoons
 
 afterward = afterward | afterwards
 
+again = again
+
 against = against
 
 agat = agate
@@ -9178,6 +9304,8 @@ agricultur = agricultural | agriculture
 
 agriculturist = agriculturist
 
+ah = ah
+
 ahad = ahad
 
 ahead = ahead
@@ -9208,7 +9336,7 @@ ajmal = ajmal
 
 akin = akin
 
-al = alliance | alliances | allied | allies | ally | allying
+al = al | al’ | alliance | alliances | allied | allies | ally | allying
 
 ala = alas
 
@@ -9257,6 +9385,8 @@ align = align | aligned | aligning | alignment
 alik = alike
 
 aliv = alive
+
+all = all
 
 allay = allay | allayed | allaying
 
@@ -9330,7 +9460,7 @@ altruism = altruism | altruistic | altruists
 
 alway = always
 
-am = ‘amu | amis
+am = ‘amu | am | amis
 
 amanuens = amanuenses | amanuensis
 
@@ -9398,6 +9528,8 @@ amput = amputate | amputated | amputation
 
 amus = amused | amusement | amusements | amuses
 
+an = an
+
 anachronist = anachronistic
 
 anaem = anaemic
@@ -9421,6 +9553,8 @@ anchor = anchor | anchored | anchors
 ancient = ancient | ancients
 
 ancillar = ancillary
+
+and = and
 
 andes = andes
 
@@ -9535,6 +9669,8 @@ anvil = anvil
 anxiet = anxieties | anxiety
 
 anxious = anxious | anxiously
+
+any = any
 
 anybod = anybody
 
@@ -9666,7 +9802,7 @@ aptitud = aptitude | aptitudes
 
 aqueduct = aqueduct
 
-ar = arrest | arrests
+ar = ar | arrest | arrests
 
 arab = ‘arab | arab | arabia | arabians | arabic | arabs
 
@@ -9717,6 +9853,8 @@ ardent = ardency | ardent | ardently
 ardour = ardour | ardours
 
 arduous = arduous | arduously | arduousness
+
+are = are
 
 area = area | areas
 
@@ -9795,6 +9933,8 @@ artific = artifice | artificer | artificial | artificially
 artill = artillery
 
 artisan = artisan | artisans
+
+as = as
 
 ascend = ascend | ascendancy | ascendant | ascended | ascendeth | ascending | ascends | ascension | ascent
 
@@ -9900,7 +10040,7 @@ asund = asunder
 
 asylum = asylum
 
-at = attest | attests
+at = at | attest | attests
 
 ate = ate
 
@@ -9961,6 +10101,8 @@ attribut = attributable | attribute | attributed | attributes | attributeth | at
 attrit = attrition
 
 attun = attune | attuned | attunement
+
+au = au
 
 auction = auction | auctioned | auctioning | auctions
 
@@ -10107,6 +10249,12 @@ axe = axe | axes
 axiom = axiom | axiomatic
 
 aye = aye
+
+az = az
+
+b = b
+
+ba = ba | ba’
 
 baby = babe | babes | baby | babyhood
 
@@ -10296,7 +10444,9 @@ bazaar = bazaar | bazaars
 
 bazzaz = bazzaz
 
-be = being | beings
+bc = bc
+
+be = be | being | beings
 
 beacon = beacon | beaconing | beacons
 
@@ -10324,6 +10474,8 @@ beav = beaver
 
 becam = became
 
+because = because
+
 beckon = beck | beckon | beckoned | beckoning | beckons
 
 becloud = becloud | beclouded | becloudeth | beclouding | becloudings
@@ -10347,6 +10499,8 @@ bedsid = bedside
 beef = beef
 
 beehiv = beehive
+
+been = been
 
 beer = beer
 
@@ -11030,6 +11184,8 @@ businessman = businessman | businessmen
 
 busybod = busybodies
 
+but = but
+
 butch = butcher | butchered | butcheries | butchering | butchers | butchers’ | butchery
 
 butl = butler
@@ -11048,6 +11204,8 @@ buy = bought | buy | buyer | buyers | buying | buys
 
 buzz = buzzed | buzzing
 
+by = by
+
 byfleet = byfleet
 
 bygon = bygone
@@ -11055,6 +11213,8 @@ bygon = bygone
 bypass = bypass
 
 bystand = bystander | bystanders
+
+c = c
 
 cabin = cabin
 
@@ -11113,6 +11273,8 @@ campaign = campaign | campaigners | campaigning | campaigns
 camphor = camphor | camphorated
 
 campus = campus | campuses
+
+can = can
 
 canal = canal | canalise | canalised | canalises | canalising
 
@@ -11308,6 +11470,8 @@ cauldron = cauldron
 
 caus = causal | causation | causative | caused | causer | causes | causest | causeth | causing
 
+cause = cause
+
 cause8 = cause8
 
 caustic = caustic
@@ -11325,6 +11489,8 @@ caveat = caveats
 cavil = cavil | cavilled | cavilling | cavillings | cavils
 
 caw = cawing
+
+ce = ce
 
 ceas = cease | ceased | ceaseless | ceaselessly | ceases | ceasest | ceaseth | ceasing
 
@@ -11763,6 +11929,8 @@ clustered = clustered | clustering
 clutch = clutches | clutching
 
 clxxxi = clxxxii
+
+co = co
 
 coach = coach
 
@@ -12428,6 +12596,8 @@ couch = couch | couched | couches
 
 cough = cough
 
+could = could
+
 couldst = couldst
 
 council = council | councils | councils’
@@ -12724,6 +12894,8 @@ cyph = cypher
 
 cypress = cypress | cypresses
 
+d = d
+
 da = daily
 
 dadash = dadash
@@ -12812,7 +12984,11 @@ daze = dazed
 
 dazzl = dazzle | dazzled | dazzles | dazzleth | dazzling | dazzlingly
 
-de = deer
+dc = dc
+
+dd = dd
+
+de = de | deer
 
 dead = dead | deadlier | deadliest | deadly | deadness | death | deathless | deaths
 
@@ -13290,6 +13466,8 @@ dictat = dictate | dictated | dictates | dictating | dictation | dictator | dict
 
 dictionar = dictionaries | dictionary
 
+did = did
+
 didact = didactic
 
 didst = didst
@@ -13700,7 +13878,7 @@ divorc = divorce | divorced | divorces | divorcing
 
 divulg = divulge | divulged | divulgeth | divulging
 
-do = doer | doers | doest | doeth | doing | doings
+do = do | doer | doers | doest | doeth | doing | doings
 
 docil = docile
 
@@ -13713,6 +13891,8 @@ document = document | documentary | documentation | documented | documenting | d
 dodg = dodge
 
 doe = doe
+
+does = does
 
 dog = dog | dogged | dogs
 
@@ -13782,7 +13962,7 @@ dove = dove | doves
 
 dow = dowered
 
-down = downed
+down = down | downed
 
 downcast = downcast
 
@@ -13806,7 +13986,7 @@ dowr = dowry
 
 dozen = dozen | dozens
 
-dr = dried | dry
+dr = dr | dried | dry
 
 draconian = draconian
 
@@ -13888,7 +14068,7 @@ drumm = drummers
 
 drunk = drunk | drunkard | drunken | drunkenness
 
-du = duly
+du = du | duly
 
 dual = dual
 
@@ -13981,6 +14161,10 @@ dynast = dynasties | dynasty
 dysent = dysentery
 
 dysfunct = dysfunctional
+
+e = e
+
+each = each
 
 eag = eager | eagerly | eagerness
 
@@ -14098,6 +14282,8 @@ effulg = effulgence | effulgences | effulgent | effulgently
 
 effus = effusion | effusions | effusive
 
+eg = eg
+
 egal = egalement
 
 egalitarian = egalitarian
@@ -14127,6 +14313,8 @@ eith = either
 eject = eject | ejected | ejectment
 
 eke = eking
+
+el = el
 
 elabor = elaborate | elaborated | elaborately | elaborates | elaborating | elaboration | elaborations
 
@@ -14293,6 +14481,8 @@ empt = emptied | emptiness | empty | emptying
 empyrean = empyrean
 
 emul = emulate | emulated | emulating | emulation
+
+en = en
 
 enabl = enable | enabled | enables | enablest | enableth | enabling
 
@@ -14590,6 +14780,8 @@ erudit = erudite | erudition
 
 erupt = erupt | erupted | eruption
 
+es = es
+
 esa = esau
 
 escal = escalating | escalation
@@ -14628,6 +14820,8 @@ estim = estimable | estimate | estimated | estimates | estimating | estimation
 
 estrang = estrange | estranged | estrangement | estranging
 
+et = et
+
 etaient = etaient
 
 etant = etant
@@ -14655,6 +14849,8 @@ etr = etre
 etrang = etrange
 
 etud = etudie
+
+eu = eu
 
 eucharist = eucharist
 
@@ -14702,6 +14898,8 @@ everlast = everlasting | everlastingly
 
 evermor = evermore
 
+every = every
+
 everybod = everybody
 
 everyday = everyday
@@ -14731,6 +14929,8 @@ evolv = evolution | evolutionary | evolutions | evolve | evolved | evolves | evo
 ew = ewer
 
 ewe = ewe
+
+ex = ex
 
 exacerb = exacerbate | exacerbated | exacerbating | exacerbation
 
@@ -14972,7 +15172,7 @@ eyesight = eyesight
 
 eyewit = eyewitness | eyewitnesses
 
-f = flew | flies | flieth | flight | flights | flown | fly | flying
+f = f | flew | flies | flieth | flight | flights | flown | fly | flying
 
 fa = faery
 
@@ -15506,6 +15706,8 @@ footstep = footsteps
 
 footstool = footstool
 
+for = for
+
 forasmuch = forasmuch
 
 forbear = forbear | forbearance | forbearing | forbears | forborne
@@ -15754,6 +15956,8 @@ fro = fro
 
 frog = frogs’
 
+from = from
+
 front = front | fronting | fronts
 
 fronti = frontier | frontiers
@@ -15837,6 +16041,8 @@ fut = fut
 futil = futile | futility
 
 futur = future | futures
+
+g = g
 
 gah = gah
 
@@ -16076,7 +16282,7 @@ gnaw = gnawing
 
 gnostic = gnostic | gnosticism
 
-go = goes | goest | goeth | going | goings | gone
+go = go | goes | goest | goeth | going | goings | gone
 
 goad = goad | goaded
 
@@ -16326,7 +16532,11 @@ guzal = guzal
 
 gyps = gypsy
 
+h = h
+
 h2o = h2o
+
+ha = ha | ha’
 
 hab = habiliments
 
@@ -16335,6 +16545,8 @@ habit = habit | habits | habitual | habitually | habituated | habitue
 habita = habitable | habitation | habitations
 
 hack = hacked | hacking
+
+had = had
 
 hadst = hadst
 
@@ -16448,7 +16660,7 @@ harsh = harsh | harsher | harshest | harshly | harshness
 
 harv = harvest | harvested | harvester | harvesting | harvests
 
-has = hast
+has = has | hast
 
 hast = haste | hasted | hasten | hastened | hasteneth | hastening | hastens | hastily | hasting | hasty
 
@@ -16460,17 +16672,21 @@ hatchet = hatchet | hatchets
 
 hate = hate | hated | hateful | hater | haters | hating | hatred | hatreds
 
+hath = hath
+
 haught = haughtiest | haughtily | haughtiness | haughty
 
 haul = haul | hauled | hauling
 
 haunt = haunted | haunting | haunts
 
-have = haves
+have = have | haves
 
 haven = haven | havens
 
 havent = haven’t
+
+having = having
 
 havoc = havoc
 
@@ -16479,6 +16695,8 @@ hawk = hawk | hawks
 hazard = hazarded | hazards
 
 haze = haze | hazy
+
+he = he
 
 head = head | headed | heading | headings | headless | heads
 
@@ -16592,6 +16810,8 @@ henceforward = henceforward
 
 henchmen = henchmen
 
+her = her
+
 herald = herald | heralded | heraldeth | heralding | heralds
 
 herb = herb | herbs
@@ -16605,6 +16825,8 @@ herculean = herculean
 herd = herd | herded | herds
 
 herdsmen = herdsmen
+
+here = here
 
 hereabout = hereabouts
 
@@ -16635,6 +16857,10 @@ hermit = hermit
 hero = hero | heroes | heroic | heroically | heroine | heroines | heroism | heros
 
 heroi = heroin
+
+hers = hers
+
+herself = herself
 
 hesit = hesitancy | hesitant | hesitate | hesitated | hesitates | hesitateth | hesitating | hesitation | hesitations | hesite
 
@@ -16682,9 +16908,9 @@ hilltop = hilltop
 
 hilt = hilt
 
-him = him9
+him = him | him9
 
-himself = himself2
+himself = himself | himself2
 
 hind = hinder | hindered | hindereth | hindering | hinders | hindrance | hindrances | hindu
 
@@ -16699,6 +16925,8 @@ hint = hint | hinted | hinting | hints
 hinterland = hinterland
 
 hire = hire | hired
+
+his = his
 
 histor = historian | historians | historical | historically | historicist | histories | historiography | history
 
@@ -16840,6 +17068,8 @@ housew = housewives
 
 hov = hovered | hovering
 
+how = how
+
 howbeit = howbeit
 
 howev = however
@@ -16848,7 +17078,7 @@ howl = howl | howleth | howling | howls
 
 howsoev = howsoever
 
-hu = hued
+hu = hu | hued
 
 hub = hub
 
@@ -16936,6 +17166,8 @@ hypothes = hypotheses | hypothesis | hypothesise
 
 hyst = hysterical
 
+i = i
+
 ic = ici
 
 ice = ice | icy
@@ -16962,6 +17194,10 @@ idl = idle | idleness | idly
 
 idol = idol | idolaters | idolator | idolators | idolatrous | idolatry | idolised | idols
 
+ie = ie
+
+if = if
+
 ignit = ignite | ignited | igniting | ignition
 
 ignobl = ignoble
@@ -16970,11 +17206,11 @@ ignomin = ignominious | ignominiously | ignominy
 
 ignor = ignorance | ignorances | ignorant | ignore | ignored | ignores | ignoring
 
-ii = iii | iii’s
+ii = ii | iii | iii’s
 
 ikhla = ikhlas
 
-il = ils
+il = il | ils
 
 ill = ill | illness | illnesses | ills
 
@@ -17196,7 +17432,7 @@ impur = impure | impurities | impurity
 
 imput = imputation | imputations | impute | imputed | imputes | imputest | imputeth | imputing
 
-in = inly
+in = in | inly
 
 inabl = inabilities | inability
 
@@ -17940,6 +18176,8 @@ intimation = intimated | intimates | intimation | intimations
 
 intimid = intimidate | intimidated | intimidating | intimidation
 
+into = into
+
 intol = intolerable | intolerance | intolerant
 
 inton = intonation | intonations | intone | intoned | intoners | intoneth | intoning
@@ -18088,6 +18326,8 @@ irrig = irrigate | irrigated | irrigator
 
 irrit = irritated | irritation
 
+is = is
+
 isl = isle | isles
 
 islam = islam | islami | islamic | islams
@@ -18098,9 +18338,17 @@ isol = isolate | isolated | isolates | isolating | isolation | isolationist
 
 issu = issuance | issue | issued | issues | issueth | issuing
 
+it = it
+
 item = item | items
 
 itin = itinerant
+
+its = its
+
+itself = itself
+
+iv = iv
 
 ivb = ivb1
 
@@ -18126,6 +18374,10 @@ ivcya = ivc3a
 
 ivor = ivory
 
+ix = ix
+
+j = j
+
 ja = j’ai
 
 jackal = jackals
@@ -18142,7 +18394,7 @@ javelin = javelins
 
 jaw = jaws
 
-je = jeers
+je = je | jeers
 
 jealous = jealous | jealousies | jealously | jealousy
 
@@ -18187,6 +18439,8 @@ journal = journal | journalism | journalists | journals
 journey = journey | journeyed | journeyeth | journeying | journeyings | journeys
 
 joy = joy | joyful | joyfully | joyfulness | joyous | joyously | joyousness | joys
+
+jr = jr
 
 ju = july
 
@@ -18235,6 +18489,8 @@ just = just | justice | justly | justness
 justif = justifiable | justifiably | justification | justifications | justified | justifies | justify | justifying
 
 juz = juz’
+
+k = k
 
 kaleidoscope = kaleidoscope
 
@@ -18306,9 +18562,11 @@ knowledg = knowledge | knowledgeable | knowledges
 
 knuckl = knuckles
 
-l = lilies | lily
+ku = ku
 
-la = l’ai
+l = l | lilies | lily
+
+la = l’ai | la
 
 label = label | labelled | labelling | labels
 
@@ -18454,6 +18712,8 @@ layout = layout
 
 laz = lazy
 
+le = le
+
 leach = leach
 
 lead = lead | leader | leaderless | leaders | leaders’ | leadership | leadeth | leading | leadings | leads | led
@@ -18571,6 +18831,8 @@ leviathan = leviathan | leviathans
 lhistoir = l’histoire
 
 lhumanit = l’humanite
+
+li = li
 
 liabil = liabilities | liability
 
@@ -18728,7 +18990,9 @@ livid = livid
 
 living14 = living142
 
-lo = loi
+ln = ln
+
+lo = lo | loi
 
 load = load | loaded | loads
 
@@ -18894,6 +19158,8 @@ lute = lute
 
 luxur = luxuriance | luxuriant | luxuriantly | luxuries | luxurious | luxury
 
+lv = lv
+
 lvi = lvii
 
 lxxx = lxxxi
@@ -18902,7 +19168,7 @@ lyre = lyre
 
 lyric = lyric | lyrics
 
-m = milieu
+m = m | milieu
 
 mace = mace | maces
 
@@ -19168,11 +19434,13 @@ maxim = maxim
 
 maximum = maximise | maximum
 
-may = mayest
+may = may | mayest
 
 mayb = maybe
 
 mayor = mayor | mayors
+
+me = me
 
 meadow = meadow | meadows | meads
 
@@ -19668,7 +19936,7 @@ mosqu = mosque | mosques
 
 mosquito = mosquito
 
-most = mostly
+most = most | mostly
 
 mote = mote | motes
 
@@ -19706,7 +19974,13 @@ move = movable | move | moved | movement | movements | mover | movers | moves | 
 
 mow = mow | mowed | mown
 
+mr = mr
+
 mrs = mrs
+
+ms = ms
+
+mt = mt
 
 much = much
 
@@ -19764,6 +20038,8 @@ musket = musket | muskets
 
 muslim = muslim | muslims
 
+must = must
+
 mustard = mustard
 
 muster = muster | mustered
@@ -19782,11 +20058,15 @@ mutual = mutual | mutuality | mutually
 
 muze = muze
 
+my = my
+
 myriad = myriad | myriads
 
 myrmidon = myrmidons
 
 myrtl = myrtles
+
+myself = myself
 
 myst = mystere | mysteries | mysterious | mysteriously | mystery
 
@@ -19795,6 +20075,10 @@ mysterieus = mysterieuse
 mystic = mystic | mystical | mysticism | mystics
 
 myth = myth | mythology | myths
+
+n = n
+
+na = n’a
 
 nail = nail | nailed | nails
 
@@ -19852,7 +20136,7 @@ navon = n’avons
 
 nay = nay
 
-ne = ne’er
+ne = ne | ne’er
 
 near = near | nearby | nearer | nearest | nearing | nearly | nearness
 
@@ -19948,7 +20232,11 @@ next = next
 
 ngo = ngo | ngos
 
+nh = nh
+
 nhesitera = n’hesiterais
+
+ni = ni
 
 nib = nibbed
 
@@ -19983,6 +20271,10 @@ nineteenfold = nineteenfold
 nineteenth = nineteenth
 
 ninth = ninth
+
+nj = nj
+
+no = no
 
 nobl = nobility | noble | nobleman | noblemen | nobleness | nobler | nobles | noblest | nobly
 
@@ -20080,7 +20372,7 @@ nose = nose | noses
 
 nostril = nostril | nostrils
 
-not = nots
+not = not | nots
 
 notabl = notabilities | notable | notables | notably
 
@@ -20173,6 +20465,8 @@ nurtur = nurture | nurtured | nurtures | nurtureth | nurturing
 nut = nuts
 
 nutrit = nutritious
+
+o = o
 
 oar = oars
 
@@ -20274,7 +20568,9 @@ odour = odour | odours
 
 odyssey = odyssey
 
-off = offer | offered | offereth | offering | offerings | offers
+of = of
+
+off = off | offer | offered | offereth | offering | offerings | offers
 
 offend = offence | offenceless | offences | offend | offended | offender | offenders | offending | offends | offensive
 
@@ -20293,6 +20589,8 @@ offspr = offspring
 often = oft | often
 
 oftentim = oftentimes
+
+oh = oh
 
 oil = oil
 
@@ -20320,13 +20618,13 @@ omnipres = omnipresent
 
 omnisc = omniscience | omniscient
 
-on = onerous
+on = on | onerous
 
 onc = once
 
 oncom = oncoming
 
-one = oneness
+one = one | oneness
 
 ones = ones
 
@@ -20400,6 +20698,8 @@ option = option | optional | options
 
 opul = opulence | opulent
 
+or = or
+
 oral = oral | orally
 
 orang = oranges
@@ -20466,15 +20766,23 @@ oth = other | otherness | others | others’
 
 otherw = otherwise
 
+ou = ou
+
 ought = ought
 
 ounc = ounce | ounces
 
+our = our
+
+ours = ours
+
 ourself = ourself
+
+ourselves = ourselves
 
 oust = oust | ousting
 
-out = outlying
+out = out | outlying
 
 out14 = out14
 
@@ -20696,13 +21004,17 @@ owe = owe | owed | owes | oweth | owing
 
 owl = owl | owls
 
-own = owned | owner | owners | ownership | owneth | owning | owns
+own = own | owned | owner | owners | ownership | owneth | owning | owns
+
+ox = ox
 
 oxen = oxen
 
 oxygen = oxygen
 
-p = piers
+p = p | piers
+
+pa = pa
 
 pace = pace | paced | paces | pacing
 
@@ -21422,6 +21734,10 @@ plural = plural | plurality
 
 plus = plus
 
+pm = pm
+
+po = po
+
 pocket = pocket | pockets
 
 podium = podium
@@ -21573,6 +21889,8 @@ povert = poverty
 pow = power | powerful | powerfully | powerless | powerlessness | powers
 
 powd = powder
+
+pp = pp
 
 pr = priest | priests | pry | prying
 
@@ -22054,6 +22372,8 @@ prudish = prudish
 
 prune = prune | pruned | pruning
 
+ps = ps
+
 psalm = psalmist | psalms
 
 psych = psyche
@@ -22064,7 +22384,7 @@ psychic = psychic | psychical
 
 psycholog = psychological | psychologically | psychologist’s | psychologists | psychology
 
-pu = puis
+pu = pu | puis
 
 pubert = puberty
 
@@ -22258,6 +22578,10 @@ qutrih = qutrih
 
 quun = qu’une
 
+r = r
+
+ra = ra | ra’
+
 raa = ra’a
 
 rabid = rabid
@@ -22384,7 +22708,7 @@ razor = razor
 
 razzaq7 = razzaq72
 
-re = relied | relies | rely | relying
+re = re | relied | relies | rely | relying
 
 reach = reach | reached | reaches | reachest | reacheth | reaching
 
@@ -23408,9 +23732,9 @@ rut = rutted
 
 ruthless = ruthless | ruthlessly | ruthlessness
 
-s = series
+s = s | series
 
-sa = sais
+sa = sa | sais
 
 sab = sab
 
@@ -23692,7 +24016,7 @@ scurr = scurried
 
 scurril = scurrilous
 
-se = seer | seers
+se = se | seer | seers
 
 sea = sea | seas
 
@@ -23976,7 +24300,7 @@ shatt = shatter | shattered | shattering
 
 shave = shave | shaven | shaving
 
-she = sheer
+she = she | sheer
 
 sheaf = sheaf
 
@@ -24066,7 +24390,7 @@ shortly = shortly
 
 shoul = shouldst
 
-should = shoulder | shouldered | shouldering | shoulders
+should = should | shoulder | shouldered | shouldering | shoulders
 
 shout = shout | shouted | shouteth | shouting | shouts
 
@@ -24101,6 +24425,8 @@ shushtar = shushtari
 shut = shut | shuts | shutteth | shutting
 
 shutt = shuttered
+
+si = si
 
 sibl = siblings
 
@@ -24351,6 +24677,8 @@ snow = snow | snows | snowy
 snowfal = snowfall
 
 snuff = snuff | snuffed | snuffeth
+
+so = so
 
 soak = soak | soaked
 
@@ -24677,6 +25005,10 @@ squeez = squeezed
 squirrel = squirrel
 
 srp = srp
+
+ss = ss
+
+st = st
 
 stab = stab | stabbed
 
@@ -25122,6 +25454,8 @@ succul = succulent
 
 succumb = succumb | succumbed | succumbing | succumbs
 
+such = such
+
 suck = suck | sucked | suckers | sucking
 
 suckl = suckle | suckled | suckling | sucklings
@@ -25424,7 +25758,9 @@ system = system | systemic | systemisation | systems
 
 systemat = systematic | systematically | systematisation | systematise | systematised | systematises | systematising
 
-t = tiers
+t = t | tiers
+
+ta = ta | ta’
 
 tabernacl = tabernacle | tabernacles
 
@@ -25535,6 +25871,8 @@ tawn = tawny
 tax = taxed | taxing
 
 taxat = tax | taxation | taxes
+
+te = te
 
 tea = tea
 
@@ -25706,13 +26044,31 @@ textur = texture
 
 thalith = thalith
 
+than = than
+
 thank = thank | thanked | thankful | thankfully | thankfulness | thanking | thankless | thanks | thanksgiving | thanksgivings
+
+that = that
 
 thaw = thawed
 
+the = the
+
 theatr = theatre | theatres | theatrical
 
+thee = thee
+
+their = their
+
+theirs = theirs
+
+them = them
+
 theme = thematic | theme | themes
+
+themselves = themselves
+
+then = then
 
 thenc = thence
 
@@ -25733,6 +26089,8 @@ theosoph = theosophical | theosophists | theosophy
 therap = therapy
 
 therapeut = therapeutics
+
+there = there
 
 thereabout = thereabouts
 
@@ -25764,7 +26122,11 @@ thermodynam = thermodynamics
 
 thes = theses | thesis
 
+these = these
+
 thew = thew
+
+they = they
 
 thick = thick | thicker | thickest | thickly | thickness
 
@@ -25794,6 +26156,8 @@ thirteen = thirteen
 
 thirteenth = thirteenth
 
+this = this
+
 thistl = thistles
 
 thith = thither
@@ -25805,6 +26169,10 @@ thorn = thorn | thorns | thorny
 thorough = thorough | thoroughly | thoroughness
 
 thoroughfar = thoroughfare
+
+those = those
+
+thou = thou
 
 thoud = thou’d
 
@@ -25850,6 +26218,8 @@ throne = throne | throned | thrones
 
 throng = throng | thronged | thronging | throngs
 
+through = through
+
 throughout = throughout
 
 throw = threw | throw | throweth | throwing | thrown | throws
@@ -25869,6 +26239,8 @@ thursday = thursday
 thus = thus
 
 thwart = thwart | thwarted
+
+thy = thy
 
 thyself = thyself
 
@@ -25932,6 +26304,8 @@ tittl = tittle
 
 titular = titular
 
+to = to
+
 tobacco = tobacco
 
 today = today
@@ -25959,6 +26333,8 @@ tongu = tongue | tongues
 tonight = tonight
 
 tonn = tonnes
+
+too = too
 
 tool = tool | tools
 
@@ -26338,6 +26714,8 @@ tutelag = tutelage
 
 tutor = tutor | tutoring | tutors
 
+tv = tv
+
 twain = twain
 
 twelfth = twelfth
@@ -26384,9 +26762,13 @@ tyrant = tyrannical | tyrannie | tyrannous | tyranny | tyrant | tyrants
 
 tyro = tyros
 
+u = u
+
 ubiqu = ubiquity
 
 ugli = ugly
+
+uk = uk
 
 ulterior = ulterior
 
@@ -26401,6 +26783,8 @@ uluvv = ‘uluvv
 ulya = ‘ulya
 
 umbrella = umbrella
+
+un = un
 
 unab = unabated | unabating
 
@@ -27430,13 +27814,15 @@ unten = untenable | untenanted
 
 unthink = unthinkable | unthinking | unthinkingly
 
-until = untilled
+until = until | untilled
 
 untim = untimely
 
 unting = untinged
 
 untir = untiring | untiringly
+
+unto = unto
 
 untold = untold
 
@@ -27530,6 +27916,8 @@ unwritten = unwritten
 
 unyield = unyielding
 
+up = up
+
 upbraid = upbraid | upbraided
 
 upbring = upbringing
@@ -27551,6 +27939,8 @@ upkeep = upkeep
 upland = uplands
 
 uplift = uplift | uplifted | uplifter | uplifting | upliftment | uplifts
+
+upon = upon
 
 upp = upper | uppermost
 
@@ -27580,6 +27970,8 @@ upturn = upturn
 
 upward = upward | upwards
 
+ur = ur
+
 urban = urban | urbanisation
 
 urchin = urchins
@@ -27591,6 +27983,8 @@ urg = urge | urged | urges | urgeth | urging
 urgent = urgency | urgent | urgently
 
 urin = urine
+
+us = us
 
 us120 = us1200
 
@@ -27638,7 +28032,7 @@ uttermost = uttermost
 
 uxor = uxorious
 
-v = verily
+v = v | verily
 
 vacat = vacancies | vacancy | vacant | vacate | vacated
 
@@ -27804,7 +28198,7 @@ veto = veto
 
 vex = vex | vexation | vexations | vexatious | vexed | vexing
 
-vi = vii
+vi = vi | vii
 
 via = via
 
@@ -27964,6 +28358,8 @@ voyag = voyage | voyaged | voyages
 
 voyant = voyant
 
+vu = vu
+
 vujud = vujud
 
 vulgar = vulgar | vulgarity
@@ -27973,6 +28369,10 @@ vuln = vulnerability | vulnerable
 vultur = vulture | vultures
 
 vy = vying
+
+w = w
+
+w5 = w5
 
 waft = waft | wafted | wafteth | wafting | waftings
 
@@ -28038,6 +28438,8 @@ warship = warships
 
 warworn = warworn
 
+was = was
+
 wash = wash | washed | washeth | washing | washings
 
 wast = wast | waste | wasted | wasteness | wastes | wasteth | wasting
@@ -28079,6 +28481,8 @@ waysid = wayside
 wayward = wayward | waywardness
 
 wayworn = wayworn
+
+we = we
 
 weak = weak | weaken | weakened | weakeneth | weakening | weakens | weaker | weakest | weaklings | weakly | weakness | weaknesses
 
@@ -28138,6 +28542,8 @@ wend = wended | wending
 
 went = went
 
+were = were
+
 wert = wert
 
 west = west | western | westerner | westerners | westernmost | wests | westward | westwards
@@ -28148,6 +28554,8 @@ wet = wet | wetness
 
 whale = whales
 
+what = what
+
 whatev = whatever
 
 whatsoev = whatsoever
@@ -28156,13 +28564,15 @@ wheat = wheat
 
 wheel = wheel | wheels
 
+when = when
+
 whenc = whence
 
 whenev = whenever
 
 whensoev = whensoever
 
-where = where’er
+where = where | where’er
 
 wherea = whereas
 
@@ -28202,9 +28612,13 @@ wheth = whether
 
 whey = whey
 
+which = which
+
 whichev = whichever
 
 whichsoev = whichsoever
+
+while = while
 
 whilst = whilst
 
@@ -28236,6 +28650,8 @@ whithersoev = whithersoever
 
 whittl = whittle | whittling
 
+who = who
+
 whoev = whoever
 
 whole = whole | wholeness | wholly
@@ -28245,6 +28661,8 @@ wholeheart = wholehearted | wholeheartedly | wholeheartedness
 wholesal = wholesale
 
 wholesom = wholesome | wholesomeness
+
+whom = whom
 
 whomev = whomever
 
@@ -28257,6 +28675,8 @@ whoso = whoso
 whosoev = whosoever
 
 whove = who’ve
+
+why = why
 
 wick = wick | wicks
 
@@ -28326,7 +28746,7 @@ wish = wish | wished | wisher | wishers | wishes | wishest | wisheth | wishing
 
 wit = wit | witless | witness | witnessed | witnesses | witnesseth | witnessing | wits’ | witted | wittingly | witty
 
-with = wither | withered | withering
+with = with | wither | withered | withering
 
 withal = withal
 
@@ -28402,7 +28822,7 @@ worth = worth | worthier | worthiest | worthily | worthiness | worthless | worth
 
 worthwhil = worthwhile
 
-would = wouldest
+would = would | wouldest
 
 wouldst = wouldst
 
@@ -28456,11 +28876,13 @@ wrought = wrought
 
 wrung = wrung
 
+x = x
+
 xcix = xcix
 
 xcv = xcvi
 
-xi = xii
+xi = xi | xii
 
 xii = xiii
 
@@ -28468,9 +28890,11 @@ xiv = xiv
 
 xix = xix
 
+xl = xl
+
 xlii = xliii
 
-xv = xvi
+xv = xv | xvi
 
 xvi = xvii
 
@@ -28487,6 +28911,8 @@ xxx = xxx | xxxi
 xxxi = xxxii
 
 xxxv = xxxv
+
+y = y
 
 y0 = 300 | 309
 
@@ -28540,9 +28966,13 @@ y96 = 396
 
 y97 = 397
 
+ya = ya
+
 yard = yard | yards
 
 yardstick = yardstick
+
+ye = ye
 
 yea = yea
 
@@ -28570,9 +29000,19 @@ yoke = yoke
 
 yore = yore
 
+you = you
+
 youd = you’d
 
 young = young | younger | youngest | youngsters | youngsters’
+
+your = your
+
+yours = yours
+
+yourself = yourself
+
+yourselves = yourselves
 
 youth = youth | youthful | youthfulness | youths
 
@@ -28587,6 +29027,8 @@ yy4 = 3340
 yy58 = 3358
 
 yy8 = 338
+
+za = za | za’
 
 zeal = zeal | zealotry | zealous | zealously
 

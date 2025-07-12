@@ -70,11 +70,10 @@ const getData = (
     .map(({ index }) => index);
 
   const matches = getMatches(filteredSections, search, baseLevel);
+  const matchSections = new Set((matches?.matches || []).map((m) => m.section));
 
   const searchSections = matches
-    ? filteredSections.filter((section) =>
-        matches.matches.some((m) => m.section === section)
-      )
+    ? filteredSections.filter((section) => matchSections.has(section))
     : filteredSections;
 
   const filteredTree = {} as any;
@@ -121,6 +120,7 @@ const getData = (
     section: number;
     start: number;
     levels: (null | number)[];
+    scoreInfo: any;
   }[] =
     matches?.matches ||
     filteredSections.map((section) => {
@@ -131,6 +131,7 @@ const getData = (
         levels: Array.from<number>({ length: d.content.length }).fill(
           baseLevel
         ),
+        scoreInfo: {},
       };
     });
 
@@ -141,12 +142,13 @@ const getData = (
     chars: string;
     ref: Ref;
     fullQuote: boolean;
+    scoreInfo: any;
   }[] = [];
   while (
     (!matches || baseResult.length < SEARCH_COUNT + 5) &&
     passages.length > 0
   ) {
-    const { section, start, levels } = passages.shift()!;
+    const { section, start, levels, scoreInfo } = passages.shift()!;
     const paraIds = getParagraphIds(data[section]!.content);
     const allSpecial = getAllSpecial(data[section]!.content);
     const sliced = data[section]!.content.slice(start, start + levels.length);
@@ -244,6 +246,7 @@ const getData = (
       ...p,
       sources: joinedSources[i]!,
       chars: toChars(toWords(toCleaned(p.para.text))),
+      scoreInfo,
     }));
 
     if (!matches) {
@@ -270,32 +273,38 @@ const getData = (
     }
   }
 
-  const result = baseResult.map(({ para, paraId, sources, ref, fullQuote }) => {
-    if (matches) {
-      para.highlights = getTokenHighlights(para.text, matches.tokens);
-    }
-    return {
-      paraId,
-      para: {
-        ...para,
-        quotes: para.quotes?.map((q) => ({
-          quote: q,
-          render: getUrlQuote(q.quote),
-        })),
-      },
-      quotes: fullQuote ? para.quotes?.map((q) => q.quote) : undefined,
-      quoted: para.quoted.sort((aQuote, bQuote) => {
-        const aDoc = data[aQuote.quote.section]!;
-        const bDoc = data[bQuote.quote.section]!;
-        return compareArrays(
-          aDoc.path.map((p: [string, string, number]) => p[2]),
-          bDoc.path.map((p: [string, string, number]) => p[2])
+  const result = baseResult.map(
+    ({ para, paraId, sources, ref, fullQuote, scoreInfo }) => {
+      if (matches) {
+        para.highlights = getTokenHighlights(
+          para.text,
+          matches.tokens.map((x) => x.token)
         );
-      }),
-      sources,
-      ref,
-    };
-  });
+      }
+      return {
+        paraId,
+        para: {
+          ...para,
+          quotes: para.quotes?.map((q) => ({
+            quote: q,
+            render: getUrlQuote(q.quote),
+          })),
+        },
+        quotes: fullQuote ? para.quotes?.map((q) => q.quote) : undefined,
+        quoted: para.quoted.sort((aQuote, bQuote) => {
+          const aDoc = data[aQuote.quote.section]!;
+          const bDoc = data[bQuote.quote.section]!;
+          return compareArrays(
+            aDoc.path.map((p: [string, string, number]) => p[2]),
+            bDoc.path.map((p: [string, string, number]) => p[2])
+          );
+        }),
+        sources,
+        ref,
+        scoreInfo,
+      };
+    }
+  );
 
   const joinedQuotes = joinQuotes(result.map((r) => r.quotes || []));
   const mappedQuotes = result.map((r, i) => ({
@@ -312,6 +321,7 @@ const getData = (
         quoted: RefQuote[];
         quotes: MultiQuote[];
         ref: Ref;
+        scoreInfo: any;
       }[],
     },
   ];

@@ -144,12 +144,14 @@ export default function Paragraph({
   quoted,
   quotes,
   ref,
+  scoreInfo,
 }: {
   paraId: string;
   para: SemiPara;
   quoted: QuoteLink[];
   quotes: QuoteLink[];
   ref: Ref;
+  scoreInfo: any;
 }) {
   const [showQuoted, setShowQuoted] = useState(false);
 
@@ -196,6 +198,9 @@ export default function Paragraph({
           fills={false}
         />
       </div>
+      {/* <Text style={{ whiteSpace: "pre" }}>
+        {JSON.stringify(scoreInfo, null, 2)}
+      </Text> */}
     </div>
   );
 

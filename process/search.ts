@@ -35,14 +35,16 @@ data.forEach(({ path, content, quoted }, section) => {
         .toLowerCase()
         .split(/([‑— ]+)/g);
       let current = 0;
-      const tokens: { token: string; score: number }[] = [];
+      let counter = 0;
+      const tokens: { token: string; score: number; position: number }[] = [];
       for (const word of words) {
         const token = stem(word.replace(/’s$/g, "").replace(/[^a-z0-9]/g, ""));
         if (token) {
           const score = ((quoted || {})[paragraph] || []).filter(
-            (q) => q.start < current + word.length && current < q.end
+            (q) =>
+              q.range.start < current + word.length && current < q.range.end
           ).length;
-          tokens.push({ token, score });
+          tokens.push({ token, score, position: counter++ });
           tokenWords.set(
             token,
             (tokenWords.get(token) || new Set()).add(
@@ -54,25 +56,21 @@ data.forEach(({ path, content, quoted }, section) => {
       }
 
       for (const token of [...new Set(tokens.map((t) => t.token))]) {
-        const scores = tokens
-          .filter((t) => t.token === token)
-          .map((t) => t.score);
-        const counts = Array.from<number>({
-          length: Math.max(...scores) + 1,
-        }).fill(0);
-        for (const score of scores) counts[score]!++;
-        let countCurr = 0;
-        for (let i = counts.length - 1; i >= 0; i--) {
-          if (counts[i]! > 0) {
-            counts[i]! = countCurr =
-              counts[i]! * (i * LEVEL_MULTIPLIER + 1) + countCurr;
-          }
-        }
-        let v = key;
-        if (counts[0]! > 1 || counts.length > 1) {
-          v += `,${getLayersString(counts)}`;
-        }
-        searchIndex.set(token, [...(searchIndex.get(token) || []), v]);
+        const tokenInfo = tokens.filter((t) => t.token === token);
+        const res = [...new Set(tokenInfo.map((t) => t.score))].map(
+          (score) => ({
+            score,
+            positions: tokenInfo
+              .filter((t) => t.score === score)
+              .map((t) => t.position),
+          })
+        );
+        searchIndex.set(token, [
+          ...(searchIndex.get(token) || []),
+          [key, ...res.map((r) => `${r.score}=${r.positions.join("-")}`)].join(
+            ","
+          ),
+        ]);
         tokenCounts[token] = (tokenCounts[token] || 0) + 1;
       }
 

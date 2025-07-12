@@ -63,9 +63,6 @@ for (const author of Object.keys(sources)) {
             .replace(/\bprë/g, "pre")
             .replace(/\bpreë/g, "pree")
         )
-          .replace(/ Iráq/g, " ‘Iráq")
-          .replace(/ IRÁQ/g, " ‘IRÁQ")
-          .replace(/Mákú/g, "Máh‑Kú")
       );
     })
   );

@@ -21,6 +21,7 @@ export default function App({
       paraId: string;
       para: SemiPara;
       ref: Ref;
+      scoreInfo: any;
     }[];
   }[];
   path: [string, string][];
