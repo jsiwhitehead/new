@@ -1,13 +1,12 @@
 import express from "express";
 
 import type {
+  DocSlice,
   FlatPara,
   MultiQuote,
+  Passage,
   Quote,
-  QuoteLink,
   Ref,
-  RefQuote,
-  SemiPara,
 } from "../utils/types.ts";
 import {
   compareArrays,
@@ -25,7 +24,7 @@ import { getUrlQuote } from "./quote.ts";
 import { getMatches, getTokenHighlights } from "./search.ts";
 import { data, getAllSpecial, getParagraphIds } from "./utils.ts";
 
-const SEARCH_COUNT = 30;
+const SEARCH_COUNT = 20;
 
 const collapseSingleKeys = (
   tree: any,
@@ -43,25 +42,7 @@ const collapseSingleKeys = (
   return [path, current];
 };
 
-const getData = (
-  urlPath: string[],
-  baseLevel: number,
-  search: string
-): {
-  docs: {
-    sources: QuoteLink[];
-    content: {
-      quoted: QuoteLink[];
-      quotes: QuoteLink[];
-      paraId: string;
-      para: SemiPara;
-      ref: Ref;
-    }[];
-  }[];
-  path: [string, string][];
-  tree: any;
-  showContent: boolean;
-} => {
+const getPassages = (urlPath: string[], baseLevel: number, search: string) => {
   const filteredSections = data
     .map((section, index) => ({ section, index }))
     .filter(({ section }) =>
@@ -99,7 +80,7 @@ const getData = (
   }
   const [_, nestedTree] = collapseSingleKeys(searchTree, urlPath.length);
 
-  const showContent =
+  const showContent = !!(
     matches ||
     data.find(
       (d) =>
@@ -110,18 +91,14 @@ const getData = (
     (urlPath.length > 1 &&
       ["documents", "ruhi", "compilations"].includes(urlPath[0]!)) ||
     (urlPath.length > 2 &&
-      ["bahai-sacred-writings", "bahaullah-new-era"].includes(urlPath[1]!));
+      ["bahai-sacred-writings", "bahaullah-new-era"].includes(urlPath[1]!))
+  );
 
   if (!showContent) {
-    return { docs: [], path, tree: nestedTree, showContent: false };
+    return { path, tree: nestedTree, passages: [], showContent };
   }
 
-  const passages: {
-    section: number;
-    start: number;
-    levels: (null | number)[];
-    scoreInfo: any;
-  }[] =
+  const passages: Passage[] =
     matches?.matches ||
     filteredSections.map((section) => {
       const d = data[section]!;
@@ -131,276 +108,274 @@ const getData = (
         levels: Array.from<number>({ length: d.content.length }).fill(
           baseLevel
         ),
+        score: 0,
         scoreInfo: {},
       };
     });
 
-  const baseResult: {
+  return {
+    path,
+    tree: nestedTree,
+    passages,
+    tokens: matches?.tokens,
+    showContent,
+  };
+};
+
+const mapPassage = (
+  { section, start, levels, scoreInfo }: Passage,
+  tokens?: string[]
+): DocSlice => {
+  const paraIds = getParagraphIds(data[section]!.content);
+  const allSpecial = getAllSpecial(data[section]!.content);
+  const sliced = data[section]!.content.slice(start, start + levels.length);
+  const fullQuote = sliced.map((para) => {
+    if (typeof para === "string") {
+      return textIsConnector(para);
+    }
+    if (Array.isArray(para)) {
+      return (
+        para.every(
+          (part) => typeof part !== "string" || textIsConnector(part)
+        ) && para.some((part) => typeof part !== "string")
+      );
+    }
+    return "type" in para && para.type === "break";
+  });
+  const allFullQuote = fullQuote.every((x) => x);
+  const content = sliced.map((para, index) => {
+    const paragraph = index + start;
+    const ref = { section, paragraph };
+    const filteredPara =
+      levels[index] === null
+        ? null
+        : filterQuoted(
+            allFullQuote ? getFullQuotedPara(para) : getPara(ref, allSpecial),
+            data[section]!.quoted?.[paragraph] || [],
+            levels[index]!
+          );
+    if (!filteredPara) {
+      return {
+        ref,
+        paraId: paraIds[paragraph]!,
+        para: {
+          text: ". . .",
+          quoted: [],
+          highlights: [],
+          sourceQuotes: [],
+          allSpecial: false,
+        } as FlatPara,
+        sources: [{ section, paragraph: -1, start: 0, end: 0 }],
+        fullQuote: false,
+      };
+    }
+    // if (tokens) filteredPara.allSpecial = true;
+    return {
+      ref,
+      sources: filteredPara.sourceQuotes.map((q) => q.quote),
+      paraId: paraIds[paragraph]!,
+      para: filteredPara,
+      fullQuote: fullQuote[index]!,
+    };
+  });
+
+  let readyBreak = false;
+  let readyDots = false;
+  const merged: {
+    ref: Ref;
     paraId: string;
     para: FlatPara;
-    sources: MultiQuote[];
-    chars: string;
-    ref: Ref;
+    sources: Quote[];
     fullQuote: boolean;
-    scoreInfo: any;
   }[] = [];
-  while (
-    (!matches || baseResult.length < SEARCH_COUNT + 5) &&
-    passages.length > 0
-  ) {
-    const { section, start, levels, scoreInfo } = passages.shift()!;
-    const paraIds = getParagraphIds(data[section]!.content);
-    const allSpecial = getAllSpecial(data[section]!.content);
-    const sliced = data[section]!.content.slice(start, start + levels.length);
-    const fullQuote = sliced.map((para) => {
-      if (typeof para === "string") {
-        return textIsConnector(para);
-      }
-      if (Array.isArray(para)) {
-        return (
-          para.every(
-            (part) => typeof part !== "string" || textIsConnector(part)
-          ) && para.some((part) => typeof part !== "string")
-        );
-      }
-      return "type" in para && para.type === "break";
-    });
-    const allFullQuote = fullQuote.every((x) => x);
-    const content = sliced.map((para, index) => {
-      const paragraph = index + start;
-      const ref = { section, paragraph };
-      const filteredPara =
-        levels[index] === null
-          ? null
-          : filterQuoted(
-              allFullQuote ? getFullQuotedPara(para) : getPara(ref, allSpecial),
-              data[section]!.quoted?.[paragraph] || [],
-              levels[index]!
-            );
-      if (!filteredPara) {
-        return {
-          paraId: paraIds[paragraph]!,
-          para: {
-            text: ". . .",
-            quoted: [],
-            highlights: [],
-            sourceQuotes: [],
-            allSpecial: false,
-          } as FlatPara,
-          sources: [{ section, paragraph: -1, start: 0, end: 0 }],
-          ref,
-          fullQuote: false,
-        };
-      }
-      if (matches) filteredPara.allSpecial = true;
-      return {
-        paraId: paraIds[paragraph]!,
-        para: filteredPara,
-        sources: filteredPara.sourceQuotes.map((q) => q.quote),
-        ref,
-        fullQuote: fullQuote[index]!,
-      };
-    });
-
-    let readyBreak = false;
-    let readyDots = false;
-    const merged: {
-      paraId: string;
-      para: FlatPara;
-      sources: Quote[];
-      ref: Ref;
-      fullQuote: boolean;
-    }[] = [];
-    for (const p of content) {
-      if (p.para.type === "break") {
-        if (readyBreak) {
-          merged.push(p);
-          readyBreak = false;
-          readyDots = true;
-        }
-      } else if (p.para.text === ". . .") {
-        if (readyDots) {
-          merged.push(p);
-          readyDots = false;
-        }
-      } else {
+  for (const p of content) {
+    if (p.para.type === "break") {
+      if (readyBreak) {
         merged.push(p);
-        readyBreak = true;
+        readyBreak = false;
         readyDots = true;
       }
-    }
-    if (merged.length > 0) {
-      if (merged[merged.length - 1]!.para.text === ". . .") {
-        merged.pop();
+    } else if (p.para.text === ". . .") {
+      if (readyDots) {
+        merged.push(p);
+        readyDots = false;
       }
-      if (merged[merged.length - 1]!.para.type === "break") {
-        merged.pop();
-      }
-      if (merged[merged.length - 1]!.para.text === ". . .") {
-        merged.pop();
-      }
-    }
-
-    const joinedSources = joinQuotes(merged.map((p) => p.sources));
-    const mappedSources = merged.map((p, i) => ({
-      ...p,
-      sources: joinedSources[i]!,
-      chars: toChars(toWords(toCleaned(p.para.text))),
-      scoreInfo,
-    }));
-
-    if (!matches) {
-      baseResult.push(...mappedSources);
     } else {
-      const dupe = baseResult
-        .slice(-5)
-        .findIndex((x) =>
-          mappedSources.some(({ chars }) => chars.includes(x.chars))
-        );
-      if (dupe !== -1) {
-        baseResult.splice(
-          Math.max(0, baseResult.length - 5) + dupe,
-          1,
-          ...mappedSources
-        );
-      } else if (
-        mappedSources.some(
-          ({ chars }) => !baseResult.some((x) => x.chars.includes(chars))
-        )
-      ) {
-        baseResult.push(...mappedSources);
+      merged.push(p);
+      readyBreak = true;
+      readyDots = true;
+    }
+  }
+  if (merged.length > 0) {
+    if (merged[merged.length - 1]!.para.text === ". . .") {
+      merged.pop();
+    }
+    if (merged[merged.length - 1]!.para.type === "break") {
+      merged.pop();
+    }
+    if (merged[merged.length - 1]!.para.text === ". . .") {
+      merged.pop();
+    }
+  }
+
+  const sources = joinQuotes(merged.map((p) => p.sources));
+  const mappedSources = merged.map((p, i) => ({ ...p, sources: sources[i]! }));
+
+  const chunks: {
+    sources: MultiQuote[];
+    content: { paraId: string; para: FlatPara; ref: Ref; fullQuote: boolean }[];
+  }[] = [{ sources: [], content: [] }];
+  for (const { sources, ...para } of mappedSources) {
+    if (sources.length > 1) {
+      chunks.push({ sources, content: [para] }, { sources: [], content: [] });
+    } else {
+      chunks[chunks.length - 1]!.content.push(para);
+      if (sources.length === 1) {
+        chunks[chunks.length - 1]!.sources = sources;
+        chunks.push({ sources: [], content: [] });
       }
     }
   }
 
-  const result = baseResult.map(
-    ({ para, paraId, sources, ref, fullQuote, scoreInfo }) => {
-      if (matches) {
-        para.highlights = getTokenHighlights(
-          para.text,
-          matches.tokens.map((x) => x.token)
+  const titleQuotes = tokens
+    ? mappedSources.flatMap((p) =>
+        p.para.sourceQuotes.map((q) => ({ ...p.ref, ...q.range }))
+      )
+    : [];
+  const res = {
+    title: {
+      quotes: titleQuotes,
+      render: getUrlQuote({ section, paragraph: [], quotes: titleQuotes }),
+    },
+    scoreInfo,
+    chunks: chunks
+      .filter((x) => x.content.length !== 0)
+      .map((x) => {
+        const joinedQuotes = joinQuotes(
+          x.content.map(
+            (r) => (r.fullQuote && r.para.quotes?.map((q) => q.quote)) || []
+          )
         );
-      }
-      return {
-        paraId,
-        para: {
-          ...para,
-          quotes: para.quotes?.map((q) => ({
-            quote: q,
-            render: getUrlQuote(q.quote),
-          })),
-        },
-        quotes: fullQuote ? para.quotes?.map((q) => q.quote) : undefined,
-        quoted: para.quoted.sort((aQuote, bQuote) => {
-          const aDoc = data[aQuote.quote.section]!;
-          const bDoc = data[bQuote.quote.section]!;
-          return compareArrays(
-            aDoc.path.map((p: [string, string, number]) => p[2]),
-            bDoc.path.map((p: [string, string, number]) => p[2])
-          );
-        }),
-        sources,
-        ref,
-        scoreInfo,
-      };
-    }
+        return {
+          sources:
+            allFullQuote || tokens
+              ? x.sources.map((q) => ({
+                  quotes: q.quotes,
+                  render: getUrlQuote(q),
+                }))
+              : [],
+          content: x.content.map(({ para, paraId, ref }, i) => {
+            const quotedQuotes = para.quoted.map((q) => q.quote);
+            const quoted = uniqueRefs(quotedQuotes)
+              .sort((aQuote, bQuote) => {
+                const aDoc = data[aQuote.section]!;
+                const bDoc = data[bQuote.section]!;
+                return compareArrays(
+                  aDoc.path.map((p: [string, string, number]) => p[2]),
+                  bDoc.path.map((p: [string, string, number]) => p[2])
+                );
+              })
+              .map((ref) => ({
+                section: ref.section,
+                paragraph: [ref.paragraph],
+                quotes: quotedQuotes.filter((q) => refsEqual(ref, q)),
+              }));
+            return {
+              paraId,
+              para: {
+                ...para,
+                highlights: getTokenHighlights(para.text, tokens || []),
+                quotes: para.quotes?.map((q) => ({
+                  quote: q,
+                  render: getUrlQuote(q.quote),
+                }))!,
+              },
+              quotes: joinedQuotes[i]!.map((q) => ({
+                quotes: q.quotes,
+                render: getUrlQuote(q),
+              })),
+              quoted: quoted.map((q) => ({
+                quotes: q.quotes,
+                render: getUrlQuote(q),
+              })),
+              ref,
+            };
+          }),
+        };
+      }),
+  };
+
+  if (
+    tokens &&
+    res.chunks.length === 1 &&
+    res.chunks[0]!.sources.length === 1
+  ) {
+    res.title = res.chunks[0]!.sources[0]!;
+    res.chunks[0]!.sources = [];
+  }
+
+  return res;
+
+  //   .filter((d) => {
+  //   if (d.content.length === 0) {
+  //     return false;
+  //   }
+  //   if (
+  //     d.sources.length > 0 &&
+  //     d.content.length === 1 &&
+  //     d.content[0]!.para.text === ". . ."
+  //   ) {
+  //     return false;
+  //   }
+  //   return true;
+  // })
+};
+
+const getData = (
+  urlPath: string[],
+  baseLevel: number,
+  search: string
+): {
+  docs: DocSlice[];
+  path: [string, string][];
+  tree: any;
+  showContent: boolean;
+} => {
+  const { path, tree, passages, tokens, showContent } = getPassages(
+    urlPath,
+    baseLevel,
+    search
   );
 
-  const joinedQuotes = joinQuotes(result.map((r) => r.quotes || []));
-  const mappedQuotes = result.map((r, i) => ({
-    ...r,
-    quotes: joinedQuotes[i]!,
-  }));
+  let baseResult: DocSlice[] = [];
+  while (
+    (!tokens || baseResult.length < SEARCH_COUNT + 5) &&
+    passages.length > 0
+  ) {
+    baseResult.push(mapPassage(passages.shift()!, tokens));
 
-  const docs = [
-    {
-      sources: [] as MultiQuote[],
-      content: [] as {
-        paraId: string;
-        para: SemiPara;
-        quoted: RefQuote[];
-        quotes: MultiQuote[];
-        ref: Ref;
-        scoreInfo: any;
-      }[],
-    },
-  ];
-  for (const { sources, ...para } of mappedQuotes) {
-    if (sources.length > 1) {
-      docs.push({ sources, content: [para] }, { sources: [], content: [] });
-    } else {
-      docs[docs.length - 1]!.content.push(para);
-      if (sources.length === 1) {
-        docs[docs.length - 1]!.sources = sources;
-        docs.push({ sources: [], content: [] });
+    const chars = baseResult.map((x) =>
+      x.chunks.flatMap((c) =>
+        c.content.flatMap((p) => toChars(toWords(toCleaned(p.para.text))))
+      )
+    );
+    for (let i = 0; i < baseResult.length; i++) {
+      if (
+        [...chars.slice(i - 5, i), ...chars.slice(i + 1, i + 6)].some((x) =>
+          chars[i]!.every((s1) => x.some((s2) => s2.includes(s1)))
+        )
+      ) {
+        chars[i] = [];
       }
     }
-  }
-
-  let sliceIndex: number | undefined = 0;
-  if (matches) {
-    let totalParas = 0;
-    while (totalParas < SEARCH_COUNT && sliceIndex < docs.length) {
-      totalParas += docs[sliceIndex++]!.content.length;
-    }
-  } else {
-    sliceIndex = undefined;
+    baseResult = baseResult.filter((_, i) => chars[i]!.length > 0);
   }
 
   return {
-    docs: docs
-      .slice(0, sliceIndex)
-      .filter((d) => {
-        if (d.content.length === 0) {
-          return false;
-        }
-        if (
-          d.sources.length > 0 &&
-          d.content.length === 1 &&
-          d.content[0]!.para.text === ". . ."
-        ) {
-          return false;
-        }
-        return true;
-      })
-      .map((d) => ({
-        sources: d.sources.map((q) => ({
-          quotes: q.quotes,
-          render: getUrlQuote(q),
-        })),
-        content: d.content.map((p) => {
-          const quotedQuotes = p.quoted.map((q) => q.quote);
-          const quoted = uniqueRefs(quotedQuotes)
-            .map((ref) => ({
-              section: ref.section,
-              paragraph: [ref.paragraph],
-              quotes: quotedQuotes.filter((q) => refsEqual(ref, q)),
-            }))
-            .map((q) => ({
-              quotes: q.quotes,
-              render: getUrlQuote(q),
-            }));
-          return {
-            ...p,
-            quoted: quoted.filter(
-              (q1, i) =>
-                !quoted
-                  .slice(i + 1)
-                  .some(
-                    (q2) =>
-                      JSON.stringify(q1.render) === JSON.stringify(q2.render)
-                  )
-            ),
-            quotes: p.quotes.map((q) => ({
-              quotes: q.quotes,
-              render: getUrlQuote(q),
-            })),
-          };
-        }),
-      })),
+    docs: baseResult.slice(0, SEARCH_COUNT),
     path,
-    tree: nestedTree,
-    showContent: true,
+    tree,
+    showContent,
   };
 };
 
@@ -408,21 +383,21 @@ const app = express();
 const port = 8000;
 
 app.get("/api/:query", (req, res) => {
-  // try {
-  const { query } = req.params;
-  const { path, level, search } = JSON.parse(query);
+  try {
+    const { query } = req.params;
+    const { path, level, search } = JSON.parse(query);
 
-  const data = getData(path, level, search);
+    const data = getData(path, level, search);
 
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PUT, DELETE, OPTIONS"
-  );
-  res.json(data);
-  // } catch (err) {
-  //   res.status(400).json({ error: "Invalid JSON in URL parameter" });
-  // }
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader(
+      "Access-Control-Allow-Methods",
+      "GET, POST, PUT, DELETE, OPTIONS"
+    );
+    res.json(data);
+  } catch (err) {
+    res.status(400).json({ error: "Invalid JSON in URL parameter" });
+  }
 });
 
 app.listen(port, () => {

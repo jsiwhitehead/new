@@ -10,13 +10,16 @@ export interface Ref {
 
 export type Quote = Range & Ref;
 
-export type RefQuote = { range: Range; quote: Quote };
+export interface RefQuote {
+  range: Range;
+  quote: Quote;
+}
 
-export type MultiQuote = {
+export interface MultiQuote {
   section: number;
   paragraph: number[];
   quotes: Quote[];
-};
+}
 
 export type SectionContent =
   | string
@@ -67,10 +70,33 @@ export interface RenderQuote {
   author: string;
 }
 
-export type QuoteLink = {
+export interface QuoteLink {
   quotes: Quote[];
   render: RenderQuote;
-};
+}
+
+export interface Passage {
+  section: number;
+  start: number;
+  levels: (number | null)[];
+  score: number;
+  scoreInfo: any;
+}
+
+export interface DocSlice {
+  title: QuoteLink;
+  scoreInfo: any;
+  chunks: {
+    sources: QuoteLink[];
+    content: {
+      ref: Ref;
+      paraId: string;
+      para: SemiPara;
+      quotes: QuoteLink[];
+      quoted: QuoteLink[];
+    }[];
+  }[];
+}
 
 export type RenderContent =
   | { type: "break" }

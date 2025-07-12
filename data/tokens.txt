@@ -13878,7 +13878,7 @@ divorc = divorce | divorced | divorces | divorcing
 
 divulg = divulge | divulged | divulgeth | divulging
 
-do = do | doer | doers | doest | doeth | doing | doings
+do = do | doer | doers | does | doest | doeth | doing | doings
 
 docil = docile
 
@@ -13891,8 +13891,6 @@ document = document | documentary | documentation | documented | documenting | d
 dodg = dodge
 
 doe = doe
-
-does = does
 
 dog = dog | dogged | dogs
 

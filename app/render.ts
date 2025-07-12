@@ -165,8 +165,6 @@ const getFillsRenderContent = (
     return [{ text: ". . .", quoted: 0, highlight: false }];
   }
 
-  const highlightIndices = getIndices(para.text.length, para.highlights);
-
   if (para.quotes) {
     for (let i = 0; i < para.quotes!.length; i++) {
       const {
@@ -187,12 +185,21 @@ const getFillsRenderContent = (
     if (post) range.end = range.end + post.length;
   }
 
+  const highlightIndices = getIndices(para.text.length, para.highlights);
   for (const h of para.highlights) {
     const pre = para.text.slice(0, h.start).match(/[^—‑ ]*$/)?.[0];
     if (pre) h.start = h.start - pre.length;
     const post = para.text.slice(h.end).match(/^[^—‑ ]*/)?.[0];
     if (post) h.end = h.end + post.length;
   }
+  const expandedHighlightIndices = getIndices(
+    para.text.length,
+    para.highlights
+  );
+  const getHighlightId = (start: number) => {
+    const i = expandedHighlightIndices.indexOf(start);
+    return i === -1 ? undefined : `${paraId}_${highlightIndices[i]!}`;
+  };
 
   const indices = getIndices(
     para.text.length,
@@ -246,9 +253,7 @@ const getFillsRenderContent = (
           quoted: para.quoted.filter((q) => doesRangeInclude(q.range, range))
             .length,
           highlight: para.highlights.some((h) => doesRangeInclude(h, range)),
-          id: highlightIndices.includes(range.start)
-            ? `${paraId}_${range.start}`
-            : undefined,
+          id: getHighlightId(range.start),
         })),
       ],
       allSpecial: para.allSpecial,
@@ -271,9 +276,7 @@ const getFillsRenderContent = (
           quoted: para.quoted.filter((q) => doesRangeInclude(q.range, range))
             .length,
           highlight: para.highlights.some((h) => doesRangeInclude(h, range)),
-          id: highlightIndices.includes(range.start)
-            ? `${paraId}_${range.start}`
-            : undefined,
+          id: getHighlightId(range.start),
         }));
       }),
       allSpecial: para.allSpecial,
@@ -300,9 +303,7 @@ const getFillsRenderContent = (
         quoted: para.quoted.filter((q) => doesRangeInclude(q.range, moved))
           .length,
         highlight: para.highlights.some((h) => doesRangeInclude(h, moved)),
-        id: highlightIndices.includes(moved.start)
-          ? `${paraId}_${moved.start}`
-          : undefined,
+        id: getHighlightId(moved.start),
       };
     });
     current += part.text.length;

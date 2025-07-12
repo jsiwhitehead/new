@@ -6,24 +6,14 @@ import {
   useLoaderData,
 } from "react-router";
 
-import type { QuoteLink, Ref, SemiPara } from "../utils/types";
+import type { DocSlice } from "../utils/types";
 
 import App from "./App";
 import { SizeContext } from "./Utils";
 
 const Root = () => {
   const { docs, path, tree, showContent } = useLoaderData<{
-    docs: {
-      sources: QuoteLink[];
-      content: {
-        quoted: QuoteLink[];
-        quotes: QuoteLink[];
-        paraId: string;
-        para: SemiPara;
-        ref: Ref;
-        scoreInfo: any;
-      }[];
-    }[];
+    docs: DocSlice[];
     path: [string, string][];
     tree: any;
     showContent: boolean;

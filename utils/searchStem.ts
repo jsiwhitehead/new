@@ -182,6 +182,7 @@ exceptions1.coincident = "coincident";
 exceptions1.damped = "dampen";
 exceptions1.discretion = "discreet";
 exceptions1.diversion = "divert";
+exceptions1.does = "do";
 exceptions1.duplicity = "duplicit";
 exceptions1.eastern = "east";
 exceptions1.entranced = "entranced";
@@ -368,7 +369,6 @@ exceptions1.any = "any";
 exceptions1.and = "and";
 exceptions1.upon = "upon";
 exceptions1.had = "had";
-exceptions1.does = "does";
 exceptions1.off = "ooff";
 exceptions1.out = "oout";
 exceptions1.she = "sshe";
@@ -3746,8 +3746,8 @@ const stopwords = [
   "whom",
   //   "being",
   "having",
-  "does",
-  "did",
+  // "does",
+  // "did",
   // "doing",
   "could",
   // "ought",
@@ -3793,6 +3793,6 @@ const stopwords = [
 ];
 
 export const isStopword = (word: string) =>
-  word.length <= 2 || stopwords.includes(word);
+  (word.length <= 2 || stopwords.includes(word)) && !["do"].includes(word);
 
 export default (word: string) => (isStopword(word) ? word : stem(word));

@@ -1,7 +1,7 @@
 import { readText } from "../utils/files.ts";
 import stem, { isStopword } from "../utils/searchStem.ts";
 import fixSpellings from "../utils/spellings.ts";
-import type { Range } from "../utils/types.ts";
+import type { Passage, Range } from "../utils/types.ts";
 import { doRangesIntersect, sum } from "../utils/utils.ts";
 
 import lengthsJSON from "../data/lengths.json" with { type: "json" };
@@ -11,8 +11,8 @@ type Lengths = { level: number; length: number }[];
 type Positions = { level: number; positions: number[] };
 
 const K = 1.2; // term saturation, low k more like binary presence of terms
-const B = 0.3; // length normalisation 0-1, 0 = long & short treated the same
-const P = 5; // proximity weight factor
+const B = 0.6; // length normalisation 0-1, 0 = long & short treated the same
+const P = 0.2; // proximity weight factor
 const L = 0.6; // level lowering factor
 
 const getMinSpan = (positions: number[][]) => {
@@ -215,14 +215,16 @@ export const getMatches = (
           const score = sum(
             paraMatches
               .filter((m) => m.token === token)
-              .map((m) => m.positions.length * (m.level + 1))
+              .map((m) => m.positions.length * (m.level * 3 + 1))
           );
           if (score === 0) return res;
           return { ...res, [token]: score };
         }, {}),
         proximity:
-          Math.pow(sum(proxTokens.map((x) => getTokenIdf(x.token))), 2) /
-          getMinSpan(proxTokens.map((x) => x.positions)),
+          proxTokens.length > 1
+            ? Math.pow(sum(proxTokens.map((x) => getTokenIdf(x.token))), 2) /
+              getMinSpan(proxTokens.map((x) => x.positions))
+            : 0.0001,
         done: false,
       };
     });
@@ -279,13 +281,7 @@ export const getMatches = (
       }
     }
 
-    const result: {
-      section: number;
-      start: number;
-      levels: (number | null)[];
-      score: number;
-      scoreInfo: any;
-    }[] = [];
+    const result: Passage[] = [];
     while (allRuns.length > 0) {
       const maxScore = Math.max(...allRuns.map((x) => x.score));
       const best = allRuns.find((x) => x.score === maxScore)!;
@@ -301,7 +297,10 @@ export const getMatches = (
     return result;
   });
 
-  return { tokens, matches: runs.sort((a, b) => b.score - a.score) };
+  return {
+    tokens: tokens.map((x) => x.token),
+    matches: runs.sort((a, b) => b.score - a.score),
+  };
 };
 
 export const getTokenHighlights = (text: string, tokens: string[]): Range[] => {

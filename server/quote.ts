@@ -46,16 +46,19 @@ export const getUrlQuote = (ref: Quote | MultiQuote): RenderQuote => {
       paragraphs.includes(i)
     )
   ) {
-    const firstPara = Math.min(...paragraphs);
-    const ranges =
+    if (paragraphs.length > 0) {
+      res.push([getParasString(paragraphs, paraIds), current]);
+    }
+    const firstQuote =
       "quotes" in ref
-        ? ref.quotes.filter((q) => q.paragraph === firstPara)
-        : [ref];
-
-    res.push([
-      getParasString(paragraphs, paraIds),
-      `${current}#${paraIds[firstPara]}_${Math.min(...ranges.map((r) => r.start))}`,
-    ]);
+        ? ref.quotes.sort(
+            (a, b) => a.paragraph - b.paragraph || a.start - b.start
+          )[0]!
+        : ref;
+    if (firstQuote) {
+      res[res.length - 1]![1] +=
+        `#${paraIds[firstQuote.paragraph]}_${firstQuote.start}`;
+    }
   }
 
   if (res[1]![0] === "The Hidden Words") {
@@ -83,7 +86,7 @@ export const getUrlQuote = (ref: Quote | MultiQuote): RenderQuote => {
     res.splice(1, 1);
   }
   if (res[0]![0] === "Ruhi Institute") {
-    res.splice(2);
+    res.splice(3);
   }
 
   for (const chunk of res.slice(1)) {
