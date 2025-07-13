@@ -5,8 +5,6 @@ import { getText } from "../utils/utils.ts";
 
 const data = (await readJSON("", "data")) as Section[];
 
-const LEVEL_MULTIPLIER = 2;
-
 const getLayersString = (values: number[]) => {
   const res = [];
   for (let i = 0; i < values.length; i++) {
@@ -17,15 +15,45 @@ const getLayersString = (values: number[]) => {
   return res.join(",");
 };
 
+const getDateValue = (years: [number, number]) => {
+  if (years[0] !== years[1] || !`${years[0]}`.includes(".")) {
+    return new Date((years[0] + years[1]) / 2, 0, 1);
+  }
+  const [y, x] = `${years[0]}`.split(".");
+  const m = x!.slice(0, 2);
+  const d = x!.slice(2, 4);
+  return new Date(parseInt(y!, 10), parseInt(m, 10) - 1, parseInt(d, 10));
+};
+const getDateFactor = (years: [number, number]) => {
+  const diff =
+    (Date.now() - getDateValue(years).getTime()) /
+    (1000 * 60 * 60 * 24 * 365.25);
+  return 0.6 + 2 / (diff + 5);
+};
+
 let totalParas = 0;
 let totalLength = 0;
 const paraLengths: string[][] = [];
+const paraDateFactors: Record<number, number> = {};
 const searchIndex = new Map<string, string[]>();
 const tokenCounts: Record<string, number> = {};
 const tokenWords = new Map<string, Set<string>>();
 data.forEach(({ path, content, quoted }, section) => {
   if (path[0]![0] !== "Stories") {
     console.log(path.map((p) => p[0]).join(", "));
+
+    const author =
+      data[section]!.prayer ||
+      data[section]!.meta ||
+      data[section]!.path[0]![0];
+    if (
+      !["The Báb", "Bahá’u’lláh", "‘Abdu’l‑Bahá", "Shoghi Effendi"].includes(
+        author
+      )
+    ) {
+      paraDateFactors[section] = getDateFactor(data[section]!.years);
+    }
+
     paraLengths[section] = content.map((_, paragraph) => {
       const key = `${section}:${paragraph}`;
       const text = getText(data, { section, paragraph });
@@ -99,10 +127,11 @@ const sortedTokens = Object.keys(tokenCounts).sort(
 const searchIndexData = sortedTokens
   .map((k) => `${k}_${searchIndex.get(k)!.join("|")}`)
   .join("\n");
-await writeJSON("", "lengths", {
+await writeJSON("", "info", {
   total: totalParas,
   average: totalLength / totalParas,
   lengths: paraLengths,
+  dates: paraDateFactors,
 });
 await writeText("", "search", searchIndexData);
 

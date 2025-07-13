@@ -4,7 +4,7 @@ import fixSpellings from "../utils/spellings.ts";
 import type { Passage, Range } from "../utils/types.ts";
 import { doRangesIntersect, sum } from "../utils/utils.ts";
 
-import lengthsJSON from "../data/lengths.json" with { type: "json" };
+import infoJSON from "../data/info.json" with { type: "json" };
 const searchIndex = await readText("", "search");
 
 type Lengths = { level: number; length: number }[];
@@ -43,10 +43,11 @@ const getMinSpan = (positions: number[][]) => {
   return minSpan;
 };
 
-const parasTotal: number = (lengthsJSON as any).total;
-const parasAverage: number = (lengthsJSON as any).average;
+const parasTotal: number = (infoJSON as any).total;
+const parasAverage: number = (infoJSON as any).average;
+const dateFactors: Record<number, number> = (infoJSON as any).dates;
 
-const parasLengths: (string | Lengths)[][] = (lengthsJSON as any).lengths;
+const parasLengths: (string | Lengths)[][] = (infoJSON as any).lengths;
 const getParaLength = (section: number, paragraph: number, level: number) => {
   if (typeof parasLengths[section]![paragraph]! === "string") {
     parasLengths[section]![paragraph]! = (
@@ -261,7 +262,7 @@ export const getMatches = (
               })
           );
           const proximity = Math.max(...sliced.map((p) => p.proximity));
-          const score = tfIdf + P * proximity;
+          const score = (tfIdf + P * proximity) * (dateFactors[section] || 1);
           const levels: (number | null)[] = [];
           for (let paragraph = start; paragraph <= end; paragraph++) {
             levels.push(

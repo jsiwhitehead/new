@@ -357,7 +357,9 @@ const getData = (
     if (tokens) {
       const chars = baseResult.map((x) =>
         x.chunks.flatMap((c) =>
-          c.content.flatMap((p) => toChars(toWords(toCleaned(p.para.text))))
+          c.content.flatMap((p) =>
+            toChars(toWords(toCleaned(p.para.text.replace(/\[[^\]]*\]/g, ""))))
+          )
         )
       );
       for (let i = 0; i < baseResult.length; i++) {
