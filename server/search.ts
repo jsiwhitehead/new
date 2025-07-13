@@ -193,9 +193,9 @@ export const getMatches = (
       const paraLength = getParaLength(section, paragraph, paraLevel);
       if (paraMatches.length === 0) {
         return {
-          level: paraLevel,
+          level: null,
           length: paraLength,
-          scores: {},
+          scores: {} as Record<string, number>,
           proximity: 0,
           done: false,
         };
@@ -224,13 +224,13 @@ export const getMatches = (
           proxTokens.length > 1
             ? Math.pow(sum(proxTokens.map((x) => getTokenIdf(x.token))), 2) /
               getMinSpan(proxTokens.map((x) => x.positions))
-            : 0.0001,
+            : 0,
         done: false,
       };
     });
 
-    const firstPara = paras.findIndex((x) => x.proximity > 0);
-    const lastPara = paras.findLastIndex((x) => x.proximity > 0);
+    const firstPara = paras.findIndex((x) => x.level !== null);
+    const lastPara = paras.findLastIndex((x) => x.level !== null);
 
     let allRuns: {
       start: number;
@@ -240,13 +240,13 @@ export const getMatches = (
       scoreInfo: any;
     }[] = [];
     for (let start = firstPara; start <= lastPara; start++) {
-      if (paras[start]!.proximity === 0) continue;
+      if (paras[start]!.level === null) continue;
       let gap = 0;
       for (let end = start; end <= lastPara; end++) {
-        if (paras[end]!.proximity === 0) gap++;
+        if (paras[end]!.level === null) gap++;
         else gap = 0;
         if (gap > 3) break;
-        if (paras[end]!.proximity > 0) {
+        if (paras[end]!.level !== null) {
           const sliced = paras.slice(start, end + 1);
           const length = sum(sliced.map((p) => p.length)) / parasAverage;
           const tfIdf = sum(
