@@ -1,3 +1,4 @@
+import React from "react";
 import { createRoot } from "react-dom/client";
 import {
   createBrowserRouter,
@@ -11,6 +12,18 @@ import type { DocSlice } from "../utils/types";
 import App from "./App";
 import { SizeContext } from "./Utils";
 
+class ReloadOnError extends React.Component<{ children: any }> {
+  componentDidCatch() {
+    if (!sessionStorage.getItem("hasReloadedOnError")) {
+      sessionStorage.setItem("hasReloadedOnError", "true");
+      window.location.reload();
+    }
+  }
+  render() {
+    return this.props.children;
+  }
+}
+
 const Root = () => {
   const { docs, path, tree, showContent } = useLoaderData<{
     docs: DocSlice[];
@@ -20,10 +33,12 @@ const Root = () => {
   }>();
 
   return (
-    <SizeContext value={17}>
-      <ScrollRestoration />
-      <App docs={docs} path={path} tree={tree} showContent={showContent} />
-    </SizeContext>
+    <ReloadOnError>
+      <SizeContext value={17}>
+        <ScrollRestoration />
+        <App docs={docs} path={path} tree={tree} showContent={showContent} />
+      </SizeContext>
+    </ReloadOnError>
   );
 };
 

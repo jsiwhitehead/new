@@ -155,10 +155,6 @@ export default function Paragraph({
 
   const location = useLocation();
 
-  console.log(location.state);
-
-  console.log(ref);
-
   const para = { ...basePara, highlights: [...basePara.highlights] };
   if (location.state) {
     for (const part of location.state) {

@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { useNavigation } from "react-router";
 
 import type { DocSlice, QuoteLink } from "../utils/types";
@@ -40,6 +40,10 @@ export default function App({
   tree: any;
   showContent: boolean;
 }) {
+  useEffect(() => {
+    sessionStorage.removeItem("hasReloadedOnError");
+  }, []);
+
   const navigation = useNavigation();
   const isNavigating = Boolean(navigation.location);
 
