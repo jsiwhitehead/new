@@ -116,39 +116,41 @@ export const mergeQuotes = (quotes: Quote[]): MultiQuote[] => {
   const res: { section: number; paragraph: number[]; quotes: Quote[] }[] = [];
   for (const q of quotes) {
     if (!res.find((s) => s.section === q.section)) {
-      res.push(
-        q.paragraph !== -1
-          ? { section: q.section, paragraph: [q.paragraph], quotes: [q] }
-          : { section: q.section, paragraph: [], quotes: [] }
-      );
+      res.push({ section: q.section, paragraph: [q.paragraph], quotes: [q] });
     } else {
       const s = res.find((s) => s.section === q.section)!;
-      if (q.paragraph !== -1) {
-        s.paragraph.push(q.paragraph);
-        s.quotes.push(q);
-      }
+      s.paragraph.push(q.paragraph);
+      s.quotes.push(q);
     }
   }
   return res;
 };
 
-export const joinQuotes = (quotes: Quote[][]): MultiQuote[][] => {
-  const merged = quotes.map((q) => mergeQuotes(q));
+export const joinQuotes = (quotes: (Quote[] | null)[]): MultiQuote[][] => {
+  const merged = quotes.map((q) => q && mergeQuotes(q));
   for (let i = 0; i < merged.length - 1; i++) {
-    if (merged[i]!.length === 1 && merged[i + 1]!.length === 1) {
-      const current = merged[i]![0]!;
-      const next = merged[i + 1]![0]!;
-      if (
-        current.section === next.section &&
-        (next.paragraph.length === 0 ||
-          current.paragraph[current.paragraph.length - 1]! <=
-            next.paragraph[0]!)
-      ) {
-        next.paragraph = [...current.paragraph, ...next.paragraph];
-        next.quotes = [...current.quotes, ...next.quotes];
+    if (
+      merged[i] &&
+      merged[i + 1] &&
+      merged[i]!.length <= 1 &&
+      merged[i + 1]!.length <= 1
+    ) {
+      const current = merged[i]![0];
+      const next = merged[i + 1]![0];
+      if (current && next) {
+        if (
+          current.section === next.section &&
+          current.paragraph[current.paragraph.length - 1]! <= next.paragraph[0]!
+        ) {
+          next.paragraph = [...current.paragraph, ...next.paragraph];
+          next.quotes = [...current.quotes, ...next.quotes];
+          merged[i] = [];
+        }
+      } else if (current || next) {
+        merged[i + 1] = [(current || next)!];
         merged[i] = [];
       }
     }
   }
-  return merged;
+  return merged.map((m) => m || []);
 };

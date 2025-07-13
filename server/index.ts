@@ -165,7 +165,7 @@ const mapPassage = (
           sourceQuotes: [],
           allSpecial: false,
         } as FlatPara,
-        sources: [{ section, paragraph: -1, start: 0, end: 0 }],
+        sources: [],
         fullQuote: false,
       };
     }
@@ -253,7 +253,7 @@ const mapPassage = (
       .map((x) => {
         const joinedQuotes = joinQuotes(
           x.content.map(
-            (r) => (r.fullQuote && r.para.quotes?.map((q) => q.quote)) || []
+            (r) => (r.fullQuote && r.para.quotes?.map((q) => q.quote)) || null
           )
         );
         return {
@@ -354,25 +354,27 @@ const getData = (
   ) {
     baseResult.push(mapPassage(passages.shift()!, tokens));
 
-    const chars = baseResult.map((x) =>
-      x.chunks.flatMap((c) =>
-        c.content.flatMap((p) => toChars(toWords(toCleaned(p.para.text))))
-      )
-    );
-    for (let i = 0; i < baseResult.length; i++) {
-      if (
-        [...chars.slice(i - 5, i), ...chars.slice(i + 1, i + 6)].some((x) =>
-          chars[i]!.every((s1) => x.some((s2) => s2.includes(s1)))
+    if (tokens) {
+      const chars = baseResult.map((x) =>
+        x.chunks.flatMap((c) =>
+          c.content.flatMap((p) => toChars(toWords(toCleaned(p.para.text))))
         )
-      ) {
-        chars[i] = [];
+      );
+      for (let i = 0; i < baseResult.length; i++) {
+        if (
+          [...chars.slice(i - 5, i), ...chars.slice(i + 1, i + 6)].some((x) =>
+            chars[i]!.every((s1) => x.some((s2) => s2.includes(s1)))
+          )
+        ) {
+          chars[i] = [];
+        }
       }
+      baseResult = baseResult.filter((_, i) => chars[i]!.length > 0);
     }
-    baseResult = baseResult.filter((_, i) => chars[i]!.length > 0);
   }
 
   return {
-    docs: baseResult.slice(0, SEARCH_COUNT),
+    docs: tokens ? baseResult.slice(0, SEARCH_COUNT) : baseResult,
     path,
     tree,
     showContent,
