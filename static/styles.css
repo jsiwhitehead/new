@@ -9,7 +9,7 @@ body {
   word-spacing: 0.1em;
   font-variant-ligatures: none;
 
-  overflow-x: "hidden";
+  overflow-x: hidden;
 }
 
 .treebar {
