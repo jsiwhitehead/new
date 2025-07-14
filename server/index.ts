@@ -7,6 +7,7 @@ import type {
   Passage,
   Quote,
   Ref,
+  SectionContent,
 } from "../utils/types.ts";
 import {
   compareArrays,
@@ -126,26 +127,28 @@ const getPassages = (urlPath: string[], baseLevel: number, search: string) => {
   };
 };
 
+const isFullQuote = (para: SectionContent) => {
+  if (typeof para === "string") {
+    return textIsConnector(para);
+  }
+  if (Array.isArray(para)) {
+    return (
+      para.every((part) => typeof part !== "string" || textIsConnector(part)) &&
+      para.some((part) => typeof part !== "string")
+    );
+  }
+  return "type" in para && para.type === "break";
+};
+
 const mapPassage = (
   { section, start, levels, scoreInfo }: Passage,
+  urlPath: string[],
   tokens?: string[]
 ): DocSlice => {
   const paraIds = getParagraphIds(section);
   const allSpecial = getAllSpecial(data[section]!.content);
   const sliced = data[section]!.content.slice(start, start + levels.length);
-  const fullQuote = sliced.map((para) => {
-    if (typeof para === "string") {
-      return textIsConnector(para);
-    }
-    if (Array.isArray(para)) {
-      return (
-        para.every(
-          (part) => typeof part !== "string" || textIsConnector(part)
-        ) && para.some((part) => typeof part !== "string")
-      );
-    }
-    return "type" in para && para.type === "break";
-  });
+  const fullQuote = sliced.map((para) => isFullQuote(para));
   const allFullQuote = fullQuote.every((x) => x);
   const content = sliced.map((para, index) => {
     const paragraph = index + start;
@@ -321,6 +324,16 @@ const mapPassage = (
     res.chunks[0]!.sources = [];
   }
 
+  if (
+    !(
+      !tokens ||
+      data[section]!.content.every((para) => isFullQuote(para)) ||
+      getPathSections(urlPath).includes(res.title.quotes[0]!.section)
+    )
+  ) {
+    res.chunks = [];
+  }
+
   return res;
 
   //   .filter((d) => {
@@ -359,7 +372,7 @@ const getData = (
     (!tokens || baseResult.length < SEARCH_COUNT + 5) &&
     passages.length > 0
   ) {
-    const mapped = mapPassage(passages.shift()!, tokens);
+    const mapped = mapPassage(passages.shift()!, urlPath, tokens);
     if (mapped.chunks.length > 0) baseResult.push(mapped);
 
     if (tokens) {
