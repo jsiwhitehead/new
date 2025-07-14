@@ -1,13 +1,11 @@
 import type { MultiQuote, Quote, RenderQuote } from "../utils/types.ts";
 import { capitalise } from "../utils/utils.ts";
 
-import { data, getParagraphIds } from "./utils.ts";
+import { data, getDocPath, getParagraphIds } from "./utils.ts";
 
 const simplifyLinkLabels = {
   "Gleanings from the Writings of Bahá’u’lláh": "Gleanings",
-  "Tablets of Bahá’u’lláh": "Tablets",
   "Selections from the Writings of ‘Abdu’l‑Bahá": "Selections",
-  "Commissioned by the Universal House of Justice": "Publications",
 } as Record<string, string>;
 
 const getParasString = (paras: number[], paraIds: string[]) => {
@@ -27,10 +25,16 @@ const getParasString = (paras: number[], paraIds: string[]) => {
   return result.join(", ");
 };
 
-export const getUrlQuote = (ref: Quote | MultiQuote): RenderQuote => {
+export const getUrlQuote = (
+  ref: Quote | MultiQuote,
+  shorten: boolean
+): RenderQuote => {
   let current = "";
   const section = data[ref.section]!;
-  const res: [string, string][] = section.path.map((p) => {
+  const path = shorten
+    ? getDocPath(section.path) || section.path
+    : section.path;
+  const res: [string, string][] = path.map((p) => {
     current = `${current}/${p[1]}`;
     return [
       simplifyLinkLabels[p[0]] || p[0].replace(/ \([^\)]*\)/, ""),
@@ -40,7 +44,7 @@ export const getUrlQuote = (ref: Quote | MultiQuote): RenderQuote => {
   const paragraphs = Array.isArray(ref.paragraph)
     ? ref.paragraph
     : [ref.paragraph];
-  const paraIds = getParagraphIds(section.content);
+  const paraIds = getParagraphIds(ref.section);
   if (
     !Array.from({ length: paraIds.length }).every((_, i) =>
       paragraphs.includes(i)
@@ -65,11 +69,10 @@ export const getUrlQuote = (ref: Quote | MultiQuote): RenderQuote => {
     res[2]![0] = res[2]![0].split(":")[0]!;
   } else if (res[1]![0] === "The Summons of the Lord of Hosts") {
     res.splice(1, 1);
+  } else if (res[1]![0] === "Tablets of Bahá’u’lláh") {
+    res.splice(1, 1);
   } else if (res[1]![0] === "The Promulgation of Universal Peace") {
-    res[3]![0] = res[3]![0].split(":")[0]!;
-    res.splice(2, 1);
-  } else if (res[1]![0] === "Tablets of the Divine Plan") {
-    res[2]![0] = res[2]![0].split(":")[0]!;
+    res[2]![0] = res[2]![0].split(",").at(-1)!;
   } else if (res[1]![0] === "Some Answered Questions") {
     res[2]![0] = res[2]![0].split(":")[0]!;
   } else if (res[1]![0] === "The World Order of Bahá’u’lláh") {
@@ -82,11 +85,13 @@ export const getUrlQuote = (ref: Quote | MultiQuote): RenderQuote => {
   ) {
     res[2]![0] = res[2]![0].split(",")[0]!;
     res.splice(1, 1);
-  } else if (res[1]![0] === "Junior Youth Texts") {
-    res.splice(1, 1);
-  }
-  if (res[0]![0] === "Ruhi Institute") {
+  } else if (res[0]![0] === "Ruhi Institute") {
+    res[1]![0] = res[1]![0].split(":")[0]!;
+    res[2]![0] = res[2]![0].split(":")[0]!;
     res.splice(3);
+  }
+  if (res[1]![0] === "Junior Youth Texts") {
+    res.splice(1, 1);
   }
 
   for (const chunk of res.slice(1)) {

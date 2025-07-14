@@ -44,8 +44,8 @@ export const toWords = (cleaned: string) =>
 
 export const toChars = (words: string) => words.replace(/ /g, "");
 
-export const textIsConnector = (cleaned: string) =>
-  !/[a-z0-9]/.test(cleaned.replace(/\[[^\]]*\]/g, ""));
+export const textIsConnector = (text: string) =>
+  !/[a-z0-9]/.test(toCleaned(text).replace(/\[[^\]]*\]/g, ""));
 
 export const getText = (data: Section[], ref: Ref): string => {
   const para = data[ref.section]!.content[ref.paragraph]!;

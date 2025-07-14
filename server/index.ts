@@ -22,7 +22,13 @@ import {
 import { filterQuoted, getFullQuotedPara, getPara } from "./paragraph.ts";
 import { getUrlQuote } from "./quote.ts";
 import { getMatches, getTokenHighlights } from "./search.ts";
-import { data, getAllSpecial, getParagraphIds } from "./utils.ts";
+import {
+  data,
+  getAllSpecial,
+  getFilterSections,
+  getParagraphIds,
+  getPathSections,
+} from "./utils.ts";
 
 const SEARCH_COUNT = 20;
 
@@ -43,22 +49,68 @@ const collapseSingleKeys = (
 };
 
 const getPassages = (urlPath: string[], baseLevel: number, search: string) => {
-  const filteredSections = data
-    .map((section, index) => ({ section, index }))
-    .filter(({ section }) =>
-      urlPath.every((p, i) => section.path[i]?.[1] === p)
-    )
-    .map(({ index }) => index);
+  const allFilterSections = getPathSections(urlPath);
 
-  const matches = getMatches(filteredSections, search, baseLevel);
-  const matchSections = new Set((matches?.matches || []).map((m) => m.section));
+  const matches = getMatches(allFilterSections, search, baseLevel);
 
-  const searchSections = matches
-    ? filteredSections.filter((section) => matchSections.has(section))
-    : filteredSections;
+  if (!matches) {
+    const tree = {} as any;
+    for (const section of allFilterSections) {
+      data[section]!.path.reduce((res, p, i) => {
+        const key = JSON.stringify([
+          i === data[section]!.path.length - 1 && data[section]!.extract
+            ? `${p[0]}: ${data[section]!.extract}`
+            : p[0],
+          p[1],
+        ]);
+        return (res[key] = res[key] || {});
+      }, tree);
+    }
+    const [path, nestedTree] = collapseSingleKeys(tree, urlPath.length);
+
+    const passages: Passage[] = (
+      urlPath.length === 2 && urlPath[1] === "hidden-words"
+        ? [
+            ...getFilterSections([
+              "bahaullah",
+              "hidden-words",
+              "part-one-from-the-arabic",
+            ]),
+            ...getFilterSections([
+              "bahaullah",
+              "hidden-words",
+              "part-two-from-the-persian",
+            ]),
+          ]
+        : getFilterSections(urlPath)
+    ).map((section) => {
+      const d = data[section]!;
+      return {
+        section,
+        start: 0,
+        levels: Array.from<number>({ length: d.content.length }).fill(
+          baseLevel
+        ),
+        score: 0,
+        scoreInfo: {},
+      };
+    });
+
+    return {
+      path,
+      tree: nestedTree,
+      passages,
+      showContent: passages.length > 0,
+    };
+  }
+
+  const matchSections = new Set(matches.matches.map((m) => m.section));
+  const searchSections = allFilterSections.filter((section) =>
+    matchSections.has(section)
+  );
 
   const filteredTree = {} as any;
-  for (const section of filteredSections) {
+  for (const section of allFilterSections) {
     data[section]!.path.reduce((res, p) => {
       const key = JSON.stringify([p[0], p[1]]);
       return (res[key] = res[key] || {});
@@ -80,45 +132,12 @@ const getPassages = (urlPath: string[], baseLevel: number, search: string) => {
   }
   const [_, nestedTree] = collapseSingleKeys(searchTree, urlPath.length);
 
-  const showContent = !!(
-    matches ||
-    data.find(
-      (d) =>
-        urlPath.length === d.path.length &&
-        urlPath.every((p, i) => d.path[i]![1] === p)
-    ) ||
-    ["bahaullah/hidden-words"].includes(urlPath.join("/")) ||
-    (urlPath.length > 1 &&
-      ["documents", "ruhi", "compilations"].includes(urlPath[0]!)) ||
-    (urlPath.length > 2 &&
-      ["bahai-sacred-writings", "bahaullah-new-era"].includes(urlPath[1]!))
-  );
-
-  if (!showContent) {
-    return { path, tree: nestedTree, passages: [], showContent };
-  }
-
-  const passages: Passage[] =
-    matches?.matches ||
-    filteredSections.map((section) => {
-      const d = data[section]!;
-      return {
-        section,
-        start: 0,
-        levels: Array.from<number>({ length: d.content.length }).fill(
-          baseLevel
-        ),
-        score: 0,
-        scoreInfo: {},
-      };
-    });
-
   return {
     path,
     tree: nestedTree,
-    passages,
-    tokens: matches?.tokens,
-    showContent,
+    passages: matches.matches,
+    tokens: matches.tokens,
+    showContent: true,
   };
 };
 
@@ -126,7 +145,7 @@ const mapPassage = (
   { section, start, levels, scoreInfo }: Passage,
   tokens?: string[]
 ): DocSlice => {
-  const paraIds = getParagraphIds(data[section]!.content);
+  const paraIds = getParagraphIds(section);
   const allSpecial = getAllSpecial(data[section]!.content);
   const sliced = data[section]!.content.slice(start, start + levels.length);
   const fullQuote = sliced.map((para) => {
@@ -245,7 +264,10 @@ const mapPassage = (
   const res = {
     title: {
       quotes: titleQuotes,
-      render: getUrlQuote({ section, paragraph: [], quotes: titleQuotes }),
+      render: getUrlQuote(
+        { section, paragraph: [], quotes: titleQuotes },
+        false
+      ),
     },
     scoreInfo,
     chunks: chunks
@@ -261,7 +283,7 @@ const mapPassage = (
             allFullQuote || tokens
               ? x.sources.map((q) => ({
                   quotes: q.quotes,
-                  render: getUrlQuote(q),
+                  render: getUrlQuote(q, true),
                 }))
               : [],
           content: x.content.map(({ para, paraId, ref }, i) => {
@@ -287,16 +309,16 @@ const mapPassage = (
                 highlights: getTokenHighlights(para.text, tokens || []),
                 quotes: para.quotes?.map((q) => ({
                   quote: q,
-                  render: getUrlQuote(q.quote),
+                  render: getUrlQuote(q.quote, true),
                 }))!,
               },
               quotes: joinedQuotes[i]!.map((q) => ({
                 quotes: q.quotes,
-                render: getUrlQuote(q),
+                render: getUrlQuote(q, true),
               })),
               quoted: quoted.map((q) => ({
                 quotes: q.quotes,
-                render: getUrlQuote(q),
+                render: getUrlQuote(q, true),
               })),
               ref,
             };
@@ -387,21 +409,21 @@ const app = express();
 const port = 8000;
 
 app.get("/api/:query", (req, res) => {
-  try {
-    const { query } = req.params;
-    const { path, level, search } = JSON.parse(query);
+  // try {
+  const { query } = req.params;
+  const { path, level, search } = JSON.parse(query);
 
-    const data = getData(path, level, search);
+  const data = getData(path, level, search);
 
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader(
-      "Access-Control-Allow-Methods",
-      "GET, POST, PUT, DELETE, OPTIONS"
-    );
-    res.json(data);
-  } catch (err) {
-    res.status(400).json({ error: "Invalid JSON in URL parameter" });
-  }
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, DELETE, OPTIONS"
+  );
+  res.json(data);
+  // } catch (err) {
+  //   res.status(400).json({ error: "Invalid JSON in URL parameter" });
+  // }
 });
 
 app.listen(port, () => {
