@@ -374,7 +374,8 @@ const getData = (
     (!tokens || baseResult.length < SEARCH_COUNT + 5) &&
     passages.length > 0
   ) {
-    baseResult.push(mapPassage(passages.shift()!, tokens));
+    const mapped = mapPassage(passages.shift()!, tokens);
+    if (mapped.chunks.length > 0) baseResult.push(mapped);
 
     if (tokens) {
       const chars = baseResult.map((x) =>

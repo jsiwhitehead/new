@@ -94,10 +94,6 @@ export const getUrlQuote = (
     res.splice(1, 1);
   }
 
-  for (const chunk of res.slice(1)) {
-    if (chunk[0].startsWith("The ")) chunk[0] = capitalise(chunk[0].slice(4));
-  }
-
   return {
     path: res,
     author: section.prayer || section.meta || section.path[0]![0],
