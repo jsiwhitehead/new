@@ -106,7 +106,7 @@ export const getUrlQuote = (
       res[2]![0] = res[2]![0].split(":")[0]!;
       res.splice(3);
     }
-    if (res[1]![0] === "Junior Youth Texts") {
+    if (res[1]?.[0] === "Junior Youth Texts") {
       res.splice(1, 1);
     }
   }
