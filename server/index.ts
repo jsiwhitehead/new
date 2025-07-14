@@ -395,21 +395,21 @@ const app = express();
 const port = 8000;
 
 app.get("/api/:query", (req, res) => {
-  // try {
-  const { query } = req.params;
-  const { path, level, search } = JSON.parse(query);
+  try {
+    const { query } = req.params;
+    const { path, level, search } = JSON.parse(query);
 
-  const data = getData(path, level, search);
+    const data = getData(path, level, search);
 
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PUT, DELETE, OPTIONS"
-  );
-  res.json(data);
-  // } catch (err) {
-  //   res.status(400).json({ error: "Invalid JSON in URL parameter" });
-  // }
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader(
+      "Access-Control-Allow-Methods",
+      "GET, POST, PUT, DELETE, OPTIONS"
+    );
+    res.json(data);
+  } catch (err) {
+    res.status(400).json({ error: "Invalid JSON in URL parameter" });
+  }
 });
 
 app.listen(port, () => {

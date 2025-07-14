@@ -39,6 +39,7 @@ export interface Section {
   purpose?: string;
   prayer?: string;
   quoted?: Record<string, RefQuote[]>;
+  additional?: true;
   content: SectionContent[];
   extract?: string;
 }

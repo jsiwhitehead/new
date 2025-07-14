@@ -460,6 +460,7 @@ export const parseStructuredSections = (
         ...sectionMeta,
         purpose,
         summary,
+        additional: file === "additional" ? true : undefined,
         author: undefined,
         content: [],
       });
