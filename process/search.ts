@@ -38,8 +38,8 @@ const paraDateFactors: Record<number, number> = {};
 const searchIndex = new Map<string, string[]>();
 const tokenCounts: Record<string, number> = {};
 const tokenWords = new Map<string, Set<string>>();
-data.forEach(({ path, content, quoted }, section) => {
-  if (path[0]![0] !== "Stories") {
+data.forEach(({ path, meta, content, quoted }, section) => {
+  if (!meta && path[0]![0] !== "Stories") {
     console.log(path.map((p) => p[0]).join(", "));
 
     const author =

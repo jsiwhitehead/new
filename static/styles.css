@@ -8,6 +8,8 @@ body {
   letter-spacing: 0.025em;
   word-spacing: 0.1em;
   font-variant-ligatures: none;
+
+  overflow-x: "hidden";
 }
 
 .treebar {

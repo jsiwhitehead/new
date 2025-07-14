@@ -166,6 +166,26 @@
     },
     {
       "changes": {
+        "llments": "lments",
+        "llment": "lment",
+        "lleth": "leth",
+        "lls": "ls",
+        "ll": "l"
+      },
+      "roots": [
+        "nonfulfi",
+        "insti",
+        "insta",
+        "fulfi",
+        "exto",
+        "enthra",
+        "enro",
+        "disti",
+        "appa"
+      ]
+    },
+    {
+      "changes": {
         "zational": "sational",
         "zations": "sations",
         "zation": "sation",
@@ -528,28 +548,6 @@
         "se": "ce"
       },
       "roots": ["preten", "offen", "licen", "defen"]
-    },
-    {
-      "changes": {
-        "llments": "lments",
-        "llment": "lment",
-        "lleth": "leth",
-        "lls": "ls",
-        "ll": "l"
-      },
-      "roots": [
-        "trave",
-        "nonfulfi",
-        "insti",
-        "insta",
-        "fulfi",
-        "exto",
-        "enthra",
-        "enro",
-        "disti",
-        "counse",
-        "appa"
-      ]
     },
     {
       "changes": {

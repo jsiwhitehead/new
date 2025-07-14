@@ -18,7 +18,7 @@
 
 *abbas16 = ‘abbas160
 
-*abbasid = abbasid | abbaside
+*abbasid = abbasid
 
 *abbasiyan = ‘abbasiyan
 
@@ -42,7 +42,7 @@
 
 *abhar = abhar
 
-*abidin = ‘abidin | abidin
+*abidin = ‘abidin
 
 *abidin167 = ‘abidin167
 
@@ -91,8 +91,6 @@
 *adham = adham
 
 *adhan = adhan
-
-*adharbayjan = adharbayjan
 
 *adhirbayjan = adhirbayjan
 
@@ -428,8 +426,6 @@
 
 *appony = apponyi
 
-*aprilmay = aprilmay
-
 *aqa = aqa
 
 *aqa107 = aqa107
@@ -550,8 +546,6 @@
 
 *ashariyyih = ‘ashariyyih
 
-*ashkhabad = ashkhabad
-
 *ashraf = ashraf
 
 *ashura = ‘ashura | ashura
@@ -601,8 +595,6 @@
 *attar = ‘attar | attar
 
 *attila = attila
-
-*attributesss = attributesss
 
 *auckland = auckland
 
@@ -756,7 +748,7 @@
 
 *baha = baha | baha’i | baha’is | baha’is’ | baha’s
 
-*bahaiorg = baha’iorg
+*bahaiorg = bahaiorg
 
 *bahaism = baha’ism | bahaism
 
@@ -803,8 +795,6 @@
 *bakhit = bakhit
 
 *bakhsh = bakhsh
-
-*bakht = bakhti
 
 *bakr = bakr
 
@@ -866,7 +856,7 @@
 
 *baqar = baqar
 
-*baqir = baqir | baqiris
+*baqir = baqir
 
 *baqir28 = baqir28
 
@@ -973,8 +963,6 @@
 *bayt = bayt
 
 *baytul = baytu’l
-
-*bazar = bazar
 
 *bbc = bbc
 
@@ -1170,8 +1158,6 @@
 
 *bosphorus = bosphorus
 
-*bosporus = bosporus
-
 *boston = boston
 
 *botswana = botswana
@@ -1202,13 +1188,9 @@
 
 *breakwel = breakwell
 
-*brentano = brentano
-
 *bretton = bretton
 
 *bridgetown = bridgetown
-
-*brill = brill
 
 *brisban = brisbane
 
@@ -1267,8 +1249,6 @@
 *burafato = burafato
 
 *bureaus = bureaus
-
-*bureaux = bureaux
 
 *buren = buren
 
@@ -1548,13 +1528,9 @@
 
 *clarendon = clarendon
 
-*claudia = claudia
-
 *cleopatra = cleopatra
 
 *cleveland = cleveland
-
-*clifford = clifford
 
 *clipperton = clipperton
 
@@ -1568,7 +1544,7 @@
 
 *col = collis
 
-*cole = cole | coles
+*cole = cole
 
 *collin = collins
 
@@ -1627,8 +1603,6 @@
 *corinthian = corinthian | corinthians
 
 *corisco = corisco
-
-*cormick = cormick
 
 *cornelian = cornelian
 
@@ -1840,8 +1814,6 @@
 
 *dietrich = dietrich
 
-*dieulafoy = dieulafoy
-
 *dih = dih
 
 *dihan = dihan
@@ -1893,8 +1865,6 @@
 *doroth = dorothy
 
 *dos = dos
-
-*douceur = douceur
 
 *dowag = dowager
 
@@ -2266,8 +2236,6 @@
 
 *franks = franks
 
-*franz = franz
-
 *fred = fred
 
 *frederick = frederick
@@ -2281,8 +2249,6 @@
 *frenchman = frenchman
 
 *friberg = friberg
-
-*friedrich = friedrich
 
 *frisian = frisian
 
@@ -2312,8 +2278,6 @@
 
 *gabriel = gabriel
 
-*gail = gail
-
 *galapago = galapagos
 
 *galen = galen
@@ -2333,8 +2297,6 @@
 *gambia = gambia
 
 *gandh = gandhi
-
-*gandum = gandum
 
 *gangtok = gangtok
 
@@ -2406,8 +2368,6 @@
 
 *ghawr = ghawr
 
-*ghaybat = ghaybat
-
 *ghayur = ghayur
 
 *ghaz = ghazi
@@ -2419,8 +2379,6 @@
 *ghaznav = ghaznavi
 
 *ghedam = ghedami
-
-*ghetto = ghetto
 
 *ghodouss = ghodoussi
 
@@ -2568,8 +2526,6 @@
 
 *hadiy = hadiy
 
-*hadrat = hadrat
-
 *hafiz = hafiz
 
 *hagar = hagar
@@ -2672,8 +2628,6 @@
 
 *hartmut = hartmut
 
-*harunur = harunu’r
-
 *harvey = harvey
 
 *harwood = harwood
@@ -2694,8 +2648,6 @@
 
 *hashish = hashish
 
-*hataria = hataria
-
 *hatzionut = hatzionut
 
 *havana = havana
@@ -2713,8 +2665,6 @@
 *haydariyyih = haydariyyih
 
 *haykal = haykal
-
-*haykalut = haykalu’t
 
 *hazira = hazira | haziras
 
@@ -2908,8 +2858,6 @@
 
 *hujjatul = hujjatu’l
 
-*hujjatullah = hujjatu’llah
-
 *hungar = hungary
 
 *hungarian = hungarian | hungarians
@@ -3034,8 +2982,6 @@
 
 *imam = imam | imamate | imams
 
-*imamit = imamite | imamites
-
 *iman = iman
 
 *imarat = ‘imarat
@@ -3154,7 +3100,7 @@
 
 *ism = isms
 
-*isma = isma‘il31 | isma’ilis
+*isma = isma‘il31
 
 *ismail = isma‘il | isma’il
 
@@ -3212,11 +3158,9 @@
 
 *itza = itza
 
-*iva = iva | iva1
+*iva = iva
 
 *iva1 = iva10
-
-*iva10a = iva10a
 
 *iva4c = iva4c
 
@@ -3224,7 +3168,7 @@
 
 *ivc1nand = ivc1nand
 
-*ivd = ivd | ivd3
+*ivd = ivd3
 
 *ivd1a = ivd1a
 
@@ -3251,8 +3195,6 @@
 *ivd1yxivxvxv = ivd1yxivxvxvi
 
 *ivd1yxxv = ivd1yxxv
-
-*ivdyy = ivd3yi
 
 *ive = ives
 
@@ -3373,8 +3315,6 @@
 *javady4 = javad34
 
 *javahirul = javahiru’l
-
-*javan = javan
 
 *javit = javits
 
@@ -3666,8 +3606,6 @@
 
 *keewatin = keewatin
 
-*kegan = kegan
-
 *kehl = kehler
 
 *keith = keith
@@ -3715,12 +3653,6 @@
 *khalid = khalid
 
 *khalidiyyih = khalidiyyih
-
-*khalif = khalif
-
-*khalifih = khalifih
-
-*khalifih7 = khalifih7
 
 *khalil = khalil
 
@@ -3793,8 +3725,6 @@
 *khianra = khianra
 
 *khidr = khidr
-
-*khilafat = khilafat
 
 *khirqiy = khirqiy
 
@@ -3938,8 +3868,6 @@
 
 *kuala = kuala
 
-*kubra = kubra
-
 *kuch = kuching
 
 *kuchik = kuchik
@@ -3961,10 +3889,6 @@
 *kullut = kullu’t
 
 *kumayl = kumayl
-
-*kun = kun
-
-*kunyih = kunyih
 
 *kupr = kupru
 
@@ -4030,8 +3954,6 @@
 
 *lass = lasse
 
-*latafah = latafah
-
 *lateran = lateran
 
 *lathene = l’athenee
@@ -4088,8 +4010,6 @@
 
 *leonora = leonora
 
-*leroux = leroux
-
 *leroy = leroy
 
 *les = les
@@ -4121,8 +4041,6 @@
 *lillian = lillian
 
 *lima = lima
-
-*limj = limji
 
 *lincoln = lincoln
 
@@ -4184,8 +4102,6 @@
 
 *ludov = ludovic
 
-*ludwig = ludwig
-
 *luig = luigi
 
 *luke = luke
@@ -4246,15 +4162,11 @@
 
 *madagascar = madagascar
 
-*madakhil = madakhil
-
 *madan = ma‘dan
 
 *madeira = madeira
 
 *madel = madelli
-
-*madhhab = madhhab
 
 *madhya = madhya
 
@@ -4340,8 +4252,6 @@
 
 *maka = maka
 
-*makatib = makatib
-
 *makkiyyih = makkiyyih
 
 *mal = mal
@@ -4359,8 +4269,6 @@
 *malaysia = malaysia
 
 *malaysian = malaysian
-
-*malcolm = malcolm
 
 *malden = malden
 
@@ -4410,8 +4318,6 @@
 
 *mandela = mandela
 
-*manekj = manekji
-
 *manikch = manikchi
 
 *manila = manila
@@ -4434,8 +4340,6 @@
 
 *mansuriyyih = mansuriyyih
 
-*mantiqut = mantiqu’t
-
 *manuchihr = manuchihr
 
 *manuchir = manuchir
@@ -4453,8 +4357,6 @@
 *maraghiimulla = maraghi’imulla
 
 *maraghiy = maraghiyi
-
-*mard = mard
 
 *mardan = mardan
 
@@ -4517,8 +4419,6 @@
 *maryam = maryam
 
 *maryland = maryland
-
-*marzieh = marzieh
 
 *masaryk = masaryk
 
@@ -4591,8 +4491,6 @@
 *mawlav = mawlavi | mawlavis
 
 *maximilian = maximilian
-
-*maximus = maximus
 
 *maxwel = maxwell
 
@@ -4866,7 +4764,7 @@
 
 *muallim = mu‘allim
 
-*muaviyih = mu‘aviyih | mu‘aviyihs | mu’aviyih
+*muaviyih = mu‘aviyih | mu‘aviyihs
 
 *muballigh = muballigh
 
@@ -4950,7 +4848,7 @@
 
 *mulk = mulk
 
-*mulla = mulla | mullas | mullas’
+*mulla = mulla | mullas
 
 *mullah = mullah | mullahs
 
@@ -4973,8 +4871,6 @@
 *munirih = munirih
 
 *muntaha = muntaha
-
-*muntakhabat = muntakhabati
 
 *munzav = munzavis
 
@@ -5020,8 +4916,6 @@
 
 *musakhkhirin = musakhkhirins
 
-*musar = musa’r
-
 *musay = musay
 
 *musayyib = musayyib
@@ -5057,8 +4951,6 @@
 *mutasarrif = mutasarrifs
 
 *mutasharr = mutasharris
-
-*mutasim = mu’tasim
 
 *mutav = mutavalli | mutavallis
 
@@ -5163,8 +5055,6 @@
 *napl = naples
 
 *napoleon = napoleon | napoleonic | napoleons
-
-*naq = naqi
 
 *naqib = naqib
 
@@ -5446,8 +5336,6 @@
 
 *pahlavan = pahlavan
 
-*pak = pak
-
 *pakistan = pakistan
 
 *palanquin = palanquin
@@ -5494,7 +5382,7 @@
 
 *pars = parsi | parsis
 
-*parse = parsee | parsees
+*parse = parsee
 
 *parson = parsons
 
@@ -5620,8 +5508,6 @@
 
 *pishdadiyan = pishdadiyan
 
-*pishkash = pishkash
-
 *pitr = pitre
 
 *pittsburgh = pittsburgh
@@ -5649,8 +5535,6 @@
 *pollux = pollux
 
 *polynesia = polynesia
-
-*pontifex = pontifex
 
 *poona = poona
 
@@ -5705,8 +5589,6 @@
 *puntarena = puntarenas
 
 *puritan = puritanism
-
-*pursish = pursish
 
 *pushtoo = pushtoo
 
@@ -5805,8 +5687,6 @@
 *qazvinitahirihquddusthes = qazvinitahirihquddusthese
 
 *qiblih = qiblih
-
-*qibliy = qibliy
 
 *qibris = qibrisi
 
@@ -5936,7 +5816,7 @@
 
 *rajputana = rajputana
 
-*rakah = rak‘ah | rak‘ahs
+*rakah = rak‘ahs
 
 *rakat = rak‘ats
 
@@ -6228,7 +6108,7 @@
 
 *sadhij = sadhij
 
-*sadi = sa‘di | sa’di
+*sadi = sa‘di
 
 *sadiq = sadiq
 
@@ -6307,8 +6187,6 @@
 *salam = salam
 
 *salasil = salasil
-
-*salat = salat
 
 *salavat = salavat
 
@@ -6534,7 +6412,7 @@
 
 *shaf = shafi | shafi‘
 
-*shah = shah | shah’s | shah2 | shahs
+*shah = shah | shah2 | shahs
 
 *shah67 = shah67
 
@@ -6559,8 +6437,6 @@
 *shahr = shahr
 
 *shahram = shahram
-
-*shahriban = shahribanu
 
 *shahristan = shahristan
 
@@ -6721,8 +6597,6 @@
 *siberia = siberia
 
 *sicily = sicily
-
-*sidih = sidihi
 
 *sidney = sidney
 
@@ -7134,8 +7008,6 @@
 
 *tasmania = tasmania
 
-*tavarikh = tavarikh
-
 *tavistock = tavistock
 
 *tawfiq = tawfiq
@@ -7145,8 +7017,6 @@
 *tay = tayy
 
 *tayid = ta’yid
-
-*tayr = tayr
 
 *taziyih = ta’ziyihs
 
@@ -7304,8 +7174,6 @@
 
 *troy = troy
 
-*trubn = trubner
-
 *trujillo = trujillo
 
 *tsar = tsar
@@ -7364,7 +7232,7 @@
 
 *turshiz = turshiz | turshizi
 
-*tus = tus | tusi
+*tus = tusi
 
 *tuscan = tuscany
 
@@ -7398,7 +7266,7 @@
 
 *umana = umana
 
-*umar = ‘umar | umari
+*umar = ‘umar
 
 *umayyad = umayyad | umayyads
 
@@ -7420,15 +7288,11 @@
 
 *uno = uno
 
-*unwin = unwin
-
 *upanishad = upanishads
 
 *upernavik = upernavik
 
 *upol = upolu
-
-*upstart = upstart
 
 *urbana = urbana
 
@@ -7459,8 +7323,6 @@
 *uthman = ‘uthman | uthman
 
 *uthmaniyyih = ‘uthmaniyyih
-
-*utterancesss = utterancesss
 
 *uzbeg = uzbegs
 
@@ -7563,8 +7425,6 @@
 *vike = vikings
 
 *vila = vila
-
-*vilayat = vilayat
 
 *vina = vina
 
@@ -7890,8 +7750,6 @@
 
 *zill = zillu
 
-*zillullah = zillu’llah
-
 *zina = zina
 
 *zinat = zinat
@@ -7946,15 +7804,13 @@
 
 105 = 105
 
-105y74 = 105374
-
 106 = 106
 
 10600 = 106000
 
 107 = 107
 
-108 = 108 | 1080 | 1089
+108 = 108 | 1089
 
 10th = 10th
 
@@ -7984,7 +7840,7 @@
 
 11y97 = 11397
 
-12 = 12 | 120 | 123 | 1231 | 129
+12 = 12 | 120 | 123 | 1231
 
 120 = 1200
 
@@ -8036,7 +7892,7 @@
 
 1287 = 1287
 
-129 = 1290 | 1292 | 1299
+129 = 1290 | 1292
 
 12th = 12th
 
@@ -8060,15 +7916,11 @@
 
 144 = 144
 
-145 = 1453
-
 147 = 147
 
 148 = 148
 
 14966 = 14966
-
-149th = 149th
 
 14th = 14th
 
@@ -8122,23 +7974,19 @@
 
 174 = 174
 
-175 = 175 | 1753
+175 = 175
 
 176 = 176
 
-1797 = 1797
-
 17th = 17th
 
-18 = 18 | 180 | 181 | 182 | 1830 | 1831 | 1832 | 189
+18 = 18 | 180 | 181 | 182 | 1830 | 1832 | 189
 
 180 = 1800
 
 1800 = 18000
 
-1808 = 1808
-
-181 = 1810 | 1813 | 1819
+181 = 1819
 
 1815 = 1815
 
@@ -8146,7 +7994,7 @@
 
 182 = 1820
 
-184 = 184 | 1842
+184 = 184
 
 1840s = 1840s
 
@@ -8176,7 +8024,7 @@
 
 1868 = 1868
 
-187 = 1870 | 1871 | 1873
+187 = 1870 | 1873
 
 1875 = 1875
 
@@ -8184,13 +8032,9 @@
 
 1877 = 1877
 
-1878 = 1878
-
-188 = 1881 | 1882 | 1889
+188 = 1881 | 1889
 
 1887 = 1887
-
-1888 = 1888
 
 189 = 1890 | 1891 | 1892 | 1893 | 1899
 
@@ -8205,10 +8049,6 @@
 18th = 18th
 
 18y0s = 1830s
-
-18y4 = 1834
-
-18y5 = 1835
 
 18y8 = 1838
 
@@ -8268,7 +8108,7 @@
 
 1948 = 1948
 
-195 = 195 | 1950 | 1951 | 1952 | 1953 | 1959
+195 = 1950 | 1951 | 1952 | 1953 | 1959
 
 1950s = 1950s
 
@@ -8362,11 +8202,7 @@
 
 1y000 = 130000
 
-1y05 = 1305
-
 1y06 = 1306
-
-1y08 = 1308
 
 1y1 = 1319
 
@@ -8395,8 +8231,6 @@
 1y8 = 138
 
 1y81568 = 1381568
-
-1yii = 1yiii
 
 1yth = 13th
 
@@ -8452,7 +8286,7 @@
 
 20th = 20th
 
-21 = 21 | 213 | 219
+21 = 21 | 219
 
 21000 = 210000
 
@@ -8476,8 +8310,6 @@
 
 2200 = 22000
 
-2201 = 22010
-
 225 = 225 | 2253
 
 2265 = 2265
@@ -8492,7 +8324,7 @@
 
 23 = 23
 
-24 = 24 | 240 | 241 | 243
+24 = 24 | 240 | 243
 
 2400 = 24000
 
@@ -8512,11 +8344,7 @@
 
 2525 = 2525
 
-2541 = 25411
-
 254th = 254th
-
-255 = 255
 
 257 = 257
 
@@ -8529,8 +8357,6 @@
 260 = 2600
 
 2600000 = 26000000
-
-2601 = 26012
 
 267 = 267
 
@@ -8572,7 +8398,7 @@
 
 2nd = 2nd
 
-2y = 230 | 232
+2y = 230
 
 2y0 = 2300
 
@@ -8738,17 +8564,11 @@
 
 66 = 66 | 660
 
-661 = 6612
-
 67 = 67
-
-670 = 6703
 
 675 = 675
 
 68 = 68 | 681
-
-6804 = 6804
 
 69 = 69 | 692 | 693
 
@@ -8796,7 +8616,7 @@
 
 8 = 8
 
-80 = ’80 | 80 | 800 | 802
+80 = ’80 | 80 | 800
 
 800 = 8000
 
@@ -9614,8 +9434,6 @@ anoint = anointed
 
 anomal = anomalous
 
-anon = anon
-
 anonym = anonymous | anonymously
 
 anoth = another
@@ -9628,7 +9446,7 @@ antagon = antagonise | antagonised | antagonising | antagonism | antagonisms | a
 
 antarct = antarctic
 
-anteced = antecedence | antecedent | antecedents
+anteced = antecedence | antecedent
 
 antechamb = antechamber
 
@@ -9658,7 +9476,7 @@ antipath = antipathies | antipathy
 
 antipod = antipodes
 
-antiqu = antiquated | antique | antiques | antiquities | antiquity
+antiqu = antiquated | antique | antiquities | antiquity
 
 antir = antirational
 
@@ -9836,9 +9654,7 @@ archduk = archduke
 
 archenem = archenemies
 
-archer = archery
-
-archetyp = archetypal | archetype | archetypes
+archetyp = archetypal | archetype
 
 archipelago = archipelagoes
 
@@ -9874,7 +9690,7 @@ aristocrat = aristocracy | aristocratic | aristocrats
 
 aristotl = aristotle
 
-arithmet = arithmetic | arithmetical
+arithmet = arithmetic
 
 ark = ark | arks
 
@@ -9926,7 +9742,7 @@ artic = artic
 
 articl = article | articles
 
-articul = articulate | articulated | articulates | articulating | articulation
+articul = articulate | articulated | articulates | articulation
 
 artific = artifice | artificer | artificial | artificially
 
@@ -10122,8 +9938,6 @@ auditor = auditory
 
 auditorium = auditorium
 
-augean = augean
-
 aught = aught
 
 augment = augment | augmentation | augmentative | augmented | augmenteth | augmenting | augments
@@ -10249,8 +10063,6 @@ axe = axe | axes
 axiom = axiom | axiomatic
 
 aye = aye
-
-az = az
 
 b = b
 
@@ -10414,7 +10226,7 @@ batch = batch
 
 bate = bates
 
-bath = bath | bathe | bathed | bather | bathhouse | bathhouses | bathing | baths
+bath = bath | bathe | bathed | bather | bathhouse | bathing | baths
 
 batour = batouri
 
@@ -10598,7 +10410,7 @@ bemoan = bemoan | bemoaned | bemoaning | bemoans
 
 bemus = bemused
 
-bench = bench | benches
+bench = benches
 
 benchmark = benchmarks
 
@@ -10666,8 +10478,6 @@ bestow = bestow | bestowal | bestowals | bestowed | bestower | bestowest | besto
 
 bestrew = bestrew | bestrewing
 
-bet = betting
-
 betak = betake | betaking | betook
 
 betid = betide
@@ -10733,8 +10543,6 @@ billion = billion | billions
 billow = billow | billowed | billowing | billows
 
 bind = bind | binder | bindeth | binding | binds
-
-bingo = bingo
 
 biograph = biographies
 
@@ -10972,8 +10780,6 @@ boy = boy | boyhood | boys | boys’
 
 boycott = boycott
 
-brac = brac
-
 brace = brace | bracing
 
 brackish = brackish
@@ -11041,8 +10847,6 @@ brew = brewed | brewing
 briar = briars
 
 bribe = bribe | bribed | briber | bribery | bribes
-
-bric = bric
 
 brick = brick | bricks
 
@@ -11142,8 +10946,6 @@ bullet = bullet | bullets
 
 bulletin = bulletin | bulletins
 
-buluk = buluk
-
 bulwark = bulwark | bulwarks
 
 bump = bumper
@@ -11200,7 +11002,7 @@ button = button | buttons
 
 buttress = buttress | buttressed | buttresses | buttressing
 
-buy = bought | buy | buyer | buyers | buying | buys
+buy = bought | buy | buyers | buying | buys
 
 buzz = buzzed | buzzing
 
@@ -11299,8 +11101,6 @@ candlestick = candlestick | candlesticks
 candour = candour
 
 cane = cane
-
-cannab = cannabis
 
 cannib = cannibalism
 
@@ -11638,7 +11438,7 @@ chast = chaste | chastity
 
 chasten = chasten | chastened | chastening | chastens | chastise | chastised | chastisement | chastisements | chastiser | chastises | chastisest | chastising
 
-chat = chat | chatted
+chat = chatted
 
 chatt = chatter
 
@@ -11728,7 +11528,7 @@ christ = christ | christ’s | christhood | christly
 
 christen = christened
 
-christian = christendom | christian | christianisation | christianised | christianising | christianity | christians
+christian = christendom | christian | christianised | christianising | christianity | christians
 
 christma = christmas
 
@@ -11798,7 +11598,7 @@ city1 = city12
 
 civic = civic
 
-civil = civil | civilise | civilised | civiliser | civilising | civility
+civil = civil | civilise | civilised | civiliser | civilising
 
 civilian = civilians
 
@@ -11865,8 +11665,6 @@ clerestor = clerestory
 clerg = clergy | clergymen
 
 cleric = cleric | clerical | clericals | clerics
-
-clerk = clerk | clerks
 
 clev = cleverly | cleverness
 
@@ -12156,8 +11954,6 @@ complicity = complicity
 
 compliment = compliment
 
-complimentar = complimentary
-
 compon = component | components
 
 comport = comport | comported
@@ -12310,7 +12106,7 @@ congen = congenial
 
 conglom = conglomerate | conglomerates | conglomeration
 
-congratul = congratulate | congratulated | congratulates | congratulating | congratulations | congratulatory
+congratul = congratulate | congratulated | congratulates | congratulations | congratulatory
 
 congreg = congregate | congregated | congregating | congregation | congregational | congregations
 
@@ -12364,7 +12160,7 @@ consol = consolation | consolations | console | consoled | consoler | consoles |
 
 consolid = consolidate | consolidated | consolidates | consolidating | consolidation | consolidations
 
-conson = consonance | consonant | consonants
+conson = consonance | consonant
 
 consort = consort | consorted | consorting
 
@@ -12394,7 +12190,7 @@ construct = construct | constructed | constructing | construction | constructive
 
 consul = consul | consular | consulate | consuls
 
-consult = consult | consultant | consultation | consultations | consultative | consulted | consulti | consulting | consults
+consult = consult | consultant | consultation | consultations | consultative | consulted | consulting | consults
 
 consum = consume | consumed | consumer | consumerism | consumers | consumest | consumeth | consuming | consumption
 
@@ -12478,7 +12274,7 @@ convent = convention | conventional | conventionality | conventionally | convent
 
 converg = converge | converged | convergence | converges | converging
 
-convers = conversant | conversation | conversational | conversations | converse | conversed | conversely | converseth | conversing | conversion | conversions
+convers = conversant | conversation | conversations | converse | conversed | conversely | converseth | conversing | conversion | conversions
 
 convert = convert | converted | converteth | converting | converts
 
@@ -12604,7 +12400,7 @@ council = council | councils | councils’
 
 councillor = councillors
 
-counsel = counsel | counseleth | counselled | counselling | counsellings | counsels
+counsel = counsel | counselled | counselleth | counselling | counsellings | counsels
 
 counsellor = counsellor | counsellors | counsellors’
 
@@ -12946,8 +12742,6 @@ dart = dart | darting | darts
 
 darteth = darteth
 
-darug = darugis
-
 darush = daru’sh
 
 das = d’asie
@@ -13172,7 +12966,7 @@ delici = delicious
 
 delight = delight | delighted | delighteth | delightful | delighting | delights | delightsome
 
-delimit = delimit | delimited | delimits
+delimit = delimited | delimits
 
 delin = delineate | delineated | delineates | delineating | delineation | delineator
 
@@ -13258,7 +13052,7 @@ deplor = deplorable | deplorably | deplore | deplored | deplores | deploring
 
 deploy = deploy | deployed | deploying | deployment
 
-deport = deportation | deportations | deported | deportment
+deport = deportation | deportations | deported
 
 depos = depose | deposed | deposing
 
@@ -13272,7 +13066,7 @@ deprav = depraved | depravities | depravity
 
 deprec = deprecated | deprecates | depreciate | depreciating | depreciation
 
-depred = depredation | depredations
+depred = depredation
 
 depress = depress | depressed | depressing | depression | depressions
 
@@ -13286,9 +13080,7 @@ deput = deputation | depute | deputed | deputees | deputies | deputisation | dep
 
 derail = derailed
 
-derang = derange | deranged | derangement | deranges | deranging
-
-derelict = dereliction
+derang = derange | deranged | derangement | deranging
 
 derid = deride | derided | deriding | derision | derisive | derisively
 
@@ -13518,7 +13310,7 @@ din = din
 
 dine = dined | dining
 
-dinn = dinner | dinners
+dinn = dinner
 
 dint = dint
 
@@ -13552,7 +13344,7 @@ disaffect = disaffected | disaffection
 
 disaggreg = disaggregating
 
-disagr = disagree | disagreeable | disagreed | disagreeing | disagreement | disagreements | disagrees
+disagr = disagree | disagreeable | disagreed | disagreeing | disagreement | disagreements
 
 disappear = disappear | disappearance | disappearances | disappeared | disappeareth | disappearing | disappears
 
@@ -13868,7 +13660,7 @@ divid = divide | divided | divides | divideth | dividing
 
 dividend = dividends
 
-divin = divination | divine | divined | divinely | divines | divinity
+divin = divination | divine | divinely | divines | divinity
 
 divine14 = divine149
 
@@ -14010,7 +13802,7 @@ draw = draw | drawest | draweth | drawing | drawings | drawn | draws | drew
 
 drawback = drawback
 
-dread = dread | dreaded | dreadful | dreadfully | dreading
+dread = dread | dreaded | dreadful | dreading
 
 dreadnought = dreadnoughts
 
@@ -14030,8 +13822,6 @@ drift = drift | drifted | drifting
 
 dril = drilled
 
-drill = drill
-
 drink = drink | drinker | drinkest | drinketh | drinking | drinks
 
 drip = dripped | dripping
@@ -14049,8 +13839,6 @@ drop = drop | dropped | dropping | drops
 droplet = droplet | droplets
 
 dross = dross
-
-drouvill = drouville
 
 drown = drown | drowned | drowning
 
@@ -14224,7 +14012,7 @@ eclaire = eclairees
 
 eclect = eclectic | eclecticism
 
-eclips = eclipse | eclipsed | eclipses | eclipseth | eclipsing
+eclips = eclipse | eclipsed | eclipseth | eclipsing
 
 eclipt = ecliptic
 
@@ -14386,7 +14174,7 @@ emancip = emancipate | emancipated | emancipating | emancipation | emancipator
 
 emascul = emasculated
 
-emb = embedded | embeds
+emb = embedded
 
 embargo = embargo
 
@@ -14450,9 +14238,9 @@ emit = emit | emits
 
 emman = emmanu
 
-emolu = emolument | emoluments
+emolu = emoluments
 
-emot = emotion | emotional | emotionalism | emotionally | emotions | emotive
+emot = emotion | emotional | emotionalism | emotionally | emotions
 
 empath = empathy
 
@@ -14710,8 +14498,6 @@ epigrammat = epigrammatic
 
 epileps = epilepsy
 
-epilogu = epilogue
-
 episcop = episcopal | episcopalian
 
 episod = episode | episodes
@@ -14720,7 +14506,7 @@ epistl = epistle | epistles
 
 epithet = epithets
 
-epitom = epitome | epitomised | epitomising
+epitom = epitome | epitomised
 
 epoch = epoch | epochal | epochs
 
@@ -14793,8 +14579,6 @@ eschew = eschew | eschewed | eschewing
 escort = escort | escorted | escorting | escorts
 
 escutcheon = escutcheons
-
-esot = esoteric
 
 espec = especial | especially
 
@@ -14932,7 +14716,7 @@ ex = ex
 
 exacerb = exacerbate | exacerbated | exacerbating | exacerbation
 
-exact = exact | exacted | exacting | exaction | exactions | exactitude | exactly | exactness
+exact = exact | exacted | exacting | exactions | exactitude | exactly
 
 exagg = exaggerate | exaggerated | exaggerating | exaggeration | exaggerations
 
@@ -15137,8 +14921,6 @@ extract = extract | extracted | extracting | extraction | extracts
 extracurricular = extracurricular
 
 extradit = extradition
-
-extramarit = extramarital
 
 extran = extraneous
 
@@ -15392,7 +15174,7 @@ feminin = feminine
 
 femm = femme
 
-fenc = fenced | fences | fencing
+fenc = fenced | fences
 
 fend = fend | fending
 
@@ -15429,8 +15211,6 @@ fev = fever | fevers
 feverish = fevered | feverish | feverishly
 
 few = few | fewer | fewest | fewness
-
-fiasco = fiascoes
 
 fiat = fiat
 
@@ -15568,8 +15348,6 @@ flavour = flavour
 
 flaw = flaw | flawed | flawless | flaws
 
-flay = flayed
-
 flea = flea | fleas
 
 fleck = fleck
@@ -15686,8 +15464,6 @@ fool = fool | foolish | foolishly | foolishness | fools
 
 foot = foot | footed | footing
 
-footbal = football
-
 foothil = foothills
 
 foothold = foothold
@@ -15768,7 +15544,7 @@ forestr = forestry
 
 foretast = foretaste
 
-foretel = foretell | foretelling | foretells | foretold
+foretel = foretell | foretelling | foretold
 
 forev = forever | forevermore
 
@@ -15896,8 +15672,6 @@ frank = frank | frankly | frankness
 
 frantic = frantic | frantically
 
-fras = fraser
-
 fratern = fraternal | fraternally | fraternised | fraternity
 
 fraternit = fraternite
@@ -15918,7 +15692,7 @@ freedom = freedom | freedoms
 
 freehold = freehold
 
-freez = freeze | freezeth | freezing
+freez = freezeth | freezing
 
 freight = freighted | freighter | freighting
 
@@ -15998,7 +15772,7 @@ fun = funeral | funerals
 
 function = function | functional | functionality | functionally | functioned | functioning | functionless | functions
 
-functionar = functionaries | functionary
+functionar = functionaries
 
 fund = fund | funded | funding | funds
 
@@ -16350,7 +16124,7 @@ gradual = gradual | gradualist | gradually
 
 graduat = graduate | graduated | graduates | graduating | graduation
 
-graft = graft | grafted | grafting
+graft = grafted | grafting
 
 grain = grain | grains
 
@@ -16402,7 +16176,7 @@ grassroot = grassroots
 
 grat = gratis
 
-grate = grateful | gratefully | gratefulness | grating | gratitude
+grate = grateful | gratefully | gratefulness | gratitude
 
 gratif = gratification | gratified | gratifies | gratify | gratifying
 
@@ -16547,8 +16321,6 @@ hack = hacked | hacking
 had = had
 
 hadst = hadst
-
-haft = haft
 
 haggard = haggard
 
@@ -16758,7 +16530,7 @@ heavenward = heavenward | heavenwards
 
 heavi = heavier | heaviest | heavily | heaviness | heavy
 
-hedg = hedge | hedged
+hedg = hedged
 
 hedonist = hedonistic
 
@@ -16854,8 +16626,6 @@ hermit = hermit
 
 hero = hero | heroes | heroic | heroically | heroine | heroines | heroism | heros
 
-heroi = heroin
-
 hers = hers
 
 herself = herself
@@ -16906,7 +16676,7 @@ hilltop = hilltop
 
 hilt = hilt
 
-him = him | him9
+him = him
 
 himself = himself | himself2
 
@@ -16984,7 +16754,7 @@ homm = hommes
 
 homogen = homogeneity | homogeneous
 
-homosexu = homosexual | homosexuality
+homosexu = homosexuality
 
 hone = hone | honed
 
@@ -17244,8 +17014,6 @@ imbecil = imbecile | imbecilic
 
 imbib = imbibe | imbibed | imbibes | imbibing
 
-imbru = imbrue
-
 imbu = imbue | imbued | imbues | imbuing
 
 imit = imitate | imitated | imitates | imitating | imitation | imitations | imitator | imitators
@@ -17420,7 +17188,7 @@ imprud = imprudence | imprudent
 
 impud = impudence
 
-impugn = impugn | impugned | impugning
+impugn = impugn | impugning
 
 impuls = impulse | impulses | impulsive | impulsively
 
@@ -17624,7 +17392,7 @@ indescrib = indescribable | indescribably
 
 indestruct = indestructibility | indestructible
 
-index = index | indexed | indexes | indexing
+index = index | indexed | indexes
 
 indic = indicate | indicated | indicates | indicateth | indicating | indication | indications | indicative | indicator | indicators
 
@@ -17836,7 +17604,7 @@ inhal = inhale | inhaled | inhales | inhaleth | inhaling
 
 inharmon = inharmony
 
-inherit = inherit | inheritance | inheritances | inherited | inheriting | inheritor | inheritors | inherits
+inherit = inherit | inheritance | inherited | inheriting | inheritor | inheritors
 
 inhibit = inhibit | inhibited | inhibiting | inhibition | inhibitions | inhibits
 
@@ -17947,8 +17715,6 @@ insinc = insincere | insincerity
 insinu = insinuate | insinuated | insinuation | insinuations
 
 insist = insist | insisted | insistence | insistent | insistently | insisting | insistingly | insists
-
-insobriet = insobriety
 
 insofar = insofar
 
@@ -18200,7 +17966,7 @@ introduc = introduce | introduced | introduces | introducing | introduction | in
 
 introspect = introspection
 
-intrus = intrude | intruded | intruder | intrudes | intrusion | intrusive
+intrus = intrude | intruder | intrudes | intrusion | intrusive
 
 intuit = intuition | intuitions | intuitive | intuitively
 
@@ -18348,11 +18114,7 @@ itself = itself
 
 iv = iv
 
-ivb = ivb1
-
-ivb5 = ivb5
-
-ivb5a = ivb5a | ivb5ai
+ivb5a = ivb5a
 
 ivb5f = ivb5f
 
@@ -18360,15 +18122,9 @@ ivc = ivc3
 
 ivc1 = ivc1i
 
-ivc1a = ivc1a
-
-ivc1j = ivc1j | ivc1ji
-
-ivc2a = ivc2a
+ivc1j = ivc1j
 
 ivc2b = ivc2b
-
-ivcya = ivc3a
 
 ivor = ivory
 
@@ -18474,7 +18230,7 @@ jungl = jungle | jungles
 
 junior = junior
 
-jur = juries | juris | jury
+jur = juries | jury
 
 jurisdict = jurisdiction | jurisdictions
 
@@ -18649,8 +18405,6 @@ lapw = lapwing
 laquell = laquelle
 
 larcen = larceny
-
-lare = lares
 
 larg = large | largely | largeness | larger | largest
 
@@ -18870,8 +18624,6 @@ lieuten = lieutenant | lieutenants
 
 life = life | lifeless
 
-lifelik = lifelike
-
 lifelin = lifeline
 
 lifelong = lifelong
@@ -19022,8 +18774,6 @@ locomot = locomotion | locomotive
 
 locus = locus
 
-locust = locusts
-
 lodestar = lodestar | lodestars
 
 lodeston = lodestone
@@ -19080,8 +18830,6 @@ lot = lot | lots
 
 lote = lote
 
-lott = lotteries
-
 lotus = lotus
 
 loud = loud | louder | loudly
@@ -19099,8 +18847,6 @@ lowli = lowliness
 loyal = loyal | loyally | loyalties | loyalty
 
 lsd = lsd
-
-ltd = ltd
 
 lu = lui
 
@@ -19177,8 +18923,6 @@ macrocosm = macrocosm
 macroevolutionar = macroevolutionary
 
 mad = mad | madly | madman | madness
-
-madakhil = madakhils
 
 madam = madame
 
@@ -19284,8 +19028,6 @@ maltreat = maltreated
 
 mammoth = mammoth
 
-mamun = ma’mun
-
 man = man | man’s | manfully | manhood | manly | manned | men | men’s
 
 manacl = manacled
@@ -19347,8 +19089,6 @@ march = march | marche | marched | marches | marcheth | marching
 mare = mare
 
 margin = margin | marginal | marginalised | marginalising | margins
-
-marijuana = marijuana
 
 marin = marine | mariner
 
@@ -19464,8 +19204,6 @@ mechan = mechanical | mechanically | mechanics | mechanism | mechanisms
 
 meddl = meddle | meddler | meddling
 
-mede = medes
-
 media = media
 
 mediaev = mediaeval
@@ -19516,7 +19254,7 @@ memoir = memoir | memoirs
 
 memor = memories | memory
 
-memorabl = memorable | memorably
+memorabl = memorable
 
 memorandum = memorandum
 
@@ -19530,9 +19268,7 @@ menac = menace | menaced | menacing | menacingly
 
 mend = mend | mended | mendes | mending
 
-mendic = mendicancy | mendicant | mendicity
-
-menstruat = menstruating
+mendic = mendicancy | mendicant
 
 mental = mental | mentalities | mentality | mentally
 
@@ -19876,7 +19612,7 @@ monogam = monogamy
 
 monolith = monolith
 
-monopol = monopolies | monopolisation | monopolise | monopolised | monopoly
+monopol = monopolies | monopolisation | monopolise | monopolised
 
 monoth = monotheism | monotheistic | monotheists
 
@@ -19928,7 +19664,7 @@ mortif = mortification | mortifications | mortified
 
 mosaic = mosaic
 
-mose = moses | moses’
+mose = moses
 
 mosqu = mosque | mosques
 
@@ -19960,7 +19696,7 @@ mourn = mourn | mourned | mourners | mournful | mournfully | mourning
 
 mous = mouse
 
-moustach = moustache | moustaches
+moustach = moustaches
 
 mouth = mouth | mouthful | mouths
 
@@ -20046,7 +19782,7 @@ mutat = mutate | mutations | mutatis
 
 mute = mute | muteness
 
-mutil = mutilate | mutilated | mutilating | mutilation | mutilations
+mutil = mutilate | mutilated | mutilating | mutilation
 
 mutin = mutineers | mutinied | mutiny
 
@@ -20093,8 +19829,6 @@ nape = nape
 naphtha = naphtha
 
 narcot = narcotic | narcotics
-
-narg = nargis
 
 narin = narin
 
@@ -20168,7 +19902,7 @@ negot = negotiable | negotiate | negotiated | negotiation | negotiations
 
 negro = negro | negroes
 
-neighbour = neighbour | neighbour’s | neighbouring | neighbourly | neighbours
+neighbour = neighbour | neighbouring | neighbourly | neighbours
 
 neighbourhood = neighbourhood | neighbourhoods
 
@@ -20438,8 +20172,6 @@ nucleus = nuclei | nucleus
 
 nudism = nudism
 
-nuisant = nuisance
-
 nullif = nullified | nullifies | nullify | nullifying | nullity
 
 num = numerous | numerously
@@ -20447,8 +20179,6 @@ num = numerous | numerously
 numb = numbed
 
 number = number | numbered | numbering | numberless | numbers | numerical | numerically
-
-nun = nun
 
 nund = nundu
 
@@ -20477,8 +20207,6 @@ oath = oath | oaths
 obdur = obduracy | obdurate
 
 obed = obedience | obedient | obediently
-
-obeis = obeisance
 
 obelisk = obelisk
 
@@ -20888,8 +20616,6 @@ ovat = ovation | ovations
 
 oven = oven
 
-overaccumul = overaccumulation
-
 overal = overall
 
 overanx = overanxious | overanxiousness
@@ -20942,7 +20668,7 @@ overlook = overlook | overlooked | overlooketh | overlooking | overlooks
 
 overlord = overlord | overlordship
 
-overmast = overmastered | overmastering
+overmast = overmastering
 
 overnight = overnight
 
@@ -21154,8 +20880,6 @@ park = parks
 
 parl = parler
 
-parlant = parlance
-
 parliament = parliament | parliamentarians | parliamentary | parliaments
 
 parm = parmi
@@ -21296,8 +21020,6 @@ pedagog = pedagogical | pedagogically
 
 peddl = peddle | peddled | peddler
 
-pederast = pederasty
-
 pellet = pellets
 
 pelt = pelt | pelted | pelting
@@ -21307,8 +21029,6 @@ pen = pen | penned | penning | pens
 penal = penal | penalise | penalised | penalties | penalty
 
 penant = penance
-
-penat = penates
 
 pend = pending
 
@@ -21404,8 +21124,6 @@ period = period | periodic | periodical | periodically | periodicals | periods
 
 periph = peripheral | periphery
 
-periphras = periphrasis
-
 perish = perish | perishable | perished | perishes | perisheth | perishing
 
 perk = perks
@@ -21430,7 +21148,7 @@ perpetu = perpetual | perpetually | perpetuate | perpetuated | perpetuates | per
 
 perplex = perplex | perplexed | perplexedly | perplexes | perplexing | perplexities | perplexity
 
-perquisit = perquisite | perquisitions
+perquisit = perquisitions
 
 pers = perse
 
@@ -21494,7 +21212,7 @@ petit = petition | petitioned | petitioner | petitioners | petitions
 
 petr = petrie
 
-petrif = petrifieth | petrify
+petrif = petrifieth
 
 petroleum = petroleum
 
@@ -21558,7 +21276,7 @@ physiognom = physiognomies | physiognomy
 
 physiolog = physiological | physiologically | physiology
 
-pick = pick | picked | pickings | picks
+pick = pick | picked | picks
 
 pickax = pickaxe
 
@@ -21950,9 +21668,9 @@ precondit = precondition | preconditions
 
 precursor = precursor | precursors
 
-predat = predate | predatory
+predat = predatory
 
-predeceas = predeceases | predecessor | predecessors
+predeceas = predecessor | predecessors
 
 predestin = predestination | predestined
 
@@ -22114,7 +21832,7 @@ principalit = principalities
 
 principl = principle | principled | principles
 
-print = print | printed | printing | printings | prints
+print = print | printed | printing | prints
 
 prior = prior | priori
 
@@ -22324,7 +22042,7 @@ prote = protest | protests
 
 protect = protect | protected | protectest | protecteth | protecting | protection | protections | protective | protector | protectors | protects
 
-protectorate = protectorate | protectorates | protectorship
+protectorate = protectorate | protectorates
 
 protest = protestation | protestations | protested | protesting
 
@@ -22416,8 +22134,6 @@ pump = pumping
 
 pun = punier | puniest | puny
 
-punct = punctiliously
-
 punctual = punctuality
 
 punctuat = punctuated
@@ -22464,7 +22180,7 @@ put = put | puts | puttest | putteth | putting
 
 putrid = putrid | putrified
 
-puzzl = puzzle | puzzled | puzzles
+puzzl = puzzled | puzzles
 
 pylon = pylons
 
@@ -22580,8 +22296,6 @@ r = r
 
 ra = ra | ra’
 
-raa = ra’a
-
 rabid = rabid
 
 race = race | races | racial | racialism | racially
@@ -22603,8 +22317,6 @@ radic = radical | radicalism | radically
 radio = radio | radios
 
 radius = radius
-
-raffl = raffles
 
 rag = ragged | rags
 
@@ -22724,7 +22436,7 @@ read = read | readable | reader | readers | readers’ | readership | readest | 
 
 readi = readied | readier | readily | readiness | ready
 
-readjust = readjust | readjustment | readjustments
+readjust = readjust | readjustment
 
 readorn = readorned
 
@@ -22818,11 +22530,11 @@ recess = recess | recesses
 
 recip = recipes
 
-recipi = recipient | recipients | recipients’
+recipi = recipient | recipients
 
 reciproc = reciprocal | reciprocate | reciprocated | reciprocation | reciprocity
 
-recit = recital | recitation | recite | recited | recites | recitest | reciteth | reciting
+recit = recital | recitation | recite | recited | recitest | reciteth | reciting
 
 reck = reckless | recklessly | recklessness
 
@@ -23038,7 +22750,7 @@ regular = regular | regularise | regularity | regularly
 
 rehabilit = rehabilitate | rehabilitated | rehabilitating | rehabilitation
 
-rehears = rehearsed | rehearsing
+rehears = rehearsed
 
 reign = reign | reigned | reigneth | reigning | reigns
 
@@ -23061,8 +22773,6 @@ reinstitut = reinstituted | reinstitution
 reint = reinterred
 
 reinterpret = reinterpret | reinterpretation | reinterpreted
-
-reintroduc = reintroducing
 
 reinvent = reinvents
 
@@ -23142,7 +22852,7 @@ remark = remark | remarkable | remarkably | remarked | remarks
 
 remarqu = remarquable
 
-remarr = remarry | remarrying
+remarr = remarry
 
 remed = remedial | remedied | remedies | remedy | remedying
 
@@ -23172,7 +22882,7 @@ remould = remould | remoulding
 
 remov = removal | remove | removed | remover | removes | removeth | removing
 
-remun = remunerate | remunerated | remunerating | remuneration
+remun = remunerated | remuneration
 
 renasc = renaissance | renascent
 
@@ -23264,7 +22974,7 @@ repriev = reprieve
 
 reprimand = reprimand | reprimanded | reprimanding | reprimands
 
-reprint = reprint | reprinted | reprinting | reprintings
+reprint = reprint | reprinted | reprinting
 
 repris = reprisals
 
@@ -23281,8 +22991,6 @@ reptil = reptiles
 republ = republic | republican | republicanism | republics
 
 republiqu = republique
-
-republish = republished
 
 repud = repudiate | repudiated | repudiates | repudiateth | repudiating | repudiation | repudiator | repudiators
 
@@ -23386,7 +23094,7 @@ resubmiss = resubmission
 
 result = result | resultant | resulted | resulting | results
 
-resum = resume | resumed | resumes | resuming | resumption
+resum = resume | resumed | resuming | resumption
 
 resurg = resurge | resurgence | resurgent
 
@@ -23396,7 +23104,7 @@ resuscit = resuscitate | resuscitated | resuscitating | resuscitation | resuscit
 
 reta = retaliate | retaliates | retaliation
 
-retain = retain | retained | retainers | retaining | retains
+retain = retain | retained | retaining | retains
 
 retaliator = retaliatory
 
@@ -23412,7 +23120,7 @@ retic = reticence | reticent
 
 retina = retina
 
-retinu = retinue | retinues
+retinu = retinue
 
 retir = retire | retired | retirement
 
@@ -23425,8 +23133,6 @@ retr = retry
 retrac = retrace | retraced
 
 retract = retract
-
-retransl = retranslation
 
 retreat = retreat | retreated | retreateth | retreating | retreats
 
@@ -23456,7 +23162,7 @@ reveal = reveal | revealed | revealedst | revealer | revealers | revealest | rev
 
 revel = revel | reveller | revellers | revels
 
-revelat = revelation | revelations | revelators | revelatory
+revelat = revelation | revelations | revelators
 
 revelr = revelry
 
@@ -23472,13 +23178,13 @@ reverend = reverend
 
 revers = reversal | reverse | reversed | reverses | reversing | reversion
 
-revert = revert | reverteth | reverting | reverts
+revert = revert | reverteth | reverting
 
 review = review | reviewed | reviewer | reviewers | reviewing | reviews
 
 revil = revile | reviled | revilement | reviler | reviling | revilings
 
-revis = revisal | revise | revised | revising | revision | revisioning | revisions
+revis = revise | revised | revising | revision | revisioning | revisions
 
 revisit = revisit
 
@@ -23560,8 +23266,6 @@ ril = rilling
 
 rim = rim
 
-rimmon = rimmon
-
 ring = ring | ringed | ringeth | ringing | rings
 
 ringlead = ringleader
@@ -23584,7 +23288,7 @@ risk = risk | risked | risking | risks
 
 rite = rite | rites
 
-ritual = ritual | ritualised | ritualistic | ritually | rituals
+ritual = ritual | ritualised | ritualistic | rituals
 
 riv = river | rivers
 
@@ -23700,7 +23404,7 @@ ruin = ruin | ruined | ruining | ruinous | ruins
 
 ruinat = ruination
 
-rule = rule | ruled | ruler | rulers | rulers’ | rulership | rules | rulest | ruleth | ruling | rulings
+rule = rule | ruled | ruler | rulers | rulership | rules | rulest | ruleth | ruling | rulings
 
 rum = rum
 
@@ -23750,7 +23454,7 @@ sacrament = sacrament | sacraments
 
 sacrif = sacrifice | sacrificed | sacrifices | sacrificial | sacrificially | sacrificing | sacrificingly | sacrifie
 
-sacrileg = sacrilege | sacrilegious
+sacrileg = sacrilegious
 
 sacrosanct = sacrosanct
 
@@ -23820,8 +23524,6 @@ sampl = sample
 
 sanctif = sanctification | sanctified | sanctifies | sanctify | sanctifying | sanctity
 
-sanctimon = sanctimonious
-
 sanction = sanction | sanctionable | sanctioned | sanctions
 
 sanctuar = sanctuaries | sanctuary
@@ -23871,8 +23573,6 @@ satisf = satisfaction | satisfactions | satisfactorily | satisfactory | satisfie
 satur = saturated
 
 saturday = saturday
-
-saturn = saturn
 
 sauc = sauce
 
@@ -24290,7 +23990,7 @@ shamefac = shamefaced
 
 shape = shape | shaped | shaper | shapes | shaping
 
-share = sha’r | shar’ | share | shared | sharer | sharers | shares | shareth | sharing
+share = sha’r | share | shared | sharer | sharers | shares | shareth | sharing
 
 sharp = sharp | sharpen | sharpened | sharpening | sharpens | sharper | sharpest | sharply | sharpness
 
@@ -24474,8 +24174,6 @@ silk = silk | silken | silks
 
 silv = silver
 
-simar = simari
-
 simil = simile | similes
 
 similar = similar | similarities | similarity | similarly
@@ -24486,7 +24184,7 @@ simm = simmering
 
 simpl = simple | simpler | simplest | simplicities | simplicity | simply
 
-simplif = simplification | simplified | simplifies | simplify | simplifying
+simplif = simplification | simplified | simplify | simplifying
 
 simplist = simplistic
 
@@ -24972,8 +24670,6 @@ spray = spray
 
 spread = spread | spreaders | spreadeth | spreading | spreads
 
-spree = spree
-
 spright = sprightly
 
 spring = sprang | spring | springeth | springing | springs | springtide | springtime | springtimes | sprung
@@ -24998,8 +24694,6 @@ squand = squander | squandered
 
 squar = square | squarely | squares
 
-squeez = squeezed
-
 squirrel = squirrel
 
 srp = srp
@@ -25015,8 +24709,6 @@ stabil = stabilise | stabilised | stabilises | stabilising | stability
 stabl = stable | stabler | stables
 
 stablish = stablish | stablished
-
-stack = stacked
 
 stadium = stadiums
 
@@ -25122,7 +24814,7 @@ steadfast = steadfast | steadfastly | steadfastness
 
 steadi = steadily | steadiness | steady
 
-steal = steal | stealeth | stealings | steals
+steal = steal | stealeth | steals
 
 stealth = stealth | stealthily
 
@@ -25316,15 +25008,13 @@ struggl = struggle | struggled | struggles | struggling
 
 strut = strut
 
-stuart = stuart
-
 stubbl = stubble
 
 stubborn = stubborn | stubbornly | stubbornness
 
 stud = studded
 
-studi = student | students | studied | studies | studious | study | studying
+studi = student | students | studied | studies | study | studying
 
 studiescapast = studiescapast
 
@@ -25398,7 +25088,7 @@ subscrib = subscribe | subscribers | subscribes | subscription
 
 subsequ = subsequent | subsequently
 
-subserv = subservience | subserviency | subservient
+subserv = subservience | subservient
 
 subsid = subside | subsided | subsidies
 
@@ -25444,7 +25134,7 @@ successiv = succeedeth | succeeding | successive | successively
 
 successor = succession | successions | successor | successors | successorship
 
-succinct = succinct | succinctly
+succinct = succinct
 
 succour = succour | succoured | succourer | succourers | succoureth | succouring
 
@@ -25454,7 +25144,7 @@ succumb = succumb | succumbed | succumbing | succumbs
 
 such = such
 
-suck = suck | sucked | suckers | sucking
+suck = suck | sucked | sucking
 
 suckl = suckle | suckled | suckling | sucklings
 
@@ -25477,8 +25167,6 @@ sug = suggest | suggests
 sugar = sugar
 
 suggest = suggested | suggesting | suggestion | suggestions | suggestive
-
-sughra = sughra
 
 suicid = suicidal | suicide
 
@@ -25514,15 +25202,11 @@ summit = summit | summits
 
 summon = summon | summoned | summoner | summoners | summonest | summoneth | summoning | summons | summonses
 
-sumptuar = sumptuary
-
 sumptuous = sumptuous | sumptuously
 
 sun = sun | suns
 
 sunbeam = sunbeam
-
-sunburst = sunburst
 
 sund = sunder | sundered | sundering
 
@@ -25626,8 +25310,6 @@ surfeit = surfeit
 
 surg = surge | surged | surges | surgeth | surging
 
-surgeon = surgeon
-
 surgic = surgical
 
 surkh = surkh
@@ -25643,8 +25325,6 @@ surpass = surpass | surpassed | surpasses | surpasseth | surpassing
 surplus = surplus
 
 surpris = surprise | surprised | surprising | surprisingly
-
-surra = surra
 
 surrend = surrender | surrendered | surrendereth | surrendering
 
@@ -25744,13 +25424,13 @@ synagogu = synagogue | synagogues
 
 synchron = synchronisation | synchronise | synchronised | synchronises | synchronising
 
-synod = synod | synods
+synod = synods
 
 synonym = synonymous
 
 synops = synopsis
 
-synthes = synthesis | synthesises
+synthes = synthesis
 
 system = system | systemic | systemisation | systems
 
@@ -25910,7 +25590,7 @@ teleg = telegu
 
 telegram = telegram | telegrams
 
-telegraph = telegraph | telegraphed | telegraphic | telegraphically | telegraphs | telegraphy
+telegraph = telegraph | telegraphed | telegraphic | telegraphically | telegraphy
 
 telepath = telepathic | telepathy
 
@@ -26448,8 +26128,6 @@ tramp = tramp
 
 trampl = trample | trampled | trampling | tramplings
 
-tramway = tramways
-
 tranc = trance | trances
 
 trangress = trangressed
@@ -26464,7 +26142,7 @@ transcend = transcend | transcended | transcendence | transcendent | transcenden
 
 transcontinent = transcontinental
 
-transcrib = transcribe | transcribed | transcribers | transcribing | transcript | transcription | transcriptions | transcripts
+transcrib = transcribe | transcribed | transcribing | transcript | transcription | transcriptions | transcripts
 
 transf = transfer | transferable | transference | transferences | transferred | transferreth | transferring | transfers
 
@@ -26520,7 +26198,7 @@ trap = trap | trapped | trapping | trappings | traps
 
 travail = travail | travailing | travails
 
-travel = travel | traveleth | travelled | traveller | travellers | travellers’ | travelling | travellings | travels
+travel = travel | travelled | traveller | travellers | travellers’ | travelleth | travelling | travellings | travels
 
 travers = traverse | traversed | traverses | traversest | traverseth | traversing
 
@@ -26736,7 +26414,7 @@ twing = twinges
 
 twinkl = twinkle | twinkling
 
-twist = twist | twisted | twisting | twists
+twist = twisted | twisting | twists
 
 twitt = twittering
 
@@ -26970,8 +26648,6 @@ uncloth = unclothed
 
 uncloud = unclouded
 
-unclutt = uncluttered
-
 uncomfort = uncomfortable
 
 uncommon = uncommon | uncommonly
@@ -27073,8 +26749,6 @@ underdevelop = underdeveloped
 underestim = underestimate | underestimated
 
 underfoot = underfoot
-
-undergird = undergirders
 
 undergo = undergo | undergoes | undergoeth | undergoing | undergone | underwent
 
@@ -27181,8 +26855,6 @@ unemancip = unemancipated
 unembarrass = unembarrassed
 
 unembitt = unembittered
-
-unemot = unemotional
 
 unemploy = unemployable | unemployed | unemployment
 
@@ -27346,8 +27018,6 @@ unhop = unhoped
 
 unhurt = unhurt
 
-unhygien = unhygienic
-
 unif = unific | unification | unified | unifier | unifiers | unifies | unify | unifying
 
 uniform = uniform | uniformed | uniformity | uniformly | uniforms
@@ -27490,8 +27160,6 @@ unmortif = unmortified
 
 unmov = unmovable | unmoved
 
-unmurmur = unmurmuring
-
 unnatur = unnatural
 
 unnecessar = unnecessarily | unnecessary
@@ -27521,8 +27189,6 @@ unoffic = unofficial | unofficially
 unopen = unopenable | unopened
 
 unoppos = unopposed
-
-unordain = unordained
 
 unorgan = unorganised
 
@@ -27862,8 +27528,6 @@ unutt = unutterable | unutterably | unuttered
 
 unvar = unvarying
 
-unvarnish = unvarnished
-
 unveil = unveil | unveiled | unveilest | unveileth | unveiling | unveils
 
 unverif = unverified
@@ -27974,8 +27638,6 @@ urban = urban | urbanisation
 
 urchin = urchins
 
-urf = ‘urf
-
 urg = urge | urged | urges | urgeth | urging
 
 urgent = urgency | urgent | urgently
@@ -28016,8 +27678,6 @@ uterin = uterine
 
 util = utilisation | utilise | utilised | utilises | utilising | utilities | utility
 
-utilitarian = utilitarian
-
 utmost = utmost
 
 utopia = utopia | utopian
@@ -28057,10 +27717,6 @@ vale = vale | vales
 valiant = valiant | valiantly
 
 valid = valid | validate | validated | validity | valids
-
-valid5 = valid5
-
-valid6 = valid6
 
 valley = valley | valleys
 
@@ -28139,8 +27795,6 @@ venu = venue | venues
 ver = vers
 
 verac = veracity
-
-verb = verb
 
 verbal = verbal | verbally
 
@@ -28338,7 +27992,7 @@ vorac = voracious | voraciously
 
 vortex = vortex
 
-votar = votaries | votary
+votar = votaries
 
 vote = vote | voted | voter | voters | voters’ | votes | voting
 
@@ -28388,7 +28042,7 @@ wail = wail | wailed | waileth | wailing
 
 waist = waist
 
-wait = wait | waited | waiteth | waiting | waits
+wait = wait | waited | waiteth | waiting
 
 waiv = waive | waived
 
@@ -28934,8 +28588,6 @@ y24 = 324
 
 y26 = 326
 
-y2775 = 32775
-
 y2nd = 32nd
 
 y44 = 344
@@ -28953,8 +28605,6 @@ y60 = 3600
 y65 = 365
 
 y694 = 3694
-
-y70 = 3700
 
 y7600 = 376000
 
