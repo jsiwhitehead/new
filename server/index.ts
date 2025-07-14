@@ -68,22 +68,7 @@ const getPassages = (urlPath: string[], baseLevel: number, search: string) => {
     }
     const [path, nestedTree] = collapseSingleKeys(tree, urlPath.length);
 
-    const passages: Passage[] = (
-      urlPath.length === 2 && urlPath[1] === "hidden-words"
-        ? [
-            ...getFilterSections([
-              "bahaullah",
-              "hidden-words",
-              "part-one-from-the-arabic",
-            ]),
-            ...getFilterSections([
-              "bahaullah",
-              "hidden-words",
-              "part-two-from-the-persian",
-            ]),
-          ]
-        : getFilterSections(urlPath)
-    ).map((section) => {
+    const passages: Passage[] = getFilterSections(urlPath).map((section) => {
       const d = data[section]!;
       return {
         section,

@@ -100,12 +100,26 @@ export const getDocPath = (path: [string, string, number][]) => {
   return null;
 };
 
-export const getFilterSections = (path: string[]) => {
+export const getFilterSections = (path: string[]): number[] => {
+  if (path.length === 2 && path[1] === "hidden-words") {
+    return [
+      ...getFilterSections([
+        "bahaullah",
+        "hidden-words",
+        "part-one-from-the-arabic",
+      ]),
+      ...getFilterSections([
+        "bahaullah",
+        "hidden-words",
+        "part-two-from-the-persian",
+      ]),
+    ];
+  }
   const filtered = getPathSections(path);
   if (filtered.length === 1) return filtered;
   const docPath = getDocPath(path.map((p) => ["", p, 0]));
   if (!docPath) return [];
-  return getPathSections(docPath.map((p) => p[1]));
+  return getPathSections(path);
 };
 
 export const getParagraphIds = (section: number) => {
