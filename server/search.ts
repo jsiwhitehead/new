@@ -189,7 +189,7 @@ export const getMatches = (
           ? 0
           : Math.max(
               level,
-              Math.floor(Math.min(...paraMatches.map((m) => m.level)) * L)
+              Math.round(Math.min(...paraMatches.map((m) => m.level)) * L)
             );
       const paraLength = getParaLength(section, paragraph, paraLevel);
       if (paraMatches.length === 0) {

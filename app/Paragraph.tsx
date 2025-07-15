@@ -178,6 +178,7 @@ export default function Paragraph({
             left: 0,
             width: "100%",
             color: "transparent",
+            userSelect: "none",
           }}
         >
           <ParagraphBase
