@@ -888,8 +888,6 @@
 
 *barbuda = barbuda
 
-*barcelona = barcelona
-
 *barclay = barclay
 
 *bardiya = bardiya
@@ -1612,8 +1610,6 @@
 
 *costa = costa | costas
 
-*cote = cote
-
 *courosh = courosh
 
 *cowan = cowan
@@ -1827,8 +1823,6 @@
 *divan = divan | divans
 
 *divine145 = divine145
-
-*divoir = d’ivoire
 
 *diy = diyi
 
@@ -3804,8 +3798,6 @@
 
 *kir = kiri
 
-*kiribat = kiribati
-
 *kirman = kirman | kirmani
 
 *kirmanshah = kirmanshah | kirmanshahi
@@ -3942,7 +3934,7 @@
 
 *lanka = lanka
 
-*lao = lao | laos
+*lao = laos
 
 *lapland = lapland
 
@@ -5222,8 +5214,6 @@
 
 *nosratabad = nosratabad
 
-*nove = nove
-
 *nubuvvat = nubuvvat
 
 *nudbih = nudbih
@@ -5305,8 +5295,6 @@
 *oro = oro
 
 *osborn = osborne
-
-*ose = osed
 
 *oslo = oslo
 
@@ -6520,8 +6508,6 @@
 
 *shens = shensi
 
-*sherbrook = sherbrooke
-
 *sherril = sherrill
 
 *sherwin = sherwin
@@ -7530,8 +7516,6 @@
 
 *woking = woking
 
-*wolverhampton = wolverhampton
-
 *woodcock = woodcock
 
 *woodrow = woodrow
@@ -7672,8 +7656,6 @@
 
 *zamid = zamid
 
-*zamk = zamky
-
 *zamzam = zamzam
 
 *zan12 = zan129
@@ -7785,8 +7767,6 @@
 0 = 0
 
 08 = 08
-
-09 = 09
 
 1 = 1
 
@@ -7924,7 +7904,7 @@
 
 14th = 14th
 
-15 = 15 | 150 | 151 | 152 | 153
+15 = 15 | 150 | 151 | 153
 
 150 = 1500
 
@@ -7939,8 +7919,6 @@
 155 = 155
 
 1556 = 1556
-
-156 = 156
 
 157yy68b2 = 1573368b21
 
@@ -8273,8 +8251,6 @@
 202 = 2020 | 2021 | 2022 | 2023
 
 2024 = 2024
-
-2025 = 2025
 
 2026 = 2026
 
@@ -8946,7 +8922,7 @@ adjur = adjurations | adjure | adjured | adjures | adjureth
 
 adjust = adjust | adjusted | adjusting | adjustment | adjustments
 
-administ = administer | administered | administereth | administering | administers | administrating | administration | administrative | administratively | administrator | administrators
+administ = administer | administered | administereth | administering | administers | administration | administrative | administratively | administrator | administrators
 
 admir = admirable | admirably | admiration | admire | admired | admirer | admirers | admiring
 
@@ -9299,8 +9275,6 @@ ambergr = ambergris
 ambigu = ambiguities | ambiguity | ambiguous
 
 ambit = ambition | ambitions | ambitious
-
-ambival = ambivalence
 
 ambl = amble
 
@@ -13858,7 +13832,7 @@ du = du | duly
 
 dual = dual
 
-dualit = dualities | duality
+dualit = duality
 
 dubiet = dubieties
 
@@ -16946,7 +16920,7 @@ iconoclast = iconoclast | iconoclastic
 
 idea = idea | ideas | ideation
 
-ideal = ideal | idealisation | idealised | idealism | idealistic | idealists | ideality | ideally | ideals
+ideal = ideal | idealisation | idealism | idealistic | idealists | ideality | ideally | ideals
 
 ident = identities | identity
 
@@ -17700,7 +17674,7 @@ insepar = inseparability | inseparable | inseparably
 
 insert = insert | inserted | insertion
 
-insid = inside | insider | insides
+insid = inside | insides
 
 insidi = insidious | insidiously
 
@@ -19096,7 +19070,7 @@ maritim = maritime
 
 mark = mark | marked | markedly | markers | marketh | marking | marks
 
-market = market | marketed | marketing | marketplace | marketplaces | markets
+market = market | marketed | marketplace | marketplaces | markets
 
 marksmanship = marksmanship
 
@@ -19738,8 +19712,6 @@ multin = multinational
 
 multip = multiple | multiplication | multiplicity | multiplied | multiplies | multiply | multiplying
 
-multisector = multisectoral
-
 multitud = multitude | multitudes | multitudinous
 
 mummif = mummified
@@ -20268,7 +20240,7 @@ occid = occident | occidental | occidentals
 
 occult = occult | occultation | occultations | occultism
 
-occup = occupancy | occupant | occupants | occupation | occupational | occupations | occupent | occupied | occupies | occupieth | occupy | occupying
+occup = occupancy | occupant | occupants | occupation | occupations | occupent | occupied | occupies | occupieth | occupy | occupying
 
 occur = occur | occurred | occurrence | occurrences | occurreth | occurring | occurs
 
@@ -20416,7 +20388,7 @@ opprobrium = opprobrium
 
 opt = opt | opted
 
-optim = optimal | optimise
+optim = optimise
 
 optimist = optimism | optimistic
 
@@ -25058,7 +25030,7 @@ subcommiss = subcommission
 
 subconsc = subconscious
 
-subcontin = subcontinent | subcontinental
+subcontin = subcontinent
 
 subdivid = subdivide | subdivided | subdivisions
 

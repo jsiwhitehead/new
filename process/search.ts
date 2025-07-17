@@ -54,7 +54,10 @@ data.forEach(({ path, meta, additional, content, quoted }, section) => {
       paraDateFactors[section] = getDateFactor(data[section]!.years);
     }
 
-    paraLengths[section] = content.map((_, paragraph) => {
+    paraLengths[section] = content.map((c, paragraph) => {
+      if (typeof c !== "string" && "type" in c && c.type === "framing") {
+        return "";
+      }
       const key = `${section}:${paragraph}`;
       const text = getText(data, { section, paragraph });
       const words = text

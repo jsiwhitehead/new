@@ -330,7 +330,8 @@ const getContentItem = (line: string): SectionContent => {
 
 const additional: Section[] = [];
 const prayers: Section[] = [];
-const messages: Section[] = [];
+const messages1: Section[] = [];
+const messages2: Section[] = [];
 
 export const parseStructuredSections = (
   file: string,
@@ -482,7 +483,9 @@ export const parseStructuredSections = (
       prayers.push(s);
       return false;
     }
-    if (s.path[1]![0] === "Additional") {
+    if (
+      ["Additional", "Excerpts from Various Writings"].includes(s.path[1]![0])
+    ) {
       additional.push(s);
       return false;
     }
@@ -493,9 +496,19 @@ export const parseStructuredSections = (
         "Citadel of Faith",
         "This Decisive Hour",
       ].includes(s.path[1]![0]) &&
-      s.path[2]?.[0] !== "In Memoriam"
+      ![
+        "In Memoriam",
+        "Part One: Excerpts from the Will and Testament of ‘Abdu’l‑Bahá",
+      ].includes(s.path[2]?.[0]!)
     ) {
-      messages.push(s);
+      messages1.push(s);
+      return false;
+    }
+    if (
+      s.path[0]![0] === "The Universal House of Justice" &&
+      ["Selected Messages", "Additional Messages"].includes(s.path[1]![0])
+    ) {
+      messages2.push(s);
       return false;
     }
     return true;
@@ -566,7 +579,8 @@ prayers.sort((a, b) => {
   const bText = b.content.map((x) => getText(x)).join("");
   return aText.length - bText.length || aText.localeCompare(bText);
 });
-messages.sort((a, b) => a.years[0] - b.years[0]);
+messages1.sort((a, b) => a.years[0] - b.years[0]);
+messages2.sort((a, b) => b.years[0] - a.years[0]);
 
 let indices = {
   "The Báb": 1,
@@ -619,11 +633,30 @@ index = 0;
 await writeJSON(
   "structure",
   "shoghi-effendi-messages",
-  messages.map((x) => {
+  messages1.map((x) => {
     x.path = [
       x.path[0]!,
       ["Selected Messages", "messages", 1],
       ...x.path.slice(x.path[1]![0] === "Citadel of Faith" ? 3 : 2),
+    ];
+    if (x.path[2]![0] !== currentMessage) {
+      currentMessage = x.path[2]![0];
+      index++;
+    }
+    x.path[2] = [x.path[2]![0], x.path[2]![1], index];
+    return x;
+  })
+);
+currentMessage = "";
+index = 0;
+await writeJSON(
+  "structure",
+  "the-universal-house-of-justice-messages",
+  messages2.map((x) => {
+    x.path = [
+      x.path[0]!,
+      ["Selected Messages", "messages", 1],
+      ...x.path.slice(2),
     ];
     if (x.path[2]![0] !== currentMessage) {
       currentMessage = x.path[2]![0];
