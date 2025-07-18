@@ -10,7 +10,12 @@ interface Node {
 
 const treeData: Node = { children: {}, indices: [] };
 data.forEach((section, index) => {
-  if (!section.meta) {
+  if (
+    !section.meta &&
+    !["Bahá’í Administration", "Citadel of Faith"].includes(
+      section.path[1]![0]!
+    )
+  ) {
     let node = treeData;
     node.indices.push(index);
     for (const [, value] of section.path) {

@@ -7,13 +7,12 @@ import type {
   Passage,
   Quote,
   Ref,
-  SectionContent,
 } from "../utils/types.ts";
 import {
   compareArrays,
   joinQuotes,
+  isFullQuote,
   refsEqual,
-  textIsConnector,
   toChars,
   toCleaned,
   toWords,
@@ -30,6 +29,9 @@ import {
   getParagraphIds,
   getPathSections,
 } from "./utils.ts";
+
+import infoJSON from "../data/info.json" with { type: "json" };
+const sectionLevels: Record<number, number> = (infoJSON as any).levels;
 
 const SEARCH_COUNT = 20;
 
@@ -55,8 +57,15 @@ const getPassages = (urlPath: string[], baseLevel: number, search: string) => {
   const matches = getMatches(allFilterSections, search, baseLevel);
 
   if (!matches) {
+    const levelSections =
+      baseLevel === 0
+        ? allFilterSections
+        : allFilterSections.filter(
+            (section) => (sectionLevels[section] || 0) >= baseLevel
+          );
+
     const tree = {} as any;
-    for (const section of allFilterSections) {
+    for (const section of levelSections) {
       data[section]!.path.reduce((res, p, i) => {
         const key = JSON.stringify([
           i === data[section]!.path.length - 1 && data[section]!.extract
@@ -125,19 +134,6 @@ const getPassages = (urlPath: string[], baseLevel: number, search: string) => {
     tokens: matches.tokens,
     showContent: true,
   };
-};
-
-const isFullQuote = (para: SectionContent) => {
-  if (typeof para === "string") {
-    return textIsConnector(para);
-  }
-  if (Array.isArray(para)) {
-    return (
-      para.every((part) => typeof part !== "string" || textIsConnector(part)) &&
-      para.some((part) => typeof part !== "string")
-    );
-  }
-  return "type" in para && para.type === "break";
 };
 
 const mapPassage = (

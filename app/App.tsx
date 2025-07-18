@@ -56,12 +56,7 @@ export default function App({
         margin: "0 auto",
       }}
     >
-      <Controls
-        path={path}
-        tree={tree}
-        showContent={showContent}
-        isLoading={isNavigating}
-      />
+      <Controls path={path} tree={tree} isLoading={isNavigating} />
       {!isNavigating &&
         showContent &&
         docs.map(({ title, scoreInfo, chunks }, docIndex) => (

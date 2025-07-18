@@ -2,7 +2,7 @@
   {
     "path": [
       ["Bahá’u’lláh", "bahaullah", 1],
-      ["The Book of Certitude (The Kitáb‑i‑Íqán)", "kitab-i-iqan", 9]
+      ["The Book of Certitude (The Kitáb‑i‑Íqán)", "kitab-i-iqan", 10]
     ],
     "translated": "The Kitáb‑i‑Íqán",
     "years": [1862, 1862],
@@ -13,7 +13,7 @@
   {
     "path": [
       ["Bahá’u’lláh", "bahaullah", 1],
-      ["The Book of Certitude (The Kitáb‑i‑Íqán)", "kitab-i-iqan", 9],
+      ["The Book of Certitude (The Kitáb‑i‑Íqán)", "kitab-i-iqan", 10],
       ["Foreword", "foreword", 1]
     ],
     "years": [1931, 1931],
@@ -25,7 +25,7 @@
   {
     "path": [
       ["Bahá’u’lláh", "bahaullah", 1],
-      ["The Book of Certitude (The Kitáb‑i‑Íqán)", "kitab-i-iqan", 9],
+      ["The Book of Certitude (The Kitáb‑i‑Íqán)", "kitab-i-iqan", 10],
       ["Part One", "part-one", 1]
     ],
     "years": [1862, 1862],
@@ -143,7 +143,7 @@
   {
     "path": [
       ["Bahá’u’lláh", "bahaullah", 1],
-      ["The Book of Certitude (The Kitáb‑i‑Íqán)", "kitab-i-iqan", 9],
+      ["The Book of Certitude (The Kitáb‑i‑Íqán)", "kitab-i-iqan", 10],
       ["Part Two", "part-two", 2]
     ],
     "years": [1862, 1862],

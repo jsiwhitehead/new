@@ -50,12 +50,10 @@ const Breadcrumbs = ({
 export default function Controls({
   path,
   tree,
-  showContent,
   isLoading,
 }: {
   path: [string, string][];
   tree: any;
-  showContent: boolean;
   isLoading: boolean;
 }) {
   const [params] = useSearchParams();
@@ -74,12 +72,15 @@ export default function Controls({
 
   const navigate = useNavigate();
   useEffect(() => {
-    if (level !== getUrlNumber(params, "level")) {
-      navigate(
-        { search: makeUrlSearch(["search", search], ["level", level]) },
-        { replace: true, preventScrollReset: true }
-      );
-    }
+    let timeout = setTimeout(() => {
+      if (level !== getUrlNumber(params, "level")) {
+        navigate(
+          { search: makeUrlSearch(["search", search], ["level", level]) },
+          { replace: true, preventScrollReset: true }
+        );
+      }
+    }, 500);
+    return () => clearTimeout(timeout);
   }, [level]);
 
   const runSearch = () => {
@@ -129,6 +130,31 @@ export default function Controls({
         }}
       />
 
+      <Column gap={10}>
+        <Row>
+          <Text
+            size={14}
+            style={{ width: "50%", textAlign: "left", fontWeight: "bold" }}
+          >
+            All Passages
+          </Text>
+          <Text
+            size={14}
+            style={{ width: "50%", textAlign: "right", fontWeight: "bold" }}
+          >
+            Most Common
+          </Text>
+        </Row>
+        <input
+          type="range"
+          value={level}
+          min={0}
+          max={5}
+          step={1}
+          onChange={(e) => setLevel(parseInt(e.target.value, 10))}
+        />
+      </Column>
+
       <Breadcrumbs
         size={17}
         path={[["All", "/"], ...path]}
@@ -139,33 +165,6 @@ export default function Controls({
         <div style={{ paddingLeft: 15 }}>
           {renderTree(tree, path[path.length - 1]?.[1] || "", linkUrlSearch)}
         </div>
-      )}
-
-      {showContent && (
-        <Column gap={10}>
-          <input
-            type="range"
-            value={level}
-            min={0}
-            max={5}
-            step={1}
-            onChange={(e) => setLevel(parseInt(e.target.value, 10))}
-          />
-          <Row>
-            <Text
-              size={14}
-              style={{ width: "50%", textAlign: "left", fontWeight: "bold" }}
-            >
-              All Passages
-            </Text>
-            <Text
-              size={14}
-              style={{ width: "50%", textAlign: "right", fontWeight: "bold" }}
-            >
-              Most Common
-            </Text>
-          </Row>
-        </Column>
       )}
     </Column>
   );

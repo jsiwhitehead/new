@@ -1,7 +1,13 @@
 import { readJSON, writeJSON, writeText } from "../utils/files.ts";
 import stem from "../utils/searchStem.ts";
 import type { Section } from "../utils/types.ts";
-import { getText } from "../utils/utils.ts";
+import {
+  doesRangeInclude,
+  getIndices,
+  getText,
+  isFullQuote,
+  mapRanges,
+} from "../utils/utils.ts";
 
 const data = (await readJSON("", "data")) as Section[];
 
@@ -35,6 +41,7 @@ let totalParas = 0;
 let totalLength = 0;
 const paraLengths: string[][] = [];
 const paraDateFactors: Record<number, number> = {};
+const sectionMaxLevels: Record<number, number> = {};
 const searchIndex = new Map<string, string[]>();
 const tokenCounts: Record<string, number> = {};
 const tokenWords = new Map<string, Set<string>>();
@@ -52,6 +59,29 @@ data.forEach(({ path, meta, additional, content, quoted }, section) => {
       )
     ) {
       paraDateFactors[section] = getDateFactor(data[section]!.years);
+    }
+
+    if (quoted) {
+      sectionMaxLevels[section] = Math.max(
+        0,
+        ...Object.keys(quoted).map((k) => {
+          if (isFullQuote(data[section]!.content[k as any]!)) return 0;
+          const sectionQuoted = quoted[k]!.filter(
+            (q) => q.quote.section !== section
+          );
+          return Math.max(
+            ...mapRanges(
+              getIndices(
+                0,
+                sectionQuoted.map((q) => q.range)
+              ),
+              (range) =>
+                sectionQuoted.filter((q) => doesRangeInclude(q.range, range))
+                  .length
+            )
+          );
+        })
+      );
     }
 
     paraLengths[section] = content.map((c, paragraph) => {
@@ -136,6 +166,7 @@ await writeJSON("", "info", {
   average: totalLength / totalParas,
   lengths: paraLengths,
   dates: paraDateFactors,
+  levels: sectionMaxLevels,
 });
 await writeText("", "search", searchIndexData);
 

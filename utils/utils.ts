@@ -1,4 +1,11 @@
-import type { MultiQuote, Quote, Range, Ref, Section } from "./types.ts";
+import type {
+  MultiQuote,
+  Quote,
+  Range,
+  Ref,
+  Section,
+  SectionContent,
+} from "./types.ts";
 
 export const capitalise = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
@@ -153,4 +160,17 @@ export const joinQuotes = (quotes: (Quote[] | null)[]): MultiQuote[][] => {
     }
   }
   return merged.map((m) => m || []);
+};
+
+export const isFullQuote = (para: SectionContent) => {
+  if (typeof para === "string") {
+    return textIsConnector(para);
+  }
+  if (Array.isArray(para)) {
+    return (
+      para.every((part) => typeof part !== "string" || textIsConnector(part)) &&
+      para.some((part) => typeof part !== "string")
+    );
+  }
+  return "type" in para && para.type === "break";
 };

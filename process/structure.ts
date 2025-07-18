@@ -555,7 +555,7 @@ for (const author of Object.keys(sources)) {
         const id = `${author}-${file}`;
         const res = parseStructuredSections(
           file,
-          author === "abdul-baha" ? fileIndex + 1 : fileIndex,
+          fileIndex + 1,
           await readText(
             sources[author]![file]!.length > 0 ? "format" : "manual",
             id

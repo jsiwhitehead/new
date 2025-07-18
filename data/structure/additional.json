@@ -4690,6 +4690,18 @@
       ["Additional", "additional", 0],
       ["136", "136", 136]
     ],
+    "years": [1892, 1921],
+    "additional": true,
+    "content": [
+      "My home is the home of peace. My home is the home of joy and delight. My home is the home of laughter and exultation. Whosoever enters through the portals of this home, must go out with gladsome heart. This is the home of light; whosoever enters here must become illumined."
+    ]
+  },
+  {
+    "path": [
+      ["‘Abdu’l‑Bahá", "abdul-baha", 3],
+      ["Additional", "additional", 0],
+      ["137", "137", 137]
+    ],
     "source": "A Heavenly Vista",
     "years": [1892, 1921],
     "additional": true,
@@ -4714,7 +4726,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["137", "137", 137]
+      ["138", "138", 138]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -4738,7 +4750,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["138", "138", 138]
+      ["139", "139", 139]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -4786,7 +4798,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["139", "139", 139]
+      ["140", "140", 140]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -4811,7 +4823,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["140", "140", 140]
+      ["141", "141", 141]
     ],
     "source": "Star of the West, vol. viii",
     "years": [1892, 1921],
@@ -4914,7 +4926,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["141", "141", 141]
+      ["142", "142", 142]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -4977,7 +4989,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["142", "142", 142]
+      ["143", "143", 143]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -5066,7 +5078,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["143", "143", 143]
+      ["144", "144", 144]
     ],
     "source": "Tablets of ‘Abdu’l‑Bahá Abbás, vol. 1, p. 145",
     "years": [1892, 1921],
@@ -5092,7 +5104,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["144", "144", 144]
+      ["145", "145", 145]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -5190,7 +5202,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["145", "145", 145]
+      ["146", "146", 146]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -5240,7 +5252,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["146", "146", 146]
+      ["147", "147", 147]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -5289,7 +5301,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["147", "147", 147]
+      ["148", "148", 148]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -5302,7 +5314,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["148", "148", 148]
+      ["149", "149", 149]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -5314,7 +5326,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["149", "149", 149]
+      ["150", "150", 150]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -5339,7 +5351,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["150", "150", 150]
+      ["151", "151", 151]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -5364,7 +5376,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["151", "151", 151]
+      ["152", "152", 152]
     ],
     "source": "‘Abdu’l‑Bahá on Divine Philosophy (Boston: Tudor Press, 1918), p. 78",
     "years": [1892, 1921],
@@ -5454,7 +5466,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["152", "152", 152]
+      ["153", "153", 153]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -5478,7 +5490,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["153", "153", 153]
+      ["154", "154", 154]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -5606,7 +5618,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["154", "154", 154]
+      ["155", "155", 155]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -5618,7 +5630,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["155", "155", 155]
+      ["156", "156", 156]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -5682,7 +5694,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["156", "156", 156]
+      ["157", "157", 157]
     ],
     "source": "‘Abdu’l‑Bahá in Canada, p. 51.",
     "years": [1892, 1921],
@@ -5734,7 +5746,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["157", "157", 157]
+      ["158", "158", 158]
     ],
     "source": "February 1914",
     "years": [1892, 1921],
@@ -5825,7 +5837,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["158", "158", 158]
+      ["159", "159", 159]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -5863,7 +5875,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["159", "159", 159]
+      ["160", "160", 160]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -5899,7 +5911,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["160", "160", 160]
+      ["161", "161", 161]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -5947,7 +5959,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["161", "161", 161]
+      ["162", "162", 162]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -6050,7 +6062,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["162", "162", 162]
+      ["163", "163", 163]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -6101,7 +6113,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["163", "163", 163]
+      ["164", "164", 164]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -6126,7 +6138,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["164", "164", 164]
+      ["165", "165", 165]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -6164,7 +6176,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["165", "165", 165]
+      ["166", "166", 166]
     ],
     "source": "Tablets of ‘Abdu’l‑Bahá Abbás (New York: Bahá’í Publishing Committee, 1916), vol. 3, p. 575",
     "years": [1892, 1921],
@@ -6177,7 +6189,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["166", "166", 166]
+      ["167", "167", 167]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -6268,7 +6280,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["167", "167", 167]
+      ["168", "168", 168]
     ],
     "source": "‘Abdu’l‑Bahá, in “A Compilation on Bahá’í Education”, published in The Compilation of Compilations, vol. 1, no. 614, pp. 273—74",
     "years": [1892, 1921],
@@ -6281,7 +6293,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["168", "168", 168]
+      ["169", "169", 169]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -6358,7 +6370,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["169", "169", 169]
+      ["170", "170", 170]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -6382,7 +6394,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["170", "170", 170]
+      ["171", "171", 171]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -6394,7 +6406,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["171", "171", 171]
+      ["172", "172", 172]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -6406,7 +6418,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["172", "172", 172]
+      ["173", "173", 173]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -6509,7 +6521,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["173", "173", 173]
+      ["174", "174", 174]
     ],
     "source": "Tablets of ‘Abdu’l‑Bahá, vol. iii",
     "years": [1892, 1921],
@@ -6599,7 +6611,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["174", "174", 174]
+      ["175", "175", 175]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -6714,7 +6726,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["175", "175", 175]
+      ["176", "176", 176]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -6765,7 +6777,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["176", "176", 176]
+      ["177", "177", 177]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -6846,7 +6858,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["177", "177", 177]
+      ["178", "178", 178]
     ],
     "source": "Tablets of ‘Abdu’l‑Bahá Abbás (New York: Bahá’í Publishing Committee, 1916), vol. 3, p. 530",
     "years": [1892, 1921],
@@ -6872,7 +6884,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["178", "178", 178]
+      ["179", "179", 179]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -6884,7 +6896,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["179", "179", 179]
+      ["180", "180", 180]
     ],
     "source": "Makátíb‑i‑‘Abdu’l‑Bahá (Tablets of ‘Abdu’l‑Bahá), vol. 4, pp. 132—134, provisional translation.",
     "years": [1892, 1921],
@@ -6933,7 +6945,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["180", "180", 180]
+      ["181", "181", 181]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -6957,7 +6969,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["181", "181", 181]
+      ["182", "182", 182]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -6983,7 +6995,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["182", "182", 182]
+      ["183", "183", 183]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -7059,7 +7071,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["183", "183", 183]
+      ["184", "184", 184]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -7071,7 +7083,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["184", "184", 184]
+      ["185", "185", 185]
     ],
     "source": "Bahá’í World Faith: Selected Writings of Bahá’u’lláh and ‘Abdu’l‑Bahá, rev. ed., p. 393",
     "years": [1892, 1921],
@@ -7097,7 +7109,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["185", "185", 185]
+      ["186", "186", 186]
     ],
     "source": "Cited in the Advent of Divine Justice",
     "years": [1892, 1921],
@@ -7149,7 +7161,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["186", "186", 186]
+      ["187", "187", 187]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -7177,7 +7189,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["187", "187", 187]
+      ["188", "188", 188]
     ],
     "source": "Bahá’í World Faith, p. 334",
     "years": [1892, 1921],
@@ -7190,7 +7202,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["188", "188", 188]
+      ["189", "189", 189]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -7267,7 +7279,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["189", "189", 189]
+      ["190", "190", 190]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -7330,7 +7342,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["190", "190", 190]
+      ["191", "191", 191]
     ],
     "source": "Tablets of ‘Abdu’l‑Bahá Abbás, vol. 3, p. 631",
     "years": [1892, 1921],
@@ -7343,7 +7355,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["191", "191", 191]
+      ["192", "192", 192]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -7355,7 +7367,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["192", "192", 192]
+      ["193", "193", 193]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -7392,7 +7404,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["193", "193", 193]
+      ["194", "194", 194]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -7404,7 +7416,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["194", "194", 194]
+      ["195", "195", 195]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -7429,7 +7441,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["195", "195", 195]
+      ["196", "196", 196]
     ],
     "source": "Cited in a letter dated 28 January 1939 to the National Spiritual Assembly of the United States and Canada",
     "years": [1892, 1921],
@@ -7455,7 +7467,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["196", "196", 196]
+      ["197", "197", 197]
     ],
     "source": "Cited in the Advent of Divine Justice",
     "years": [1892, 1921],
@@ -7481,7 +7493,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["197", "197", 197]
+      ["198", "198", 198]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -7505,7 +7517,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["198", "198", 198]
+      ["199", "199", 199]
     ],
     "source": "‘Abdu’l‑Bahá in London: Addresses and Notes of Conversations",
     "years": [1892, 1921],
@@ -7544,7 +7556,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["199", "199", 199]
+      ["200", "200", 200]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -7556,7 +7568,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["200", "200", 200]
+      ["201", "201", 201]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -7594,7 +7606,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["201", "201", 201]
+      ["202", "202", 202]
     ],
     "source": "“Star of the West”, vol. 18, no. 11 (February 1928), p. 345",
     "years": [1892, 1921],
@@ -7658,7 +7670,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["202", "202", 202]
+      ["203", "203", 203]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -7682,7 +7694,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["203", "203", 203]
+      ["204", "204", 204]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -7694,7 +7706,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["204", "204", 204]
+      ["205", "205", 205]
     ],
     "source": "“Tablets of ‘Abdu’l‑Bahá Abbás”, vol. 1, p. 83",
     "years": [1892, 1921],
@@ -7707,7 +7719,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["205", "205", 205]
+      ["206", "206", 206]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -7798,7 +7810,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["206", "206", 206]
+      ["207", "207", 207]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -7836,7 +7848,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["207", "207", 207]
+      ["208", "208", 208]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -7899,7 +7911,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["208", "208", 208]
+      ["209", "209", 209]
     ],
     "source": "Tablets of ‘Abdu’l‑Bahá Abbás (New York: Bahá’í Publishing Committee, 1909), vol. 1, pp. 31",
     "years": [1892, 1921],
@@ -7925,7 +7937,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["209", "209", 209]
+      ["210", "210", 210]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -7950,7 +7962,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["210", "210", 210]
+      ["211", "211", 211]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -7962,7 +7974,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["211", "211", 211]
+      ["212", "212", 212]
     ],
     "source": "Makátíb‑i‑‘Abdu’l‑Bahá (Tablets of ‘Abdu’l‑Bahá), vol. 4, pp. 132—134, provisional translation.",
     "years": [1892, 1921],
@@ -8001,7 +8013,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["212", "212", 212]
+      ["213", "213", 213]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -8052,7 +8064,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["213", "213", 213]
+      ["214", "214", 214]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -8103,7 +8115,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["214", "214", 214]
+      ["215", "215", 215]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -8128,7 +8140,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["215", "215", 215]
+      ["216", "216", 216]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -8140,7 +8152,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["216", "216", 216]
+      ["217", "217", 217]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -8191,7 +8203,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["217", "217", 217]
+      ["218", "218", 218]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -8216,7 +8228,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["218", "218", 218]
+      ["219", "219", 219]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -8278,7 +8290,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["219", "219", 219]
+      ["220", "220", 220]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -8303,7 +8315,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["220", "220", 220]
+      ["221", "221", 221]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -8327,7 +8339,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["221", "221", 221]
+      ["222", "222", 222]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -8352,7 +8364,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["222", "222", 222]
+      ["223", "223", 223]
     ],
     "source": "Cited in the Advent of Divine Justice",
     "years": [1892, 1921],
@@ -8390,7 +8402,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["223", "223", 223]
+      ["224", "224", 224]
     ],
     "source": "Tablets of ‘Abdu’l‑Bahá Abbás, vol. 3, p. 512",
     "years": [1892, 1921],
@@ -8403,7 +8415,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["224", "224", 224]
+      ["225", "225", 225]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -8441,7 +8453,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["225", "225", 225]
+      ["226", "226", 226]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -8453,7 +8465,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["226", "226", 226]
+      ["227", "227", 227]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -8490,7 +8502,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["227", "227", 227]
+      ["228", "228", 228]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -8578,7 +8590,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["228", "228", 228]
+      ["229", "229", 229]
     ],
     "source": "Extract from a talk of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -8590,7 +8602,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["229", "229", 229]
+      ["230", "230", 230]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -8615,7 +8627,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["230", "230", 230]
+      ["231", "231", 231]
     ],
     "source": "Tablets of ‘Abdu’l‑Bahá Abbás (New York: Bahá’í Publishing Committee, 1916), vol. 3, p. 631",
     "years": [1892, 1921],
@@ -8641,7 +8653,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["231", "231", 231]
+      ["232", "232", 232]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -8679,7 +8691,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["232", "232", 232]
+      ["233", "233", 233]
     ],
     "source": "Tablets of Abdu’l‑Bahá Abbás, vol. 1, pp. 61‑62",
     "years": [1892, 1921],
@@ -8767,7 +8779,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["233", "233", 233]
+      ["234", "234", 234]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -8857,7 +8869,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["234", "234", 234]
+      ["235", "235", 235]
     ],
     "source": "‘Abdu’l‑Bahá, cited in The Importance of the Arts in Promoting the Faith, comp. the Research Department of the Universal House of Justice, no. 23, pp. 10‑11",
     "years": [1892, 1921],
@@ -8946,7 +8958,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["235", "235", 235]
+      ["236", "236", 236]
     ],
     "source": "Bahá’í World Faith: Selected Writings of Bahá’u’lláh and ‘Abdu’l‑Bahá, p. 411",
     "years": [1892, 1921],
@@ -8999,7 +9011,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["236", "236", 236]
+      ["237", "237", 237]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -9024,7 +9036,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["237", "237", 237]
+      ["238", "238", 238]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -9085,7 +9097,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["238", "238", 238]
+      ["239", "239", 239]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -9146,7 +9158,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["239", "239", 239]
+      ["240", "240", 240]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -9158,7 +9170,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["240", "240", 240]
+      ["241", "241", 241]
     ],
     "source": "Published in “Star of the West”, vol. 8, no. 8 (1 August 1917), p. 103",
     "years": [1892, 1921],
@@ -9171,7 +9183,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["241", "241", 241]
+      ["242", "242", 242]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -9273,7 +9285,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["242", "242", 242]
+      ["243", "243", 243]
     ],
     "source": "‘Abdu’l‑Bahá on Divine Philosophy",
     "years": [1892, 1921],
@@ -9349,7 +9361,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["243", "243", 243]
+      ["244", "244", 244]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -9413,7 +9425,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["244", "244", 244]
+      ["245", "245", 245]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -9487,7 +9499,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["245", "245", 245]
+      ["246", "246", 246]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -9499,7 +9511,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["246", "246", 246]
+      ["247", "247", 247]
     ],
     "source": "Tablets of ‘Abdu’l‑Bahá Abbás, vol. I",
     "years": [1892, 1921],
@@ -9512,7 +9524,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["247", "247", 247]
+      ["248", "248", 248]
     ],
     "source": "From notes of Miss Alma Robertson and other pilgrims, November and December 1900",
     "years": [1892, 1921],
@@ -9578,7 +9590,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["248", "248", 248]
+      ["249", "249", 249]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -9590,7 +9602,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["249", "249", 249]
+      ["250", "250", 250]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -9602,7 +9614,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["250", "250", 250]
+      ["251", "251", 251]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -9614,7 +9626,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["251", "251", 251]
+      ["252", "252", 252]
     ],
     "source": "From Miss Buckton’s notes, revised by ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -9665,7 +9677,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["252", "252", 252]
+      ["253", "253", 253]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -9690,7 +9702,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["253", "253", 253]
+      ["254", "254", 254]
     ],
     "source": "Extract from a talk of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -9715,7 +9727,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["254", "254", 254]
+      ["255", "255", 255]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -9818,7 +9830,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["255", "255", 255]
+      ["256", "256", 256]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -9856,7 +9868,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["256", "256", 256]
+      ["257", "257", 257]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -9904,7 +9916,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["257", "257", 257]
+      ["258", "258", 258]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -9943,7 +9955,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["258", "258", 258]
+      ["259", "259", 259]
     ],
     "source": "At Haifa, August 3, 1914",
     "years": [1892, 1921],
@@ -9956,7 +9968,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["259", "259", 259]
+      ["260", "260", 260]
     ],
     "source": "‘Abdu’l‑Bahá on Divine Philosophy",
     "years": [1892, 1921],
@@ -10006,7 +10018,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["260", "260", 260]
+      ["261", "261", 261]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -10043,7 +10055,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["261", "261", 261]
+      ["262", "262", 262]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -10055,7 +10067,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["262", "262", 262]
+      ["263", "263", 263]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -10067,7 +10079,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["263", "263", 263]
+      ["264", "264", 264]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -10274,7 +10286,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["264", "264", 264]
+      ["265", "265", 265]
     ],
     "source": "Extract from a talk of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -10286,7 +10298,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["265", "265", 265]
+      ["266", "266", 266]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -10300,7 +10312,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["266", "266", 266]
+      ["267", "267", 267]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -10350,7 +10362,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["267", "267", 267]
+      ["268", "268", 268]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -10362,7 +10374,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["268", "268", 268]
+      ["269", "269", 269]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -10426,7 +10438,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["269", "269", 269]
+      ["270", "270", 270]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -10515,7 +10527,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["270", "270", 270]
+      ["271", "271", 271]
     ],
     "source": "Tablets of ‘Abdu’l‑Bahá Abbás, vol. 1, pp. 71—72",
     "years": [1892, 1921],
@@ -10542,7 +10554,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["271", "271", 271]
+      ["272", "272", 272]
     ],
     "source": "From a Tablet translated from the Persian",
     "years": [1892, 1921],
@@ -10555,7 +10567,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["272", "272", 272]
+      ["273", "273", 273]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -10606,7 +10618,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["273", "273", 273]
+      ["274", "274", 274]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -10618,7 +10630,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["274", "274", 274]
+      ["275", "275", 275]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -10643,7 +10655,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["275", "275", 275]
+      ["276", "276", 276]
     ],
     "source": "Tablets of ‘Abdu’l‑Bahá Abbás (New York: Bahá’í Publishing Committee, 1915), vol. 2, p. 436",
     "years": [1892, 1921],
@@ -10696,7 +10708,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["276", "276", 276]
+      ["277", "277", 277]
     ],
     "source": "Words of ‘Abdu’l‑Bahá, cited in Star of the West, vol. 8, no. 4 (17 May 1917), p. 41",
     "years": [1892, 1921],
@@ -10748,7 +10760,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["277", "277", 277]
+      ["278", "278", 278]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -10760,7 +10772,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["278", "278", 278]
+      ["279", "279", 279]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -10799,7 +10811,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["279", "279", 279]
+      ["280", "280", 280]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -10811,7 +10823,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["280", "280", 280]
+      ["281", "281", 281]
     ],
     "source": "Tablet to Isabella D. Brittingham",
     "years": [1892, 1921],
@@ -10824,7 +10836,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["281", "281", 281]
+      ["282", "282", 282]
     ],
     "source": "Women: Extracts from the Writings of Bahá’u’lláh, ‘Abdu’l‑Bahá, Shoghi Effendi and the Universal House of Justice, compiled by the Research Department of the Universal House of Justice, p. 50.",
     "years": [1892, 1921],
@@ -10837,7 +10849,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["282", "282", 282]
+      ["283", "283", 283]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -10863,7 +10875,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["283", "283", 283]
+      ["284", "284", 284]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -10875,7 +10887,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["284", "284", 284]
+      ["285", "285", 285]
     ],
     "source": "Published in “Star of the West”, vol. 8, no. 9 (20 August 1917), p. 114",
     "years": [1892, 1921],
@@ -10889,7 +10901,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["285", "285", 285]
+      ["286", "286", 286]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -10966,7 +10978,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["286", "286", 286]
+      ["287", "287", 287]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -10992,7 +11004,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["287", "287", 287]
+      ["288", "288", 288]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -11017,7 +11029,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["288", "288", 288]
+      ["289", "289", 289]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -11029,7 +11041,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["289", "289", 289]
+      ["290", "290", 290]
     ],
     "source": "‘Abdu’l‑Bahá, in Bahá’í Scriptures: Selections from the Utterances of Bahá’u’lláh and Abdul Bahá, no. 992, p. 548",
     "years": [1892, 1921],
@@ -11080,7 +11092,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["290", "290", 290]
+      ["291", "291", 291]
     ],
     "source": "Reported by Mrs. Corinne True in The North Shore Review, September 26, 1914, Chicago, U.S.A.",
     "years": [1892, 1921],
@@ -11173,7 +11185,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["291", "291", 291]
+      ["292", "292", 292]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -11275,7 +11287,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["292", "292", 292]
+      ["293", "293", 293]
     ],
     "source": "A talk with Miss Ethel Rosenberg, in October 1904",
     "years": [1892, 1921],
@@ -11288,7 +11300,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["293", "293", 293]
+      ["294", "294", 294]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -11326,7 +11338,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["294", "294", 294]
+      ["295", "295", 295]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -11378,7 +11390,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["295", "295", 295]
+      ["296", "296", 296]
     ],
     "source": "Cited in the Advent of Divine Justice",
     "years": [1892, 1921],
@@ -11457,7 +11469,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["296", "296", 296]
+      ["297", "297", 297]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -11469,7 +11481,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["297", "297", 297]
+      ["298", "298", 298]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -11558,7 +11570,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["298", "298", 298]
+      ["299", "299", 299]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -11583,7 +11595,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["299", "299", 299]
+      ["300", "300", 300]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -11595,7 +11607,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["300", "300", 300]
+      ["301", "301", 301]
     ],
     "source": "‘Abdu’l‑Bahá, cited in “Bahá’í World Faith”, pp. 357‑58",
     "years": [1892, 1921],
@@ -11608,7 +11620,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["301", "301", 301]
+      ["302", "302", 302]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -11672,7 +11684,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["302", "302", 302]
+      ["303", "303", 303]
     ],
     "source": "Cited in the Advent of Divine Justice",
     "years": [1892, 1921],
@@ -11685,7 +11697,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["303", "303", 303]
+      ["304", "304", 304]
     ],
     "source": "Cited in the Advent of Divine Justice",
     "years": [1892, 1921],
@@ -11736,7 +11748,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["304", "304", 304]
+      ["305", "305", 305]
     ],
     "source": "‘Abdu’l‑Bahá, in Bahá’í Scriptures: Selections from the Utterances of Bahá’u’lláh and ‘Abdu’l‑Bahá, no. 990, p. 548",
     "years": [1892, 1921],
@@ -11826,7 +11838,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["305", "305", 305]
+      ["306", "306", 306]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -11850,7 +11862,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["306", "306", 306]
+      ["307", "307", 307]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -11953,7 +11965,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["307", "307", 307]
+      ["308", "308", 308]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -12017,7 +12029,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["308", "308", 308]
+      ["309", "309", 309]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -12042,7 +12054,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["309", "309", 309]
+      ["310", "310", 310]
     ],
     "source": "‘Abdu’l‑Bahá on Divine Philosophy (Boston: Tudor Press, 1918), p. 112.",
     "years": [1892, 1921],
@@ -12094,7 +12106,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["310", "310", 310]
+      ["311", "311", 311]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -12185,7 +12197,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["311", "311", 311]
+      ["312", "312", 312]
     ],
     "source": "‘Abdu’l‑Bahá on Divine Philosophy (Boston: Tudor Press, 1918), pp. 111—12.",
     "years": [1892, 1921],
@@ -12288,7 +12300,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["312", "312", 312]
+      ["313", "313", 313]
     ],
     "source": "J. E. Esslemont, Bahá’u’lláh and the New Era: An Introduction to the Bahá’í Faith, 5th rev. ed., p. 250.",
     "years": [1892, 1921],
@@ -12340,7 +12352,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["313", "313", 313]
+      ["314", "314", 314]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -12466,7 +12478,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["314", "314", 314]
+      ["315", "315", 315]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -12478,7 +12490,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["315", "315", 315]
+      ["316", "316", 316]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -12521,7 +12533,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["316", "316", 316]
+      ["317", "317", 317]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -12589,7 +12601,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["317", "317", 317]
+      ["318", "318", 318]
     ],
     "source": "“Tablets of ‘Abdu’l‑Bahá Abbás”, vol. 3 (Chicago: Bahá’í Publishing Society, 1916), p. 508",
     "years": [1892, 1921],
@@ -12717,7 +12729,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["318", "318", 318]
+      ["319", "319", 319]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -12768,7 +12780,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["319", "319", 319]
+      ["320", "320", 320]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -12780,7 +12792,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["320", "320", 320]
+      ["321", "321", 321]
     ],
     "source": "Tablets of ‘Abdu’l‑Bahá Abbás, vol. 1",
     "years": [1892, 1921],
@@ -12846,7 +12858,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["321", "321", 321]
+      ["322", "322", 322]
     ],
     "source": "‘Abdu’l‑Bahá, cited in Bahíyyih Khánum: The Greatest Holy Leaf, p. 11",
     "years": [1892, 1921],
@@ -12860,7 +12872,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["322", "322", 322]
+      ["323", "323", 323]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -12885,7 +12897,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["323", "323", 323]
+      ["324", "324", 324]
     ],
     "source": "‘Abdu’l‑Bahá on Divine Philosophy (Boston: Tudor Press, 1918), pp. 131—32.",
     "years": [1892, 1921],
@@ -12925,7 +12937,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["324", "324", 324]
+      ["325", "325", 325]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -12950,7 +12962,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["325", "325", 325]
+      ["326", "326", 326]
     ],
     "source": "‘Abdu’l‑Bahá on Divine Philosophy (Boston: Tudor Press, 1918), pp. 125—26.",
     "years": [1892, 1921],
@@ -13053,7 +13065,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["326", "326", 326]
+      ["327", "327", 327]
     ],
     "source": "“Tablets of ‘Abdu’l‑Bahá Abbás”, vol. 2, p. 436",
     "years": [1892, 1921],
@@ -13118,7 +13130,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["327", "327", 327]
+      ["328", "328", 328]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -13143,7 +13155,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["328", "328", 328]
+      ["329", "329", 329]
     ],
     "source": "‘Abdu’l‑Bahá in London, pp. 102—03",
     "years": [1892, 1921],
@@ -13157,7 +13169,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["329", "329", 329]
+      ["330", "330", 330]
     ],
     "source": "‘Abdu’l‑Bahá, Bahá’í Scriptures: Selections from the Utterances of Bahá’u’lláh and ‘Abdu’l‑Bahá, no. 969, p. 503",
     "years": [1892, 1921],
@@ -13196,7 +13208,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["330", "330", 330]
+      ["331", "331", 331]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -13208,7 +13220,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["331", "331", 331]
+      ["332", "332", 332]
     ],
     "source": "‘Abdu’l‑Bahá, in Bahá’í Scriptures: Selections from the Utterances of Bahá’u’lláh and ‘Abdu’l‑Bahá, p. 479",
     "years": [1892, 1921],
@@ -13233,7 +13245,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["332", "332", 332]
+      ["333", "333", 333]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -13245,7 +13257,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["333", "333", 333]
+      ["334", "334", 334]
     ],
     "source": "Cited in the Advent of Divine Justice",
     "years": [1892, 1921],
@@ -13271,7 +13283,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["334", "334", 334]
+      ["335", "335", 335]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -13336,7 +13348,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["335", "335", 335]
+      ["336", "336", 336]
     ],
     "source": "Tablets of ‘Abdu’l‑Bahá Abbás (New York: Bahá’í Publishing Committee, 1916), vol. 3, p. 641",
     "years": [1892, 1921],
@@ -13362,7 +13374,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["336", "336", 336]
+      ["337", "337", 337]
     ],
     "source": "‘Abdu’l‑Bahá in London: Addresses and Notes of Conversations, pp. 19—20.",
     "years": [1892, 1921],
@@ -13389,7 +13401,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["337", "337", 337]
+      ["338", "338", 338]
     ],
     "source": "‘Abdu’l‑Bahá, cited in The Importance of the Arts in Promoting the Faith, no. 10, p. 6",
     "years": [1892, 1921],
@@ -13402,7 +13414,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["338", "338", 338]
+      ["339", "339", 339]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -13466,7 +13478,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["339", "339", 339]
+      ["340", "340", 340]
     ],
     "source": "“Star of the West”, vol. 9, no. 9 (20 August 1918), pp. 98—99",
     "years": [1892, 1921],
@@ -13479,7 +13491,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["340", "340", 340]
+      ["341", "341", 341]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -13491,7 +13503,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["341", "341", 341]
+      ["342", "342", 342]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -13568,7 +13580,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["342", "342", 342]
+      ["343", "343", 343]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -13681,7 +13693,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["343", "343", 343]
+      ["344", "344", 344]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -13693,7 +13705,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["344", "344", 344]
+      ["345", "345", 345]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -13770,7 +13782,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["345", "345", 345]
+      ["346", "346", 346]
     ],
     "source": "Tablets of ‘Abdu’l‑Bahá Abbás, vol. 3, p. 700",
     "years": [1892, 1921],
@@ -13887,7 +13899,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["346", "346", 346]
+      ["347", "347", 347]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -13953,7 +13965,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["347", "347", 347]
+      ["348", "348", 348]
     ],
     "source": "Tablets of ‘Abdu’l‑Bahá, volume III, pp. 722—3",
     "years": [1892, 1921],
@@ -13992,7 +14004,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["348", "348", 348]
+      ["349", "349", 349]
     ],
     "source": "‘Abdu’l‑Bahá on Divine Philosophy, pp. 77‑78",
     "years": [1892, 1921],
@@ -14044,7 +14056,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["349", "349", 349]
+      ["350", "350", 350]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -14161,7 +14173,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["350", "350", 350]
+      ["351", "351", 351]
     ],
     "source": "‘Abdu’l‑Bahá on Divine Philosophy (Boston: Tudor Press, 1918), p. 53.",
     "years": [1892, 1921],
@@ -14254,7 +14266,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["351", "351", 351]
+      ["352", "352", 352]
     ],
     "source": "Star of the West, vol. iii. [from report of remarks made aboard the S.S. Cedric on arrival in New York]",
     "years": [1892, 1921],
@@ -14396,7 +14408,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["352", "352", 352]
+      ["353", "353", 353]
     ],
     "source": "The Bahá’í World, vol. XV, op. cit., pp. 29, 36.",
     "years": [1892, 1921],
@@ -14422,7 +14434,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["353", "353", 353]
+      ["354", "354", 354]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -14460,7 +14472,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["354", "354", 354]
+      ["355", "355", 355]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -14559,7 +14571,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["355", "355", 355]
+      ["356", "356", 356]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -14622,7 +14634,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["356", "356", 356]
+      ["357", "357", 357]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -14648,7 +14660,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["357", "357", 357]
+      ["358", "358", 358]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -14688,7 +14700,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["358", "358", 358]
+      ["359", "359", 359]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -14930,7 +14942,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["359", "359", 359]
+      ["360", "360", 360]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -14981,7 +14993,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["360", "360", 360]
+      ["361", "361", 361]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -15006,7 +15018,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["361", "361", 361]
+      ["362", "362", 362]
     ],
     "source": "From a talk reported by Miss Ethel J. Rosenberg",
     "years": [1892, 1921],
@@ -15020,7 +15032,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["362", "362", 362]
+      ["363", "363", 363]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -15045,7 +15057,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["363", "363", 363]
+      ["364", "364", 364]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -15123,7 +15135,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["364", "364", 364]
+      ["365", "365", 365]
     ],
     "source": "From a talk reported by Miss Ethel J. Rosenberg",
     "years": [1892, 1921],
@@ -15189,7 +15201,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["365", "365", 365]
+      ["366", "366", 366]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -15201,7 +15213,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["366", "366", 366]
+      ["367", "367", 367]
     ],
     "source": "Article in Fortnightly Review, Jan.—June 1911, by Miss E. S. Stevens",
     "years": [1892, 1921],
@@ -15254,7 +15266,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["367", "367", 367]
+      ["368", "368", 368]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -15373,7 +15385,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["368", "368", 368]
+      ["369", "369", 369]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -15461,7 +15473,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["369", "369", 369]
+      ["370", "370", 370]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -15504,7 +15516,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["370", "370", 370]
+      ["371", "371", 371]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -15558,7 +15570,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["371", "371", 371]
+      ["372", "372", 372]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -15583,7 +15595,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["372", "372", 372]
+      ["373", "373", 373]
     ],
     "source": "To an American lady, in August 1912",
     "years": [1892, 1921],
@@ -15710,7 +15722,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["373", "373", 373]
+      ["374", "374", 374]
     ],
     "source": "Tablets of Abdu’l‑Bahá Abbás, vol. 2, p. 460",
     "years": [1892, 1921],
@@ -15823,7 +15835,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["374", "374", 374]
+      ["375", "375", 375]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -15847,7 +15859,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["375", "375", 375]
+      ["376", "376", 376]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -15859,7 +15871,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["376", "376", 376]
+      ["377", "377", 377]
     ],
     "source": "“‘Abdu’l‑Bahá in London: Addresses, and Notes of Conversations”, Commemorative ed., p. 106",
     "years": [1892, 1921],
@@ -16003,7 +16015,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["377", "377", 377]
+      ["378", "378", 378]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -16015,7 +16027,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["378", "378", 378]
+      ["379", "379", 379]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -16030,7 +16042,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["379", "379", 379]
+      ["380", "380", 380]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -16042,7 +16054,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["380", "380", 380]
+      ["381", "381", 381]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -16112,7 +16124,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["381", "381", 381]
+      ["382", "382", 382]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -16124,7 +16136,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["382", "382", 382]
+      ["383", "383", 383]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -16136,7 +16148,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["383", "383", 383]
+      ["384", "384", 384]
     ],
     "source": "‘Abdu’l‑Bahá on Divine Philosophy (Boston: Tudor Press, 1918), pp. 41—42.",
     "years": [1892, 1921],
@@ -16189,7 +16201,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["384", "384", 384]
+      ["385", "385", 385]
     ],
     "source": "Tablets of ‘Abdu’l‑Bahá Abbás (New York: Bahá’í Publishing Committee, 1915), vol. 2, pp. 392—93",
     "years": [1892, 1921],
@@ -16317,7 +16329,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["385", "385", 385]
+      ["386", "386", 386]
     ],
     "source": "From notes taken by Miss Ethel J. Rosenberg",
     "years": [1892, 1921],
@@ -16356,7 +16368,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["386", "386", 386]
+      ["387", "387", 387]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -16380,7 +16392,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["387", "387", 387]
+      ["388", "388", 388]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -16457,7 +16469,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["388", "388", 388]
+      ["389", "389", 389]
     ],
     "source": "Tablets of ‘Abdu’l‑Bahá Abbás (New York: Bahá’í Publishing Committee, 1909), vol. 1, p. 182",
     "years": [1892, 1921],
@@ -16471,7 +16483,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["389", "389", 389]
+      ["390", "390", 390]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -16516,7 +16528,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["390", "390", 390]
+      ["391", "391", 391]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -16567,7 +16579,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["391", "391", 391]
+      ["392", "392", 392]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -16593,7 +16605,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["392", "392", 392]
+      ["393", "393", 393]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -16618,7 +16630,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["393", "393", 393]
+      ["394", "394", 394]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -16631,7 +16643,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["394", "394", 394]
+      ["395", "395", 395]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -16658,7 +16670,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["395", "395", 395]
+      ["396", "396", 396]
     ],
     "source": "Tablets of ‘Abdu’l‑Bahá Abbás, vol. 1, p. 114",
     "years": [1892, 1921],
@@ -16697,7 +16709,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["396", "396", 396]
+      ["397", "397", 397]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -16716,7 +16728,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["397", "397", 397]
+      ["398", "398", 398]
     ],
     "source": "Cited in the Advent of Divine Justice",
     "years": [1892, 1921],
@@ -16743,7 +16755,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["398", "398", 398]
+      ["399", "399", 399]
     ],
     "source": "“Tablets of ‘Abdu’l‑Bahá Abbás”, vol. 2 (Chicago: Bahá’í Publishing Society, 1915), p. 374",
     "years": [1892, 1921],
@@ -16780,7 +16792,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["399", "399", 399]
+      ["400", "400", 400]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -16805,7 +16817,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["400", "400", 400]
+      ["401", "401", 401]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -16817,7 +16829,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["401", "401", 401]
+      ["402", "402", 402]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -16847,7 +16859,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["402", "402", 402]
+      ["403", "403", 403]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -16859,7 +16871,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["403", "403", 403]
+      ["404", "404", 404]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -16898,7 +16910,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["404", "404", 404]
+      ["405", "405", 405]
     ],
     "source": "“Star of the West”, vol. 9, no. 9 (20 August 1918), pp. 99—100",
     "years": [1892, 1921],
@@ -16911,7 +16923,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["405", "405", 405]
+      ["406", "406", 406]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -16975,7 +16987,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["406", "406", 406]
+      ["407", "407", 407]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -16987,7 +16999,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["407", "407", 407]
+      ["408", "408", 408]
     ],
     "source": "Diary of Mírzá Aḥmad Sohráb, January 1914",
     "years": [1892, 1921],
@@ -17000,7 +17012,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["408", "408", 408]
+      ["409", "409", 409]
     ],
     "source": "‘Abdu’l‑Bahá, cited in “Star of the West”, vol. IV, no. 14, November 1913, p. 237",
     "years": [1892, 1921],
@@ -17014,7 +17026,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["409", "409", 409]
+      ["410", "410", 410]
     ],
     "source": "Published in “Star of the West”, vol. 13, no. 5 (August 1922), p. 113",
     "years": [1892, 1921],
@@ -17091,7 +17103,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["410", "410", 410]
+      ["411", "411", 411]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -17142,7 +17154,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["411", "411", 411]
+      ["412", "412", 412]
     ],
     "source": "Tablets of ‘Abdu’l‑Bahá Abbás, vol. II (Chicago: Bahá’í Publishing Committee, 1940), pp. 318‑19",
     "years": [1892, 1921],
@@ -17209,7 +17221,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["412", "412", 412]
+      ["413", "413", 413]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -17274,7 +17286,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["413", "413", 413]
+      ["414", "414", 414]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -17289,7 +17301,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["414", "414", 414]
+      ["415", "415", 415]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -17332,7 +17344,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["415", "415", 415]
+      ["416", "416", 416]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -17345,7 +17357,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["416", "416", 416]
+      ["417", "417", 417]
     ],
     "source": "“Tablets of ‘Abdu’l‑Bahá Abbás”, vol. 1, p. 59",
     "years": [1892, 1921],
@@ -17436,7 +17448,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["417", "417", 417]
+      ["418", "418", 418]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -17461,7 +17473,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["418", "418", 418]
+      ["419", "419", 419]
     ],
     "source": "A talk given in November 1919",
     "years": [1892, 1921],
@@ -17523,7 +17535,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["419", "419", 419]
+      ["420", "420", 420]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -17548,7 +17560,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["420", "420", 420]
+      ["421", "421", 421]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -17599,7 +17611,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["421", "421", 421]
+      ["422", "422", 422]
     ],
     "source": "A letter to the Secretary of the Mohonk Conference on International Arbitration, in August 1911",
     "years": [1892, 1921],
@@ -17637,7 +17649,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["422", "422", 422]
+      ["423", "423", 423]
     ],
     "source": "‘Abdu’l‑Bahá in London, p. 91",
     "years": [1892, 1921],
@@ -17663,7 +17675,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["423", "423", 423]
+      ["424", "424", 424]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -17675,7 +17687,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["424", "424", 424]
+      ["425", "425", 425]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -17700,7 +17712,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["425", "425", 425]
+      ["426", "426", 426]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -17725,7 +17737,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["426", "426", 426]
+      ["427", "427", 427]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -17829,7 +17841,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["427", "427", 427]
+      ["428", "428", 428]
     ],
     "source": "Tablet to the Bahá’ís of America",
     "years": [1892, 1921],
@@ -17855,7 +17867,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["428", "428", 428]
+      ["429", "429", 429]
     ],
     "source": "Star of the West, vol. 2, no. 6 (24 June 1911), p. 5",
     "years": [1892, 1921],
@@ -18020,7 +18032,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["429", "429", 429]
+      ["430", "430", 430]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -18032,7 +18044,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["430", "430", 430]
+      ["431", "431", 431]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -18097,7 +18109,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["431", "431", 431]
+      ["432", "432", 432]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -18136,7 +18148,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["432", "432", 432]
+      ["433", "433", 433]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -18149,7 +18161,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["433", "433", 433]
+      ["434", "434", 434]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -18161,7 +18173,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["434", "434", 434]
+      ["435", "435", 435]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -18173,7 +18185,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["435", "435", 435]
+      ["436", "436", 436]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -18224,7 +18236,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["436", "436", 436]
+      ["437", "437", 437]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -18238,7 +18250,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["437", "437", 437]
+      ["438", "438", 438]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -18289,7 +18301,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["438", "438", 438]
+      ["439", "439", 439]
     ],
     "source": "Star of the West, vol. 2, no. 6 (24 June 1911), p. 5",
     "years": [1892, 1921],
@@ -18315,7 +18327,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["439", "439", 439]
+      ["440", "440", 440]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -18339,7 +18351,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["440", "440", 440]
+      ["441", "441", 441]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -18390,7 +18402,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["441", "441", 441]
+      ["442", "442", 442]
     ],
     "source": "“Star of the West”, vol. 4, no. 5 (5 June 1913), p. 88",
     "years": [1892, 1921],
@@ -18416,7 +18428,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["442", "442", 442]
+      ["443", "443", 443]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -18428,7 +18440,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["443", "443", 443]
+      ["444", "444", 444]
     ],
     "source": "Bahá’í World Faith: Selected Writings of Bahá’u’lláh and ‘Abdu’l‑Bahá, rev. ed., p. 378",
     "years": [1892, 1921],
@@ -18520,7 +18532,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["444", "444", 444]
+      ["445", "445", 445]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -18621,7 +18633,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["445", "445", 445]
+      ["446", "446", 446]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -18798,7 +18810,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["446", "446", 446]
+      ["447", "447", 447]
     ],
     "source": "Quoted by Miss E. S. Stevens in Fortnightly Review, June 1911",
     "years": [1892, 1921],
@@ -18824,7 +18836,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["447", "447", 447]
+      ["448", "448", 448]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -18836,7 +18848,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["448", "448", 448]
+      ["449", "449", 449]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -18848,7 +18860,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["449", "449", 449]
+      ["450", "450", 450]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -18860,7 +18872,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["450", "450", 450]
+      ["451", "451", 451]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -18940,7 +18952,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["451", "451", 451]
+      ["452", "452", 452]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -18952,7 +18964,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["452", "452", 452]
+      ["453", "453", 453]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -18989,7 +19001,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["453", "453", 453]
+      ["454", "454", 454]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -19002,7 +19014,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["454", "454", 454]
+      ["455", "455", 455]
     ],
     "source": "‘Abdu’l‑Bahá, cited in Bahá’u’lláh and the New Era: An Introduction to the Bahá’í Faith, p. 127",
     "years": [1892, 1921],
@@ -19015,7 +19027,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["455", "455", 455]
+      ["456", "456", 456]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -19067,7 +19079,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["456", "456", 456]
+      ["457", "457", 457]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -19079,7 +19091,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["457", "457", 457]
+      ["458", "458", 458]
     ],
     "source": "“Tablets of ‘Abdu’l‑Bahá Abbás”, vol. 1, p. 162; “Bahá’í World Faith: Selected Writings of Bahá’u’lláh and ‘Abdu’l‑Bahá”, [rev. ed.], p. 362",
     "years": [1892, 1921],
@@ -19106,7 +19118,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["458", "458", 458]
+      ["459", "459", 459]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -19208,7 +19220,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["459", "459", 459]
+      ["460", "460", 460]
     ],
     "source": "From a tablet to an American believer, translated by ‘Alí Kulí Khán, October 1908",
     "years": [1892, 1921],
@@ -19249,7 +19261,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["460", "460", 460]
+      ["461", "461", 461]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -19288,7 +19300,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["461", "461", 461]
+      ["462", "462", 462]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -19328,7 +19340,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["462", "462", 462]
+      ["463", "463", 463]
     ],
     "source": "‘Abdu’l‑Bahá, cited in “Star of the West”, vol. 8, no. 3 (April 1917), p. 37",
     "years": [1892, 1921],
@@ -19431,7 +19443,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["463", "463", 463]
+      ["464", "464", 464]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -19476,7 +19488,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["464", "464", 464]
+      ["465", "465", 465]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -19488,7 +19500,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["465", "465", 465]
+      ["466", "466", 466]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -19517,7 +19529,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["466", "466", 466]
+      ["467", "467", 467]
     ],
     "source": "Talk in the United States in 1912",
     "years": [1892, 1921],
@@ -19533,7 +19545,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["467", "467", 467]
+      ["468", "468", 468]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -19563,7 +19575,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["468", "468", 468]
+      ["469", "469", 469]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -19577,7 +19589,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["469", "469", 469]
+      ["470", "470", 470]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -19603,7 +19615,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["470", "470", 470]
+      ["471", "471", 471]
     ],
     "source": "Makátíb‑i‑‘Abdu’l‑Bahá (Tablets of ‘Abdu’l‑Bahá), vol. 4, pp. 132—134, provisional translation.",
     "years": [1892, 1921],
@@ -19618,7 +19630,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["471", "471", 471]
+      ["472", "472", 472]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -19631,7 +19643,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["472", "472", 472]
+      ["473", "473", 473]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -19644,7 +19656,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["473", "473", 473]
+      ["474", "474", 474]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -19684,7 +19696,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["474", "474", 474]
+      ["475", "475", 475]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -19723,7 +19735,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["475", "475", 475]
+      ["476", "476", 476]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -19748,7 +19760,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["476", "476", 476]
+      ["477", "477", 477]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -19774,7 +19786,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["477", "477", 477]
+      ["478", "478", 478]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -19801,7 +19813,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["478", "478", 478]
+      ["479", "479", 479]
     ],
     "source": "Cited in “Bahá’í News” [“Star of the West”], vol. 1, no. 10 (8 September 1910), pp. 1—2",
     "years": [1892, 1921],
@@ -19826,7 +19838,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["479", "479", 479]
+      ["480", "480", 480]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -19893,7 +19905,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["480", "480", 480]
+      ["481", "481", 481]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -19918,7 +19930,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["481", "481", 481]
+      ["482", "482", 482]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -19997,7 +20009,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["482", "482", 482]
+      ["483", "483", 483]
     ],
     "source": "Tablets of ‘Abdu’l‑Bahá Abbás (New York: Bahá’í Publishing Committee), volume III, pages 557 and 558",
     "years": [1892, 1921],
@@ -20011,7 +20023,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["483", "483", 483]
+      ["484", "484", 484]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -20037,7 +20049,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["484", "484", 484]
+      ["485", "485", 485]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -20117,7 +20129,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["485", "485", 485]
+      ["486", "486", 486]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -20143,7 +20155,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["486", "486", 486]
+      ["487", "487", 487]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -20169,7 +20181,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["487", "487", 487]
+      ["488", "488", 488]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -20222,7 +20234,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["488", "488", 488]
+      ["489", "489", 489]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -20247,7 +20259,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["489", "489", 489]
+      ["490", "490", 490]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -20276,7 +20288,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["490", "490", 490]
+      ["491", "491", 491]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -20330,7 +20342,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["491", "491", 491]
+      ["492", "492", 492]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -20353,7 +20365,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["492", "492", 492]
+      ["493", "493", 493]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -20365,7 +20377,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["493", "493", 493]
+      ["494", "494", 494]
     ],
     "source": "“Star of the West”, vol. 9, no. 9 (20 August 1918), p. 98",
     "years": [1892, 1921],
@@ -20470,7 +20482,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["494", "494", 494]
+      ["495", "495", 495]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -20495,7 +20507,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["495", "495", 495]
+      ["496", "496", 496]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -20507,7 +20519,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["496", "496", 496]
+      ["497", "497", 497]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -20519,7 +20531,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["497", "497", 497]
+      ["498", "498", 498]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -20598,7 +20610,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["498", "498", 498]
+      ["499", "499", 499]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -20623,7 +20635,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["499", "499", 499]
+      ["500", "500", 500]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -20725,7 +20737,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["500", "500", 500]
+      ["501", "501", 501]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -20739,7 +20751,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["501", "501", 501]
+      ["502", "502", 502]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -20764,7 +20776,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["502", "502", 502]
+      ["503", "503", 503]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -20800,7 +20812,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["503", "503", 503]
+      ["504", "504", 504]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -20813,7 +20825,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["504", "504", 504]
+      ["505", "505", 505]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -20857,7 +20869,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["505", "505", 505]
+      ["506", "506", 506]
     ],
     "source": "“Star of the West”, vol. 8, no. 6 (24 June 1917), p. 68",
     "years": [1892, 1921],
@@ -20913,7 +20925,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["506", "506", 506]
+      ["507", "507", 507]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -20938,7 +20950,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["507", "507", 507]
+      ["508", "508", 508]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -20964,7 +20976,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["508", "508", 508]
+      ["509", "509", 509]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -21003,7 +21015,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["509", "509", 509]
+      ["510", "510", 510]
     ],
     "source": "Written for Bahá’u’lláh and the New Era",
     "years": [1892, 1921],
@@ -21029,7 +21041,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["510", "510", 510]
+      ["511", "511", 511]
     ],
     "source": "“Star of the West”. vol. 7, no. 14 (November 1916), p. 136",
     "years": [1892, 1921],
@@ -21057,7 +21069,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["511", "511", 511]
+      ["512", "512", 512]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -21124,7 +21136,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["512", "512", 512]
+      ["513", "513", 513]
     ],
     "source": "Extract from a talk of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -21136,7 +21148,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["513", "513", 513]
+      ["514", "514", 514]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -21190,7 +21202,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["514", "514", 514]
+      ["515", "515", 515]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -21227,7 +21239,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["515", "515", 515]
+      ["516", "516", 516]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -21306,7 +21318,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["516", "516", 516]
+      ["517", "517", 517]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -21322,7 +21334,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["517", "517", 517]
+      ["518", "518", 518]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -21340,7 +21352,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["518", "518", 518]
+      ["519", "519", 519]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -21354,7 +21366,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["519", "519", 519]
+      ["520", "520", 520]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -21450,7 +21462,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["520", "520", 520]
+      ["521", "521", 521]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -21502,7 +21514,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["521", "521", 521]
+      ["522", "522", 522]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -21517,7 +21529,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["522", "522", 522]
+      ["523", "523", 523]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -21553,7 +21565,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["523", "523", 523]
+      ["524", "524", 524]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -21602,7 +21614,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["524", "524", 524]
+      ["525", "525", 525]
     ],
     "source": "Extract from a talk of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -21683,7 +21695,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["525", "525", 525]
+      ["526", "526", 526]
     ],
     "source": "Diary of Mírzá Aḥmad Sohráb, 1914",
     "years": [1892, 1921],
@@ -21736,7 +21748,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["526", "526", 526]
+      ["527", "527", 527]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -21748,7 +21760,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["527", "527", 527]
+      ["528", "528", 528]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -21789,7 +21801,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["528", "528", 528]
+      ["529", "529", 529]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -21816,7 +21828,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["529", "529", 529]
+      ["530", "530", 530]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -21829,7 +21841,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["530", "530", 530]
+      ["531", "531", 531]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -21927,7 +21939,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["531", "531", 531]
+      ["532", "532", 532]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -22020,7 +22032,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["532", "532", 532]
+      ["533", "533", 533]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -22061,7 +22073,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["533", "533", 533]
+      ["534", "534", 534]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -22131,7 +22143,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["534", "534", 534]
+      ["535", "535", 535]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -22157,7 +22169,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["535", "535", 535]
+      ["536", "536", 536]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -22169,7 +22181,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["536", "536", 536]
+      ["537", "537", 537]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -22197,7 +22209,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["537", "537", 537]
+      ["538", "538", 538]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -22235,7 +22247,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["538", "538", 538]
+      ["539", "539", 539]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -22272,7 +22284,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["539", "539", 539]
+      ["540", "540", 540]
     ],
     "source": "A talk on the Feast of Naw‑Rúz, in Alexandria, Egypt, in 1912",
     "years": [1892, 1921],
@@ -22289,7 +22301,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["540", "540", 540]
+      ["541", "541", 541]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -22317,7 +22329,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["541", "541", 541]
+      ["542", "542", 542]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -22330,7 +22342,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["542", "542", 542]
+      ["543", "543", 543]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -22347,7 +22359,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["543", "543", 543]
+      ["544", "544", 544]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -22563,7 +22575,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["544", "544", 544]
+      ["545", "545", 545]
     ],
     "source": "Tablets of ‘Abdu’l‑Bahá Abbás, volume III, pages 503 and 504",
     "years": [1892, 1921],
@@ -22619,7 +22631,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["545", "545", 545]
+      ["546", "546", 546]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -22714,7 +22726,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["546", "546", 546]
+      ["547", "547", 547]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -22821,7 +22833,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["547", "547", 547]
+      ["548", "548", 548]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -22874,7 +22886,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["548", "548", 548]
+      ["549", "549", 549]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -22988,7 +23000,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["549", "549", 549]
+      ["550", "550", 550]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -23014,7 +23026,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["550", "550", 550]
+      ["551", "551", 551]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -23027,7 +23039,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["551", "551", 551]
+      ["552", "552", 552]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -23053,7 +23065,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["552", "552", 552]
+      ["553", "553", 553]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -23066,7 +23078,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["553", "553", 553]
+      ["554", "554", 554]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -23078,7 +23090,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["554", "554", 554]
+      ["555", "555", 555]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -23105,7 +23117,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["555", "555", 555]
+      ["556", "556", 556]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -23190,7 +23202,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["556", "556", 556]
+      ["557", "557", 557]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -23204,7 +23216,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["557", "557", 557]
+      ["558", "558", 558]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -23246,7 +23258,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["558", "558", 558]
+      ["559", "559", 559]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -23291,7 +23303,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["559", "559", 559]
+      ["560", "560", 560]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -23336,7 +23348,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["560", "560", 560]
+      ["561", "561", 561]
     ],
     "source": "“Tablets of ‘Abdu’l‑Bahá Abbás”, vol. 2, pp. 442—443",
     "years": [1892, 1921],
@@ -23363,7 +23375,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["561", "561", 561]
+      ["562", "562", 562]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -23448,7 +23460,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["562", "562", 562]
+      ["563", "563", 563]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -23460,7 +23472,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["563", "563", 563]
+      ["564", "564", 564]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -23490,7 +23502,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["564", "564", 564]
+      ["565", "565", 565]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -23597,7 +23609,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["565", "565", 565]
+      ["566", "566", 566]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -23616,7 +23628,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["566", "566", 566]
+      ["567", "567", 567]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -23644,7 +23656,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["567", "567", 567]
+      ["568", "568", 568]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -23681,7 +23693,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["568", "568", 568]
+      ["569", "569", 569]
     ],
     "source": "From a talk to Mr. Percy Woodcock, at ‘Akká, 1909",
     "years": [1892, 1921],
@@ -23724,7 +23736,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["569", "569", 569]
+      ["570", "570", 570]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -23756,7 +23768,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["570", "570", 570]
+      ["571", "571", 571]
     ],
     "source": "A meeting of the Women’s Freedom League in London in January 1913",
     "years": [1892, 1921],
@@ -23784,7 +23796,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["571", "571", 571]
+      ["572", "572", 572]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -23809,7 +23821,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["572", "572", 572]
+      ["573", "573", 573]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -23830,7 +23842,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["573", "573", 573]
+      ["574", "574", 574]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -23876,7 +23888,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["574", "574", 574]
+      ["575", "575", 575]
     ],
     "years": [1892, 1921],
     "content": [
@@ -23904,7 +23916,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["575", "575", 575]
+      ["576", "576", 576]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -23919,7 +23931,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["576", "576", 576]
+      ["577", "577", 577]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -23946,7 +23958,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["577", "577", 577]
+      ["578", "578", 578]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -23973,7 +23985,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["578", "578", 578]
+      ["579", "579", 579]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -24025,7 +24037,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["579", "579", 579]
+      ["580", "580", 580]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -24077,7 +24089,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["580", "580", 580]
+      ["581", "581", 581]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -24090,7 +24102,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["581", "581", 581]
+      ["582", "582", 582]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -24102,7 +24114,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["582", "582", 582]
+      ["583", "583", 583]
     ],
     "source": "Tablets of ‘Abdu’l‑Bahá Abbás, vol. 3 (Chicago: Bahá’í Publishing Society, 1916), p. 690",
     "years": [1892, 1921],
@@ -24119,7 +24131,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["583", "583", 583]
+      ["584", "584", 584]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -24146,7 +24158,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["584", "584", 584]
+      ["585", "585", 585]
     ],
     "source": "Extract from a talk of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -24160,7 +24172,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["585", "585", 585]
+      ["586", "586", 586]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -24177,7 +24189,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["586", "586", 586]
+      ["587", "587", 587]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -24193,7 +24205,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["587", "587", 587]
+      ["588", "588", 588]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -24245,7 +24257,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["588", "588", 588]
+      ["589", "589", 589]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -24270,7 +24282,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["589", "589", 589]
+      ["590", "590", 590]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -24300,7 +24312,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["590", "590", 590]
+      ["591", "591", 591]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -24431,7 +24443,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["591", "591", 591]
+      ["592", "592", 592]
     ],
     "source": "Talk at Dublin, New Hampshire, in 1912",
     "years": [1892, 1921],
@@ -24445,7 +24457,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["592", "592", 592]
+      ["593", "593", 593]
     ],
     "years": [1892, 1921],
     "content": [
@@ -24608,7 +24620,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["593", "593", 593]
+      ["594", "594", 594]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -24640,7 +24652,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["594", "594", 594]
+      ["595", "595", 595]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -24680,7 +24692,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["595", "595", 595]
+      ["596", "596", 596]
     ],
     "source": "Star of the West, vol. 4, no. 15 (12 December 1913), p. 256",
     "years": [1892, 1921],
@@ -24737,7 +24749,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["596", "596", 596]
+      ["597", "597", 597]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -24763,7 +24775,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["597", "597", 597]
+      ["598", "598", 598]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -24775,7 +24787,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["598", "598", 598]
+      ["599", "599", 599]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -24809,7 +24821,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["599", "599", 599]
+      ["600", "600", 600]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -24828,7 +24840,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["600", "600", 600]
+      ["601", "601", 601]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -24898,7 +24910,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["601", "601", 601]
+      ["602", "602", 602]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -24926,7 +24938,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["602", "602", 602]
+      ["603", "603", 603]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -24999,7 +25011,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["603", "603", 603]
+      ["604", "604", 604]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -25018,7 +25030,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["604", "604", 604]
+      ["605", "605", 605]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -25049,7 +25061,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["605", "605", 605]
+      ["606", "606", 606]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -25081,7 +25093,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["606", "606", 606]
+      ["607", "607", 607]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -25148,7 +25160,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["607", "607", 607]
+      ["608", "608", 608]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -25192,7 +25204,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["608", "608", 608]
+      ["609", "609", 609]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -25205,7 +25217,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["609", "609", 609]
+      ["610", "610", 610]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -25222,7 +25234,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["610", "610", 610]
+      ["611", "611", 611]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -25321,7 +25333,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["611", "611", 611]
+      ["612", "612", 612]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -25342,7 +25354,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["612", "612", 612]
+      ["613", "613", 613]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -25362,7 +25374,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["613", "613", 613]
+      ["614", "614", 614]
     ],
     "source": "Extract from a talk of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -25456,7 +25468,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["614", "614", 614]
+      ["615", "615", 615]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -25474,7 +25486,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["615", "615", 615]
+      ["616", "616", 616]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -25486,7 +25498,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["616", "616", 616]
+      ["617", "617", 617]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -25498,7 +25510,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["617", "617", 617]
+      ["618", "618", 618]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -25512,7 +25524,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["618", "618", 618]
+      ["619", "619", 619]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -25637,7 +25649,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["619", "619", 619]
+      ["620", "620", 620]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -25650,7 +25662,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["620", "620", 620]
+      ["621", "621", 621]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -25684,7 +25696,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["621", "621", 621]
+      ["622", "622", 622]
     ],
     "source": "Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -25728,7 +25740,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["622", "622", 622]
+      ["623", "623", 623]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -25745,7 +25757,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["623", "623", 623]
+      ["624", "624", 624]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -25827,7 +25839,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["624", "624", 624]
+      ["625", "625", 625]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -25841,7 +25853,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["625", "625", 625]
+      ["626", "626", 626]
     ],
     "source": "‘Abdu’l‑Bahá on Divine Philosophy (Boston: Tudor Press, 1918), pp. 86—88",
     "years": [1892, 1921],
@@ -25858,7 +25870,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["626", "626", 626]
+      ["627", "627", 627]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -25887,7 +25899,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["627", "627", 627]
+      ["628", "628", 628]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -25900,7 +25912,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["628", "628", 628]
+      ["629", "629", 629]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -25926,7 +25938,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["629", "629", 629]
+      ["630", "630", 630]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -25946,7 +25958,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["630", "630", 630]
+      ["631", "631", 631]
     ],
     "source": "Extracts from interview with newspaper reporter, quoted in “‘Abdu’l‑Bahá in Canada”, pp. 34‑35",
     "years": [1892, 1921],
@@ -25969,7 +25981,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["631", "631", 631]
+      ["632", "632", 632]
     ],
     "source": "A meeting of the Women’s Freedom League in London in January 1913",
     "years": [1892, 1921],
@@ -25997,7 +26009,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["632", "632", 632]
+      ["633", "633", 633]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -26108,7 +26120,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["633", "633", 633]
+      ["634", "634", 634]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -26180,7 +26192,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["634", "634", 634]
+      ["635", "635", 635]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -26233,7 +26245,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["635", "635", 635]
+      ["636", "636", 636]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -26269,7 +26281,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["636", "636", 636]
+      ["637", "637", 637]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -26299,7 +26311,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["637", "637", 637]
+      ["638", "638", 638]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -26342,7 +26354,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["638", "638", 638]
+      ["639", "639", 639]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -26365,7 +26377,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["639", "639", 639]
+      ["640", "640", 640]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -26393,7 +26405,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["640", "640", 640]
+      ["641", "641", 641]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -26413,7 +26425,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["641", "641", 641]
+      ["642", "642", 642]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -26448,7 +26460,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["642", "642", 642]
+      ["643", "643", 643]
     ],
     "source": "Interview with ‘Abdu’l‑Bahá, 26 November 1919, note in the handwriting of Shoghi Effendi circa 1920. Questions posed in a letter from George O. Latimer, undated",
     "years": [1892, 1921],
@@ -26499,7 +26511,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["643", "643", 643]
+      ["644", "644", 644]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -26527,7 +26539,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["644", "644", 644]
+      ["645", "645", 645]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -26616,7 +26628,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["645", "645", 645]
+      ["646", "646", 646]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -26670,7 +26682,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["646", "646", 646]
+      ["647", "647", 647]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -26715,7 +26727,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["647", "647", 647]
+      ["648", "648", 648]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -26853,7 +26865,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["648", "648", 648]
+      ["649", "649", 649]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -26911,7 +26923,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["649", "649", 649]
+      ["650", "650", 650]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -26943,7 +26955,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["650", "650", 650]
+      ["651", "651", 651]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -26999,7 +27011,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["651", "651", 651]
+      ["652", "652", 652]
     ],
     "source": "Words of ‘Abdu’l‑Bahá at Haifa on February 14, 1914, recorded in the of Diary of Mírzá Aḥmad Sohráb",
     "years": [1892, 1921],
@@ -27104,7 +27116,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["652", "652", 652]
+      ["653", "653", 653]
     ],
     "source": "Makátíb‑i‑‘Abdu’l‑Bahá, Vol. III, pp. 500—501",
     "years": [1892, 1921],
@@ -27139,7 +27151,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["653", "653", 653]
+      ["654", "654", 654]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -27191,7 +27203,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["654", "654", 654]
+      ["655", "655", 655]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -27225,7 +27237,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["655", "655", 655]
+      ["656", "656", 656]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -27277,7 +27289,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["656", "656", 656]
+      ["657", "657", 657]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -27292,7 +27304,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["657", "657", 657]
+      ["658", "658", 658]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -27358,7 +27370,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["658", "658", 658]
+      ["659", "659", 659]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -27426,7 +27438,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["659", "659", 659]
+      ["660", "660", 660]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -27454,7 +27466,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["660", "660", 660]
+      ["661", "661", 661]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -27491,7 +27503,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["661", "661", 661]
+      ["662", "662", 662]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -27608,7 +27620,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["662", "662", 662]
+      ["663", "663", 663]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -27688,7 +27700,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["663", "663", 663]
+      ["664", "664", 664]
     ],
     "source": "An Esperanto banquet given in Paris in February 1913",
     "years": [1892, 1921],
@@ -27740,7 +27752,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["664", "664", 664]
+      ["665", "665", 665]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -27799,7 +27811,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["665", "665", 665]
+      ["666", "666", 666]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -27823,7 +27835,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["666", "666", 666]
+      ["667", "667", 667]
     ],
     "source": "“Table Talk”, Acca, July 1909, quoted in “Herald of the South”, pp. 2—3",
     "years": [1892, 1921],
@@ -27838,7 +27850,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["667", "667", 667]
+      ["668", "668", 668]
     ],
     "source": "Extract from a Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -27858,7 +27870,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["668", "668", 668]
+      ["669", "669", 669]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -28035,7 +28047,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["669", "669", 669]
+      ["670", "670", 670]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -28054,7 +28066,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["670", "670", 670]
+      ["671", "671", 671]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -28114,7 +28126,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["671", "671", 671]
+      ["672", "672", 672]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -28135,7 +28147,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["672", "672", 672]
+      ["673", "673", 673]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -28250,7 +28262,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["673", "673", 673]
+      ["674", "674", 674]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -28292,7 +28304,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["674", "674", 674]
+      ["675", "675", 675]
     ],
     "source": "“Star of the West”, vol. 5, no. 8 (August 1914), pp. 115‑117",
     "years": [1892, 1921],
@@ -28311,7 +28323,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["675", "675", 675]
+      ["676", "676", 676]
     ],
     "source": "‘Abdu’l‑Bahá’s words to Mrs. Mary L. Lucas, as quoted in “A Brief Account of My Visit to Acca”, pp. 11—14",
     "years": [1892, 1921],
@@ -28335,7 +28347,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["676", "676", 676]
+      ["677", "677", 677]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -28354,7 +28366,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["677", "677", 677]
+      ["678", "678", 678]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -28375,7 +28387,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["678", "678", 678]
+      ["679", "679", 679]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -28431,7 +28443,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["679", "679", 679]
+      ["680", "680", 680]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -28471,7 +28483,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["680", "680", 680]
+      ["681", "681", 681]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -28502,7 +28514,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["681", "681", 681]
+      ["682", "682", 682]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -28538,7 +28550,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["682", "682", 682]
+      ["683", "683", 683]
     ],
     "source": "A talk of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -28615,7 +28627,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["683", "683", 683]
+      ["684", "684", 684]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -28646,7 +28658,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["684", "684", 684]
+      ["685", "685", 685]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -28674,7 +28686,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["685", "685", 685]
+      ["686", "686", 686]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],
@@ -28755,7 +28767,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["686", "686", 686]
+      ["687", "687", 687]
     ],
     "years": [1892, 1921],
     "additional": true,
@@ -28772,7 +28784,7 @@
     "path": [
       ["‘Abdu’l‑Bahá", "abdul-baha", 3],
       ["Additional", "additional", 0],
-      ["687", "687", 687]
+      ["688", "688", 688]
     ],
     "source": "A Tablet of ‘Abdu’l‑Bahá",
     "years": [1892, 1921],

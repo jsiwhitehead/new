@@ -1338,6 +1338,67 @@ const sources: Record<
     additional: [],
   },
   "shoghi-effendi": {
+    "world-order-bahaullah": [
+      ["Selected Letters", ""],
+      ["by Shoghi Effendi", ""],
+      ["— Bahá’u’lláh", ""],
+      ["The World Order of Bahá’u’lláh Further Considerations", ""],
+      ["The Goal of a New World Order", ""],
+      ["The Golden Age of the Cause of Bahá’u’lláh", ""],
+      ["America and the Most Great Peace", ""],
+      ["The Unfoldment of World Civilisation", ""],
+      [/\*\*\*/g, ""],
+      removeAfter("Notes"),
+      title("", "The World Order of Bahá’u’lláh", {
+        author: "Shoghi Effendi",
+        years: [1938, 1938],
+      }),
+      [
+        "\nThe World Order of Bahá’u’lláh",
+        '\n# The World Order of Bahá’u’lláh\ndate="27 February 1929"',
+      ],
+      [
+        "\nThe World Order of Bahá’u’lláh: Further Considerations",
+        '\n# The World Order of Bahá’u’lláh: Further Considerations\ndate="21 March 1930"',
+      ],
+      [
+        "\nThe Goal of a New World Order",
+        '\n# The Goal of a New World Order\ndate="28 November 1931"',
+      ],
+      [
+        "\nThe Golden Age of the Cause of Bahá’u’lláh",
+        '\n# The Golden Age of the Cause of Bahá’u’lláh\ndate="21 March 1932"',
+      ],
+      [
+        "\nAmerica and the Most Great Peace",
+        '\n# America and the Most Great Peace\ndate="21 April 1933"',
+      ],
+      [
+        "\nThe Dispensation of Bahá’u’lláh",
+        '\n# The Dispensation of Bahá’u’lláh\ndate="8 February 1934"',
+      ],
+      title("##", "Bahá’u’lláh"),
+      title("##", "The Báb"),
+      title("##", "‘Abdu’l‑Bahá"),
+      title("##", "The Administrative Order"),
+      [
+        "\nThe Unfoldment of World Civilisation",
+        '\n# The Unfoldment of World Civilisation\ndate="11 March 1936"',
+      ],
+      [/^[A-Z].{1,80}[a-z]$/gm, (a) => `## ${a}`],
+      ["## The World Order of Bahá’u’lláh", "The World Order of Bahá’u’lláh"],
+      [/"\n+(T.*)\n+(.*)/g, (_, a, b) => `"\n\n@ ${a}\n\n@ ${b}`],
+      [/^(To the beloved.*)\n+(.*)/m, (_, a, b) => `@ ${a}\n\n@ ${b}`],
+      prefix(/^Fellow‑believers in/m, "@ "),
+      [
+        /^([A-Z].{0,50}\n\n){1,3}(# |$)/gm,
+        (a) =>
+          a
+            .split(/\n\n/)
+            .map((s) => (!s.trim() || s.startsWith("#") ? s : `@ ${s}`))
+            .join("\n\n"),
+      ],
+    ],
     "advent-divine-justice": [
       removeAfter("Shoghi"),
       ["by Shoghi Effendi", ""],
@@ -1357,6 +1418,36 @@ const sources: Record<
         "thy God, the Lord of all worlds.",
         "thy God, the Lord of all worlds. . . .",
       ],
+    ],
+    "promised-day-come": [
+      ["By Shoghi Effendi", ""],
+      ["Shoghi", ""],
+      ["The Promised Day is Come", ""],
+      removeAfter("Haifa, Palestine March 28, 1941"),
+      title("", "The Promised Day Is Come", {
+        author: "Shoghi Effendi",
+        years: [1941.0328, 1941.0328],
+      }),
+      [/^[A-Z].{1,80}[a-z?]$/gm, (a) => `# ${a}`],
+      ["# The Promised Day Is Come", "The Promised Day Is Come"],
+      prefix(/^Friends and fellow‑heirs/m, "@ "),
+    ],
+    "god-passes-by": [
+      [/^Shoghi Effendi[\s\S]*Foreword$/m, "Foreword"],
+      removeAfter("[END]"),
+      title("", "God Passes By", {
+        author: "Shoghi Effendi",
+        years: [1944, 1944],
+      }),
+      title("#", "Foreword"),
+      title("#", "Retrospect and Prospect"),
+      [
+        /^((?:First|Second|Third|Fourth) Period) (.*)\n\n(.*)/gm,
+        (_, a, b, c) => `# ${a}: ${b} (${c})`,
+      ],
+      [/^‑ .* ‑$\n\n/gm, "## "],
+      ["doth not matter. It behoveth", "doth not matter. . . . It behoveth"],
+      ["honoured servants. Pointing", "honoured servants. . . . Pointing"],
     ],
     "bahai-administration": [
       ["Shoghi Effendi", ""],
@@ -1435,6 +1526,34 @@ const sources: Record<
       ["supreme victory:—‘O God", "supreme victory: . . . ‘O God"],
       removeAfter("## 16 March 1933"),
     ],
+    "decisive-hour": [
+      [/^Messages from Shoghi Effendi to.*/m, ""],
+      ["Shoghi Effendi", ""],
+      removeAfter("Notes"),
+      title("", "This Decisive Hour", {
+        author: "Shoghi Effendi",
+        years: [1932, 1946],
+      }),
+      [/^— .* —$\n\n/gm, "# "],
+      [
+        /^(#.+)(\n\n[^#].+)*?\n\n([\[\d].+)/gm,
+        (_, a, b, c) => {
+          const [dd, mm, yy] = c.replace(/\[|\]|circa /g, "").split(/ /g);
+          const date = `${yy}.${`${months.indexOf(mm) + 1}`.padStart(
+            2,
+            "0"
+          )}${dd.padStart(2, "0")}`;
+          return `# ${dd} ${mm} ${yy}\nyears=[${date},${date}]\nsummary="${a.slice(
+            2
+          )}"${b || ""}`;
+        },
+      ],
+      prefix(/^Message to/gm, "@ "),
+      [/^## 18 November 1944$/m, "## 18 November 1944 (1)"],
+      [/^## 18 November 1944$/m, "## 18 November 1944 (2)"],
+      [/^## 2 October 1939$/m, "## 2 October 1939 (1)"],
+      [/^## 2 October 1939$/m, "## 2 October 1939 (2)"],
+    ],
     "citadel-faith": [
       ["Messages to America 1947—1957", ""],
       ["Shoghi Effendi", ""],
@@ -1471,125 +1590,6 @@ const sources: Record<
       [/##\s*$/, ""],
       [/^## 17 January 1951$/m, "## 17 January 1951 (1)"],
       [/^## 17 January 1951$/m, "## 17 January 1951 (2)"],
-    ],
-    "god-passes-by": [
-      [/^Shoghi Effendi[\s\S]*Foreword$/m, "Foreword"],
-      removeAfter("[END]"),
-      title("", "God Passes By", {
-        author: "Shoghi Effendi",
-        years: [1944, 1944],
-      }),
-      title("#", "Foreword"),
-      title("#", "Retrospect and Prospect"),
-      [
-        /^((?:First|Second|Third|Fourth) Period) (.*)\n\n(.*)/gm,
-        (_, a, b, c) => `# ${a}: ${b} (${c})`,
-      ],
-      [/^‑ .* ‑$\n\n/gm, "## "],
-      ["doth not matter. It behoveth", "doth not matter. . . . It behoveth"],
-      ["honoured servants. Pointing", "honoured servants. . . . Pointing"],
-    ],
-    "promised-day-come": [
-      ["By Shoghi Effendi", ""],
-      ["Shoghi", ""],
-      ["The Promised Day is Come", ""],
-      removeAfter("Haifa, Palestine March 28, 1941"),
-      title("", "The Promised Day Is Come", {
-        author: "Shoghi Effendi",
-        years: [1941.0328, 1941.0328],
-      }),
-      [/^[A-Z].{1,80}[a-z?]$/gm, (a) => `# ${a}`],
-      ["# The Promised Day Is Come", "The Promised Day Is Come"],
-      prefix(/^Friends and fellow‑heirs/m, "@ "),
-    ],
-    "decisive-hour": [
-      [/^Messages from Shoghi Effendi to.*/m, ""],
-      ["Shoghi Effendi", ""],
-      removeAfter("Notes"),
-      title("", "This Decisive Hour", {
-        author: "Shoghi Effendi",
-        years: [1932, 1946],
-      }),
-      [/^— .* —$\n\n/gm, "# "],
-      [
-        /^(#.+)(\n\n[^#].+)*?\n\n([\[\d].+)/gm,
-        (_, a, b, c) => {
-          const [dd, mm, yy] = c.replace(/\[|\]|circa /g, "").split(/ /g);
-          const date = `${yy}.${`${months.indexOf(mm) + 1}`.padStart(
-            2,
-            "0"
-          )}${dd.padStart(2, "0")}`;
-          return `# ${dd} ${mm} ${yy}\nyears=[${date},${date}]\nsummary="${a.slice(
-            2
-          )}"${b || ""}`;
-        },
-      ],
-      prefix(/^Message to/gm, "@ "),
-      [/^## 18 November 1944$/m, "## 18 November 1944 (1)"],
-      [/^## 18 November 1944$/m, "## 18 November 1944 (2)"],
-      [/^## 2 October 1939$/m, "## 2 October 1939 (1)"],
-      [/^## 2 October 1939$/m, "## 2 October 1939 (2)"],
-    ],
-    "world-order-bahaullah": [
-      ["Selected Letters", ""],
-      ["by Shoghi Effendi", ""],
-      ["— Bahá’u’lláh", ""],
-      ["The World Order of Bahá’u’lláh Further Considerations", ""],
-      ["The Goal of a New World Order", ""],
-      ["The Golden Age of the Cause of Bahá’u’lláh", ""],
-      ["America and the Most Great Peace", ""],
-      ["The Unfoldment of World Civilisation", ""],
-      [/\*\*\*/g, ""],
-      removeAfter("Notes"),
-      title("", "The World Order of Bahá’u’lláh", {
-        author: "Shoghi Effendi",
-        years: [1938, 1938],
-      }),
-      [
-        "\nThe World Order of Bahá’u’lláh",
-        '\n# The World Order of Bahá’u’lláh\ndate="27 February 1929"',
-      ],
-      [
-        "\nThe World Order of Bahá’u’lláh: Further Considerations",
-        '\n# The World Order of Bahá’u’lláh: Further Considerations\ndate="21 March 1930"',
-      ],
-      [
-        "\nThe Goal of a New World Order",
-        '\n# The Goal of a New World Order\ndate="28 November 1931"',
-      ],
-      [
-        "\nThe Golden Age of the Cause of Bahá’u’lláh",
-        '\n# The Golden Age of the Cause of Bahá’u’lláh\ndate="21 March 1932"',
-      ],
-      [
-        "\nAmerica and the Most Great Peace",
-        '\n# America and the Most Great Peace\ndate="21 April 1933"',
-      ],
-      [
-        "\nThe Dispensation of Bahá’u’lláh",
-        '\n# The Dispensation of Bahá’u’lláh\ndate="8 February 1934"',
-      ],
-      title("##", "Bahá’u’lláh"),
-      title("##", "The Báb"),
-      title("##", "‘Abdu’l‑Bahá"),
-      title("##", "The Administrative Order"),
-      [
-        "\nThe Unfoldment of World Civilisation",
-        '\n# The Unfoldment of World Civilisation\ndate="11 March 1936"',
-      ],
-      [/^[A-Z].{1,80}[a-z]$/gm, (a) => `## ${a}`],
-      ["## The World Order of Bahá’u’lláh", "The World Order of Bahá’u’lláh"],
-      [/"\n+(T.*)\n+(.*)/g, (_, a, b) => `"\n\n@ ${a}\n\n@ ${b}`],
-      [/^(To the beloved.*)\n+(.*)/m, (_, a, b) => `@ ${a}\n\n@ ${b}`],
-      prefix(/^Fellow‑believers in/m, "@ "),
-      [
-        /^([A-Z].{0,50}\n\n){1,3}(# |$)/gm,
-        (a) =>
-          a
-            .split(/\n\n/)
-            .map((s) => (!s.trim() || s.startsWith("#") ? s : `@ ${s}`))
-            .join("\n\n"),
-      ],
     ],
     additional: [],
   },
