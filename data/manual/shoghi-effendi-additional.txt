@@ -2590,12 +2590,12 @@ Give assurance on my behalf to the donors and to the survivors of those who have
 #
 source="April/May 1927, to an individual"
 
-Regarding the Ḥuqúqu’lláh . . . this is applied to one’s merchandise, property and income. After deducting the necessary expenses, whatever is left as profit, and is an addition to one’s capital, such a sum is subject to Huqúq. When one has paid Huqúq once on a particular sum, that sum is no longer subject to Huqúq, unless it should pass from one person to another. One’s residence and the household furnishings are exempt from Huqúq. Ḥuqúqu’lláh is paid to the Centre of the Cause.
+Regarding the Ḥuqúqu’lláh . . . this is applied to one’s merchandise, property and income. After deducting the necessary expenses, whatever is left as profit, and is an addition to one’s capital, such a sum is subject to Ḥuqúq. When one has paid Ḥuqúq once on a particular sum, that sum is no longer subject to Ḥuqúq, unless it should pass from one person to another. One’s residence and the household furnishings are exempt from Ḥuqúq. Ḥuqúqu’lláh is paid to the Centre of the Cause.
 
 #
 source="16 December 1927, to an individual"
 
-You will find references to the Huqúq in the book of Aqdas. . . . All matters not specifically provided by Bahá’u’lláh are to be referred to the Universal House of Justice.
+You will find references to the Ḥuqúq in the book of Aqdas. . . . All matters not specifically provided by Bahá’u’lláh are to be referred to the Universal House of Justice.
 
 #
 source="17 November 1937, to an individual"
@@ -2605,12 +2605,12 @@ One mithqál consists of nineteen nakhuds. The weight of twenty‑four nakhuds e
 #
 source="29 September 1942, to a National Assembly"
 
-Concerning your question whether the heirs to whom the principal residence, furniture and clothing of the deceased are transferred by way of inheritance will be exempt from the payment of Huqúq or not, he said: Since the residence, furniture and the tools of trade have, in accordance with the explicit Text, been granted exemption from the Huqúq, therefore when the transfer of ownership takes place such possessions continue to be exempt.
+Concerning your question whether the heirs to whom the principal residence, furniture and clothing of the deceased are transferred by way of inheritance will be exempt from the payment of Ḥuqúq or not, he said: Since the residence, furniture and the tools of trade have, in accordance with the explicit Text, been granted exemption from the Ḥuqúq, therefore when the transfer of ownership takes place such possessions continue to be exempt.
 
 #
 source="12 October 1946, to a National Assembly"
 
-The paying of the Huqúq is a spiritual obligation; the friends must not be obliged by the Assemblies to pay it, but they should be encouraged to fulfil this spiritual obligation laid upon them in the Aqdas.
+The paying of the Ḥuqúq is a spiritual obligation; the friends must not be obliged by the Assemblies to pay it, but they should be encouraged to fulfil this spiritual obligation laid upon them in the Aqdas.
 
 #
 source="15 January 1933, to an individual"
@@ -2815,7 +2815,7 @@ He urges your Assembly, in addition to expediting the Temple work as much as rea
 #
 source="27 February 1927, to the Bahá’ís of the East"
 
-To offer contributions towards this end [in support of the activities of the Spiritual Assembly] is one of the pressing requirements of the Cause of God, is deemed highly essential, and is of fundamental importance. Next to the payment of the Huqúq, it is the obligation of every Bahá’í.
+To offer contributions towards this end [in support of the activities of the Spiritual Assembly] is one of the pressing requirements of the Cause of God, is deemed highly essential, and is of fundamental importance. Next to the payment of the Ḥuqúq, it is the obligation of every Bahá’í.
 
 #
 source="4 January 1929, to a National Assembly"
@@ -3791,3 +3791,8 @@ With regard to your activities in connection with the training and education of 
 source="9 July 1939, to an individual"
 
 . . . Bahá’í education, just like any other system of education, is based on the assumption that there are certain natural deficiencies in every child, no matter how gifted, which his educators, whether his parents, schoolmasters, or his spiritual guides and preceptors, should endeavour to remedy. Discipline of some sort, whether physical, moral or intellectual, is indeed indispensable, and no training can be said to be complete and fruitful if it disregards this element. The child when born is far from being perfect. It is not only helpless, but actually is imperfect . . . He should be trained, his natural inclinations harmonised, adjusted and controlled, and if necessary suppressed or regulated, so as to ensure his healthy physical and moral development. Bahá’í parents . . . should endeavour to inculcate, gently and patiently, into their youthful minds such principles of moral conduct and initiate them into the principles and teachings of the Cause with such tactful and loving care as would enable them to become “true sons of God” and develop into loyal and intelligent citizens of His Kingdom.
+
+#
+source="25 August 1939, to an individual"
+
+In the Bahá’í economic system of the future, private ownership will be retained, but will be controlled, regulated and even restricted. Complete socialisation is not only impossible but most unjust, and in this the Cause is in fundamental disagreement with the extreme socialists or communists. It can also not agree with the other extreme tendency represented by the “Laissez‑faire” or individualistic school of economics which became very popular in the late 18th century . . . by the so‑called democratic countries. For absolute freedom, even in the economic sphere, leads to confusion and corruption, and acts not only to the detriment of the state, or the collectivity, but inevitably results in the end in jeopardising the very interests of the individual himself. Individualism and socialism, therefore do not offer the right solution to the economic problem. . . . The Cause can and indeed will in the future maintain the right balance between the two extreme tendencies of individualism and collectivism, not only in the field of economics, but in all other social domains.

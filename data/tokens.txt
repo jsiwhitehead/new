@@ -3918,6 +3918,8 @@
 
 *lahor = lahore
 
+*laissez = laissez
+
 *lakhmit = lakhmite
 
 *lalliant = l’alliance
@@ -11782,6 +11784,8 @@ colleagu = colleague | colleagues
 
 collect = collect | collected | collectedly | collecting | collection | collective | collectively | collectivity | collects
 
+collectiv = collectivism
+
 colleg = college | colleges
 
 collid = collide | collision
@@ -14970,7 +14974,7 @@ fain = fain
 
 faint = faint | fainted | faintest | fainting | faintly
 
-fair = fair | fairer | fairest | fairly | fairness | fairs
+fair = fair | faire | fairer | fairest | fairly | fairness | fairs
 
 fairbank = fairbanks
 
