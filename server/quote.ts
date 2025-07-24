@@ -96,6 +96,12 @@ export const getUrlQuote = (
     } else if (res[1]![0] === "God Passes By") {
       res[2]![0] = res[2]![0].split(":")[0]!;
     } else if (
+      res[0]![0] === "Shoghi Effendi" &&
+      res[1]![0] === "Selected Messages"
+    ) {
+      res[2]![0] = res[2]![0].split(",")[0]!;
+      res.splice(1, 1);
+    } else if (
       res[0]![0] === "The Universal House of Justice" &&
       res[1]![0] === "Selected Messages"
     ) {
