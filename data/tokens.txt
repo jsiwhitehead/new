@@ -16780,7 +16780,9 @@ horsemanship = horsemanship
 
 hospic = hospice
 
-hospit = hospitable | hospital | hospitality | hospitals
+hospit = hospitable | hospitality
+
+hospital = hospital | hospitals
 
 host = host | hosted | hostess | hostesses | hosting | hosts
 
@@ -19164,11 +19166,13 @@ meagr = meagerness | meagre
 
 meal = meal | meals
 
-mean = mean | meaner | meanest | meaneth | meaning | meaningful | meaningfully | meaningless | meanings | meanly | means | meant
+mean = meaner | meanest | meanly | meanness
 
 meand = meandering
 
-meanness = meanness
+meaning = mean | meaneth | meaning | meaningful | meaningfully | meaningless | meanings | meant
+
+means = means
 
 meantim = meantime
 
