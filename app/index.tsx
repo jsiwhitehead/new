@@ -42,6 +42,16 @@ const Root = () => {
   );
 };
 
+const CACHE_TTL_MS = 5 * 60_000; // 5 minutes
+
+type CacheEntry<T = unknown> = {
+  promise?: Promise<T>;
+  data?: T;
+  expiresAt: number;
+};
+
+const cache = new Map<string, CacheEntry>();
+
 const route = {
   Component: Root,
   loader: async ({ params, request }: any) => {
@@ -52,16 +62,42 @@ const route = {
     const searchParams = new URL(request.url).searchParams;
     const level = parseInt(searchParams.get("level") || "0", 10);
     const search = searchParams.get("search") || "";
-    const res = await fetch(
-      process.env.NODE_ENV === "local"
-        ? `http://localhost:8000/api/${encodeURIComponent(
-            JSON.stringify({ path: paramPath, level, search })
-          )}`
-        : `/api/${encodeURIComponent(
-            JSON.stringify({ path: paramPath, level, search })
-          )}`
-    );
-    return await res.json();
+
+    const key = JSON.stringify({ path: paramPath, level, search });
+    const now = Date.now();
+    const hit = cache.get(key);
+
+    if (
+      hit &&
+      hit.data !== undefined &&
+      (!CACHE_TTL_MS || hit.expiresAt > now)
+    ) {
+      return hit.data;
+    }
+    if (hit && hit.promise) {
+      return hit.promise;
+    }
+
+    const promise = (async () => {
+      const urlPart = encodeURIComponent(
+        JSON.stringify({ path: paramPath, level, search })
+      );
+      const url =
+        process.env.NODE_ENV === "local"
+          ? `http://localhost:8000/api/${urlPart}`
+          : `/api/${urlPart}`;
+      const res = await fetch(url);
+      if (!res.ok) {
+        cache.delete(key);
+        throw new Error(`Request failed: ${res.status}`);
+      }
+      const data = await res.json();
+      cache.set(key, { data, expiresAt: now + CACHE_TTL_MS });
+      return data;
+    })();
+
+    cache.set(key, { promise, expiresAt: now + CACHE_TTL_MS });
+    return promise;
   },
 };
 
